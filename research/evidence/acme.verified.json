@@ -1,19 +1,17 @@
 {
  "family": "acme",
  "notes": [
-  "Scope: the six ACME investigations in PSI (PSI-20 BRE, PSI-21 CLD Flame, PSI-22 E-FIELD Flames, PSI-10 Flame Design, PSI-23 s-Flame, PSI-159 CFI-G). All flight data are microgravity; none of these sources holds partial-gravity data. Lunar base, Mars base and pressurized rover appear in environment_relevance only where the atmosphere (elevated oxygen, reduced pressure) matches, so those uses are extrapolations in gravity.",
-  "Quotes keep the characters of the saved source text with runs of whitespace collapsed to one space. PDF line-break hyphens therefore show as \"steady- state\" or \"second- round\", the ACME fact sheet keeps its ligature characters, and PSI table quotes are raw CSV rows. In the BRE final report pdftotext renders the Greek delta of the heat of combustion symbol as the private-use character U+F044; it is kept in three quotes and can be shown as a delta.",
-  "Main gap filled: the NTRS abstracts for ACME are thin, so the final reports that PSI stores with each investigation were downloaded (one request at a time) and saved under raw/pdf as PSI-<n>_<slug>.pdf with pdftotext output: BRE, E-FIELD Flames, s-Flame, Flame Design and CFI-G final reports, plus the 2022 Central States Section paper filed under PSI-20 Presentations. NTRS PDFs saved as raw/pdf/<id>.pdf: 20210021781, 20210022542, 20140009169, 20170009141, 20160010073, 20150011070, 20150002322, 20040053549, 20010074022, 20050195844, 20010074032, 20250001364. Fetch log: raw/pdf/_acme_fetchlog.jsonl. No request failed.",
-  "CLD Flame: PSI-21 holds only metadata, the experimental table and raw data (no report or science document), and NTRS has no paper with its ISS results. Its 5 findings come from the NASA ACME fact sheet and the 2021 NASA paper (NTRS 20210021781), and are less quantitative than the other five investigations (the SLICE abstract finding ACME-032 was rejected by the verifier as a SLICE result). The fact sheet gives two soot figures (five to eight times in Selected Findings, nearly a factor of ten in the overview); the measured five-to-eight figure is the one recorded.",
-  "Sources that gave nothing usable: NTRS posters 20210015913 and 20220015583 are image-only PDFs (empty pdftotext output); NTRS records 27482090396921, 17720132749449, 28516810543238, 31112159710975, 25983543780692, 10022129583755 and 30580252934587 (journal papers on BRE, CFI-G, Flame Design and E-FIELD Flames) carry a title and DOI but no abstract and no download, so nothing is quoted from them (their JSON is saved under raw/pdf for the record). NTRS 20040053549 and 20010074022 (radiant extinction of spherical flames) belong to a different investigator team and are not attributed to s-Flame.",
-  "BRE oxygen limit: the sources state it three ways and each is kept as its own finding: self-extinction below about 25% oxygen (2021 NASA paper), quasi-steady flames at oxygen mole fractions of 0.265 and above with all normal-atmosphere flames out within 40 s (2022 final report), and self-extinction at 21% versus continued burning at elevated oxygen (PSI record). The final report calls its results preliminary.",
-  "Final reports label their results preliminary and several statements are hedged in the source (\"seem to\", \"appear to\"); claims keep that hedging. decision_hint and earth_instinct are interpretation written for VESTA, not NASA text.",
-  "PSI table quality: the BRE table has two cells reading \"3400%\" and \"2100%\" (meant as 34 and 21), the CLD Flame table has drag-fill damage in \"Fuel Bottle\" (40% CH5 ... CH14) and the s-Flame table in \"Atmosphere*\" (N3 ... N6). Those cells are not quoted. Oxygen and pressure ranges in the investigation records that come from PSI tables are supported by quoted rows.",
-  "psi_url is the PSI page pattern https://psi.nasa.gov/physci/repo/data/investigations/<accession> described in psi-access.md; its source entry quotes the accession from the raw PSI record.",
-  "Source years: the ACME fact sheet PDF sits under nasa.gov/wp-content/uploads/2025/07 and is given year 2025, although most of its text was written before flight (it says testing is expected to begin in 2017). The E-FIELD Flames final report is titled \"(2019)\" and dated 10 April 2021. PSI record years are the PSI release year.",
-  "Not in these sources for ACME: flame spread rates over solids, smoke particle sizes, detector response and tests of suppression agents. BRE did not run its desired O2/CO2 atmospheres; s-Flame used helium and nitrogen as diluents of the fuel and atmosphere, not as an applied suppressant.",
-  "Verifier pass (2026-11-14): 75 findings checked against the sentences around each quote; 74 kept (23 with fields narrowed, quotes untouched), 1 rejected (ACME-032). Details in evidence/acme.rejects.md. Each kept finding carries a \"verified\" note.",
-  "Live re-download check: the NTRS 20210021781 full-text PDF and the nasa.gov ACME fact sheet PDF were downloaded again and are byte-identical (sha256) to the cached PDFs, and pdftotext -layout of each reproduces the cached text; the nasa.gov article \"Cool Flames Created During a First for International Space Station Research\" was downloaded again and contains the three quoted passages; the NTRS abstract 20150002322 was confirmed live by quotecheck --refetch. psi.nasa.gov could not be re-checked: the PSI web service answered HTTP 500 (PSI-20 record, 5 tries) and 504 (PSI-20 and PSI-23 final reports and the CFI-G normal-flame table, 3 tries each), so the PSI-hosted files were checked only against their cached copies (each of the five cached final-report .txt files equals pdftotext -layout of the cached PDF, and file ids and byte sizes match raw/psi/files/PSI-<n>.json)."
+  "Scope: the six ACME investigations BRE (PSI-20), CLD Flame (PSI-21), E-FIELD Flames (PSI-22), Flame Design (PSI-10), s-Flame (PSI-23) and CFI-G (PSI-159). Each psi_id and psi_url was checked against research/psi-investigations.json. All linked flight investigations are microgravity; this review found no partial-gravity experimental result in the cited material.",
+  "Independent verification, 2026-11-14: all 75 input findings passed quotecheck --refetch, including the live NTRS abstract for ACME-032. All 75 were then read in context and retained with substantive changes, not merely a verified flag. The 6 investigation records and their field citations were reviewed separately. See acme.rejects.md for every changed element and the validation commands.",
+  "Quotes use the exact quotecheck normalisation: Unicode NFKC, folded typographic quotes/dashes, removed soft hyphens and collapsed whitespace. Twenty-two finding quotes were widened or corrected. ACME-001 and ACME-003 now cite the same prose in the live-checked BRE final-report PDF instead of escaped JSON record text.",
+  "Conditions are confined to the quoted result. Unquoted gravity, platform, fuel, airflow, oxygen and pressure were set to null rather than inherited from the investigation or another paragraph. Table rows ACME-073 and ACME-074 are complete structured CSV citations, checked with their column headers. Oxygen and pressure from those rows remain in the claims, but their numeric conditions are null because the quote lacks the required units/column labels. Oxygen mole fraction 0.39 remains in ACME-067 and ACME-070 quotes and claims, with o2_percent null under the literal build gate.",
+  "BRE material conclusions are gas-burner emulations and material inferences, not direct burns of all the named plastics. ACME-026 reports a transient-model comparison, ACME-032 is SLICE precursor evidence, ACME-052 is DESI drop-tower precursor evidence, and the roughly 100,000 s Flame Design value is an infinite-domain model time, not a flight burn duration. ACME-034 proposes a partial-gravity proxy, and ACME-051 is an operational concentration limit.",
+  "Preliminary results and source hedges are preserved, including methane/large-flame exceptions in BRE, incomplete computational confirmation of s-Flame extinction mechanisms, apparent rather than proven flash re-ignition, and the kinetic-extinction qualification after the hydrogen radiative-extinction result.",
+  "decision_hint and earth_instinct are VESTA interpretation, not NASA quotations. Hints were narrowed to the cited observations or explicitly labelled analytical limits; source-free operating procedures, detector thresholds, generic cabin guarantees and a denial of observed electric-field blowout were removed. environment_relevance remains an author relevance tag, not proof of a tested habitat atmosphere or gravity.",
+  "Live source checks: 11 cached PDFs were byte-identical to downloads from NTRS or PSI; their cached text matched pdftotext -layout after normalisation. The NASA ACME fact-sheet PDF contained its entire cached text body and all cited finding quotes. The live NASA cool-flames page contained every original finding quote although the HTML bytes had changed. Requests were serial, with a one-second pause. Two guessed NTRS PDF filenames initially returned 404; the actual download paths from saved NTRS metadata succeeded. No source was rejected for those guessed-path failures.",
+  "Not re-fetched in this pass: PSI metadata JSON records and experimental CSV tables. Their saved NASA files and catalog mappings were checked locally. This is the weakest provenance check remaining; the live report comparisons do not establish live byte identity of those JSON/CSV endpoints.",
+  "Validation includes a negative quote control: appending a unique absent sentinel to ACME-001 caused quotecheck to return 1 and FAIL. The final unmutated file must return 0. The actual build sentence and conditions gate functions were executed read-only; no full build, publication or browser audit is claimed.",
+  "ACME-034 includes a same-report conditions_quote identifying the ISS experiment. The result quote says zero gravity while proposing partial gravity as a future proxy; the extra literal context lets the build retain microgravity without misclassifying the proposal as a partial-gravity test."
  ],
  "investigations": [
   {
@@ -31,20 +29,20 @@
     "ethylene diluted with nitrogen (50% C2H4)",
     "methane (CH4)"
    ],
-   "sample_geometry": "Flat porous circular gas burners of 25 mm and 50 mm diameter that emulate a flat condensed-fuel surface; a dome-shaped flame forms over the burner.",
+   "sample_geometry": "Flat porous circular gas burners of 25 and 50 mm diameter, used to emulate burning of solid and liquid fuels.",
    "conditions": {
     "o2_percent": "approximately 21, 25, 26.5, 34 and 40 (by volume, nitrogen balance)",
     "pressure": "14.7 psia, 10.2 psia and 8.2 psia atmospheres examined; more tests at roughly atmospheric pressure",
-    "flow": "quiescent chamber, no forced air flow; fuel fed through the burner (example: 2.3 g/m2s in test 19070K1)",
+    "flow": "quiescent ambient; quoted example fuel mass flux 2.3 g/m2s",
     "gravity": "microgravity (ISS)"
    },
-   "variables": "Varied: fuel (ethylene, nitrogen-diluted ethylene, methane), burner diameter (25 or 50 mm), fuel flow rate, ambient oxygen concentration and chamber pressure. Held: O2/N2 atmosphere with no air flow. Round one used ethylene and the 25 mm burner; round two added methane and the 50 mm burner. Desired O2/CO2 atmospheres were not tested.",
+   "variables": "The first round was limited to ethylene and the 25 mm burner; the second added methane and the 50 mm burner, although not together. Desired carbon-dioxide-diluted atmosphere testing was not conducted.",
    "measurements": [
-    "heat flux to the burner (two heat flux transducers per burner)",
+    "burner heat flux (two heat flux transducers per burner)",
     "burner surface temperature",
     "color video",
-    "thermal radiation (radiometers)",
-    "flame temperature by thin filament pyrometry"
+    "thermal radiation (radiometer measurements)",
+    "thin-filament pyrometry data (second round)"
    ],
    "sources": [
     {
@@ -394,6 +392,66 @@
       "year": 2022,
       "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
      }
+    },
+    {
+     "field": "hardware",
+     "quote": "ACME's chamber insert, which is ~0.4 m in diameter, provides common mounting for a variety of burners (but only one at a time) on the chamber axis. Tests have been conducted with gas-jet, coflow, and spherical burners, in addition to a fourth type developed for the Burning Rate Emulator (BRE) investigation.",
+     "source": {
+      "kind": "pdf",
+      "id": "20210021781",
+      "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station",
+      "url": "https://ntrs.nasa.gov/citations/20210021781",
+      "year": 2021,
+      "text_file": "raw/pdf/20210021781.txt"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "Observe burning behavior in long-duration microgravity for CH4/N2 and C2H4/N2 mixtures on porous circular burners of 25 and 50 mm diameter. Consider O2/N2 ambients with various pressures and ambient O2 concentrations and pressures. NASA- considered atmosphere for human space missions will be examined: 14.7 psia, 21 % oxygen: 10.2 psia, 26.5 %; and 8.2 psia, 34 % oxygen. Emphasize fuel conditions that can be related to a diverse range of condensed fuels. 2. Consider the conditions of Objective 1 for ambients of O2/CO2 (desired). 3. Consider the conditions of Objectives 1 - 2 for extinction limits.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-20:6841d73c1b4820d736cec3a4",
+      "title": "ACME/BRE Final Report (2022)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-20/download?file=6841d73c1b4820d736cec3a4",
+      "year": 2022,
+      "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
+     }
+    },
+    {
+     "field": "conditions.flow",
+     "quote": "The BRE flight program seeks to establish the burning conditions in a quiescent microgravity ambient in terms of material properties.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-20",
+      "title": "Advanced Combustion via Microgravity Experiments - Burning Rate Emulator",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-20",
+      "year": 2022,
+      "text_file": "raw/psi/investigations/PSI-20.json"
+     }
+    },
+    {
+     "field": "hardware",
+     "quote": "The first round of tests was limited to ethylene and the 25-mm BRE burner, while the second round also included tests with methane and the 50-mm burner (although not together).",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-20:6841d73c1b4820d736cec3a4",
+      "title": "ACME/BRE Final Report (2022)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-20/download?file=6841d73c1b4820d736cec3a4",
+      "year": 2022,
+      "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
+     }
+    },
+    {
+     "field": "hardware",
+     "quote": "While BRE’s proposal included desired testing with carbon-dioxide-diluted atmospheres, NASA’s plan for the ISS investigation did not include desired testing.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-20:6841d73c1b4820d736cec3a4",
+      "title": "ACME/BRE Final Report (2022)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-20/download?file=6841d73c1b4820d736cec3a4",
+      "year": 2022,
+      "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
+     }
     }
    ]
   },
@@ -406,26 +464,26 @@
    "hardware": "Combustion Integrated Rack (CIR) with the ACME chamber insert and a small coaxial coflow burner",
    "years": "2017-2021 (ISS operations 11/2017-02/2018, 05/2018-09/2018 and 02/2021-03/2021)",
    "pi": "Marshall B. Long (Yale University)",
-   "objectives": "Characterize weak coflow diffusion flames of methane and ethylene as a function of velocity and fuel dilution (flame shape, lift-off heights, temperatures, extinction limits), and the sooting tendencies of flames with long residence times, to extend the range of flame conditions that models predict accurately.",
+   "objectives": "Characterize weak coflow methane and ethylene flames as functions of velocity and fuel dilution through flame shape, lift-off height, temperature and extinction-limit measurements; characterize sooting tendencies of long-residence-time flames as functions of velocity and dilution.",
    "fuels": [
-    "methane (CH4), pure and diluted with nitrogen",
-    "ethylene (C2H4), pure and diluted with nitrogen"
+    "methane (CH4), with nitrogen dilution",
+    "ethylene (C2H4), with nitrogen dilution"
    ],
-   "sample_geometry": "Coaxial coflow burner: central fuel tube of 2.1 mm inner diameter inside a 25 mm tube carrying the air coflow; attached sooty flames and lifted dilute flames.",
+   "sample_geometry": "Coflow burner with two concentric tubes of 2.1 and 25 mm inner diameter; lifted flames are studied to avoid dependence on burner heat loss.",
    "conditions": {
     "o2_percent": "air coflow (the sources give no percentage)",
     "pressure": null,
     "flow": "fuel and air coflow velocities typically matched; a slide shows matched velocities of 10, 20, 30 and 40 cm/s",
     "gravity": "microgravity (ISS), compared with normal-gravity flames"
    },
-   "variables": "Varied: fuel (methane or ethylene), nitrogen dilution of the fuel (down to extinction) and the matched fuel and coflow velocity. Held: air coflow and the coflow burner.",
+   "variables": "Injection velocity and fuel dilution, spanning very dilute and highly sooting flame conditions.",
    "measurements": [
     "flame temperature",
     "CH* concentration",
     "soot temperature",
     "soot volume fraction",
-    "OH* and CH* chemiluminescence for lift-off height and flame shape",
-    "thin-filament pyrometry in non-sooting regions"
+    "planned OH* and CH* chemiluminescence for lift-off height and flame shape (PSI approach)",
+    "planned thin-filament pyrometry in non-sooting regions (PSI approach)"
    ],
    "sources": [
     {
@@ -727,6 +785,18 @@
       "year": 2023,
       "text_file": "raw/psi/investigations/PSI-21.json"
      }
+    },
+    {
+     "field": "hardware",
+     "quote": "ACME's chamber insert, which is ~0.4 m in diameter, provides common mounting for a variety of burners (but only one at a time) on the chamber axis. Tests have been conducted with gas-jet, coflow, and spherical burners, in addition to a fourth type developed for the Burning Rate Emulator (BRE) investigation.",
+     "source": {
+      "kind": "pdf",
+      "id": "20210021781",
+      "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station",
+      "url": "https://ntrs.nasa.gov/citations/20210021781",
+      "year": 2021,
+      "text_file": "raw/pdf/20210021781.txt"
+     }
     }
    ]
   },
@@ -741,19 +811,20 @@
    "pi": "Derek Dunn-Rankin (University of California, Irvine)",
    "objectives": "Better understand the relationship between electric field voltage and chemi-ion current, analyze the dynamic response of flames to electric field changes, evaluate soot formation, and characterize stabilized near-limit lifted flames.",
    "fuels": [
-    "methane (CH4), pure and diluted with nitrogen",
-    "ethylene (C2H4), pure and diluted with nitrogen"
+    "methane (CH4), diluted with nitrogen",
+    "ethylene (C2H4), diluted with nitrogen"
    ],
    "sample_geometry": "Small gas-jet flame or coflow flame under a flat circular copper mesh electrode about 37 mm downstream of the burner tip (planned positions about 35 or 50 mm), with up to 10 kV of either polarity between burner and mesh.",
    "conditions": {
     "o2_percent": "21 (21/79 oxygen/nitrogen by volume)",
     "pressure": null,
-    "flow": "fuel velocity of about 15 to 27 cm/s in the reported cases; weak coflow of 3.1 cm/s or no coflow",
+    "flow": "reported fuel-velocity examples: 15, 19 and 27 cm/s; reported coflow example: 3.1 cm/s; tests also conducted without air coflow",
     "gravity": "microgravity (ISS), compared with 1-g laboratory flames"
    },
-   "variables": "Varied: electric field strength and polarity, burner type (gas-jet or coflow), fuel (methane or ethylene), nitrogen dilution of the fuel, fuel flow rate and coflow velocity. Held: 21/79 oxygen/nitrogen atmosphere.",
+   "variables": "Fuel flow rate, coflow velocity and field polarity were varied; gas-fueled flames were studied with and without a coflow of air.",
    "measurements": [
     "ion current through the flame (voltage-current curves)",
+    "flame response to electric forcing",
     "flame shape, luminosity and soot distribution from cameras",
     "chemiluminescent emissions by filtered imaging",
     "flame radiant emission (thermopile detectors)"
@@ -1022,6 +1093,102 @@
       "year": 2019,
       "text_file": "raw/psi/investigations/PSI-22.json"
      }
+    },
+    {
+     "field": "hardware",
+     "quote": "ACME's chamber insert, which is ~0.4 m in diameter, provides common mounting for a variety of burners (but only one at a time) on the chamber axis. Tests have been conducted with gas-jet, coflow, and spherical burners, in addition to a fourth type developed for the Burning Rate Emulator (BRE) investigation.",
+     "source": {
+      "kind": "pdf",
+      "id": "20210021781",
+      "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station",
+      "url": "https://ntrs.nasa.gov/citations/20210021781",
+      "year": 2021,
+      "text_file": "raw/pdf/20210021781.txt"
+     }
+    },
+    {
+     "field": "conditions.flow",
+     "quote": "Parameters such as fuel flow rate, coflow velocity, and field polarity are were varied to isolate specific effects on ion production, flame stability, and soot behavior.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-22",
+      "title": "Advanced Combustion via Microgravity Experiments Electric-Field Effects on Laminar Diffusion Flames",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-22",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-22.json"
+     }
+    },
+    {
+     "field": "conditions.flow",
+     "quote": "The experiment is conducted with gas-fueled flames, both with and without a coflow of air.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-22",
+      "title": "Advanced Combustion via Microgravity Experiments Electric-Field Effects on Laminar Diffusion Flames",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-22",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-22.json"
+     }
+    },
+    {
+     "field": "hardware",
+     "quote": "The gas-jet burner is used to create a small, focused flame for detailed ion-driven convection studies while the coflow burner surrounds the fuel jet with a weak synthetic air flow to enable flame stability and soot behavior analysis.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-22",
+      "title": "Advanced Combustion via Microgravity Experiments Electric-Field Effects on Laminar Diffusion Flames",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-22",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-22.json"
+     }
+    },
+    {
+     "field": "hardware",
+     "quote": "An electric field is generated by creating a high voltage (up to 10 kV) differential between the burner and a flat circular mesh suspended above (i.e., downstream of) the burner.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-22",
+      "title": "Advanced Combustion via Microgravity Experiments Electric-Field Effects on Laminar Diffusion Flames",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-22",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-22.json"
+     }
+    },
+    {
+     "field": "hardware",
+     "quote": "is positioned (during set up) at either ~35 or ~50 mm downstream of the insulated burner",
+     "source": {
+      "kind": "nasa-page",
+      "id": "acme",
+      "title": "Advanced Combustion via Microgravity Experiments (ACME) fact sheet",
+      "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+      "year": 2025,
+      "text_file": "raw/nasa/acme.txt"
+     }
+    },
+    {
+     "field": "hardware",
+     "quote": "The experiment is conducted by applying high voltage onto a copper mesh situated 37 mm above the burner tip",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-22:6851e75e0eb4c08676005585",
+      "title": "ACME/E-FIELD Flames Final Report (2019), dated 10 April 2021",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-22/download?file=6851e75e0eb4c08676005585",
+      "year": 2021,
+      "text_file": "raw/pdf/PSI-22_e-field-flames-final-report.txt"
+     }
+    },
+    {
+     "field": "measurements",
+     "quote": "Measurements, as a function of the field strength and fuel, are taken of the ion current through the flame and the flame\\u2019s response time to electric forcing.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-22",
+      "title": "Advanced Combustion via Microgravity Experiments Electric-Field Effects on Laminar Diffusion Flames",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-22",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-22.json"
+     }
     }
    ]
   },
@@ -1043,7 +1210,7 @@
    "conditions": {
     "o2_percent": "normal flames: ambient oxygen mole fraction 0.2 to 0.38 (limit 40%); inverse flames: burner supply oxygen mole fraction 0.4 to 0.85",
     "pressure": "published extinction results at 1 bar; chamber pressure was also varied (the PSI inverse-flame table lists an initial pressure of 3.0 atm in some tests)",
-    "flow": "quiescent chamber; constant reactant flow from the burner, total mass flow 0.6 to 12.2 mg/s (normal) and 2.3 to 11.3 mg/s (inverse)",
+    "flow": "constant reactant flow from the burner; normal-flame total mass flow 0.6 to 12.2 mg/s and inverse-flame total mass flow 2.3 to 11.3 mg/s in the published extinction analysis",
     "gravity": "microgravity (ISS)"
    },
    "variables": "Varied: reactant flow rate, fuel dilution and oxygen concentration (stoichiometric mixture fraction, adiabatic flame temperature), chamber pressure, and flow direction (normal or inverse flame). Held: ethylene with nitrogen as inert (one propane day), spherical burner. Methane, CO2 diluent and coflow flames were not tested.",
@@ -1178,18 +1345,6 @@
     {
      "field": "objectives",
      "quote": "Evaluate the possible existence of steady flames.",
-     "source": {
-      "kind": "psi",
-      "id": "PSI-10",
-      "title": "Advanced Combustion via Microgravity Experiments / Flame Design",
-      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-10",
-      "year": 2025,
-      "text_file": "raw/psi/investigations/PSI-10.json"
-     }
-    },
-    {
-     "field": "objectives",
-     "quote": "Obtain extinction limits as functions of Zst, amount of N2, and pressure for normal and inverse spherical C2H4 and CH4 flames.",
      "source": {
       "kind": "psi",
       "id": "PSI-10",
@@ -1414,6 +1569,306 @@
       "year": 2023,
       "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
      }
+    },
+    {
+     "field": "hardware",
+     "quote": "ACME's chamber insert, which is ~0.4 m in diameter, provides common mounting for a variety of burners (but only one at a time) on the chamber axis. Tests have been conducted with gas-jet, coflow, and spherical burners, in addition to a fourth type developed for the Burning Rate Emulator (BRE) investigation.",
+     "source": {
+      "kind": "pdf",
+      "id": "20210021781",
+      "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station",
+      "url": "https://ntrs.nasa.gov/citations/20210021781",
+      "year": 2021,
+      "text_file": "raw/pdf/20210021781.txt"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "Obtain extinction limits as functions of Zst, amount of N2, and pressure for normal and inverse spherical C2H4 and CH4 flames.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-10",
+      "title": "Advanced Combustion via Microgravity Experiments / Flame Design",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-10",
+      "year": 2025,
+      "text_file": "raw/psi/investigations/PSI-10.json"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "Obtain detailed measurements in quasi-steady normal and inverse spherical diffusion flames for C2H4 and CH4.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-10",
+      "title": "Advanced Combustion via Microgravity Experiments / Flame Design",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-10",
+      "year": 2025,
+      "text_file": "raw/psi/investigations/PSI-10.json"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "For normal flames, the ambient oxygen mole fraction was varied from 0.2 to 0.38, burner supply fuel mole fraction from 0.13 to 1, total mass flow rate, mtotal , from 0.6 to 12.2 mg/s, and adiabatic flame temperature, Tad , from 2000 to 2800 K.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "The fuel is ethylene and the oxidizer oxygen, both diluted with nitrogen.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "Advanced Combustion via Microgravity Experiments (ACME), Combustion Integrated Rack (CIR)",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-10",
+      "title": "Advanced Combustion via Microgravity Experiments / Flame Design",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-10",
+      "year": 2025,
+      "text_file": "raw/psi/investigations/PSI-10.json"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "The burner is a porous stainless-steel sphere.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "ACME's chamber insert, which is ~0.4 m in diameter, provides common mounting for a variety of burners (but only one at a time) on the chamber axis. Tests have been conducted with gas-jet, coflow, and spherical burners, in addition to a fourth type developed for the Burning Rate Emulator (BRE) investigation.",
+     "source": {
+      "kind": "pdf",
+      "id": "20210021781",
+      "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station",
+      "url": "https://ntrs.nasa.gov/citations/20210021781",
+      "year": 2021,
+      "text_file": "raw/pdf/20210021781.txt"
+     }
+    },
+    {
+     "field": "conditions.pressure",
+     "quote": "Flame Type,Day,Test,XO2,mO2 (mg/s),mN2 (mg/s),mtot (mg/s),XC2H4 initial,XC2H4 final,pinit (atm),pfinal (atm),pmean (atm),mean Zst,Tad (K)",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-10",
+      "title": "PSI-10 Experimental table: PSI-10_Experimental table_Flame Design_Inverse Flame.csv",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=PSI-10_Experimental%20table_Flame%20Design_Inverse%20Flame.csv",
+      "year": 2025,
+      "text_file": "raw/psi/tables/PSI-10_Experimental table_Flame Design_Inverse Flame.csv"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "Except for the single propane (C3H8) test day previously mentioned, all ISS tests were conducted with the fuel ethylene (C2H4), the inert nitrogen, and the spherical flame configuration.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "Gaseous spherical diffusion flames stabilized on a porous spherical burner are employed in normal (i.e., fuel flowing into an ambient oxidizer) and inverse (i.e., oxidizer flowing into an ambient fuel) flame configurations.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "The inverse flame tests were conducted with the chamber filled with a mixture of nitrogen and ethylene (C2H4) while an oxygen/nitrogen mixture flowed from the burner.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "via atmospheric pressure experiments conducted aboard the International Space Station",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "microgravity spherical diffusion flames at 1 bar",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "And while the chamber pressure was varied in ISS testing, tests were not conducted at pressures as low as 0.2 atm",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "Inverse,7,22027B3,0.849977932,1.665328676,0.257330016,1.922658692,0.098912212,0.098756796,3.0008286,3.01375734,3.00729297,0.718806823,2521.55044",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-10",
+      "title": "PSI-10 Experimental table: PSI-10_Experimental table_Flame Design_Inverse Flame.csv",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=PSI-10_Experimental%20table_Flame%20Design_Inverse%20Flame.csv",
+      "year": 2025,
+      "text_file": "raw/psi/tables/PSI-10_Experimental table_Flame Design_Inverse Flame.csv"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "total mass flow rate, mtotal , from 0.6 to 12.2 mg/s",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "mtotal from 2.3 to 11.3 mg/s",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "The flow rate of the reactant gas from the burner is held constant.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "For normal flames, the ambient oxygen mole fraction was varied from 0.2 to 0.38, burner supply fuel mole fraction from 0.13 to 1, total mass flow rate, mtotal , from 0.6 to 12.2 mg/s, and adiabatic flame temperature, Tad , from 2000 to 2800 K.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "The fuel is ethylene and the oxidizer oxygen, both diluted with nitrogen.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "Advanced Combustion via Microgravity Experiments (ACME), Combustion Integrated Rack (CIR)",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-10",
+      "title": "Advanced Combustion via Microgravity Experiments / Flame Design",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-10",
+      "year": 2025,
+      "text_file": "raw/psi/investigations/PSI-10.json"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "The burner is a porous stainless-steel sphere.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-10:691f7eef17f78b371b2705e0",
+      "title": "ACME/Flame Design Final Report (2023)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=691f7eef17f78b371b2705e0",
+      "year": 2023,
+      "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "ACME's chamber insert, which is ~0.4 m in diameter, provides common mounting for a variety of burners (but only one at a time) on the chamber axis. Tests have been conducted with gas-jet, coflow, and spherical burners, in addition to a fourth type developed for the Burning Rate Emulator (BRE) investigation.",
+     "source": {
+      "kind": "pdf",
+      "id": "20210021781",
+      "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station",
+      "url": "https://ntrs.nasa.gov/citations/20210021781",
+      "year": 2021,
+      "text_file": "raw/pdf/20210021781.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "Flame Type,Day,Test,XO2,mO2 (mg/s),mN2 (mg/s),mtot (mg/s),XC2H4 initial,XC2H4 final,pinit (atm),pfinal (atm),pmean (atm),mean Zst,Tad (K)",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-10",
+      "title": "PSI-10 Experimental table: PSI-10_Experimental table_Flame Design_Inverse Flame.csv",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-10/download?file=PSI-10_Experimental%20table_Flame%20Design_Inverse%20Flame.csv",
+      "year": 2025,
+      "text_file": "raw/psi/tables/PSI-10_Experimental table_Flame Design_Inverse Flame.csv"
+     }
     }
    ]
   },
@@ -1438,16 +1893,16 @@
    "conditions": {
     "o2_percent": "about 21 and 30 (nitrogen or helium balance); 17.5 in helium in some tests",
     "pressure": "about 1 atm; pressure rises and oxygen drops with vitiation",
-    "flow": "quiescent chamber; fuel-mixture flow from about 1 to 17.5 cc/s, constant or ramped",
+    "flow": "quiescent ambient; examples include ramp-down extinction before reaching 1 cc/s and mixture tests at 10 to 17.5 cc/s",
     "gravity": "microgravity (ISS)"
    },
-   "variables": "Varied: fuel and its dilution, the inert (nitrogen in round one, helium in round two), ambient oxygen concentration, and fuel flow rate (constant, ramp up, ramp down). Held: spherical burner in a still atmosphere at about 1 atm.",
+   "variables": "The second round replaced nitrogen diluent with helium; different fuel mixtures and flow rates were investigated.",
    "measurements": [
-    "spectrally resolved images",
-    "flame and burner temperatures (thin filament pyrometry, thermocouples)",
+    "spectrally resolved images (planned in PSI approach)",
+    "flame and burner temperatures (thin-filament pyrometry, thermocouples)",
     "radiative flux (radiometers)",
-    "OH* and CH* chemiluminescence (photomultiplier tubes)",
-    "reactant flow rates, pressures and acceleration levels"
+    "OH* and CH* chemiluminescence; photomultiplier tubes",
+    "reactant flow rates, pressures and acceleration levels (planned in PSI approach)"
    ],
    "sources": [
     {
@@ -1773,6 +2228,78 @@
       "year": 2021,
       "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
      }
+    },
+    {
+     "field": "hardware",
+     "quote": "ACME's chamber insert, which is ~0.4 m in diameter, provides common mounting for a variety of burners (but only one at a time) on the chamber axis. Tests have been conducted with gas-jet, coflow, and spherical burners, in addition to a fourth type developed for the Burning Rate Emulator (BRE) investigation.",
+     "source": {
+      "kind": "pdf",
+      "id": "20210021781",
+      "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station",
+      "url": "https://ntrs.nasa.gov/citations/20210021781",
+      "year": 2021,
+      "text_file": "raw/pdf/20210021781.txt"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "Measure and characterize the transient structure (such as temperature and species distribution) of diffusion flames established at initially non-steady, spherical flame structures for mixtures of different H2/CH4/diluent ratios (soot-free) and different C2H4/diluent ratios (sooty), for different flow rates.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-23:6841ce426daf91e274cecd4e",
+      "title": "ACME/s-Flame Final Report (2021)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-23/download?file=6841ce426daf91e274cecd4e",
+      "year": 2021,
+      "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "Determine the quasi-steady convective/chemical-kinetic extinction limits (low system Damköhler numbers) and radiative/chemical-kinetic extinction limits (high system Damköhler numbers) for mixtures of different H2/CH4/diluent ratios (soot-free) and different C2H4/diluent ratios (sooty).",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-23:6841ce426daf91e274cecd4e",
+      "title": "ACME/s-Flame Final Report (2021)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-23/download?file=6841ce426daf91e274cecd4e",
+      "year": 2021,
+      "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "A series of experiments is proposed in which mixtures of various gaseous fuels and diluents will be issued into an oxidizing environment through a spherical porous burner and ignited to obtain, nominally, a spherical, one-dimensional stabilized flame.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-23",
+      "title": "Advanced Combustion via Microgravity Experiments-Structure and Response of Spherical Diffusion Flames",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-23",
+      "year": 2018,
+      "text_file": "raw/psi/investigations/PSI-23.json"
+     }
+    },
+    {
+     "field": "conditions.flow",
+     "quote": "by discharging a fuel gas from a porous spherical burner into a quiescent, oxidizing atmosphere in microgravity",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-23:6841ce426daf91e274cecd4e",
+      "title": "ACME/s-Flame Final Report (2021)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-23/download?file=6841ce426daf91e274cecd4e",
+      "year": 2021,
+      "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
+     }
+    },
+    {
+     "field": "conditions.flow",
+     "quote": "A series of experiments is proposed in which mixtures of various gaseous fuels and diluents will be issued into an oxidizing environment through a spherical porous burner and ignited to obtain, nominally, a spherical, one-dimensional stabilized flame.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-23",
+      "title": "Advanced Combustion via Microgravity Experiments-Structure and Response of Spherical Diffusion Flames",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-23",
+      "year": 2018,
+      "text_file": "raw/psi/investigations/PSI-23.json"
+     }
     }
    ]
   },
@@ -1794,9 +2321,9 @@
    ],
    "sample_geometry": "Porous spherical burner (6.35 mm on the cited slide): normal flames (fuel from the burner into an oxygen/nitrogen atmosphere) and inverse flames (oxygen/nitrogen from the burner into a fuel/nitrogen atmosphere).",
    "conditions": {
-    "o2_percent": "normal flames: ambient oxygen mole fraction about 0.18 to 0.40; inverse flames: burner oxidizer up to 0.85 oxygen mole fraction",
+    "o2_percent": "quoted normal-flame examples: oxygen mole fractions before test 0.3939 and 0.1802; quoted inverse-flame example: burner oxidizer oxygen mole fraction 0.85",
     "pressure": "about 0.5, 1, 2 and 3 bar (PSI tables)",
-    "flow": "quiescent chamber; hydrocarbon or oxygen flow from the burner set in mg/s (0.75 to 1.5 mg/s of fuel in the tests the PSI table flags as cool flames)",
+    "flow": "reported normal cool-flame cases: fuel mass flow 0.75 to 1.5 mg/s",
     "gravity": "microgravity (ISS)"
    },
    "variables": "Varied: fuel (ethane, propane, n-butane), fuel and oxygen concentrations, pressure, flow rate and flow direction (normal or inverse flame). Held: spherical porous burner, nitrogen as diluent. Ethane replaced the proposed n-pentane.",
@@ -2166,6 +2693,210 @@
       "year": 2025,
       "text_file": "raw/psi/tables/PSI-159_Experimental table_CFI-G_Normal Flames.csv"
      }
+    },
+    {
+     "field": "hardware",
+     "quote": "ACME's chamber insert, which is ~0.4 m in diameter, provides common mounting for a variety of burners (but only one at a time) on the chamber axis. Tests have been conducted with gas-jet, coflow, and spherical burners, in addition to a fourth type developed for the Burning Rate Emulator (BRE) investigation.",
+     "source": {
+      "kind": "pdf",
+      "id": "20210021781",
+      "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station",
+      "url": "https://ntrs.nasa.gov/citations/20210021781",
+      "year": 2021,
+      "text_file": "raw/pdf/20210021781.txt"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "Support the flight tests with advanced CFD simulations.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-159",
+      "title": "Advanced Combustion via Microgravity Experiments / Cool Flames Investigation with Gases",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-159",
+      "year": 2025,
+      "text_file": "raw/psi/investigations/PSI-159.json"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "\"experimentHardware\":\"ACME, Combustion Integrated Rack (CIR)\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-159",
+      "title": "Advanced Combustion via Microgravity Experiments / Cool Flames Investigation with Gases",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-159",
+      "year": 2025,
+      "text_file": "raw/psi/investigations/PSI-159.json"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "CDFs are investigated here using a spherical porous burner with gaseous fuels in the microgravity environment of the International Space Station.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-159:691f7ea117f78b371b26f6f8",
+      "title": "ACME/CFI-G Final Report (2022)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=691f7ea117f78b371b26f6f8",
+      "year": 2022,
+      "text_file": "raw/pdf/PSI-159_cfi-g-final-report.txt"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "ACME's chamber insert, which is ~0.4 m in diameter, provides common mounting for a variety of burners (but only one at a time) on the chamber axis. Tests have been conducted with gas-jet, coflow, and spherical burners, in addition to a fourth type developed for the Burning Rate Emulator (BRE) investigation.",
+     "source": {
+      "kind": "pdf",
+      "id": "20210021781",
+      "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station",
+      "url": "https://ntrs.nasa.gov/citations/20210021781",
+      "year": 2021,
+      "text_file": "raw/pdf/20210021781.txt"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "Although it was in the second round, the final day of CFI-G testing was carried out in the normal flame configuration, with gaseous fuel (with or without nitrogen) flowing into an oxygen/nitrogen atmosphere.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-159:691f7ea117f78b371b26f6f8",
+      "title": "ACME/CFI-G Final Report (2022)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=691f7ea117f78b371b26f6f8",
+      "year": 2022,
+      "text_file": "raw/pdf/PSI-159_cfi-g-final-report.txt"
+     }
+    },
+    {
+     "field": "conditions.flow",
+     "quote": "These cool flames were observed only with the following conditions: a) concentrations of 30 vol% n- butane and 40 vol% O2, b) normal flames, c) a pressure of 2.03 bar, and d) mass flow rates between 0.75 - 1.5 mg/s.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-159:691f7ea117f78b371b26f6f8",
+      "title": "ACME/CFI-G Final Report (2022)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=691f7ea117f78b371b26f6f8",
+      "year": 2022,
+      "text_file": "raw/pdf/PSI-159_cfi-g-final-report.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "Normal and inverse flames burning ethane, propane, and n-butane were explored with various fuel and oxygen concentrations, pressures, and flow rates.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-159:691f7ea117f78b371b26f6f8",
+      "title": "ACME/CFI-G Final Report (2022)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=691f7ea117f78b371b26f6f8",
+      "year": 2022,
+      "text_file": "raw/pdf/PSI-159_cfi-g-final-report.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "testing was instead conducted with ethane as an alternate",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-159:691f7ea117f78b371b26f6f8",
+      "title": "ACME/CFI-G Final Report (2022)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=691f7ea117f78b371b26f6f8",
+      "year": 2022,
+      "text_file": "raw/pdf/PSI-159_cfi-g-final-report.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "Although it was in the second round, the final day of CFI-G testing was carried out in the normal flame configuration, with gaseous fuel (with or without nitrogen) flowing into an oxygen/nitrogen atmosphere.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-159:691f7ea117f78b371b26f6f8",
+      "title": "ACME/CFI-G Final Report (2022)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=691f7ea117f78b371b26f6f8",
+      "year": 2022,
+      "text_file": "raw/pdf/PSI-159_cfi-g-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "testing was instead conducted with ethane as an alternate",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-159:691f7ea117f78b371b26f6f8",
+      "title": "ACME/CFI-G Final Report (2022)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=691f7ea117f78b371b26f6f8",
+      "year": 2022,
+      "text_file": "raw/pdf/PSI-159_cfi-g-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "6.35-mm porous spherical burner",
+     "source": {
+      "kind": "pdf",
+      "id": "20210022542",
+      "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station (presentation)",
+      "url": "https://ntrs.nasa.gov/citations/20210022542",
+      "year": 2021,
+      "text_file": "raw/pdf/20210022542.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "The inverse flame tests were conducted with the chamber filled with a mixture of nitrogen and gaseous fuel while an oxygen/nitrogen mixture flowed from the burner.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-159:691f7ea117f78b371b26f6f8",
+      "title": "ACME/CFI-G Final Report (2022)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=691f7ea117f78b371b26f6f8",
+      "year": 2022,
+      "text_file": "raw/pdf/PSI-159_cfi-g-final-report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "Although it was in the second round, the final day of CFI-G testing was carried out in the normal flame configuration, with gaseous fuel (with or without nitrogen) flowing into an oxygen/nitrogen atmosphere.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-159:691f7ea117f78b371b26f6f8",
+      "title": "ACME/CFI-G Final Report (2022)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=691f7ea117f78b371b26f6f8",
+      "year": 2022,
+      "text_file": "raw/pdf/PSI-159_cfi-g-final-report.txt"
+     }
+    },
+    {
+     "field": "conditions.o2_percent",
+     "quote": "Flame Type,Day,Fuel,Test,Cool flame?, XO2 before test,XO2 after test,approx p (bar),Xf,mHC (mg/s),TFP,Tad (K),Zst,Hot ignition,burn time (sec),Self-ext or flow term,Peak burner T (C ),Comments",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-159",
+      "title": "PSI-159 Experimental table: PSI-159_Experimental table_CFI-G_Normal Flames.csv",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=PSI-159_Experimental%20table_CFI-G_Normal%20Flames.csv",
+      "year": 2025,
+      "text_file": "raw/psi/tables/PSI-159_Experimental table_CFI-G_Normal Flames.csv"
+     }
+    },
+    {
+     "field": "conditions.pressure",
+     "quote": "Flame Type,Day,Fuel,Test,Cool flame?, XO2 before test,XO2 after test,approx p (bar),Xf,mHC (mg/s),TFP,Tad (K),Zst,Hot ignition,burn time (sec),Self-ext or flow term,Peak burner T (C ),Comments",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-159",
+      "title": "PSI-159 Experimental table: PSI-159_Experimental table_CFI-G_Normal Flames.csv",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=PSI-159_Experimental%20table_CFI-G_Normal%20Flames.csv",
+      "year": 2025,
+      "text_file": "raw/psi/tables/PSI-159_Experimental table_CFI-G_Normal Flames.csv"
+     }
+    },
+    {
+     "field": "conditions.o2_percent",
+     "quote": "Flame Type,Day,Fuel,Test,Xf  before test,Xf  after test,approx p (bar),XO2,HC burnrate (mg/s),O2 flow rate (mg/s),TFP,Tad (K),Zst,Hot ignition,burn time (sec),Self -ext or flow term,Peak burner Temp (C),Peak burner temp (K),Color,Comments",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-159",
+      "title": "PSI-159 Experimental table: PSI-159_Experimental table_CFI-G_Inverse Flames.csv",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=PSI-159_Experimental%20table_CFI-G_Inverse%20Flames.csv",
+      "year": 2025,
+      "text_file": "raw/psi/tables/PSI-159_Experimental table_CFI-G_Inverse Flames.csv"
+     }
     }
    ]
   }
@@ -2176,20 +2907,20 @@
    "investigation": "BRE",
    "pillar": "response",
    "topic": "burning without airflow",
-   "claim": "Quasi-steady burning that corresponds to condensed-phase materials such as PMMA and Nylon was observed in microgravity with no air flow, even though stopping ventilation is an established step in putting out spacecraft fires.",
-   "quote": "Quasi-steady burning corresponding to various condensed-phase materials (such as PMMA and Nylon) was observed in microgravity despite the absence of air flow, where the cessation of ventilation is an established step in putting out spacecraft fires.",
+   "claim": "Preliminary BRE results describe quasi-steady emulated burning corresponding to materials such as PMMA and Nylon in microgravity without air flow, with continued burning in elevated oxygen and short-time self-extinction at 21% oxygen.",
+   "quote": "Quasi-steady burning corresponding to various condensed-phase materials (such as PMMA and Nylon) was observed in microgravity despite the absence of air flow, where the cessation of ventilation is an established step in putting out spacecraft fires. The ongoing combustion without air flow was notably seen in elevated-oxygen atmospheres which are being considered for use in future spacecraft, whereas such flames in a normal atmosphere of 21% oxygen self-extinguished in a short time. While BRE’s results are still preliminary, they suggest that NASA may want to increase use of its alternative flammability Test 2, with the cone calorimeter, where that test can measure material properties corresponding to the microgravity flames observed with the BRE burner.",
    "source": {
-    "kind": "psi",
-    "id": "PSI-20",
-    "title": "Advanced Combustion via Microgravity Experiments - Burning Rate Emulator",
-    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-20",
+    "kind": "pdf",
+    "id": "PSI-20:6841d73c1b4820d736cec3a4",
+    "title": "ACME/BRE Final Report (2022)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-20/download?file=6841d73c1b4820d736cec3a4",
     "year": 2022,
-    "text_file": "raw/psi/investigations/PSI-20.json"
+    "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "gaseous fuel emulating condensed-phase materials such as PMMA and Nylon",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
     "flow": "no air flow"
@@ -2202,11 +2933,11 @@
     "mars base",
     "pressurized rover"
    ],
-   "earth_instinct": "A fire with no draft feeding it dies out by itself.",
-   "decision_hint": "Do not treat a ventilation shutdown as proof that the fire is out; keep monitoring and be ready to suppress, above all in an oxygen-enriched cabin.",
+   "earth_instinct": null,
+   "decision_hint": "BRE observed continued burning without air flow in elevated oxygen; ventilation shutdown alone did not establish extinction in those tests.",
    "verified": {
     "quote": "exact match",
-    "support": "PSI-20 record states that quasi-steady burning matching PMMA- and Nylon-like materials was seen in microgravity without air flow, and calls stopping ventilation an established firefighting step."
+    "support": "The BRE final-report Impacts paragraph describes microgravity emulation, not direct plastic tests. The widened quote includes elevated-oxygen persistence and 21% oxygen self-extinction. The source’s explicit preliminary-results qualification is retained."
    }
   },
   {
@@ -2214,8 +2945,8 @@
    "investigation": "BRE",
    "pillar": "prevention",
    "topic": "oxygen limit in still atmosphere",
-   "claim": "BRE flames could burn for minutes at elevated oxygen concentrations, like those considered for future spacecraft, but self-extinguished at oxygen concentrations below about 25% by volume.",
-   "quote": "While the flames can burn for minutes in elevated oxygen concentrations, like those being considered for future spacecraft, they were found to self-extinguish in concentrations below ~25% (by volume).",
+   "claim": "In BRE, low-momentum microgravity flames could burn for minutes without air flow, but self-extinguished below about 25% oxygen by volume. At elevated oxygen, larger flames generally self-extinguished within 1.5 minutes, and methane flames within a minute, while smaller or ethylene flames could burn for minutes.",
+   "quote": "Low-momentum microgravity flames can burn for minutes in the absence of an air flow or flame spread. While the flames can burn for minutes in elevated oxygen concentrations, like those being considered for future spacecraft, they were found to self-extinguish in concentrations below ~25% (by volume). While smaller flames can burn for minutes at elevated oxygen concentrations, larger flames were generally seen to self-extinguish within 1.5 minutes. While ethylene flames at elevated oxygen concentrations can burn for minutes, methane flames were seen to self-extinguish within a minute.",
    "source": {
     "kind": "pdf",
     "id": "20210021781",
@@ -2226,9 +2957,9 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "pure or nitrogen-diluted ethylene and methane",
-    "o2_percent": "below ~25 (self-extinguish); elevated (burn for minutes)",
+    "platform": null,
+    "fuel": "ethylene and methane",
+    "o2_percent": null,
     "pressure": null,
     "flow": "absence of an air flow"
    },
@@ -2241,10 +2972,10 @@
     "pressurized rover"
    ],
    "earth_instinct": "Air is air: a material that goes out in normal air is safe in any cabin atmosphere.",
-   "decision_hint": "Treat about 25% oxygen as the level above which a flame in still microgravity air may no longer put itself out; rank cabin atmospheres above it as higher risk.",
+   "decision_hint": "The reported BRE outcomes depended on oxygen, flame size and fuel; about 25% is not a universal persistence threshold.",
    "verified": {
     "quote": "exact match",
-    "support": "BRE section of the 2021 NASA paper states the flames burn for minutes at elevated oxygen and self-extinguish below ~25% by volume."
+    "support": "The BRE section names the experiment and reports outcomes by oxygen, flame size and fuel. The complete three While sentences preserve the limitations omitted by the original threshold hint."
    }
   },
   {
@@ -2252,21 +2983,21 @@
    "investigation": "BRE",
    "pillar": "prevention",
    "topic": "normal atmosphere versus elevated oxygen",
-   "claim": "Without air flow, combustion continued in elevated-oxygen atmospheres being considered for future spacecraft, while the same kind of flame in a normal 21% oxygen atmosphere self-extinguished in a short time.",
-   "quote": "The ongoing combustion without air flow was notably seen in elevated-oxygen atmospheres which are being considered for use in future spacecraft, whereas such flames in a normal atmosphere of 21% oxygen self-extinguished in a short time.",
+   "claim": "BRE reports continued combustion without air flow in elevated-oxygen atmospheres, versus short-time self-extinction at 21% oxygen; the source explicitly calls the results preliminary.",
+   "quote": "The ongoing combustion without air flow was notably seen in elevated-oxygen atmospheres which are being considered for use in future spacecraft, whereas such flames in a normal atmosphere of 21% oxygen self-extinguished in a short time. While BRE’s results are still preliminary, they suggest that NASA may want to increase use of its alternative flammability Test 2, with the cone calorimeter, where that test can measure material properties corresponding to the microgravity flames observed with the BRE burner.",
    "source": {
-    "kind": "psi",
-    "id": "PSI-20",
-    "title": "Advanced Combustion via Microgravity Experiments - Burning Rate Emulator",
-    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-20",
+    "kind": "pdf",
+    "id": "PSI-20:6841d73c1b4820d736cec3a4",
+    "title": "ACME/BRE Final Report (2022)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-20/download?file=6841d73c1b4820d736cec3a4",
     "year": 2022,
-    "text_file": "raw/psi/investigations/PSI-20.json"
+    "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "gaseous fuel emulating condensed-phase materials",
-    "o2_percent": "21 (self-extinguished); elevated (kept burning)",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
     "pressure": null,
     "flow": "no air flow"
    },
@@ -2279,10 +3010,10 @@
     "pressurized rover"
    ],
    "earth_instinct": null,
-   "decision_hint": "Evidence that still-air self-extinction holds at 21% oxygen does not carry over to exploration atmospheres with more oxygen.",
+   "decision_hint": "BRE reports that short-time self-extinction at 21% oxygen did not extend to the tested elevated-oxygen cases.",
    "verified": {
     "quote": "exact match",
-    "support": "Same PSI-20 passage: combustion without air flow went on in elevated-oxygen atmospheres while flames at 21% oxygen self-extinguished in a short time."
+    "support": "The BRE final-report Impacts paragraph gives this comparison and immediately labels the results preliminary; that qualification is now included."
    }
   },
   {
@@ -2301,12 +3032,12 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "CH4/N2 and C2H4/N2 mixtures on porous circular burners of 25- and 50-mm diameter",
-    "o2_percent": "normal atmosphere (self-extinguished within 40 s); 26.5 and above (quasi-steady)",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2317,10 +3048,10 @@
     "pressurized rover"
    ],
    "earth_instinct": "Without airflow a flame soon smothers in its own products.",
-   "decision_hint": "At 26.5% oxygen or more, plan for a flame that can keep burning in still air; do not count on self-extinction.",
+   "decision_hint": "BRE obtained quasi-steady flames at oxygen mole fractions of 0.265 and above; this does not mean every flame at those concentrations persisted.",
    "verified": {
     "quote": "exact match",
-    "support": "Final report, summary under objective 3: flames in normal atmosphere out within 40 s; oxygen mole fractions of 0.265 and above gave quasi-steady flames."
+    "support": "Section 4.E.3 of the BRE final report gives both the normal-atmosphere 40 s result and quasi-steady observations at mole fractions 0.265 and above, not a universal threshold."
    }
   },
   {
@@ -2340,11 +3071,11 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "gaseous fuel on a flat burner representing a pool fire",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2355,10 +3086,10 @@
     "pressurized rover"
    ],
    "earth_instinct": null,
-   "decision_hint": "When ranking habitat atmospheres for fire risk, weight oxygen concentration first.",
+   "decision_hint": "In the BRE emulation, ambient oxygen mole fraction had the largest reported influence on quasi-steady burning.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 1 of the final report says both sentences; the next sentence gives the 0.265 threshold."
+    "support": "Section 4.D.1 concerns a flat-surface pool-fire emulation and identifies ambient oxygen as the largest influence in that configuration."
    }
   },
   {
@@ -2367,7 +3098,7 @@
    "pillar": "design",
    "topic": "exploration atmosphere 34% oxygen at 8.2 psia",
    "claim": "In a NASA proposed nominal atmosphere of 34% oxygen and 0.56 atm, a BRE flame appeared to be steady after about 100 s.",
-   "quote": "Figure 9 shows steady results for a NASA proposed nominal atmosphere of 34% oxygen and 0.56 atm. After about 100 s the flame appears to be steady.",
+   "quote": "Figure 9. Flame growth from ignition to steady state in test 19070D1. The conditions are ethylene/N2, hc = 24 kJ/g, 4.95 g/m2s, 34% O2, 8.2 psia, L = 2.42 kJ/g, steady. Figure 9 shows steady results for a NASA proposed nominal atmosphere of 34% oxygen and 0.56 atm. After about 100 s the flame appears to be steady.",
    "source": {
     "kind": "pdf",
     "id": "PSI-20:6841d73c1b4820d736cec3a4",
@@ -2377,12 +3108,12 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": "ethylene/N2",
     "o2_percent": "34",
-    "pressure": "0.56 atm (8.2 psia)",
-    "flow": "quiescent; fuel mass flux 4.95 g/m2s"
+    "pressure": "0.56 atm",
+    "flow": "fuel mass flux 4.95 g/m2s"
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2393,10 +3124,10 @@
     "pressurized rover"
    ],
    "earth_instinct": null,
-   "decision_hint": "For a 34% oxygen, 8.2 psia cabin, assume a small flat fuel surface may reach steady burning in still air within about two minutes; this rests on one gas-burner emulation test.",
+   "decision_hint": "The cited BRE test at 34% oxygen and 0.56 atm appeared steady after about 100 s; this is a gas-burner emulation result.",
    "verified": {
     "quote": "exact match",
-    "support": "Text under Figure 9 (test 19070D1: 34% O2, 8.2 psia, 4.95 g/m2s) reports steady results and a flame that appears steady after about 100 s."
+    "support": "Figure 9 and its adjacent text identify test 19070D1, ethylene/N2, mass flux 4.95 g/m2s, 34% oxygen, 8.2 psia and a nominal 0.56 atm. Only the quoted pressure representation is retained in conditions."
    }
   },
   {
@@ -2415,12 +3146,12 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": "ethylene/N2 (heat of combustion 24 kJ/g)",
     "o2_percent": "26.5",
     "pressure": "10.2 psia",
-    "flow": "quiescent; fuel mass flux 2.3 g/m2s"
+    "flow": "fuel mass flux 2.3 g/m2s"
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2431,10 +3162,10 @@
     "pressurized rover"
    ],
    "earth_instinct": null,
-   "decision_hint": "For a 26.5% oxygen, 10.2 psia cabin, treat steady burning in still air as demonstrated for a PMMA-like emulated fuel.",
+   "decision_hint": "BRE test 19070K1 demonstrated steady burning of the quoted ethylene/nitrogen emulation at 26.5% oxygen and 10.2 psia.",
    "verified": {
     "quote": "exact match",
-    "support": "Figure 7 caption names test 19070K1, lists every condition in the claim and labels the result steady."
+    "support": "The complete Figure 7 caption identifies test 19070K1 and the quoted fuel, mass flux, oxygen and pressure. The source is gas emulation, not a direct PMMA burn."
    }
   },
   {
@@ -2453,12 +3184,12 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": "ethylene/N2 (heat of combustion 24 kJ/g)",
     "o2_percent": "27",
     "pressure": "10.2 psia",
-    "flow": "quiescent; fuel mass flux 4.55 g/m2s"
+    "flow": "fuel mass flux 4.55 g/m2s"
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2469,10 +3200,10 @@
     "pressurized rover"
    ],
    "earth_instinct": null,
-   "decision_hint": "A similar atmosphere gave a steady flame in one test and self-extinction in another with a different fuel supply; atmosphere alone does not settle the outcome.",
+   "decision_hint": "The quoted ethylene/nitrogen test self-extinguished at 45 s despite 27% oxygen and 10.2 psia; those atmospheric values alone do not establish sustained burning.",
    "verified": {
     "quote": "exact match",
-    "support": "Figure 6 caption names test 19056F1, its conditions and extinction at 45 s; the paragraph above it confirms extinction at 45 s."
+    "support": "The complete Figure 6 caption explicitly records test 19056F1 and extinction at 45 s with these quoted conditions."
    }
   },
   {
@@ -2480,7 +3211,7 @@
    "investigation": "BRE",
    "pillar": "design",
    "topic": "common plastic in exploration atmospheres",
-   "claim": "An emulation with a heat of combustion of about 24 kJ/g and a heat of gasification of about 3 kJ/g, which could represent PMMA, indicates that a common plastic could burn steadily under the NASA proposed atmospheric conditions tested.",
+   "claim": "The BRE report interprets an emulation with heat of combustion about 24 kJ/g and heat of gasification about 3 kJ/g as potentially representing PMMA, suggesting that a common plastic could burn steadily under the proposed atmospheres discussed there.",
    "quote": "This emulation corresponds to a material with a heat of combustion of about 24 kJ/g and a heat of gasification of about 3 kJ/g. As such it could represent PMMA as a material solid. This is a profound result indicating a common plastic could steadily burn under these NASA proposed atmospheric conditions.",
    "source": {
     "kind": "pdf",
@@ -2491,14 +3222,14 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "50% mixtures of nitrogen and ethylene (emulating PMMA)",
-    "o2_percent": "26.5",
-    "pressure": "0.7 atm (10.2 psia)",
-    "flow": "quiescent"
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
    },
-   "evidence_level": "flight experiment",
+   "evidence_level": "model or analysis",
    "environment_relevance": [
     "spacecraft",
     "station",
@@ -2507,10 +3238,10 @@
     "pressurized rover"
    ],
    "earth_instinct": null,
-   "decision_hint": "In a habitat at 26.5% oxygen and 10.2 psia, treat PMMA-like plastics as able to sustain a fire without forced air; limit or shield them.",
+   "decision_hint": "The reported material implication is an inference from emulation, not a direct PMMA burning test.",
    "verified": {
     "quote": "exact match",
-    "support": "The passage ties the 24 kJ/g, about 3 kJ/g emulation (test 19070K1) to PMMA and says a common plastic could steadily burn under these NASA proposed conditions."
+    "support": "The report explicitly says could represent PMMA and could steadily burn. This is a material inference from emulation, with no atmospheric numbers inside this quotation."
    }
   },
   {
@@ -2518,7 +3249,7 @@
    "investigation": "BRE",
    "pillar": "prevention",
    "topic": "material property range that burns",
-   "claim": "Solid materials with heats of combustion from 23.6 to 47.2 kJ/g and heats of gasification from about 1 to 10 kJ/g can burn in microgravity, according to the BRE findings.",
+   "claim": "From its emulation findings, the BRE report infers that solid materials with heats of combustion from 23.6 to 47.2 kJ/g and heats of gasification from about 1 to 10 kJ/g can burn in microgravity.",
    "quote": "One important fire safety consideration, based on the findings of this study, is that solid materials with heats of combustion in the range 23.6 to 47.2 kJ/g and heats of gasification from about 1 to 10 kJ/g can burn in microgravity.",
    "source": {
     "kind": "pdf",
@@ -2530,13 +3261,13 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "emulated solid materials (heat of combustion 23.6 to 47.2 kJ/g, heat of gasification about 1 to 10 kJ/g)",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent"
+    "flow": null
    },
-   "evidence_level": "flight experiment",
+   "evidence_level": "model or analysis",
    "environment_relevance": [
     "spacecraft",
     "station",
@@ -2545,10 +3276,10 @@
     "pressurized rover"
    ],
    "earth_instinct": null,
-   "decision_hint": "Screen cabin materials by heat of combustion and heat of gasification (cone calorimeter, NASA Test 2), not only by the upward flame spread pass-fail test.",
+   "decision_hint": "The material-property ranges are a BRE emulation inference, not direct burning measurements for every solid in those ranges.",
    "verified": {
     "quote": "exact match",
-    "support": "The report gives this range of heats of combustion and gasification as a fire safety consideration based on the study findings."
+    "support": "The quoted material-property range is an inference based on the BRE study; the actual study uses gas-burner emulation rather than directly testing all solids in the range."
    }
   },
   {
@@ -2568,13 +3299,13 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "emulated PE, PP, Nylon, PMMA and phenolic glass fiber composite",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent"
+    "flow": null
    },
-   "evidence_level": "flight experiment",
+   "evidence_level": "model or analysis",
    "environment_relevance": [
     "spacecraft",
     "station",
@@ -2583,10 +3314,10 @@
     "pressurized rover"
    ],
    "earth_instinct": null,
-   "decision_hint": "Use these mass fluxes as first-order inputs when modeling a still-air fire on common plastics; they are inferred from a gas-burner emulation, not from burning the plastics.",
+   "decision_hint": "The quoted mass fluxes are tentative material inferences from the BRE map, not measured plastic burning rates.",
    "verified": {
     "quote": "exact match",
-    "support": "The report reads these three mass fluxes off its Figure 14 flammability map; the claim keeps the \"would suggest\" hedge."
+    "support": "The report says Figure 14 would suggest these material mass fluxes. The conditional language is retained and the evidence is classified as analysis."
    }
   },
   {
@@ -2605,12 +3336,12 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": "methane/nitrogen",
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2618,10 +3349,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "Do not generalize one fuel's self-extinction to other materials; ethylene-based emulations burned for minutes at elevated oxygen.",
+   "decision_hint": "The reported methane/nitrogen flames self-extinguished within a minute; that result is specific to the tested fuel chemistry and conditions.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 3 states methane/nitrogen flames self-extinguished within a minute for all ambient conditions and draws the fuel-chemistry inference."
+    "support": "Section 4.D.3 reports methane/nitrogen self-extinction within a minute for the ambient conditions tested, with fuel chemistry offered as the interpretation."
    }
   },
   {
@@ -2640,12 +3371,12 @@
     "text_file": "raw/pdf/20210021781.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "pure or nitrogen-diluted ethylene and methane",
-    "o2_percent": "elevated",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
     "pressure": null,
-    "flow": "absence of an air flow"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2653,10 +3384,10 @@
     "station"
    ],
    "earth_instinct": "The bigger the fire, the longer it lasts.",
-   "decision_hint": "A small, weak flame in still air may be the persistent one; do not dismiss small flames.",
+   "decision_hint": "In these BRE results, smaller flames could persist longer than larger flames at elevated oxygen.",
    "verified": {
     "quote": "exact match",
-    "support": "BRE section of the 2021 NASA paper: smaller flames burn for minutes at elevated oxygen, larger ones generally self-extinguish within 1.5 minutes."
+    "support": "The BRE results section compares smaller and larger flames at elevated oxygen; the quote gives no numerical oxygen setting, fuel species or imposed airflow."
    }
   },
   {
@@ -2675,12 +3406,12 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "CH4/N2 and C2H4/N2 mixtures",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2691,7 +3422,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "Summary under objective 3 states the two extinction mechanisms in these words."
+    "support": "Section 4.E.3 reports radiative extinction for large BRE flames and a second quenching limit for small flames; it gives no specific test settings here."
    }
   },
   {
@@ -2710,12 +3441,12 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "BRE flames (the passage does not name the fuel of the four flames)",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2723,10 +3454,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "A modeling input: BRE flames reached extinction at a critical flame temperature of roughly 1100 to 1200 K.",
+   "decision_hint": "The quoted 1100 to 1200 K extinction range comes from four BRE flames and supporting simulations.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 6 gives the 1100 to 1200 K range from TFP on four flames; the report defines TFP as Thin Filament Pyrometry."
+    "support": "Section 4.D.6 reports thin-filament-pyrometry measurements of four flames and confirmation by simulation, not a universal thermal threshold."
    }
   },
   {
@@ -2745,12 +3476,12 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity compared with normal gravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": "microgravity",
+    "platform": null,
     "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2758,10 +3489,10 @@
     "station"
    ],
    "earth_instinct": "The heat of a fire goes up with the hot gases.",
-   "decision_hint": "Expect a larger share of the heat as radiation in all directions; radiant-heat sensing and shielding of nearby items matter more than on Earth.",
+   "decision_hint": "BRE reports a larger radiative loss fraction in its microgravity flames than in its normal-gravity comparison.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 5 gives about 60% in microgravity against 30% for normal-gravity flames."
+    "support": "Section 4.D.5 directly compares radiative loss fractions of about 60% and 30%. It says nothing about heat direction, detector placement or shielding."
    }
   },
   {
@@ -2781,11 +3512,11 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "platform": null,
     "fuel": "ethylene",
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2793,10 +3524,10 @@
     "station"
    ],
    "earth_instinct": "A burning plastic-like fuel shows a bright yellow, smoky flame.",
-   "decision_hint": "Do not rely on a yellow flame or visible soot to spot a still-air fire; add heat and gas-product sensing.",
+   "decision_hint": "These BRE ethylene flames lost their ignition soot quickly in microgravity; persistent visible soot was not observed.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 4 states ethylene flames did not soot in microgravity and that soot occurred only at ignition."
+    "support": "Section 4.D.4 reports ethylene soot at ignition followed by rapid disappearance under microgravity conditions."
    }
   },
   {
@@ -2805,7 +3536,7 @@
    "pillar": "detection",
    "topic": "dim blue flame",
    "claim": "In a BRE test video the soot seen at ignition quickly fades away and leaves a dim blue flame.",
-   "quote": "But the soot quickly fades away leaving a dim blue flame, where blue is the natural color of hydrocarbon flames.",
+   "quote": "Initially, the flame behavior is similar to previous BRE tests. The flame is very sooty at ignition, due to ethylene's double bond, where you can see the glowing soot particles pass through the flame. But the soot quickly fades away leaving a dim blue flame, where blue is the natural color of hydrocarbon flames.",
    "source": {
     "kind": "pdf",
     "id": "PSI-20:6841d73c1b4820d736cec3a4",
@@ -2815,12 +3546,12 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": "ethylene",
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2828,10 +3559,10 @@
     "station"
    ],
    "earth_instinct": "No bright flame, no fire.",
-   "decision_hint": "Check a suspected fire location with low light or sensors; the flame may be dim and blue.",
+   "decision_hint": "The described BRE flame became dim and blue after the ignition soot faded.",
    "verified": {
     "quote": "exact match",
-    "support": "Video caption in the report log describes the soot fading to a dim blue flame in an ethylene BRE test."
+    "support": "The full video-description sentences explicitly identify sooty ethylene ignition followed by a dim blue flame; no low-light inspection protocol is given."
    }
   },
   {
@@ -2839,8 +3570,8 @@
    "investigation": "BRE",
    "pillar": "response",
    "topic": "flame hole and re-establishment",
-   "claim": "In a high-flow BRE test the flame weakened under a thickening cloud of carbon dioxide and water vapor, radiative heat loss left a hole in it, and oxygen mixing with the fuel then made the flame quickly reestablish.",
-   "quote": "With the poor oxygen transport, the flame weakens, and radiative heat loss leaves a hole in the flame. But oxygen then mixes with the fuel, causing the flame to quickly reestablish and the hole closes.",
+   "claim": "In the described BRE test, a thickening cloud of carbon dioxide and water vapor inhibited oxygen diffusion; radiative heat loss opened a hole in the weakened flame, after which oxygen mixed with fuel and the flame reestablished.",
+   "quote": "Meanwhile, the flame is blanketed by a thickening cloud of carbon dioxide and water vapor inhibiting the oxygen's diffusion to the flame. With the poor oxygen transport, the flame weakens, and radiative heat loss leaves a hole in the flame. But oxygen then mixes with the fuel, causing the flame to quickly reestablish and the hole closes.",
    "source": {
     "kind": "pdf",
     "id": "PSI-20:6841d73c1b4820d736cec3a4",
@@ -2850,12 +3581,12 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "ethylene",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2863,10 +3594,10 @@
     "station"
    ],
    "earth_instinct": "When part of a flame goes out, the fire is dying.",
-   "decision_hint": "A flame that opens a hole or partly vanishes can come back; keep the response going until extinction is confirmed.",
+   "decision_hint": "The described BRE flame reestablished after a hole formed; partial disappearance did not establish complete extinction.",
    "verified": {
     "quote": "exact match",
-    "support": "Same video caption describes the weakening, the hole left by radiative heat loss and the quick re-establishment."
+    "support": "The widened video-description quote includes inhibited oxygen diffusion, radiative opening of a hole and subsequent flame reestablishment."
    }
   },
   {
@@ -2885,12 +3616,12 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": null,
     "o2_percent": null,
-    "pressure": "varied (weak effect)",
-    "flow": "quiescent"
+    "pressure": null,
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -2901,10 +3632,10 @@
     "pressurized rover"
    ],
    "earth_instinct": null,
-   "decision_hint": "Lowering cabin pressure is not a fire-safety measure by itself; oxygen fraction matters more.",
+   "decision_hint": "In BRE, pressure affected radiative heat loss even though its effect on burning quality was described as weak.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 2 states the weak pressure effect and the radiative-loss mechanism in these words."
+    "support": "Section 4.D.2 reports the weak burning-quality effect of pressure and its effect on radiating-species partial pressures; no cabin-pressure safety rule follows."
    }
   },
   {
@@ -2923,12 +3654,12 @@
     "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": null,
     "o2_percent": null,
-    "pressure": "1 atm and 0.56 atm (map)",
-    "flow": "quiescent"
+    "pressure": null,
+    "flow": null
    },
    "evidence_level": "model or analysis",
    "environment_relevance": [
@@ -2939,10 +3670,10 @@
     "pressurized rover"
    ],
    "earth_instinct": null,
-   "decision_hint": "Exploration atmospheres (lower pressure, more oxygen) move toward the conditions that favor long burning; mark them as higher risk in design trades.",
+   "decision_hint": "The BRE theoretical map favors longer burning at lower pressure and higher oxygen; this is a model result for that configuration.",
    "verified": {
     "quote": "exact match",
-    "support": "The report says its theoretical flammability map (Figure 17, p = 1 atm and 0.56 atm) indicates lower pressure and higher oxygen favor long-duration burning."
+    "support": "The text explicitly calls Figure 17 a flammability map based on theoretical analysis; lower pressure and higher oxygen are trends in that model."
    }
   },
   {
@@ -2952,79 +3683,6 @@
    "topic": "carbon dioxide atmospheres not tested",
    "claim": "Burning in O2/CO2 ambients, a desired BRE objective, is named as a good candidate for a follow-on experiment because CO2 is used in spacecraft fire extinguishers.",
    "quote": "A study of the burning behavior in an ambient of O2/CO2 (the desired objective) is a good candidate for a follow-on experiment because of the utility of CO2 in spacecraft fire extinguishers.",
-   "source": {
-    "kind": "pdf",
-    "id": "PSI-20:6841d73c1b4820d736cec3a4",
-    "title": "ACME/BRE Final Report (2022)",
-    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-20/download?file=6841d73c1b4820d736cec3a4",
-    "year": 2022,
-    "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
-   },
-   "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": null,
-    "o2_percent": null,
-    "pressure": null,
-    "flow": "quiescent"
-   },
-   "evidence_level": "review or summary",
-   "environment_relevance": [
-    "spacecraft",
-    "station"
-   ],
-   "earth_instinct": null,
-   "decision_hint": "Treat the effect of CO2 on these still-air flames as not tested in BRE; do not cite BRE for CO2 suppression.",
-   "verified": {
-    "quote": "exact match",
-    "support": "Follow-on section names the O2/CO2 study as a good candidate because of CO2 in spacecraft extinguishers; the objectives summary confirms it was not tested."
-   }
-  },
-  {
-   "id": "ACME-023",
-   "investigation": "BRE",
-   "pillar": "prevention",
-   "topic": "flammability test methods",
-   "claim": "The preliminary BRE results suggest NASA may want to make more use of its alternative flammability Test 2, the cone calorimeter, which can measure material properties corresponding to the microgravity flames seen with the BRE burner.",
-   "quote": "While BRE’s results are still preliminary, they suggest that NASA may want to increase use of its alternative flammability Test 2, with the cone calorimeter, where that test can measure material properties corresponding to the microgravity flames observed with the BRE burner.",
-   "source": {
-    "kind": "pdf",
-    "id": "PSI-20:6841d73c1b4820d736cec3a4",
-    "title": "ACME/BRE Final Report (2022)",
-    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-20/download?file=6841d73c1b4820d736cec3a4",
-    "year": 2022,
-    "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
-   },
-   "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": null,
-    "o2_percent": null,
-    "pressure": null,
-    "flow": null
-   },
-   "evidence_level": "flight experiment",
-   "environment_relevance": [
-    "spacecraft",
-    "station",
-    "lunar base",
-    "mars base",
-    "pressurized rover"
-   ],
-   "earth_instinct": null,
-   "decision_hint": "Ask for cone calorimeter data (heat of combustion, heat of gasification) for candidate cabin materials.",
-   "verified": {
-    "quote": "exact match",
-    "support": "Impacts section makes this suggestion and calls the results preliminary, as the claim does."
-   }
-  },
-  {
-   "id": "ACME-024",
-   "investigation": "BRE",
-   "pillar": "prevention",
-   "topic": "limits of current material tests",
-   "claim": "The BRE science requirements state that NASA Test 1 and Test 2 cannot directly analyze material fire hazards in spacecraft and that there is no predictive method to extrapolate from them.",
-   "quote": "Currently NASA Test 1 and Test 2 are incapable of directly analyzing material fire hazards in spacecraft. There is no predictive methodology to extrapolate from these tests.",
    "source": {
     "kind": "pdf",
     "id": "PSI-20:6841d73c1b4820d736cec3a4",
@@ -3046,20 +3704,20 @@
     "spacecraft",
     "station"
    ],
-   "earth_instinct": "A material that passes the ground flammability test is safe in flight.",
-   "decision_hint": "Show ground pass-fail results as screening only, not as a prediction of behavior in microgravity.",
+   "earth_instinct": null,
+   "decision_hint": "The report proposes O2/CO2 ambient testing as follow-on work, rather than reporting BRE CO2 suppression results.",
    "verified": {
     "quote": "exact match",
-    "support": "The 2013 science requirements text reproduced in the report states both sentences."
+    "support": "The Follow-On Experiments section proposes O2/CO2 work rather than reporting completed CO2 suppression testing."
    }
   },
   {
-   "id": "ACME-025",
+   "id": "ACME-023",
    "investigation": "BRE",
-   "pillar": "design",
-   "topic": "time needed to reach quasi-steady burning",
-   "claim": "Drop facilities cannot show quasi-steady BRE burning because the characteristic times are about 20 s for the gas phase and about 40 s for the burner surface temperature.",
-   "quote": "While limited testing is possible in drop facilities, the characteristic times for the gas phase (approximately 20 s) and the burner surface temperature (approximately 40 s) preclude consideration of quasi-steady conditions.",
+   "pillar": "prevention",
+   "topic": "flammability test methods",
+   "claim": "The preliminary BRE results suggest NASA may want to make more use of its alternative flammability Test 2, the cone calorimeter, which can measure material properties corresponding to the microgravity flames seen with the BRE burner.",
+   "quote": "While BRE’s results are still preliminary, they suggest that NASA may want to increase use of its alternative flammability Test 2, with the cone calorimeter, where that test can measure material properties corresponding to the microgravity flames observed with the BRE burner.",
    "source": {
     "kind": "pdf",
     "id": "PSI-20:6841d73c1b4820d736cec3a4",
@@ -3070,7 +3728,45 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "drop facilities compared with ISS",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "The preliminary BRE interpretation suggests additional use of Test 2 to measure relevant material properties.",
+   "verified": {
+    "quote": "exact match",
+    "support": "The Impacts section is a preliminary recommendation about flammability Test 2, not a new measured flame result."
+   }
+  },
+  {
+   "id": "ACME-024",
+   "investigation": "BRE",
+   "pillar": "prevention",
+   "topic": "limits of current material tests",
+   "claim": "The BRE science requirements say Test 1 and Test 2 cannot directly predict spacecraft material fire hazards, while also stating that Test 2 can measure heats of combustion and gasification and surface reradiation.",
+   "quote": "Currently NASA Test 1 and Test 2 are incapable of directly analyzing material fire hazards in spacecraft. There is no predictive methodology to extrapolate from these tests. However, NASA Test 2, the Cone Calorimeter, is capable of determining heats of combustion and gasification, and surface reradiation in burning.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-20:6841d73c1b4820d736cec3a4",
+    "title": "ACME/BRE Final Report (2022)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-20/download?file=6841d73c1b4820d736cec3a4",
+    "year": 2022,
+    "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
     "fuel": null,
     "o2_percent": null,
     "pressure": null,
@@ -3082,10 +3778,45 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "Weight seconds-long drop tower results below long-duration ISS results when judging whether a flame sustains.",
+   "decision_hint": "The source distinguishes direct hazard prediction from Test 2 measurements of material properties.",
    "verified": {
     "quote": "exact match",
-    "support": "The same requirements text gives the 20 s and 40 s characteristic times as the reason drop facilities preclude quasi-steady conditions."
+    "support": "The complete contrast includes the immediate However sentence: Test 2 cannot directly predict the hazard but can measure named material properties."
+   }
+  },
+  {
+   "id": "ACME-025",
+   "investigation": "BRE",
+   "pillar": "design",
+   "topic": "time needed to reach quasi-steady burning",
+   "claim": "The cited BRE assessment says limited drop-facility testing cannot establish quasi-steady conditions because characteristic response times are about 20 s for the gas phase and about 40 s for burner surface temperature.",
+   "quote": "While limited testing is possible in drop facilities, the characteristic times for the gas phase (approximately 20 s) and the burner surface temperature (approximately 40 s) preclude consideration of quasi-steady conditions.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-20:6841d73c1b4820d736cec3a4",
+    "title": "ACME/BRE Final Report (2022)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-20/download?file=6841d73c1b4820d736cec3a4",
+    "year": 2022,
+    "text_file": "raw/pdf/PSI-20_final-report-20220201.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "The cited BRE assessment says the stated gas-phase and burner-temperature response times preclude quasi-steady conditions in the limited drop tests.",
+   "verified": {
+    "quote": "exact match",
+    "support": "The science-requirements discussion identifies characteristic response times that preclude quasi-steady conditions in limited drop testing; it is not a flight measurement."
    }
   },
   {
@@ -3093,7 +3824,7 @@
    "investigation": "BRE",
    "pillar": "design",
    "topic": "drop tower flames not steady",
-   "claim": "In a 5 s drop test with the 25 mm BRE burner, flame height reached only about 37% of its steady-state value.",
+   "claim": "A transient analysis compared with a 5 s BRE drop test estimated the flame height at about 37% of steady state after 5 seconds for the illustrated case.",
    "quote": "For the particular case shown in Figure 2a, the flame height reaches only about 37% of steady state after 5 seconds.",
    "source": {
     "kind": "pdf",
@@ -3104,14 +3835,14 @@
     "text_file": "raw/pdf/20170009141.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "NASA Glenn 5-s Zero Gravity Facility",
-    "fuel": "not stated for this test (the study used methane, ethylene and nitrogen-diluted ethylene)",
-    "o2_percent": "not stated for this test (study range 21 to 30)",
-    "pressure": "not stated for this test (study range 0.5 to 1.0 atm)",
-    "flow": "quiescent chamber"
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
    },
-   "evidence_level": "ground low-gravity (drop tower, aircraft)",
+   "evidence_level": "model or analysis",
    "environment_relevance": [
     "spacecraft",
     "station"
@@ -3120,7 +3851,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "The paper gives the 37% figure for its Figure 2a case, a typical 25 mm burner test in the 5-s drop facility; steady state is the value from the paper's transient analysis."
+    "support": "The 37% statement follows a transient heated-sphere analysis compared with drop-test data. No steady height could be measured during that 5 s drop; this percentage is an analytical comparison."
    }
   },
   {
@@ -3139,12 +3870,12 @@
     "text_file": "raw/nasa/acme.txt"
    },
    "conditions": {
-    "gravity": "microgravity compared with normal gravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "sooty coflow flames (fuel not named for this result)",
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "air coflow"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -3152,10 +3883,10 @@
     "station"
    ],
    "earth_instinct": "A flame makes the same smoke wherever it burns.",
-   "decision_hint": "Do not assume normal-gravity soot levels; a sooty gas-fed flame held five to eight times more soot in microgravity.",
+   "decision_hint": "The five-to-eight comparison concerns soot volume fraction in the compared flames, not a measured cabin smoke-production rate.",
    "verified": {
     "quote": "exact match",
-    "support": "Fact sheet, CLD Flame \"Selected Findings\": soot volume fraction measurements show five to eight times more soot in microgravity."
+    "support": "The CLD Flame Selected Findings section reports soot volume fraction measurements and a five-to-eight comparison. This is concentration, not a smoke emission or detector-response measurement."
    }
   },
   {
@@ -3174,12 +3905,12 @@
     "text_file": "raw/nasa/acme.txt"
    },
    "conditions": {
-    "gravity": "microgravity compared with normal gravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "sooty coflow flames",
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "air coflow"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -3187,10 +3918,10 @@
     "station"
    ],
    "earth_instinct": "A flame is a narrow teardrop that points up.",
-   "decision_hint": "Expect a larger, cooler, sootier flame envelope than the same burner would give on Earth; size the keep-out distance for that.",
+   "decision_hint": "The CLD Flame fact sheet reports larger, cooler and sootier microgravity flames for its sooty-flame comparison.",
    "verified": {
     "quote": "exact match",
-    "support": "Fact sheet, CLD Flame \"Selected Findings\": sooty flames are taller, wider, cooler and far sootier in microgravity."
+    "support": "The CLD Flame Selected Findings section gives the quoted sooty-flame comparison; it provides no clearance-distance criterion."
    }
   },
   {
@@ -3209,12 +3940,12 @@
     "text_file": "raw/pdf/20210021781.txt"
    },
    "conditions": {
-    "gravity": "microgravity compared with normal gravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "nitrogen-diluted methane and ethylene",
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "methane and ethylene",
     "o2_percent": null,
     "pressure": null,
-    "flow": "air coflow, fuel and air velocities typically matched"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -3222,10 +3953,10 @@
     "station"
    ],
    "earth_instinct": "A flame too weak to survive on Earth will not survive anywhere.",
-   "decision_hint": "Do not use normal-gravity dilution or extinction limits as a conservative bound; weak, highly diluted flames were more stable in microgravity.",
+   "decision_hint": "CLD Flame reported lifted flames at lower fuel concentrations in microgravity; this is a dilution-stability result, not a measured increase in flame lifetime.",
    "verified": {
     "quote": "exact match",
-    "support": "CLD Flame section of the 2021 NASA paper: dilution limits for both fuels were extended in microgravity, with lifted flames at lower fuel concentrations."
+    "support": "The named CLD Flame section reports lower fuel-concentration dilution limits and lifted-flame stability, not measured longer lifetimes."
    }
   },
   {
@@ -3244,23 +3975,23 @@
     "text_file": "raw/nasa/acme.txt"
    },
    "conditions": {
-    "gravity": "not stated for this description (the fact sheet compares normal gravity and microgravity)",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": "microgravity",
+    "platform": null,
     "fuel": "nitrogen-diluted fuel",
     "o2_percent": null,
     "pressure": null,
-    "flow": "air coflow"
+    "flow": null
    },
-   "evidence_level": "review or summary",
+   "evidence_level": "flight experiment",
    "environment_relevance": [
     "spacecraft",
     "station"
    ],
    "earth_instinct": "A flame sits on its fuel source and is easy to see.",
-   "decision_hint": "A weak flame may be faint, blue and detached from where the gas comes out; look away from the source too.",
+   "decision_hint": "The described diluted CLD Flame could be faint, blue and lifted off the burner.",
    "verified": {
     "quote": "exact match",
-    "support": "Fact sheet overview of CLD Flame describes this sequence as nitrogen dilution increases; it is a general description, not one flight result."
+    "support": "The full Fuel Dilution paragraph describes nitrogen dilution and explicitly compares the observed microgravity and normal-gravity behavior."
    }
   },
   {
@@ -3279,9 +4010,9 @@
     "text_file": "raw/nasa/acme.txt"
    },
    "conditions": {
-    "gravity": "microgravity compared with normal gravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "pure-fuel coflow flames",
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
     "flow": null
@@ -3292,10 +4023,45 @@
     "station"
    ],
    "earth_instinct": "Heat and smoke rise, so stay low and look up.",
-   "decision_hint": "Do not expect heat or smoke to rise and collect overhead.",
+   "decision_hint": "The cited coflow comparison attributes the absence of rising hot gases in microgravity to the absence of buoyancy.",
    "verified": {
     "quote": "exact match",
-    "support": "Fact sheet overview states the striking difference and that without buoyancy hot gases no longer rise."
+    "support": "The CLD Flame overview states the absence of buoyant rise of hot gases; the quote does not specify smoke distribution or ventilation transport."
+   }
+  },
+  {
+   "id": "ACME-032",
+   "investigation": "CLD Flame",
+   "pillar": "design",
+   "topic": "SLICE precursor: flame length",
+   "claim": "In SLICE, the ISS precursor to CLD Flame, computed and measured nonbuoyant methane flames were noticeably longer than their 1g counterparts, and flame length was proportional to the fuel mass flow rate.",
+   "quote": "Buoyant and nonbuoyant luminous flame lengths are proportional to the mass flow rate of the fuel mixture; computed and measured nonbuoyant flames are noticeably longer than their 1g counterparts; the effect of fuel dilution on flame shape (i.e., flame length and flame radius) is negligible when the flame shape is normalized by the methane flow rate.",
+   "source": {
+    "kind": "ntrs",
+    "id": "20150002322",
+    "title": "A Computational and Experimental Study of Coflow Laminar Methane/Air Diffusion Flames: Effects of Fuel Dilution, Inlet Velocity, and Gravity",
+    "url": "https://ntrs.nasa.gov/citations/20150002322",
+    "year": 2014,
+    "text_file": "raw/ntrs/20150002322.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "SLICE reported longer nonbuoyant luminous flames than the 1-g comparison; the conclusion is specific to the investigated coflow flames.",
+   "verified": {
+    "quote": "exact match",
+    "support": "The live NTRS abstract names SLICE and describes computation plus ISS measurements. The complete semicolon-delimited conclusion is quoted; it is precursor evidence, not CLD flight data."
    }
   },
   {
@@ -3304,7 +4070,7 @@
    "pillar": "design",
    "topic": "weak flames stabilized by small electric fields",
    "claim": "Very weak, low fuel concentration flames were stabilized at ignition with very small electric fields; without the fields they would quickly quench.",
-   "quote": "The very weak low fuel concentration flames were stabilized at ignition with very small electric fields, where without the fields the flames would quickly quench.",
+   "quote": "The very weak low fuel concentration flames were stabilized at ignition with very small electric fields, where without the fields the flames would quickly quench. This stabilizing feature of electric fields for weak zero gravity flames was a surprise, and it suggests that electric fields may be a good tool for approximating buoyancy body forces at partial gravity.",
    "source": {
     "kind": "pdf",
     "id": "PSI-22:6851e75e0eb4c08676005585",
@@ -3315,8 +4081,8 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "nitrogen-diluted methane and ethylene",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
     "flow": null
@@ -3327,10 +4093,10 @@
     "station"
    ],
    "earth_instinct": "Electricity can start a fire but does not keep one alive.",
-   "decision_hint": "In this experiment a very small electric field kept marginal flames burning; treat strong electric fields near a suspected fire as a possible stabilizing factor (not tested for cabin equipment).",
+   "decision_hint": "Small electric fields stabilized the reported weak flames at ignition; this is an experimental observation, not an equipment shutdown procedure.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 4 of the final report states it in these words."
+    "support": "Section 4.D.4 reports weak-flame stabilization at ignition and calls the zero-gravity effect a surprise; the following proxy suggestion is preserved as a suggestion."
    }
   },
   {
@@ -3349,25 +4115,26 @@
     "text_file": "raw/pdf/PSI-22_e-field-flames-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity (electric body force suggested as a proxy for partial gravity)",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "nitrogen-diluted methane and ethylene",
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
     "flow": null
    },
-   "evidence_level": "flight experiment",
+   "evidence_level": "review or summary",
    "environment_relevance": [
     "lunar base",
     "mars base",
     "pressurized rover"
    ],
    "earth_instinct": null,
-   "decision_hint": "Mark lunar and Martian gravity conclusions drawn from E-FIELD Flames as extrapolated: the body force was electric, not gravity.",
+   "decision_hint": "Approximating partial-gravity buoyancy with an electric field is suggested here, not demonstrated by a partial-gravity test.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 4 goes on to say the stabilizing effect suggests electric fields may approximate buoyancy body forces at partial gravity; the claim keeps \"may\"."
-   }
+    "support": "The quote suggests electric fields as a possible tool to approximate partial-gravity buoyancy. It reports no experiment conducted in lunar or Martian gravity. A separate full-sentence conditions_quote from the same report identifies the actual ISS experiment, so the build can distinguish its observed microgravity from the proposed partial-gravity proxy."
+   },
+   "conditions_quote": "The Electric-Field Effects on Laminar Diffusion Flames (E-FIELD Flames) experiment is one of six independent experiments that make up the Advanced Combustion via Microgravity Experiments (ACME) project for which tests are conducted within the Combustion Integrated Rack (CIR) on the International Space Station (ISS)."
   },
   {
    "id": "ACME-035",
@@ -3386,11 +4153,11 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "methane/nitrogen mixtures",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "coflow burner, with and without coflowing air"
+    "flow": "no coflowing air"
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -3401,7 +4168,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "The report summary of the methane/nitrogen tests states the field can stabilize the flame at very high dilution, especially with no coflowing air."
+    "support": "The report explicitly states microgravity stabilization at high dilution, especially without coflowing air. Species and platform are not named in this quote."
    }
   },
   {
@@ -3420,9 +4187,9 @@
     "text_file": "raw/pdf/PSI-22_e-field-flames-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "methane and ethylene",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
     "flow": null
@@ -3433,10 +4200,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "Do not treat an electric field as a suppression method: it blew out some flames in this experiment (the report gives field strengths for methane cases) and stabilized others.",
+   "decision_hint": "Electric-field blowout was observed under some conditions; the quoted statement does not identify a general suppression setting.",
    "verified": {
     "quote": "exact match",
-    "support": "The success-criteria paragraph states the field was also able to blow out flames under some conditions."
+    "support": "The Additional Objectives discussion explicitly reports blowout under some conditions; the original hint incorrectly denied that testing had occurred."
    }
   },
   {
@@ -3455,9 +4222,9 @@
     "text_file": "raw/pdf/PSI-22_e-field-flames-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity compared with normal gravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "methane and ethylene",
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
     "flow": null
@@ -3468,10 +4235,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "Expect more soot from a gas-jet or coflow flame than ground tests of the same flame suggest.",
+   "decision_hint": "The E-FIELD Flames report describes more significant sooting in its microgravity comparison than at similar 1-g conditions.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 2 ends with this sentence."
+    "support": "Section 4.D.2 directly gives the microgravity versus 1-g sooting comparison, without specifying fuel species in this sentence."
    }
   },
   {
@@ -3479,7 +4246,7 @@
    "investigation": "E-FIELD Flames",
    "pillar": "design",
    "topic": "unpredictable sooty flames in a field",
-   "claim": "When soot is present, electric fields create a wide range of unpredictable behaviors, including elimination of the soot, showers of luminous particles that are likely incandescent soot agglomerates, and unstable dancing flames.",
+   "claim": "In the E-FIELD Flames results, electric fields acting on sooty flames produced unpredictable behavior, including soot elimination apparently through enhanced mixing, luminous particles likely to be incandescent soot agglomerates, and unstable dancing flames.",
    "quote": "When soot is present in a flame, electric fields create a wide range of unpredictable behaviors that include elimination of the soot through what appears to be enhanced mixing for combustion, showers of luminous particles that are likely to be incandescent soot agglomerates, and unstable dancing flames.",
    "source": {
     "kind": "pdf",
@@ -3490,9 +4257,9 @@
     "text_file": "raw/pdf/PSI-22_e-field-flames-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "sooty methane and ethylene flames",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
     "flow": null
@@ -3503,10 +4270,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "A sooty flame in a strong electric field can behave unpredictably and shed glowing particles; do not assume a steady flame near energized high-voltage hardware.",
+   "decision_hint": "The reported electric-field effects included luminous particles and unstable flame motion; the quote does not measure their ability to ignite another item.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 2 lists these three behaviors and calls them unpredictable."
+    "support": "The source hedges both the mixing explanation and identification of luminous particles; those hedges are retained, without claiming secondary ignition was measured."
    }
   },
   {
@@ -3515,7 +4282,7 @@
    "pillar": "design",
    "topic": "corona and arc discharge",
    "claim": "Jet flames were unstable at high field strengths and experienced corona and then arc discharges because of the large field concentration near the jet burner tip.",
-   "quote": "Jet flames under the influence of the electric field were unstable at high field strengths, and these flames experienced corona and then arc discharges due to the large field concentration near the jet burner tip.",
+   "quote": "Jet flames under the influence of the electric field were unstable at high field strengths, and these flames experienced corona and then arc discharges due to the large field concentration near the jet burner tip. The flame behavior was dramatic but difficult to characterize, suggesting a spatially- and time-varying field/flame interaction.",
    "source": {
     "kind": "pdf",
     "id": "PSI-22:6851e75e0eb4c08676005585",
@@ -3525,9 +4292,9 @@
     "text_file": "raw/pdf/PSI-22_e-field-flames-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "gas-jet flames (methane and ethylene)",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
     "flow": null
@@ -3541,7 +4308,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 5 states the instability, the corona and arc discharges and the cause."
+    "support": "The high-field jet-flame observation is followed by the source qualification that the behavior was difficult to characterize; both sentences are retained."
    }
   },
   {
@@ -3550,42 +4317,7 @@
    "pillar": "detection",
    "topic": "ion current as a flame signal",
    "claim": "In microgravity the voltage-current curve shows no distinctive saturation plateau; the flames show a distinct peak ion current that corresponds to the most compact flame.",
-   "quote": "where in microgravity there is not a distinctive saturation ion current plateau but rather the flames exhibit a distinct peak ion current that corresponds to the most compact flame.",
-   "source": {
-    "kind": "pdf",
-    "id": "PSI-22:6851e75e0eb4c08676005585",
-    "title": "ACME/E-FIELD Flames Final Report (2019), dated 10 April 2021",
-    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-22/download?file=6851e75e0eb4c08676005585",
-    "year": 2021,
-    "text_file": "raw/pdf/PSI-22_e-field-flames-final-report.txt"
-   },
-   "conditions": {
-    "gravity": "microgravity compared with normal gravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "methane and ethylene",
-    "o2_percent": null,
-    "pressure": null,
-    "flow": null
-   },
-   "evidence_level": "flight experiment",
-   "environment_relevance": [
-    "spacecraft",
-    "station"
-   ],
-   "earth_instinct": null,
-   "decision_hint": "The ion-current response of a flame in an applied field differs between microgravity and 1 g; do not carry ground voltage-current behavior over to microgravity.",
-   "verified": {
-    "quote": "exact match",
-    "support": "Discovery item 1 states the missing saturation plateau and the peak ion current at the most compact flame, against 1-g flames."
-   }
-  },
-  {
-   "id": "ACME-041",
-   "investigation": "E-FIELD Flames",
-   "pillar": "detection",
-   "topic": "ion current tracks combustion intensity",
-   "claim": "There are clear correlations between flame luminosity, combustion intensity and ion current: the most robust burning also produces the highest ion current, even though the flame is most compact.",
-   "quote": "There are clear correlations between flame luminosity, combustion intensity, and ion current. The results suggest that the most robust burning also produces the highest ion current, even though the flame is most compact.",
+   "quote": "The behavior of the V-I curve is distinctly different in microgravity as compared to 1-g flames, where in microgravity there is not a distinctive saturation ion current plateau but rather the flames exhibit a distinct peak ion current that corresponds to the most compact flame.",
    "source": {
     "kind": "pdf",
     "id": "PSI-22:6851e75e0eb4c08676005585",
@@ -3596,8 +4328,8 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "methane and ethylene",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
     "flow": null
@@ -3607,11 +4339,46 @@
     "spacecraft",
     "station"
    ],
-   "earth_instinct": "The biggest flame is the strongest one.",
-   "decision_hint": "Do not judge fire strength by flame size alone; under an applied electric field the most compact flame was the most intense.",
+   "earth_instinct": null,
+   "decision_hint": "E-FIELD Flames found a peak rather than a distinctive saturation plateau in the microgravity voltage-current curve; the quote does not validate a detector.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 3 states both sentences."
+    "support": "The complete first sentence of Section 4.D.1 includes the V-I comparison and peak ion current. It does not validate ion-current fire detection."
+   }
+  },
+  {
+   "id": "ACME-041",
+   "investigation": "E-FIELD Flames",
+   "pillar": "detection",
+   "topic": "ion current tracks combustion intensity",
+   "claim": "The E-FIELD Flames report finds correlations between luminosity, combustion intensity and ion current, and suggests that the most robust burning produces the highest ion current even when the flame is most compact.",
+   "quote": "There are clear correlations between flame luminosity, combustion intensity, and ion current. The results suggest that the most robust burning also produces the highest ion current, even though the flame is most compact.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-22:6851e75e0eb4c08676005585",
+    "title": "ACME/E-FIELD Flames Final Report (2019), dated 10 April 2021",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-22/download?file=6851e75e0eb4c08676005585",
+    "year": 2021,
+    "text_file": "raw/pdf/PSI-22_e-field-flames-final-report.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "The report suggests that the most compact flame could correspond to the most robust burning in this experiment.",
+   "verified": {
+    "quote": "exact match",
+    "support": "The source says the results suggest the relationship between robust burning, ion current and compactness; the claim now retains suggest."
    }
   },
   {
@@ -3630,12 +4397,12 @@
     "text_file": "raw/pdf/PSI-22_e-field-flames-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "methane (gas-jet burner)",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "methane jet at 19 cm/s, negative field applied"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -3646,7 +4413,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "Text on Figure 19 (19 cm/s methane jet, negative field) states soot falls with negative field strength and disappears at 0.80 kV/cm."
+    "support": "The negative-field gas-jet discussion states that soot disappeared at 0.80 kV/cm after the ion-current peak. No specific fuel or velocity is stated in this sentence."
    }
   },
   {
@@ -3654,7 +4421,7 @@
    "investigation": "Flame Design",
    "pillar": "suppression",
    "topic": "critical extinction temperature and mass flux",
-   "claim": "All the ISS flames observed by Flame Design extinguished at a critical temperature of 1130 K, at a fuel mass flux of 0.2 g/m2-s for normal flames and an oxygen mass flux of 0.68 g/m2-s for inverse flames.",
+   "claim": "For the ISS flames in its reported extinction analysis, Flame Design gives a critical extinction temperature of 1130 K, with fuel mass flux of 0.2 g/m2-s for normal flames and oxygen mass flux of 0.68 g/m2-s for inverse flames.",
    "quote": "All the ISS flames observed by this project extinguish at a critical extinction temperature of 1130 K, and at a fuel mass flux of 0.2 g/m2-s for normal flames, and at an oxygen mass flux of 0.68 g/m2-s for inverse flames.",
    "source": {
     "kind": "pdf",
@@ -3666,11 +4433,11 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "ethylene with nitrogen diluent",
-    "o2_percent": "normal flames: ambient oxygen mole fraction 0.2 to 0.38; inverse flames: burner supply oxygen mole fraction 0.4 to 0.85",
-    "pressure": "atmospheric pressure (1 bar)",
-    "flow": "quiescent chamber; total mass flow rate 0.6 to 12.2 mg/s (normal flames), 2.3 to 11.3 mg/s (inverse flames)"
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": "at extinction: normal-flame fuel mass flux 0.2 g/m2-s; inverse-flame oxygen mass flux 0.68 g/m2-s"
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -3678,10 +4445,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "A modeling input for still-air gas flames: the ISS spherical ethylene flames extinguished at about 1130 K and at these critical reactant mass fluxes.",
+   "decision_hint": "The quoted extinction temperature and reactant fluxes describe the reported Flame Design analysis, not universal fire cutoff values.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery list of the final report gives 1130 K, 0.2 g/m2-s and 0.68 g/m2-s for all ISS flames observed; the abstract above it gives the same values and the tested ranges."
+    "support": "Section 4.D summarizes the ISS extinction analysis. These are critical reactant mass fluxes at the flame, not total burner inlet flow rates or universal extinction thresholds."
    }
   },
   {
@@ -3701,22 +4468,22 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "ethylene, diluted with nitrogen",
-    "o2_percent": "oxygen diluted with nitrogen",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent chamber; constant reactant flow from the burner"
+    "flow": null
    },
-   "evidence_level": "flight experiment",
+   "evidence_level": "model or analysis",
    "environment_relevance": [
     "spacecraft",
     "station"
    ],
    "earth_instinct": "With no airflow, a flame uses up the oxygen around it and goes out.",
-   "decision_hint": "A small gas-fed flame in still air can reach a steady state and keep burning while the gas keeps flowing; isolate the gas source.",
+   "decision_hint": "The reported analysis allows steady spherical flames only under its stated flame-size and temperature conditions.",
    "verified": {
     "quote": "exact match",
-    "support": "Abstract reproduced in the report states the two provisos and the 1130 K critical temperature."
+    "support": "The quoted existence and size/temperature criteria are analytical conclusions from a combined ISS and transient-model study. They do not demonstrate permanent burning."
    }
   },
   {
@@ -3736,11 +4503,11 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "ethylene, diluted with nitrogen",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent chamber; constant reactant flow from the burner"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -3748,10 +4515,10 @@
     "station"
    ],
    "earth_instinct": "A small flame in still air lasts only seconds.",
-   "decision_hint": "Do not wait for a small gas-fed flame to burn itself out; it lasted more than 14 minutes in the experiment.",
+   "decision_hint": "Flame Design observed steady-state behavior for up to 870 s within a narrow range of attainable conditions.",
    "verified": {
     "quote": "exact match",
-    "support": "Same abstract states steady-state behavior was observed aboard the ISS for up to 870 s."
+    "support": "The same abstract explicitly distinguishes observed ISS behavior up to 870 s from subsequent numerical simulations over 100,000 s."
    }
   },
   {
@@ -3770,12 +4537,12 @@
     "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "ethylene in an oxygen/nitrogen mixture",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
-    "pressure": "atmospheric pressure",
-    "flow": "quiescent chamber"
+    "pressure": null,
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -3783,10 +4550,10 @@
     "station"
    ],
    "earth_instinct": "Once the flame disappears, the fire is out.",
-   "decision_hint": "A flame that partly goes out can reform several times; confirm extinction over time before standing down.",
+   "decision_hint": "The reported Flame Design flames could partially extinguish and reform before complete extinction.",
    "verified": {
     "quote": "exact match",
-    "support": "Abstract for the normal ethylene flames at atmospheric pressure describes the oscillatory mode and the growing oscillations."
+    "support": "The 2021 study abstract in the report explicitly describes partial extinction and reformation before complete extinction."
    }
   },
   {
@@ -3805,12 +4572,12 @@
     "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "ethylene in an oxygen/nitrogen mixture",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent chamber; constant reactant flow rate"
+    "flow": "constant reactant flow rate"
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -3821,7 +4588,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "Discovery list of the final report states it in these words."
+    "support": "The discovery summary describes radiative extinction at constant reactant flow as heat loss approaches chemical heat release."
    }
   },
   {
@@ -3841,11 +4608,11 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "ethylene",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent chamber"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -3853,10 +4620,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "For the same reactant flow, a gas-fed spherical flame was smaller at higher ambient oxygen; do not use flame size alone to judge a fire in an oxygen-enriched cabin.",
+   "decision_hint": "In the normal-flame ISS tests, increasing ambient oxygen reduced flame size at the compared reactant flows.",
    "verified": {
     "quote": "exact match",
-    "support": "Flame Design section of the 2021 NASA paper states both trends for the normal-flame ISS tests."
+    "support": "The named Flame Design section reports this relation for normal-flame ISS tests; flame size alone is not a quoted intensity measurement."
    }
   },
   {
@@ -3864,7 +4631,7 @@
    "investigation": "Flame Design",
    "pillar": "response",
    "topic": "burn times and flame growth",
-   "claim": "Burn times of the normal ethylene spherical flames ranged from 28 to 336 s; all flames grew monotonically after ignition and peak gas temperature generally decreased with time.",
+   "claim": "In the reported Flame Design study, burn times ranged from 28 to 336 s, all flames grew monotonically after ignition, and peak gas temperature generally decreased with time.",
    "quote": "Burn times range from 28 –336 s. All flames grow monotonically after ignition. Peak gas temperature generally decreases with time.",
    "source": {
     "kind": "pdf",
@@ -3875,12 +4642,12 @@
     "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "ethylene in an oxygen/nitrogen mixture",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
-    "pressure": "atmospheric pressure",
-    "flow": "quiescent chamber"
+    "pressure": null,
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -3891,7 +4658,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "Abstract for normal spherical ethylene flames at atmospheric pressure gives 28-336 s, monotonic growth and falling peak gas temperature."
+    "support": "The source is the 2021 normal spherical-flame study abstract, not the separate 870 s study. The quoted 28 to 336 s range and temperature trend are retained."
    }
   },
   {
@@ -3910,9 +4677,9 @@
     "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "ethylene, diluted with nitrogen",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
     "flow": null
@@ -3923,10 +4690,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "A still-air flame keeps changing slowly for a very long time; one short observation does not show its final state.",
+   "decision_hint": "The roughly 100,000 s estimate applies to the idealized spherical, infinite-domain diffusion system.",
    "verified": {
     "quote": "exact match",
-    "support": "Abstract reproduced in the report gives the order of 100,000 s for the infinite-domain configuration; it is a model result, as labeled."
+    "support": "The quoted 100,000 s is the theoretical infinite-domain characteristic time, not an ISS flame duration."
    }
   },
   {
@@ -3945,23 +4712,23 @@
     "text_file": "raw/pdf/PSI-10_flame-design-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "ethylene",
-    "o2_percent": "up to 40 (normal flames)",
+    "gravity": null,
+    "platform": null,
+    "fuel": "ethylene (inverse-flame mole fraction limit 65%)",
+    "o2_percent": null,
     "pressure": null,
     "flow": null
    },
-   "evidence_level": "flight experiment",
+   "evidence_level": "operations",
    "environment_relevance": [
     "spacecraft",
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "Mark normal-flame behavior in ambient oxygen above 40% as not tested by Flame Design.",
+   "decision_hint": "The 40% oxygen value was a safety limit on normal-flame testing, not a demonstrated safe cabin atmosphere.",
    "verified": {
     "quote": "exact match",
-    "support": "Follow-on section states the 40% oxygen and 65% ethylene limits and gives safety as the reason."
+    "support": "The Follow-On Experiments discussion gives safety-imposed test concentration limits. It is classified as operations, not evidence that those limits are safe cabin settings."
    }
   },
   {
@@ -3969,8 +4736,8 @@
    "investigation": "Flame Design",
    "pillar": "design",
    "topic": "soot and flame structure (drop tower precursor)",
-   "claim": "In 2.2-second drop tower tests of spherical ethylene flames, flame structure had a defining influence on soot production: soot was suppressed entirely when nitrogen was supplied with the fuel.",
-   "quote": "In these flames, structure has a defining influence on soot production, with soot suppressed entirely when nitrogen is supplied with the fuel.",
+   "claim": "In the DESI precursor tests described in the source, four spherical ethylene flames burned at 1.5 mg/sec in a still ambient at 1 atm; soot was suppressed entirely when nitrogen was supplied with the fuel, with convection direction having a smaller influence.",
+   "quote": "These four flames burn ethylene (C2H4) at a rate of 1.5 mg/sec in a still ambient at a pressure of 1 atm. Several salient features of these flames are summarized in the table. In these flames, structure has a defining influence on soot production, with soot suppressed entirely when nitrogen is supplied with the fuel. Convection direction has a smaller influence, suppressing soot when convection is directed toward the oxidizer.",
    "source": {
     "kind": "pdf",
     "id": "20050195844",
@@ -3980,12 +4747,12 @@
     "text_file": "raw/pdf/20050195844.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "2.2-Second Drop Tower, NASA Glenn",
+    "gravity": null,
+    "platform": null,
     "fuel": "ethylene at 1.5 mg/sec",
     "o2_percent": null,
     "pressure": "1 atm",
-    "flow": "still ambient"
+    "flow": "still ambient; ethylene flow 1.5 mg/sec"
    },
    "evidence_level": "ground low-gravity (drop tower, aircraft)",
    "environment_relevance": [
@@ -3996,7 +4763,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "The NASA Glenn summary of four 2.2-Second Drop Tower ethylene flames states it in these words."
+    "support": "The NASA report identifies the experiments as DESI drop-tower precursor work. The widened quote includes the actual ethylene rate, pressure, still ambient and smaller convection-direction effect."
    }
   },
   {
@@ -4005,7 +4772,7 @@
    "pillar": "suppression",
    "topic": "two extinction modes",
    "claim": "Nitrogen-diluted methane and ethylene spherical flames in air seem to show kinetic extinction at low flow rates and radiative extinction at high flow rates.",
-   "quote": "Nitrogen-diluted methane and ethylene flames in air seem to demonstrate kinetic extinction at low flow rates (low system Da) and radiative extinction at high flow rates (high system Da).",
+   "quote": "Nitrogen-diluted methane and ethylene flames in air seem to demonstrate kinetic extinction at low flow rates (low system Da) and radiative extinction at high flow rates (high system Da). Such phenomena were not observed in our ground-based research, given the limited microgravity durations. Nevertheless, comparisons with computational simulations are needed to assess better the extinction behavior.",
    "source": {
     "kind": "pdf",
     "id": "PSI-23:6841ce426daf91e274cecd4e",
@@ -4015,12 +4782,12 @@
     "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": "nitrogen-diluted methane and ethylene",
-    "o2_percent": "air",
+    "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent atmosphere; fuel flow rate varied"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4028,10 +4795,10 @@
     "station"
    ],
    "earth_instinct": "Less fuel means a smaller fire and more fuel a bigger one, with nothing in between going out.",
-   "decision_hint": "These spherical gas flames seem to survive only within a window of fuel flow: extinction was seen at low and at high flow rates.",
+   "decision_hint": "The s-Flame report tentatively identifies low-flow kinetic and high-flow radiative extinction and calls for computational comparison.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 1 of the s-Flame final report states it with the same \"seem to\" hedge."
+    "support": "The source says seem and immediately requires computational comparison to assess extinction behavior; both limitations are retained."
    }
   },
   {
@@ -4039,7 +4806,7 @@
    "investigation": "s-Flame",
    "pillar": "suppression",
    "topic": "flow window for a spherical ethylene flame",
-   "claim": "For 20-30% ethylene in nitrogen, spherical non-sooty flames established at 3 cc/s went to kinetic extinction on ramp down before reaching 1 cc/s and to radiative extinction on ramp up before reaching 8 cc/s.",
+   "claim": "For mixtures with 20-30% ethylene, spherical non-sooty flames established at 3 cc/s underwent kinetic extinction on ramp down before reaching 1 cc/s and radiative extinction on ramp up before reaching 8 cc/s.",
    "quote": "For mixtures with 20-30% C2H4 content, spherical non-sooty flames are established at 3 cc/s; and kinetic extinctions are observed during ramp down before reaching 1 cc/s. For the same mixtures, radiative extinctions are observed when the non-sooty flames are established at 3 cc/s and the flow rates are ramped up before reaching 8 cc/s.",
    "source": {
     "kind": "pdf",
@@ -4050,12 +4817,12 @@
     "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "nitrogen-diluted C2H4, 20-30%",
-    "o2_percent": "21 (21% O2 / 79% N2)",
+    "gravity": null,
+    "platform": null,
+    "fuel": "mixtures with 20-30% C2H4",
+    "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent atmosphere; fuel-mixture flow ramped between 1 and 8 cc/s"
+    "flow": "established at 3 cc/s; ramped down toward 1 cc/s or up toward 8 cc/s"
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4066,7 +4833,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "Test day 19256 text (nitrogen-diluted C2H4 into 21% O2 / 79% N2) gives the 3, 1 and 8 cc/s values and both extinction modes."
+    "support": "The direct test discussion reports the 20-30% C2H4 mixtures and the three flow settings. Nitrogen balance, oxygen and quiescence are not in this quote."
    }
   },
   {
@@ -4086,11 +4853,11 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "nitrogen-diluted methane and ethylene",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent atmosphere"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4098,10 +4865,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "This team's ground low-gravity tests were too short to show these extinction modes; prefer long-duration data when judging whether a still-air flame sustains.",
+   "decision_hint": "Radiative extinction was common in the s-Flame ISS tests despite not being observed previously for those flame conditions.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 1 states radiative extinction was common in ISS testing, predicted computationally and not observed before for these conditions."
+    "support": "The source explicitly names ISS testing and radiative extinction; it does not claim that all ground low-gravity experiments are too short."
    }
   },
   {
@@ -4120,12 +4887,12 @@
     "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
    },
    "conditions": {
-    "gravity": "microgravity compared with normal gravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": "microgravity",
+    "platform": null,
     "fuel": "ethylene",
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent atmosphere"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4133,10 +4900,10 @@
     "station"
    ],
    "earth_instinct": "Where there is fire there is smoke.",
-   "decision_hint": "A still-air gas flame may give little or no soot; do not rely on smoke particles alone to detect it.",
+   "decision_hint": "Soot in these s-Flame ethylene tests appeared during forced ignition and then dissipated.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 2 states it in these words."
+    "support": "Section 4.D.2 reports microgravity ethylene soot only during hotwire ignition followed by dissipation, without measuring smoke-detector performance."
    }
   },
   {
@@ -4155,12 +4922,12 @@
     "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent atmosphere"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4168,10 +4935,10 @@
     "station"
    ],
    "earth_instinct": "A dim flame is a weak flame.",
-   "decision_hint": "Do not judge severity by how bright the flame looks; use temperature or radiation readings.",
+   "decision_hint": "The s-Flame report says flame brightness did not necessarily indicate combustion intensity.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 8 is this sentence."
+    "support": "Section 4.D.8 directly states that luminosity need not correspond to combustion intensity, without recommending a sensing technology."
    }
   },
   {
@@ -4190,12 +4957,12 @@
     "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": "nitrogen-diluted hydrogen",
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent atmosphere"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4203,10 +4970,10 @@
     "station"
    ],
    "earth_instinct": "No visible flame, no fire.",
-   "decision_hint": "For hydrogen flames do not rely on sight: in these tests thermocouples, radiometers and photomultiplier tubes showed flames that were barely visible.",
+   "decision_hint": "The faint nitrogen-diluted hydrogen flames were evident in thermocouple, radiometer and photomultiplier-tube measurements.",
    "verified": {
     "quote": "exact match",
-    "support": "Weekly log in the report describes the nitrogen-diluted hydrogen flames as barely visible and names the three instruments."
+    "support": "The operational account names nitrogen-diluted hydrogen and the three instrument types that revealed the faint flames; no ultraviolet detector recommendation is quoted."
    }
   },
   {
@@ -4225,12 +4992,12 @@
     "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "pure hydrogen and diluted hydrogen",
+    "gravity": null,
+    "platform": null,
+    "fuel": "pure and diluted hydrogen",
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent atmosphere"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4238,10 +5005,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "Do not rely on ordinary video to confirm or rule out a hydrogen fire.",
+   "decision_hint": "The reported hydrogen flames were difficult to image with the named s-Flame cameras.",
    "verified": {
     "quote": "exact match",
-    "support": "The report names imaging pure and diluted hydrogen flames a critical challenge: not apparent or hardly visible to the DataCam and the analog operations camera."
+    "support": "Hardware Shortcomings names the DataCam and analog operations camera and their poor hydrogen-flame visibility."
    }
   },
   {
@@ -4249,8 +5016,8 @@
    "investigation": "s-Flame",
    "pillar": "prevention",
    "topic": "hydrogen flames did not self-extinguish",
-   "claim": "Nitrogen-diluted hydrogen flames seem to need very large sizes to self-extinguish: radiative extinction was not observed in the cases run, even with lower hydrogen concentration.",
-   "quote": "Nitrogen-diluted hydrogen flames seem to need to be at very large characteristic sizes to self- extinguish. As such, radiative extinction was not observed for the cases run, despite lowering the H2 concentration.",
+   "claim": "Nitrogen-diluted hydrogen flames seemed to require very large sizes to self-extinguish; radiative extinction was not observed in the cases run despite lower hydrogen concentration, although kinetic extinction appeared during ramp down.",
+   "quote": "Nitrogen-diluted hydrogen flames seem to need to be at very large characteristic sizes to self- extinguish. As such, radiative extinction was not observed for the cases run, despite lowering the H2 concentration. However, kinetic extinction during ramp down seem to be exhibited for hydrogen flames.",
    "source": {
     "kind": "pdf",
     "id": "PSI-23:6841ce426daf91e274cecd4e",
@@ -4260,12 +5027,12 @@
     "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "nitrogen-diluted hydrogen (45%-15% H2)",
-    "o2_percent": "air",
+    "gravity": null,
+    "platform": null,
+    "fuel": "nitrogen-diluted hydrogen",
+    "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent atmosphere; e.g. 10 cc/s"
+    "flow": "ramp down for apparent kinetic extinction"
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4273,10 +5040,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "Do not expect a hydrogen leak flame to go out by radiative loss as hydrocarbon flames did; stop the hydrogen supply.",
+   "decision_hint": "Radiative extinction was not observed for the tested nitrogen-diluted hydrogen flames; kinetic extinction appeared possible during ramp down.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 3 states it with the same hedge; the test day 20024 text confirms flames at 10 cc/s did not extinguish."
+    "support": "The immediate However sentence reports apparent kinetic extinction during ramp down. It is included so absence of observed radiative extinction is not misread as absence of all extinction."
    }
   },
   {
@@ -4284,8 +5051,8 @@
    "investigation": "s-Flame",
    "pillar": "response",
    "topic": "flash and re-ignition before extinction",
-   "claim": "At 5-10 cc/s, flames seemed to disappear and re-ignite with a flash before final extinction.",
-   "quote": "For 5-10 cc/s, the flames seemed to disappear and 're- ignite' with a \"flash\" before final extinction.",
+   "claim": "In s-Flame test day 20132, with 25% hydrogen / 20% methane / 55% helium issuing into 21% oxygen / 79% helium, flames at 5-10 cc/s seemed to disappear and re-ignite with a flash before final extinction; the phenomenon was still under investigation.",
+   "quote": "Test day 20132 examines helium-diluted fuel mixture of 25% H2 / 20% CH4 / 55% He issuing into an ambient of 21% O2 / 79% He. The high thermal conductivity of He drastically shifts the ignition parameters from that using N2 as inert in Round 1. The tests produced flames at 3-10 cc/s that expand outwardly quickly and extinguish. For 5-10 cc/s, the flames seemed to disappear and 're- ignite' with a \"flash\" before final extinction. We are currently investigating the flash phenomenon.",
    "source": {
     "kind": "pdf",
     "id": "PSI-23:6841ce426daf91e274cecd4e",
@@ -4295,47 +5062,12 @@
     "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": "25% H2 / 20% CH4 / 55% He",
-    "o2_percent": "21 (21% O2 / 79% He)",
+    "o2_percent": "21",
     "pressure": null,
-    "flow": "quiescent atmosphere; 5-10 cc/s"
-   },
-   "evidence_level": "flight experiment",
-   "environment_relevance": [
-    "spacecraft",
-    "station"
-   ],
-   "earth_instinct": "Once the flame disappears, the fire is out.",
-   "decision_hint": "After a flame vanishes, keep watching: in these tests it seemed to re-ignite with a flash.",
-   "verified": {
-    "quote": "exact match",
-    "support": "Test day 20132 text (25% H2 / 20% CH4 / 55% He into 21% O2 / 79% He) states it with \"seemed to\"."
-   }
-  },
-  {
-   "id": "ACME-062",
-   "investigation": "s-Flame",
-   "pillar": "prevention",
-   "topic": "elevated oxygen and ignition",
-   "claim": "An elevated oxygen ambient facilitates ignition and results in a smaller characteristic flame size.",
-   "quote": "Elevated oxygen ambient facilitates ignition and results in smaller characteristic flame size.",
-   "source": {
-    "kind": "pdf",
-    "id": "PSI-23:6841ce426daf91e274cecd4e",
-    "title": "ACME/s-Flame Final Report (2021)",
-    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-23/download?file=6841ce426daf91e274cecd4e",
-    "year": 2021,
-    "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
-   },
-   "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "30% H2 / 15% CH4 / 55% He",
-    "o2_percent": "30 (30% O2 / 70% He)",
-    "pressure": null,
-    "flow": "quiescent atmosphere"
+    "flow": "5-10 cc/s for the reported flashes"
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4343,10 +5075,48 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "Higher oxygen made ignition easier and the flame smaller in this helium-balance test; treat easier ignition in an oxygen-enriched cabin as an extrapolation.",
+   "decision_hint": "The reported flashes only seemed to be re-ignition and remained under investigation.",
    "verified": {
     "quote": "exact match",
-    "support": "Test day 20142 text (30% H2 / 15% CH4 / 55% He into 30% O2 / 70% He) is this sentence."
+    "support": "The complete day-20132 paragraph states fuel, oxidizer, flow range, apparent flashes and ongoing investigation. Re-ignition remains an interpretation, not an unqualified finding."
+   }
+  },
+  {
+   "id": "ACME-062",
+   "investigation": "s-Flame",
+   "pillar": "prevention",
+   "topic": "elevated oxygen and ignition",
+   "claim": "For the reported 30% hydrogen / 15% methane / 55% helium blend issuing into 30% oxygen / 70% helium, elevated oxygen facilitated ignition and reduced characteristic flame size; the 5-16.5 cc/s flames expanded to oscillatory radiative extinction.",
+   "quote": "Test day 20142 investigates the fuel blend 30% H2 / 15% CH4 / 55% He issuing into 30% O2/ 70% He. Elevated oxygen ambient facilitates ignition and results in smaller characteristic flame size. For 5-16.5 cc/s flow rates, flames expand to wavy/oscillatory radiative extinction. Ramp down cases did not allow for assessment of kinetic extinction.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-23:6841ce426daf91e274cecd4e",
+    "title": "ACME/s-Flame Final Report (2021)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-23/download?file=6841ce426daf91e274cecd4e",
+    "year": 2021,
+    "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": "30% H2 / 15% CH4 / 55% He",
+    "o2_percent": "30",
+    "pressure": null,
+    "flow": "5-16.5 cc/s"
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "The ignition and flame-size observation applies to the reported helium-diluted fuel and oxidizer case.",
+   "verified": {
+    "quote": "exact match",
+    "support": "The full day-20142 paragraph ties the oxygen/ignition statement to a particular helium-diluted mixture and reports the subsequent radiative extinction."
    }
   },
   {
@@ -4365,12 +5135,12 @@
     "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": "15% CH4 / 85% N2",
-    "o2_percent": "30 (30% O2 / 70% N2)",
+    "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent atmosphere"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4381,7 +5151,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "Test day 19308 text (nitrogen-diluted methane into 30% O2 / 70% N2) states it for the 15% CH4 / 85% N2 mixture."
+    "support": "The sentence reports prompt extinction of the 15% CH4 / 85% N2 mixture. The 30% oxygen condition is outside this quotation and is not carried into conditions."
    }
   },
   {
@@ -4390,7 +5160,7 @@
    "pillar": "suppression",
    "topic": "helium dilution",
    "claim": "Helium-diluted cases had shifted extinction limits compared with nitrogen-diluted cases, and ignition was severely affected by using helium as the diluent.",
-   "quote": "Helium-diluted cases had shifted extinction limits with respect to the nitrogen-diluted cases. In general, kinetic extinction was difficult to observe for the conditions examined. Ignition was also severely affected by using He as diluent.",
+   "quote": "Helium-diluted cases had shifted extinction limits with respect to the nitrogen-diluted cases. In general, kinetic extinction was difficult to observe for the conditions examined. Ignition was also severely affected by using He as diluent. More analyses are needed to assess instability near the flame limits, which was predicted to occur computationally.",
    "source": {
     "kind": "pdf",
     "id": "PSI-23:6841ce426daf91e274cecd4e",
@@ -4400,12 +5170,12 @@
     "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "helium-diluted hydrogen, methane, hydrogen/methane and ethylene",
-    "o2_percent": "21 and 30 (helium balance)",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent atmosphere"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4413,10 +5183,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "Helium changes ignition and extinction limits compared with nitrogen; do not swap inert gases in a model without data for that gas.",
+   "decision_hint": "The reported helium cases differed from nitrogen cases, but kinetic extinction remained difficult to observe.",
    "verified": {
     "quote": "exact match",
-    "support": "Discovery item 5 states the shifted extinction limits and the severe effect of helium on ignition."
+    "support": "The complete summary retains difficulty observing kinetic extinction and the need for further instability analysis."
    }
   },
   {
@@ -4424,7 +5194,7 @@
    "investigation": "s-Flame",
    "pillar": "suppression",
    "topic": "no ignition in 21% oxygen with helium",
-   "claim": "Ignition was not achieved in tests in a 21% O2 / 79% He atmosphere, for the ignition parameters used.",
+   "claim": "In the reported s-Flame test-day-20164 case, ignition was not achieved in the 21% oxygen / 79% helium atmosphere for the ignition parameters used.",
    "quote": "Ignition is not achieved for tests conducted with 21% O2 / 79% He atmosphere, for the ignition parameters utilized.",
    "source": {
     "kind": "pdf",
@@ -4435,12 +5205,12 @@
     "text_file": "raw/pdf/PSI-23_s-flame-final-report-20210729.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "20% C2H4 / 80% He",
-    "o2_percent": "21 (21% O2 / 79% He)",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": "21",
     "pressure": null,
-    "flow": "quiescent atmosphere"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4451,7 +5221,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "Test day 20164 text (20% C2H4 / 80% He) states it and limits it to the ignition parameters used."
+    "support": "This sentence occurs in the test-day-20164 discussion of 20% C2H4 / 80% He. Its ignition-parameter restriction is preserved; the unquoted fuel is not carried into conditions."
    }
   },
   {
@@ -4460,7 +5230,7 @@
    "pillar": "detection",
    "topic": "first spherical cool flames of gaseous fuel",
    "claim": "CFI-G observed spherical non-premixed cool flames burning gaseous fuels for the first time.",
-   "quote": "This was the first time spherical non-premixed cool flames have been observed burning gaseous fuels.",
+   "quote": "New research conducted aboard the orbiting laboratory in June 2021 has now achieved another first for microgravity flame research. Data from tests conducted for the Cool Flames Investigation with Gases (CFI-G), sponsored by the ISS U.S. National Lab and National Science Foundation, show the presence of cool flames. While the flames created aboard station in 2012 burned liquid fuel, these new cool flames burned gaseous fuels. This was the first time spherical non-premixed cool flames have been observed burning gaseous fuels.",
    "source": {
     "kind": "nasa-page",
     "id": "cool-flames-first",
@@ -4471,7 +5241,7 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "platform": null,
     "fuel": "gaseous fuels",
     "o2_percent": null,
     "pressure": null,
@@ -4486,7 +5256,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "NASA article on CFI-G states this was the first time spherical non-premixed cool flames were observed burning gaseous fuels."
+    "support": "The widened NASA account names CFI-G, distinguishes earlier liquid-fuel FLEX work from the new gaseous-fuel result, and locates the new work aboard the station."
    }
   },
   {
@@ -4505,12 +5275,12 @@
     "text_file": "raw/pdf/PSI-159_cfi-g-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": "n-butane (normal flames)",
-    "o2_percent": "39",
+    "o2_percent": null,
     "pressure": "2 bar",
-    "flow": "quiescent chamber"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4518,10 +5288,10 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "In CFI-G, cool flames of gaseous fuel appeared only at raised pressure and oxygen; the data do not show them at cabin-like conditions.",
+   "decision_hint": "The cited CFI-G result was obtained only for the specified normal n-butane flames at 2 bar and oxygen mole fraction 0.39.",
    "verified": {
     "quote": "exact match",
-    "support": "Abstract reproduced in the CFI-G final report states the cool flames were only obtained for normal n-butane flames at 2 bar and oxygen mole fraction 0.39."
+    "support": "The CFI-G result is specifically restricted to normal n-butane flames at 2 bar and ambient oxygen mole fraction 0.39. Multiplication by 100 gives 39%; this is not an inverse-flame oxidizer condition."
    }
   },
   {
@@ -4541,8 +5311,8 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "gaseous fuels",
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
     "flow": null
@@ -4553,10 +5323,10 @@
     "station"
    ],
    "earth_instinct": "No visible flame, no fire.",
-   "decision_hint": "After the visible flame is gone, check radiation and temperature readings before declaring the fire out.",
+   "decision_hint": "In these CFI-G tests, thermal-radiation and burner-temperature data revealed cool flames that were not visible in real time.",
    "verified": {
     "quote": "exact match",
-    "support": "NASA article states the flames were too faint to see in real time and that three were found in the radiation and burner temperature data."
+    "support": "NASA explicitly reports three cool flames discovered retrospectively through radiation and burner-temperature data after hot-flame quenching."
    }
   },
   {
@@ -4565,7 +5335,7 @@
    "pillar": "response",
    "topic": "cool flame after hot flame quenches",
    "claim": "In CFI-G imaging, the hot flame quenched, a comparatively dark period of roughly a second followed, and then a cool flame became evident.",
-   "quote": "The sequence shows the quenching of the hot flame, followed by a comparatively dark period lasting roughly a second, after which the cool flame becomes evident.",
+   "quote": "An intensified camera filtered to look for the very faint emissions of a cool flame produced the flame images above. As expected, the cool flame was much smaller than the hot flame. The sequence shows the quenching of the hot flame, followed by a comparatively dark period lasting roughly a second, after which the cool flame becomes evident.",
    "source": {
     "kind": "nasa-page",
     "id": "cool-flames-first",
@@ -4575,9 +5345,9 @@
     "text_file": "raw/nasa/cool-flames-first.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "gaseous fuels",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
     "flow": null
@@ -4588,10 +5358,10 @@
     "station"
    ],
    "earth_instinct": "Once the flame disappears, the fire is out.",
-   "decision_hint": "Treat the moment a hot flame goes dark as unconfirmed: low-temperature burning can continue unseen.",
+   "decision_hint": "The intensified CFI-G images showed a cool flame after the hot flame quenched and a roughly one-second dark interval.",
    "verified": {
     "quote": "exact match",
-    "support": "NASA article describes the image sequence: hot flame quenches, about a second of dark, then the cool flame."
+    "support": "The complete caption context identifies intensified filtered imaging and then the dark interval and cool-flame appearance; it is not an ordinary-camera visibility result."
    }
   },
   {
@@ -4600,7 +5370,7 @@
    "pillar": "detection",
    "topic": "cool flame size",
    "claim": "The hot flames that spawned the cool diffusion flames were 2.6 times as large as the cool flames.",
-   "quote": "The hot flames that spawned the CDFs were 2.6 times as large.",
+   "quote": "However, these CDFs were not readily produced and were only obtained for normal n-butane flames at 2 bar with an ambient oxygen mole fraction of 0.39. The hot flames that spawned the CDFs were 2.6 times as large.",
    "source": {
     "kind": "pdf",
     "id": "PSI-159:691f7ea117f78b371b26f6f8",
@@ -4610,12 +5380,12 @@
     "text_file": "raw/pdf/PSI-159_cfi-g-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": "n-butane (normal flames)",
-    "o2_percent": "39",
+    "o2_percent": null,
     "pressure": "2 bar",
-    "flow": "quiescent chamber"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4626,7 +5396,7 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "The sentence follows the one on the n-butane cool flames in the same abstract."
+    "support": "The preceding However sentence now accompanies the size ratio, identifying the same normal n-butane, 2 bar, 0.39 oxygen-mole-fraction cases."
    }
   },
   {
@@ -4658,10 +5428,10 @@
     "station"
    ],
    "earth_instinct": "A fire is always very hot.",
-   "decision_hint": "Set thermal detection thresholds knowing that a cool flame can burn at 500 to 1000 K.",
+   "decision_hint": "The cited summary gives cool-flame peak temperatures of 500 to 1000 K; it provides no validated detector threshold.",
    "verified": {
     "quote": "exact match",
-    "support": "The final report gives 500 - 1000 K as the peak temperatures of cool diffusion flames, as background."
+    "support": "The 500 to 1000 K range is background in the report Impacts section, not a CFI-G temperature measurement or validated detector setting."
    }
   },
   {
@@ -4669,8 +5439,8 @@
    "investigation": "CFI-G",
    "pillar": "response",
    "topic": "hot-flame reignition from a cool flame",
-   "claim": "On an added test day, cool flames reignited as hot flames because of catalysis from the platinum in an exposed type-B thermocouple close to the burner.",
-   "quote": "Unfortunately, an unwanted outcome was hot-flame reignition (from the cool flames) caused by catalysis from the platinum in the exposed type-B thermocouple closest to the burner.",
+   "claim": "In the reported CFI-G tests, hot-flame reignition from cool flames was attributed to catalysis by platinum in the exposed type-B thermocouple closest to the burner.",
+   "quote": "Unfortunately, an unwanted outcome was hot-flame reignition (from the cool flames) caused by catalysis from the platinum in the exposed type-B thermocouple closest to the burner. While temperature measurements were made, the cool flames on that additional day of testing were regrettably short-lived.",
    "source": {
     "kind": "pdf",
     "id": "PSI-159:691f7ea117f78b371b26f6f8",
@@ -4680,23 +5450,23 @@
     "text_file": "raw/pdf/PSI-159_cfi-g-final-report.txt"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "n-butane (normal flames)",
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
     "o2_percent": null,
     "pressure": null,
-    "flow": "quiescent chamber"
+    "flow": null
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
     "spacecraft",
     "station"
    ],
-   "earth_instinct": "A fire that has gone out cannot come back without a new spark.",
-   "decision_hint": "A cool flame can turn back into a hot flame on a catalytic surface such as platinum; keep suppression ready after the visible flame is gone.",
+   "earth_instinct": null,
+   "decision_hint": "CFI-G attributed the reported hot-flame reignition to platinum catalysis in a particular thermocouple.",
    "verified": {
     "quote": "exact match",
-    "support": "The report describes the added test day of 18 Oct. 2021 and names platinum catalysis at the exposed type-B thermocouple as the cause of reignition."
+    "support": "The Hardware Shortcomings account attributes the observed hot-flame reignition to platinum catalysis in the closest exposed type-B thermocouple; it does not imply all extinguished fires reignite. The following sentence restricts the cool flames on that day to short-lived events and is included."
    }
   },
   {
@@ -4710,17 +5480,17 @@
     "kind": "psi",
     "id": "PSI-159",
     "title": "PSI-159 Experimental table: PSI-159_Experimental table_CFI-G_Normal Flames.csv",
-    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=PSI-159_Experimental%20table_CFI-G_Normal%20Flames.csv",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-159",
     "year": 2025,
     "text_file": "raw/psi/tables/PSI-159_Experimental table_CFI-G_Normal Flames.csv"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "gravity": null,
+    "platform": null,
     "fuel": "30% butane",
-    "o2_percent": "39.4 before test, 38.9 after test",
-    "pressure": "2.0266 bar (approximate)",
-    "flow": "quiescent chamber; hydrocarbon flow 1 mg/s"
+    "o2_percent": null,
+    "pressure": null,
+    "flow": "hydrocarbon mass flow 1 mg/s"
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
@@ -4728,45 +5498,48 @@
     "station"
    ],
    "earth_instinct": null,
-   "decision_hint": "A fire can alternate between visible hot burning and dim cool burning; one look is not enough to call it out.",
+   "decision_hint": "The cited CFI-G row records repeated hot-to-cool transitions in one test; it does not validate a fire-clearance procedure.",
    "verified": {
     "quote": "exact match",
-    "support": "The PSI table row for test 21291 C1 matches the claim column by column (fuel, oxygen before and after, pressure, 1 mg/s, 246 s, comment)."
+    "support": "Complete CSV row 21291 C1 was checked against headers: Fuel, XO2 before/after test, approx p (bar), mHC (mg/s), burn time (sec), and Comments. Oxygen percentages are the two mole fractions multiplied by 100. The raw table row is a structured citation, not prose."
    }
   },
   {
    "id": "ACME-074",
    "investigation": "CFI-G",
    "pillar": "design",
-   "topic": "highest oxygen mole fraction in the CFI-G tables (inverse flames)",
-   "claim": "CFI-G inverse flames were run with an oxidizer oxygen mole fraction of 0.85; in test 21222 A3 (propane, about 3.3 bar) the flame burned 18 s and self-extinguished.",
+   "topic": "highest-oxygen tests (inverse flames)",
+   "claim": "In CFI-G inverse-flame test 21222 A3, the table records propane, approximate pressure 3.3099 bar, burner oxidizer oxygen mole fraction 0.85, burn time 18 s and self-extinction (SE).",
    "quote": "Inverse,5,propane,21222 A3,0.079906404,0.079781526,3.3099,0.85,2.5,9.069954649,No,2531.989722,0.664998626,Yes,18,SE,100.4,373.55,limit,",
    "source": {
     "kind": "psi",
     "id": "PSI-159",
     "title": "PSI-159 Experimental table: PSI-159_Experimental table_CFI-G_Inverse Flames.csv",
-    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-159/download?file=PSI-159_Experimental%20table_CFI-G_Inverse%20Flames.csv",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-159",
     "year": 2025,
     "text_file": "raw/psi/tables/PSI-159_Experimental table_CFI-G_Inverse Flames.csv"
    },
    "conditions": {
-    "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
-    "fuel": "propane (inverse flame; fuel mole fraction 0.0799 before test)",
-    "o2_percent": "85 (XO2 0.85)",
-    "pressure": "3.3099 bar (approximate)",
-    "flow": "O2 flow rate 9.07 mg/s; HC burn rate 2.5 mg/s"
+    "gravity": null,
+    "platform": null,
+    "fuel": "propane (inverse flame; fuel mole fraction 0.079906404 before test)",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": "O2 flow rate 9.069954649 mg/s; HC burn rate 2.5 mg/s"
    },
    "evidence_level": "flight experiment",
    "environment_relevance": [
     "spacecraft",
-    "station"
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
    ],
    "earth_instinct": null,
-   "decision_hint": "These are inside-out flames (oxidizer injected into a fuel atmosphere); do not read them as a cabin atmosphere at 85% oxygen.",
+   "decision_hint": "The 0.85 oxygen mole fraction belongs to the inverse-flame burner oxidizer, not the chamber atmosphere.",
    "verified": {
     "quote": "exact match",
-    "support": "The PSI table row for test 21222 A3 gives propane, 3.3099 bar, XO2 0.85, 18 s and SE (self-extinguished); 0.85 is the highest XO2 in the CFI-G tables."
+    "support": "Complete inverse-flame CSV row 21222 A3 was checked against Fuel, Xf before test, approx p (bar), XO2, HC burnrate (mg/s), O2 flow rate (mg/s), burn time (sec) and Self-ext or flow term. SE denotes self-extinction in the source table. XO2 refers to burner oxidizer for inverse flames."
    }
   },
   {
@@ -4775,7 +5548,7 @@
    "pillar": "design",
    "topic": "inverse flames are inside out",
    "claim": "The CFI-G inverse flames were run with the chamber filled with nitrogen and gaseous fuel while an oxygen/nitrogen mixture flowed from the burner, so the flames were effectively inside out, with soot forming outside the flame.",
-   "quote": "The inverse flame tests were conducted with the chamber filled with a mixture of nitrogen and gaseous fuel while an oxygen/nitrogen mixture flowed from the burner. As a result, the inverse flames were effectively inside out, e.g., where the soot formed outside rather than inside of the flames.",
+   "quote": "The ISS operations for CFI-G were conducted from March to Oct. 2021 in two sequential rounds of testing. The two rounds occurred during Increments 64-65 and 65-66 and respectively featured normal and inverse flames. The inverse flame tests were conducted with the chamber filled with a mixture of nitrogen and gaseous fuel while an oxygen/nitrogen mixture flowed from the burner. As a result, the inverse flames were effectively inside out, e.g., where the soot formed outside rather than inside of the flames.",
    "source": {
     "kind": "pdf",
     "id": "PSI-159:691f7ea117f78b371b26f6f8",
@@ -4786,7 +5559,7 @@
    },
    "conditions": {
     "gravity": "microgravity",
-    "platform": "ISS Combustion Integrated Rack (CIR), ACME chamber insert",
+    "platform": null,
     "fuel": "gaseous fuel and nitrogen in the chamber",
     "o2_percent": null,
     "pressure": null,
@@ -4801,8 +5574,18 @@
    "decision_hint": null,
    "verified": {
     "quote": "exact match",
-    "support": "CFI-G final report describes the inverse configuration and calls the flames effectively inside out, with soot outside the flame."
+    "support": "The widened overview names ISS operations and the inverse configuration: nitrogen/fuel in the chamber and oxygen/nitrogen from the burner. It makes no claim that chamber oxygen is 85%."
    }
   }
- ]
+ ],
+ "verification": {
+  "verifier": "independent pass over acme.json, 2026-11-14",
+  "input_findings": 75,
+  "kept_unchanged": 0,
+  "kept_with_changes": 75,
+  "rejected": 0,
+  "pending": 0,
+  "input_investigations": 6,
+  "investigations_kept": 6
+ }
 }

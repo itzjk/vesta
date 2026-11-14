@@ -232,14 +232,16 @@ check(8, 'no key or token pattern in web/, mcp/ or tools/', () => {
     const t = read(p);
     for (const re of SECRETS) for (const m of t.matchAll(re)) fails.push(`${rel(p)}:${lineOf(t, m.index)} looks like a key or token (${m[0].slice(0, 8)}...)`);
   }
-  const script = path.join(ROOT, 'tools/internal/prepublish-check.sh');
-  let commits = false; try { execFileSync('git', ['-C', ROOT, 'rev-parse', '--verify', 'HEAD'], { stdio: 'pipe' }); commits = true; } catch { /* no commit yet */ }
-  if (!exists(script)) notes.push('tools/internal/prepublish-check.sh is not in this copy; skipped');
-  else if (!commits) notes.push('no commit yet: prepublish-check.sh runs once there is one');
-  else {
-    let out = ''; try { out = execFileSync('bash', [script], { encoding: 'utf8', stdio: 'pipe' }); } catch (e) { out = String(e.stdout || '') + String(e.stderr || ''); }
-    if (/^clean/m.test(out)) notes.push('prepublish-check.sh: ' + out.trim().split('\n').pop()); else fails.push('prepublish-check.sh did not print clean: ' + show(out.trim().replace(/\s+/g, ' ')));
+  const privatePattern = new RegExp(['/' + 'Users/', '/' + 'home/[a-z]+/', 'rii' + 'chard', 'mri' + 'tzk', '100' + '\\.79\\.', 'id_' + 'ed25519', 'Zerack' + 'Navegador', 'Zerack' + 'Pesado', 'itzael' + 'anzk', 'cefiro' + 'agent', 'gh' + 'o_[A-Za-z0-9]', 'sk-' + 'ant-'].join('|'));
+  const excluded = p => internal(p) || /(?:^|\/)(?:_|\.)/.test(rel(p)) || /^research\/raw\/(?:psi\/(?:files|shell|probes)|.*\.pdf$)/.test(rel(p)) || rel(p) === 'research/raw/nasa/spaceapps-challenge-flame-in-freefall.txt';
+  const publicFiles = [...webFiles, ...['mcp', 'tools', 'tests', 'docs', 'config', 'seed', 'data', 'pipeline', 'research'].flatMap(d => textFiles(path.join(ROOT, d), excluded)),
+    ...['README.md', 'LICENSE'].map(p => path.join(ROOT, p)).filter(exists)];
+  for (const p of new Set(publicFiles)) {
+    if (/^research\/[^/]+\.md$/.test(rel(p))) continue;
+    if (privatePattern.test(read(p))) fails.push(`${rel(p)} contains a private identifier or machine path`);
+    if (fs.statSync(p).size > 20000000) fails.push(`${rel(p)} exceeds 20 MB`);
   }
+  notes.push('Public source privacy scan ran directly from the filesystem, without Git.');
   return { fails, notes };
 });
 
@@ -252,6 +254,17 @@ check(9, 'no local path in public files, no e-mail address in the documents', ()
   const docs = [...textFiles(path.join(ROOT, 'docs')), ...['README.md', 'LICENSE', 'mcp/README.md'].map((f) => path.join(ROOT, f)).filter(exists),
     ...webFiles.filter((p) => ['.html', '.js', '.css'].includes(path.extname(p)))];
   for (const p of docs) { const t = read(p); for (const m of t.matchAll(EMAIL)) fails.push(`${rel(p)}:${lineOf(t, m.index)} e-mail address ${show(m[0])}`); }
+  return { fails };
+});
+
+check(10, 'the recorded and embedded MCP exchange match the current server', () => {
+  const fails = [];
+  const recorder = path.join(path.dirname(fileURLToPath(import.meta.url)), '../mcp/record.mjs');
+  try {
+    execFileSync(process.execPath, [recorder, '--root', ROOT, '--check'], { cwd: ROOT, encoding: 'utf8', stdio: 'pipe', timeout: 45000 });
+  } catch (e) {
+    fails.push(String(e.stderr || e.message).trim());
+  }
   return { fails };
 });
 

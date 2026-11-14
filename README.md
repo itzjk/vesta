@@ -10,6 +10,36 @@ PROVEN means tested at these conditions. EXTRAPOLATED means evidence exists but 
 
 The Incident screen is simulated telemetry, scripted, not a physics model. Its thresholds are scenario parameters, not NASA limits. A missing source leads to a published ISS protocol with an explicit applicability limit, or hands the decision to the crew.
 
+## See it in three screens
+
+![Engine: quote matching and interpretation are clearly separated](docs/img/engine.png)
+
+![Open data: download, query or connect an assistant](docs/img/open-data.png)
+
+![Design: the cabin point against source-table evidence](docs/img/design.png)
+
+Screenshots captured from the running app at 1920×1080. Simple is the default; the **Simple | Details** switch reveals the full technical view. On a phone, Simple becomes a readable single column.
+
+## Check a citation
+
+Open [this ventilation finding](https://itzjk.github.io/vesta/#/design?src=S-VENT-01). A **source** link opens the same drawer from any claim. Read the exact quote inside its surrounding sentence, check the source level and conditions, then follow the NASA link. **Quote verified** means the excerpt matched the cached source text; it does not certify VESTA's interpretation. For a table claim, the drawer shows the PSI investigation, original table, row number and raw cells, including any inferred value.
+
+## Connect an assistant
+
+Use Node 24 from a repository clone. Configure a stdio MCP client to run this local command:
+
+```sh
+node mcp/server.mjs
+```
+
+It reads the committed evidence without a network connection. To query the published data with the same local server:
+
+```sh
+node mcp/server.mjs --base https://itzjk.github.io/vesta/
+```
+
+The four tools are `search_evidence`, `rank_evidence`, `check_design` and `get_finding`. [Client configuration and a recorded exchange](mcp/README.md) include a complete example. A website URL alone cannot launch a stdio server.
+
 ## Run and reproduce
 
 The deployed artifact is `web/`: static HTML, CSS, ES modules and committed JSON/CSV files. Serve that directory with any static HTTP host; hash routes and relative asset URLs also work under `/vesta/`. No packages or bundler are required. GitHub Pages publishes `web/` through `.github/workflows/pages.yml` after the release gate.
@@ -28,17 +58,19 @@ Rebuilding evidence requires the delivered `data/`, reviewed `research/evidence/
 
 The source build checks quotes, sentence context, table cells, conditions and references before writing outputs. The same pure modules in `web/js/core/` compute browser, API and MCP scores and coverage. SI assistants propose claims and rules at build time; deterministic code checks and executes them. Nothing is generated at runtime.
 
-With the private browser harness available, `VESTA_NS=wp7 ./tests/shots.sh` runs the full route and interaction list at 1920×1080 and the six routes at 1366×768 on the browser machine. Without that harness, the script exits with an explicit message. Captures require visual inspection in addition to automatic checks.
+With the private browser harness available, `VESTA_NS=wp7 ./tests/shots.sh` runs the full route and interaction list at 1920×1080 and the six routes at 1366×768, plus Simple captures at 390×844 on the browser machine. Without that harness, the script exits with an explicit message. Captures require visual inspection in addition to automatic checks.
 
 ## Open interfaces
 
 - [Static API manifest](https://itzjk.github.io/vesta/api/v1/index.json), [tests CSV](https://itzjk.github.io/vesta/api/v1/tests.csv), [findings CSV](https://itzjk.github.io/vesta/api/v1/findings.csv).
 - [API contracts and score](docs/API.md), [four-tool stdio MCP server](mcp/README.md), [telemetry format](docs/TELEMETRY.md).
 - NTRS snapshot: `web/feed/ntrs.json`. `node tools/ntrs-feed.mjs` requests newest citations and falls back to the cached index without network. `--offline` uses only that index. Feed items do not become verified evidence automatically. Scheduled refresh is disabled; manual refresh is available.
-- Routes: `#/brief`, `#/investigations`, `#/design`, `#/incident`, `#/engine`, `#/open`. `#/open?feed=off` demonstrates the feed-unavailable state.
+- Routes: `#/brief`, `#/investigations`, `#/design`, `#/incident`, `#/engine`, `#/open`. `#/open?view=details&feed=off` demonstrates the feed-unavailable state.
 
-## Attribution and scope
+## SI use and limits
 
 Code and authored documentation: MIT, copyright 2026 Team Zerack. NASA PSI tables: CC0-1.0, with row-level provenance retained. NASA text is quoted with source attribution and is not relicensed as MIT. Fonts retain their own license. See [LICENSE](LICENSE).
 
-Claims, rules, weights, tolerances, decisions and SVG artwork are VESTA interpretations made with SI assistance. VESTA is a decision-support prototype, not certified flight software, and is not endorsed by NASA. No NASA logos or insignia are used.
+SI agents assisted source extraction, proposed claims and rules, and helped author code and SVG artwork. Deterministic gates verify quote matching, sentence context, table cells and reported conditions. Statuses, relevance scores and the scripted officer use deterministic code, with no runtime model or generated advice. These checks do not establish independent scientific approval of every interpretation. Claims and recommendations remain labelled VESTA interpretations.
+
+Evidence coverage concerns a material and a concern in VESTA’s evidence base (24 PSI investigations), never the safety of a whole cabin. Source rows include days, series and measurement sessions; they cannot be summed as independent burns. NTRS records are a dated snapshot, not automatically admitted evidence. The ISS fallback was written for low Earth orbit with ground support and a return vehicle; it is not validated for the drill’s exploration vehicle. VESTA is a decision-support prototype, not certified flight software, and is not endorsed by NASA. No NASA logos or insignia are used.

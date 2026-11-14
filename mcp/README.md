@@ -95,6 +95,30 @@ Answer (the `text` of `result.content[0]`, parsed and indented):
   },
   {
    "rank": 2,
+   "id": "ACME-062",
+   "total": 76,
+   "parts": {
+    "pillar": 30,
+    "atmosphere": 15.083333333333332,
+    "gravity": 6,
+    "level": 15,
+    "material": 5,
+    "habitat": 5
+   },
+   "status": "EXTRAPOLATED",
+   "reasons": [
+    "gravity_never_tested",
+    "o2_outside",
+    "pressure_not_reported"
+   ],
+   "work": "flight",
+   "read_in": "nasa_page",
+   "claim": "For the reported 30% hydrogen / 15% methane / 55% helium blend issuing into 30% oxygen / 70% helium, elevated oxygen facilitated ignition and reduced characteristic flame size; the 5-16.5 cc/s flames expanded to oscillatory radiative extinction.",
+   "quote": "Test day 20142 investigates the fuel blend 30% H2 / 15% CH4 / 55% He issuing into 30% O2/ 70% He. Elevated oxygen ambient facilitates ignition and results in smaller characteristic flame size. For 5-16.5 cc/s flow rates, flames expand to wavy/oscillatory radiative extinction. Ramp down cases did not allow for assessment of kinetic extinction.",
+   "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-23/download?file=6841ce426daf91e274cecd4e"
+  },
+  {
+   "rank": 3,
    "id": "OPERATIONS-242",
    "total": 73,
    "parts": {
@@ -114,28 +138,6 @@ Answer (the `text` of `result.content[0]`, parsed and indented):
    "claim": "One planned FM2 mode investigates flame spread on the Moon in a normoxic environment, for example 34% oxygen at 0.558 atm.",
    "quote": "Mode 3: To investigate a planned normoxic environment (for example 34% O2 at 0.558 atm) on flame spread on the Moon compared to Earth.",
    "url": "https://ntrs.nasa.gov/citations/20210020516"
-  },
-  {
-   "rank": 3,
-   "id": "S-EXPL-01",
-   "total": 70,
-   "parts": {
-    "pillar": 15,
-    "atmosphere": 25,
-    "gravity": 4.5,
-    "level": 15,
-    "material": 5,
-    "habitat": 5
-   },
-   "status": "EXTRAPOLATED",
-   "reasons": [
-    "gravity_not_reported"
-   ],
-   "work": "flight",
-   "read_in": "nasa_page",
-   "claim": "Saffire samples were also burned at 8.2 psia and 34% oxygen to simulate the atmosphere of deep space exploration vehicles.",
-   "quote": "In addition, the samples were burned at 8.2 psia and 34% oxygen levels to simulate atmosphere conditions for deep space exploration vehicles.",
-   "url": "https://www.nasa.gov/wp-json/wp/v2/migration/309559"
   }
  ],
  "scope": "decision-support prototype, not certified flight software"

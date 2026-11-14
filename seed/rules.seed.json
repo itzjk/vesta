@@ -1,6 +1,6 @@
 {
  "schema": "vesta.rules-seed/1",
- "note": "The seed rules of DESIGN.md section 11. earth_instinct, vesta_decides and limits are VESTA's interpretation and are labelled so on screen. nasa_showed and confidence are not typed: the build fills nasa_showed with the quote of the rule's first verified finding and confidence with the kind of work of its best finding. A rule ships only when at least one of its finding_ids is verified.",
+ "note": "The seed rules of DESIGN.md section 11 and eight flight-evidence rules added during WP1 polish. earth_instinct, vesta_decides and limits are VESTA's interpretation and are labelled so on screen. nasa_showed and confidence are not typed: the build fills nasa_showed with the quote of the rule's first verified finding and confidence with the kind of work of its best finding. A rule ships only when at least one of its finding_ids is verified.",
  "rules": [
   {
    "id": "R-ALARM",
@@ -33,11 +33,11 @@
    "topic": "flame_shape",
    "earth_instinct": "Flames climb. Look above it.",
    "earth_instinct_finding_id": null,
-   "vesta_decides": "Search all around the source, not above it; sample behind the panel.",
+   "vesta_decides": "Do not use an upward flame shape to locate a low-momentum fire in microgravity.",
    "finding_ids": [
     "S-SHAPE-01"
    ],
-   "limits": "Describes low-momentum flames on the station; a jet or a pressurised leak behaves differently."
+   "limits": "A description of low-momentum flames on the station, not a panel-search procedure. Jets and pressurised leaks can behave differently; follow the separately cited ISS mask and investigation procedure only within its vehicle limits."
   },
   {
    "id": "R-POWER",
@@ -58,7 +58,7 @@
    "topic": "suppressant_application",
    "earth_instinct": "Aim at the base of the flame.",
    "earth_instinct_finding_id": "S-AIM-00",
-   "vesta_decides": "Do not rely on a close jet aimed at the flame. Discharge into the enclosed volume and confirm with the sensors.",
+   "vesta_decides": "Do not assume a close jet will extinguish the flame.",
    "finding_ids": [
     "S-AIM-02",
     "S-AIM-01",
@@ -91,6 +91,102 @@
     "S-LIMIT-02"
    ],
    "limits": "The sentences state no oxygen level; the cabin's oxygen may lie outside every solid test in the base."
+  },
+  {
+   "id": "R-COOL-FLEX",
+   "pillar": "detection",
+   "topic": "no_visible_flame",
+   "earth_instinct": "The visible flame is gone, so combustion has stopped.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Keep visible-flame extinction separate from confirmation that combustion has stopped.",
+   "finding_ids": [
+    "S-COOL-01"
+   ],
+   "limits": "FLEX observed cool flames in liquid fuel droplets under certain conditions. This does not establish cool-flame burning in a solid or electrical cabin fire, or a sensor clearance threshold."
+  },
+  {
+   "id": "R-DILUENT",
+   "pillar": "suppression",
+   "topic": "inert_gas_choice",
+   "earth_instinct": "Any inert gas will affect a flame the same way.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Keep the tested diluent in the evidence match; do not substitute one inert gas for another.",
+   "finding_ids": [
+    "S-DILUENT-01"
+   ],
+   "limits": "ISS liquid-droplet results compare cool-flame extinction diameters and burning duration for particular gas mixtures. They do not establish a whole-cabin suppression dose or crew-safe atmosphere."
+  },
+  {
+   "id": "R-HELIUM",
+   "pillar": "suppression",
+   "topic": "helium_extinction",
+   "earth_instinct": "Once helium kills the hot flame, burning ends immediately.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Allow for a brief cool-flame stage after hot-flame extinction in this helium-diluted droplet test.",
+   "finding_ids": [
+    "S-HELIUM-01"
+   ],
+   "limits": "Test R707 used an n-octane droplet with 75% helium dilution. The authors call the process transient, not quasi-steady. This is not a helium discharge instruction for an occupied cabin."
+  },
+  {
+   "id": "R-SAFFIRE-OXYGEN",
+   "pillar": "prevention",
+   "topic": "oxygen_enrichment",
+   "earth_instinct": "A familiar material will burn the same way in richer oxygen.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Treat elevated oxygen as a change in fire conditions, rather than carrying over an air result.",
+   "finding_ids": [
+    "S-O2-01"
+   ],
+   "limits": "The quoted Saffire-V result describes more energetic flames at elevated oxygen. It does not quantify a universal increase, cover all materials, or certify a cabin atmosphere."
+  },
+  {
+   "id": "R-SAFFIRE-DUCT",
+   "pillar": "prevention",
+   "topic": "flow_geometry",
+   "earth_instinct": "The same fuel and airflow make enclosure size irrelevant.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Keep the flow-duct geometry with the flame-spread result when comparing designs.",
+   "finding_ids": [
+    "SAFFIRE-043"
+   ],
+   "limits": "The reduced-height Saffire flow duct increased SIBAL spread rate relative to Saffire I and III. The reported increase belongs to that comparison, not every cabin or material."
+  },
+  {
+   "id": "R-SAME-SMOKE",
+   "pillar": "detection",
+   "topic": "detector_response",
+   "earth_instinct": "One smoke-detector technology catches every kind of smoke equally.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Check detector response against the smoke particles the material produces.",
+   "finding_ids": [
+    "S-DET-02"
+   ],
+   "limits": "SAME produced sub-micron particles from its tested samples. The quote also says light scattering performed very well in most cases. It does not select or validate a detector for this vehicle."
+  },
+  {
+   "id": "R-BASS-UPSTREAM",
+   "pillar": "prevention",
+   "topic": "flame_spread_direction",
+   "earth_instinct": "Airflow always carries a flame downstream.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Include upstream spread when considering the low-flow space result.",
+   "finding_ids": [
+    "S-SPREAD-01"
+   ],
+   "limits": "The BASS observation applies at low forced-flow velocities in space. The quote supplies no universal velocity threshold and does not describe every fuel, geometry or gravity level."
+  },
+  {
+   "id": "R-BASS-HEAT",
+   "pillar": "suppression",
+   "topic": "residual_heat",
+   "earth_instinct": "Once the flame disappears, the solid stops supplying fuel.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Account for continued vapor release while hot PMMA cools after extinction.",
+   "finding_ids": [
+    "S-HEAT-01"
+   ],
+   "limits": "The reported PMMA rod behavior concerns concurrent-flow geometry in microgravity. It does not supply a cooldown time, an air-clearance threshold or a procedure for every cabin material."
   }
  ]
 }

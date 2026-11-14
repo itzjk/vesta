@@ -25,5 +25,6 @@ export function scorebar(parts, opts = {}) {
   }
   return el('div', { class: 'scorebar' + (opts.small ? ' scorebar-small' : ''), data: { total: total ?? null } },
     total == null ? null : el('span.scorebar-total.t-number', String(total)), bar,
+    opts.meaning === false ? null : el('span.scorebar-meaning', (getCore().text?.SCORE_LABEL || "relevance, 0 to 100 · VESTA's weighting, not a probability and not a safety rating")),
     opts.legend ? el('span.scorebar-legend', TERMS.map(k => el('span', { data: { term: k } }, `${k} ${r1(p[k] || 0)}`))) : null);
 }

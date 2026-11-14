@@ -43,7 +43,8 @@ export function chip(status, opts = {}) {
     data: { status: id, qualifier: qual || null }, title: opts.title },
     mark(id, ring), el('span.chip-word', word),
     qual ? el('span.chip-qual', '· ' + (QUALIFIER[qual] || String(qual).replace(/_/g, ' '))) : null,
-    opts.detail != null && opts.detail !== '' ? el('span.chip-detail', opts.detail) : null);
+    opts.detail != null && opts.detail !== '' ? el('span.chip-detail', opts.detail) : null,
+    tryText('statusMeaning', id, qual) ? el('span.chip-meaning', tryText('statusMeaning', id, qual)) : null);
   return node;
 }
 

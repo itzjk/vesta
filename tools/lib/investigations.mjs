@@ -10,6 +10,8 @@ const stat = (rows, get, multiKey) => {
   for (const r of rows) { const m = r.multi?.[multiKey]; if (m && Array.isArray(m.values)) multi.push(m); }
   if (!v.length && !multi.length) return null;
   const out = { min: v.length ? Math.min(...v) : null, max: v.length ? Math.max(...v) : null, n: v.length };
+  out.min_row_ids = out.min == null ? [] : rows.filter(r => get(r) === out.min).map(r => r.id);
+  out.max_row_ids = out.max == null ? [] : rows.filter(r => get(r) === out.max).map(r => r.id);
   if (multi.length) {
     const vals = [...new Set(multi.flatMap(m => m.values).filter(x => typeof x === 'number'))].sort((a, b) => a - b);
     out.multi = { rows: multi.length, kinds: [...new Set(multi.map(m => m.kind))].sort(), values: vals };

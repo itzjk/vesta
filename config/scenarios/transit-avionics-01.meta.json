@@ -16,7 +16,7 @@
   "one_way_finding": "S-COMM-01",
   "round_trip_min": 40,
   "round_trip_finding": "S-COMM-02",
-  "assumes": "the maximum delay"
+  "assumes": "the maximum delay per leg and an immediate ground response"
  },
  "frames": "transit-avionics-01.jsonl",
  "playback": {
@@ -38,7 +38,7 @@
   {
    "field": "temp_c",
    "label": "temp",
-   "unit": "°C"
+   "unit": "\u00b0C"
   },
   {
    "field": "airflow_cm_s",

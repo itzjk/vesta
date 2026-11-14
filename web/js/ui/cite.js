@@ -17,5 +17,5 @@ export function cite(id, opts = {}) {
   return el('button', { class: 'cite' + (opts.small ? ' cite-small' : '') + (opts.class ? ' ' + opts.class : ''), type: 'button', data: { cite: sid },
     title: opts.title || 'Open the source', 'aria-label': 'Open the source of ' + sid,
     onclick: e => { e.preventDefault(); e.stopPropagation(); openSource(sid); } },
-    el('span.cite-mark', { 'aria-hidden': 'true' }), el('span.cite-id', opts.label || citeLabel(sid)));
+    el('span.cite-mark', { 'aria-hidden': 'true' }), el('span.cite-id', opts.label || citeLabel(sid)), el('span.cite-plain', 'source'));
 }

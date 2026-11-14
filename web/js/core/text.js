@@ -1,6 +1,7 @@
 import { TOL, isMeasure } from './match.js';
 import { W, LEVEL, SPAN, PARTIAL_SUPPORT } from './rank.js';
 import { G } from './index.js';
+import { clock } from './clock.js';
 
 export const KPA_PER_PSI = 6.89476;
 
@@ -23,6 +24,7 @@ export const NOT_IN_RECORD = 'not stated in the PSI record';
 export const NOT_IN_TABLE = 'not in the table';
 export const NOT_IN_SOURCE = 'not stated in the source';
 export const CHOICES = "The weights, spans and tolerances are VESTA's choices, not NASA's. They are published in api/v1/index.json so anyone can re-rank.";
+export const SCORE_LABEL = "relevance, 0 to 100 · VESTA's weighting, not a probability and not a safety rating";
 export const NO_SOURCE_LINE = "NO SOURCE. No verified finding in VESTA's evidence base for this. I will not guess.";
 export const NO_PROTOCOL_LINE = 'Hand the decision to the crew. No verified protocol line for this step.';
 
@@ -37,10 +39,24 @@ export function status(id, qualifier) {
   const s = STATUS[id] ?? String(id ?? '');
   return qualifier === 'pressure_inferred' ? `${s} · pressure inferred` : s;
 }
+const STATUS_MEANING = {
+  PROVEN: 'NASA tested this material near these atmosphere conditions',
+  EXTRAPOLATED: 'NASA evidence from different or incomplete conditions',
+  NEVER_TESTED: "No test row or verified finding for this material and concern in VESTA's evidence base",
+  SOURCED: 'This step has a source; condition coverage is shown separately',
+  NO_SOURCE: 'No supporting finding, so VESTA does not guess',
+  SIMULATED: 'A scripted drill, not measured flight data',
+  INTERPRETATION: "VESTA's reading of the evidence, not a NASA instruction",
+  SI: 'Written by synthetic intelligence'
+};
+export function statusMeaning(id, qualifier) {
+  const words = STATUS_MEANING[id] ?? String(id ?? '');
+  return qualifier === 'pressure_inferred' ? `${words}; pressure is inferred from the facility` : words;
+}
 export function legend(n) {
   return {
-    PROVEN: `Tested at these conditions: at least one PSI test row of this material, in a table that speaks to this concern, in the same gravity class, with oxygen within ${trim(TOL.o2)} point and pressure within ${trim(TOL.p)} kPa of the cabin, on the same row. It does not mean safe.`,
-    PROVEN_INFERRED: 'The same, with the pressure taken from the facility and not from the table.',
+    PROVEN: `Tested near these atmosphere conditions: at least one PSI test row of this material, in a table that speaks to this concern, in the same gravity class, with oxygen within ${trim(TOL.o2)} point and pressure within ${trim(TOL.p)} kPa of the cabin, on the same row ${base(n)}. Flow, sample geometry, thickness, ignition and suppressant configuration are not matched. It does not mean safe.`,
+    PROVEN_INFERRED: 'Pressure is inferred, not reported in the table. The match assumes the facility pressure applies to this run.',
     EXTRAPOLATED: 'There is evidence, and at least one condition differs or is not stated. The reasons say which.',
     NEVER_TESTED: `No test row and no verified finding for this question ${base(n)}.`,
     line: STATUS_LINE };
@@ -78,7 +94,7 @@ export const fuelClass = id => FUEL_CLASS[id] ?? NOT_IN_SOURCE;
 const above = (x, unit) => `${trim(Math.abs(x))} ${unit} ${x > 0 ? 'above' : 'below'}`;
 const REASON = {
   gravity_never_tested: {
-    chip: v => `gravity ${v.q?.g_label ?? 'partial'} never tested`,
+    chip: v => `no ${v.q?.g_label ?? 'partial-gravity'} test row in this evidence base`,
     sentence: v => `No test row at partial gravity ${base(v.n)}; this evidence comes from another gravity level.` },
   gravity_differs: {
     chip: () => 'gravity differs',
@@ -89,34 +105,34 @@ const REASON = {
   o2_outside: {
     chip: v => v.delta?.o2 != null ? `oxygen ${signed(v.delta.o2)} points` : 'oxygen outside',
     sentence: v => v.delta?.o2 != null
-      ? `Your cabin is ${above(v.delta.o2, 'points of oxygen')} the nearest tested value; the tolerance is ${trim(TOL.o2)} point.`
+      ? `Your cabin is ${above(v.delta.o2, 'points of oxygen')} the compared test value; the tolerance is ${trim(TOL.o2)} point.`
       : `Oxygen is more than ${trim(TOL.o2)} point from the tested value.` },
   o2_not_reported: {
     chip: () => 'oxygen not stated',
-    sentence: () => 'No clean ambient oxygen value for this comparison: not in the table, source or cabin.' },
+    sentence: () => 'The source or cabin does not state the surrounding oxygen level, so it cannot be matched.' },
   pressure_outside: {
     chip: v => v.delta?.p != null ? `pressure ${signed(v.delta.p)} kPa` : 'pressure outside',
     sentence: v => v.delta?.p != null
-      ? `Your cabin is ${above(v.delta.p, 'kPa')} the nearest tested pressure; the tolerance is ${trim(TOL.p)} kPa.`
+      ? `Your cabin is ${above(v.delta.p, 'kPa')} the compared test pressure; the tolerance is ${trim(TOL.p)} kPa.`
       : `Pressure is more than ${trim(TOL.p)} kPa from the tested value.` },
   pressure_not_reported: {
     chip: () => 'pressure not stated',
-    sentence: () => 'No pressure value for this comparison: not in the table, source or cabin.' },
+    sentence: () => 'The source or cabin does not state pressure, so it cannot be matched.' },
   not_an_experiment: {
     chip: () => 'not a test result',
     sentence: () => 'The sentence is a summary, a model, a plan or a procedure; it reports no single test result.' },
   different_fuel_class: {
-    chip: () => 'different fuel class',
-    sentence: () => 'The evidence is on another fuel class than the question.' },
+    chip: () => 'different type of fuel',
+    sentence: () => 'The evidence concerns a different type of fuel from the one in your question.' },
   finding_without_rows: {
-    chip: () => 'finding, no test row',
+    chip: () => 'source found, no test row',
     sentence: () => 'A verified finding names this material, but no PSI test row does for this concern.' },
   no_row_no_finding: {
-    chip: () => 'no row, no finding',
+    chip: () => 'no test row or finding',
     sentence: v => `No test row and no verified finding for this material and concern ${base(v.n)}.` },
   pressure_inferred: {
     chip: () => 'pressure inferred',
-    sentence: () => 'The pressure is not in the table; it is inferred from the facility the test ran in.' },
+    sentence: () => 'The table does not report pressure. The match assumes the facility pressure applies to this run.' },
   rule_without_verified_finding: {
     chip: () => 'rule has no verified finding',
     sentence: v => `The rule for this step has no verified finding left ${base(v.n)}.` },
@@ -140,10 +156,29 @@ export function cellSentence(c, label, n) {
   const what = `${label ?? c.material} and ${String(concern(c.concern)).toLowerCase()}`;
   if (c.status === 'NEVER_TESTED') return `No test row and no verified finding for ${what} ${base(n)}.`;
   if (c.status === 'PROVEN')
-    return `Tested at these conditions: ${c.hit_ids.length} PSI test ${c.hit_ids.length === 1 ? 'row' : 'rows'} for ${what} at this cabin`
+    return `${c.hit_ids.length} PSI test ${c.hit_ids.length === 1 ? 'row' : 'rows'} for ${what} near these atmosphere conditions ${base(n)}`
          + (c.qualifier === 'pressure_inferred' ? ', with the pressure inferred from the facility.' : '.');
-  if (c.reasons.includes('finding_without_rows')) return `A verified finding speaks to ${what}; no PSI test row does.`;
-  return `${c.rows} PSI test ${c.rows === 1 ? 'row' : 'rows'} for ${what}; none at this cabin.`;
+  if (c.reasons.includes('finding_without_rows')) return `A verified finding speaks to ${what}; no PSI test row does ${base(n)}.`;
+  return `${c.rows} PSI test ${c.rows === 1 ? 'row' : 'rows'} for ${what} ${base(n)}; none matches these gravity and atmosphere conditions.`;
+}
+export function materialNote(f, q, db) {
+  if (!q.material || (f.n.material_ids ?? []).includes(q.material)) return null;
+  const ids = f.n.material_ids ?? [];
+  return ids.length ? `Different material: ${ids.map(id => db.materials[id]?.label ?? id.replace(/[-_]/g, ' ')).join(', ')}.`
+    : 'This source does not name the selected material.';
+}
+export function designAnswer(counts, n) {
+  const total = counts.PROVEN + counts.EXTRAPOLATED + counts.NEVER_TESTED;
+  if (!total) return `There are no material questions to compare ${base(n)}.`;
+  return `${counts.PROVEN} of ${total} material questions have nearby test rows; ${counts.NEVER_TESTED} have no row or finding ${base(n)}.`;
+}
+export function incidentAnswer(meta, t, log, db) {
+  const state = clock(meta, t, log, db);
+  const done = state.decided.steps, made = `${done} ${done === 1 ? 'decision' : 'decisions'} made in this scripted drill.`;
+  if (state.heard == null) return `${made} Earth's hearing time has no verified source.`;
+  if (t < state.heard) return `${made} Earth has not heard the alarm yet.`;
+  const before = log.filter(e => e.t <= t && e.t < state.heard).length;
+  return `${before} ${before === 1 ? 'decision was' : 'decisions were'} made before Earth heard the alarm in this scripted drill.`;
 }
 export const elsewhere = c => c.elsewhere?.length ? `this material also appears in: ${c.elsewhere.join(', ')}` : null;
 export function observed(list = []) {

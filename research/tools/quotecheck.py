@@ -69,7 +69,12 @@ def main():
         bad += 0 if ok else 1
         rows.append(row)
         print(('PASS ' if ok else 'FAIL ') + str(fid) + ('' if ok else '  <- ' + row['why']))
-    summary = {'file': args[0], 'total': len(rows), 'passed': len(rows) - bad, 'failed': bad}
+    input_path = pathlib.Path(args[0]).resolve()
+    try:
+        input_name = input_path.relative_to(ROOT.parent).as_posix()
+    except ValueError:
+        input_name = input_path.name
+    summary = {'file': input_name, 'total': len(rows), 'passed': len(rows) - bad, 'failed': bad}
     print(json.dumps(summary))
     if report_path:
         json.dump({'summary': summary, 'rows': rows}, open(report_path, 'w'), indent=1)

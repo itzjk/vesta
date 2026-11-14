@@ -190,7 +190,7 @@ test('level: the kind of work and where it was read', () => {
 test('reason: a chip for every code the logic can produce, with the numbers', () => {
   assert.equal(text.reason('o2_outside', { delta: { o2: 11.8 } }), 'oxygen +11.8 points');
   assert.equal(text.reason('pressure_outside', { delta: { p: -44.8 } }), 'pressure -44.8 kPa');
-  assert.equal(text.reason('gravity_never_tested', { q: { g_label: '1/6 g' } }), 'gravity 1/6 g never tested');
+  assert.equal(text.reason('gravity_never_tested', { q: { g_label: '1/6 g' } }), 'no 1/6 g test row in this evidence base');
   assert.equal(text.reason('o2_outside'), 'oxygen outside');
   assert.equal(text.reason('some_new_code'), 'some new code');                           // an unknown code never throws
   const codes = ['gravity_never_tested', 'gravity_differs', 'gravity_not_reported', 'o2_outside', 'o2_not_reported', 'pressure_outside', 'pressure_not_reported',
@@ -244,7 +244,7 @@ test('cell sentences', () => {
   const station = presetPoint(db, 'station');
   assert.equal(text.cellSentence(statusMod.cell('fx-kappa', 'prevention', station, db), 'FX Kappa', 24),
     "No test row and no verified finding for FX Kappa and prevention in VESTA's evidence base (24 PSI investigations).");
-  assert.match(text.cellSentence(statusMod.cell('fx-alpha', 'prevention', station, db), 'FX Alpha', 24), /^Tested at these conditions: 2 PSI test rows .* pressure inferred from the facility\.$/);
+  assert.match(text.cellSentence(statusMod.cell('fx-alpha', 'prevention', station, db), 'FX Alpha', 24), /^2 PSI test rows .* near these atmosphere conditions .* pressure inferred from the facility\.$/);
   assert.equal(text.elsewhere(statusMod.cell('fx-kappa', 'prevention', station, db)), 'this material also appears in: detection');
   assert.equal(text.elsewhere(statusMod.cell('fx-nothing', 'prevention', station, db)), null);
 });

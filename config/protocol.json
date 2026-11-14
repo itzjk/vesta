@@ -65,7 +65,7 @@
   },
   {
    "id": "PROT-05",
-   "action": "Masks on before approaching.",
+   "action": "Put on breathing masks before investigating; use the combustion-product analyzer to locate the event.",
    "finding_id": "PROT-05",
    "limit": "ISS procedure for low Earth orbit, with ground support and a return vehicle. Applied here as the conservative default; not validated for this vehicle.",
    "source": {
@@ -75,7 +75,7 @@
     "title": "Evolution of Hardware and Philosophy of Emergency Response Actions on the International Space Station and Future Spacecrafts",
     "url": "https://ntrs.nasa.gov/citations/20220019247",
     "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt",
-    "quote": "Upon identifying the locations to investigate, crew will don breathing masks"
+    "quote": "Upon identifying the locations to investigate, crew will don breathing masks, to be described in section 3.2.4. Utilizing their combustion product analyzer and probe (section 3.2.5) to identify the location of the event, crew will proceed to unpower the equipment behind the panel, thus attacking the Ignition Source (Heat) leg of the fire triangle."
    }
   },
   {
@@ -125,9 +125,9 @@
   },
   {
    "id": "PROT-09",
-   "action": "Isolate the module and stand down.",
+   "action": "If the crew feels uncomfortable continuing, they may choose to isolate an isolatable module and stop further response.",
    "finding_id": "PROT-09",
-   "limit": "ISS procedure for low Earth orbit, with ground support and a return vehicle. Applied here as the conservative default; not validated for this vehicle.",
+   "limit": "ISS procedure for low Earth orbit, with ground support and a return vehicle. Isolation requires an isolatable module. A material evidence gap alone is not an instruction to isolate. Applied here as the conservative default; not validated for this vehicle.",
    "source": {
     "kind": "ntrs",
     "id": "20220019247",
@@ -135,7 +135,7 @@
     "title": "Evolution of Hardware and Philosophy of Emergency Response Actions on the International Space Station and Future Spacecrafts",
     "url": "https://ntrs.nasa.gov/citations/20220019247",
     "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt",
-    "quote": "it is their prerogative to isolate the module and stand down on any further fire response steps"
+    "quote": "It should be noted, with crew safety being the top priority, if at any point crew does not feel comfortable proceeding forward through the procedures, it is their prerogative to isolate the module and stand down on any further fire response steps."
    }
   }
  ]

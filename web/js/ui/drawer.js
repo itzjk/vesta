@@ -5,6 +5,39 @@ import { citeLabel } from './cite.js';
 import { getDb, lookup, loadRawCells, openSource, closeSource } from '../store.js';
 
 let host = null, backdrop = null, pane = null, body = null, current = null, lastFocus = null;
+const backgroundInert = new Map();
+
+function lockBackground() {
+  for (const node of host.children) {
+    if (node === pane || node === backdrop) continue;
+    if (!backgroundInert.has(node)) backgroundInert.set(node, node.inert);
+    node.inert = true;
+  }
+}
+
+function unlockBackground() {
+  for (const [node, wasInert] of backgroundInert) node.inert = wasInert;
+  backgroundInert.clear();
+}
+
+function focusable() {
+  return [...pane.querySelectorAll('a[href], button, input, select, textarea, summary, [tabindex], [contenteditable="true"]')]
+    .filter(node => node.tabIndex >= 0 && !node.disabled && !node.closest('[inert]') && node.getClientRects().length
+      && getComputedStyle(node).visibility !== 'hidden');
+}
+
+function containKeyboard(event) {
+  if (current == null) return;
+  if (event.key === 'Escape') {
+    event.preventDefault(); event.stopPropagation(); closeSource();
+  } else if (event.key === 'Tab') {
+    const stops = focusable(), index = stops.indexOf(document.activeElement);
+    if (!stops.length || (event.shiftKey ? index <= 0 : index < 0 || index === stops.length - 1)) {
+      event.preventDefault();
+      (event.shiftKey ? stops.at(-1) || pane : stops[0] || pane).focus({ preventScroll: true });
+    }
+  }
+}
 
 const GCLASS = { micro: 'microgravity', partial: 'partial gravity', normal: 'normal gravity' };
 const isChallenge = f => (f.n && f.n.read_in === 'challenge_page') || (f.source && f.source.kind === 'challenge-page');
@@ -32,7 +65,8 @@ function findingView(f, db) {
   return [
     el('header.dw-head',
       el('div.dw-kicker', el('span.t-label', f.quote ? 'Finding' : 'Table finding'), f.pillar ? tag(f.pillar) : null, f.topic ? tag(String(f.topic).replace(/_/g, ' '), { tone: 'dim' }) : null),
-      el('h2.dw-id', f.id),
+      el('h2.dw-title', src.title || f.topic?.replace(/_/g, ' ') || 'NASA finding'),
+      el('p.dw-id', f.id),
       verified === true ? el('div.dw-verified', { title: 'The quote was found verbatim in the cached source text by research/tools/quotecheck.py' }, el('span.dw-check', { 'aria-hidden': 'true' }), f.quote ? 'quote verified' : 'cells verified against the PSI table') : null),
     challenge ? el('p.dw-note', 'Space Apps challenge page (not a NASA technical document)') : null,
     quote, cells,
@@ -70,13 +104,14 @@ function rowView(r, db) {
   const o2 = r.o2_percent == null ? absent : `${fmt.short(r.o2_percent, 2)} %`;
   const p = r.pressure_kpa != null ? pressureText(r.pressure_kpa)
           : n.p_inferred != null ? el('span', 'not in the table', el('span.dw-inferred', ` · inferred from the facility: ${pressureText(n.p_inferred)}`)) : absent;
+  const facilitySource = n.p_inferred_source?.gate?.pass === true ? n.p_inferred_source : null;
   const outcomes = Object.entries(r.outcomes || {});
   const multi = Object.entries(r.multi || {});
   return [
     el('header.dw-head',
       el('div.dw-kicker', el('span.t-label', 'PSI test row'), n.fuel_class ? tag(String(n.fuel_class).replace(/_/g, ' ')) : null, r.row_kind ? tag(String(r.row_kind).replace(/_/g, ' '), { tone: 'dim' }) : null),
-      el('h2.dw-id', { data: { claim: r.id } }, `${r.psi_id}, row ${r.row}`),
-      el('p.dw-sub', (inv && (inv.name || inv.full_name)) || r.investigation || '')),
+      el('h2.dw-title', (inv && (inv.name || inv.full_name)) || r.investigation || 'PSI test row'),
+      el('p.dw-id', { data: { claim: r.id } }, `${r.psi_id}, row ${r.row}`)),
     el('section.dw-sec', el('span.t-label', 'Where it stands in PSI'),
       el('dl.dw-list', line('PSI id', r.psi_id), line('Table file', r.table_file || 'not stated'), line('Row', String(r.row)), r.test_label ? line('Test label', String(r.test_label)) : null)),
     el('section.dw-sec', el('span.t-label', 'Normalised value · raw cell'),
@@ -91,6 +126,12 @@ function rowView(r, db) {
         r.diluent ? line('Diluent', String(r.diluent)) : null,
         r.platform ? line('Platform', String(r.platform)) : null),
       multi.length ? el('p.dw-hint', 'Several values in one cell: ' + multi.map(([k, v]) => `${k} = ${Array.isArray(v) ? v.join('; ') : JSON.stringify(v)}`).join(' · ')) : null),
+    facilitySource ? el('section.dw-sec.dw-facility',
+      el('h3.t-label', 'Why pressure is inferred'),
+      el('p.dw-hint', facilitySource.assumption),
+      el('blockquote.dw-quote', el('mark.dw-mark', facilitySource.quote)),
+      el('p.dw-sub', facilitySource.title, facilitySource.year ? ` (${facilitySource.year})` : ''),
+      facilitySource.url ? button('NASA facility source', { href: facilitySource.url, target: '_blank', small: true, icon: '↗' }) : null) : null,
     outcomes.length ? el('section.dw-sec', el('span.t-label', 'What the table recorded'),
       el('dl.dw-list', outcomes.map(([k, o]) => line(k.replace(/_/g, ' '), o && o.value != null ? `${typeof o.value === 'number' ? fmt.short(o.value, 3) : o.value}${o.unit ? ' ' + o.unit : ''}` : (o && o.raw != null ? String(o.raw) : absent), o && o.raw != null ? `raw: ${o.raw}` : null)))) : null,
     el('section.dw-sec', el('span.t-label', 'Raw cells'), rawBox),
@@ -103,7 +144,7 @@ function rowView(r, db) {
 
 function configView(record) {
   return [
-    el('header.dw-head', el('span.t-label', record.kind || 'Source'), el('h2.dw-id', record.label || record.id), tag(record.id)),
+    el('header.dw-head', el('span.t-label', record.kind || 'Source'), el('h2.dw-title', record.label || record.id), tag(record.id)),
     record.scope ? el('p.dw-note', record.scope) : null,
     ...(record.sources || []).map(source => el('section.dw-sec',
       el('div.dw-kicker', el('span.t-label', source.field || 'Source'), source.gate?.pass === true ? tag('quote verified') : null),
@@ -137,7 +178,10 @@ export const drawer = {
       el('button.dw-close', { type: 'button', 'aria-label': 'Close the source drawer', title: 'Close (Esc)', onclick: () => closeSource() }, '×'),
       body);
     host.append(backdrop, pane);
-    addEventListener('keydown', e => { if (e.key === 'Escape' && current != null) { e.preventDefault(); closeSource(); } });
+    document.addEventListener('keydown', containKeyboard, true);
+    document.addEventListener('focusin', event => {
+      if (current != null && !pane.contains(event.target)) (focusable()[0] || pane).focus({ preventScroll: true });
+    });
   },
   
   show(id) {
@@ -146,6 +190,7 @@ export const drawer = {
     if (current == null) lastFocus = document.activeElement;
     current = id; render(id);
     backdrop.hidden = false; pane.hidden = false;
+    lockBackground();
     requestAnimationFrame(() => { pane.classList.add('is-open'); backdrop.classList.add('is-open'); });
     pane.focus({ preventScroll: true });
   },
@@ -154,6 +199,7 @@ export const drawer = {
     current = null;
     pane.classList.remove('is-open'); backdrop.classList.remove('is-open');
     pane.hidden = true; backdrop.hidden = true;
+    unlockBackground();
     if (lastFocus && document.contains(lastFocus)) { try { lastFocus.focus({ preventScroll: true }); } catch {} }
   },
   

@@ -1,4 +1,4 @@
-import { drawMap, mapData, LAYERS, MODEL_NOTE } from './design-map.js';
+import { drawMap, mapData, LAYERS, MODEL_NOTE } from './design-map.js?v=10';
 
 const CONCERNS = ['prevention', 'detection', 'suppression'];
 const GRAVITY = [['0g', '0 g'], ['moon', '1/6 g'], ['mars', '3/8 g'], ['1g', '1 g']];
@@ -27,7 +27,8 @@ export function rowsForExport(rows, q, db, compare) {
 
 export function mount(root, ctx) {
   const { db, ui, core } = ctx, { el: e } = ui, S = core.status, T = core.text;
-  ui.css('css/views/design.css');
+  ui.css('css/views/design.css?v=10');
+  if (ctx.params.view !== 'details' && ctx.view !== 'details') return mountSimple(root, ctx);
   root.classList.add('design-view');
   let q = { ...ctx.q }, disposed = false, map = null, mapHost, mapInfo, rawPromise;
   const cellKey = ctx.params.cell?.split(':');
@@ -83,7 +84,7 @@ export function mount(root, ctx) {
     catch { copy.querySelector('.btn-label').textContent = 'Copy the address bar'; }
   } });
   controls.append(oxygen.node, pressure.node, e('div.design-control-label', 'Gravity'), gravities,
-    e('div.design-control-label', 'Concern'), concerns, e('div.design-control-label', 'Materials · PSI rows'), materials,
+    e('div.design-control-label', 'Concern'), concerns, e('details.design-material-picker', e('summary', `Material: ${db.materials[q.material]?.label || 'choose'} · ${Object.keys(db.materials).length} choices`), materials),
     e('div.design-cabin-actions', ui.button('Reset', { small: true, action: 'reset', onClick: () => {
       ctx.setParams({ cell: null, show: null }, { render: false }); ctx.setQ({ preset: 'lunar-base', material: 'pmma', concern: 'prevention' });
     } }), copy));
@@ -99,20 +100,20 @@ export function mount(root, ctx) {
   mapInfo = e('div.design-map-info');
   const nearestLine = e('div.design-nearest', { data: { nearest: true } });
   const mapNotes = e('div.design-map-notes');
-  mapBody.append(e('div.design-map-intro', e('span', 'Oxygen vs pressure'), e('span', 'NASA PSI test rows')), layerControls, mapHost,
+  mapBody.append(layerControls, mapHost,
     e('div.design-map-legend', e('span', e('i.design-dot.hollow'), 'facility pressure inferred'), e('span', e('i.design-dot'), 'reported pressure'), e('span', 'n.r. = pressure not in table')),
     nearestLine, mapInfo, mapNotes);
-  const envelope = ui.panel('Tested envelope', mapBody, { strong: true, class: 'design-envelope' });
+  const envelope = ui.panel('Tested envelope', mapBody, { strong: true, class: 'design-envelope', tag: 'Oxygen % vs pressure · NASA PSI' });
   const rankedBody = e('div.design-ranked-body'), rankedList = e('div.design-ranked-list'), gapList = e('div.design-gaps');
   const rankedCount = e('span.design-ranked-count');
   const concernSelect = e('select', { 'aria-label': 'Ranked evidence concern', onchange: ev => selectCell(q.material, ev.target.value) },
     CONCERNS.map(id => e('option', { value: id, selected: id === q.concern }, T.concern(id))));
   rankedBody.append(e('div.design-ranked-controls', concernSelect, rankedCount), rankedList, gapList);
-  const rankedPanel = ui.panel('Ranked evidence', rankedBody, { class: 'design-ranked' });
+  const rankedPanel = ui.panel('Related findings for this cabin', rankedBody, { class: 'design-ranked' });
   const matrixBody = e('div.design-matrix-body'), matrixGrid = e('div.design-matrix-grid');
   const matrixPanel = ui.panel('Material × concern', matrixBody, { class: 'design-matrix' });
   const whyBody = e('div.design-why-body'), why = ui.panel('Why this cell', whyBody, { class: 'design-why', strong: true });
-  matrixBody.append(matrixGrid);
+  matrixBody.append(e('p.design-matrix-caption', `${Object.keys(db.materials).length} materials · ${Object.keys(db.materials).length * CONCERNS.length} questions · scroll for all materials`), matrixGrid);
   const legend = e('div.design-legend', ui.chip('PROVEN', { small: true }), ui.chip('EXTRAPOLATED', { small: true }), ui.chip('NEVER_TESTED', { small: true }), ui.statusLine(db));
   const top = e('div.design-top', cabin, envelope, rankedPanel), bottom = e('div.design-bottom', matrixPanel, why);
   root.append(e('div.design-layout', heading, banner, top, bottom, legend));
@@ -150,7 +151,12 @@ export function mount(root, ctx) {
 
   function revealCell() {
     const selected = matrixGrid.querySelector('.is-selected');
-    if (selected) matrixBody.scrollTop = Math.max(0, selected.offsetTop - matrixGrid.offsetTop - 70);
+    if (selected) {
+      const row = selected.closest('.design-matrix-row');
+      const sticky = matrixBody.querySelector('.design-matrix-caption').offsetHeight + matrixGrid.querySelector('.design-matrix-header').offsetHeight;
+      const scale = ui.stageScale?.() || 1;
+      matrixBody.scrollTop += (row.getBoundingClientRect().top - matrixBody.getBoundingClientRect().top) / scale - sticky;
+    }
   }
 
   function paint(withMap = true) {
@@ -168,7 +174,7 @@ export function mount(root, ctx) {
     banner.replaceChildren(e('span.design-banner-mark', '!'), e('div',
       pf ? claim(pf.id, e('q', pf.quote), cite(pf.id)) : e('p', 'Partial-gravity source not available.'),
       bound ? claim(bound.id, e('span', 'The challenge page says results “could bound” intermediate gravity; that is not demonstrated. '), cite(bound.id)) : null));
-    nearestLine.replaceChildren(e('span.t-label', c.status === 'PROVEN' ? 'Tested at this cabin' : 'Nearest test · selected material + concern'),
+    nearestLine.replaceChildren(e('span.t-label', c.status === 'PROVEN' ? 'Tested near these atmosphere conditions' : 'Nearest test · selected material + concern'),
       row ? claim(row.id, e('strong', `${row.investigation}, ${row.fuel}${row.fuel_form ? ' ' + row.fuel_form : ''}`),
         e('span', ` · ${short(row.n.o2)} % O2 · ${T.pressure(row.n.p ?? row.n.p_inferred)}${row.n.p == null && row.n.p_inferred != null ? ' inferred' : ''}`),
         c.nearest ? e('span.design-delta', ' · ', `${c.nearest.delta.o2 == null ? 'oxygen not stated' : signed(c.nearest.delta.o2) + ' points O2'}, ${c.nearest.delta.p == null ? 'pressure not stated' : signed(c.nearest.delta.p) + ' kPa'} (cabin minus test)`) : null,
@@ -179,8 +185,9 @@ export function mount(root, ctx) {
       const f = entry.f, cov = S.findingStatus(f, q, db, { fuel_class: db.materials[q.material]?.fuel_class });
       const sentences = Object.fromEntries(T.terms(entry, q).map(t => [t.key, t.sentence]));
       return e('article.design-rank-card', { data: { claim: f.id, finding: f.id } },
-        e('div.design-rank-head', e('span.design-rank-order', String(i + 1).padStart(2, '0')), e('strong.design-score', entry.total), ui.chip(cov.status, { small: true })),
+        e('div.design-rank-head', e('span.design-rank-order', String(i + 1).padStart(2, '0')), e('strong.design-score', `${entry.total}/100`), ui.chip(cov.status, { small: true })),
         e('h3', String(f.topic || f.pillar).replace(/_/g, ' ')), e('p.design-evidence-level', T.level(f)),
+        e('p.design-applicability', T.materialNote(f, q, db) || 'Finding coverage is separate from the selected material question.'),
         e('p.design-rank-quote', f.quote ? '“' + f.quote + '”' : f.claim), cite(f.id),
         f.n.psi_id && db.rowsByPsi[f.n.psi_id]?.length ? e('span.design-table-badge', `PSI table: ${db.rowsByPsi[f.n.psi_id].length} rows`) : null,
         ui.scorebar(entry.parts, { small: true, sentences }),
@@ -192,11 +199,9 @@ export function mount(root, ctx) {
     const gaps = T.gaps(ax, q, db);
     gapList.replaceChildren(e('div.design-gap-title', e('h3', 'Gaps at this cabin'), e('span', `${gaps.length} axes`)),
       ...gaps.map(g => {
-        const pool = g.axis === 'gravity' ? db.cabinRows : g.axis === 'o2' ? db.cabinRows.filter(r => r.n.o2 != null) : db.cabinRows.filter(r => r.n.p != null || r.n.p_inferred != null);
-        const id = firstRow(pool);
-        return e('div.design-gap', { data: { gap: g.axis, status: 'NEVER_TESTED', claim: id || 'coverage' }, title: g.sentence },
+        return e('div.design-gap', { data: { gap: g.axis, status: 'NEVER_TESTED', claim: 'coverage-' + g.axis }, title: g.sentence },
           e('div', e('i'), e('strong', g.label), e('b', '0 rows')), e('span.design-gap-word', 'NEVER TESTED'),
-          g.extra ? e('p', g.extra) : null, id ? cite(id) : null);
+          g.extra ? e('p', g.extra) : null, aggregateSource(ui, ctx, q, g.axis));
       }));
     if (!gaps.length) gapList.append(e('p.design-no-gap', 'Cabin-material rows cover each axis separately. The matrix checks all conditions on the same row.'));
     const ids = Object.keys(db.materials).sort((a, b) => {
@@ -212,7 +217,6 @@ export function mount(root, ctx) {
           title: T.cellSentence(x, db.materials[id].label, db) }, ui.chip(x.status, { small: true }),
           e('span.design-cell-rows', `${x.status === 'PROVEN' ? x.hit_ids.length : x.rows} rows`), x.qualifier ? e('span.design-inferred', 'pressure inferred') : null,
           ...cellCites(x));
-        if (x.status === 'PROVEN' && x.observed?.length) b.append(e('span.design-recorded', `recorded: ${x.observed.map(o => o.name.replace(/_/g, ' ')).join(', ')}`));
         return b;
       }))));
     const label = db.materials[q.material]?.label || q.material || 'No material selected';
@@ -226,6 +230,7 @@ export function mount(root, ctx) {
           ranked: ranks.map(({ f, ...r }) => ({ id: f.id, ...r, ...S.findingStatus(f, q, db) })),
           constants: { W: core.rank.W, LEVEL: core.rank.LEVEL, SPAN: core.rank.SPAN, TOL: core.match.TOL }, scope: T.SCOPE
         }) })), claim(`${c.material}:${c.concern}`, e('p.design-cell-sentence', T.cellSentence(c, label, db)), ...cellCites(c)),
+      e('p.design-coverage-limits', `Atmospheric match only: oxygen within ±${core.match.TOL.o2} percentage point and pressure within ±${core.match.TOL.p} kPa, at the same gravity class. Facility pressure may be inferred. Flow, sample geometry, thickness and ignition are not matched.`),
       elsewhereIds.length ? e('p.design-elsewhere', 'This material also appears in: ', ...elsewhereIds.map(p => {
         const rows = selectedRows(db, q.material, p), names = [...new Set(rows.map(r => r.investigation))].join(', ');
         return e('span', `${p}${names ? ` (${names})` : ''} `, rows.length ? cite(rows[0].id) : null);
@@ -257,6 +262,101 @@ export function mount(root, ctx) {
   }
   paint();
   let frame = requestAnimationFrame(() => { if (!disposed) { draw(); revealCell(); } });
-  ui.css('css/views/design.css').then(() => { if (!disposed) { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => { draw(); revealCell(); }); } });
+  ui.css('css/views/design.css?v=10').then(() => { if (!disposed) { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => { draw(); revealCell(); }); } });
   return () => { disposed = true; cancelAnimationFrame(frame); root.classList.remove('design-view'); };
+}
+
+function aggregateSource(ui, ctx, q, axis = null) {
+  const { el: e } = ui, { db, core } = ctx;
+  return e('button.design-source-link', { type: 'button', data: { action: 'coverage-source', axis }, onclick: ev => {
+    const opener = ev.currentTarget, ax = core.status.axes(q, db), tol = core.match.TOL;
+    const selected = core.status.cell(q.material, q.concern, q, db), tally = core.status.tally(core.status.cells(q, db));
+    const tests = db.cabinRows, values = tests.filter(r => r.n.o2 != null).sort((a, b) => a.n.o2 - b.n.o2);
+    const endpoints = values.length ? [values[0], values[values.length - 1]] : [];
+    const dialog = e('dialog.design-source-dialog', { 'aria-label': 'Coverage calculation source' });
+    const close = () => dialog.close();
+    dialog.append(e('header', e('h2', 'How this coverage was calculated'), ui.button('Close', { onClick: close })),
+      e('p', `Searched ${tests.length} cabin-material test rows ${core.text.base(db)}. This is a calculation across the collection, not a claim supported by one row.`),
+      e('p', `Cabin: ${short(q.o2)} % oxygen, ${core.text.pressure(q.p)}, ${q.g_label || 'gravity not stated'}.`),
+      e('p', `${core.text.designAnswer(tally)} Related findings searched: ${db.findings.length}.`),
+      q.material ? e('p', `${db.materials[q.material]?.label || q.material} × ${q.concern}: ${selected.rows} test rows, ${selected.finding_ids.length} verified findings, ${selected.hit_ids?.length || 0} matching rows. Status: ${core.text.status(selected.status)}. `,
+        ...[...new Set([...(selected.hit_ids || []).slice(0, 1), ...(selected.nearest ? [selected.nearest.id] : []), ...selected.finding_ids.slice(0, 2)])].map(id => ui.cite(id))) : null,
+      e('ul', e('li', `Gravity: same class (${q.gclass || 'not stated'}), ${ax.gravity.cabin} matching cabin-material rows.`),
+        e('li', `Oxygen: within ±${tol.o2} percentage point, clean ambient values only, ${ax.o2.cabin} matching rows.`),
+        e('li', `Pressure: within ±${tol.p} kPa, reported or facility-inferred, ${ax.pressure.cabin} matching rows (${ax.pressure.cabin_inferred} inferred).`),
+        e('li', `Both atmosphere conditions on the same row: ${ax.joint.cabin} rows. Flow, geometry, thickness and ignition are not matched.`)),
+      e('p', 'Unknown conditions do not count as matches. Model fuels are excluded from the cabin-material set. Material coverage also requires the selected concern.'),
+      endpoints.length ? e('p', `Ambient oxygen endpoints: ${short(values[0].n.o2)} % to ${short(values[values.length - 1].n.o2)} %. `,
+        ...endpoints.map(r => ui.cite(r.id))) : null,
+      e('div.design-source-actions', ui.button('Download searched rows CSV', { onClick: () => ui.downloadCsv('vesta-cabin-material-coverage.csv', core.csv.toCsv(tests.map(r => ({ id: r.id, material: r.n.material_id, concerns: r.n.pillars.join('|'), gravity_class: r.n.gclass, oxygen_percent: r.n.o2, pressure_kpa: r.n.p, pressure_inferred_kpa: r.n.p_inferred, ...core.match.match(r.n, q, db.base).delta })))) }),
+        e('a', { href: 'api/v1/tests.csv', target: '_blank', rel: 'noopener' }, 'All PSI test rows'),
+        e('a', { href: 'api/v1/findings.json', target: '_blank', rel: 'noopener' }, 'All verified findings')),
+      db.presetById[q.preset] ? e('p', e('a', { href: `api/v1/coverage/${q.preset}.json`, target: '_blank', rel: 'noopener' }, 'Preset coverage JSON')) : null);
+    dialog.addEventListener('click', event => { if (event.target.closest('[data-cite]')) close(); }, { capture: true });
+    dialog.addEventListener('close', () => { dialog.remove(); if (opener.isConnected) opener.focus(); }, { once: true });
+    document.body.append(dialog); dialog.showModal();
+  } }, 'source');
+}
+
+function mountSimple(root, ctx) {
+  const { db, ui, core } = ctx, { el: e } = ui, q = ctx.q, T = core.text;
+  root.classList.add('design-view', 'design-simple-view');
+  const cells = core.status.cells(q, db), tally = core.status.tally(cells), ax = core.status.axes(q, db);
+  const c = core.status.cell(q.material, q.concern, q, db), preset = db.presetById[q.preset];
+  const materialName = label => ({ PMMA: 'Acrylic plastic (PMMA)', SIBAL: 'Cotton/fiberglass fabric (SIBAL)' })[label] || label;
+  const plainConcern = { prevention: 'Starting a fire', detection: 'Detecting a fire', suppression: 'Putting a fire out' };
+  const labels = { station: 'Space station', spacecraft: 'Spacecraft', 'lunar-base': 'Moon base', rover: 'Pressurized rover', 'mars-base': 'Mars base' };
+  const answer = T.designAnswer(tally);
+  const source = id => ui.cite(id, { label: 'source', class: 'design-simple-source' });
+  const heading = ui.answer('Has a cabin like yours been tested?', answer, { class: 'design-simple-heading' });
+  heading.querySelector('[data-answer]').setAttribute('data-claim', 'design-coverage');
+  heading.append(e('p.design-simple-scope', T.base(db) + '. ', aggregateSource(ui, ctx, q)));
+  const where = e('select', { 'aria-label': 'Where?', data: { preset: q.preset }, onchange: ev => ctx.setQ({ preset: ev.target.value }) },
+    db.presets.map(p => e('option', { value: p.id, selected: p.id === q.preset }, labels[p.id] || p.label)));
+  const concern = e('select', { 'aria-label': 'What worries you?', data: { concern: q.concern }, onchange: ev => ctx.setQ({ concern: ev.target.value }) },
+    CONCERNS.map(id => e('option', { value: id, selected: q.concern === id }, plainConcern[id])));
+  const material = e('select', { 'aria-label': 'Material', data: { mat: q.material }, onchange: ev => ctx.setQ({ material: ev.target.value }) },
+    !q.material ? e('option', { value: '', selected: true }, 'Choose a material') : null,
+    Object.entries(db.materials).map(([id, m]) => e('option', { value: id, selected: q.material === id }, materialName(m.label))));
+  const choices = e('section.design-simple-choices', e('h2', 'Your cabin'),
+    e('div', e('h3', 'Where?'), where), e('label', 'What worries you?', concern), e('label', 'Material', material),
+    e('p.design-simple-atmosphere', { data: { claim: preset?.id || 'custom-cabin' } },
+      `${short(q.o2)} % oxygen · ${q.g_label || 'gravity not stated'}.`, e('br'), `Air pressure: ${short(T.psia(q.p))} psia (pounds per square inch). `, preset ? source(preset.id) : 'Chosen by you.'));
+  const host = e('div.design-simple-map-host');
+  const mapPanel = e('section.design-simple-map', e('h2', 'Tested envelope'), host,
+    e('p', 'Hollow dots: pressure inferred from the test facility. Dots combine gravity levels; this map alone does not prove a match.'));
+  const statusText = q.material ? T.statusMeaning(c.status, c.qualifier) : 'Choose a material to check its evidence coverage.';
+  const result = e('section.design-simple-result', e('h2', q.material ? `${materialName(db.materials[q.material]?.label || q.material)} · ${plainConcern[q.concern].toLowerCase()}` : 'Selected material question'),
+    e('div.design-simple-selected', { data: { status: c.status, cell: `${q.material}:${q.concern}`, claim: 'selected-material-coverage' } },
+      e('strong', T.status(c.status)), e('p', statusText), aggregateSource(ui, ctx, q)),
+    e('h3', 'Gaps across cabin materials'));
+  const gapNames = { gravity: 'Gravity', o2: 'Oxygen', pressure: 'Air pressure' };
+  const gaps = T.gaps(ax, q, db);
+  for (const gap of gaps) {
+    const sentence = gap.axis === 'gravity' ? `No test row at ${q.g_label}.`
+      : gap.axis === 'o2' ? `No test row near ${short(q.o2)} % oxygen.`
+      : 'No test row near this pressure.';
+    result.append(e('div.design-simple-gap', { data: { gap: gap.axis, claim: 'coverage-' + gap.axis } }, e('strong', gapNames[gap.axis]), e('p', sentence), aggregateSource(ui, ctx, q, gap.axis)));
+  }
+  if (!gaps.length) result.append(e('p', 'Each axis has nearby test rows. Only the selected material and concern are checked together; this does not validate a cabin.'));
+  if (c.status === 'PROVEN') {
+    const outcomeNames = { o2_final_percent: 'final oxygen', co2_final_percent: 'final carbon dioxide', co_final_ppm: 'final carbon monoxide' };
+    if (c.observed?.length) result.append(e('p.design-simple-observed', `Recorded: ${c.observed.map(o => outcomeNames[o.name] || o.name.replace(/_/g, ' ')).join(', ')}. `, source(c.hit_ids[0])));
+    result.append(e('p', 'A nearby-condition match only. Airflow and sample shape are not matched.'));
+  }
+  const footer = e('footer.design-simple-footer', e('p', T.STATUS_LINE), ui.button('Run the fire drill', { primary: true, action: 'drill', onClick: () => ctx.go('#/incident?view=simple&play=1') }));
+  root.append(e('div.design-simple-layout', heading, e('div.design-simple-blocks', choices, mapPanel, result), footer));
+  let disposed = false, frame;
+  function draw() {
+    if (disposed) return;
+    const data = mapData(db, ['solid']);
+    const map = drawMap(ui, host, { simple: true, data, q, markers: [], bands: db.bands, tol: core.match.TOL, text: T,
+      onOpen: id => ctx.openSource(id), sel: { material: q.material, concern: q.concern } });
+    host.replaceChildren(map.node);
+  }
+  draw();
+  frame = requestAnimationFrame(draw);
+  ui.css('css/views/design.css?v=10').then(draw);
+  const observer = new ResizeObserver(draw); observer.observe(host);
+  return () => { disposed = true; cancelAnimationFrame(frame); observer.disconnect(); root.classList.remove('design-view', 'design-simple-view'); };
 }

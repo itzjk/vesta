@@ -114,7 +114,9 @@ export function mount(root, ctx) {
 
 function build(root, ctx) {
   const { db, ui, core } = ctx, h = ui.el, svg = ui.svg, text = core.text ?? {};
+  const replace = (node, ...children) => node.replaceChildren(...children.flat().filter(x => x != null && x !== false));
   const params = ctx.params ?? {};
+  const simple = params.view !== 'details' && ctx.view !== 'details';
   const still = !!ctx.capture || (typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches);
   let raf = 0, dead = false;
   try { ui.css('css/views/incident.css'); } catch { /* the shell reports a missing stylesheet */ }
@@ -222,7 +224,29 @@ function build(root, ctx) {
     h('div.inc-buttons',
       ui.button('Export log', { action: 'export-json', small: true, onClick: exportLog, title: 'Download the decision log (vesta.decision-log/1)' }),
       ui.button('Load telemetry .jsonl', { action: 'load-telemetry', small: true, onClick: () => N.file.click(), title: 'Run the same officer on your own vesta.telemetry/1 file' }), N.file));
-  const wrap = h('div.inc', { data: { incident: '' } }, left, centre, right, bar, N.msg);
+  const wrap = h('div.inc', { data: { incident: '', presentation: simple ? 'simple' : 'details' } });
+  if (simple) {
+    const intro = ui.answer('What do you do when Earth cannot answer yet?', S.started ? text.incidentAnswer(meta, S.t - S.t0, shifted(), db) : 'Every scripted decision needs evidence. Run the drill to see what happens.', { class: 'inc-simple-intro' });
+    N.answer = intro.querySelector('[data-answer]');
+    N.answer.classList.add('inc-answer');
+    intro.append(h('p.inc-simple-scenario', 'Separate spacecraft scenario: a scripted fire on the way to Mars, in weightlessness.'));
+    N.simpleStep = h('section.inc-simple-step', { 'aria-label': 'Current decision' });
+    N.simpleClock = h('p.inc-simple-clock', { data: { silenceClock: '' } });
+    N.simpleAssumption = h('p.inc-simple-assumption');
+    N.simpleSimulation = h('p', 'SIMULATED TELEMETRY · SCRIPTED · NOT A PHYSICS MODEL');
+    N.simpleDots = h('div.inc-dots', { role: 'group', 'aria-label': 'Drill steps' });
+    N.simpleRun = ui.button('Run the drill', { primary: true, action: 'play', onClick: () => S.playing ? pause() : run() });
+    N.simpleTrust = ui.button('Can you trust it?', { action: 'next-story', onClick: () => ctx.go?.('#/engine') });
+    N.simpleStepButton = ui.button('Next step', { action: 'step', onClick: () => stepTo(+1) });
+    wrap.append(
+      intro,
+      N.simpleStep,
+      h('section.inc-simple-silence', { 'aria-label': 'The Silence' }, h('h2', 'The Silence'), N.simpleClock, N.track, N.simpleAssumption,
+        h('div.inc-simple-clock-source', finding(meta.comm?.one_way_finding) ? cite(meta.comm.one_way_finding, { label: 'source' }) : null)),
+      h('section.inc-simple-progress', { 'aria-label': 'Drill progress' }, N.simpleDots,
+        h('div.inc-simple-actions', N.simpleRun, N.simpleStepButton, N.simpleTrust)),
+      h('footer.inc-simple-disclosures', N.simpleSimulation, h('p', text.STATUS_LINE ?? 'STATUS = EVIDENCE COVERAGE, NOT A SAFETY CERTIFICATION')), N.msg);
+  } else wrap.append(left, centre, right, bar, N.msg);
   root.append(wrap);
 
   let leftKey = null;
@@ -275,21 +299,111 @@ function build(root, ctx) {
     return { text: s ?? `No verified finding for this step ${baseWords}.`, cite: null };
   }
 
+  function gapSource(e) {
+    return ui.button('source', { class: 'cite', onClick: () => {
+      const material = e.cell?.material;
+      const topic = steps.find(s => s.id === e.step)?.topic;
+      const rows = material ? (db.rowsByMaterial[material] ?? []).filter(r => r.n.pillars.includes(e.pillar)) : [];
+      const findings = db.findings.filter(f => material ? f.pillar === e.pillar && (f.n.material_ids ?? []).includes(material) : f.topic === topic);
+      const dialog = h('dialog.inc-gap-dialog', { 'aria-label': 'Evidence behind this gap' });
+      const close = ui.button('Close', { onClick: () => dialog.close() });
+      dialog.append(h('h2', 'Evidence behind this gap'),
+        h('p', material ? `Query: ${materialLabel(e)} and ${text.concern(e.pillar).toLowerCase()}. No atmosphere match is claimed.` : `Query: verified findings about ${String(topic ?? '').replace(/_/g, ' ')}.`),
+        h('p', `${db.tests.length} source-table rows and ${db.findings.length} gated findings searched ${baseWords}.`),
+        h('p', material ? `${rows.length} material-and-concern rows; ${findings.length} matching findings.` : `${findings.length} matching findings.`),
+        h('p', 'This is a query of this evidence base, not a claim about all NASA research.'),
+        h('div.inc-gap-links', h('a', { href: 'api/v1/tests.csv', target: '_blank', rel: 'noopener' }, 'Source-table rows'), h('a', { href: 'api/v1/findings.csv', target: '_blank', rel: 'noopener' }, 'Gated findings')),
+        close);
+      dialog.addEventListener('close', () => dialog.remove(), { once: true });
+      wrap.append(dialog); dialog.showModal(); close.focus();
+    } });
+  }
+
   function chipsRow(e) {
     const fr = frameOf(e), q = { o2: fr.o2_percent, p: fr.pressure_kpa, g_label: gLabel, gclass: meta.gclass };
     if (e.state === 'NO_SOURCE') {
       const g = gapSentence(e);
       return h('div.inc-chips', { data: { chips: 'NO_SOURCE' } },
-        h('p.inc-gap', { data: { gapSentence: '', claim: g.cite ? 'gap' : null } }, h('span.inc-limits-tag', 'THE GAP'), ' ', g.text, g.cite ? [' ', cite(g.cite, { small: true })] : null),
+        h('p.inc-gap', { data: { gapSentence: '', claim: g.cite ? 'gap' : null } }, h('span.inc-limits-tag', 'THE GAP'), ' ', g.text, [' ', gapSource(e)]),
         h('div.inc-chiprow', chip('NO_SOURCE'), h('span.inc-chipnote', e.protocol ? 'no action written by VESTA · the ISS procedure applies, with its limit' : 'no action written by VESTA · handed to the crew')));
     }
     const best = finding(e.nasa?.[0]?.finding_id), delta = e.cell?.nearest?.delta ?? {};
     const detail = best ? levelOf(best) : (e.cell ? `PSI test rows · ${e.cell.rows} ${e.cell.rows === 1 ? 'row' : 'rows'}` : '');
     let reasons = []; try { reasons = (e.coverage?.reasons ?? []).map(code => ui.reason(code, { q, delta, n: nInv })); } catch { reasons = []; }
     return h('div.inc-chips', { data: { chips: 'SOURCED' } },
-      h('div.inc-chiprow', chip('SOURCED'), h('span.inc-chipnote', detail)),
-      h('div.inc-chiprow', chip(e.coverage?.status ?? 'EXTRAPOLATED', { qualifier: e.cell?.qualifier ?? null }), h('span.inc-chipnote', `at this cabin (${cabinLine(fr)})`), reasons),
+      h('div.inc-chiprow', chip('SOURCED'), chip(e.coverage?.status ?? 'EXTRAPOLATED', { qualifier: e.cell?.qualifier ?? null }), h('span.inc-chipnote', detail)),
+      h('div.inc-chiprow', h('span.inc-chipnote', `at this cabin (${cabinLine(fr)})`), reasons),
       e.limits ? h('p.inc-limits', h('span.inc-limits-tag', 'LIMITS'), ' ', e.limits) : null);
+  }
+
+  function protocolCard(id, compact = false) {
+    const p = db.protocolById?.[id], f = finding(p?.finding_id);
+    if (!p || !f?.quote) return null;
+    const quote = f.quote;
+    return h('div.inc-operation', { class: compact ? 'inc-operation-compact' : '', data: { protocol: id, claim: f.id } },
+      h('p.inc-operation-label', simple && compact && id === 'PROT-07' ? `ISS procedure: ${p.action}` : 'ISS procedure, limited fallback'),
+      simple && compact ? null : h('p.inc-operation-action', p.action),
+      h('p.inc-operation-quote', `“${quote}”`),
+      cite(f.id, { label: simple ? 'source' : undefined }),
+      h('p.inc-operation-limit', p.limit));
+  }
+
+  function renderSimple() {
+    const F = fired(), selected = F.find(e => e.step === S.selected), active = selected ?? F.at(-1), c = clockNow();
+    N.simpleSimulation.textContent = simulated() ? 'SIMULATED TELEMETRY · SCRIPTED · NOT A PHYSICS MODEL' : 'TELEMETRY FROM A FILE · REPLAYED AS WRITTEN · NOT A PHYSICS MODEL';
+    const end = ended() && !selected;
+    const answer = !S.started ? 'Every scripted decision needs evidence. Run the drill to see what happens.' : !F.length ? 'Watching the cabin. No alarm has been sent.' : text.incidentAnswer(meta, S.t - S.t0, shifted(), db);
+    if (N.answer.textContent !== answer) N.answer.textContent = answer;
+    const key = `${active?.step}:${end}:${S.user?.name ?? ''}`;
+    if (N.simpleKey !== key) {
+      N.simpleKey = key;
+      if (!active) replace(N.simpleStep, h('h2', 'A fire behind a spacecraft panel'),
+        h('p', 'Run the scripted drill. Each decision must show its evidence, or stop at NO SOURCE.'),
+        h('p.inc-simple-muted', 'This prototype supports a decision; it is not a flight procedure.'));
+      else if (end) {
+        const gapCount = F.filter(e => e.state === 'NO_SOURCE').length;
+        replace(N.simpleStep, h('h2', 'The drill is complete'),
+          h('p.inc-simple-result', gapCount ? `${gapCount} steps had no supporting finding. VESTA showed a limited ISS fallback instead of inventing an action.` : 'Every step kept its supporting finding and its limits.'),
+          h('p', 'Inspect how the evidence was checked next.'));
+      } else if (active.state === 'NO_SOURCE') {
+        const gap = active.gap === 'no_row_no_finding'
+          ? `Material coverage cannot be established: no test row or verified finding for ${materialLabel(active)} and fire prevention ${baseWords}.`
+          : `No verified finding for this question ${baseWords}.`;
+        replace(N.simpleStep, h('div.inc-simple-stephead', h('h2', active.label.toLowerCase()), chip('NO_SOURCE', { class: 'inc-simple-no-source' })),
+          h('p.inc-simple-gap', gap, ' ', gapSource(active)),
+          protocolCard(active.protocol?.id) ?? h('p', 'Hand the decision to the crew. No verified protocol line for this step.'));
+      } else {
+        const f = finding(active.nasa?.[0]?.finding_id), cov = active.coverage?.status ?? 'EXTRAPOLATED';
+        const meaning = text.statusMeaning ? text.statusMeaning(cov) : cov === 'PROVEN' ? 'NASA tested these conditions' : 'Evidence from different or incomplete conditions';
+        replace(N.simpleStep,
+          h('div.inc-simple-stephead', h('h2', active.label.toLowerCase()), h('span.inc-simple-evidence', 'SOURCED · has a source')),
+          h('div.inc-simple-triad',
+            active.earth?.text ? h('div.inc-simple-beat.inc-simple-instinct', h('h3', active.earth.finding_id ? 'Earth practice' : 'Common assumption'), h('p', h('s', active.earth.text)), active.earth.finding_id ? cite(active.earth.finding_id, { label: 'source' }) : null) : null,
+            h('div.inc-simple-beat', h('h3', 'NASA showed'), h('p.inc-simple-quote', f?.quote ? `“${f.quote}”` : 'This step cites test rows.'),
+              (active.nasa ?? []).slice(0, 1).map(n => cite(n.finding_id, { label: 'source' }))),
+            h('div.inc-simple-beat.inc-simple-decision', h('h3', 'VESTA decides · interpretation'), h('p', active.action ?? 'Hand the decision to the crew.'))),
+          h('p.inc-simple-coverage', `${cov.replace(/_/g, ' ')} · ${meaning}`),
+          active.coverage?.reasons?.includes('different_fuel_class') ? h('p.inc-simple-limit', 'This evidence is from liquid fuel droplets, a different fuel class from this scripted solid-material fire.') : null,
+          active.step === 'S3' ? protocolCard('PROT-05', true) : active.step === 'S5' ? protocolCard('PROT-07', true) : null);
+      }
+    }
+    const alarmed = F.length > 0, heard = c.heard != null && S.t - S.t0 >= c.heard;
+    N.simpleClock.textContent = c.heard == null ? 'Delay has no verified source.' : !alarmed ? 'Earth has not been alerted.' : heard ? 'Earth has heard the alarm.' : `Earth hears the alarm in ${mmss(Math.max(0, c.heard - (S.t - S.t0)))}`;
+    N.simpleAssumption.textContent = c.heard == null ? 'The clock stays hidden without its source.' : `Maximum-delay drill: ${meta.comm.one_way_min} minutes each way; an immediate ground response is assumed.`;
+    const dotsKey = `${F.length}:${active?.step}:${end}`;
+    if (N.dotsKey !== dotsKey) {
+      N.dotsKey = dotsKey;
+      N.simpleDots.replaceChildren(...steps.map((step, i) => {
+        const e = F.find(x => x.step === step.id);
+        return ui.button(String(i + 1), { disabled: !e, class: 'inc-dot-button' + (e === active && !end ? ' is-current' : ''), data: { step: step.id, fired: !!e, state: e?.state, current: e === active && !end ? 'step' : null }, title: `${step.label}${e ? ': inspect this decision' : ': not reached yet'}`, onClick: () => select(step.id) });
+      }));
+    }
+    const label = S.playing ? 'Pause drill' : ended() ? 'Run again' : 'Run the drill';
+    (N.simpleRun.querySelector('.btn-label') ?? N.simpleRun).textContent = label;
+    N.simpleRun.classList.toggle('btn-primary', !ended());
+    N.simpleTrust.classList.toggle('btn-primary', ended());
+    N.simpleRun.dataset.action = S.playing ? 'pause' : 'play';
+    N.simpleStepButton.disabled = !S.log.some(e => e.t > S.t + EPS);
   }
 
   function stepView(e, idx) {
@@ -299,12 +413,17 @@ function build(root, ctx) {
     let tri;
     try { tri = ui.triad(e, db, { strikeAfter: S.playing && !still ? 800 : 0, limits: false, actions: noSrc ? null : [e.rule_id ? h('span.inc-rule', `rule ${e.rule_id}`) : null, ack], noSourceLine: text.NO_SOURCE_LINE }); }
     catch (err) { console.error('VESTA incident: triad failed', err); tri = h('div.triad', h('p', e.action ?? '')); }
+    if (noSrc && e.protocol) {
+      const original = tri.querySelector('.protocol-card');
+      if (original) original.replaceWith(protocolCard(e.protocol.id));
+    }
     return [
       h('div.inc-top', vesta(noSrc ? 'nosource' : 'point', line, 112),
         h('div.inc-head',
           h('div.inc-head-line', h('span.inc-stepno', `STEP ${idx + 1} of ${steps.length}`), h('span.inc-stept', tplus(e.t - S.t0)), h('span.inc-steplabel', e.label)),
           h('p.inc-question', e.question ?? ''))),
       h('div.inc-triadbox', { data: { state: e.state } }, tri),
+      e.step === 'S3' ? protocolCard('PROT-05', true) : e.step === 'S5' ? protocolCard('PROT-07', true) : null,
       chipsRow(e),
       h('p.inc-statusline', text.STATUS_LINE ?? 'STATUS = EVIDENCE COVERAGE, NOT A SAFETY CERTIFICATION')];
   }
@@ -337,19 +456,19 @@ function build(root, ctx) {
     if (key === centreKey) return; centreKey = key;
     wrap.dataset.mode = mode; wrap.dataset.step = mode === 'step' ? active.step : '';
     if (mode === 'unusable') {
-      N.stage.replaceChildren(h('div.inc-standby', vesta('nosource', say('no_protocol'), 190),
+      replace(N.stage, h('div.inc-standby', vesta('nosource', say('no_protocol'), 190),
         h('p.inc-standby-sub', 'Every frame needs its own cabin oxygen and pressure to evaluate coverage. Missing fields stay unknown; no scenario values stand in for them. Nothing runs.')));
     } else if (mode === 'standby') {
-      N.stage.replaceChildren(h('div.inc-standby',
+      replace(N.stage, h('div.inc-standby',
         vesta('alert', S.user ? say('user_file') : finding(meta.comm?.one_way_finding) ? say('standby') : say('standby_no_delay'), 210),
         h('div.inc-standby-title', S.user ? S.user.name : (meta.title ?? '')),
         h('p.inc-standby-sub', S.started ? `Watching ${zoneLabel(meta)}. No alarm yet.` : `A scripted fire drill. ${steps.length} possible steps; each one has to show its source or say NO SOURCE.`),
         S.playing ? null : ui.button('RUN', { primary: true, action: 'play', class: 'inc-run-big', onClick: run, title: 'Run the drill (Space)' }),
         S.heard == null && S.log.length ? h('p.inc-na', 'delay: no verified source') : null));
     } else if (mode === 'end') {
-      N.stage.replaceChildren(endCard(clockNow()));
+      replace(N.stage, endCard(clockNow()));
     } else {
-      N.stage.replaceChildren(...stepView(active, S.log.indexOf(active)));
+      replace(N.stage, ...stepView(active, S.log.indexOf(active)));
     }
     N.list.replaceChildren(...(S.user && !S.log.length ? [h('li.inc-row.inc-row-note', S.unusable ? 'Nothing ran.' : 'No step of the playbook fired on this file.')] : steps.map((s, i) => {
       const e = F.find(x => x.step === s.id);
@@ -367,6 +486,7 @@ function build(root, ctx) {
     N.delays.replaceChildren(
       h('div.inc-delay', { data: { claim: one ? 'delay-one-way' : null } }, h('span.inc-delay-k', 'one way'),
         one ? [h('b', `up to ${c.one_way_min} min`), cite(c.one_way_finding, { small: true })] : h('span.inc-na', 'delay: no verified source')),
+      h('p.inc-clock-assumption', `Separate spacecraft scenario. This drill assumes ${c.one_way_min} minutes per leg and an immediate ground response.`),
       h('div.inc-delay', { data: { claim: two ? 'delay-round-trip' : null } }, h('span.inc-delay-k', 'round trip'),
         two ? [h('b', `up to ${c.round_trip_min} min`), cite(c.round_trip_finding, { small: true })] : h('span.inc-na', 'delay: no verified source')));
     const W = 452, H = 96, x0 = 52, x1 = W - 70, y = 44;
@@ -418,8 +538,8 @@ function build(root, ctx) {
     N.rReply.parentNode.dataset.missing = c.reply == null ? '1' : '0';
     N.rHeard.parentNode.dataset.reached = heardNow ? '1' : '0';
     N.rReply.parentNode.dataset.reached = replyNow ? '1' : '0';
-    N.hText.textContent = replyNow ? 'a first reply could arrive now' : '-- nothing yet --';
-    N.hCount.textContent = c.reply == null ? 'delay: no verified source' : !alarmed ? 'no alert sent yet' : replyNow ? 'at the maximum delay, the round trip is complete' : `${mmss(c.to_reply)} to any reply`;
+    N.hText.textContent = replyNow ? 'a first reply could arrive now' : 'No reply yet';
+    N.hCount.textContent = c.reply == null ? 'delay: no verified source' : !alarmed ? 'no alert sent yet' : replyNow ? 'at the maximum delay, the round trip is complete' : `${mmss(c.to_reply)} until a reply could arrive in this maximum-delay drill`;
     N.houston.dataset.state = replyNow ? 'reply' : 'silent';
     N.decided.querySelector('.inc-subhead').textContent = S.heard == null || S.log.some(e => e.t - S.t0 >= S.heard) ? 'DECIDED ON BOARD' : 'DECIDED WITHOUT EARTH';
     N.dSteps.textContent = String(c.decided.steps);
@@ -436,7 +556,7 @@ function build(root, ctx) {
     N.source.replaceChildren(
       h('div.inc-subhead', h('span', 'SOURCE'), h('span.inc-subnote', [f.id, f.pillar].filter(Boolean).join(' · '))),
       h('div.inc-source-body', { data: { claim: 'source' } },
-        h('p.inc-sentence', c.before ? h('span.inc-ctx', c.before) : null, h('mark.inc-quote', f.quote ?? f.claim ?? ''), c.after ? h('span.inc-ctx', c.after) : null),
+        h('p.inc-sentence', '“', c.before ? h('span.inc-ctx', c.before) : null, h('mark.inc-quote', f.quote ?? f.claim ?? ''), c.after ? h('span.inc-ctx', c.after) : null, '”'),
         h('div.inc-source-meta', { title: [f.source?.title, f.source?.year].filter(Boolean).join(' · ') }, [f.source?.title, f.source?.year].filter(Boolean).join(' · ')),
         h('div.inc-citerow', cite(f.id, { small: true }), url ? h('a.inc-link', { href: url, target: '_blank', rel: 'noopener' }, 'open NASA source') : null)));
   }
@@ -465,7 +585,7 @@ function build(root, ctx) {
     wrap.dataset.playing = S.playing ? '1' : '0';
   }
 
-  function render() { if (dead) return; renderCentre(); renderLeft(); renderSilence(); renderTransport(); }
+  function render() { if (dead) return; renderCentre(); renderLeft(); renderSilence(); renderTransport(); if (simple) renderSimple(); }
 
   function loop(now) {
     raf = 0; if (dead || !S.playing) return;
@@ -550,7 +670,7 @@ function build(root, ctx) {
     N.scrub.addEventListener('pointermove', move); N.scrub.addEventListener('pointerup', up); N.scrub.addEventListener('pointercancel', up);
   });
   function onKey(ev) {
-    if (document.querySelector('#drawer.is-open')) return;
+    if (document.querySelector('#drawer.is-open') || wrap.querySelector('dialog[open]')) return;
     const tag = ev.target?.tagName; if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || ev.metaKey || ev.ctrlKey || ev.altKey) return;
     if (ev.code === 'Space') { if (tag === 'BUTTON' || tag === 'A') return; ev.preventDefault(); S.playing ? pause() : run(); }
     else if (ev.key === 'ArrowRight') { ev.preventDefault(); stepTo(+1); }

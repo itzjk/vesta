@@ -38,6 +38,7 @@ export function normalizeRows(rows, noteByPsi, facility, facilityPass, warn) {
                 o2: row.o2_basis === 'ambient' && typeof row.o2_percent === 'number' ? row.o2_percent : null,
                 p: typeof row.pressure_kpa === 'number' ? row.pressure_kpa : null, p_inferred: pInferred,
                 counts: row.row_kind === 'test' || row.row_kind === 'test_group_reference' };
+    if (pInferred != null) n.p_inferred_source = { ...fac.source, gate: { pass: true }, assumption: 'Nominal glovebox pressure is assumed to apply to this run; pressure is not measured in this row.' };
     return { ...row, n };
   });
   for (const [value, count] of unmappedGravity) warn('unmapped_row_gravity', { value, rows: count });

@@ -29,34 +29,46 @@ OPEN_LINKS='::eval:Promise.all([...new Set([...document.querySelectorAll("#view 
 OPEN_TOOLS='::eval:(()=>{const n=document.querySelectorAll("#view [data-tool]").length;if(n!==4)throw new Error(n+" MCP tools on screen, 4 expected")})()'
 
 # --- the list (name=target). The first six are the routes; they run again at 1366x768.
-NAMES=(brief summarize design-station design incident engine open incident-nosource incident-end drawer row empty flip drill)
+NAMES=(brief summarize design-station design incident engine open incident-nosource incident-end drawer row empty flip drill brief-simple summarize-simple design-simple incident-simple engine-simple open-simple)
 target() {
   case "$1" in
-    brief)             echo "/#/brief?capture=1$(has '["RUN FIRE DRILL","1 Summarize","3 Interpret","2 Rank","24","DECISION-SUPPORT PROTOTYPE"]')$ANY_COUNTS" ;;
-    summarize)         echo "/#/investigations?cmp=PSI-25,PSI-69&capture=1$(has '["BASS-II","FLEX","not in the table"]')" ;;
-    design-station)    echo "/#/design?preset=station&mat=pmma&capture=1$(has '["PROVEN","pressure inferred","STATUS = EVIDENCE COVERAGE, NOT A SAFETY CERTIFICATION"]')" ;;
-    design)            echo "/#/design?preset=lunar-base&mat=pmma&capture=1$(has '["NEVER TESTED","EXTRAPOLATED","+11.8","no partial-gravity combustion data available in PSI","STATUS = EVIDENCE COVERAGE, NOT A SAFETY CERTIFICATION"]')" ;;
-    incident)          echo "/#/incident?t=250&paused=1&capture=1$(has '["SIMULATED TELEMETRY","SCRIPTED","NOT A PHYSICS MODEL","up to 20 min","SOURCED","EXTRAPOLATED"]')" ;;
-    engine)            echo "/#/engine?capture=1::wait:300$(has '["Extractor","Verifier","Ranker","Officer","SI reads; code checks.","excluded","Rejected"]')$ENGINE_COUNTS" ;;
-    open)              echo "/#/open?capture=1::wait:1500$(has '["tests.csv","findings.csv","api/v1/index.json","search_evidence","rank_evidence","check_design","get_finding","snapshot of","vesta.telemetry/1"]')$OPEN_TOOLS$OPEN_LINKS" ;;
-    incident-nosource) echo "/#/incident?t=490&paused=1&capture=1$(has '["NO SOURCE","SIMULATED TELEMETRY","ISS procedure for low Earth orbit"]')" ;;
-    incident-end)      echo "/#/incident?t=1200&paused=1&capture=1$(has '["SIMULATED TELEMETRY","Earth hear"]')" ;;
-    drawer)            echo "/#/design?preset=lunar-base&src=S-VENT-01&capture=1$(has '["S-VENT-01","ventilation flow strongly enhances flames","quote verified"]')" ;;
-    row)               echo "/#/design?preset=station&src=PSI-25:1&capture=1$(has '["PSI-25","row 1"]')" ;;
-    empty)             echo "/#/open?feed=off&capture=1::wait:800$(has '["Feed unavailable. The evidence base is unaffected."]')" ;;
-    flip)              echo "/#/design?preset=station&mat=pmma::click:[data-preset=\"lunar-base\"]::wait:600$(has '["NEVER TESTED","+11.8"]')" ;;
-    drill)             echo "/#/brief::click:[data-action=\"drill\"]::wait:6000$(has '["SIMULATED TELEMETRY"]')" ;;
+    brief)             echo "/#/brief?view=details&capture=1$(has '["RUN FIRE DRILL","1 Summarize","3 Interpret","2 Rank","24","DECISION-SUPPORT PROTOTYPE"]')$ANY_COUNTS" ;;
+    summarize)         echo "/#/investigations?cmp=PSI-25,PSI-69&view=details&capture=1$(has '["BASS-II","FLEX","not in the table"]')" ;;
+    design-station)    echo "/#/design?preset=station&mat=pmma&view=details&capture=1$(has '["PROVEN","pressure inferred","STATUS = EVIDENCE COVERAGE, NOT A SAFETY CERTIFICATION"]')" ;;
+    design)            echo "/#/design?preset=lunar-base&mat=pmma&view=details&capture=1$(has '["NEVER TESTED","EXTRAPOLATED","+11.8","no partial-gravity combustion data available in PSI","STATUS = EVIDENCE COVERAGE, NOT A SAFETY CERTIFICATION"]')" ;;
+    incident)          echo "/#/incident?t=250&paused=1&view=details&capture=1$(has '["SIMULATED TELEMETRY","SCRIPTED","NOT A PHYSICS MODEL","up to 20 min","SOURCED","EXTRAPOLATED"]')" ;;
+    engine)            echo "/#/engine?view=details&capture=1::wait:300$(has '["Extractor","Verifier","Ranker","Officer","SI reads; code checks.","excluded","Rejected"]')$ENGINE_COUNTS" ;;
+    open)              echo "/#/open?view=details&capture=1::wait:1500$(has '["tests.csv","findings.csv","api/v1/index.json","search_evidence","rank_evidence","check_design","get_finding","snapshot of","vesta.telemetry/1"]')$OPEN_TOOLS$OPEN_LINKS" ;;
+    incident-nosource) echo "/#/incident?t=490&paused=1&view=details&capture=1$(has '["NO SOURCE","SIMULATED TELEMETRY","ISS procedure for low Earth orbit"]')" ;;
+    incident-end)      echo "/#/incident?t=1200&paused=1&view=details&capture=1$(has '["SIMULATED TELEMETRY","Earth hear"]')" ;;
+    drawer)            echo "/#/design?preset=lunar-base&src=S-VENT-01&view=details&capture=1$(has '["S-VENT-01","ventilation flow strongly enhances flames","quote verified"]')" ;;
+    row)               echo "/#/design?preset=station&src=PSI-25:1&view=details&capture=1$(has '["PSI-25","row 1"]')" ;;
+    empty)             echo "/#/open?feed=off&view=details&capture=1::wait:800$(has '["Feed unavailable. The evidence base is unaffected."]')" ;;
+    flip)              echo "/#/design?preset=station&mat=pmma&view=details::click:[data-preset=\"lunar-base\"]::wait:600$(has '["NEVER TESTED","+11.8"]')" ;;
+    drill)             echo "/#/brief?view=details::click:[data-action=\"drill\"]::wait:6000$(has '["SIMULATED TELEMETRY"]')" ;;
+    brief-simple)      echo "/#/brief?capture=1$(has '["Simple","Details"]')" ;;
+    summarize-simple)  echo "/#/investigations?capture=1$(has '["Simple","Details"]')" ;;
+    design-simple)     echo "/#/design?preset=lunar-base&mat=pmma&capture=1$(has '["Simple","Details"]')" ;;
+    incident-simple)   echo "/#/incident?t=250&paused=1&capture=1$(has '["SIMULATED TELEMETRY","SCRIPTED","NOT A PHYSICS MODEL"]')" ;;
+    engine-simple)     echo "/#/engine?capture=1$(has '["Can you trust it?","VESTA interpretations","Use the data"]')$ANY_COUNTS" ;;
+    open-simple)       echo "/#/open?capture=1$(has '["Can you use the data?","Download data","Query the data","Connect an assistant"]')" ;;
     *) return 1 ;;
   esac
 }
 
 WANT=("$@"); [ ${#WANT[@]} -eq 0 ] && WANT=("${NAMES[@]}")
-FULL=() ; SMALL=()
+FULL=() ; SMALL=() ; PHONE=()
 for n in "${WANT[@]}"; do
   t="$(target "$n")" || { echo "unknown shot: $n (known: ${NAMES[*]})"; exit 2; }
   FULL+=("$n=$t$FONTS")
 done
 if [ $# -eq 0 ]; then for n in "${NAMES[@]:0:7}"; do [ "$n" = design-station ] && continue; SMALL+=("$n-1366=$(target "$n")$FITS$FONTS"); done; fi
+if [ $# -eq 0 ]; then
+  for n in brief-simple summarize-simple design-simple incident-simple engine-simple open-simple; do
+    SMALL+=("$n-1366=$(target "$n")$FITS$FONTS")
+    PHONE+=("$n-390=$(target "$n")$FITS$FONTS")
+  done
+fi
 
 run() {   # run <width> <height> <targets...>
   local w="$1" h="$2"; shift 2
@@ -77,6 +89,10 @@ run 1920 1080 "${FULL[@]}" || bad=1
 if [ ${#SMALL[@]} -gt 0 ]; then
   echo "== ${#SMALL[@]} routes at 1366x768"
   run 1366 768 "${SMALL[@]}" || bad=1
+fi
+if [ ${#PHONE[@]} -gt 0 ]; then
+  echo "== ${#PHONE[@]} Simple routes at 390x844"
+  run 390 844 "${PHONE[@]}" || bad=1
 fi
 [ $bad -eq 0 ] && echo "shots: ok" || echo "shots: FAILED"
 exit $bad

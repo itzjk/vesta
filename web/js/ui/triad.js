@@ -51,7 +51,7 @@ function noSource(step, db, opts) {
   const p = step.protocol, f = p && db && db.findingById ? db.findingById[p.finding_id] : null;
   const card = p && f
     ? el('div.protocol-card', { data: { claim: f.id, protocol: p.id } },
-        el('header.protocol-head', el('span.t-label', 'ISS procedure · conservative default'), tag(p.id, { tone: 'dim' })),
+        el('header.protocol-head', el('span.t-label', 'ISS procedure · conservative default'), el('span.triad-code', tag(p.id, { tone: 'dim' }))),
         el('p.protocol-action', p.action),
         el('p.protocol-quote.quote', f.quote),
         el('footer.triad-foot', cite(f.id)),

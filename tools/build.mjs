@@ -1,4 +1,5 @@
 import path from 'node:path';
+import { findingTitle } from './lib/titles.mjs';
 import { fileURLToPath } from 'node:url';
 import { Inputs, ROOT, loadDelivered, loadEvidence, loadOwn, loadAuthored, loadCore } from './lib/load.mjs';
 import { runQuoteGate, Texts, sentenceContext, gateSentences, conditionsGate, rowGate, ruleGate, checkReferences, norm } from './lib/gate.mjs';
@@ -59,7 +60,8 @@ export async function build(root = ROOT) {
     for (const d of gated.dropped ?? []) dropped.push({ id: f.id, ...d });
     const n = findingN(f, gated, { psi_id, work, isSeed, materials, material_ids: materialsIn(text, materials), tableClassByPsi }, warn);
     const ctx = table || f.source.kind === 'challenge-page' ? null : sentenceContext(texts, f.source.text_file, f.quote);
-    const shipped = { ...f, kind: table ? 'table' : 'quote', n, context: ctx ? { before: ctx.before, after: ctx.after } : null, gate: { pass: true } };
+    const title = findingTitle(f);
+    const shipped = { ...f, title, kind: table ? 'table' : 'quote', n, context: ctx ? { before: ctx.before, after: ctx.after } : null, gate: { pass: true } };
     if (f.conditions_quote && !cq) { delete shipped.conditions_quote; delete shipped.conditions_source; }
     findings.push(shipped);
   }
@@ -113,7 +115,7 @@ export async function build(root = ROOT) {
     investigations: { generated_at, investigations: inv.investigations, excluded: inv.excluded, related: inv.related, families: inv.families },
     tests: { ...delivered.tests, tests: rows.map(({ raw, ...r }) => r), tables: undefined },
     'tests-raw': Object.fromEntries(rows.map(r => [r.id, r.raw])),
-    tables: { tables: delivered.tests.tables.map(t => ({ ...t, note: notes.byPsi.get(t.psi_id) ?? null })), notes: notes.list },
+    tables: { facilities: Object.fromEntries(Object.entries(own.facility).filter(([id]) => pass(`facility:${id}`)).map(([id, f]) => [id, { ...f, source: { ...f.source, gate: { pass: true } } }])), tables: delivered.tests.tables.map(t => ({ ...t, note: notes.byPsi.get(t.psi_id) ?? null })), notes: notes.list },
     findings: { generated_at, findings }, rules: { rules: rules.shipped }, sources: { sources: [...sourcesMap.values()] }, presets, protocol,
     playbook: authored.playbook ?? { steps: [] }, scenario: authored.scenarios[0] ? { meta: authored.scenarios[0].meta, frames: authored.scenarios[0].frames } : { meta: null, frames: [] },
     lines: authored.lines ?? {}, tour: authored.tour ?? {}
@@ -127,6 +129,14 @@ export async function build(root = ROOT) {
     logs.push({ id: s.meta.id, file: core.officer.decisionLog(s.frames, db, s.meta) });
   }
   const review = { input: 0, kept_unchanged: 0, kept_with_changes: 0, rejected: 0, pending: 0 };
+  const review_coverage = {
+    total_families: research.families.length,
+    reporting_families: research.families.filter(f => f.verified && f.verification).map(f => f.family),
+    unreported_families: research.families.filter(f => f.verified && !f.verification).map(f => f.family),
+    missing_verified_families: research.families.filter(f => !f.verified).map(f => f.family),
+    withheld_families: research.families.filter(f => !eligible.includes(f)).map(f => f.family),
+    scope: 'Review subtotals cover reporting families only. Quote matching is not independent scientific approval.'
+  };
   for (const f of eligible) {
     const v = f.verification; if (!v) { warn('review_totals_not_reported', { family: f.family }); continue; }
     review.input += v.input ?? v.input_findings ?? 0; review.kept_unchanged += v.kept_unchanged ?? 0;
@@ -138,7 +148,7 @@ export async function build(root = ROOT) {
   const officerCounts = Object.fromEntries(logs.map(l => [l.id, { steps: l.file.steps.length, ...Object.fromEntries(['experiment', 'summary', 'operations'].map(b => [b, l.file.steps.filter(s => s.basis === b).length])), no_source: l.file.steps.filter(s => s.state === 'NO_SOURCE').length }]));
   raw.engine = { generated_at, gate: 'research/tools/quotecheck.py',
     extractor: { psi_records_read: delivered.psi.length, psi_kept: inv.investigations.length, psi_excluded: inv.excluded, tables: delivered.tests.tables.length, test_rows: rows.length, row_kinds: rowKinds, records_without_table: delivered.tests.records_without_table.length, source_texts: delivered.source_texts, ntrs_records: delivered.ntrs_records, facts: delivered.facts.length, candidate_findings: own.seedFindings.length + research.families.reduce((n, f) => n + f.candidates.length, 0), candidate_rules: rulesInput.length },
-    verifier: { quotes_checked: quoteRows.length, quotes_verified: [...gates.values()].filter(g => g.pass).length, review, rejected: allRejected, cut_before_qualifier: cuts, conditions_dropped: dropped, row_gate_failed: rowFailed, config_quotes_verified: quoteRows.filter(r => /^(note|facility|preset|family):/.test(r.id) && pass(r.id)).length, duplicates, ineligible, unverified: references.warnings.filter(w => w.space === 'finding').map(w => ({ id: w.id, why: w.kind })), presets_rejected: presetRejected },
+    verifier: { quotes_checked: quoteRows.length, quotes_verified: [...gates.values()].filter(g => g.pass).length, review, review_coverage, rejected: allRejected, cut_before_qualifier: cuts, conditions_dropped: dropped, row_gate_failed: rowFailed, config_quotes_verified: quoteRows.filter(r => /^(note|facility|preset|family):/.test(r.id) && pass(r.id)).length, duplicates, ineligible, unverified: references.warnings.filter(w => w.space === 'finding').map(w => ({ id: w.id, why: w.kind })), presets_rejected: presetRejected },
     ranker: { findings: findings.length, table_findings: findings.filter(f => f.kind === 'table').length, rules_shipped: rules.shipped.length, rules_dropped: rules.dropped, references_removed: rules.removed, rows_indexed: rows.length, cabin_rows: db?.cabinRows.length ?? null, model_rows: db?.modelRows.length ?? null, burner_stream_rows: rows.filter(r => r.o2_basis === 'burner_stream').length, multi_value_rows: rows.filter(r => Object.keys(r.multi ?? {}).length).length, cells: Object.fromEntries(coverage.map(c => [c.id, c.counts])), rank_files: ranks.length },
     officer: { ...officerCounts, protocol_lines: protocol.lines.filter(p => p.gate.pass).length },
     si_use: { extractor: 'SI agents read cached NASA text and propose findings and rules', verifier: 'deterministic code (quote gate, sentence rule, conditions gate, row gate)', ranker: 'deterministic formula', officer: 'deterministic playbook over verified findings and test rows' }, warnings: io.warnings };

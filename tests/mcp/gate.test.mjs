@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const gate = path.join(ROOT, 'tools/check.mjs');
+let baselineRecording;
 function fixture(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'vesta-gate-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
@@ -27,8 +28,30 @@ function fixture(t) {
   put('web/api/v1/officer/scenario.json', { log: [{ step: 'S1', state: 'NO_SOURCE', gap: 'no_verified_finding_on_topic' }] });
   put('web/api/v1/index.json', { paths: ['findings.json', 'officer/scenario.json'] });
   put('web/feed/ntrs.json', { schema: 'vesta.ntrs-feed/1', fetched_at: '2026-11-14T12:00:00-05:00', origin: 'ntrs-index', terms: [], items: [] });
-  return { put, finding, run() {
-    const r = spawnSync(process.execPath, [gate, '--root', root, '--json'], { encoding: 'utf8', timeout: 15000 });
+  put('web/js/views/open.js', 'const RECORDING = {};');
+  put('mcp/server.mjs', `import readline from 'node:readline';
+const answers = {
+  1: {serverInfo:{name:'gate-test',version:'1'},protocolVersion:'2025-06-18'},
+  2: {tools:[]},
+  3: {content:[{type:'text',text:JSON.stringify({results:[]})}]}
+};
+for await (const line of readline.createInterface({input:process.stdin})) {
+  const msg=JSON.parse(line);
+  if(msg.id) process.stdout.write(JSON.stringify({jsonrpc:'2.0',id:msg.id,result:answers[msg.id]})+'\\n');
+}`);
+  if (!baselineRecording) {
+    const recorded = spawnSync(process.execPath, [path.join(ROOT, 'mcp/record.mjs'), '--root', root], { encoding: 'utf8', timeout: 45000 });
+    assert.equal(recorded.status, 0, recorded.stderr);
+    baselineRecording = {
+      file: fs.readFileSync(path.join(root, 'mcp/recorded.json'), 'utf8'),
+      view: fs.readFileSync(path.join(root, 'web/js/views/open.js'), 'utf8'),
+    };
+  } else {
+    put('mcp/recorded.json', baselineRecording.file);
+    put('web/js/views/open.js', baselineRecording.view);
+  }
+  return { put, finding, root, run() {
+    const r = spawnSync(process.execPath, [gate, '--root', root, '--json'], { encoding: 'utf8', timeout: 60000 });
     assert.ok(r.status === 0 || r.status === 1, r.stderr);
     return { status: r.status, ...JSON.parse(r.stdout) };
   } };
@@ -56,4 +79,21 @@ for (const [i, [n, mutate]] of cases.entries()) test(`release gate rejects viola
   const result = f.run();
   assert.equal(result.status, 1);
   assert.equal(result.checks.find(x => x.n === n).ok, false);
+});
+
+for (const file of ['mcp/recorded.json', 'web/js/views/open.js']) test(`release gate rejects a stale recording in ${file}`, t => {
+  const f = fixture(t);
+  const target = path.join(f.root, file);
+  fs.writeFileSync(target, fs.readFileSync(target, 'utf8').replace('gate-test', 'old-server'));
+  const result = f.run();
+  assert.equal(result.status, 1);
+  assert.equal(result.checks.find(x => x.n === 10).ok, false);
+});
+test('release gate rejects a recording after the server answer changes', t => {
+  const f = fixture(t);
+  const server = path.join(f.root, 'mcp/server.mjs');
+  fs.writeFileSync(server, fs.readFileSync(server, 'utf8').replace('results:[]', 'results:[{id:"changed"}]'));
+  const result = f.run();
+  assert.equal(result.status, 1);
+  assert.equal(result.checks.find(x => x.n === 10).ok, false);
 });

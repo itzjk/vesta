@@ -1,3 +1,6 @@
+import { getDb, getCore } from './store.js';
+import { readQ } from './router.js';
+
 const TICK_MS = 100;
 let run = null;
 let pending = null;
@@ -24,16 +27,18 @@ function style() {
   const s = document.createElement('style');
   s.id = 'vesta-tour-style';
   s.textContent = `
-.tour-bar{position:absolute;left:0;right:0;bottom:0;z-index:900;min-height:84px;box-sizing:border-box;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;
-  padding:14px 32px 18px;background:linear-gradient(180deg,rgba(6,12,26,.95),rgba(2,4,10,.98));border-top:1px solid var(--line-strong,rgba(66,163,255,.9));
-  box-shadow:0 -8px 30px rgba(66,163,255,.25);font-family:var(--font,system-ui,sans-serif);color:var(--white,#ebf5ff)}
-.tour-bar .tour-stop{font:600 13px/16px var(--font,system-ui,sans-serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ice-text,#99dbff);
-  border:1px solid var(--line,rgba(66,163,255,.45));border-radius:999px;padding:6px 14px;white-space:nowrap}
-.tour-bar .tour-cap{font:400 22px/28px var(--font,system-ui,sans-serif);color:var(--white,#ebf5ff)}
-.tour-bar .tour-esc{font:600 13px/16px var(--font,system-ui,sans-serif);letter-spacing:.12em;text-transform:uppercase;color:var(--dim,rgba(153,219,255,.62));white-space:nowrap}
-.tour-bar .tour-track{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(66,163,255,.15)}
-.tour-bar .tour-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--ice,#42a3ff);box-shadow:0 0 12px rgba(66,163,255,.7)}
-.tour-bar .tour-mark{position:absolute;top:-3px;width:2px;height:10px;background:var(--ice-text,#99dbff);opacity:.7}
+.tour-bar{position:absolute;left:0;right:0;bottom:var(--foot-h,72px);z-index:900;min-height:100px;box-sizing:border-box;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:24px;
+  padding:14px 32px 18px;background:var(--bg-0);border-top:1px solid var(--line-strong,rgba(237,228,212,.9));
+  font-family:var(--font,system-ui,sans-serif);color:var(--ivory,#ede4d4)}
+.tour-bar .tour-stop{font:600 18px/22px var(--font,system-ui,sans-serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ivory,#8fa3b5);
+  border:1px solid var(--line,rgba(237,228,212,.45));border-radius:999px;padding:6px 14px;white-space:normal;max-width:340px;justify-self:start}
+.tour-bar .tour-cap{min-width:0;overflow-wrap:break-word;font:400 22px/28px var(--font,system-ui,sans-serif);color:var(--ivory,#ede4d4)}
+.tour-bar .tour-esc{font:600 18px/22px var(--font,system-ui,sans-serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ivory-dim,rgba(237,228,212,.62));white-space:nowrap}
+.tour-bar .tour-sources{grid-column:2;display:flex;gap:10px;font-size:18px;line-height:22px}
+.tour-bar .tour-sources .cite{font-size:18px;line-height:22px;padding:2px 8px}
+.tour-bar .tour-track{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(237,228,212,.15)}
+.tour-bar .tour-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--earth,#8fa3b5);}
+.tour-bar .tour-mark{position:absolute;top:-3px;width:2px;height:10px;background:var(--ivory,#8fa3b5);opacity:.7}
 `;
   document.head.appendChild(s);
 }
@@ -46,7 +51,7 @@ function makeBar(cfg, api) {
   bar.setAttribute('data-tour-bar', '');
   bar.setAttribute('role', 'status');
   bar.setAttribute('aria-live', 'polite');
-  const stop = mk('tour-stop'), cap = mk('tour-cap'), esc = mk('tour-esc'), track = mk('tour-track'), fill = mk('tour-fill');
+  const stop = mk('tour-stop'), cap = mk('tour-cap'), esc = mk('tour-esc'), sources = mk('tour-sources'), track = mk('tour-track'), fill = mk('tour-fill');
   cap.setAttribute('data-tour-caption', '');
   esc.textContent = 'Esc or click: take over';
   track.appendChild(fill);
@@ -56,11 +61,11 @@ function makeBar(cfg, api) {
     if (!first || s.at <= 0) continue;
     const m = mk('tour-mark'); m.style.left = (100 * s.at / cfg.total) + '%'; track.appendChild(m);
   }
-  bar.append(stop, cap, esc, track);
+  bar.append(stop, cap, esc, sources, track);
   const host = stageOf(api);
   if (host === document.body) bar.style.position = 'fixed';
   host.appendChild(bar);
-  return { bar, stop, cap, fill };
+  return { bar, stop, cap, fill, sources };
 }
 
 function setState(state, stopId) {
@@ -71,9 +76,28 @@ function setState(state, stopId) {
 
 function apply(step) {
   run.ui.stop.textContent = step.label || step.stop || '';
-  run.ui.cap.textContent = step.caption || '';
+  const db = run.api.db || getDb(), core = getCore();
+  const q = db ? readQ(Object.fromEntries(new URLSearchParams(step.hash.split('?')[1] || '')), db) : null;
+  const material = db && q && core.status ? core.status.cell(q.material, q.concern, q, db) : null;
+  const values = db ? {
+    investigations: db.engine.extractor.psi_kept,
+    rows: db.engine.extractor.test_rows.toLocaleString('en-US'),
+    station_rows: material?.hit_ids?.length ?? 0,
+    partial_rows: db.base.partial_rows,
+    quotes: db.engine.verifier.quotes_verified.toLocaleString('en-US')
+  } : {};
+  run.ui.cap.textContent = (step.caption || '').replace(/\{(\w+)\}/g, (_, key) => values[key] ?? 'not reported');
+  run.ui.sources.replaceChildren();
+  const citeId = step.source === 'material' ? material?.hit_ids?.[0] : step.source;
+  const ui = run.api.ui || window.vesta?.ui;
+  if (citeId && ui) {
+    run.ui.cap.dataset.claim = citeId;
+    if (citeId.includes('/')) {
+      const a = document.createElement('a'); a.href = citeId; a.textContent = 'source'; a.dataset.cite = citeId; a.target = '_blank'; a.rel = 'noopener'; run.ui.cap.append(' ', a);
+    } else run.ui.cap.append(' ', ui.cite(citeId, { label: 'source' }));
+  }
   setState('running', step.stop || '');
-  let hash = step.hash;
+  let hash = step.hash + (step.hash.includes('?') ? '&' : '?') + 'view=simple';
   if (run.capture && !/[?&]capture=/.test(hash)) hash += (hash.includes('?') ? '&' : '?') + 'capture=1';
   if (location.hash !== hash) location.hash = hash;
 }
@@ -111,6 +135,7 @@ function begin(cfg, api) {
 
 export function start(api) {
   api = api && typeof api === 'object' ? api : {};
+  api = { db: getDb(), ui: window.vesta?.ui, ...api };
   if (run) { if (!run.api.onStop && api.onStop) run.api = { ...run.api, ...api }; return stop; }
   if (pending) { pending = { ...pending, ...api }; return stop; }
   const cfg = cached || (cached = parse(api.stops) || parse(api.db && api.db.tour));

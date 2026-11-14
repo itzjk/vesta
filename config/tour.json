@@ -1,19 +1,61 @@
 {
   "schema": "vesta.tour/1",
-  "note": "The 60-second judge walkthrough of DESIGN.md section 10. Times are seconds from the start. A step with the same stop id as the one before it changes the hash and keeps the caption. Captions are fixed copy.",
+  "note": "A 60-second Simple walkthrough. Caption placeholders are computed from the current evidence base. Repeated hashes preserve the running replay.",
   "total_s": 60,
   "steps": [
-    { "at": 0, "stop": "brief", "label": "Brief", "hash": "#/brief",
-      "caption": "NASA's microgravity fire experiments, read, checked and turned into decisions. Every claim opens its source." },
-    { "at": 10, "stop": "summarize", "label": "1 Summarize", "hash": "#/investigations?cmp=PSI-25,PSI-69",
-      "caption": "Summarize: 24 PSI investigations, test by test. What each one burned, and what it varied." },
-    { "at": 22, "stop": "rank", "label": "2 Rank", "hash": "#/design?preset=station&mat=pmma",
-      "caption": "Rank: a station cabin has been tested. A lunar habitat at 34 % oxygen has not: no solid-material row, no partial-gravity row in VESTA's evidence base." },
-    { "at": 29, "stop": "rank", "label": "2 Rank", "hash": "#/design?preset=lunar-base&mat=pmma",
-      "caption": "Rank: a station cabin has been tested. A lunar habitat at 34 % oxygen has not: no solid-material row, no partial-gravity row in VESTA's evidence base." },
-    { "at": 38, "stop": "interpret", "label": "3 Interpret", "hash": "#/incident?play=1&speed=150&hold=1.2",
-      "caption": "Interpret: a simulated fire. Every step cites its source. No source, no action." },
-    { "at": 54, "stop": "engine", "label": "Engine", "hash": "#/engine",
-      "caption": "SI reads; code checks. Open data, API and MCP." }
+    {
+      "at": 0,
+      "stop": "brief",
+      "label": "Brief",
+      "hash": "#/brief",
+      "caption": "A crew cannot wait for Earth. Start with NASA’s evidence, then see its limits.",
+      "source": "S-COMM-01"
+    },
+    {
+      "at": 10,
+      "stop": "summarize",
+      "label": "1 · Summarize",
+      "hash": "#/investigations?sel=PSI-25",
+      "caption": "{investigations} investigations, {rows} source-table rows. Select a study to inspect its finding.",
+      "source": "api/v1/investigations.json"
+    },
+    {
+      "at": 22,
+      "stop": "rank",
+      "label": "2 · Station",
+      "hash": "#/design?preset=station&mat=pmma&concern=prevention",
+      "caption": "PMMA: {station_rows} matching rows near Station atmosphere conditions. Pressure is inferred.",
+      "source": "material"
+    },
+    {
+      "at": 29,
+      "stop": "rank",
+      "label": "2 · Moon",
+      "hash": "#/design?preset=lunar-base&mat=pmma&concern=prevention",
+      "caption": "Moon-base conditions: {partial_rows} partial-gravity rows in this collection. Related evidence is not cabin validation.",
+      "source": "api/v1/tests.json"
+    },
+    {
+      "at": 38,
+      "stop": "interpret",
+      "label": "3 · Separate scenario",
+      "hash": "#/incident?play=1&speed=150&hold=1.2",
+      "caption": "Now a separate example: a scripted fire aboard a spacecraft travelling to Mars."
+    },
+    {
+      "at": 49,
+      "stop": "interpret",
+      "label": "3 · Evidence limit",
+      "hash": "#/incident?t=490&paused=1",
+      "caption": "When support runs out, VESTA shows NO SOURCE. An ISS fallback carries its vehicle limits."
+    },
+    {
+      "at": 54,
+      "stop": "engine",
+      "label": "Check the evidence",
+      "hash": "#/engine",
+      "caption": "{quotes} quotes matched NASA text. Matching words does not validate a decision. Open the sources yourself.",
+      "source": "data/engine.json"
+    }
   ]
 }

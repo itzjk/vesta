@@ -6,12 +6,13 @@ let nextArtId = 0;
 
 function art(pose) {
   const alert = pose === 'alert', point = pose === 'point', nos = pose === 'nosource';
-  const beacon = point ? 'var(--ice)' : 'var(--amber)';
+  const beacon = 'var(--amber)';
   const look = point ? 3.2 : 0;
   const ry = alert ? 19 : 16.5, rx = alert ? 14.5 : 13.5;
   const eye = cx => `
+    <ellipse cx="${cx}" cy="135" rx="${rx + 1.4}" ry="${ry + 1.4}" fill="#c9bfae" opacity=".6"/>
     <ellipse cx="${cx}" cy="134" rx="${rx}" ry="${ry}" fill="var(--vesta-eye)"/>
-    <ellipse cx="${cx + look}" cy="136" rx="${rx - 3.5}" ry="${ry - 4}" fill="url(#vo-iris)"/>
+    <ellipse cx="${cx + look}" cy="136" rx="${rx - 3.5}" ry="${ry - 4}" fill="var(--earth-deep)"/>
     <circle cx="${cx - 4 + look}" cy="${alert ? 125 : 127}" r="${alert ? 5.4 : 4.6}" fill="#fff"/>
     <circle cx="${cx + 5 + look}" cy="141" r="2.2" fill="#fff" opacity=".85"/>`;
   const brows = nos
@@ -25,41 +26,44 @@ function art(pose) {
   const mitt = ([cx, cy, rot], open, side) => `
     <path d="M${side < 0 ? 58 : 142} 152 L${cx} ${cy}" stroke="var(--vesta-body)" stroke-width="11" stroke-linecap="round"/>
     <g transform="translate(${cx} ${cy}) rotate(${rot})">
-      <ellipse rx="15" ry="13" fill="url(#vo-orange)"/>
-      <circle cx="${side * 2}" cy="-13" r="6" fill="url(#vo-orange)"/>
+      <ellipse rx="15" ry="13" fill="var(--rust)"/>
+      <circle cx="${side * 2}" cy="-13" r="6" fill="var(--rust)"/>
       ${open ? `<ellipse rx="8.5" ry="7" fill="#ffb27a" opacity=".85"/>` : ''}
       ${point && side > 0 ? `<path d="M10 -4 L27 -7" stroke="var(--vesta-orange)" stroke-width="9" stroke-linecap="round"/>` : ''}
     </g>`;
   return `
 <svg viewBox="0 0 212 250" width="100%" height="100%" role="img" aria-label="VESTA, the fire officer${nos ? ': no source' : alert ? ': alert' : ''}" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <radialGradient id="vo-body" cx="38%" cy="30%" r="80%"><stop offset="0" stop-color="#fffdf8"/><stop offset=".6" stop-color="#f1ece2"/><stop offset="1" stop-color="#c9bfae"/></radialGradient>
-    <radialGradient id="vo-helmet" cx="36%" cy="24%" r="85%"><stop offset="0" stop-color="#ff7a52"/><stop offset=".5" stop-color="#f5411a"/><stop offset="1" stop-color="#b3260c"/></radialGradient>
-    <linearGradient id="vo-orange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9a4d"/><stop offset="1" stop-color="#e85a10"/></linearGradient>
-    <radialGradient id="vo-iris" cx="50%" cy="70%" r="70%"><stop offset="0" stop-color="#6fb6ff"/><stop offset=".55" stop-color="#1d3f8a"/><stop offset="1" stop-color="#0a0607"/></radialGradient>
-    <radialGradient id="vo-ice" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#d6efff"/><stop offset=".5" stop-color="rgb(66,163,255)"/><stop offset="1" stop-color="#14408a"/></radialGradient>
-    <radialGradient id="vo-halo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="${beacon}" stop-opacity=".75"/><stop offset="1" stop-color="${beacon}" stop-opacity="0"/></radialGradient>
-  </defs>
+
   <g transform="translate(6 4)">
-    <path d="M60 164 C26 172 14 204 24 232 C46 224 64 208 72 188 Z" fill="url(#vo-orange)"/>
-    <path d="M140 164 C174 172 186 204 176 232 C154 224 136 208 128 188 Z" fill="url(#vo-orange)"/>
-    <circle cx="100" cy="222" r="19" fill="url(#vo-halo)" opacity=".5" style="--c:var(--ice)"/>
-    <circle class="vo-sphere" cx="100" cy="221" r="12" fill="url(#vo-ice)"/>
-    <rect x="84" y="196" width="32" height="13" rx="4" fill="var(--vesta-dark)"/>
-    <path d="M54 100 C48 150 62 200 100 200 C138 200 152 150 146 100 Z" fill="url(#vo-body)"/>
-    <path d="M90 176 C90 200 95 214 100 220 C105 214 110 200 110 176 Z" fill="#e85a10"/>
+    <path d="M60 158 C34 157 12 198 24 226 Q53 217 75 187 Z" fill="var(--rust)" stroke="#ffa357" stroke-width="1"/>
+    <path d="M55 167 Q27 183 26 211" fill="none" stroke="#ffc28a" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+    <path d="M140 158 C166 157 188 198 176 226 Q147 217 125 187 Z" fill="var(--rust)" stroke="#ffa357" stroke-width="1"/>
+    <path d="M146 167 Q172 187 174 211" fill="none" stroke="#ffbf81" stroke-width="2" opacity=".55"/>
+    <circle cx="100" cy="222" r="19" fill="none" opacity=".5" style="--c:var(--earth)"/>
+    <circle cx="100" cy="221" r="16" fill="none" stroke="#8fa3b5" stroke-width="1" opacity=".4"/>
+    <circle class="vo-sphere" cx="100" cy="221" r="12" fill="var(--amber)"/>
+    <path d="M92 218 A9 9 0 0 1 100 213" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".65"/>
+    <path d="M85 194 H115 L119 208 Q100 213 81 208 Z" fill="var(--earth-deep)" stroke="#8fa3b5" stroke-width=".5"/>
+    <path d="M49 98 C42 132 45 176 64 189 Q100 204 136 189 C155 176 158 132 151 98 Z" fill="var(--vesta-body)"/>
+    <path d="M62 181 Q100 191 138 181 L134 190 Q100 200 66 190 Z" fill="var(--earth-deep)"/>
+    <path d="M94 175 Q100 172 106 175 L106 199 Q100 208 94 199 Z" fill="var(--rust)"/>
+    <path d="M57 108 Q50 140 58 167" fill="none" stroke="#fffdf8" stroke-width="3" opacity=".5" stroke-linecap="round"/>
     <ellipse cx="66" cy="152" rx="8" ry="5" fill="#ff9a6b" opacity=".45"/><ellipse cx="134" cy="152" rx="8" ry="5" fill="#ff9a6b" opacity=".45"/>
     ${eye(80)}${eye(120)}
     <g fill="none" stroke="var(--vesta-dark)" stroke-width="3.4" stroke-linecap="round">${brows}${mouth}</g>
     ${mitt(L, nos, -1)}${mitt(R, nos, 1)}
-    <path d="M46 96 C44 52 70 30 100 30 C130 30 156 52 154 96 Z" fill="url(#vo-helmet)"/>
+    <path d="M46 96 C44 52 70 30 100 30 C130 30 156 52 154 96 Z" fill="var(--rust)"/>
+    <path d="M67 51 Q57 62 56 78" fill="none" stroke="#ffbc90" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+    <path d="M100 33 Q121 58 115 86" fill="none" stroke="#ff9867" stroke-width="2" opacity=".5"/>
     <path d="M47 88 Q100 104 153 88" fill="none" stroke="var(--vesta-gold)" stroke-width="7"/>
-    <ellipse cx="100" cy="98" rx="70" ry="12" fill="#c9300f"/>
-    <ellipse cx="100" cy="95" rx="70" ry="10.5" fill="url(#vo-helmet)"/>
+    <ellipse cx="100" cy="98" rx="70" ry="12" fill="#8f3a28"/>
+    <ellipse cx="100" cy="95" rx="70" ry="10.5" fill="var(--rust)"/>
     <path d="M100 48 L114 54 V68 C114 77 107 82 100 85 C93 82 86 77 86 68 V54 Z" fill="var(--vesta-gold)" stroke="#fff3d0" stroke-width="1.5"/>
-    <circle cx="100" cy="65" r="5.5" fill="#fff8e6"/>
-    <circle class="vo-halo${alert ? ' vo-pulse' : ''}" cx="100" cy="24" r="24" fill="url(#vo-halo)"/>
+    <circle cx="100" cy="65" r="7" fill="#24262d"/>
+    <circle cx="100" cy="65" r="4.6" fill="var(--amber)" stroke="#e8f7ff" stroke-width="1.2"/>
+    <circle class="vo-halo${alert ? ' vo-pulse' : ''}" cx="100" cy="24" r="24" fill="none"/>
     <rect x="93" y="27" width="14" height="7" rx="2" fill="var(--vesta-dark)"/>
+    <circle cx="100" cy="22" r="11" fill="#f3e7cf" opacity=".25" stroke="#fff3d0" stroke-width=".8"/>
     <circle class="vo-beacon" cx="100" cy="22" r="8.5" fill="${beacon}"/>
     <circle cx="97" cy="19" r="2.6" fill="#fff" opacity=".9"/>
   </g>
@@ -97,11 +101,11 @@ export function vestaMark(size = 40) {
     <path d="M17 34 C15 52 22 60 32 60 C42 60 49 52 47 34 Z" fill="#f1ece2"/>
     <ellipse cx="25.5" cy="45" rx="4.2" ry="5.4" fill="#0a0607"/><ellipse cx="38.5" cy="45" rx="4.2" ry="5.4" fill="#0a0607"/>
     <circle cx="24.3" cy="43" r="1.6" fill="#fff"/><circle cx="37.3" cy="43" r="1.6" fill="#fff"/>
-    <path d="M13 33 C12 16 22 8 32 8 C42 8 52 16 51 33 Z" fill="#f5411a"/>
-    <path d="M13.5 29.5 Q32 36 50.500 29.5" fill="none" stroke="#e0a93a" stroke-width="3"/>
-    <ellipse cx="32" cy="33.5" rx="25" ry="4.6" fill="#d8350f"/>
-    <path d="M32 14 l5 2.2 v5 c0 3.4 -2.6 5.2 -5 6.3 c-2.4 -1.100 -5 -2.900 -5 -6.300 v-5 z" fill="#e0a93a"/>
-    <circle cx="32" cy="6" r="3.6" fill="rgb(255,128,31)"/>
+    <path d="M13 33 C12 16 22 8 32 8 C42 8 52 16 51 33 Z" fill="#c8553d"/>
+    <path d="M13.5 29.5 Q32 36 50.500 29.5" fill="none" stroke="#e0a458" stroke-width="3"/>
+    <ellipse cx="32" cy="33.5" rx="25" ry="4.6" fill="#8f3a28"/>
+    <path d="M32 14 l5 2.2 v5 c0 3.4 -2.6 5.2 -5 6.3 c-2.4 -1.100 -5 -2.900 -5 -6.300 v-5 z" fill="#e0a458"/>
+    <circle cx="32" cy="6" r="3.6" fill="rgb(224,164,88)"/>
   </svg>`;
   return box;
 }

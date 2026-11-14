@@ -10,6 +10,8 @@ const isNum = x => typeof x === 'number' && isFinite(x);
 const words = s => String(s ?? '').replace(/^condition\./, '').replace(/_/g, ' ');
 const short = (x, d = 1) => String(Math.round(x * 10 ** d) / 10 ** d);
 const span = (lo, hi, d = 1) => (lo === hi ? short(lo, d) : `${short(lo, d)}–${short(hi, d)}`);
+const DISPLAY_NAMES = { 'PSI-60': 'SPICE flame models', 'PSI-62': 'BASS flame-spread models', 'PSI-115': 'SAME smoke models', 'PSI-117': 'Cool-flame dynamics models', 'PSI-142': 'Cool-flame transitions' };
+const displayName = i => DISPLAY_NAMES[i.psi_id] || i.name;
 const natural = (a, b) => String(a).localeCompare(String(b), 'en', { numeric: true });
 const rawAxis = (rows, field, rawField) => {
   const numeric = rows.filter(r => isNum(r[field])).sort((a, b) => a[field] - b[field]);
@@ -33,6 +35,8 @@ function axisOf(rows, numOf, multiKey, rawOf) {
   a.list = [...set].sort((x, y) => x - y);
   const all = [a.min, a.max, ...a.list, ...(a.range || [])].filter(isNum);
   if (all.length) { a.lo = Math.min(...all); a.hi = Math.max(...all); }
+  const valuesOf = r => isNum(numOf(r)) ? [numOf(r)] : (r.multi?.[multiKey]?.values || []).filter(isNum);
+  a.endpoint_ids = [...new Set([a.lo, a.hi].filter(isNum).map(v => rows.find(r => valuesOf(r).includes(v))?.id).filter(Boolean))];
   return a;
 }
 const tally = (rows, keyOf) => {
@@ -46,7 +50,7 @@ export function summarize(rows = []) {
   const tests = rows.filter(r => r.row_kind !== 'dataset_index');
   const ambient = r => r.o2_basis === 'ambient';
   const burnerRows = tests.filter(r => r.o2_basis === 'burner_stream' && isNum(r.o2_percent));
-  const kinds = tally(tests, r => r.row_kind).items;
+  const kinds = tally(rows, r => r.row_kind).items;
   const inferred = tests.filter(r => !isNum(r.pressure_kpa) && r.n && isNum(r.n.p_inferred));
   const outcomes = new Map();
   for (const r of tests) for (const [name, o] of Object.entries(r.outcomes || {})) { const e = outcomes.get(name) || { name, n: 0, unit: (o && o.unit) || null }; e.n++; outcomes.set(name, e); }
@@ -78,7 +82,7 @@ export function axisText(a, opts = {}) {
 }
 export function mount(root, ctx) {
   const { ui, db } = ctx, el = ui.el, fmt = ui.fmt;
-  ui.css('css/views/investigations.css');
+  ui.css('css/views/investigations.css?v=10');
   const core = ctx.core || {}, text = core.text || {};
   const nInv = db.investigations.length;
   const base = `in VESTA’s evidence base (${nInv} PSI investigations)`;
@@ -93,12 +97,13 @@ export function mount(root, ctx) {
   const famList = (() => { const m = new Map(); for (const i of db.investigations) if (i.family && !m.has(i.family)) m.set(i.family, famLabel(i)); return [...m.entries()]; })();
   const classList = [...new Set([...S.values()].flatMap(s => s.classes))].sort();
   const link = (id, url, label, title) => url
-    ? el('a.cite.cite-small.sm-link', { href: url, target: '_blank', rel: 'noopener', data: { cite: id }, title: title || 'Open the NASA source' }, el('span.cite-id', label), el('span.sm-ext', { 'aria-hidden': 'true' }, '↗'))
+    ? el('a.cite.cite-small.sm-link', { href: url, target: '_blank', rel: 'noopener', data: { cite: id }, title: title || 'Open the NASA source' }, el('span.cite-id', label), el('span.cite-plain', 'source'), el('span.sm-ext', { 'aria-hidden': 'true' }, '↗'))
     : el('span.cite.cite-small.sm-link.sm-link-none', { data: { cite: id }, title: 'No link in the record' }, el('span.cite-id', label));
   const srcTag = kind => el('span.sm-src', { data: { src: kind } }, kind);
 
-  let scrollTop = 0;
+  let scrollTop = 0, simpleScroll = 0;
   function render() {
+    if ((ctx.view || ctx.params?.view) !== 'details') { renderSimple(); return; }
     const { q, params } = ctx;
     const sel0 = params.sel && db.invById[params.sel] ? params.sel : null;
     const cmp = [...new Set(String(params.cmp || '').split(',').map(s => s.trim()).filter(id => db.invById[id]))].slice(0, 3);
@@ -126,7 +131,7 @@ export function mount(root, ctx) {
       select('cls', 'Fuel class', classList.map(c => [c, fuelClass(c)]), cls),
       select('pil', 'Pillar', CONCERNS.map(c => [c, c[0].toUpperCase() + c.slice(1)]), pil),
       el('label.sm-check', el('input', { type: 'checkbox', checked: tab || null, data: { filter: 'tab' }, onchange: e => ctx.setParams({ tab: e.target.checked ? '1' : null }) }), el('span', 'has a test table')),
-      el('span.sm-sorted', rankable ? ['sorted by relevance for ', el('b', (preset && (preset.short || preset.label)) || 'a custom cabin'), ' · ', el('b', q.concern)] : 'sorted by PSI id'));
+      el('span.sm-sorted', rankable ? ['sorted by relevance for ', el('b', (preset && (preset.short || preset.label)) || 'a custom cabin'), ' · ', el('b', q.concern), '. Relevance, 0 to 100 · VESTA’s weighting, not a probability and not a safety rating. Score = mean of the three best findings; records with no finding follow.'] : 'sorted by PSI id'));
     const toggleCmp = id => {
       let next = cmp.includes(id) ? cmp.filter(x => x !== id) : [...cmp, id];
       if (next.length > 3) next = next.slice(next.length - 3);
@@ -138,7 +143,7 @@ export function mount(root, ctx) {
       const s = S.get(i.psi_id), id = i.psi_id, score = scoreOf.get(id);
       const head = [
         el('td.sm-c-cmp', el('input', { type: 'checkbox', checked: cmp.includes(id) || null, 'aria-label': `Compare ${i.name || id}`, data: { cmp: id }, onclick: e => e.stopPropagation(), onchange: () => toggleCmp(id) })),
-        cell('sm-c-name', el('b', i.name || id), i.full_name || i.name || id),
+        cell('sm-c-name', el('b', displayName(i) || id), i.full_name || i.name || id),
         el('td.sm-c-psi', s.first_row ? ui.cite(s.first_row.id, { small: true, label: id, title: `Open row 1 of the PSI table of ${id}` }) : link(id, i.psi_url || `https://psi.nasa.gov/physci/repo/data/investigations/${id}`, id, 'Open the PSI record of ' + id)),
         cell('sm-c-fam', famLabel(i)),
       ];
@@ -155,7 +160,7 @@ export function mount(root, ctx) {
           cell('sm-c-o2 num', o2 ? o2 : s.o2_burner ? el('span.sm-absent', { title: o2Title }, 'burner stream only') : absent(), [o2Title || NOT_IN_TABLE, 'raw cells: ' + (rawAxis(rowsOf(id).filter(r => r.o2_basis === 'ambient'), 'o2_percent', 'o2_raw') || NOT_IN_TABLE)].join(' · ')),
           cell('sm-c-p num', p ? [p, el('span.sm-dim', ` (${pk})`)] : absent(), p ? `${p} psia (${pk} kPa) · raw cells: ${rawAxis(rowsOf(id), 'pressure_kpa', 'pressure_raw')}` + (s.p.list.length ? ` · ${s.kind_word}` : '') : s.p_inferred ? `${NOT_IN_TABLE}; ${psiaText(s.p_inferred.value)} inferred from the facility` : NOT_IN_TABLE),
           cell('sm-c-flow num', flow ? flow : s.flow.raw_only ? el('span.sm-absent', 'kept raw') : absent(), flow ? `${flow} cm/s · raw cells: ${rawAxis(rowsOf(id), 'flow_cm_s', 'flow_raw')}` : s.flow.raw_only ? `${s.flow.raw_only} rows keep the raw cell; no clean number` : NOT_IN_TABLE),
-          cell('sm-c-n num', fmt.n(s.tests), `${fmt.n(s.tests)} rows · ${s.kinds.map(k => `${words(k.value)} ${k.n}`).join(', ')}`),
+          cell('sm-c-n num', fmt.n(s.rows), `${fmt.n(s.rows)} rows · ${s.kinds.map(k => `${words(k.value)} ${k.n}`).join(', ')}`),
         ];
       }
       return el('tr', { class: 'sm-row' + (id === sel ? ' is-sel' : '') + (cmp.includes(id) ? ' is-cmp' : ''), tabindex: 0, data: { sel: id, claim: id },
@@ -166,7 +171,7 @@ export function mount(root, ctx) {
     const table = el('table.sm-table',
       el('thead', el('tr',
         el('th.sm-c-cmp', { title: 'Tick 2 or 3 to compare' }, 'Cmp'), el('th.sm-c-name', 'Investigation'), el('th.sm-c-psi', 'PSI'), el('th.sm-c-fam', 'Family'),
-        el('th.sm-c-fuels', 'Fuels · form'), el('th.sm-c-o2', 'O2 %'), el('th.sm-c-p', 'Pressure psia (kPa)'), el('th.sm-c-flow', 'Flow cm/s'), el('th.sm-c-n', 'Tests'), el('th.sm-c-f', { title: 'Verified findings' }, 'F'))),
+        el('th.sm-c-fuels', 'Fuels · form'), el('th.sm-c-o2', 'O2 %'), el('th.sm-c-p', 'Pressure psia (kPa)'), el('th.sm-c-flow', 'Flow cm/s'), el('th.sm-c-n', 'Rows'), el('th.sm-c-f', { title: 'Verified findings' }, 'F'))),
       el('tbody', shown.map(tr)));
     const scroller = el('div.sm-scroll', shown.length ? table : ui.empty('none', `No investigation matches these filters ${base}.`, { label: 'Clear filters', onClick: () => ctx.setParams({ fam: null, cls: null, pil: null, tab: null }) }));
 
@@ -179,7 +184,7 @@ export function mount(root, ctx) {
           return el('li', { data: { claim: ids.length ? 'related-' + r.name : null } }, el('b', r.name), r.full_name && r.full_name !== r.name ? ` · ${r.full_name}` : '', ` · ${ids.length} verified findings `, ids.slice(0, 4).map(id => ui.cite(id, { small: true }))); }))) : null);
 
     const left = ui.panel(`1 Summarize · ${shown.length} of ${nInv} PSI investigations`, [filters, scroller, under], { class: 'sm-left', data: { panel: 'table' } });
-    const right = el('div.sm-right', cmp.length >= 2 ? comparePanel(cmp) : null, sel ? detailPanel(db.invById[sel], cmp.length >= 2) : null,
+    const right = el('div', { class: 'sm-right' + (cmp.length >= 2 ? ' is-comparing' : '') }, cmp.length >= 2 ? comparePanel(cmp) : null, sel && cmp.length < 2 ? detailPanel(db.invById[sel], false) : null,
       cmp.length < 2 ? el('p.sm-hint', cmp.length === 1 ? `Tick one or two more rows to compare with ${db.invById[cmp[0]].name || cmp[0]}.` : 'Tick 2 or 3 rows in the Cmp column to compare them attribute by attribute.') : null);
 
     root.replaceChildren(el('div.sm', { data: { screen: 'investigations', rows: shown.length } }, left, right));
@@ -198,7 +203,7 @@ export function mount(root, ctx) {
     const id = inv.psi_id, s = S.get(id), sum = db.summariesByPsi[id] || inv;
     const psiUrl = inv.psi_url || `https://psi.nasa.gov/physci/repo/data/investigations/${id}`;
     const record = () => link(id, psiUrl, 'PSI record', 'Open the PSI record of ' + id);
-    const computed = () => [srcTag('computed from the table'), s.first_row ? ui.cite(s.first_row.id, { small: true, title: 'Open the first row of this PSI table' }) : null];
+    const computed = () => [srcTag('computed from the table'), link(id + ':rows', `api/v1/tests/${id}.csv`, 'all source rows')];
 
     const actions = [
       s.has_table ? ui.button('PSI tables', { href: psiUrl, target: '_blank', small: true, title: (inv.tables || []).map(t => t.table_file).join('; ') }) : null,
@@ -209,7 +214,7 @@ export function mount(root, ctx) {
       ? [el('p.sm-verbatim.quote', String(inv.objectives).trim()), ' ', srcTag('PSI record, verbatim'), record()]
       : [el('span.sm-absent', NOT_IN_RECORD), ' ', record()];
 
-    const lines = [line('Objective', [objective, facts(inv, ['objective'], 1)], id + ':objective')];
+    const lines = [line('Source rows', [el('p', `${fmt.n(s.rows)} source-table rows. ${s.kinds.map(k => `${fmt.n(k.n)} ${words(k.value)}`).join('; ') || 'No rows in this collection'}. `, record())], id + ':row-kinds'), line('Objective', [objective, facts(inv, ['objective'], 1)], id + ':objective')];
     if (!s.has_table) {
       lines.push(line('Test table', [el('span.sm-absent', NO_TABLE_DETAIL), ' ', record()], id + ':table'));
       if (filled(inv.approach)) lines.push(line('Approach', [el('p.sm-verbatim.quote', String(inv.approach).trim()), ' ', srcTag('PSI record, verbatim'), record()], id + ':approach'));
@@ -224,9 +229,9 @@ export function mount(root, ctx) {
       const o2 = axisText(s.o2, { kind_word: s.kind_word }), p = s.p.lo != null, flow = axisText(s.flow, { kind_word: s.kind_word });
       lines.push(line('Conditions', [
         el('p', el('span.sm-dim', 'O2 '), o2 ? `${o2} % (${fmt.n(s.o2.n + s.o2.list_rows + s.o2.range_rows)} rows)` : el('span.sm-absent', NOT_IN_TABLE),
-          s.o2_burner ? el('span.sm-dim', ` · ${fmt.n(s.o2_burner.n)} more rows give the oxygen fed through the burner (${span(s.o2_burner.min, s.o2_burner.max)} %), which is not a cabin atmosphere`) : null, ' ', computed()),
+          s.o2_burner ? el('span.sm-dim', ` · ${fmt.n(s.o2_burner.n)} more rows give the oxygen fed through the burner (${span(s.o2_burner.min, s.o2_burner.max)} %), which is not a cabin atmosphere`) : null, ' ', endpointSources(id, s.o2), computed()),
         el('p', el('span.sm-dim', 'pressure '), p
-            ? [axisText(s.p, { conv: x => x / KPA_PER_PSI, kind_word: s.kind_word }), ' psia (', axisText(s.p), ' kPa)']
+            ? [axisText(s.p, { conv: x => x / KPA_PER_PSI, kind_word: s.kind_word }), ' psia (', axisText(s.p), ' kPa)', endpointSources(id, s.p)]
             : [el('span.sm-absent', NOT_IN_TABLE), s.p_inferred ? [el('span.sm-dim', ` · ${psiaText(s.p_inferred.value)} inferred from the facility on ${fmt.n(s.p_inferred.n)} rows, shown as inferred `), ui.cite(s.p_inferred.row.id, { small: true })] : null]),
         el('p', el('span.sm-dim', 'flow '), flow ? `${flow} cm/s` + (s.flow_dirs.length ? ` (${s.flow_dirs.map(d => d.value).join(', ')})` : '')
             : s.flow.raw_only ? `kept raw on ${fmt.n(s.flow.raw_only)} rows (no clean number in the cell)` : el('span.sm-absent', NOT_IN_TABLE)),
@@ -278,23 +283,24 @@ export function mount(root, ctx) {
       const shared = [...new Set(lists.flat())].filter(v => countOf(v) === k);
       return el('tr', { data: { attr: label } }, el('th', label, note ? el('span.sm-src', note) : null),
         lists.map(l => el('td', l.length ? el('div.sm-vals', l.map(v => el('span', { class: 'sm-val' + (countOf(v) === k ? ' is-shared' : countOf(v) === 1 ? ' is-only' : ''), title: countOf(v) === k ? 'in every column' : countOf(v) === 1 ? 'in this column only' : null }, v))) : el('span.sm-absent', NOT_IN_TABLE))),
-        el('td.sm-verdict', { title: shared.length ? 'shared: ' + shared.join(', ') : 'none shared' }, shared.length ? ['shared: ', shared.slice(0, 3).join(', '), shared.length > 3 ? ` · +${shared.length - 3} more` : ''] : 'none shared'));
+        el('td.sm-verdict', { title: shared.length ? 'shared: ' + shared.join(', ') : 'none shared' }, shared.length ? ['shared: ', shared.slice(0, 3).join(', '), shared.length > 3 ? ` · +${shared.length - 3} more` : ''] : lists.some(l => !l.length) ? 'not comparable: missing value' : 'none shared'));
     };
     const textRow = (label, valueOf) => {
       const vals = cols.map(valueOf), same = vals.every(v => v === vals[0]);
-      return el('tr', { data: { attr: label } }, el('th', label), vals.map(v => el('td', filled(v) ? String(v) : el('span.sm-absent', NOT_IN_RECORD))), el('td.sm-verdict', same ? 'same' : 'differs'));
+      const missing = vals.filter(v => !filled(v) || v === NOT_IN_RECORD || v === NOT_IN_TABLE || v === NO_TABLE).length;
+      return el('tr', { data: { attr: label } }, el('th', label), vals.map(v => el('td', filled(v) ? String(v) : el('span.sm-absent', NOT_IN_RECORD))), el('td.sm-verdict', missing ? 'not comparable: missing value' : same ? 'same' : 'differs'));
     };
     const barRow = (label, pick, opts = {}) => {
       const axes = cols.map(c => pick(c.s)), his = axes.map(a => a.hi).filter(isNum);
       const axisMax = opts.max ?? (his.length ? Math.max(...his) * 1.08 : 1), conv = opts.conv || (x => x);
       const withVal = axes.filter(a => a.lo != null);
       const lo = withVal.length ? Math.max(...withVal.map(a => a.lo)) : null, hi = withVal.length ? Math.min(...withVal.map(a => a.hi)) : null;
-      const verdict = withVal.length < k ? 'differs' : axes.every(a => a.lo === axes[0].lo && a.hi === axes[0].hi) ? 'same' : lo <= hi ? `differs · overlap ${span(conv(lo), conv(hi))}${opts.unit ? ' ' + opts.unit : ''}` : 'differs · no overlap';
+      const verdict = withVal.length === 0 ? `not comparable: no numeric ${label.startsWith('Flow') ? 'flow' : label} in these tables` : withVal.length < k ? 'not comparable: missing value' : axes.every(a => a.lo === axes[0].lo && a.hi === axes[0].hi) ? 'same' : lo <= hi ? `differs · overlap ${span(conv(lo), conv(hi))}${opts.unit ? ' ' + opts.unit : ''}` : 'differs · no overlap';
       return el('tr', { data: { attr: label } }, el('th', label, opts.note ? el('span.sm-src', opts.note) : null),
         cols.map((c, n) => { const a = axes[n];
           if (a.lo == null) return el('td', ui.rangebar(null, null, 0, axisMax, { nullText: a.raw_only ? 'kept raw' : NOT_IN_TABLE }), opts.extra ? opts.extra(c) : null);
           const lbl = opts.label ? opts.label(a, c.s) : undefined;
-          return el('td', ui.rangebar(a.n ? a.min : a.range ? a.range[0] : null, a.n ? a.max : a.range ? a.range[1] : null, 0, axisMax, { multi: a.list, unit: opts.unit, label: lbl }), opts.extra ? opts.extra(c) : null); }),
+          return el('td', { data: { claim: `${c.id}:${label}` } }, ui.rangebar(a.n ? a.min : a.range ? a.range[0] : null, a.n ? a.max : a.range ? a.range[1] : null, 0, axisMax, { multi: a.list, unit: opts.unit, label: lbl }), endpointSources(c.id, a), opts.extra ? opts.extra(c) : null); }),
         el('td.sm-verdict', verdict));
     };
     const pLabel = (a, s) => `${axisText(a, { conv: x => x / KPA_PER_PSI })} psia (${axisText(a)} kPa)`;
@@ -338,13 +344,68 @@ export function mount(root, ctx) {
         setRow('Varied', c => (c.sum ? (c.sum.varied || []).map(v => words(v.field)) : []), 'computed from the table'),
         setRow('Held constant', c => (c.sum ? (c.sum.constant || []).map(v => `${words(v.field)} = ${v.value}`) : []), 'computed from the table'),
         setRow('Recorded', c => c.s.outcomes.map(o => words(o.name))),
-        textRow('Test rows', c => (c.s.has_table ? `${fmt.n(c.s.tests)} (${c.s.kinds.map(x => words(x.value)).join(', ')})` : NO_TABLE)),
+        textRow('Source rows', c => (c.s.has_table ? `${fmt.n(c.s.tests)} (${c.s.kinds.map(x => words(x.value)).join(', ')})` : NO_TABLE)),
         textRow('Verified findings', c => String(F(c.id).length))));
     const actions = [
-      ui.button(k === 2 ? 'Open both on the Design map' : 'Open compared investigations on the Design map', { small: true, icon: '›', onClick: () => ctx.go('#/design' + (layers.length ? '?show=' + layers.join(',') : '')) }),
+      ui.button('Show ' + (layers.length ? layers.join(' and ') + ' test layers' : 'test layers'), { small: true, icon: '›', onClick: () => ctx.go('#/design' + (layers.length ? '?show=' + layers.join(',') : '')) }),
       ui.button('Export compared rows CSV', { small: true, action: 'export-csv', onClick: exportCsv, title: `${fmt.n(rowsAll().length)} rows` }),
     ];
-    return ui.panel(`Compare (${k} of 3)`, [el('div.sm-cmp-scroll', table), el('div.sm-cmp-actions', actions), el('p.sm-export-note', { hidden: true, role: 'status' })], { class: 'sm-compare', strong: true, data: { panel: 'compare' } });
+    return ui.panel(`Compare (${k} of 3)`, [el('p.sm-map-note', 'The Design map shows all investigations in these layers, not only this comparison.'), el('div.sm-cmp-scroll', table), el('div.sm-cmp-actions', actions), el('p.sm-export-note', { hidden: true, role: 'status' })], { class: 'sm-compare', strong: true, data: { panel: 'compare' } });
+  }
+
+  function endpointSources(id, axis) {
+    return el('span.sm-endpoints', (axis.endpoint_ids || []).map((rid, i) => ui.cite(rid, { small: true, label: (axis.endpoint_ids.length > 1 ? (i ? 'maximum' : 'minimum') : 'value') + ' source' })), link(id + ':csv', `api/v1/tests/${id}.csv`, 'all rows CSV'));
+  }
+  function renderSimple() {
+    const n = db.engine.extractor.psi_kept, total = db.engine.extractor.test_rows;
+    const selected = ctx.params.sel && db.invById[ctx.params.sel] ? ctx.params.sel : 'PSI-25';
+    const inv = db.invById[selected] || db.investigations[0];
+    const source = i => link(i.psi_id, i.psi_url, 'source');
+    const kindLabel = k => ({ test: 'individual-test rows', test_day: 'test-day rows', test_series: 'test-series rows', test_group_reference: 'group-reference rows', session: 'session rows', dataset_index: 'dataset-index rows' })[k] || words(k);
+    const plain = f => f.claim.replace(/The PSI-\d+ record/g, 'The study record').replace(/The PSI-\d+/g, 'The study').replace(/PSI-\d+/g, 'this study').replace(/Quench test burns on PMMA rods/g, 'In extinguishing tests, acrylic-plastic rod burns').replace(/\bPMMA\b/g, 'acrylic plastic').replace(/\bISS\b/g, 'space station').replace(/microgravity/g, 'near-weightlessness').replace(/quiescent/g, 'still-air').replace(/coflow/g, 'flowing-air').replace(/cool flame extinction/g, 'cool flames going out').replace(/extinguished/g, 'went out');
+    const material = i => {
+      const s = S.get(i.psi_id), names = s.fuels.items.map(f => f.value);
+      if (!s.has_table) return s.rows ? 'Dataset index, not individual burns' : 'No experimental table in PSI';
+      if (!names.length) return NOT_IN_TABLE;
+      return names.slice(0, 3).join(', ').replace(/\bPMMA\b/g, 'acrylic plastic') + (names.length > 3 ? `; ${names.length - 3} other fuel${names.length - 3 === 1 ? '' : 's'}` : '');
+    };
+    const finding = i => {
+      const candidates = F(i.psi_id).filter(f => f.claim && f.n.work !== 'operations');
+      return candidates.sort((a, b) => (a.n.work === 'flight' ? 0 : 1) - (b.n.work === 'flight' ? 0 : 1) || a.claim.length - b.claim.length)[0];
+    };
+    const rowSummary = i => {
+      const s = S.get(i.psi_id), names = s.outcomes.map(o => words(o.name));
+      return names.length ? `Recorded: ${names.slice(0, 2).join(', ')}.` : s.kinds.length && s.kinds.every(k => k.value === 'dataset_index') ? 'These rows index datasets rather than individual burns.' : s.rows ? 'No normalized outcome value is recorded in these source rows; see the study record for measurements.' : 'No experimental test table in this collection.';
+    };
+    const intro = ui.answer('What has NASA tested about fire in space?', `Explore ${n} investigations and ${ui.fmt.n(total)} source-table rows to see what burned, what changed and what was measured.`, { class: 'sms-intro' });
+    intro.querySelector('[data-answer]').dataset.claim = 'investigation-counts';
+    intro.querySelector('[data-answer]').append(' ', link('investigations', 'api/v1/investigations.json', 'source'));
+    intro.append(el('p.sms-note', 'Some rows describe a day, a series or a dataset, rather than one burn. Select an investigation for its finding.'));
+    const table = el('table.sms-table',
+      el('thead', el('tr', ['Investigation', 'What burned', 'Source rows', 'One finding'].map(t => el('th', { scope: 'col' }, t)))),
+      el('tbody', (core.rank?.rankInvestigations(db, ctx.q).map(r => db.invById[r.psi_id]) || db.investigations).map(i => {
+        const f = finding(i), s = S.get(i.psi_id);
+        return el('tr', { class: i.psi_id === inv.psi_id ? 'is-selected' : '', data: { investigation: i.psi_id } },
+          el('th', { scope: 'row' }, el('button.sms-pick', { type: 'button', 'aria-pressed': i.psi_id === inv.psi_id ? 'true' : 'false', onclick: () => { ctx.setParams({ sel: i.psi_id }); if (matchMedia('(max-width:759px)').matches) requestAnimationFrame(() => root.querySelector('.sms-selection')?.scrollIntoView({ block: 'start' })); } }, displayName(i))),
+          el('td', { data: { label: 'What burned', claim: i.psi_id + ':fuel' } }, material(i), ' ', source(i)),
+          el('td', { data: { label: 'Source rows', claim: i.psi_id + ':rows' } }, String(s.rows), ' ', s.rows ? link(i.psi_id + ':csv', `api/v1/tests/${i.psi_id}.csv`, 'source') : source(i)),
+          el('td', { data: { label: 'One finding', claim: f?.id || i.psi_id + ':outcome' } }, f ? plain(f) : rowSummary(i), ' ', f ? ui.cite(f.id, { label: 'source' }) : source(i)));
+      })));
+    const f = finding(inv), s = S.get(inv.psi_id);
+    const detail = el('aside.sms-selection', { 'aria-label': 'Selected investigation' },
+      el('span.sms-eyebrow', 'SELECTED INVESTIGATION'), el('h2', displayName(inv)),
+      el('p', { data: { claim: inv.psi_id + ':material' } }, material(inv), '. ', source(inv)),
+      el('p.sms-finding', { data: { claim: f?.id || inv.psi_id } }, f ? plain(f) : rowSummary(inv), ' ', f ? ui.cite(f.id, { label: 'source' }) : source(inv)),
+      el('p.sms-limit', f ? (ctx.core.text.level(f) + '. A finding about this study, not a cabin safety approval.') : 'No reviewed written finding is linked to this record yet.'),
+      el('p.sms-note', `${ui.fmt.n(s.rows)} source rows: ${s.kinds.map(k => `${ui.fmt.n(k.n)} ${kindLabel(k.value)}`).join('; ') || 'none in this collection'}.`),
+      el('button.sms-details-link', { type: 'button', onclick: () => ctx.setParams({ view: 'details', sel: inv.psi_id }) }, 'See full record and compare'));
+    const content = el('section.sms-content', el('div.sms-list', el('p.sms-list-label', `${n} investigations · scroll to explore`), el('div.sms-scroll', table)), detail);
+    const footer = el('footer.sms-footer', el('div', el('p', `In VESTA’s evidence base (${n} PSI investigations).`), el('p', ctx.core.text.STATUS_LINE)),
+      ui.button('Check a cabin', { primary: true, icon: '›', onClick: () => ctx.go('#/design') }));
+    root.replaceChildren(el('div.sms', { data: { screen: 'investigations', simple: true, rows: n } }, intro, content, footer));
+    const list = root.querySelector('.sms-scroll');
+    list.scrollTop = simpleScroll;
+    list.addEventListener('scroll', () => { simpleScroll = list.scrollTop; }, { passive: true });
   }
 
   render();

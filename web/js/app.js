@@ -1,5 +1,6 @@
 import { el, svg, css, clear, fmt, button, still } from './ui/el.js';
-import { initStage, stageScale } from './ui/stage.js';
+import { initStage, fitStage, stageScale } from './ui/stage.js';
+import { answer } from './ui/answer.js';
 import { panel } from './ui/panel.js';
 import { chip, reason, tag, useText, statusWord, levelText, pressureText, statusLine, legend } from './ui/chip.js';
 import { cite, citeLabel } from './ui/cite.js';
@@ -14,7 +15,7 @@ import { vesta, vestaMark } from './ui/vesta.js';
 import { ROUTES, SHARED, GLOBAL, parseHash, buildHash, readQ as readQLocal, patchQ, withSticky, write } from './router.js';
 import { loadDb, getDb, getCore, setOpener, openSource, closeSource, lookup } from './store.js';
 
-export const ui = { el, svg, css, clear, fmt, button, still, panel, chip, reason, tag, statusLine, legend, cite, citeLabel, drawer, openSource, closeSource, triad, scorebar, rangebar, spark, empty,
+export const ui = { el, svg, css, clear, fmt, button, still, answer, panel, chip, reason, tag, statusLine, legend, cite, citeLabel, drawer, openSource, closeSource, triad, scorebar, rangebar, spark, empty,
                     download, downloadJson, downloadCsv, downloadText, vesta, vestaMark, statusWord, levelText, pressureText, stageScale, lookup };
 
 const PLACEHOLDER = 'This view is not built yet.';
@@ -29,10 +30,25 @@ let mounted = { route: null, sig: null, handle: null, ctx: null, token: 0 };
 function buildChrome() {
   document.getElementById('brand-mark').append(vestaMark(40));
   for (const r of ROUTES) nav.append(el('a', { href: '#/' + r.id, data: { view: r.id } }, r.n ? el('span.n', String(r.n)) : null, el('span', r.label)));
+  if (!demo) document.getElementById('bar-actions').append(modeSwitch());
+  const phone = el('div#phone-controls', el('p', 'Details is built for a wide screen'), modeSwitch());
+  document.getElementById('viewport').append(phone);
   if (!demo) document.getElementById('bar-actions').append(button('60-second tour', { action: 'tour', icon: '▶', title: 'A guided path through the five stops' }));
 }
+function modeSwitch() {
+  return el('div.view-switch', { role: 'group', 'aria-label': 'Information level' }, ...['simple', 'details'].map(mode =>
+    el('button', { type: 'button', data: { viewMode: mode }, onclick: () => setParams({ view: mode }) }, mode === 'simple' ? 'Simple' : 'Details')));
+}
 function paintChrome(route, params) {
-  const sticky = {}; for (const k of [...SHARED, 'capture']) if (params[k] != null && (params[k] !== '' || k === 'mat')) sticky[k] = params[k];
+  const mode = demo || params.view === 'details' ? 'details' : 'simple';
+  document.documentElement.dataset.viewMode = mode;
+  stage.dataset.viewMode = mode;
+  document.getElementById('phone-controls').inert = !!params.src;
+  for (const b of document.querySelectorAll('[data-view-mode] button, button[data-view-mode]')) {
+    if (b.dataset.viewMode) b.setAttribute('aria-pressed', String(b.dataset.viewMode === mode));
+  }
+  fitStage(stage);
+  const sticky = {}; for (const k of [...SHARED, 'capture', 'view']) if (params[k] != null && (params[k] !== '' || k === 'mat')) sticky[k] = params[k];
   for (const a of document.querySelectorAll('#bar [data-view]')) {
     const id = a.dataset.view;
     a.setAttribute('href', (demo ? 'index.html' : '') + buildHash(id, sticky));
@@ -40,6 +56,10 @@ function paintChrome(route, params) {
   }
   const r = ROUTES.find(x => x.id === route);
   document.title = `VESTA · ${r ? r.label : 'Brief'}`;
+  if (document.documentElement.dataset.phone === 'true' && stage.dataset.route !== route) {
+    const active = nav.querySelector('[aria-current="page"]');
+    if (active) nav.scrollLeft = Math.max(0, active.offsetLeft - nav.offsetLeft - (nav.clientWidth - active.offsetWidth) / 2);
+  }
   stage.dataset.route = route;
 }
 function paintBuilt() {
@@ -87,7 +107,7 @@ async function mount(route, ctx, token) {
   view.dataset.view = route;
   const file = ROUTES.find(r => r.id === route).file;
   let mod = null;
-  try { mod = await import(`./views/${file}`); }
+  try { mod = await import(`./views/${file}?v=10`); }
   catch (e) { console.warn(`VESTA: views/${file} did not load: ${e && e.message}`); }
   if (token !== mounted.token) return;
   if (!mod || typeof mod.mount !== 'function') { placeholder(); return; }
@@ -116,14 +136,14 @@ function render() {
     return;
   }
   if (mounted.route !== route || mounted.sig !== split.sig) {
-    const h = mounted.handle, same = mounted.route === route && mounted.ctx;
+    const h = mounted.handle, same = mounted.route === route && mounted.ctx && mounted.ctx.view === (params.view === 'details' ? 'details' : 'simple');
     if (same && h && typeof h === 'object' && typeof h.update === 'function') {
-      Object.assign(mounted.ctx, { q, params: split.own }); mounted.sig = split.sig;
+      Object.assign(mounted.ctx, { q, params: split.own, view: params.view === 'details' ? 'details' : 'simple' }); mounted.sig = split.sig;
       try { h.update(mounted.ctx); } catch (e) { console.error('VESTA: update failed', e); }
     } else {
       unmount();
       const token = ++mounted.token;
-      const ctx = { db, q, params: split.own, route, setQ, setParams, go, openSource, closeSource, ui, core, capture };
+      const ctx = { db, q, view: params.view === 'details' ? 'details' : 'simple', params: split.own, route, setQ, setParams, go, openSource, closeSource, ui, core, capture };
       mounted = { route, sig: split.sig, handle: null, ctx, token };
       mount(route, ctx, token);
     }
@@ -220,6 +240,7 @@ async function start() {
 }
 
 buildChrome();
+paintChrome(first.route, first.params);
 initStage(stage);
 drawer.mount(stage);
 addEventListener('hashchange', render);

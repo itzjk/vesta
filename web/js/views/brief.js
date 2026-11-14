@@ -4,11 +4,12 @@ const ADVANCE_MS = 6000, STRIKE_MS = 1200;
 
 const isNum = x => typeof x === 'number' && isFinite(x);
 const words = s => String(s ?? '').replace(/_/g, ' ');
+const findingTitle = f => f.title || f.claim;
 const dig = (obj, path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
 
-export function mount(root, ctx) {
+function mountDetails(root, ctx) {
   const { ui, db } = ctx, el = ui.el, fmt = ui.fmt;
-  ui.css('css/views/brief.css');
+  ui.css('css/views/brief.css?v=10');
   const core = ctx.core || {}, rankMod = core.rank, statusMod = core.status, text = core.text;
   const nInv = db.investigations.length;
   const base = `in VESTA’s evidence base (${nInv} PSI investigations)`;
@@ -113,21 +114,8 @@ export function mount(root, ctx) {
     return p;
   }
   const rankBody = el('div.bf-rank');
-  function nearestRow(valueOf, target) {
-    let best = null, d = Infinity;
-    for (const r of db.cabinRows) { const v = valueOf(r); if (!isNum(v)) continue; const x = Math.abs(v - target); if (x < d || (x === d && best && r.id.localeCompare(best.id, 'en', { numeric: true }) < 0)) { d = x; best = r; } }
-    return best;
-  }
   function gapRows(ax) {
-    const citeFor = {
-      gravity: () => {
-        const f = q.gclass === 'partial' ? db.findings.find(x => x.n.topic === 'partial_gravity' && x.n.read_in === 'challenge_page' && /no partial-gravity/i.test(x.quote || '')) : null;
-        const r = f ? null : db.cabinRows[0];
-        return f ? ui.cite(f.id, { small: true }) : r ? ui.cite(r.id, { small: true, title: 'A cabin-material row, tested in ' + (r.gravity || 'another gravity') }) : null;
-      },
-      o2: () => { const r = nearestRow(x => x.n.o2, q.o2); return r ? ui.cite(r.id, { small: true, title: 'The nearest cabin-material row in oxygen' }) : null; },
-      pressure: () => { const r = nearestRow(x => x.n.p ?? x.n.p_inferred, q.p); return r ? ui.cite(r.id, { small: true, title: 'The nearest cabin-material row in pressure' }) : null; },
-    };
+    const citeFor = Object.fromEntries(['gravity', 'o2', 'pressure'].map(axis => [axis, () => dataset('api/v1/tests.json', 'searched rows')]));
     const list = text && typeof text.gaps === 'function' ? text.gaps(ax, q, nInv)
       : ['gravity', 'o2', 'pressure'].filter(a => ax[a].cabin === 0).map(a => ({ axis: a, label: a === 'gravity' ? `Gravity ${q.g_label}` : a === 'o2' ? `Cabin materials at ${fmt.short(q.o2)} % O2` : `Cabin materials at ${pressure(q.p)}`, count: 0, extra: null }));
     return list.map(g => ({ axis: g.axis, head: g.label, detail: `${fmt.n(g.count)} rows` + (g.extra ? ` \u00B7 ${g.extra}` : ''), title: g.sentence || null, cite: citeFor[g.axis] ? citeFor[g.axis]() : null }));
@@ -150,12 +138,12 @@ export function mount(root, ctx) {
     else if (usable) {
       const ask = q.material && db.materials[q.material] ? { fuel_class: db.materials[q.material].fuel_class } : {};
       const top = rankMod.rank(db.findings, q, db).slice(0, 3);
-      rankBody.append(el('ol.bf-top', top.map((r, i) => {
+      rankBody.append(el('p.bf-score-note', text.SCORE_LABEL), el('ol.bf-top', top.map((r, i) => {
         const st = statusMod.findingStatus(r.f, q, db, ask);
         return el('li.bf-top-row', { data: { claim: r.f.id, rank: i + 1 } },
           el('span.bf-top-i.num', String(i + 1)),
           el('span.bf-top-score.num', { title: 'Score out of 100: pillar 30, atmosphere 25, gravity 15, level 15, material 10, habitat 5' }, String(r.total)),
-          el('span.bf-top-topic', { title: words(r.f.n.topic || r.f.topic) }, words(r.f.n.topic || r.f.topic)), ui.chip(st.status, { small: true }),
+          el('span.bf-top-topic', { title: words(r.f.n.topic || r.f.topic) }, findingTitle(r.f)), ui.chip(st.status, { small: true }),
           el('span.bf-top-level', level(r.f)), ui.cite(r.f.id, { small: true }));
       })));
     }
@@ -199,12 +187,76 @@ export function mount(root, ctx) {
         inApp('MCP server', '#/open'), inApp('telemetry format', '#/open'), inApp('NTRS snapshot', '#/open')));
     return [engine, open];
   }
-  const page = el('div.bf', { data: { screen: 'brief' } }, hero, el('div.bf-panels', summarizePanel(), interpretPanel(), rankPanel()), strips());
+  const page = el('div.bf', { data: { screen: 'brief' } }, hero, el('div.bf-panels', summarizePanel(), rankPanel(), interpretPanel()), strips());
   root.replaceChildren(page);
   const tagline = hero.querySelector('.bf-tagline');
 
   return {
     unmount() { alive = false; for (const id of timers) clearTimeout(id); timers.clear(); },
     update(next) { ctx = next; q = next.q; renderRank(); },
+  };
+}
+
+
+const details = ctx => (ctx.view || ctx.params?.view) === 'details';
+
+function mountSimple(root, ctx) {
+  const { ui, db } = ctx, el = ui.el;
+  ui.css('css/views/brief.css?v=10');
+  const investigations = db.engine.extractor.psi_kept;
+  const rows = db.engine.extractor.test_rows;
+  const goLink = (label, href, className) => el('a', {
+    href, class: className, onclick: event => { event.preventDefault(); ctx.go(href); }
+  }, label);
+  const hero = el('header.bfs-intro',
+    el('div.bfs-intro-copy',
+      el('p.bfs-eyebrow', 'VESTA / NASA fire evidence'),
+      el('h1.bfs-title', "Explore NASA's fire experiments."),
+      el('p.bfs-promise', 'See where the evidence stops.'),
+      el('p.bfs-who', 'For students, researchers and spacecraft designers.'),
+      el('div.bfs-actions',
+        ui.button('Explore the evidence', { primary: true, icon: '›', onClick: () => ctx.go('#/investigations') }),
+        goLink('Run the fire drill', '#/incident', 'bfs-secondary')),
+      el('p.bfs-counts', { data: { claim: 'brief-counts' } },
+        `${ui.fmt.n(investigations)} investigations · ${ui.fmt.n(rows)} source-table rows`,
+        el('a.cite', { href: 'api/v1/index.json', target: '_blank', rel: 'noopener' }, 'source'))),
+    el('div.bfs-mascot', ui.vesta('point', { size: 220 }),
+      el('p', 'The fire officer that doesn’t wait for Houston.')));
+
+  const step = (number, title, copy) => el('li.bfs-step',
+    el('span.bfs-step-number', { 'aria-hidden': 'true' }, number),
+    el('div', el('h2', title), el('p', copy)));
+  const journey = el('ol.bfs-journey', { 'aria-label': 'How to use VESTA' },
+    step('01', 'Choose a cabin', 'Set the atmosphere, gravity and material you want to explore.'),
+    step('02', 'Follow the evidence', 'Compare NASA findings and open the original source.'),
+    step('03', 'Find the gaps', 'See which conditions differ and which questions lack evidence.'));
+
+  const rule = db.ruleById['R-SHAPE'] || db.rules.find(r => r.finding_ids.some(id => db.findingById[id]));
+  const lesson = el('details.bfs-lesson');
+  if (rule) {
+    const finding = rule.finding_ids.find(id => db.findingById[id]);
+    const summary = rule.vesta_decides.replace(/low-momentum/g, 'slow-moving').replace(/microgravity/g, 'near-weightlessness');
+    lesson.append(el('summary', 'One lesson: flames need not point up', el('span', 'Read the evidence +')),
+      el('div.bfs-lesson-body', { data: { claim: rule.id } },
+        el('span.bfs-summary-label', 'Summary'), el('p', summary),
+        finding ? ui.cite(finding, { label: 'Read the NASA source' }) : null,
+        el('p.bfs-limit', rule.limits)));
+  }
+  const footer = el('footer.bfs-footer',
+    el('p', 'An evidence explorer and a scripted drill. Evidence coverage is not safety certification.'),
+    el('div', goLink('How quotes are checked', '#/engine'), el('span', ' · '), goLink('Use the open data', '#/open')));
+  root.replaceChildren(el('div.bfs', { data: { screen: 'brief', simple: true } }, hero, journey, lesson, footer));
+  return { unmount() {} };
+}
+
+export function mount(root, ctx) {
+  let mode = details(ctx), handle = (mode ? mountDetails : mountSimple)(root, ctx);
+  return {
+    unmount() { handle.unmount?.(); },
+    update(next) {
+      if (mode !== details(next) || !mode) {
+        handle.unmount?.(); mode = details(next); handle = (mode ? mountDetails : mountSimple)(root, next);
+      } else handle.update(next);
+    }
   };
 }

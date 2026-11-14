@@ -1,18 +1,18 @@
 /* Stage, chrome and type roles. DESIGN.md sections 2 and 6.2. Nothing on screen is smaller than 13 px at the 1920 stage. */
 *,*::before,*::after{box-sizing:border-box}
-html,body{margin:0;height:100%;background:var(--bg-0);color:var(--white);overflow:hidden}
+html,body{margin:0;height:100%;background:var(--bg-0);color:var(--ivory);overflow:hidden}
 body{font:400 18px/26px var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 button,input,select,textarea{font:inherit;color:inherit}
-a{color:var(--ice-text);text-decoration-color:var(--line)}
-a:hover{color:var(--white)}
+a{color:var(--ivory);text-decoration-color:var(--line)}
+a:hover{color:var(--ivory)}
 h1,h2,h3,h4,p{margin:0}
 [hidden]{display:none!important}
-:focus-visible{outline:2px solid var(--ice-text);outline-offset:2px}
+:focus-visible{outline:2px solid var(--ivory);outline-offset:2px}
 
 /* the fixed 1920x1080 stage, scaled to the viewport by ui/stage.js */
 #viewport{position:fixed;inset:0;overflow:hidden;background:var(--bg-0)}
 #stage{position:absolute;left:0;top:0;width:var(--stage-w);height:var(--stage-h);transform-origin:0 0;overflow:hidden;
-  background:radial-gradient(ellipse at 28% 18%, var(--bg-2), var(--bg-0) 70%)}
+  background:var(--surface-1)}
 #stars{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 html:not([data-ready]) #stage{visibility:hidden}
 
@@ -25,27 +25,27 @@ html:not([data-ready]) #stage{visibility:hidden}
 .t-small{font:400 15px/20px var(--font)}
 .t-label{font:600 13px/16px var(--font);text-transform:uppercase;letter-spacing:.12em}
 .t-number{font:600 22px/26px var(--font);font-variant-numeric:tabular-nums}
-.t-dim{color:var(--dim)} .t-ice{color:var(--ice-text)} .t-white{color:var(--white)}
+.t-dim{color:var(--ivory-dim)} .t-ice{color:var(--ivory)} .t-white{color:var(--ivory)}
 .num{font-variant-numeric:tabular-nums}
-.quote{color:var(--white);font-style:normal}
+.quote{color:var(--ivory);font-style:normal}
 .quote::before{content:"\201C"} .quote::after{content:"\201D"}
 
 /* top bar, 64 px */
 #bar{position:absolute;left:0;top:0;width:100%;height:var(--bar-h);display:flex;align-items:center;gap:var(--s4);padding:0 var(--s5);
-  border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(13,27,51,.72),rgba(6,12,26,.5));z-index:20}
-#bar .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--white);margin-right:var(--s2)}
-#bar .brand svg{width:40px;height:40px;flex:none;filter:drop-shadow(0 0 8px rgba(255,116,34,.45))}
+  border-bottom:1px solid var(--line);background:var(--surface-1);z-index:20}
+#bar .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ivory);margin-right:var(--s2)}
+#bar .brand svg{width:40px;height:40px;flex:none;}
 #bar .brand b{font:700 28px/1 var(--display);letter-spacing:.08em}
 #nav{display:flex;align-items:stretch;gap:2px;height:100%;flex:1 1 auto;min-width:0}
-#nav a{position:relative;display:flex;align-items:center;gap:8px;padding:0 16px;font:500 17px/1 var(--font);color:var(--ice-text);text-decoration:none;white-space:nowrap;
+#nav a{position:relative;display:flex;align-items:center;gap:8px;padding:0 16px;font:500 17px/1 var(--font);color:var(--ivory);text-decoration:none;white-space:nowrap;
   transition:color var(--t-fast) var(--ease),background var(--t-fast) var(--ease)}
-#nav a .n{display:inline-grid;place-items:center;width:22px;height:22px;border:1px solid var(--line);border-radius:50%;font:600 13px/1 var(--font);color:var(--ice-text)}
-#nav a:hover{color:var(--white);background:var(--panel)}
-#nav a[aria-current="page"]{color:var(--white);font-weight:600;background:var(--panel-strong)}
-#nav a[aria-current="page"] .n{border-color:var(--line-strong);background:rgba(66,163,255,.25);color:var(--white)}
-#nav a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:var(--ice);box-shadow:var(--glow-strong)}
+#nav a .n{display:inline-grid;place-items:center;width:22px;height:22px;border:1px solid var(--line);border-radius:50%;font:600 13px/1 var(--font);color:var(--ivory)}
+#nav a:hover{color:var(--ivory);background:var(--surface-1)}
+#nav a[aria-current="page"]{color:var(--ivory);font-weight:600;background:var(--surface-2)}
+#nav a[aria-current="page"] .n{border-color:var(--line-strong);background:rgba(237,228,212,.25);color:var(--ivory)}
+#nav a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:var(--earth);}
 #bar .scope{flex:none;display:flex;flex-direction:column;justify-content:center;padding:6px 14px;border:1px dashed rgba(243,231,207,.6);border-radius:10px;
-  font:600 13px/16px var(--font);letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:var(--cream-soft);white-space:nowrap}
+  font:600 13px/16px var(--font);letter-spacing:.12em;text-transform:uppercase;color:var(--ivory-dim);background:var(--neutral-soft);white-space:nowrap}
 
 /* the view root */
 #view{position:absolute;left:0;top:var(--bar-h);width:100%;height:calc(var(--stage-h) - var(--bar-h) - var(--foot-h));padding:var(--s4) var(--s5);
@@ -54,8 +54,8 @@ html:not([data-ready]) #stage{visibility:hidden}
 
 /* footer, 40 px */
 #foot{position:absolute;left:0;bottom:0;width:100%;height:var(--foot-h);display:flex;align-items:center;justify-content:space-between;gap:var(--s5);padding:0 var(--s5);
-  border-top:1px solid var(--line-faint);background:rgba(2,4,10,.6);font:400 13px/16px var(--font);letter-spacing:.02em;color:var(--dim);white-space:nowrap;z-index:20}
-#foot .built{font-weight:600;color:var(--ice-text);font-variant-numeric:tabular-nums}
+  border-top:1px solid var(--line-faint);background:rgba(18,16,14,.6);font:400 13px/16px var(--font);letter-spacing:.02em;color:var(--ivory-dim);white-space:nowrap;z-index:20}
+#foot .built{font-weight:600;color:var(--ivory);font-variant-numeric:tabular-nums}
 
 /* full-stage empty state: the evidence did not load, so nothing else is on the stage */
 #stage[data-state="failed"] #bar,#stage[data-state="failed"] #foot,#stage[data-state="failed"] #view{display:none}
@@ -69,4 +69,76 @@ html[data-capture] #view{scrollbar-width:none} html[data-capture] #view::-webkit
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+#stage{background:var(--bg-0)}
+#bar-actions{display:flex;align-items:center;gap:12px;flex:none}
+.view-switch{display:inline-flex;align-items:center;gap:4px;padding:4px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--bg-0)}
+.view-switch button{min-height:36px;padding:5px 16px;border:0;border-radius:var(--r-pill);background:transparent;color:var(--ivory);font:500 18px/24px var(--font);cursor:pointer}
+.view-switch button[aria-pressed="true"]{color:var(--ivory);background:rgba(237,228,212,.18);}
+.view-switch button:hover{color:var(--ivory)}
+#phone-controls{display:none}
+#nav a{padding-left:12px;padding-right:12px}
+:focus-visible{outline:3px solid var(--ivory);outline-offset:4px;}
+#nav a:focus-visible{outline-offset:-5px}
+html[data-view-mode="simple"] #bar .scope{font-size:18px;line-height:22px;letter-spacing:.02em;text-transform:none;padding:4px 12px}
+html[data-view-mode="simple"] #nav a{font-size:18px}
+html[data-view-mode="simple"] #foot{white-space:normal;font-size:18px;line-height:22px;height:auto;min-height:60px;gap:18px;padding-top:8px;padding-bottom:8px;color:var(--ivory)}
+html[data-view-mode="simple"] #foot>span:first-child{max-width:1460px}
+html[data-view-mode="simple"] #view{height:calc(var(--stage-h) - var(--bar-h) - 72px);font-size:22px;line-height:1.4}
+html[data-view-mode="simple"] .t-body,html[data-view-mode="simple"] .t-body-strong{font-size:22px;line-height:1.4}
+html[data-view-mode="simple"] .t-small,html[data-view-mode="simple"] .t-label{font-size:18px;line-height:1.4}
+html[data-view-mode="simple"] .t-dim{color:var(--ivory)}
+html[data-tour="running"] #view{height:calc(var(--stage-h) - var(--bar-h) - 172px)}
+html[data-tour="running"] #stage .tour-bar{bottom:72px;min-height:100px}
+@media(max-width:759px){
+  html[data-view-mode="simple"],html[data-view-mode="simple"] body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
+  html[data-view-mode="simple"] #viewport{position:relative;inset:auto;overflow:visible;min-height:100dvh}
+  html[data-view-mode="simple"] #stage{position:relative;width:100%;height:auto;min-height:100dvh;overflow:clip;display:flex;flex-direction:column}
+  html[data-view-mode="simple"] #stars{height:100dvh;opacity:.5}
+  html[data-view-mode="simple"] #bar{position:relative;height:auto;min-height:0;flex-wrap:wrap;gap:12px;padding:14px 16px 0}
+  html[data-view-mode="simple"] #bar .brand{margin:0;margin-right:auto;gap:6px}
+  html[data-view-mode="simple"] #bar .brand b{font-size:24px}
+  html[data-view-mode="simple"] #bar .brand svg{width:32px;height:32px}
+  html[data-view-mode="simple"] #bar-actions{order:1;gap:8px}
+  html[data-view-mode="simple"] #bar-actions>[data-action="tour"]{position:absolute;right:16px;bottom:64px;font-size:16px;min-height:44px;padding:4px 12px}
+  html[data-view-mode="simple"] #bar .scope{order:2;width:100%;border:0;border-radius:0;padding:0 148px 0 0;background:transparent;font-size:16px;line-height:21px;white-space:normal;min-height:44px}
+  html[data-view-mode="simple"] #nav{order:3;flex:0 0 calc(100% + 32px);margin:0 -16px;overflow-x:auto;min-height:52px;scrollbar-width:thin;padding:4px 8px;gap:4px}
+  html[data-view-mode="simple"] #nav a{font-size:16px;padding:0 12px;min-height:44px}
+  html[data-view-mode="simple"] #nav .n{width:20px;height:20px;font-size:13px}
+  html[data-view-mode="simple"] #view{position:relative;top:auto;left:auto;height:auto;width:100%;padding:28px 16px;overflow:visible;font-size:18px;line-height:1.5;flex:1}
+  html[data-view-mode="simple"] #foot{position:relative;bottom:auto;flex-direction:column;align-items:flex-start;font-size:16px;line-height:23px;padding:18px 16px;gap:12px}
+  .view-switch button{min-height:44px;padding:5px 10px;font-size:16px;line-height:22px}
+  html[data-view-mode="simple"] .t-body,html[data-view-mode="simple"] .t-body-strong{font-size:18px}
+  html[data-view-mode="simple"] .t-small,html[data-view-mode="simple"] .t-label{font-size:16px}
+  html[data-view-mode="simple"] #fail{position:relative;min-height:100dvh;padding:16px}
+  html[data-view-mode="simple"] .fail-panel{width:100%;padding:24px}
+  html[data-view-mode="details"] #phone-controls{position:fixed;z-index:50;top:0;left:0;right:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;background:var(--bg-0);padding:10px 16px;border-bottom:1px solid var(--line);font-size:16px;line-height:22px}
+  html[data-tour="running"][data-view-mode="simple"] #stage .tour-bar{position:relative;bottom:auto;order:3;width:100%;min-height:0;grid-template-columns:1fr;gap:10px;padding:16px}
+  html[data-tour="running"][data-view-mode="simple"] #stage .tour-bar .tour-cap{font-size:18px;line-height:26px}
+  html[data-tour="running"][data-view-mode="simple"] #view{height:auto}
+}
+@media(max-width:759px){
+  html[data-view-mode="simple"] #bar-actions{display:contents}
+  html[data-view-mode="simple"] #bar-actions .view-switch{order:1}
+  html[data-view-mode="simple"] #bar .scope{padding:0;min-width:100%;min-height:0;letter-spacing:0;font-weight:500}
+  html[data-view-mode="simple"] #bar-actions>[data-action="tour"]{position:static;order:3;margin-left:auto}
+  html[data-view-mode="simple"] #nav{order:4}
+}
+body[data-ui-demo] #phone-controls{display:none!important}
+
+/* Quiet chrome; status meaning is carried by shape and words. */
+#stage{background:var(--bg-1)}
+#stars{display:none}
+#bar,#foot{background:var(--bg-0)}
+#nav a{color:var(--ivory-dim)}
+#nav a[aria-current="page"]{background:var(--surface-1)}
+#nav a[aria-current="page"]::after{background:var(--rust)}
+#foot,#foot .built{color:var(--ivory-dim)}
+a{color:var(--earth)}
+:focus-visible{outline:3px solid var(--ivory);outline-offset:4px}
+
+@media(max-width:759px){
+ html[data-view-mode="simple"] #bar .scope{order:2;flex:1;min-width:0;width:auto;max-width:calc(100% - 150px);font-size:13px;line-height:18px}
+ html[data-view-mode="simple"] #bar-actions>[data-action="tour"]{order:2;font-size:14px;padding:4px 10px;min-height:44px;letter-spacing:0}
 }

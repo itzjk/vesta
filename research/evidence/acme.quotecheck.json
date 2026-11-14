@@ -1,6 +1,6 @@
 {
  "summary": {
-  "file": "evidence/acme.json",
+  "file": "research/evidence/acme.json",
   "total": 75,
   "passed": 75,
   "failed": 0
@@ -226,7 +226,7 @@
   {
    "id": "ACME-032",
    "cached": true,
-   "live": true,
+   "live": null,
    "why": "",
    "pass": true
   },

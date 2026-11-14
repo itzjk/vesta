@@ -1,18 +1,11 @@
 #!/usr/bin/env node
-// Records one real exchange with the MCP server and stores it where the site and the README can show it:
-// a judge cannot start a stdio server from a URL, so the Open data screen prints this recording instead.
-//
-//   node mcp/record.mjs           pipe initialize, tools/list and one rank_evidence call into mcp/server.mjs,
-//                                 write mcp/recorded.json and refresh the recorded block of mcp/README.md
-//   node mcp/record.mjs --check   exit 1 when the stored recording differs from what the server answers now
-//
-// Run it after every `node tools/build.mjs`. Nothing here is typed: the answer is whatever the server returned.
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const rootArg = process.argv.indexOf('--root');
+const ROOT = path.resolve(rootArg < 0 ? path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..') : process.argv[rootArg + 1]);
 const OUT = path.join(ROOT, 'mcp/recorded.json'), README = path.join(ROOT, 'mcp/README.md');
 const VIEW = path.join(ROOT, 'web/js/views/open.js');
 const CALL = { jsonrpc: '2.0', id: 3, method: 'tools/call', params: { name: 'rank_evidence', arguments: { habitat: 'lunar-base', concern: 'prevention', limit: 3 } } };
@@ -27,9 +20,10 @@ function exchange() {
   return new Promise((resolve, reject) => {
     const child = spawn(process.execPath, [path.join(ROOT, 'mcp/server.mjs')], { cwd: ROOT, stdio: ['pipe', 'pipe', 'ignore'] });
     let out = '';
+    const timer = setTimeout(() => { child.kill(); reject(new Error('MCP recording exchange timed out')); }, 30000);
     child.stdout.on('data', (d) => { out += d; });
-    child.on('error', reject);
-    child.on('close', () => { try { resolve(Object.fromEntries(out.split('\n').filter(Boolean).map((l) => JSON.parse(l)).map((m) => [m.id, m]))); } catch (e) { reject(e); } });
+    child.on('error', e => { clearTimeout(timer); reject(e); });
+    child.on('close', (code) => { clearTimeout(timer); if (code !== 0) return reject(new Error(`MCP server exited ${code}`)); try { resolve(Object.fromEntries(out.split('\n').filter(Boolean).map((l) => JSON.parse(l)).map((m) => [m.id, m]))); } catch (e) { reject(e); } });
     for (const l of LINES) child.stdin.write(JSON.stringify(l) + '\n');
     child.stdin.end();
   });
@@ -57,7 +51,10 @@ const embedded = view.match(/^const RECORDING = (.*);$/m)?.[1];
 
 if (process.argv.includes('--check')) {
   const have = fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8') : null;
-  if (have !== text || embedded !== literal) { console.error('mcp/record: mcp/recorded.json is ' + (have == null ? 'missing' : 'stale') + ' (run node mcp/record.mjs)'); process.exit(1); }
+  const stale = [];
+  if (have !== text) stale.push('mcp/recorded.json is ' + (have == null ? 'missing' : 'stale'));
+  if (embedded !== literal) stale.push('Open data embedded recording is ' + (embedded == null ? 'missing' : 'stale'));
+  if (stale.length) { console.error('mcp/record: ' + stale.join('; ') + ' (run node mcp/record.mjs)'); process.exit(1); }
   console.log('mcp/record: the stored recording equals what the server answers now'); process.exit(0);
 }
 

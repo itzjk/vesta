@@ -1,6 +1,6 @@
 {
  "schema": "vesta.seed/1",
- "note": "The verified seed of DESIGN.md section 11. Every quote is verbatim NASA or challenge-page text and goes through research/tools/quotecheck.py at every build. claim is SI-written and marked so on screen. evidence_level uses the short forms flight, summary, model, operations. fuel_class is the seed table's column. conditions carry a number only when the quote states it. Table findings (source.kind psi-table) have no quote: each cells[] entry must equal the raw cell of the PSI table row (the row gate), and column is the key exactly as it stands in the row, including the ? PSI left where a µ was lost.",
+ "note": "The verified seed of DESIGN.md section 11. Every quote is verbatim NASA or challenge-page text and goes through research/tools/quotecheck.py at every build. claim is SI-written and marked so on screen. evidence_level uses the short forms flight, summary, model, operations. fuel_class is the seed table's column. conditions carry a number only when the quote states it. Table findings (source.kind psi-table) have no quote: each cells[] entry must equal the raw cell of the PSI table row (the row gate), and column is the key exactly as it stands in the row, including the ? PSI left where a \u00b5 was lost.",
  "findings": [
   {
    "id": "S-VENT-01",
@@ -679,8 +679,8 @@
    "investigation": "SAME",
    "pillar": "detection",
    "topic": "detector_response",
-   "claim": "ISS smoke detectors use near-infrared forward scattering and are most sensitive to particles larger than 1 µm.",
-   "quote": "The International Space Station (ISS) smoke detectors use near-IR forward scattering, rendering them most sensitive to particles larger than 1 µm, outside of the range of sensitivity of the shuttle detector.",
+   "claim": "ISS smoke detectors use near-infrared forward scattering and are most sensitive to particles larger than 1 \u00b5m.",
+   "quote": "The International Space Station (ISS) smoke detectors use near-IR forward scattering, rendering them most sensitive to particles larger than 1 \u00b5m, outside of the range of sensitivity of the shuttle detector.",
    "source": {
     "kind": "pdf",
     "id": "same",
@@ -1340,6 +1340,108 @@
     "quote": null,
     "support": "direct"
    }
+  },
+  {
+   "id": "S-DILUENT-01",
+   "investigation": "CFI",
+   "pillar": "suppression",
+   "topic": "Inert gas choice changes cool-flame extinction: helium ends it early, xenon prolongs it",
+   "claim": "ISS droplet tests found that diluent choice changes cool-flame behavior.",
+   "quote": "Different diluents were observed to exert remarkably different influences on the cool-flame combustion of fuel droplets.",
+   "source": {
+    "kind": "ntrs",
+    "id": "20205008449",
+    "title": "Effects of Ambient Inert Gas Properties on Cool-Flame Combustion of Normal-Alkane Droplets in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20205008449",
+    "year": 2020,
+    "text_file": "raw/pdf/20205008449.abstract.txt"
+   },
+   "conditions": {},
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Inert gases are interchangeable: any of them just dilutes the air.",
+   "decision_hint": "Keep the reported extinction-diameter and burning-duration distinctions among these diluents; they are not interchangeable suppressant choices.",
+   "verified": {
+    "quote": "exact match",
+    "support": "The quoted passage and surrounding text support the retained claim within its stated scope. Keep the reported extinction-diameter and burning-duration distinctions among these diluents; they are not interchangeable suppressant choices. Conditions absent from this quote are null, even if mentioned elsewhere in the source."
+   },
+   "title": "ISS droplet tests found that diluent choice changes cool-flame behavior.",
+   "reviewed_origin": "DROPLETS-059",
+   "si_written": [
+    "claim",
+    "title"
+   ]
+  },
+  {
+   "id": "S-HELIUM-01",
+   "investigation": "FLEX-2",
+   "pillar": "suppression",
+   "topic": "75% helium: hot flame died in a fraction of a second, brief cool flame followed",
+   "claim": "In FLEX-2 test R707, a brief cool flame followed hot-flame extinction.",
+   "quote": "The hot flame that formed during the ignition dies within a fraction of a second and the cool flame burning commences immediately which also ends quickly leaving the droplet to evaporate.",
+   "source": {
+    "kind": "pdf",
+    "id": "20140006750",
+    "title": "Cool-flame Extinction During N-Alkane Droplet Combustion in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20140006750",
+    "year": 2014,
+    "text_file": "raw/pdf/20140006750.txt"
+   },
+   "conditions": {},
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "At 75% helium this test still briefly entered cool-flame burning; the authors say the process was transient and not quasi-steady.",
+   "verified": {
+    "quote": "exact match",
+    "support": "The expanded paragraph explicitly states the entire process was transient. At 75% helium this test still briefly entered cool-flame burning; the authors say the process was transient and not quasi-steady. Conditions absent from this quote are null, even if mentioned elsewhere in the source."
+   },
+   "title": "In FLEX-2 test R707, a brief cool flame followed hot-flame extinction.",
+   "reviewed_origin": "DROPLETS-043",
+   "si_written": [
+    "claim",
+    "title"
+   ]
+  },
+  {
+   "id": "S-HEAT-01",
+   "investigation": "BASS-II",
+   "pillar": "suppression",
+   "topic": "hot material keeps releasing fuel vapor after extinction",
+   "claim": "Hot PMMA can keep supplying fuel after flame extinction.",
+   "quote": "After extinction, the hot material can continue to produce fuel for some time until it cools.",
+   "source": {
+    "kind": "pdf",
+    "id": "20210011385",
+    "title": "Burning and Suppression of Solids-II (BASS-II) Summary Report, NASA/TM-20210011385",
+    "url": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf",
+    "year": 2021,
+    "text_file": "raw/pdf/20210011385.txt"
+   },
+   "conditions": {},
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "When the flame is gone the fire is over.",
+   "decision_hint": "Keep agent, inerting or flow shutdown in place until the material has cooled and stopped emitting vapors; a hot plastic keeps producing fuel vapor after the flame is gone.",
+   "verified": {
+    "quote": "exact match",
+    "support": "The quote contains all three parts: fuel production after extinction until the material cools, longer-lasting premixed oscillations in microgravity, and the advice to maintain suppression until vapors stop."
+   },
+   "title": "Hot PMMA can keep supplying fuel after flame extinction.",
+   "reviewed_origin": "SOLIDS-043",
+   "si_written": [
+    "claim",
+    "title"
+   ]
   }
  ]
 }

@@ -81,7 +81,7 @@ export function rankFile(core, db, presetId, concern, generated_at) {
   const ranked = core.rank.rank(db.findings, q, db);
   const results = ranked.slice(0, 25).map((x, i) => { const st = core.status.findingStatus(x.f, q, db), f = x.f;
     return { rank: i + 1, id: f.id, total: x.total, parts: Object.fromEntries(Object.entries(x.parts).map(([k, v]) => [k, r2(v)])), status: st.status, reasons: st.reasons,
-             work: f.n.work, read_in: f.n.read_in, claim: f.claim, ...(f.quote != null ? { quote: f.quote } : { cells: f.cells }), url: f.source?.url ?? null }; });
+             work: f.n.work, read_in: f.n.read_in, title: f.title, claim: f.claim, ...(f.quote != null ? { quote: f.quote } : { cells: f.cells }), url: f.source?.url ?? null }; });
   return { query: { preset: p.id, habitat: q.habitat, concern, o2: q.o2, p_kpa: q.p, gclass: q.gclass, g_display: q.g_label, material: null },
            generated_at, weights: core.rank.W, findings_ranked: ranked.length, results };
 }

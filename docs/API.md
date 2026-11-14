@@ -21,9 +21,11 @@ By **Team Zerack**. Base URL: `https://itzjk.github.io/vesta/api/v1/`. All endpo
 
 Presets: `station`, `spacecraft`, `lunar-base`, `rover`, `mars-base`. Concerns: `prevention`, `detection`, `suppression`. For example: [lunar prevention rank](https://itzjk.github.io/vesta/api/v1/rank/lunar-base.prevention.json), [lunar coverage](https://itzjk.github.io/vesta/api/v1/coverage/lunar-base.json), [FLEX CSV](https://itzjk.github.io/vesta/api/v1/tests/PSI-69.csv).
 
-The independent NTRS snapshot is `../../feed/ntrs.json` relative to this API base. It carries `schema: vesta.ntrs-feed/1`, `fetched_at`, `origin`, `terms` and up to 20 citation records. `origin: ntrs-index` means the cached index was used; its timestamp is the index file time. IN EVIDENCE BASE means the citation already backs a shipped source. Other records remain NOT VERIFIED. Feed updates never bypass the evidence gate.
+The independent NTRS snapshot is `../../feed/ntrs.json` relative to this API base. It carries `schema: vesta.ntrs-feed/1`, `fetched_at`, `origin`, `terms` and up to 20 citation records. `origin: ntrs-index` means the cached index was used; its timestamp is the index file time. The UI badge “contains quoted findings” means selected passages in that document back shipped findings; it does not verify the whole document. Other records remain NOT VERIFIED. Feed updates never bypass the evidence gate.
 
 ## Records and units
+
+Source-table rows include individual tests, test days, series, group references, measurement sessions and dataset-index entries. Their total is not a count of independent burns. `engine.json.extractor.row_kinds` publishes the breakdown; `investigations.json` qualifies each table with its row kind.
 
 Test rows retain `id`, `psi_id`, `table_file`, `row`, raw values and recorded outcomes. Added `n` fields hold `material_id`, `fuel_class`, `cabin`, `pillars`, `gclass`, ambient `o2`, reported `p`, facility-only `p_inferred`, and `counts`. Burner-stream oxygen is never treated as ambient oxygen. Inferred pressure remains distinguishable from reported pressure.
 

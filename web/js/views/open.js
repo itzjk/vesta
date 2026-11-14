@@ -1,7 +1,4 @@
-// Open data (#/open): downloads, the static API, the MCP server, the telemetry format and the NTRS snapshot. DESIGN.md 2.6, 4.4 to 4.7.
-// Every link is a plain file under web/ and is shown only when api/v1/index.json lists it. "Try it" fetches the file and prints it.
-// Counts come from engine.json (data-count). The NTRS panel is a snapshot with its time; nothing in it enters the evidence base.
-const RECORDING = {"schema":"vesta.mcp-recording/1","note":"One real exchange with mcp/server.mjs over stdio, recorded by mcp/record.mjs against the evidence files of this build. The answer text is JSON; it is shown parsed here.","evidence_generated_at":"2026-11-14T12:55:10-05:00","command":"node mcp/server.mjs","server":{"name":"vesta","version":"1.0.0"},"protocol_version":"2025-06-18","tools":[{"name":"search_evidence","description":"Search VESTA's verified findings (verbatim NASA quotes and PSI table findings) on spacecraft fire safety. Every word of `query` must appear in the claim or the quote. Returns no_source when nothing matches; VESTA never answers without a source.","input":["query","pillar","topic","investigation","limit"],"required":[]},{"name":"rank_evidence","description":"Rank the verified findings for a cabin and a concern with the published VESTA score (pillar 30, atmosphere 25, gravity 15, level 15, material 10, habitat 5). Each result carries its score parts, its coverage status at that cabin (PROVEN or EXTRAPOLATED) and the reasons. Oxygen, pressure and gravity default to the preset of the habitat.","input":["habitat","concern","o2_percent","pressure_kpa","gravity","material","limit"],"required":["habitat","concern"]},{"name":"check_design","description":"Place a cabin (oxygen, pressure, gravity) on the map of what is in VESTA's evidence base (24 PSI investigations). Returns, per axis, how many cabin-material test rows sit at that value, and one cell per material and concern marked PROVEN (tested at these conditions), EXTRAPOLATED (evidence exists, a condition differs) or NEVER_TESTED, with reasons and the nearest test. Status is evidence coverage, not a safety certification.","input":["o2_percent","pressure_kpa","gravity","materials","concern"],"required":["o2_percent","pressure_kpa","gravity"]},{"name":"get_finding","description":"Fetch one record by id: a finding (for example S-VENT-01) with its verbatim quote, the rest of its sentence, its gated conditions and its source link; or a PSI test row (for example PSI-25:1) with its normalised fields and its raw table cells.","input":["id"],"required":["id"]}],"request":{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"rank_evidence","arguments":{"habitat":"lunar-base","concern":"prevention","limit":3}}},"response":{"jsonrpc":"2.0","id":3,"result":{"content":[{"type":"text","text":"{\"query\":{\"preset\":\"lunar-base\",\"habitat\":\"lunar-base\",\"concern\":\"prevention\",\"o2\":34,\"p_kpa\":56.5,\"gclass\":\"partial\",\"g_display\":\"1/6 g\",\"material\":null},\"weights\":{\"pillar\":30,\"atmosphere\":25,\"gravity\":15,\"level\":15,\"material\":10,\"habitat\":5},\"results\":[{\"rank\":1,\"id\":\"SOLIDS-110\",\"total\":77,\"parts\":{\"pillar\":30,\"atmosphere\":25,\"gravity\":4.5,\"level\":7.5,\"material\":5,\"habitat\":5},\"status\":\"EXTRAPOLATED\",\"reasons\":[\"not_an_experiment\",\"gravity_not_reported\"],\"work\":\"summary\",\"read_in\":\"nasa_report\",\"claim\":\"The SoFIE project slides state that few thin fuel sheet materials are rated even in 1 g at 34% O2 and 8.2 psia, the exploration atmosphere.\",\"quote\":\"Thin fuel sheets: few materials rated even in 1g at 34% O2, 8.2 psia (exploration atmosphere).\",\"url\":\"https://ntrs.nasa.gov/api/citations/20200000361/downloads/20200000361.pdf\"},{\"rank\":2,\"id\":\"OPERATIONS-242\",\"total\":73,\"parts\":{\"pillar\":15,\"atmosphere\":25,\"gravity\":15,\"level\":7.5,\"material\":5,\"habitat\":5},\"status\":\"EXTRAPOLATED\",\"reasons\":[\"not_an_experiment\"],\"work\":\"summary\",\"read_in\":\"nasa_report\",\"claim\":\"One planned FM2 mode investigates flame spread on the Moon in a normoxic environment, for example 34% oxygen at 0.558 atm.\",\"quote\":\"Mode 3: To investigate a planned normoxic environment (for example 34% O2 at 0.558 atm) on flame spread on the Moon compared to Earth.\",\"url\":\"https://ntrs.nasa.gov/citations/20210020516\"},{\"rank\":3,\"id\":\"S-EXPL-01\",\"total\":70,\"parts\":{\"pillar\":15,\"atmosphere\":25,\"gravity\":4.5,\"level\":15,\"material\":5,\"habitat\":5},\"status\":\"EXTRAPOLATED\",\"reasons\":[\"gravity_not_reported\"],\"work\":\"flight\",\"read_in\":\"nasa_page\",\"claim\":\"Saffire samples were also burned at 8.2 psia and 34% oxygen to simulate the atmosphere of deep space exploration vehicles.\",\"quote\":\"In addition, the samples were burned at 8.2 psia and 34% oxygen levels to simulate atmosphere conditions for deep space exploration vehicles.\",\"url\":\"https://www.nasa.gov/wp-json/wp/v2/migration/309559\"}],\"scope\":\"decision-support prototype, not certified flight software\"}"}]}}};
+const RECORDING = {"schema":"vesta.mcp-recording/1","note":"One real exchange with mcp/server.mjs over stdio, recorded by mcp/record.mjs against the evidence files of this build. The answer text is JSON; it is shown parsed here.","evidence_generated_at":"2026-11-14T13:55:35-05:00","command":"node mcp/server.mjs","server":{"name":"vesta","version":"1.0.0"},"protocol_version":"2025-06-18","tools":[{"name":"search_evidence","description":"Search VESTA's verified findings (verbatim NASA quotes and PSI table findings) on spacecraft fire safety. Every word of `query` must appear in the claim or the quote. Returns no_source when nothing matches; VESTA never answers without a source.","input":["query","pillar","topic","investigation","limit"],"required":[]},{"name":"rank_evidence","description":"Rank the verified findings for a cabin and a concern with the published VESTA score (pillar 30, atmosphere 25, gravity 15, level 15, material 10, habitat 5). Each result carries its score parts, its coverage status at that cabin (PROVEN or EXTRAPOLATED) and the reasons. Oxygen, pressure and gravity default to the preset of the habitat.","input":["habitat","concern","o2_percent","pressure_kpa","gravity","material","limit"],"required":["habitat","concern"]},{"name":"check_design","description":"Place a cabin (oxygen, pressure, gravity) on the map of what is in VESTA's evidence base (24 PSI investigations). Returns, per axis, how many cabin-material test rows sit at that value, and one cell per material and concern marked PROVEN (tested at these conditions), EXTRAPOLATED (evidence exists, a condition differs) or NEVER_TESTED, with reasons and the nearest test. Status is evidence coverage, not a safety certification.","input":["o2_percent","pressure_kpa","gravity","materials","concern"],"required":["o2_percent","pressure_kpa","gravity"]},{"name":"get_finding","description":"Fetch one record by id: a finding (for example S-VENT-01) with its verbatim quote, the rest of its sentence, its gated conditions and its source link; or a PSI test row (for example PSI-25:1) with its normalised fields and its raw table cells.","input":["id"],"required":["id"]}],"request":{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"rank_evidence","arguments":{"habitat":"lunar-base","concern":"prevention","limit":3}}},"response":{"jsonrpc":"2.0","id":3,"result":{"content":[{"type":"text","text":"{\"query\":{\"preset\":\"lunar-base\",\"habitat\":\"lunar-base\",\"concern\":\"prevention\",\"o2\":34,\"p_kpa\":56.5,\"gclass\":\"partial\",\"g_display\":\"1/6 g\",\"material\":null},\"weights\":{\"pillar\":30,\"atmosphere\":25,\"gravity\":15,\"level\":15,\"material\":10,\"habitat\":5},\"results\":[{\"rank\":1,\"id\":\"SOLIDS-110\",\"total\":77,\"parts\":{\"pillar\":30,\"atmosphere\":25,\"gravity\":4.5,\"level\":7.5,\"material\":5,\"habitat\":5},\"status\":\"EXTRAPOLATED\",\"reasons\":[\"not_an_experiment\",\"gravity_not_reported\"],\"work\":\"summary\",\"read_in\":\"nasa_report\",\"claim\":\"The SoFIE project slides state that few thin fuel sheet materials are rated even in 1 g at 34% O2 and 8.2 psia, the exploration atmosphere.\",\"quote\":\"Thin fuel sheets: few materials rated even in 1g at 34% O2, 8.2 psia (exploration atmosphere).\",\"url\":\"https://ntrs.nasa.gov/api/citations/20200000361/downloads/20200000361.pdf\"},{\"rank\":2,\"id\":\"ACME-062\",\"total\":76,\"parts\":{\"pillar\":30,\"atmosphere\":15.083333333333332,\"gravity\":6,\"level\":15,\"material\":5,\"habitat\":5},\"status\":\"EXTRAPOLATED\",\"reasons\":[\"gravity_never_tested\",\"o2_outside\",\"pressure_not_reported\"],\"work\":\"flight\",\"read_in\":\"nasa_page\",\"claim\":\"For the reported 30% hydrogen / 15% methane / 55% helium blend issuing into 30% oxygen / 70% helium, elevated oxygen facilitated ignition and reduced characteristic flame size; the 5-16.5 cc/s flames expanded to oscillatory radiative extinction.\",\"quote\":\"Test day 20142 investigates the fuel blend 30% H2 / 15% CH4 / 55% He issuing into 30% O2/ 70% He. Elevated oxygen ambient facilitates ignition and results in smaller characteristic flame size. For 5-16.5 cc/s flow rates, flames expand to wavy/oscillatory radiative extinction. Ramp down cases did not allow for assessment of kinetic extinction.\",\"url\":\"https://psi.nasa.gov/geode-py/ws/studies/PSI-23/download?file=6841ce426daf91e274cecd4e\"},{\"rank\":3,\"id\":\"OPERATIONS-242\",\"total\":73,\"parts\":{\"pillar\":15,\"atmosphere\":25,\"gravity\":15,\"level\":7.5,\"material\":5,\"habitat\":5},\"status\":\"EXTRAPOLATED\",\"reasons\":[\"not_an_experiment\"],\"work\":\"summary\",\"read_in\":\"nasa_report\",\"claim\":\"One planned FM2 mode investigates flame spread on the Moon in a normoxic environment, for example 34% oxygen at 0.558 atm.\",\"quote\":\"Mode 3: To investigate a planned normoxic environment (for example 34% O2 at 0.558 atm) on flame spread on the Moon compared to Earth.\",\"url\":\"https://ntrs.nasa.gov/citations/20210020516\"}],\"scope\":\"decision-support prototype, not certified flight software\"}"}]}}};
 const FEED_GONE = 'Feed unavailable. The evidence base is unaffected.';
 const NOT_VERIFIED = 'NOT VERIFIED: nothing enters the evidence base until its quote passes the gate';
 const MAX_LINES = 400;
@@ -16,6 +13,59 @@ export function mount(root, ctx) {
   const { ui, db } = ctx, { el } = ui, E = db.engine ?? {};
   ui.css('css/views/open.css');
   root.classList.add('opn');
+  if (new URLSearchParams(location.hash.split('?')[1] ?? '').get('view') !== 'details') {
+    root.classList.add('opn-simple');
+    const rows = E.extractor?.test_rows, findings = E.ranker?.findings;
+    const sentence = typeof rows === 'number' && typeof findings === 'number'
+      ? `Yes: ${rows.toLocaleString('en-US')} source rows and ${findings.toLocaleString('en-US')} findings to download, query, or share with your assistant.`
+      : 'Open Details to inspect the files; this build does not report its data totals.';
+    const controller = new AbortController();
+    let alive = true;
+    let loaded = false;
+    let loadFailed = false;
+    const files = el('div.opn-simple-files', { id: 'open-simple-files', hidden: true, 'aria-live': 'polite' });
+    const fileButton = ui.button('Choose files', { primary: true, data: { open: 'download' }, onClick: async () => {
+      const expanded = files.hidden || loadFailed;
+      files.hidden = !expanded;
+      fileButton.setAttribute('aria-expanded', String(expanded));
+      fileButton.querySelector('.btn-label').textContent = expanded ? 'Hide files' : 'Choose files';
+      if (!expanded || loaded) return;
+      loadFailed = false;
+      fileButton.disabled = true;
+      files.replaceChildren(el('p', 'Checking the available files…'));
+      try {
+        const response = await fetch('api/v1/index.json', { signal: controller.signal, cache: 'no-store' });
+        if (!response.ok) throw new Error('File index unavailable');
+        const manifest = await response.json();
+        if (!alive) return;
+        const listed = new Set(arr(manifest.files).map(item => norm(typeof item === 'string' ? item : item.path)));
+        const options = [['tests.csv', 'Source rows · CSV'], ['findings.csv', 'Findings · CSV'], ['sources.json', 'Sources · JSON']];
+        const links = options.filter(([path]) => listed.has(path)).map(([path, label]) =>
+          el('li', ui.button(label, { href: 'api/v1/' + path, download: path, small: true, data: { file: path } })));
+        files.replaceChildren(links.length ? el('ul', links) : el('p', 'This build does not list downloadable evidence files.'));
+        loaded = true;
+      } catch (error) {
+        if (!alive || error.name === 'AbortError') return;
+        loadFailed = true;
+        fileButton.querySelector('.btn-label').textContent = 'Try again';
+        files.replaceChildren(el('p', 'The file list could not be loaded. Check your connection and try again.'));
+      } finally {
+        if (alive) fileButton.disabled = false;
+      }
+    }});
+    fileButton.setAttribute('aria-expanded', 'false');
+    fileButton.setAttribute('aria-controls', 'open-simple-files');
+    root.replaceChildren(
+      ui.answer('Can you use the data?', sentence, { class: 'opn-simple-head' }),
+      el('section.opn-simple-choices', { 'aria-label': 'Ways to reuse the evidence' },
+        el('article.opn-choice', el('h2', 'Download data'), el('p', 'Take the source rows and quoted findings with you.'), fileButton, files),
+        el('article.opn-choice', el('h2', 'Query the data'), el('p', 'Read the same evidence as plain JSON or CSV files.'),
+          ui.button('Open the API index', { href: 'api/v1/index.json', target: '_blank', data: { open: 'api' } })),
+        el('article.opn-choice', el('h2', 'Connect an assistant'), el('p', 'Let your assistant query the same evidence, with its sources.'),
+          ui.button('Read setup instructions', { href: 'https://github.com/itzjk/vesta/tree/main/mcp', target: '_blank', data: { open: 'mcp' } }))),
+      el('p.opn-simple-limit', 'Open files. No key or login. ', el('a', { href: 'api/v1/index.json', target: '_blank', rel: 'noopener' }, 'source'), el('span.opn-simple-status', ctx.core?.text?.STATUS_LINE ?? 'STATUS = EVIDENCE COVERAGE, NOT A SAFETY CERTIFICATION')));
+    return () => { alive = false; controller.abort(); root.classList.remove('opn-simple', 'opn'); root.replaceChildren(); };
+  }
   const ac = new AbortController();
   let alive = true;
   const get = (path) => fetch(path, { signal: ac.signal, cache: 'no-store' });
@@ -29,12 +79,10 @@ export function mount(root, ctx) {
   const scen = db.scenario?.meta?.id ?? null;
   const site = () => new URL('.', location.href.split('#')[0]).href;
 
-  // ---------------------------------------------------------------- header
   const head = el('header.opn-head',
     el('h1.t-display-2', 'Open data'),
     el('p.opn-sub', 'Every link is a plain file on this site: no key, no login, relative URLs. PSI table rows are NASA data (CC0-1.0); quotes are verbatim NASA text.'));
 
-  // ---------------------------------------------------------------- download + API (filled once the manifest is read)
   const dl = ui.panel('Download', el('div.opn-wait', 'Reading api/v1/index.json'), { class: 'opn-dl' });
   const viewHead = el('div.opn-vhead'), viewBody = el('pre.opn-pre', { tabindex: 0 });
   const apiList = el('div.opn-api-list');
@@ -74,7 +122,9 @@ export function mount(root, ctx) {
       file('protocol.json', 'protocol.json', [count('officer.protocol_lines'), ' lines']),
     ].filter(Boolean);
     dl.bodyEl.replaceChildren(buttons.length ? el('div.opn-files', buttons) : ui.empty('none', 'The API manifest lists no download.'),
-      el('p.opn-note', 'tests.csv is the delivered table, byte for byte: one row per PSI test, the normalised value beside its raw cell. A range is never collapsed to a midpoint.'));
+      el('p.opn-note', count('extractor.test_rows'), ' source-table rows. Each row retains its type and raw cells. Rows include individual tests, test days, series and measurement sessions; the total is not a count of independent burns.'),
+      el('p.opn-note.opn-row-kinds', Object.entries(E.extractor?.row_kinds ?? {}).map(([kind, n]) => `${n.toLocaleString('en-US')} ${kind.replace(/_/g, ' ')} rows`).join(' · ')),
+      el('p.opn-note', 'tests.csv is the delivered table, byte for byte. A range is never collapsed to a midpoint.'));
 
     const rows = [
       preset && [`rank/${preset}.${concern}.json`, 'the top findings for this cabin and concern: score parts, status, reasons'],
@@ -113,7 +163,6 @@ export function mount(root, ctx) {
     dl.bodyEl.replaceChildren(gone()); api.bodyEl.replaceChildren(gone()); fillTelemetry(new Set());
   });
 
-  // ---------------------------------------------------------------- MCP
   const config = () => JSON.stringify({ mcpServers: { vesta: { command: 'node', args: ['mcp/server.mjs', '--base', site()] } } }, null, 1);
   const cmd = el('code.opn-cmd', `node mcp/server.mjs --base ${site()}`);
   const toolsEl = el('div.opn-tools', TOOLS_FALLBACK.map((n) => el('div.opn-tool', { data: { tool: n } }, el('b', n))));
@@ -129,6 +178,7 @@ export function mount(root, ctx) {
   const mcp = ui.panel('MCP server', [
     el('p.opn-note', 'For SI assistants: the same evidence and the same core modules as this screen, over stdio. Node, no packages.'),
     cmd, toolsEl, el('div.opn-actions', copyBtn, recBtn), el('div.opn-viewer', recHead, recBody),
+    el('p.opn-note', ctx.core?.text?.SCORE_LABEL ?? 'Relevance, 0 to 100 · VESTA’s weighting, not a probability and not a safety rating'),
   ], { class: 'opn-mcp', tag: 'stdio · JSON-RPC 2.0' });
   let recording = null;
   function showRecording() {
@@ -143,7 +193,6 @@ export function mount(root, ctx) {
     el('b', t.name), el('code', `{ ${arr(t.input).map((k) => (arr(t.required).includes(k) ? k : k + '?')).join(', ')} }`), el('span', { title: t.description }, firstSentence(t.description)))));
   showRecording();
 
-  // ---------------------------------------------------------------- telemetry format
   const telBody = el('div.opn-tel-body');
   const frames = arr(db.scenario?.frames).length;
   const tel = ui.panel('Telemetry format', telBody, { class: 'opn-tel', tag: ctx.core?.officer?.TELEMETRY ?? 'vesta.telemetry/1' });
@@ -156,13 +205,15 @@ export function mount(root, ctx) {
         ui.button('bring your own file in Incident', { small: true, onClick: () => ctx.go('#/incident') })));
   }
 
-  // ---------------------------------------------------------------- NTRS snapshot
   const feedBody = el('div.opn-feed-body');
   const feedTag = el('span.panel-tag', { data: { feed: 'snapshot' } }, 'snapshot');
   const ntrs = ui.panel('NTRS', feedBody, { class: 'opn-feed', tag: feedTag });
   const feedGone = () => { feedTag.textContent = 'no snapshot'; feedBody.replaceChildren(ui.empty('feed', FEED_GONE)); };
   const inBase = new Map();                                    // NTRS id -> finding ids of the source that carries it
-  for (const s of arr(db.sources)) if (s && s.id != null) inBase.set(String(s.id), [...(inBase.get(String(s.id)) ?? []), ...arr(s.finding_ids)]);
+  for (const s of arr(db.sources)) if (s && s.id != null) {
+    const ids = arr(s.finding_ids).filter(id => db.findingById?.[id]);
+    if (ids.length) inBase.set(String(s.id), [...new Set([...(inBase.get(String(s.id)) ?? []), ...ids])]);
+  }
   function fillFeed(feed) {
     const items = arr(feed?.items);
     if (!feed || feed.schema !== 'vesta.ntrs-feed/1' || !items.length) return feedGone();
@@ -170,14 +221,14 @@ export function mount(root, ctx) {
     const yes = items.filter((i) => inBase.has(String(i.id))).length;
     feedBody.replaceChildren(
       el('p.opn-note', `${items.length} newest records, `, feed.origin === 'ntrs-api' ? 'fetched from the NTRS citations API at build time.' : 'taken without the network from the harvested NTRS index: the most recent years.',
-        ` ${yes} of them already back a verified finding.`),
+        ` ${yes} contain selected passages that passed the quote gate, not document-wide verification.`),
       el('p.opn-legend', NOT_VERIFIED),
       el('ol.opn-items', items.map((i) => {
         const ids = inBase.get(String(i.id));
         return el('li.opn-item', { data: { ntrs: i.id, inBase: ids ? 'true' : 'false' } },
           el('a', { class: 'opn-title', href: i.url, target: '_blank', rel: 'noopener' }, i.title),
           el('div.opn-item-meta',
-            el('span', { class: 'opn-flag' + (ids ? ' opn-in' : '') }, ids ? 'IN EVIDENCE BASE' : 'NOT VERIFIED'),
+            el('span', { class: 'opn-flag' + (ids ? ' opn-in' : '') }, ids ? 'contains quoted findings' : 'NOT VERIFIED'),
             ids ? ids.filter((id) => db.findingById?.[id]).slice(0, 2).map((id) => ui.cite(id)) : null,
             el('span.opn-dim', ['NTRS ' + i.id, i.created ? String(i.created).slice(0, 10) : i.year ? String(i.year) : null, i.sti_type ? String(i.sti_type).replace(/_/g, ' ').toLowerCase() : null, i.center].filter(Boolean).join(' · '))));
       })));
@@ -186,5 +237,7 @@ export function mount(root, ctx) {
   else get('feed/ntrs.json').then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); }).then((f) => { if (alive) fillFeed(f); }).catch((e) => { if (alive && e.name !== 'AbortError') feedGone(); });
 
   root.replaceChildren(head, el('div.opn-grid', el('div.opn-col', dl, api), el('div.opn-col', mcp, tel), el('div.opn-col', ntrs)));
+  const selected = { download: dl, api, mcp }[ctx.params?.section];
+  if (selected) { selected.classList.add('opn-selected'); selected.setAttribute('tabindex', '-1'); selected.focus({ preventScroll: true }); }
   return () => { alive = false; ac.abort(); root.classList.remove('opn'); root.replaceChildren(); };
 }

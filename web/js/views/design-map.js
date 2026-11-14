@@ -41,6 +41,7 @@ export function mapData(db, show = ['solid']) {
 }
 
 export function drawMap(ui, host, m) {
+  if (m.simple) return drawSimpleMap(ui, host, m);
   const s = ui.svg, T = m.text;
   const W = Math.max(560, Math.round(host.clientWidth) || 860), H = Math.max(230, Math.round(host.clientHeight) || 330);
   const L = 60, RAIL = 44, R = RAIL + 34, TOP = 20, B = 48;
@@ -59,10 +60,10 @@ export function drawMap(ui, host, m) {
   const grid = s('g.dzm-grid');
   grid.append(s('rect.dzm-plot', { x: L, y: TOP, width: PW, height: PH, rx: 6 }));
   for (const o of [20, 40, 60, 80, 100]) grid.append(s('line.dzm-gridline', { x1: L, x2: L + PW, y1: y(o), y2: y(o) }), s('text.dzm-tick', { x: L - 10, y: y(o) + 5, 'text-anchor': 'end' }, String(o)));
-  for (const p of [20, 40, 60, 80, 100]) grid.append(s('line.dzm-gridline', { x1: x(p), x2: x(p), y1: TOP, y2: TOP + PH }), s('text.dzm-tick', { x: x(p), y: TOP + PH + 18, 'text-anchor': 'middle' }, String(p)));
+  for (const p of [20, 40, 60, 80, 100]) grid.append(s('line.dzm-gridline', { x1: x(p), x2: x(p), y1: TOP, y2: TOP + PH }), s('text.dzm-tick', { x: x(p), y: TOP + PH + 37, 'text-anchor': 'middle' }, String(p)));
   for (const ps of [4, 6, 8, 10, 12, 14]) { const px = x(ps * KPA_PER_PSI);
-    grid.append(s('line.dzm-minor', { x1: px, x2: px, y1: TOP + PH, y2: TOP + PH + 5 }), s('text.dzm-tick.dzm-tick-dim', { x: px, y: TOP + PH + 37, 'text-anchor': 'middle' }, String(ps))); }
-  grid.append(s('text.dzm-axis', { x: L - 10, y: TOP + PH + 18, 'text-anchor': 'end' }, 'kPa'), s('text.dzm-axis', { x: L - 10, y: TOP + PH + 37, 'text-anchor': 'end' }, 'psia'),
+    grid.append(s('line.dzm-minor', { x1: px, x2: px, y1: TOP + PH, y2: TOP + PH + 5 }), s('text.dzm-tick.dzm-tick-dim', { x: px, y: TOP + PH + 18, 'text-anchor': 'middle' }, String(ps))); }
+  grid.append(s('text.dzm-axis', { x: L - 10, y: TOP + PH + 37, 'text-anchor': 'end' }, 'kPa'), s('text.dzm-axis', { x: L - 10, y: TOP + PH + 18, 'text-anchor': 'end' }, 'psia'),
     s('text.dzm-axis', { x: 16, y: TOP + PH / 2, 'text-anchor': 'middle', transform: `rotate(-90 16 ${TOP + PH / 2})` }, 'oxygen % by volume'));
   root.append(grid);
 
@@ -99,7 +100,7 @@ export function drawMap(ui, host, m) {
   const railRows = m.data.points.filter(pt => pt.rail).reduce((a, pt) => a + pt.n, 0);
   root.append(s('g.dzm-rail', s('title', `${railRows} plotted rows state an oxygen value and no pressure: pressure is not in the table`),
     s('rect.dzm-rail-bg', { x: railX - RAIL / 2, y: TOP, width: RAIL, height: PH, rx: 6 }),
-    s('text.dzm-tick', { x: railX, y: TOP + PH + 18, 'text-anchor': 'middle' }, 'n.r.'), s('text.dzm-tick.dzm-tick-dim', { x: railX, y: TOP + PH + 37, 'text-anchor': 'middle' }, 'n.r.')));
+    s('text.dzm-tick', { x: railX, y: TOP + PH + 18, 'text-anchor': 'middle' }, 'not'), s('text.dzm-tick.dzm-tick-dim', { x: railX, y: TOP + PH + 37, 'text-anchor': 'middle' }, 'stated')));
 
   const pos = pt => [pt.rail ? railX : x(pt.p), y(pt.o2)];
   const dots = s('g.dzm-dots');
@@ -150,7 +151,7 @@ export function drawMap(ui, host, m) {
     const left = px > L + PW * 0.62, up = py > TOP + 64;
     const lx = left ? px - 18 : px + 18, ly = up ? py - 32 : py + 30;
     label.setAttribute('x', lx); label.setAttribute('y', ly); label.setAttribute('text-anchor', left ? 'end' : 'start'); label.textContent = 'YOUR CABIN';
-    sub.setAttribute('x', lx); sub.setAttribute('y', ly + 17); sub.setAttribute('text-anchor', left ? 'end' : 'start');
+    sub.setAttribute('x', lx); sub.setAttribute('y', ly + 22); sub.setAttribute('text-anchor', left ? 'end' : 'start');
     sub.textContent = `${r1(q.o2)} % O2 · ${psia(q.p)} psia${q.g_label ? ' · ' + q.g_label : ''}`;
     const n = nearest && nearest.n, np = n ? (n.p ?? n.p_inferred ?? null) : null;
     const show = !!(n && n.o2 != null && (np == null || (np >= p0 && np <= p1)));
@@ -161,4 +162,56 @@ export function drawMap(ui, host, m) {
   }
   setPoint(m.q, m.nearest);
   return { node: root, setPoint, size: { W, H } };
+}
+
+function drawSimpleMap(ui, host, m) {
+  const s = ui.svg, W = host.clientWidth || 900, H = host.clientHeight || 540;
+  const phone = W < 500, L = phone ? 42 : 70, R = phone ? 16 : 35, TOP = 34, B = 80;
+  const PW = W - L - R, PH = H - TOP - B;
+  const x = p => L + (p - AXIS.p[0]) / (AXIS.p[1] - AXIS.p[0]) * PW;
+  const y = o => TOP + (AXIS.o2[1] - o) / (AXIS.o2[1] - AXIS.o2[0]) * PH;
+  const root = s('svg.dzm.dzm-simple', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Tested envelope. Hollow points show PSI rows. The labelled cabin point is your selection. The shaded area is the challenge-page band, not tested coverage.' });
+  root.append(s('rect.dzm-plot', { x: L, y: TOP, width: PW, height: PH, rx: 8 }));
+  for (const o of [20, 40, 60, 80, 100]) root.append(s('line.dzm-gridline', { x1: L, x2: L + PW, y1: y(o), y2: y(o) }), s('text.dzm-tick', { x: L - 10, y: y(o) + 6, 'text-anchor': 'end' }, String(o)));
+  const ticks = phone ? [4, 8, 12, 16] : [4, 6, 8, 10, 12, 14];
+  for (const p of ticks) if (p * KPA_PER_PSI <= AXIS.p[1]) root.append(s('text.dzm-tick', { x: x(p * KPA_PER_PSI), y: TOP + PH + 26, 'text-anchor': 'middle' }, String(p)));
+  root.append(s('text.dzm-axis', { x: L, y: TOP - 14 }, 'Oxygen %'), s('text.dzm-axis', { x: L + PW / 2, y: H - 15, 'text-anchor': 'middle' }, phone ? 'Air pressure (psia)' : 'Air pressure · psia (pounds per square inch)'));
+  for (const b of m.bands || []) {
+    const width = x(b.p_max_kpa) - L, height = y(b.o2_min) - TOP;
+    const band = s('g.dzm-band', { tabindex: 0, role: 'button', 'aria-label': 'Challenge-page band source', data: { cite: b.id, claim: b.id } },
+      s('rect.dzm-simple-band', { x: L, y: TOP, width, height }),
+      s('path.dzm-band-edge', { d: `M${L} ${TOP + height}H${L + width}V${TOP}` }),
+      s('text.dzm-band-label', { x: L + 14, y: TOP + 32 }, phone ? 'Challenge band' : 'CHALLENGE-PAGE BAND'), s('title', b.sources?.[0]?.quote || b.label));
+    band.addEventListener('click', () => m.onOpen(b.id));
+    band.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); m.onOpen(b.id); } });
+    root.append(band);
+  }
+  const points = m.data.points.filter(pt => !pt.rail);
+  for (const pt of points) {
+    const circle = s('circle', { class: 'dzm-dot' + (pt.inferred ? ' is-hollow' : ''), cx: x(pt.p), cy: y(pt.o2), r: Math.min(phone ? 7 : 10, 3 + Math.sqrt(pt.n)), tabindex: 0, role: 'button', data: { cite: pt.rows[0].id, claim: pt.rows[0].id },
+      'aria-label': `PSI test rows, ${pt.o2} percent oxygen, ${r1(pt.p / KPA_PER_PSI)} psia${pt.inferred ? ', pressure inferred' : ''}` },
+      s('title', `${pt.n} test rows, ${pt.o2} % oxygen${pt.inferred ? ', facility pressure inferred' : ''}`));
+    circle.addEventListener('click', () => m.onOpen(pt.rows[0].id));
+    circle.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); m.onOpen(pt.rows[0].id); } });
+    root.append(circle);
+  }
+  if (points.length) {
+    const highest = points.reduce((a, b) => a.o2 > b.o2 ? a : b), px = x(highest.p), py = y(highest.o2);
+    const lx = phone ? L + 8 : px - 65, ly = py + (phone ? -5 : 4);
+    root.append(s('path.dzm-tested-leader', { d: `M${lx + (phone ? 130 : -10)} ${ly - 4}L${px - 14} ${py}` }),
+      s('text.dzm-tested-label', { x: lx, y: ly, 'text-anchor': phone ? 'start' : 'end' }, 'tested: PSI rows'),
+      s('text.dzm-tested-value', { x: lx, y: ly + (phone ? 22 : 30), 'text-anchor': phone ? 'start' : 'end' }, `up to ${r1(highest.o2)} % oxygen`));
+  }
+  if (!Number.isFinite(m.q.p) || !Number.isFinite(m.q.o2)) return { node: root, setPoint() {}, size: { W, H } };
+  const px = x(Math.max(AXIS.p[0], Math.min(AXIS.p[1], m.q.p))), py = y(Math.max(AXIS.o2[0], Math.min(AXIS.o2[1], m.q.o2)));
+  const closeToTests = points.some(pt => Math.abs(x(pt.p) - px) < 40 && Math.abs(y(pt.o2) - py) < 50);
+  const lx = phone ? Math.min(W - 130, Math.max(L + 8, px - 40)) : px + (px > L + PW * .65 ? -26 : 26);
+  const ly = Math.max(TOP + 85, py - (closeToTests ? 100 : phone ? 65 : 40));
+  root.append(s('g.dzm-point', { data: { point: 'cabin', claim: m.q.preset } },
+    s('line.dzm-hair', { x1: L, x2: L + PW, y1: py, y2: py }),
+    s('line.dzm-hair', { x1: px, x2: px, y1: TOP, y2: TOP + PH }),
+    s('path.dzm-cabin-leader', { d: `M${lx} ${ly + 10}L${px} ${py - 15}` }),
+    s('circle.dzm-core-ring', { cx: px, cy: py, r: phone ? 11 : 15 }), s('circle.dzm-core-dot', { cx: px, cy: py, r: phone ? 5 : 6 }),
+    s('text.dzm-point-label', { x: lx, y: ly, 'text-anchor': !phone && px > L + PW * .65 ? 'end' : 'start' }, 'your cabin')));
+  return { node: root, setPoint() {}, size: { W, H } };
 }
