@@ -1,0 +1,234 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20180005251,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "9ce495f7ae894d98b8eb9130be91195c",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Chemistry And Materials (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "eccnNumber": "",
+  "submissionId": 20180005251,
+  "ear": "NO",
+  "id": "89e5d9f728584545a357ac93d17b19c9",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2018-260",
+  "JSC-E-DAA-TN58033",
+  "Report Number: ICES-2018-260",
+  "Report Number: JSC-E-DAA-TN58033"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNJ15HK11B",
+   "submissionId": 20180005251,
+   "id": "52b7f81f99fe4528b5c64f143b627ab2",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Orion Portable Fire Extinguisher Performance Testing Against a Laptop Lithium-Ion Battery Stored-Energy Fire-Method, Magnesium Fires, and Combustion By-Product Toxicity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2018-09-12T12:01:23.6970000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20180005251,
+   "meta": {
+    "author": {
+     "name": "Harper, Susana A."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "1ca62e0d5ca9402791fb7628f4008275"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20180005251,
+   "meta": {
+    "author": {
+     "name": "Juarez, Alfredo"
+    },
+    "organization": {
+     "name": "Jacobs Technology, Inc.",
+     "location": "Las Cruces, NM, United States"
+    }
+   },
+   "id": "2b8e9220a7764e94ab2ca442577305d9"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20180005251,
+   "meta": {
+    "author": {
+     "name": "Woods, Brenton L."
+    },
+    "organization": {
+     "name": "Jacobs Technology, Inc.",
+     "location": "Las Cruces, NM, United States"
+    }
+   },
+   "id": "0c8d3ce4677a43cf92ce2af4ae79fbf6"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20180005251,
+   "meta": {
+    "author": {
+     "name": "Beeson, Harold D."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "1c2a1e7909b64686807e6e6b4dcbf58a"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20180005251,
+   "meta": {
+    "author": {
+     "name": "Coan-Skow, Mary R."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "a09507522b2d47f98c0f77dcec493c31"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20180005251,
+   "meta": {
+    "author": {
+     "name": "Nagel, Christopher R."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "387e666d8eea43ce80c17587118e27d8"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20180005251,
+   "meta": {
+    "author": {
+     "name": "Casper, Stephanie E."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "50955572f0334e24aa2e2075bb7259c8"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20180005251,
+   "meta": {
+    "author": {
+     "name": "Tarver, Sterling B."
+    },
+    "organization": {
+     "name": "Wyle Labs., Inc.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "4b84c1a1f36f44b38ebd896c2e16bbf5"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20180005251,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2018-09-12T12:01:23.6970000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "As part of the qualification of the International Space Station (ISS) fine water mist portable fire extinguisher (PFE), several test methods were developed to determine firefighting capability against stored-energy sources. The most challenging of these devised stored-energy fire test methods proved to be the Lithium-ion (Li-ion) battery fire test scenario. The Orion crew capsule will utilize a different PFE technology from ISS (water spray rather than water mist), which spurred the need for the same type of evaluation focused on the sources of stored energy slated for use on Orion. Laptops were identified as a realistic source for stored-energy fires, requiring a modified Li-ion battery fire test scenario. In addition to open test cell (ambient oxygen concentration) testing to evaluate new proposed PFE performance, sealed chamber (20.9% and elevated oxygen concentration) testing was also performed. Chamber testing included combustion product sampling at various fire progression points for analysis and application to Orion emergency equipment design and response planning. The PFE stored-energy fire test methodology was modified and testing performed. Initial tests indicated ignition of the laptop magnesium laptop cases was possible. Additional tests were performed to characterize the laptop magnesium case fire behavior in various configurations. The new water spray PFE technology proved effective in extinguishing laptop stored-energy fires, and much was learned in the way these types of fires progressed. Findings indicate potential laptop magnesium case ignition mitigation strategies need to be further investigated.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20180005251,
+   "name": "International Conference On Environmental Systems, Inc.",
+   "location": "Stafford Springs, CT, United States",
+   "id": "8057bca8a7844a32b109a767c9ad5238"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20180005251,
+   "endDate": "2018-07-12T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "International Conference On Environmental Systems, Inc.",
+       "location": "Stafford Springs, CT, United States"
+      }
+     },
+     "meetingId": "b17d54f5a36e42149e8e3fa8b8d3ffa0",
+     "id": "7437be8a13a24579bb70a289e1d8384c"
+    }
+   ],
+   "name": "International Conference on Environmental Systems",
+   "location": "Albuquerque, NM",
+   "id": "b17d54f5a36e42149e8e3fa8b8d3ffa0",
+   "startDate": "2018-07-08T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20180005251,
+   "id": "f5e7fbe858da4b93957dd89cb5def320",
+   "publicationDate": "2018-07-08T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20180005251.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20180005251/downloads/20180005251.pdf",
+    "pdf": "/api/citations/20180005251/downloads/20180005251.pdf",
+    "fulltext": "/api/citations/20180005251/downloads/20180005251.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

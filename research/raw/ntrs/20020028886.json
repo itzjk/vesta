@@ -1,0 +1,155 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20020028886,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "25b44ad4b0c240118a6aa0c8c34f71b9",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Design, Testing And Performance"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20020028886,
+  "ear": "NO",
+  "id": "6e7bc62723e84fabaf609cd5b71414bc",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NCC3-633",
+   "submissionId": 20020028886,
+   "id": "ecd6558be79844f9a1c5c89160f570a0",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "RTOP 101-32-OB",
+   "submissionId": 20020028886,
+   "id": "b027794f216b47328433c0b66d162738",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Spacecraft Fire Safety and Microgravity Combustion Research",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T12:41:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20020028886,
+   "meta": {
+    "author": {
+     "name": "Tien, James S."
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "476edcef117140fd967ebd00c23ef0fc"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20020028886,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul"
+    },
+    "organization": {}
+   },
+   "id": "1c0cc3da65a9460db281d520e8164117"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20020028886,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T12:41:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Fire safety is an important concern in our daily lives and it plays a special role in the human presence in space. In a spacecraft, the outside environment is hostile and the opportunity to escape is small. Rescue missions are difficult and time consuming. As a result, we should avoid the occurrence of fires in spacecraft as much as possible. If a fire occurs, we need to keep it small and under control. This implies that the materials used on board the spacecraft should be screened carefully, all the machines and devices need to be operated without accident, and fire detectors have to function properly. Once a fire is detected, it can be extinguished quickly and the cabin can be cleaned up to restore operation and sustain life.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20020028886,
+   "name": "NASA Glenn Research Center",
+   "location": "Cleveland, OH United States",
+   "id": "ea2dfbb3cba946f287dc9cd699e5ef3b"
+  },
+  {
+   "country": "Taiwan, Province of China",
+   "submissionId": 20020028886,
+   "sponsors": [
+    {
+     "organizationId": "b627b26c4f6640548b8374bd72f93728",
+     "meta": {
+      "organization": {
+       "name": "Case Western Reserve Univ.",
+       "location": "Cleveland, OH United States"
+      }
+     },
+     "meetingId": "1ea3ca3077d043d1a2a8970c3ae21d7b",
+     "id": "1eff8cbf101440ea983cc8b8a43c15f9"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "NASA Glenn Research Center",
+       "location": "Cleveland, OH United States"
+      }
+     },
+     "meetingId": "1ea3ca3077d043d1a2a8970c3ae21d7b",
+     "id": "4e2087e5f8cf411ca487bfdccdd27313"
+    }
+   ],
+   "name": "Joint Combustion Institute/Aerospace Society Meeting",
+   "id": "1ea3ca3077d043d1a2a8970c3ae21d7b",
+   "startDate": "2001-03-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20020028886,
+   "id": "9e584d83518f413e8760b596b3d2a134",
+   "publicationDate": "2001-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20020028886.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20020028886/downloads/20020028886.pdf",
+    "pdf": "/api/citations/20020028886/downloads/20020028886.pdf",
+    "fulltext": "/api/citations/20020028886/downloads/20020028886.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

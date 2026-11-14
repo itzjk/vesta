@@ -1,0 +1,163 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20170000230,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "7c265b02ef8146ff92d7bcc826d59f46",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety",
+  "Engineering (General)"
+ ],
+ "keywords": [
+  "Fire Safety",
+  "Life Support",
+  "microgravity"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20170000230,
+  "ear": "NO",
+  "id": "669399af61544789909dcf5b6d912231",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN31879",
+  "Report Number: GRC-E-DAA-TN31879"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 067463.01.01.03",
+   "submissionId": 20170000230,
+   "id": "31d1cc76220d45598a55e1ad479df2fb",
+   "type": "WBS"
+  }
+ ],
+ "title": "Operation and Development Status of the Spacecraft Fire Experiments (Saffire)",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2017-01-04T15:25:28.5300000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20170000230,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "248599b441d84b8d9de33a29f6146359"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20170000230,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "d45cf4a71f484418862fd3e9adbce33f"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20170000230,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2017-01-04T15:25:28.5300000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Since 2012, a series of Spacecraft Fire Experiments (Saffire) have been under development by the Spacecraft Fire Safety Demonstration (SFS Demo) project, funded by NASA's Advanced Exploration Systems Division. The overall objective of this project is to reduce the uncertainty and risk associated with the design of spacecraft fire safety systems for NASA's exploration missions. The approach to achieving this goal has been to define, develop, and conduct experiments that address gaps in spacecraft fire safety knowledge and capabilities identified by NASA's Fire Safety System Maturation Team. The Spacecraft Fire Experiments (Saffire-I, -II, and -III) are material flammability tests at length scales that are realistic for a spacecraft fire in low-gravity. The specific objectives of these three experiments are to (1) determine how rapidly a large scale fire grows in low-gravity and (2) investigate the low-g flammability limits compared to those obtained in NASA's normal gravity material flammability screening test. The experiments will be conducted in Orbital ATK's Cygnus vehicle after it has unberthed from the International Space Station. The tests will be fully automated with the data downlinked at the conclusion of the test before the Cygnus vehicle reenters the atmosphere. This paper discusses the status of the Saffire-I, II, and III experiments followed by a review of the fire safety technology gaps that are driving the development of objectives for the next series of experiments, Saffire-IV, V, and VI.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20170000230,
+   "name": "International Conference On Environmental Systems, Inc.",
+   "location": "Stafford Springs, CT, United States",
+   "id": "25e8b7db33b34224b12a18594eb22e58"
+  },
+  {
+   "country": "Austria",
+   "submissionId": 20170000230,
+   "endDate": "2016-07-14T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "International Conference On Environmental Systems, Inc.",
+       "location": "Stafford Springs, CT, United States"
+      }
+     },
+     "meetingId": "b36684b6b0b849a0bad37befe786e554",
+     "id": "007c0157a2594845a9e5f158ffafa548"
+    }
+   ],
+   "name": "International Conference on Environmental Systems",
+   "location": "Vienna",
+   "id": "b36684b6b0b849a0bad37befe786e554",
+   "startDate": "2016-07-10T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20170000230,
+   "id": "dedb00570a6e415487d870ad399c42b0",
+   "publicationDate": "2016-07-10T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20170002628,
+   "type": "SEE_ALSO",
+   "title": "Operation and Development Status of the Spacecraft Fire Experiment (Saffire)",
+   "stiType": "PRESENTATION",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20170000230.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20170000230/downloads/20170000230.pdf",
+    "pdf": "/api/citations/20170000230/downloads/20170000230.pdf",
+    "fulltext": "/api/citations/20170000230/downloads/20170000230.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

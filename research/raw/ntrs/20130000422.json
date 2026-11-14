@@ -1,0 +1,261 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20130000422,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "6b90242130774662b77ba713f11c161b",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Environment Pollution"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20130000422,
+  "ear": "NO",
+  "id": "757cb44dfc0e47a699875b35147e7460",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "AIAA Paper 2012-3536",
+  "E-18517",
+  "Report Number: AIAA Paper 2012-3536",
+  "Report Number: E-18517"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 904211 .04.02.30.19",
+   "submissionId": 20130000422,
+   "id": "0ee842ef783d4bdc83b595e66a23bf3b",
+   "type": "WBS"
+  }
+ ],
+ "title": "Particle Morphology and Size Results from the Smoke Aerosol Measurement Experiment-2",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-27T10:35:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20130000422,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "605bd352c9ff484796795975453a964c"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20130000422,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "a708f790218a4942b816843734f25658"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20130000422,
+   "meta": {
+    "author": {
+     "name": "Greenberg, Paul S."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "16f2a8b5860941f881ff5ba709fd6c72"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20130000422,
+   "meta": {
+    "author": {
+     "name": "Fischer, David"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "64a5646a42bf4f2f8ee6b7572b666e31"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20130000422,
+   "meta": {
+    "author": {
+     "name": "Meyer, Marit"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "ccf7c790218e45c8b7d800ba9042ffe0"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20130000422,
+   "meta": {
+    "author": {
+     "name": "Mulholland, George"
+    },
+    "organization": {
+     "name": "Maryland Univ.",
+     "location": "College Park, MD, United States"
+    }
+   },
+   "id": "fb83554193e842128db41c11d3469160"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20130000422,
+   "meta": {
+    "author": {
+     "name": "Yuan, Zeng-Guang"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "4b1a92e82b8a48f0ad5a204fe1a63fd3"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20130000422,
+   "meta": {
+    "author": {
+     "name": "Bryg, Victoria"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "467cfab42a784cabb8e12a63df6b4e0c"
+  },
+  {
+   "sequence": 8,
+   "submissionId": 20130000422,
+   "meta": {
+    "author": {
+     "name": "Cleary, Thomas"
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "529850ea46344ddc8829ee240d494777"
+  },
+  {
+   "sequence": 9,
+   "submissionId": 20130000422,
+   "meta": {
+    "author": {
+     "name": "Yang, Jiann"
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "5d288e101ffb493783a23f7263d9653a"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20130000422,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-27T10:35:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Results are presented from the Reflight of the Smoke Aerosol Measurement Experiment (SAME-2) which was conducted during Expedition 24 (July-September 2010). The reflight experiment built upon the results of the original flight during Expedition 15 by adding diagnostic measurements and expanding the test matrix. Five different materials representative of those found in spacecraft (Teflon, Kapton, cotton, silicone rubber and Pyrell) were heated to temperatures below the ignition point with conditions controlled to provide repeatable sample surface temperatures and air flow. The air flow past the sample during the heating period ranged from quiescent to 8 cm/s. The smoke was initially collected in an aging chamber to simulate the transport time from the smoke source to the detector. This effective transport time was varied by holding the smoke in the aging chamber for times ranging from 11 to 1800 s. Smoke particle samples were collected on Transmission Electron Microscope (TEM) grids for post-flight analysis. The TEM grids were analyzed to observe the particle morphology and size parameters. The diagnostics included a prototype two-moment smoke detector and three different measures of moments of the particle size distribution. These moment diagnostics were used to determine the particle number concentration (zeroth moment), the diameter concentration (first moment), and the mass concentration (third moment). These statistics were combined to determine the diameter of average mass and the count mean diameter and, by assuming a log-normal distribution, the geometric mean diameter and the geometric standard deviations can also be calculated. Overall the majority of the average smoke particle sizes were found to be in the 200 nm to 400 nm range with the quiescent cases producing some cases with substantially larger particles.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20130000422,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "United States",
+   "id": "8cc7ca6cd259421f850978c9024c2845"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20130000422,
+   "endDate": "2012-07-19T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "United States"
+      }
+     },
+     "meetingId": "03f55b6234654db59e4e7d8012f9999e",
+     "id": "c8fbcf43833e487b9eb738b19284d2e1"
+    }
+   ],
+   "name": "42nd International Conference on Environmental Systems (ICES)",
+   "location": "San Diego, CA",
+   "id": "03f55b6234654db59e4e7d8012f9999e",
+   "startDate": "2012-07-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20130000422,
+   "id": "04cebe1311884b97ace1d29336249e93",
+   "publicationDate": "2012-07-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20130000422.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20130000422/downloads/20130000422.pdf",
+    "pdf": "/api/citations/20130000422/downloads/20130000422.pdf",
+    "fulltext": "/api/citations/20130000422/downloads/20130000422.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

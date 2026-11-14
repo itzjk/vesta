@@ -1,0 +1,121 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19880010969,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "4271cd55a4a540f4a06a319a6c65dc67",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "eccnNumber": "",
+  "submissionId": 19880010969,
+  "ear": "NO",
+  "id": "346082223dfe4e5e8d8a57d2f6091c16",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-03T09:56:39.4070000+00:00",
+ "otherReportNumbers": [
+  "WYLE-68300-1",
+  "NASA-CR-182114",
+  "NAS 1.26:182114",
+  "Report Number: WYLE-68300-1",
+  "Report Number: NASA-CR-182114",
+  "Report Number: NAS 1.26:182114"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 480-52-02",
+   "submissionId": 19880010969,
+   "id": "87a4e069bc884ad8bb8cadea3747c49a",
+   "type": "PROJECT"
+  },
+  {
+   "number": "480-52-25067",
+   "submissionId": 19880010969,
+   "id": "de6ff2b3c00e486585fe1112dd172fd0",
+   "type": "WORK_UNIT"
+  },
+  {
+   "number": "NAS3-25067",
+   "submissionId": 19880010969,
+   "id": "588a01de691d4fb3ab5a2de49fa12322",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Spacecraft Fire-Safety Experiments for Space Station: Technology Development Mission",
+ "stiType": "CONTRACTOR_REPORT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-05T18:14:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19880010969,
+   "meta": {
+    "author": {
+     "name": "Youngblood, Wallace W."
+    },
+    "organization": {
+     "name": "Wyle Laboratories, Inc.",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "15a7752cd9f246f98a9a54cd072808a6"
+  }
+ ],
+ "stiTypeDetails": "Contractor Report (CR)",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19880010969,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "88N20353"
+ },
+ "created": "2013-09-05T18:14:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Definitions, overall descriptions, and preliminary apparatus and instrumentation requirements are presented for three spacecraft fire-safety experiments appropriate for inclusion in a growth-version of the Space Station. The experiments are as follows: 1. Combustion and Flame Spread of Typical Spacecraft Materials in a Low­ Velocity Convective Flow in Low Gravity 2. Fire and Fire-Extinguishant Interactions with Various Fire Scenarios in Low Gravity 3. Smoldering and Deep-Seated Combustion in Low Gravity. The experiments were selected from an assessment of recommendations for advanced technologies for prevention, detection, and control of fires in spacecraft. The experiments and their facilities are intended to constitute a portion of a Spacecraft Fire Safety Technology Development Mission (TDM). Basic requirements for the mission study are that the Space Station is essential for the accomplishment of the experimental objectives and that the technology being developed is appropriate for the growth version of the Space Station. The advantages of these three experiments are that, not only do they explore problems relevant to the Space Station operation and utilization, but also they constitute tests adaptable to two multiuse facilities installed in the Space Station laboratory module, the Combustion Tunnel Facility and the Combustion Facility. Three additional spacecraft fire-safety experiments, essential precursors to the TD M for near-term performance, are also described as follows: 1. Near-Term Testing of Materials for Combustion and Flame Spread 2. Near-Term Extinguishment of Fires in a Low-Gravity Test Bed 3. Post-Fire Recovery of Sensitive Electrical and Electronic Equipment. For all the experiments, the study defines accommodations in terms of first-order space, mass, power, consumables, and crew-time estimates. The study also reviews the key problems to be addressed, namely experiment safety hazards, non-intrusive diagnostics development and waste-products disposal. A preliminary task and time schedule for design, development, and experiment fabrication is proposed. ",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19880010969,
+   "id": "10d15ede5ab44ce2bf5d6f192ac7092d",
+   "publicationDate": "1988-04-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19880010969.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19880010969/downloads/19880010969.pdf",
+    "pdf": "/api/citations/19880010969/downloads/19880010969.pdf",
+    "fulltext": "/api/citations/19880010969/downloads/19880010969.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

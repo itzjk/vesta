@@ -1,0 +1,117 @@
+https://ntrs.nasa.gov/citations/20240008623
+TITLE: Flammability of Materials on the Moon
+FETCHED: 2026-11-14T11:00:34
+NTRS-ID: 20240008623
+DATE: 2024-07-15
+AUTHORS: Jennifer Zayac; Michael Johnston; Gary Ruff; Paul Ferkul
+REPORT: 
+PDF: https://ntrs.nasa.gov/api/citations/20240008623/downloads/20240008623.pdf
+
+# Flammability of Materials on the Moon
+
+## Abstract (NTRS record)
+
+Some materials have recently been found to exhibit increased flammability in Lunar gravity.   The reduced buoyancy driven flow on the Moon may present a goldilocks region of decreased convective cooling, while still supplying adequate oxidizer to the flame zone.   Combined with the desired elevated oxygen habitat of exploration architectures and the difficulty of rescue, the combination could present increased risk to crew.  Flammability of Materials on the Moon will be delivered to the Lunar surface on an HLS lander, and will burn four samples; SIBAL fabric  will be exposed to normal air while the PMMA rods will be exposed to the normoxic Space Exploration Atmospheres (SEA) with elevated oxygen in a small atmospheric chamber. Each fuel will have two tests each, one burning upward and one burning downward. The results of flame size, spread rate, atmosphere changes, and extinction oxygen concentration will then be analyzed and used to help quantify the risk and mitigation for future exploration missions. 
+
+## Full text (pdftotext -layout)
+
+                                                                             2024 Glenn Space Technology Symposium
+
+                                                         Flammability of Materials on the Moon
+                                        Jennifer Zayac , Michael Johnston , Gary Ruff and Paul Ferkul
+                                                      1,2                2           2               2,3
+                                                                                             1Ohio Northern University, Ada, OH,
+                                                           2National Aeronautics and Space Administration, Cleveland, Ohio,
+
+                                                                       Universities Space Research Association, Cleveland, OH
+                                                         Introduction
+                                                                                                                                                                                                                   Fabric Fuel 1
+                Lunar gravity has been found to increase the limits of flammability for some materials compared to Earth
+                gravity, presenting a goldilocks zone of reduced convective heat loss, while generating enough buoyant                                                                                             Fabric Fuel 2
+                flow to replenish fresh oxygen into the flame zone. Combined with the elevated oxygen concentrations
+                of planned Space Exploration Atmospheres (Sea), a long duration fire experiment in Lunar gravity is
+                important to help understand and mitigate the increased risk.
+                Flammability of Materials on the Moon (FM2) is a robotic, self-contained, combustion chamber which will
+                be sent to the surface of the Moon on a Commercial Lunar Payload Services (CLPS) lander mission CP-21.
+                The environmental control system can replicate and conduct fire experiments automatically in the
+                expected atmospheres, specifically 21% oxygen at 14.7 psia, and 34% oxygen at 8.2 psia, which are of
+                immediate interest to the Human Lander System (HLS) and Lunar Rover.                                                                                                                                 Fuel Rod 1
+                The laboratory prototype became operational this summer. There are four samples currently planned;
+                two SIBAL fabrics (cotton/fiberglass blend) which will be burned in air and two acrylic rods which will be                                                                                           Fuel Rod 2
+                burned in Normoxic Space Exploration Atmospheres (SEA). One of each fuel will be burned upward and
+                downward. SIBAL fabric has been found to only burn downward in air in lunar gravity (via Lunar gravity
+                centrifuge and parabolic flight) where on Earth’s gravity it extinguishes immediately after ignition.                                Flammability of Materials on                                           Flammability of Materials on
+                                                                                                                                                     the Moon (FM2) Laboratory
+                                                                                                                                                                                       Key Features                          the Moon (FM2) Solid Fuel
+
+                                                  4 mm PMMA Rod
+                                                                                                                                                            Prototype                                                                Module
+
+                                                                                                                                              •Onboard Gas Cylinders                 •Two Color Cameras                     •Self Contained System
+            Upward, 21% 14.4 psi                                                  Downward 21%, 14.4 psi                                      •Pressure/temperature sensors          •LED Illumination                      • 0-1 atm, 0-34% O2
+                                                                                                                                              •Single trigger PLC controlled         •Four Independent Ignitors             •O2, CO2, CO, %RH Sensors
+
+
+                                                                                                                                             Upward (1g), 34%,8.2 psi
+                                                                                                                                                                                                             Downward (1g), 34%,8.2 psi
+
+
+
+
+The flame tip opens as the chamber loses oxygen and
+                                                                   As the oxygen begins to deplete, the flame becomes smaller
+near extinction, allowing a greater amount of oxygen
+                                                                   and turns blue just before extinction. Flame size, strength,
+to flow through the middle, letting the flame burn a
+little longer.                                                     propagation speed, and extinction oxygen can be recorded.
+
+                                                                                                                                   The upward flame images in 34% oxygen, 8.2 psi appear dimmer
+                                                 Centrifuge Testing                                                                than the above 21% oxygen time series, because the camera gain
+                                                                                                                                   adjusts to the extreme brightness of the soot, making the blue tip      The 34% oxygen downward burning flame is very obviously
+                                                                                                                                   appear dim. The high heat experienced by the rod begins to curl it      hotter and brighter in this image series.
+                                                                                                                                   to the side.
+                                                                                    Provides Increasing evidence
+                                                                                    that materials have lower
+                                                                                    oxygen limits of flammability in
+                                                                                    Lunar gravity than in Earth
+                                                                                                                                                                                               SIBAL
+                                                                                                                                                          Upward (1g)                                                                     Downward (1g)
+                                                                                    gravity according to the 5.18                                         Left: 14.4 psi                                                               Left: 14.4 at 21% psi
+                                                                                    second tests using the zero-                                          Right:8.2 psi                                                                Right:8.2 psi at 34%
+                                                                                    gravity drop facility.
+
+
+                                                                                    Left: Polycarbonate sample in                                                                              The SIBAL fabric fuel on the left is seen to have extinguished. It was
+                                                                                                                                                  This material burns upward in 21% oxygen
+                                                                                    30% oxygen in 1g, initial tests for                                                                        ignited at 14.4 psi in 21% oxygen, and the right at 8.2 psi in 34% oxygen.
+                                                                                                                                                  at 14.4 psi (and 1 atm) (Left). A smaller,
+                                                                                    finding extinction limit Right:                               but stable flame persists is shown to        The 14.4 psi (and 1atm) case will persist in Lunar gravity as found in
+                                                                                    Centrifuge drop rig and                                       persist 8.2 psi as well (Right).             centrifuge and parabolic flight tests. A bright flame burns SIBAL fuel
+                                                                                    hardware                                                                                                   downwards in 34% oxygen at 8.2 psi
+
+
+
+
+                 Future Work
+     Flammability of Materials on the Moon will be
+     sent to the Lunar surface on the SpaceX Human
+     Lander System demonstration flight. It will
+     provide the reference for how materials burn
+     under the effect of long term Lunar gravity to help
+     understand and mitigate the risk for future
+     surface exploration missions. The flight hardware
+     is currently being constructed by ZIN
+     Technologies. Future student work will consist of
+     Matlab analysis of Earth laboratory tests including
+     flame size, flame spread rate and distance,
+     oxygen concentration at extinction, and
+     atmosphere changes during and after each burn.                 The spaceflight unit of Flammability of Materials on the Moon (FM2)
+                                                                      will add various features and upgrades to increase free internal
+                                                                          volume, hardened systems for space travel, and facilitate
+                                                                                 communications to the lander, then Earth.
+                                                    Acknowledgements
+This work was made possible by the funding provided by Biological and Physical Sciences (BPS and )Mars Campaign Office (MCO) as
+well as the Staff at the Zero Gravity Research Facility staff and Dan Gotti for building the engineering unit. ZIN Technologies will build
+the flight unit to fly on a Human Lander System (HLS). Intern funding has been provided by the NASA Mars Campaign Office, NASA
+Biological and Physical Sciences division, and the Ohio Space Grant Consortium.
+

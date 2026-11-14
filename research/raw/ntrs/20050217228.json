@@ -1,0 +1,91 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050217228,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "71e945be84ad4cd9ac5cf3af0e0f40a5",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050217228,
+  "ear": "NO",
+  "id": "3a87b52dfe1a4f48859361c87bf5106a",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "title": "Summary of Resources for the International Space Station Environmental Control and Life Support System For Core Complete Modules",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-23T12:17:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050217228,
+   "meta": {
+    "author": {
+     "name": "Williams, David E."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "f037526687944f669bb4f86db3707d82"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050217228,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-23T12:17:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The Core Complete Environmental Control and Life Support (ECLS) System for the International Space Station (ISS) will consist of components and subsystems in both the United States (U.S.) and International Partner elements which together will perform the functions of Temperature and Humidity Control (THC), Atmosphere Control and Supply (ACS), Atmosphere Revitalization (AR), Water Recovery and Management (WRM), Fire Detection and Suppression (FDS), and Vacuum System (VS) for the station. Due to limited resources available on ISS, detailed attention is given to minimizing and tracking all resources associated with all systems, beginning with estimates during the hardware development phase through measured actuals when flight hardware is built and delivered. A summary of resources consumed by the addition of future U.S. ECLS system hardware to get to Core Complete is presented, including launch weight, average continuous and peak power loads, on-orbit volume and resupply logistics.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20050217228,
+   "endDate": "2003-07-22T00:00:00.0000000+00:00",
+   "name": "Society of Automative Engineers Meeting",
+   "location": "Colorado Springs, CO",
+   "id": "9c3cc7f5e18743e3bc4c1bc1337c049c",
+   "startDate": "2003-07-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20050217228,
+   "id": "375d287fb1614ed0b189e9d4e038449a",
+   "publicationDate": "2004-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

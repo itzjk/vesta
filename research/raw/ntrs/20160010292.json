@@ -1,0 +1,189 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20160010292,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "bdab537f42a14a96abc99a0d1315c7a4",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety",
+  "Mechanical Engineering"
+ ],
+ "keywords": [
+  "microgravity"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20160010292,
+  "ear": "NO",
+  "id": "548b684c3f724ee082a91422119477ad",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-11T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN29391",
+  "Report Number: GRC-E-DAA-TN29391"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 067463.01.01.03",
+   "submissionId": 20160010292,
+   "id": "58dfc55d376541aaa94ef7337fa608c5",
+   "type": "WBS"
+  }
+ ],
+ "title": "Spacecraft Fire Safety Demonstration",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2016-08-12T10:50:12.1800000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20160010292,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "3aa2b9f5c44542959ef2dc346d9dbbe3"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20160010292,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "9b27205f5d4e47339fc3ebe93bd06337"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20160010292,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2016-08-12T10:50:12.1800000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A presentation of the Saffire Experiment goals and scientific objectives for the Joint CSA/ESA/JAXA/NASA Increments 47 and 48 Science Symposium. The purpose of the presentation is to inform the ISS Cadre and the other investigators of the Saffire goals and objectives to enable them to best support a successful Saffire outcome.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20160010292,
+   "name": "European Space Agency",
+   "location": "Paris, France",
+   "id": "612d4f65302a4f4b9df2803ce1f7f6e9"
+  },
+  {
+   "submissionId": 20160010292,
+   "name": "Canadian Space Agency",
+   "location": "Montreal, Quebec, Canada",
+   "id": "a6f9df52dcd74babad477a466650dd65"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20160010292,
+   "endDate": "2016-01-21T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "0bba4b66c88d4f6b9af09a68495f6606",
+     "meta": {
+      "organization": {
+       "name": "European Space Agency",
+       "location": "Paris, France"
+      }
+     },
+     "meetingId": "41a3fbda301747088582976ce4192ad8",
+     "id": "f50fa092f32f442896230d364240dc3e"
+    },
+    {
+     "organizationId": "34fe646fa6d759da8377792b5138c3f4",
+     "meta": {
+      "organization": {
+       "name": "NASA Headquarters",
+       "location": "Washington, DC, United States"
+      }
+     },
+     "meetingId": "41a3fbda301747088582976ce4192ad8",
+     "id": "420f28891ff04595af099caadb560fc7"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "Canadian Space Agency",
+       "location": "Montreal, Quebec, Canada"
+      }
+     },
+     "meetingId": "41a3fbda301747088582976ce4192ad8",
+     "id": "efc3beb469f94f94a44fd111c6ea705b"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "Japan Aerospace Exploration Agency",
+       "location": "Tokyo, Japan"
+      }
+     },
+     "meetingId": "41a3fbda301747088582976ce4192ad8",
+     "id": "43d44c0644bc4d368a074dcaa8ab855b"
+    }
+   ],
+   "name": "Joint CSA/ESA/JAXA/NASA Increments 47 and 48 Science Symposium",
+   "location": "Houston, TX",
+   "id": "41a3fbda301747088582976ce4192ad8",
+   "startDate": "2016-01-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20160010292,
+   "id": "a06eceb95e0d4834ac1df8ef5ef2a536",
+   "publicationDate": "2016-01-21T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20160010292.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20160010292/downloads/20160010292.pdf",
+    "pdf": "/api/citations/20160010292/downloads/20160010292.pdf",
+    "fulltext": "/api/citations/20160010292/downloads/20160010292.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

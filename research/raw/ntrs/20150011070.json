@@ -1,0 +1,264 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150011070,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "4031c1ea9d674e9ea5fdc3cd548b0baa",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "microgravity",
+  "laminar flames",
+  "diffusion flames",
+  "flames"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150011070,
+  "ear": "NO",
+  "id": "6a34865b44a24e40bd23be3df813298b",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN21955",
+  "Paper # 114LF-0437",
+  "Report Number: GRC-E-DAA-TN21955",
+  "Report Number: Paper # 114LF-0437"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20150011070,
+   "id": "82d7375a918c47b0b9a2609e929b96e2",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "CBET-0828802",
+   "submissionId": 20150011070,
+   "id": "bbca386a617e42a7834730895a341d82",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NNX11AP43A",
+   "submissionId": 20150011070,
+   "id": "62a7492554db49cf99c5833846024ce1",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "AFOSR FA9550-12-1-0157",
+   "submissionId": 20150011070,
+   "id": "fcd860bbdd634f34aa6cb4192f4652dc",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 904211.04.02.30.14",
+   "submissionId": 20150011070,
+   "id": "4468d1aaeb7a464a8e60f17c5981395b",
+   "type": "WBS"
+  },
+  {
+   "number": "DE-FG02-88ER13966",
+   "submissionId": 20150011070,
+   "id": "923e1b4aa061420db0bb8517793cf771",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "A Numerical and Experimental Study of Coflow Laminar Diffusion Flames: Effects of Gravity and Inlet Velocity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-06-18T16:29:01.5270000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150011070,
+   "meta": {
+    "author": {
+     "name": "Cao, S."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "182db2e7a9694c86951efb07485bd9b5"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20150011070,
+   "meta": {
+    "author": {
+     "name": "Bennett, B. A. V."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "47020834e79943faad2b60071d289e6b"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20150011070,
+   "meta": {
+    "author": {
+     "name": "Ma, B."
+    },
+    "organization": {
+     "name": "GE Global Research Center",
+     "location": "Niskayuna, NY, United States"
+    }
+   },
+   "id": "f06ea2e881104a15be5a5c1017b572fb"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20150011070,
+   "meta": {
+    "author": {
+     "name": "Giassi, D."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "49002ce88a4d4ca984972de1f72801cc"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20150011070,
+   "meta": {
+    "author": {
+     "name": "Stocker, D. P."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "d4878e8aa04a4d9cb5f06d03b6bceaef"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20150011070,
+   "meta": {
+    "author": {
+     "name": "Takahashi, F."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "fb3064ea4dc54bdf85be7ee1920ee725"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20150011070,
+   "meta": {
+    "author": {
+     "name": "Long, M. B."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "f609b170053c4809afd023ac2976d6ed"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20150011070,
+   "meta": {
+    "author": {
+     "name": "Smooke, M. D."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "74ac1645072e43d69777555ef47f23d3"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150011070,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-06-18T16:29:01.5270000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "In this work, the influence of gravity, fuel dilution, and inlet velocity on the structure, stabilization, and sooting behavior of laminar coflow methane-air diffusion flames was investigated both computationally and experimentally. A series of flames measured in the Structure and Liftoff in Combustion Experiment (SLICE) was assessed numerically under microgravity and normal gravity conditions with the fuel stream CH4 mole fraction ranging from 0.4 to 1.0. Computationally, the MC-Smooth vorticity-velocity formulation of the governing equations was employed to describe the reactive gaseous mixture; the soot evolution process was considered as a classical aerosol dynamics problem and was represented by the sectional aerosol equations. Since each flame is axisymmetric, a two-dimensional computational domain was employed, where the grid on the axisymmetric domain was a nonuniform tensor product mesh. The governing equations and boundary conditions were discretized on the mesh by a nine-point finite difference stencil, with the convective terms approximated by a monotonic upwind scheme and all other derivatives approximated by centered differences. The resulting set of fully coupled, strongly nonlinear equations was solved simultaneously using a damped, modified Newton's method and a nested Bi-CGSTAB linear algebra solver. Experimentally, the flame shape, size, lift-off height, and soot temperature were determined by flame emission images recorded by a digital camera, and the soot volume fraction was quantified through an absolute light calibration using a thermocouple. For a broad spectrum of flames in microgravity and normal gravity, the computed and measured flame quantities (e.g., temperature profile, flame shape, lift-off height, and soot volume fraction) were first compared to assess the accuracy of the numerical model. After its validity was established, the influence of gravity, fuel dilution, and inlet velocity on the structure, stabilization, and sooting tendency of laminar coflow methane-air diffusion flames was explored further by examining quantities derived from the computational results.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20150011070,
+   "endDate": "2015-05-20T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "9b8b9dce88b647adb0010a8c9fab369e",
+     "meta": {
+      "organization": {
+       "name": "Combustion Inst.",
+       "location": "Pittsburgh, PA, United States"
+      }
+     },
+     "meetingId": "2010aeeca8324455bc47a15405d843f6",
+     "id": "978bc078d3764badad35502ee4d4ca63"
+    }
+   ],
+   "name": "U.S. National Combustion Meeting",
+   "location": "Cincinnati, OH",
+   "id": "2010aeeca8324455bc47a15405d843f6",
+   "startDate": "2015-05-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20150011070,
+   "id": "74756f559128420cb81d67e37ce27413",
+   "publicationDate": "2015-05-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150011070.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150011070/downloads/20150011070.pdf",
+    "pdf": "/api/citations/20150011070/downloads/20150011070.pdf",
+    "fulltext": "/api/citations/20150011070/downloads/20150011070.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

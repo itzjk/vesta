@@ -1,0 +1,109 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040142367,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "ee639cbd59d44348b3739cf4463c79e6",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040142367,
+  "ear": "NO",
+  "id": "8dc73d1abdf54cf7be41d21cb4173112",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "Fire Suppression and Response",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:49:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040142367,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {}
+   },
+   "id": "4dac83232c884bb8ba4b472a94d27d65"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040142367,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:49:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "This report is concerned with the following topics regarding fire suppression:What is the relative effectiveness of candidate suppressants to extinguish a representative fire in reduced gravity, including high-O2 mole fraction, low -pressure environments? What are the relative advantages and disadvantages of physically acting and chemically-acting agents in spacecraft fire suppression? What are the O2 mole fraction and absolute pressure below which a fire cannot exist? What effect does gas-phase radiation play in the overall fire and post-fire environments? Are the candidate suppressants effective to extinguish fires on practical solid fuels? What is required to suppress non-flaming fires (smoldering and deep seated fires) in reduced gravity? How can idealized space experiment results be applied to a practical fire scenario? What is the optimal agent deployment strategy for space fire suppression?",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040142367,
+   "id": "2aaf9da0c6644d99b3336685f482e690",
+   "publicationName": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Presentations, Volume 1",
+   "publicationDate": "2004-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040142351,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Presentations",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040142351,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Presentations",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040142367.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040142367/downloads/20040142367.pdf",
+    "pdf": "/api/citations/20040142367/downloads/20040142367.pdf",
+    "fulltext": "/api/citations/20040142367/downloads/20040142367.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

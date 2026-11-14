@@ -1,0 +1,168 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053578,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "94d6dbb32f5d406eba1c8f2271ad49b6",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Air Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053578,
+  "ear": "NO",
+  "id": "a74454a8bb124580a5aa83c3f5c912c9",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "\"Smoke\": Characterization Of Smoke Particulate For Spacecraft Fire Detection",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-21T17:34:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053578,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e3497484a7ca4971bade75bc9e8ff321"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053578,
+   "meta": {
+    "author": {
+     "name": "Mulholland, George W."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "9818229da9ff4a82ad9c8677517b765e"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053578,
+   "meta": {
+    "author": {
+     "name": "Yang, Jiann"
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "9b3cb69ca00145e38d4506864128af65"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040053578,
+   "meta": {
+    "author": {
+     "name": "Cleary, Thomas G."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "8b0317ebadb540ca829bb586f1b93ef0"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20040053578,
+   "meta": {
+    "author": {
+     "name": "Yuan, Zeng-Guang"
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "263e6216644541ad946a0d80a29b06a3"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053578,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-21T17:34:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The \"Smoke\" experiment is a flight definition investigation that seeks to increase our understanding of spacecraft fire detection through measurements of particulate size distributions of preignition smokes from typical spacecraft materials. Owing to the catastrophic risk posed by even a very small fire in a spacecraft, the design goal for spacecraft fire detection is to detect the fire as quickly as possible, preferably in the preignition phase before a real flaming fire has developed. Consequently the target smoke for detection is typically not soot (typical of established hydrocarbon fires) but instead, pyrolysis products, and recondensed polymer particles. At the same time, false alarms are extremely costly as the crew and the ground team must respond quickly to every alarm. The U.S. Space Shuttle (STS: Space Transportation System) and the International Space Station (ISS) both use smoke detection as the primary means of fire detection. These two systems were designed in the absence of any data concerning low-gravity smoke particle (and background dust) size distributions. The STS system uses an ionization detector coupled with a sampling pump and the ISS system is a forward light scattering detector operating in the near IR. These two systems have significantly different sensitivities with the ionization detector being most sensitive (on a mass concentration basis) to smaller particulate and the light scattering detector being most sensitive to particulate that is larger than 1 micron. Since any smoke detection system has inherent size sensitivity characteristics, proper design of future smoke detection systems will require an understanding of the background and alarm particle size distributions that can be expected in a space environment.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053578,
+   "id": "41747ed8ee3c42b7894b253211221fdd",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053578.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053578/downloads/20040053578.pdf",
+    "pdf": "/api/citations/20040053578/downloads/20040053578.pdf",
+    "fulltext": "/api/citations/20040053578/downloads/20040053578.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

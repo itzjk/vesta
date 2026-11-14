@@ -1,0 +1,153 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19930015566,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "f1109696ca804df7a98512f3c343d064",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Design, Testing And Performance"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19930015566,
+  "ear": "NO",
+  "id": "bdc669fc4ba04d13bbb2c7b171a2c09e",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "AIAA PAPER 93-1152",
+  "NASA-TM-106093",
+  "NAS 1.15:106093",
+  "E-8359",
+  "E-7445",
+  "Report Number: AIAA PAPER 93-1152",
+  "Report Number: NASA-TM-106093",
+  "Report Number: NAS 1.15:106093",
+  "Report Number: E-8359",
+  "Report Number: E-7445"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 323-53-62",
+   "submissionId": 19930015566,
+   "id": "f1d3ccd024624206acc824b192ec7131",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Contributions of Microgravity Test Results to the Design of Spacecraft Fire Safety Systems",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T18:02:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19930015566,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e123dc65b4224c60aaa3eece635cdcb4"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19930015566,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "Sverdrup Technology, Inc.",
+     "location": "Brook Park, OH., United States"
+    }
+   },
+   "id": "560c1ef925cf482d9ec5d80a8f56ac81"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19930015566,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "93N24755"
+ },
+ "created": "2013-09-06T18:02:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Experiments conducted in spacecraft and drop towers show that thin-sheet materials have reduced flammability ranges and flame-spread rates under quiescent low-gravity environments (microgravity) as compared to normal gravity. Furthermore, low-gravity flames may be suppressed more easily by atmospheric dilution or decreasing atmospheric total pressure than their normal-gravity counterparts. The addition of a ventilating air flow to the low-gravity flame zone, however, can greatly enhance the flammability range and flame spread. These results, along with observations of flame and smoke characteristics useful for microgravity fire-detection 'signatures', promise to be of considerable value to spacecraft fire-safety designs. The paper summarizes the fire detection and suppression techniques proposed for the Space Station Freedom and discusses both the application of low-gravity combustion knowledge to improve fire protection and the critical needs for further research.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 19930015566,
+   "name": "AIAA",
+   "id": "8bdcb0502ab64aa296fb913c67c72915"
+  },
+  {
+   "country": "United States",
+   "submissionId": 19930015566,
+   "endDate": "1993-02-19T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "AIAA"
+      }
+     },
+     "meetingId": "623130bdde4a42bfbc873b64f8f29110",
+     "id": "dc43843a2981450b8005b8ca5205e582"
+    }
+   ],
+   "name": "AHS/ASEE Second Aerospace Design Conference",
+   "location": "Irvine, CA",
+   "id": "623130bdde4a42bfbc873b64f8f29110",
+   "startDate": "1993-02-16T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19930015566,
+   "id": "bbba32817b8e420d9788d3a3ea5340c9",
+   "publicationDate": "1993-03-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19930015566.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19930015566/downloads/19930015566.pdf",
+    "pdf": "/api/citations/19930015566/downloads/19930015566.pdf",
+    "fulltext": "/api/citations/19930015566/downloads/19930015566.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

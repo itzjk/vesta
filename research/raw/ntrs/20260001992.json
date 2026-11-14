@@ -1,0 +1,466 @@
+{
+ "copyright": {
+  "disclosedInvention": false,
+  "submissionId": 20260001992,
+  "containsThirdPartyMaterial": false,
+  "containsIndication": false,
+  "id": "da4b424b12614c5c8dbb106dfcc88c5c",
+  "determinationType": "MAY_INCLUDE_COPYRIGHT_MATERIAL",
+  "thirdPartyContentCondition": "NOT_SET"
+ },
+ "subjectCategories": [
+  "Space Transportation and Safety"
+ ],
+ "keywords": [
+  "microgravity",
+  "fire"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20260001992,
+  "ear": "NO",
+  "id": "7d2652e706744803a18e849aafc2b3e8",
+  "category": [
+   {
+    "submissionExportControlId": "7d2652e706744803a18e849aafc2b3e8",
+    "id": "757bb1aee988450b929663b7ab7520b8",
+    "category": 0
+   }
+  ],
+  "itar": "NO"
+ },
+ "distributionDate": "2026-07-16T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2026-577"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "089407.02.05.22",
+   "submissionId": 20260001992,
+   "id": "00141ad0298b4277bee7b20d0a794fec",
+   "type": "WBS"
+  }
+ ],
+ "title": "Heat and Smoke Emission from Tests on the Saffire VI Experiment",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2026-03-06T04:39:46.0419640+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 0,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "David L Urban"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "5a90184a0cdc49aab107246c32f00b25",
+   "userType": "CIVIL",
+   "userId": "e6ad9f3a70a94fc1a0a4a56bb211746a"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 1,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Gary A Ruff"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "199f42fce40b4a57b056a8683ee56e40",
+   "userType": "CIVIL",
+   "userId": "f5daba98616b4f9faeb0dc31767c1f15"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 2,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Paul Ferkul"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, United States"
+    }
+   },
+   "id": "d35448c05e4d4f388974c865e2e40876",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "e1b28b8eccc546bf8ff8d69e271adf75"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 3,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "John Easton"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "2cb03b8e786c4f7eba1e04b1c4c55721",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "238872ad78464960888b70cf679121e2"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 4,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Jay Owens"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, United States"
+    }
+   },
+   "id": "8097775614ce43a6b9de6c069e1b7514",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "6a727331070245f48669f2973eb3198b"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 5,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Sandra Olson"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "d1500bd9e0504a4d88cacf088c0c3cc1",
+   "userType": "CIVIL",
+   "userId": "7568d81a24d042dd99c5f823ca00cf6b"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 6,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "Claire Fortenberry"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "5e7691ef8d23442e89cf0cdd209d972f",
+   "userType": "CIVIL",
+   "userId": "b9cd289657ad4b388c09d1692901b134"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 7,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "John Graf"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, United States"
+    }
+   },
+   "id": "93bba5ae73e940e6b249f085b2f8144f",
+   "userType": "CIVIL",
+   "userId": "29f9ddbbab954724a9e80bc49932aee5"
+  },
+  {
+   "organizationId": "99fa64c96f0950678abfcdd84ba26bf5",
+   "sequence": 8,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Oageng George"
+    },
+    "organization": {
+     "name": "Jacobs (United States)",
+     "location": "Dallas, United States"
+    }
+   },
+   "id": "f87ce4f527b94ce7aaa62f2cffa1d3e4",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "00a0f9e212e04091a91ca747d66152b6"
+  },
+  {
+   "organizationId": "9329cd54149d548a885b6abb0006b5b6",
+   "sequence": 9,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "Balazs Toth"
+    },
+    "organization": {
+     "name": "European Space Research and Technology Centre",
+     "location": "Noordwijk-Binnen, The Netherlands"
+    }
+   },
+   "id": "92ddf7839512487b908e973d8f4dd454",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "153bca722b625cedbcda9c4e111f6caa",
+   "sequence": 10,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "Florian Meyer"
+    },
+    "organization": {
+     "name": "University of Bremen",
+     "location": "Bremen, Germany"
+    }
+   },
+   "id": "f1bb68af214d4b70a1cd3efc7a97f5b1",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "153bca722b625cedbcda9c4e111f6caa",
+   "sequence": 11,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "Christian Eigenbrod"
+    },
+    "organization": {
+     "name": "University of Bremen",
+     "location": "Bremen, Germany"
+    }
+   },
+   "id": "59246bdaa1de4d28b5bf9792aa9da31e",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 12,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "James S T'ien"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "7fef7a5ea08049abaa82bbaa59894f1c",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 13,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "Ya-Ting T Liao"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "cf652a59afdb40c19623ba94a6a32b57",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "7354b6f97b02576fb9c66f60d484fa23",
+   "sequence": 14,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "A Carlos Fernandez-Pello"
+    },
+    "organization": {
+     "name": "University of California, Berkeley",
+     "location": "Berkeley, United States"
+    }
+   },
+   "id": "fef01f718d4c40448f436dcac8f32a54",
+   "userType": "OTHER",
+   "userId": "2fe84a795c5348fa886d68a826161259"
+  },
+  {
+   "organizationId": "8fafa3fd540c5564b98ef1e4e585ae68",
+   "sequence": 15,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "Guillaume Legros"
+    },
+    "organization": {
+     "name": "Sorbonne Université",
+     "location": "Paris, France"
+    }
+   },
+   "id": "f53dc8b1919f41dc81ac03090ae5fac2",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "c08415067e2d5c528f0bb0252e358918",
+   "sequence": 16,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "Augustin Guibaud"
+    },
+    "organization": {
+     "name": "New York University",
+     "location": "New York, United States"
+    }
+   },
+   "id": "91661d76cc284a9e87845248a0005878",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "2706897194df5e2a91ed29062ead9cc2",
+   "sequence": 17,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "Nickolay Smirnov"
+    },
+    "organization": {
+     "name": "Moscow State Technological University",
+     "location": "Moscow, Russia"
+    }
+   },
+   "id": "08109382fc724b9e9a706711f81d5b66",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "bd23c8129c505cbe98cc1ada4faaed2b",
+   "sequence": 18,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "Osamu Fujita"
+    },
+    "organization": {
+     "name": "Hokkaido University",
+     "location": "Sapporo, Hokkaidô, Japan"
+    }
+   },
+   "id": "17646508cb334fa890d2c1901932afdf",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "3853e3f89a4359c4b1613f7fc889324a",
+   "sequence": 19,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "Ulises Rojas Alva"
+    },
+    "organization": {
+     "name": "Slovenian National Building and Civil Engineering Institute",
+     "location": "Ljubljana, Slovenia"
+    }
+   },
+   "id": "b54ab704a5134c8e8df6c889c41c7231",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "3853e3f89a4359c4b1613f7fc889324a",
+   "sequence": 20,
+   "submissionId": 20260001992,
+   "meta": {
+    "author": {
+     "name": "Grunde Jomaas"
+    },
+    "organization": {
+     "name": "Slovenian National Building and Civil Engineering Institute",
+     "location": "Ljubljana, Slovenia"
+    }
+   },
+   "id": "61b4e7a3ae4242f1bdf2628b7f05e3ce",
+   "userType": "OTHER"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2026-05-11T18:00:43.6761080+00:00",
+ "id": 20260001992,
+ "created": "2026-03-06T04:05:03.1941110+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The hazardous product release results from seven long-duration low-gravity fire tests are presented. These tests were conducted in low-earth orbit aboard a Cygnus spacecraft where the atmosphere pressure and oxygen concentration were varied to examine the effect of exploration atmosphere conditions. All of the samples were 40 cm wide. Four samples were PMMA and were 18 cm long. Two of these samples burned on both sides and the other two sample were attached to a plate that prevented fire on one side. The other three samples were cotton or a composite cotton/fiberglass blend that were 50 cm long. The cabin concentration of CO and CO2 were measured continuously in addition to the aerosol concentration. The aerosol concentration was determined using a light scattering device. The heat release from some of the tests was estimated using oxygen consumption calorimetry by measuring the oxygen consumption and the production of CO and CO2. These data were correlated with distributed temperature measurements in the spacecraft and the pressure rise. Overall, the pressure rise and temperature change were small but the smoke particulate rose to substantial levels and the gaseous products also achieved hazardous levels. ",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20260001992,
+  "id": "176f394f24c34183a1044c4423d14081"
+ },
+ "meetings": [
+  {
+   "country": "PR",
+   "submissionId": 20260001992,
+   "endDate": "2026-07-16T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "International Conference on Environmental Systems",
+       "location": ""
+      }
+     },
+     "meetingId": "d5cbfa4ab7eb4270b706f0ce345ea6c2",
+     "id": "0dc3ea5d63ce4887b8699c6e967f7b88"
+    }
+   ],
+   "name": "55th International Conference on Environmental Systems (ICES)",
+   "location": "Rio Grande",
+   "id": "d5cbfa4ab7eb4270b706f0ce345ea6c2",
+   "url": "www.ices.space",
+   "startDate": "2026-07-12T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "ICES Saffire 2026 05 04 b.pdf",
+   "notes": "Contract employers listed in corresponding footnote on first page.",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20260001992/downloads/ICES%20Saffire%202026%2005%2004%20b.pdf",
+    "pdf": "/api/citations/20260001992/downloads/ICES%20Saffire%202026%2005%2004%20b.pdf",
+    "fulltext": "/api/citations/20260001992/downloads/ICES%20Saffire%202026%2005%2004%20b.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

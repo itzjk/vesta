@@ -1,0 +1,272 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20230015380,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "f4bd7ab5628848479e60659cfafd51ed",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Aerospace Medicine"
+ ],
+ "keywords": [
+  "Exploration Atmosphere",
+  "Prebreathe",
+  "DCS",
+  "EVA",
+  "VGE"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20230015380,
+  "ear": "NO",
+  "id": "2464fd12dff54b9095b90d536f8dbc5d",
+  "itar": "NO"
+ },
+ "distributionDate": "2023-10-31T05:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NNJ15HK11B",
+   "submissionId": 20230015380,
+   "id": "87b37d220deb444391554e2a6304bd04",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Development, Validation and Approval of A Planetary Extravehicular Activity Prebreathe Protocol: NASA Exploration Atmosphere Tests 1 & 2",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2023-10-24T16:35:55.2742250+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "3a940b0bfec05d248fc6372a10e69788",
+   "sequence": 0,
+   "submissionId": 20230015380,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "A Garbino"
+    },
+    "organization": {
+     "name": "GeoControl Systems (United States)",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "5a5ecc39b912431daf0551cb4f992bed",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "925e5bdacd5f45cf937f12fd344cef37"
+  },
+  {
+   "organizationId": "00a2a0542f9451ffac4b0aa2053787b3",
+   "sequence": 1,
+   "submissionId": 20230015380,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "M Y Hew-Yang"
+    },
+    "organization": {
+     "name": "Wyle (United States)",
+     "location": "El Segundo, California, United States"
+    }
+   },
+   "id": "68fd7359225046bd9e743d0494eec05c",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "8b2d6e220fd044a78c0e469b7121a131"
+  },
+  {
+   "organizationId": "3a940b0bfec05d248fc6372a10e69788",
+   "sequence": 2,
+   "submissionId": 20230015380,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "P Estep"
+    },
+    "organization": {
+     "name": "GeoControl Systems (United States)",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "8ffeefb291be4b44a30ed8a2e5ab4184",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "c532ec4104e84d55a16b9412fd895c0e"
+  },
+  {
+   "organizationId": "68c7ff195be14c9a9987fd9b107196e3",
+   "sequence": 3,
+   "submissionId": 20230015380,
+   "meta": {
+    "author": {
+     "name": "B Siders"
+    },
+    "organization": {
+     "name": "Aegis Aerospace",
+     "location": "Houston, TX"
+    }
+   },
+   "id": "57df57961bd043e8be87ec262f44892b",
+   "userType": "OTHER",
+   "userId": "89f2b76f10304fd18d6d5135797d426e"
+  },
+  {
+   "organizationId": "00a2a0542f9451ffac4b0aa2053787b3",
+   "sequence": 4,
+   "submissionId": 20230015380,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "L Dillon"
+    },
+    "organization": {
+     "name": "Wyle (United States)",
+     "location": "El Segundo, California, United States"
+    }
+   },
+   "id": "33ac407d9515484c8d7ab2f13165e6a4",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "94b3a3048f4b4598891944abe5e0d86d"
+  },
+  {
+   "organizationId": "00a2a0542f9451ffac4b0aa2053787b3",
+   "sequence": 5,
+   "submissionId": 20230015380,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "K Suri"
+    },
+    "organization": {
+     "name": "Wyle (United States)",
+     "location": "El Segundo, California, United States"
+    }
+   },
+   "id": "33157446ac8e4149a91247ad0f330840",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "0d50e3ee11d54b85b60426f6fbe939a3"
+  },
+  {
+   "organizationId": "e108c770ea045996857982831af41904",
+   "sequence": 6,
+   "submissionId": 20230015380,
+   "meta": {
+    "author": {
+     "name": "C Ramsburg"
+    },
+    "organization": {
+     "name": "United States Department of the Navy",
+     "location": "Arlington, Virginia, United States"
+    }
+   },
+   "id": "d3058329a52140d59298cf9bf8e9d06b",
+   "userType": "OTHER",
+   "userId": "adfa02d0d92545e2be7e0376569fe1f6"
+  },
+  {
+   "organizationId": "00a2a0542f9451ffac4b0aa2053787b3",
+   "sequence": 7,
+   "submissionId": 20230015380,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "K Marshall-Goebel"
+    },
+    "organization": {
+     "name": "Wyle (United States)",
+     "location": "El Segundo, California, United States"
+    }
+   },
+   "id": "63d00bb9e6a54d24a423ac9e3cb77b05",
+   "userType": "CIVIL",
+   "userId": "d306465b9b514ffa9c16d9c39c336ad2"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 8,
+   "submissionId": 20230015380,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "A F J Abercromby"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "1fa28f91505943a7bdde3933a28472fb",
+   "userType": "CIVIL",
+   "userId": "9a0d72d47391496da296b70bf62e4726"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20230015380,
+ "created": "2023-10-24T16:30:20.8472980+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "INTRODUCTION:\nDenitrogenation prebreathe protocols used to mitigate DCS risk for Space Shuttle and International Space Station EVAs are validated for the microgravity environment, but the significantly increased risk of DCS during equivalent ambulatory surface EVAs make these protocols inapplicable to planetary/Lunar missions as planned by the Artemis program. Living in an “Exploration Atmosphere” of 56.5 kPa (8.2 psia), 34% O2, 66% N2 has been recommended by NASA for future Moon and Mars missions as a compromise that balances pre-EVA prebreathe duration, hypoxia, and flammability risk, assuming a 29.6 kPa (4.3 psi) spacesuit. A prebreathe validation campaign at NASA’s Johnson Space Center in 2022–2023 has aimed to validate the prebreathe durations and is being operationalized by NASA for use in upcoming Lunar EVAs.\n\nMETHODS:\nTwelve volunteers lived in a hyboparic chamber for 11 days with an “exploration atmosphere” of 56.6kPa/34% O2 66% N2. Subjects acclimated to this atmosphere for 48 hrs and thereafter participated in five 6-hour simulated EVAs at 34kPa/85% O2 / 15% N2 over the course of 11 days. Prior to each simulated EVA, subjects underwent a 20-minute prebreathe at 85% O2. The EVA simulation was designed to include tasks that are physically and ergonomically representative of future planetary EVAs, proportionate to the subject’s VO2max. Decompression stress was evaluated during the simulated EVA by serial doppler and echocardiographs alternating every 15 min, as well as clinical monitoring for DCS signs/symptoms. Venous gas emboli (VGE) and DCS outcomes were verified against NASA Standard 3001, which guides allowable prebreathe protocol acceptance criteria.\n\nRESULTS AND DISCUSSION:\nVenous gas emboli (VGE) were identified during EVAs. No Grade IV VGE were observed. Two cases of mild, Type I DCS were identified in the subjects over the course of 50 EVA exposures. Ten planned EVA exposures were eliminated due to mask fit, metabolic rate, or subject safety concerns. One subject was removed from the study due to presence of left ventricular VGE. Additionally, two doppler techs also experienced DCS, and one case of hypoxia was noted. All cases of DCS resolved with treatment. No cases of severe DCS were observed. The observed incidence (4%, 1.1–13.5% at 95% confidence) met the NASA Standard 3001 criteria leading to the transition of this protocol from research to operational use for upcoming Lunar missions.\n",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20230015380,
+  "id": "451fc0a2efea4bc99ecb5dac6f9410a8"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20230015380,
+   "endDate": "2024-05-09T05:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "d0b811ba64ca502c8ec8636b127d210e",
+     "meta": {
+      "organization": {
+       "name": "Aerospace Medical Association",
+       "location": "Alexandria, Virginia, United States"
+      }
+     },
+     "meetingId": "94fe67fb0bb74d49910f5f58f7df2dcc",
+     "id": "b9aa31009771485c93398c0bb7cf3cfd"
+    }
+   ],
+   "name": "Aerospace Medical Association (AsMA) 2024 Conference",
+   "location": "Chicago, IL",
+   "id": "94fe67fb0bb74d49910f5f58f7df2dcc",
+   "url": "asma.org/home",
+   "startDate": "2024-05-05T05:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+   "name": "ASMA_2024_Garbino - ver1.docx",
+   "type": "ABSTRACT",
+   "links": {
+    "original": "/api/citations/20230015380/downloads/ASMA_2024_Garbino%20-%20ver1.docx",
+    "fulltext": "/api/citations/20230015380/downloads/ASMA_2024_Garbino%20-%20ver1.docx.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

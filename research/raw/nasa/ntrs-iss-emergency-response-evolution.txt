@@ -1,0 +1,915 @@
+https://ntrs.nasa.gov/citations/20220019247
+TITLE: Evolution of Hardware and Philosophy of Emergency Response Actions on the International Space Station and Future Spacecrafts
+FETCHED: 2026-11-14T10:59:44
+NTRS-ID: 20220019247
+DATE: 2023-03-20
+AUTHORS: Barry Tobias; Courtenay McMillan
+REPORT: 
+PDF: https://ntrs.nasa.gov/api/citations/20220019247/downloads/Emergency%20Ops%20History%20for%20SpaceOps%20Conference%202023.pdf
+
+# Evolution of Hardware and Philosophy of Emergency Response Actions on the International Space Station and Future Spacecrafts
+
+## Abstract (NTRS record)
+
+Human spaceflight is dangerous for numerous reasons.  This ranges from the dynamic environment of launching on a rocket, flying in space among the thousands and thousands pieces of space debris, to the hazards of re-entry & landing, as well as being surrounded by vehicle systems containing hazardous materials or gasses.  In-flight emergencies fall into four categories:  Rapid Depressurization, Fire, Toxic Spill, and Medical emergency.  This paper will address the first three, which fall under the responsibility of the Environmental Control and Life Support (ECLS) Systems flight control and engineering teams.  It will review the evolution of the International Space Station’s emergency response philosophy, procedures, training, and equipment changes over the years.  The ISS emergency equipment has evolved over the last two decades of operations in many ways, but in some it has remained the same.   The core actions the flight crew takes to ensure team safety, personal safety, vehicle safety, and equipment safety has not changed.  However, the equipment and capabilities provided to them have.  From early days of minimal capability when the ISS consisted of a few modules, to today’s 30,000 ft^3 vehicle with over a dozen isolatable segments.  From use of Russian gas masks to positive pressure O2 masks, to the development of respirators.  From a lack of procedures for a deadly ammonia leak scenario to a memorized response utilizing numerous atmosphere measurement systems.  This paper will review all these various areas that fall under the umbrella of “on-board emergencies”.  In addition, the comparison to the planned emergency operations on the Orion vehicle will be reviewed.  The Orion vehicle differs from the ISS in that it has no isolatable volume, being approximately 2% the size of ISS, as well as not having a quick return to earth capability. 
+
+## Full text (pdftotext -layout)
+
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+                                                     SpaceOps- 2020, ID # 187
+
+      Evolution of Hardware and Philosophy of Emergency Response Actions on the International Space
+                                    Station and Future Spacecrafts
+
+                                            Barry Tobiasa*, Courtenay McMillanb
+a
+ NASA, Johnson Space Center, 2101 NASA Parkway, Houston TX, 77058, barry.tobias-1@nasa.gov
+b
+ NASA, Johnson Space Center, 2101 NASA Parkway, Houston TX, 77058, courtenay.r.mcmillan@nasa.gov
+* Corresponding Author
+
+                                                             Abstract
+
+ Human spaceflight is dangerous for numerous reasons. This ranges from the dynamic environment of launching
+on a rocket, flying in space among the thousands and thousands of pieces of space debris, to the hazards of re-
+entry & landing, as well as being surrounded by vehicle systems containing hazardous materials or gasses. In-
+flight emergencies fall into four categories: Rapid Depressurization, Fire, Toxic Spill, and Medical emergency.
+This paper will address the first three, which fall under the responsibility of the Environmental Control and Life
+Support (ECLS) Systems flight control and engineering teams. It will review the evolution of the International
+Space Station’s emergency response philosophy, procedures, training, and equipment changes over the years.
+The ISS emergency equipment has evolved over the last two decades of operations in many ways, but in some it
+has remained the same. The core actions the flight crew takes to ensure team safety, personal safety, vehicle
+safety, and equipment safety has not changed. However, the equipment and capabilities provided to them have.
+From early days of minimal capability when the ISS consisted of a few modules, to today’s 30,000 ft^3 vehicle
+with over a dozen isolatable segments. From use of Russian gas masks to positive pressure O2 masks, to the
+development of respirators. From a lack of procedures for a deadly ammonia leak scenario to a memorized
+response utilizing numerous atmosphere measurement systems. This paper will review all these various areas
+that fall under the umbrella of “on-board emergencies”. In addition, the comparison to the planned emergency
+operations on the Orion vehicle will be reviewed. The Orion vehicle differs from the ISS in that it has no
+isolatable volume, being approximately 2% the size of ISS, as well as not having a quick return to earth
+capability.
+Keywords: Emergency, Fire, Rapid Depress, Toxic Spill
+
+Acronyms/Abbreviations:
+ATCO: Ambient Temperature Catalytic Oxidizer
+CO2: Carbon Dioxide
+CSA-CP: Compound Specific Analyzer – Combustion Products
+dP/dt: Delta Pressure over delta Time (leak rate) (aloud: “DPDT”, the slash is not voiced)
+ECLSS: Environmental Control and Life Support Systems
+HLS: Human Landing System
+ISS: International Space Station
+Kg: Kilogram
+LiOH: Lithium Hydroxide
+MCC: Mission Control Center
+mmHg: millimeters of mercury
+MMOD: Micrometeoroid Orbital Debris
+NH3: Ammonia
+PBA: Portable Breathing Apparatus
+psia: pounds per square inch absolute
+SMAC: Spacecraft Maximum Allowable Concentrations
+TRes: Reserve Time
+USCV: United States Commercial Vehicle
+USOS: United States On-orbit Segment
+
+
+
+
+     SpaceOps-2023 ID # 187                                                                                      Page 1 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+1. Introduction:
+    Human spaceflight history is replete with instances of in-flight emergencies and “close calls”. Often these
+occur when some off-nominal event or operational complexity exploits a gap (known or not) in the design,
+circumventing or removing a layer of protection from a hazardous condition. Emergency response operations
+aim to reestablish a safe environment for the crew – if necessary, at the expense of other lower-priority vehicle
+capabilities or mission objectives.
+    Over its two decades of inhabited operation, more than 250 individuals have flown to the International Space
+Station (ISS). Prior to flight, each crewmember completed in-depth training in on-orbit emergency scenarios
+and responses, as have the thousands of flight controllers who support ISS operations every day from the
+Mission Control Center (MCC) in Houston and our partner centers around the globe (see Fig 1). This paper
+reviews how emergency response operations are conducted on ISS missions, the principles and priorities which
+govern those operations and considerations that will factor into emergency response operations on future NASA
+human spaceflight missions.
+
+
+
+
+                         Fig 1: Mission Control flight controllers perform training simulation.
+                                       Photo Credit: NASA (jsc2015e056174)
+
+1.1 Definitions
+    Three of the four categories of on-orbit emergency scenarios for human spaceflight missions are considered
+for this review: rapid depressurization, fire, and toxic atmosphere. The fourth category, medical, is not covered
+here.
+
+              -      Rapid Depressurization: unplanned loss of cabin air
+              -      Fire: combustion event resulting in either fire, smoke, or combustion product release
+              -      Toxic Atmosphere: spill or release of a hazardous (contaminating) material in the cabin air
+
+    At NASA, emergency response operational readiness, procedure and flight rule development, and crew
+training, is the responsibility of the Environmental Control and Life Support Systems (ECLSS) flight control
+and training disciplines within the Flight Operations Directorate and their Engineering counterparts. While all
+team members are involved in any emergency response, ECLSS flight controllers, on console twenty-four hours
+a day every day of the year, serve as the subject matter expert for the three non-medical emergency scenarios.
+
+
+1.2 Emergency Response as the Intersection of Requirements & Operations
+    Good emergency response capability is driven by an active interplay between system requirements and
+operational choices. Over the two decades of crews living and working onboard ISS, the flight and ground
+teams have had multiple opportunities to exercise that interplay.
+    Spacecraft design requirements focus, first and foremost, on eliminating the conditions which could cause an
+emergency. Requirements for micrometeoroid orbital debris (MMOD) shielding, seal integrity, structural
+integrity, materials selection and compatibility, atmospheric composition, and so forth are all established to
+prevent depressurization, fire, or toxic atmosphere emergencies, to the greatest degree possible.
+    Spacecraft design requirements also govern detection of emergency conditions and automation of spacecraft
+response; for example, activation/deactivation of key systems for crew safety. As the on-orbit configuration of
+ISS has changed, and more has been learned about the complexities and risks in emergency scenarios, the
+operations and engineering teams have collaborated on updates to onboard automated response in order to
+further improve the crews’ likelihood of surviving emergency events.
+
+     SpaceOps-2023 ID # 187                                                                                      Page 2 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+    Similarly, the opportunity has been had to improve crew protection or response capability through the
+development and deployment of new emergency response equipment. In some cases, this opportunity is brought
+forward by engineers and hardware developers as new technologies become available for use. In other cases, as
+response procedures are being worked, the operations team identifies a need for new or updated hardware to
+support the crew.
+    Supported by the implementation of all these spacecraft and equipment requirements, the emergency
+response is governed by operational procedures and flight rules which outline a series of prioritized decisions to
+methodically establish a safe environment for the onboard crew. In other words: while spacecraft design is
+relied upon to reduce the likelihood of an emergency ever occurring, equipment and procedures are flown so
+that the teams can deal with one if an emergency does occur.
+
+2. Operational Foundations for Emergency Response
+    NASA follows the following priority order in development and execution of all operational procedures,
+plans, and decisions: (1) crew safety, (2) vehicle safety, (3) mission success. This is established in the flight
+rules for each type of mission being supported, along with a delineation of the objectives which together
+comprise mission success. In responding to an emergency, the teams interrupt “normal” operations, setting
+aside the planned mission objectives in order to reestablish crew safety and, to the greatest degree possible,
+vehicle safety. Emergency response procedures do allow for loss of vehicle systems, functions, or even module
+volumes if required in order to keep the crew safe.
+    With this as the overarching guidance for any decision-making, there are a few other key principles followed
+in emergency response development which tend to drive operational implementation.
+
+2.1 Safe Haven and Safe Return
+    For emergency scenarios in low Earth orbit missions, expediting the crew’s return to Earth may be the best
+way to achieve crew safety. In ISS emergency response this means always maintaining a clear path for each
+crewmember to their designated return vehicle. For example, in a depressurization event, the crew never closes
+a hatch between themselves and their return vehicle. In the case of a fire or toxic spill, the crew do not position
+themselves such that the fire or spill could block them from reaching their return vehicle. It is imperative at any
+point that there is a clear path for everyone to their vehicle, as one never knows if the emergency event can
+worsen. This principle drives much of the choreography of response procedures onboard ISS. For an
+emergency in a single-volume spacecraft near Earth, such as a capsule on the way to or from ISS, response
+options are more limited, and the priority in our development process will be on ensuring vehicle capability to
+keep the crew safe through successful deorbit and landing.
+    For missions far from Earth, returning the crew to Earth is not a rapid response option. As in Apollo 13,
+response actions may focus on ensuring sufficient vehicle capability to establish a safe haven for the crew that
+will support completion of critical mission objectives such as getting the crew back to Earth, or to the nearest
+available outpost.
+    The concept of a safe haven is fundamental to emergency response – but did not require specific definition
+until the arrival of ISS and its multi-module complex of habitable space. In single-volume spacecraft, response
+actions aim to achieve stability and safety within that volume. Onboard a complex vehicle such as ISS, any
+module or volume can be designated a safe haven as long it provides the crew unimpeded access to their return
+vehicle(s), and breathable atmosphere. Ideally, in the safe haven the crew should also have access to emergency
+equipment, use of appropriate command & control capabilities, and communications assets with which to reach
+Mission Control.
+
+2.2 Crew is Prime
+   Emergency response operations are developed with the understanding that the spacecraft may be outside
+Earth communications coverage at the time of the emergency, therefore the crew lead the response, and must not
+be dependent upon any action or assistance from Mission Control. Furthermore, it is ensured that the crew have
+access to the information and protection they need without the use of onboard computer systems, so that if
+power, data, or physical access is impeded by the emergency, the crew still have the capability to respond:
+performing calculations manually, using printed procedures, checking physical valve positions, etc.
+   Onboard computer systems can simplify or automate response actions when they are functional, and crew
+does make use of them for that purpose, although they are trained to complete their work without them.
+Command and control systems are built to execute key command steps and to make available key data items for
+
+
+     SpaceOps-2023 ID # 187                                                                                      Page 3 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+crew awareness. Support laptops host tools which streamline interpretation of extensive data tables, and provide
+crew with supporting procedures and other reference data.
+    Mission Control serves a supporting function in emergency response. At the onset of an emergency, the
+teams on Earth shift focus, pausing ongoing routine operations and commanding in order to ensure the crew
+succeeds in their response. While the ECLSS flight controller keeps the ground teams up to speed on the crew’s
+progress, and looks ahead to double-check calculations or data needed by the crew, other flight controllers are
+scanning telemetry, safing some systems and activating others, bringing ground-based communications assets
+online, and calling in additional team members to ensure full support is available by the time the crew has
+stabilized the situation onboard. While the crew’s initial response actions can be done independently, follow-on
+actions once the emergency is resolved will likely call for more complex or specialized actions to restore the
+vehicle to full capability.
+
+2.3 Initial Response
+    In early development of ISS emergency response, it became clear that the complexity of the onboard
+environment could become overwhelming without clear structure on the crew’s response operations. Therefore,
+the crew’s procedures are broken down into three fundamental steps: Warn, Gather, Work. The specific
+implementation of each varies between scenarios, as described in section 3.
+
+  −    Warn: ISS is equipped with a caution and warning system that will annunciate an emergency through
+       visual signals (lights, computer messages), as well as audio alarms. The alarms can be annunciated either
+       automatically, per sensor detection, or manually by the crew or Mission Control. Initiating the alarm
+       serves to warn all onboard crew and all ground teams, as well as initiating onboard automated safing
+       responses. Some locations onboard ISS are far enough away from speaker units that the alarms may not
+       be heard. Therefore, crew also maintain a general awareness if a crewmate may be in one of those
+       locations, such that they can verbally warn those individuals if an event occurs.
+  −    Gather: Just as many workplaces have a designated gathering point for the employees to meet when
+       evacuating a building (e.g. in response to a fire alarm), so too do the crew of the ISS. After annunciating
+       the alarm, all the crew make their way to a designated point within the ISS.
+  −    Work: After accounting for all crewmembers, they perform the response procedures (see Fig 2).
+
+
+
+
+                            Fig 2: Crew training with Emergency procedures and a CSA-CP.
+                                        Photo Credit: NASA (jsc2012e018776)
+
+
+2.4 Training for Proficiency and Mastery
+   Both crews and flight control teams receive extensive training in emergency scenarios, to build the “muscle
+memory” of initial response actions, and to practice the essential coordination and communication which
+ensures that all team members are keeping up with the response and participating in essential risk-balancing
+decisions.
+   The crew is taught to memorize their initial actions particularly in cases when any delay in initial response
+could dramatically increase their safety risk. Assigned crews train together before they fly, giving them an
+opportunity to review scenarios and discuss flight-specific conditions or decisions before they get on orbit. ISS
+
+
+
+
+      SpaceOps-2023 ID # 187                                                                                     Page 4 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+crews complete regular on-board training sessions, with discussion time, to reinforce and refresh these
+principles in the specific context of their mission.
+    Flight control team training emphasizes active coordination between team members to support the crew’s
+response in an emergency. An emergency can interrupt flight operations at any time, with no consideration for
+the ‘extra’ complexity of other ongoing operations – whether that’s a spacewalk, a complex scientific
+experiment, maintenance on a complicated piece of equipment, or a visiting vehicle arrival or departure, etc.
+
+3. Emergency Response for the International Space Station (ISS)
+    This section describes the implementation of emergency response onboard ISS, highlights key equipment
+used in response procedures, and summarizes the evolution of those responses over time, both as the station
+completed assembly and as our understanding of the risks inherent in emergency scenarios matured.
+
+3.1 Rapid Depress
+
+3.1.1 Definition
+    A rapid depressurization (or depress) occurs when an unplanned loss of cabin air occurs. Every spacecraft
+with a pressurized vessel will have some leakage due to manufacturing of pressure vessel joints, seal
+installations, and so forth. This is referred to as design specification allowable leakage, or ‘spec leakage’.
+Typically spec leakage is accounted for in mission planning; for ISS, we ensure with our resupply plan that we
+launch enough gas to make up for such expected losses over time. When a leak occurs that is above this spec
+leakage, then the rapid depress emergency response begins to unfold.
+
+3.1.2 Vehicle Response
+
+3.1.2.1 Vehicle Response Triggers
+   The ISS pressure monitoring systems can detect a loss of cabin air in a variety of ways. For slower leaks, the
+vehicle software systems will annunciate an alarm to the crew and ground when the cabin pressure has dropped
+below a threshold value. For faster leaks, when the rate of depressurization, dP/dt, is above a set limit, and the
+cabin pressure has dropped by a set amount, the system triggers the emergency alarm. If the crew or MCC
+determines a leak is occurring, they can also manually annunciate the emergency.
+
+3.1.2.2 Vehicle Response Actions
+    Along with the alarm annunciation, ISS command and control algorithms initiate a variety of actions to
+attempt to stop the leak and to aid the crew in location and isolating the leak source. All overboard valves are
+commanded to close, in case any of them are the source of the rapid depress. All intermodular and intramodular
+fans will turn off in order to allow the crew to utilize tools to find the leak, as well as possibly allowing the crew
+to hear the leak. Any gas introductions that can be terminated automatically are stopped, in order to allow crew
+to measure an accurate leak rate. Lastly, the vehicle will power off or safe equipment which may be damaged
+by operating in a lower-pressure environment, in order to protect them for future use without requiring crew
+time or focus to protect them.
+
+3.1.3 Reserve Time: TRes
+
+3.1.3.1 TRes Definition
+    The most important piece of information for crew to understand in a rapid depress response is the amount of
+time remaining until cabin pressure drops below a safe level. This is TRes: the time to reach a designated
+minimum pressure value (“Tee Res”). On ISS that designated minimum pressure level is 490 mmHg (9.5 psia),
+at which point some key equipment will no longer operate. This is slightly less than the pressure at which the
+risk of hypoxia begins to increase, therefore, procedures and training additionally account for the need to
+monitor and react to hypoxic symptomology. ISS crew procedures direct crew to stop working emergency
+response and retreat to their safe haven while TRes is still greater than zero, in order to ensure crew has
+sufficient time to safe themselves in a known safe haven.
+    TRes is calculated as follows:
+
+   TRes = Pcurrent  1/(dP/dt)  ln(Pminimum / Pcurrent)
+
+
+     SpaceOps-2023 ID # 187                                                                                      Page 5 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+   Where:      Pminimum - minimum allowable pressure = 490 mmHg(9.5 psia)
+               dP/dt - pressure rate of change = variable
+
+3.1.3.2 TRes Usage
+   As TRes defines the amount of time remaining for the crew to safely work through their response steps, it is
+imperative crew knows the current TRes at any time. Therefore, after the crew performs their initial Warn &
+Gather steps, they will use a manual pressure gauge, a watch, and nomographs to calculate their TRes. Onboard
+computers perform this calculation as well, however, given the criticality of this time value, as well as no
+guarantee a computer interface is always available to them, crew is thoroughly trained on calculating their TRes
+manually (see Fig 3).
+
+
+
+
+                                Fig 3: Crew training with a manovacumeter and nomographs.
+                                           Photo Credit: NASA (jsc2011e196905)
+
+   As will be described in section 3.1.5, the crew isolates various volumes in their leak pinpointing process.
+Every time a volume is closed off from the leak, the dP/dt will increase and crew will recalculate the TRes. If at
+any point the TRes reaches ten minute or less, the crew stops performing their pinpoint and isolating procedures,
+and closes off the last known volume that will place them in a stable pressure environment. This may result in
+them evacuating to their return vehicles. Ten minutes was chosen to ensure sufficient time is provided to
+perform this retreat to a safe environment.
+
+3.1.4 Return Vehicle Verification
+    After crew has gathered together and ensured all crewmembers are safe, and after they have calculated their
+TRes, the next step they take is to verify that their return vehicle is leak tight. As discussed in section 3.1.3.2, if
+the crew runs out of time, they have to know where a stable pressure environment can be found. Therefore, they
+first perform a leak check on their return vehicles to ensure they have a means to return back to earth, as well as
+ensuring they have a guaranteed location they can isolate themselves to if they run out of time. As the ISS grew
+and additional peripheral modules were added to the complex, this philosophy evolved. Confirmation of a leak-
+tight return vehicle was adjusted to first check the combined volume of the return vehicle as well as its adjacent
+module. This was done in order to determine if a bigger volume could be used as the stable pressurized
+environment. A larger volume would allow the crew significant benefit in their steps to don their reentry
+pressure suits if an evacuation is required, as well as having the invaluable ability to utilize communication and
+command assets in these adjacent modules that were not guaranteed to be available in the return vehicles.
+
+3.1.5 Segmentation
+   After crew’s initial check of their return vehicle being safe, they proceed to isolate segments of the ISS in
+order to quickly isolate where the leak is located. Crew performs systematic isolation steps of the ISS,
+beginning with isolating large portions of the vehicle and systematically isolating smaller volumes at a time,
+eventually resulting in the isolation of the leaking module. These isolations steps are done by closing the hatch
+between the volumes being segmented. Recall that one of the core principles we use in developing emergency
+response is that the crew always has a clear path to their return vehicle. In a rapid depress response, this means
+
+
+     SpaceOps-2023 ID # 187                                                                                      Page 6 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+they never close a hatch between themselves and their vehicle, for two reasons. First, there is always the
+potential that the hatch mechanisms can fail shut, thus stranding crew outside their return vehicle. Second, due
+to the leak, the delta pressure across a hatch, which begins to build as soon as it is closed, can build up quickly
+enough that the crew cannot physically overcome the resulting force keeping it closed. This inability to
+overcome the resulting force may be due to the delta pressure being above hatch mechanisms’ capability or due
+to the delta pressure being above crew’s physical ability. Even with equalization valves across the hatches, the
+leak may very well be large enough that the flow rate through the equalization valve is not sufficient to reduce
+the needed force to reopen a hatch.
+    During the first decade of the ISS mission life, the majority of the time there was only one Soyuz vehicle
+crew permanently onboard the ISS. Therefore, the most efficient use of crew time in the segmentation of the
+vehicle volume during a rapid depress response was to isolate the vehicle between the United States and Russian
+segments. If the leak were on the Russian segment, the crew would systematically back themselves towards
+their Soyuz.
+    Beginning in 2009, the crew complement onboard ISS increased to six. Throughout the following decade,
+the norm was to have two Soyuz spacecraft docked to the ISS most of the time. Previously, when two Soyuz
+vehicles were docked during crew handover periods, the single Soyuz concept of response was still
+implemented. That is, one Soyuz crew would be the prime response crew and perform the segmentation and
+isolation procedures as if they were the only crew onboard ISS, while the other Soyuz crew sheltered in their
+(safe haven) Soyuz. Although this worked, risk to crew could be further reduced, and the chances of isolating
+the leak to a module, thus saving the ISS, could be increased by engaging all of the crewmembers onboard into
+an integrated response. In this model, when a rapid depress occurs, all crewmembers gather and perform the
+initial TRes calculations together. They then separate into Soyuz crews, each verifying their Soyuz is sound.
+Once that is complete, the crews separate the ISS volume between the two Soyuz docking ports, to determine
+which Soyuz is closer to the leaking volume. That crew then remains with their Soyuz, in a safe haven, while
+the other Soyuz crew completes the steps to identify and isolate the leaking module. This approach reduces the
+risk of having crews slowly move into a smaller and smaller volume, progressively reducing TRes by shrinking
+the volume feeding the leak. One of the biggest benefits to this new process occurs if the initial steps indicate
+the leak is in the upper portion of the Soyuz or its adjacent module. The Soyuz crew associated with that
+module can safe themselves in their return vehicle, while the second Soyuz crew can isolate the leaking
+volumes, all while having the larger ISS volume providing sufficient Tres.
+    Since the first Commercial Crew flights to ISS in 2020, the choreography of rapid depress response has been
+updated again. The long-term plan for ISS crew rotations will have one US Commercial Vehicle (USCV),
+either SpaceX’s Crew Dragon or Boeing’s Starliner, docked to the United States On-orbit Segment (USOS)
+(forward), and one Soyuz docked to the Russian Segment (aft) most of the time. Under the same philosophy as
+described above, the crew gather and calculate TRes together, separate to their designated return vehicles to
+verify their integrity, and then work from the middle of the ISS back toward each of their vehicles, with the
+crew whose vehicle is further from the leak ready to close out the procedure when their crewmates must retreat
+to their vehicle as a safe haven.
+
+3.1.6 Hardware
+    The crew’s primary hardware throughout most of the rapid depress response is a manual pressure gauge
+(manovacumeter) and any available watch or timer. There are several of both, stored in specified locations
+onboard ISS.
+    Upon the new segmenting philosophy utilizing more than one vehicle’s crew, it was determined that some of
+the new steps would place crew in a situation that they may close a hatch and not be able to reopen it, due to the
+delta pressure build up across it. As long as the crew was on the same side of that hatch as their return vehicle,
+this is not an immediate risk to them – but it could mean risk to ISS overall, if the systems or modules on the
+other side of the hatch would be lost without crew action. As an interim fix, a ‘tap technique’ was developed in
+which crew would close the hatch for a very brief time and reopen it. Then repeat the process, keeping it closed
+for just a little longer, and then open it, and so on and so forth. By doing so, the crew would slowly begin to
+feel which way the pressure build-up acted on the hatch, thus indicating to them which side of the hatch the leak
+was on. An effective method, but time-consuming, and still not risk free. To further improve chances for a
+successful outcome, the Hatch Depress Indicator tool was developed and flown. This is a hatchway-sized panel
+of flimsy material that is easily folded for storage and opens quickly for use in emergency response. The shape
+and size of the tool is such that it allows the material to be placed over the hatch seals instead of closing the
+
+
+     SpaceOps-2023 ID # 187                                                                                      Page 7 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+actual hatch itself. This mimics a hatch closure, but does not involve the risk of a stuck hatch, as the Hatch
+Depress Indicator tool can easily collapse upon itself for crew access to the hatchway. When the indicator is put
+into place, it will either be pushed off the seals, or will bow in towards the other side, based on where the leak is
+and thus the drop in pressure. Currently there are a number of these onboard ISS for the various USOS and
+different commercial crew vehicle hatch sizes (see Fig 4).
+
+
+
+
+                                      Fig 4: Hatch Indicator Tool being put into place.
+                                 Photo Credit: NASA (iss056m152141048 video screenshot)
+
+
+3.2 Fire
+   Fire in microgravity behaves very differently than the fire one is familiar with on Earth. Without convection,
+which is the primary air flow source that feeds fire in gravity, microgravity fires are spherical and generally
+weaker (less energetic) than those on Earth. All else being equal, this should make responding to them
+significantly easier. However, when a fire is self-fed, for example in an oxygen-generating reaction or a battery
+thermal run-away scenario, responding to the event can be more difficult as the lack of convection promotes a
+toxic environment around the fire.
+
+3.2.1 Fire Triangle
+   In order for a fire, or combustion event, to occur, there are three items that must be in place. Oxygen, Fuel,
+and an Ignition Source (Heat), each being a side of what is known as the fire triangle. If any of these items are
+removed, the triangle falls apart and the combustion event ceases. Design requirements on a human-rated
+spacecraft are intended to minimize the presence of all three elements of that triangle. The spacecraft’s oxygen
+level is tightly controlled, and oxygen generation and distribution systems are designed with good atmospheric
+mixing in mind. Equipment and materials are selected to limit the availability of fuel, and are tested to verify
+low flammability in the allowable oxygen levels for the vehicle. Proper design, shielding, and separation of
+power sources and wiring helps eliminate potential Ignition Sources. However, when these designs fail, the
+response philosophy is designed to attack two of the three fire triangle items, namely Oxygen and Ignition
+Source (Heat). Fuel is not attacked in the emergency response due to the inability to remove it operationally.
+
+3.2.2 Vehicle Response
+
+3.2.2.1 Vehicle Response Triggers
+    Throughout the ISS there are a number of smoke detectors. These consist of a variety of photo-electric and
+ionization detectors. Cabin smoke detectors are either located out in the open cabin, or within cabin air ducting.
+In these locations they act as general location detectors. In addition, system or payload racks that have internal
+airflow within them will have their own smoke detectors. The crew may also initiate the alarm if they see or
+smell evidence of a combustion event.
+
+3.2.2.2 Vehicle Response Actions
+   When the ISS fire alarm annunciates, a series of actions are taken automatically:
+   Intramodular and intermodular fans are deactivated, gas introduction is terminated, oxygen generation
+systems are deactivated, and location specific fans are deactivated, all performed in order to stop flowing
+
+
+
+     SpaceOps-2023 ID # 187                                                                                      Page 8 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+air/oxygen towards the combustion event. This should eliminate local airflow, removing the Oxygen leg of the
+fire triangle as the event consumes the local oxygen nearby, thereby self extinguishing..
+    If a location specific fire alarm is triggered, then power in that area is removed. This response is only
+performed within payload or system racks that are isolated from other areas within the spacecraft. This is
+performed in order to attack the Ignition Source (Heat) leg of the fire triangle. With the material designs chosen
+to be non-flammable, by removing a constant ignition source, this response allows the fire to extinguish after the
+localized fuel is burned.
+
+3.2.3 Crew Response
+    After performing their Warn & Gather steps and verifying all crew are safe, the crew move into the Work
+phase. They will constantly monitor air quality using hand-held combustion product analyzers to ensure their
+gathering point remains a safe haven with a clean atmosphere. Provided their area remains safe, crew will begin
+to develop their forward plan.
+
+3.2.3.1 Narrowing Down the Search Area
+    For a fire in the open cabin, the crew may very quickly be able to confirm the location and source of the fire.
+However, most ISS systems are behind closed panels, which can require a multi-step process to locate the fire.
+This case is a good example of how computer-based data and tools, or assistance from Mission Control, can
+greatly streamline and accelerate resolution actions.
+    Crew will utilize computers to interface with the vehicle command and telemetry system to help identify the
+source of the fire. If a fire causes damage to equipment, it is likely that a caution or warning message
+identifying a system failure will have annunciated. Using this information, possible fire locations are identified
+for further investigation. The crew then attach a sample probe to their hand-held combustion product analyzer
+(described in section 3.2.5), and insert the probe into a fireport, a specially designed and labeled hole allowing
+access to the closed volumes without requiring the time or effort to remove panels, to sample the air quality in
+the location of interest.
+    The failure of a single piece of equipment could be associated with multiple possible fire source locations,
+depending on how that equipment is powered, or whether it itself is providing power to other devices. Through
+the assembly of ISS, and as we have continued to reconfigure its systems, this mapping has changed fairly
+regularly. Over the two decades of ISS operations, the tools we have used to present this information to the
+crew has evolved as well. Early in ISS operations, crew had to utilize pages and pages of reference tables to
+find a possible location (or locations). Approximately ten years ago, a “fireport app” was developed. This app
+made the process significantly less cumbersome, less confusing, and much quicker, thereby avoiding errors and
+wasted time during a critical time period in the fire response.Upon identifying the locations to investigate, crew
+will don breathing masks, to be described in section 3.2.4. Utilizing their combustion product analyzer and
+probe (section 3.2.5) to identify the location of the event, crew will proceed to unpower the equipment behind
+the panel, thus attacking the Ignition Source (Heat) leg of the fire triangle. If that does not extinguish the fire,
+they will utilize a fire extinguisher (section 3.2.6). If the fire extinguisher fails to stop the event, crew will
+proceed to a partial powerdown of the entire module they are located in, followed by a full powerdown and
+evacuation of the module. These last steps have significant repercussions and thus are the last resort. It should
+be noted, with crew safety being the top priority, if at any point crew does not feel comfortable proceeding
+forward through the procedures, it is their prerogative to isolate the module and stand down on any further fire
+response steps.
+
+3.2.4 Breathing Masks
+    Crew on the ISS require protection from the toxic byproducts of a combustion event. There are a number of
+different type of breathing masks onboard the ISS; this paper will discuss those provided by NASA, and the
+evolution of those masks for ISS operations.
+
+3.2.4.1 Portable Breathing Apparatus (PBAs)
+   PBAs have been on ISS since it was first occupied in 2000. PBAs are positive pressure oxygen masks that
+consist of a high-pressure gas bottle connected to a quick don mask. They provide a slight positive pressure
+across the crewmember’s face, thus providing a constant flow away from the face into the cabin, thereby
+preventing toxins from being breathed into the mask from the cabin and into the crew’s lungs. With its own
+positive-pressure oxygen source and a quick-don mask, the PBA is perfectly suited to protect the crew during
+
+
+     SpaceOps-2023 ID # 187                                                                                      Page 9 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+initial egress from a contaminated volume. The bottle can easily be strapped to a crewmember’s leg for
+portability, and the masks can easily be disconnected from the gas bottle and connected into the ISS hardline
+oxygen system in the US segment, thus providing a much longer duration of breathable gas.
+    However, as discussed in section 3.2.1, Oxygen is a leg of the fire triangle that should be attacked, not
+reinforced. A positive pressure oxygen masks that releases oxygen into the surrounding cabin and creating an
+oxygen bubble around the crew’s face, is far from ideal when they are near a combustion event. These risks
+make the PBA less appropriate for the crew’s fire response actions beyond that initial egressing the affected
+area, when proximity to the fire source may be required.
+
+3.2.4.2 Respirators/Fire Cartridges
+   In 2011, a new mask was deployed onboard ISS that would allow crew ample time to perform a fire source
+location exercise without adding risk to themselves by adding oxygen to the air from their masks. This
+consisted of a respirator mask with fire cartridges attached to them, acting as filters (see Fig 5). The fire
+cartridges consist of activated charcoal and catalysts that would prevent combustion products from being
+breathed in by crew.
+
+
+
+
+                                  Fig 5: Crew Training with respirators and fire cartridges.
+                                          Photo Credit: NASA (jsc2011e196933)
+
+    The cartridges may not be exposed to the atmosphere before use, due to concerns they would be less
+effective in an emergency situation. Thus, the crew unwrap and attach fresh cartridges to their respirators when
+they need them. The PBAs, therefore, remain the mask of choice for initial response. However, once the crew
+has established a safe haven (clean atmosphere), they have time to install fire cartridges on respirator masks and
+don them before re-entering a toxic environment and moving towards the fire source.
+    A deficiency that this system has, due to its nature of being a combustion product filter, is that it cannot filter
+out carbon dioxide (CO2). As one of the fire extinguisher types in the USOS is a CO2 extinguisher (section
+3.2.6), this led to an operational constraint that requires crew to be on a PBA when discharging a CO2
+extinguisher. So although the respirator/fire cartridge system provides crew with a tremendous benefit from a
+safety and time usefulness, it drives crew to put on a PBA to extinguish the actual fire. This has been deemed
+acceptable due to a) the benefit of using a CO2 fire extinguisher in certain circumstances, and b) the short and
+controlled time in which crew would be in the vicinity of a combustion event while wearing a PBA.
+
+3.2.5 Compound Specific Analyzer – Combustion Products (CSA-CP)
+   ISS crews use a handheld CSA-CP to detect combustion products in the atmosphere through chemical
+reactions. These units are utilized from the moment a combustion event occurred until the all-clear is declared.
+
+
+
+     SpaceOps-2023 ID # 187                                                                                     Page 10 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+A probe with a small pump is attached to the units and the probe is inserted into a fireport in order to locate the
+event and eventually determine if the event has been stopped.
+    The ISS program in conjunction with the Orion program, is moving towards a new technology that can also
+combine numerous pieces of equipment into one unit. Along with the CSA-CP, the ISS is also outfitted with
+handheld CO2 monitors, various ammonia (NH3) monitors, and oxygen monitors specifically designed for
+lower pressures seen during spacewalk prep activities. All these are being combined into a single unit referred
+to as the Anomaly Gas Analyzer. The Anomaly Gas Analyzer uses tunable laser technology to monitor all the
+above constituents. Combining them into a single until will aid in the crew’s ability to efficiently gather the
+required equipment needed for the specific emergency response at hand (see Fig 6).
+
+
+
+
+     Fig 6: CSA-CP, CO2 Monitor, O2 Monitor, NH3 Chip Measurement System, NH3 Chips, Draeger Tube
+             with Pump (Top to Bottom, Left to Right), combined into the Anomaly Gas Analyzer
+     Photo Credit: NASA (jsc2011e198132, jsc2000e20952, jsc2011e061420, iss050e015659, iss063e058034,
+             jsc2017e109366, Anomaly Gas Analyzer Preliminary Design Review chart package)
+
+
+3.2.6 USOS Fire Extinguishers
+
+3.2.6.1 CO2 Extinguisher
+    The Space Shuttle program used halon filled fire extinguishers in their vehicle, which has a tremendous
+number of benefits. However, halon would not be compatible with all systems on the ISS due to the conversion
+into toxic gasses that occur when halon interacts with high temperatures, which are normal for some ISS
+systems and scientific hardware. In order not to limit the ISS systems and their operating temperatures, CO2
+extinguishers were developed for use on ISS. The CO2 extinguishers consisted of approximately 2.7kg of CO2
+in a pressurized container. When used, the CO2 would displace sufficient amounts of oxygen, thus attacking the
+Oxygen leg of the fire triangle and causing the combustion event to extinguish due to oxygen starvation.
+    Although use of a CO2 extinguisher requires crew to be actively provided oxygen, as discussed in section
+3.2.4.2, these types of extinguishers were deemed beneficial as their only byproduct was CO2 in the ISS, which
+could be removed by the nominal ISS CO2 removal systems. However, as technology evolved and batteries
+became more powerful and compact, a new challenge emerged over time.
+
+3.2.6.2 Water Mist Extinguisher
+    When a battery goes into thermal run-away, it becomes a self-propagating combustion event and displacing
+oxygen is no longer a sufficient means by which to extinguish the event. Although a CO2 extinguisher would
+remove the Oxygen leg of the fire triangle, the thermal run-away combustion conditions of a lithium-ion battery
+can rebuild the triangle with very low oxygen levels, due to the high temperatures and off-gassing of oxygen
+during this type of event. In order to extinguish a lithium-ion battery fire, that high energy must be removed
+from the system. A water mist extinguisher uses the fire’s energy to evaporate the water and very quickly
+reduces the temperature at the source of the fire, removing the Ignition Source (Heat) leg of the triangle. While
+this type of extinguisher is very effective in battery thermal runaway fires, there are other concerns for use
+onboard ISS.
+    As can be imagined, discharging pounds of water from a fire extinguisher into a spacecraft can cause other
+problems. Attempting to clean up that amount of water when sprayed over an area is difficult. More so, if the
+
+
+     SpaceOps-2023 ID # 187                                                                                     Page 11 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+combustion event were within a system or payload rack, behind a panel, and the extinguisher was discharged
+through a fireport, removal of the water from the inside of that rack would be nearly impossible. As a result,
+ISS crews only use water mist extinguishers for fires in the cabin; if a fire were to occur within a system or
+payload rack, the ISS crew use only CO2 extinguishers. In order to reinforce this operational philosophy, the
+probe that would attach to the water extinguishers in order to allow them to be used through a fireport was not
+flown (see Fig 7).
+
+
+
+
+                Fig 7: Crew holding a CSA-CP and PBA (left) and PFE with a fireport probe (right).
+                                      Photo Credit: NASA (ISS026e016970)
+
+3.2.7 Post-Fire Cleanup on ISS
+    After a combustion event occurs, measurements are taken to determine the extent to which the atmosphere
+needs to be cleaned. The crew will systematically deploy Lithium Hydroxide (LiOH) and Ambient
+Temperature Catalytic Oxidizer (ATCO) canisters with portable fans attached in order to scrub the air of the
+combustion byproducts. This is a relatively simple process, therefore there has not been much evolution in the
+cleanup process of the history of ISS, with one notable exception.
+    Due to the large size of the ISS, it is desirable to isolate the contaminated volume in order to a) keep the
+crew safe from any contaminates and b) to speed up the cabin air turnaround through the cleaning canisters.
+Although this can impact the daily routine of the crew onboard ISS, it is an acceptable method. However, with
+the onset of commercial crew vehicles docking to the ISS, this was re-evaluated. If the commercial crew
+vehicle itself is contaminated, closing the hatch and isolating the vehicle from the crew would be unacceptable,
+as that violates the core principle that crew should never lose direct access to their return vehicle. In order to
+maintain access to the vehicle, a Kynar sheet, the size of the hatchway, has been developed. When deployed,
+this Kynar sheet creates a physical barrier to prevent any combustion products from contaminating the rest of
+the ISS while the vehicle is cleaned, but does not put a hard structure between crew and their return vehicle.
+The Kynar sheet can easily be torn down in the event of a needed evacuation or rapid depress scenario that
+requires performing a leak check of the vehicle.
+
+3.3 Toxic Atmosphere
+    The importance of a clean atmosphere is magnified inside an enclosed spacecraft in which the crew is
+breathing the same recirculated air their entire duration. A toxic atmosphere is defined as anything that is not
+clean. Therefore, a water spill, foreign object debris, or escaped gas all fall under the definition of a toxic
+release, or a toxic atmosphere emergency. However, the response to all are not the same.
+
+3.3.1 Toxic Level
+   Toxic releases are classified by different hazardous levels:
+   Hazardous Level 0: Nonhazardous release
+   Hazardous Level 1: Least Hazardous release
+   Hazardous Level 2 or 3: Hazardous release
+   Hazardous Level 4: Most Hazardous release
+
+3.3.2 Vehicle Response
+   Most types of events which lead to a Toxic Atmosphere emergency cannot be automatically detected,
+primarily because they would occur when a substance spills or is released from its nominal containment: for
+example, a water storage bag leaks, a food packet breaks open, or a toilet system’s chemical pretreat bottle fails.
+
+     SpaceOps-2023 ID # 187                                                                                     Page 12 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+The one exception is a leak of ammonia from the USOS thermal control system, addressed in detail in section
+3.3.5.
+   Vehicle response is initiated by crew manually annunciating the emergency. Some key systems are
+deactivated to protect hardware from contamination, and intermodular fans are deactivated to prevent the
+contaminant from spreading to other modules. These steps are universally applicable for contaminated
+atmosphere; other steps may be needed, but are particular to the specific type of spill or release, and thus are
+covered in crew procedures.
+
+3.3.3 Crew Response
+   Upon crew identifying a toxic spill or release occurring, they will inform other crewmembers of the incident
+and ask that they remain away from the affected area. The crew nearby will don proper personal protective
+equipment for the substance(s) involved and attempt to contain it (see Fig 8). If the release is uncontainable or
+becomes worse, then the crew raises their response to the next level, which will result in isolating the module
+that contains the spill until another plan can be developed in conjunction with the crew and MCC.
+
+
+
+
+       Figure 8: Crew on ISS wearing personal protective equipment during routine maintenance of equipment
+                                         containing toxic substances.
+                                      Photo Credit: NASA (iss058e004176)
+
+3.3.4 Containment
+   The general rule of thumb when it comes to containment of a substance onboard ISS is “Hazardous Level +
+1”. For example, water which is not a toxic substance only requires one level of containment, whereas if LiOH
+dust were to get loose, being a Hazardous Level of 2, it requires three levels of containment.
+
+3.3.5 Ammonia (NH3)
+   NH3 leaks top the list of deadly toxic spills that can occur onboard ISS. The external thermal control system
+on the USOS uses NH3 as a medium to collect, transport, and expel heat from the ISS to space via radiators.
+Due to the high pressure at which these thermal loops operate, if a leak were to occur in the interface heat
+exchanger that provides the interface to the internal water filled loops, the NH3 could infiltrate the internal
+loops, over-pressurize them, and leak into the ISS cabin. In the early years of ISS operations, the crew response
+was a very simple memorized response to evacuate to the Russian Segment, take some measurements of
+atmospheric quality, and contact MCC for further direction.
+   In 2012, as the partnership developed a greater understanding of the crew safety risk and impact to ISS
+functionality in this type of emergency, significant work was done to improve both crew and MCC response to
+an NH3 leak. First, the vehicle annunciation was upgraded to an Emergency level alarm, using the Toxic
+Atmosphere alarm, thus providing crew with the proper level of urgency when this type of failure occurs, and
+automated detection algorithms were implemented in onboard software. Second, updated integrated procedures
+were deployed onboard, thereby providing crew with more in-depth steps to take in the event of this emergency.
+Third, system reconfiguration procedures were developed for MCC to reduce thermal control system pressures
+thereby limiting the possibility for ammonia to enter the cabin. Fourth and finally, system engineers and
+hardware developers have made improvements to thermal system components to reduce the risk of system over-
+pressurization and cabin atmosphere contamination.
+   Because of the high level of risk to crew safety in an NH3 scenario, crews are trained to assume that any
+unexpected Toxic Atmosphere alarm (i.e. one in which a crewmate did not specifically say was due to a spill as
+
+
+     SpaceOps-2023 ID # 187                                                                                     Page 13 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+described above) is due to ammonia breaching into the cabin atmosphere. The automated vehicle response to
+the Toxic Atmosphere alarm is designed to prevent NH3 from spreading further through the ISS cabin volume –
+and specifically, to try to prevent it from reaching the Russian Segment at all.
+    The ISS crew has the following response memorized: don protective masks, evacuate from the USOS to the
+Russian Segment or USCV, and close the hatches to isolate the USOS. For the crew that egressed towards the
+Russian Segment, if they initially donned PBAs, they then switch to respirator masks equipped with cartridges
+to filter out NH3. Since at this point it is not known whether there is NH3 in the Russian Segment atmosphere,
+those who swap masks use a special technique to purge the air within the volume of the mask as they don it:
+breathing in clean air through the inhalation filters, exhaling into the respirator hood, then sliding their hands
+over their head to push the air out of the hood through the exhalation port. Repeating this a couple times cleans
+the air inside the respirator hood, thus avoiding injury to the eyes and respiratory system (see Fig 9).
+
+
+
+
+               Figure 9: Crew performing on-board training utilizing the NH3 respirator mask/cartridge.
+                                       Photo Credit: NASA (iss042e019467)
+
+    If the Russian segment is contaminated, either the crew will evacuate to their Soyuz vehicles and utilize a
+filter system to scrub the atmosphere, or if the contamination is not significant enough, intermodular fans will be
+activated and the NH3 will be diluted across the Russian segment.
+    For USCV crews, the memorized response is to don PBAs and retreat directly to their return vehicle. Once
+hatches are closed, the crew will focus on establishing a clean atmosphere in their vehicle and activating the
+vehicle core systems. They will then begin preparations to return to Earth, due to the proximity of the
+contamination to the USCV’s docking ports.
+    While the NH3 scenario is the least likely, in terms of probability, of all the emergency cases prepared for in
+ISS operations, it is potentially the most severe in consequence. The means to sufficiently remove NH3 from
+the ISS cabin atmosphere does not exist, so at least access to the USOS would be lost in the event a breach was
+to occur. NASA has worked very hard to reduce the likelihood of this scenario through hardware improvements
+in the thermal control system, and to improve the crew’s safety through automated vehicle detection and
+response capability, and better hardware for crew protection and NH3 measurement.
+
+4.1 Orion and Missions Beyond Low Earth Orbit
+   The Orion vehicle is NASA’s next generation spacecraft which will return crews to the cis-lunar space.
+While the ISS habitable space of multiple modules totals approximately 30,000 ft3, the Orion volume, a single
+cabin, is a mere 2% of that volume. This drives a significant change to the way that NASA has been performing
+emergency response for the last two decades. No longer can crew evacuate to a clean module, there is none. No
+longer can crew use gas filled bottle-fed masks, these will overpressure the cabin in a very short period of time.
+No longer can crew remain in a safe atmosphere while the contaminated compartment is being cleaned, there is
+no space.
+
+4.1.1 Rapid Depress
+    Orion being only ~2% of the ISS volume, the emergency response cannot simply allow the atmosphere to
+bleed down to an evacuation level. What would take 6.5 hours on ISS to do would take less than 10 minutes on
+Orion. In addition, there is no separate return vehicle for the crew to escape to, Orion is it. Therefore, the focus
+is solely on protecting the crew.
+    In the event of a rapid depress on Orion, the crew immediately begins to don their spacesuits. The vehicle
+response will close overboard valves in an attempt to isolate the leak. After performing that action, it will
+
+
+     SpaceOps-2023 ID # 187                                                                                     Page 14 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+manage the atmospheric makeup so that as the air leaks out, oxygen is introduces to ensure the crew does not
+become hypoxic. One the atmosphere reaches 8 psia, the vehicle will continue to feed the leak and maintain the
+8 psia level for up to one hour. This provides the crew time to don their spacesuits and complete required leak
+checks.
+    Once the crew is safely inside their spacesuits and connected to the air revitalization system of the Orion, the
+pressure management control ceases to operate and allows the atmosphere to leak to vacuum. The crew systems
+are designed to support crew in a suit configuration for up to six days to allow the Orion capsule to return from
+the moon.
+    As can be seen, unlike ISS, there are no plans to identify the source of the leak and protect further use of the
+vehicle for the current mission. Instead, the rapid depress response is focused entirely on crew survival.
+
+4.1.2 Fire
+    Orion being a single volume does not allow the crew the opportunity to leave the area of the combustion
+event. Instead, the Orion crew must fight the event head on and then clean the cabin while they are still inside
+of it.
+    If a fire event occurs on Orion, crew has a water spray fire extinguisher, very similar to the water mist
+extinguisher on ISS, to use to fight the fire. A water extinguisher was selected to protect against the lithium-ion
+battery fire, as a number of devices within the Orion capsule use these types of batteries. The Orion crew also
+has emergency respirators with fire cartridges available to use to help breathe clean air, even while remaining
+inside a potentially highly contaminated atmosphere.
+    Once the fire is extinguished, the crew works to clean the atmosphere to the best extent possible. While
+wearing their respirator/cartridge masks, they insert a smoke eater filter at the inlet of the cabin fan such that the
+cabin air can be circulated through this filter. The filter consists of a pre-filter which removes the soot particles,
+followed by an activated carbon and catalyst filter that removes the combustion products. The system is
+designed such that within four hours, the cabin atmosphere has been cleaned to a level of the 1-hour Spacecraft
+Maximum Allowable Concentrations (SMAC) limit for the worst-case design-to fire scenario. If the
+combustion event is not as severe as the smoke eater filter is designed to handle, the atmosphere may be clean
+enough that the crew can doff their masks and return to earth in a nominal environment. However, if the
+atmosphere is only able to be cleaned to the 1-hour SMAC level, crew will proceed to don their spacesuits
+within this allowable 1-hour period crew can doff masks. Upon successful donning of their suits, the crew will
+follow one of two options. One, they will return to earth in their spacesuits, as they would for a depressed cabin
+scenario. Two, being the preferred option, the cabin will be purposefully vented to vacuum, thereby exhausting
+all contamination overboard. The cabin will then be repressurized and crew will doff their suits and return to a
+nominal environment.
+
+4.1.3 Future Artemis Mission Designs
+    As future mission designs are developed, such as Orion docking to the Gateway lunar space station or the
+Human Landing System (HLS) lunar lander, a combination of ISS and Orion responses are being integrated to
+develop the best philosophy for these new designs. Namely, Gateway and HLS provides some ability to egress
+to a safe environment until the Orion-Gateway (or HLS) complex is at the right point in its trajectory to be able
+to bring crew home via Orion assets only. Over two decades of emergency response philosophy development
+and evolution, many lessons learned are being carried forward into these early design phases of the future
+Artemis missions. No doubt the unique Artemis missions will themselves force a new perspective on
+emergency responses, thus continuing the evolution that has been underway for decades.
+
+5.1 Summary
+   The ISS approach to emergency operations has evolved over two decades of crewed missions: vehicle
+hardware and software changes have been made to reduce the likelihood of an emergency occurring; new
+emergency response equipment has been launched to improve crew protection and response capability;
+procedures and training have been updated to incorporate lessons learned and streamline overall operations.
+These lessons and evolutions are also directly feeding into NASA’s development of future human-rated
+spacecraft and missions, even when those vehicles and those missions are very different in scope and capability.
+   What have not changed are the underlying core principles that form the foundation of human spaceflight
+emergency response, and the commitment throughout human spaceflight mission development and operations to
+ensure that all of spaceflight crews and flight control teams are fully trained and ready to perform as needed in
+
+
+     SpaceOps-2023 ID # 187                                                                                     Page 15 of 16
+                  17th International Conference on Space Operations, Dubai, United Arab Emirates, 6 - 10 March 2023.
+ Copyright 2023 by the Mohammed Bin Rashid Space Centre (MBRSC) on behalf of SpaceOps. All rights reserved. One or more authors of
+this work are employees of the government of the United States of America, which may preclude the work from being subject to copyright
+                         in the United States of America, in which event no copyright is asserted in that country.
+
+
+the event an emergency occurs. By reinforcing these as future missions are launched, we ensure the safety and
+success of human spaceflight going forward.
+
+Acknowledgments:
+   The authors wish to thank the teams of flight controllers, engineers, instructors, astronauts, and cosmonauts
+from all around the world who have participated in 20+ years of development and evolution of the ISS
+emergency response philosophies and hardware that allow for safer emergency response operations.
+
+
+
+
+     SpaceOps-2023 ID # 187                                                                                     Page 16 of 16
+

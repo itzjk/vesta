@@ -1,0 +1,236 @@
+{
+ "copyright": {
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20260000641,
+  "containsThirdPartyMaterial": false,
+  "containsIndication": false,
+  "id": "5b90ee9e230245e49f21fa2585a168db",
+  "determinationType": "GOV_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET"
+ },
+ "subjectCategories": [
+  "Fluid Mechanics and Thermodynamics",
+  "Spacecraft Design, Testing and Performance"
+ ],
+ "keywords": [
+  "Coriolis Force",
+  "Flames",
+  "Partial Gravity",
+  "Centrifuge",
+  "Combustion",
+  "Exploration Atmospheres"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20260000641,
+  "ear": "NO",
+  "id": "626bca9fc37d4835b624f2eeafcd6fbf",
+  "category": [
+   {
+    "submissionExportControlId": "626bca9fc37d4835b624f2eeafcd6fbf",
+    "id": "8a11162dffdc4adfacc093fe62c19284",
+    "category": 0
+   }
+  ],
+  "itar": "NO"
+ },
+ "distributionDate": "2026-04-01T04:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "619352.06.07.02.01",
+   "submissionId": 20260000641,
+   "id": "dcfb3679ce884791898c29796a5b8aaf",
+   "type": "WBS"
+  },
+  {
+   "number": "NNX16AL61A",
+   "submissionId": 20260000641,
+   "id": "bf6c719daf8444e996f24411d1a82c60",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "80NSSC22M0011",
+   "submissionId": 20260000641,
+   "id": "b1d322b78b654c20878937c9ae57a567",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Computational Fluid Dynamics Analysis of Flame Dynamics in Partial Gravity Environments in a Rotating Centrifuge",
+ "stiType": "ACCEPTED_MANUSCRIPT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2026-01-20T19:35:38.9575250+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 0,
+   "submissionId": 20260000641,
+   "meta": {
+    "author": {
+     "orcidId": "0000-0002-6281-6721",
+     "name": "Ankit Sharma"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "b0e4e38a0050431dab931c3f4cb25832",
+   "userType": "OTHER",
+   "userId": "75a2ab2b870b41b8b9c03f812a1397f1"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 1,
+   "submissionId": 20260000641,
+   "meta": {
+    "author": {
+     "orcidId": "0009-0008-0318-1130",
+     "name": "Arland Zatania Lojo"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "4095522d4f8f42ff8dd34ba34909f132",
+   "userType": "OTHER",
+   "userId": "dfe91b65c6fc46439a39ede8df397470"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 2,
+   "submissionId": 20260000641,
+   "meta": {
+    "author": {
+     "orcidId": "0000-0001-5759-5971",
+     "name": "Ya-Ting T Liao"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "dba8e3e3fc5e434c91b4b447ff7118a0",
+   "userType": "OTHER",
+   "userId": "538160a73604408298198126f0c8f40b"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 3,
+   "submissionId": 20260000641,
+   "meta": {
+    "author": {
+     "orcidId": "0000-0001-7655-2125",
+     "name": "Paul V Ferkul"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, United States"
+    }
+   },
+   "id": "f57e47cd9d1648cb8d0a9f768a4f634a",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "e1b28b8eccc546bf8ff8d69e271adf75"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 4,
+   "submissionId": 20260000641,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Michael C Johnston"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "57d3dfd588334f64bd2976855105ca96",
+   "userType": "CIVIL",
+   "userId": "995f4be0e19649eca742e40fb9d52045"
+  }
+ ],
+ "stiTypeDetails": "Accepted Manuscript (Version with final changes)",
+ "technicalReviewType": "EXTERNAL_PEER_COMMITTEE",
+ "modified": "2026-01-27T18:23:30.1484000+00:00",
+ "id": 20260000641,
+ "created": "2026-01-20T19:27:20.5813630+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The safety of spacecraft and crew members is a critical concern for space research and exploration missions. It is already known that fire hazards in a microgravity environment present unique challenges, primarily due to the absence of buoyancy, which significantly alters fire behavior. The NASA’s Artemis program, which aims to send humans to the Moon, introduces a new set of challenges due to the Moon partial gravity compared to the Earth. This necessitates a better understanding of fire behavior in partial gravity conditions. However, conducting experiments in true partial gravity environments is challenging, and the use of centrifuges to create artificial partial gravity introduces complications, including the Coriolis force and limitations in chamber size. Consequently, there have been limited studies on flame dynamics in partial gravity. To address these challenges, this research employs Computational Fluid Dynamics (CFD) techniques to investigate flame behavior in a partial gravity environment created by a rotating centrifuge. The numerical model is validated against NASA's previous experiments and provides information on the effects of the Coriolis force and flow recirculation in the chamber. The analysis reveals that the interaction between buoyancy, Coriolis force, and flow recirculation plays a significant role in flame behavior. The flame tilt angle observed in both the experiments and the numerical results is caused by the combined effects of these forces and their variations along the flame length. In conclusion, this research contributes to our understanding of how flames behave in partial gravity environments created by rotating centrifuges. It emphasizes the complexity of flame dynamics in such conditions and provides valuable insights for future centrifuge experiments, with the goal of improving space exploration safety and understanding flame behavior in unique partial gravity environment.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20260000641,
+  "id": "7a66c62fbbce4c00b937f1f5e42536f2"
+ },
+ "meetings": [
+  {
+   "country": "",
+   "submissionId": 20260000641,
+   "name": "",
+   "location": "",
+   "id": "82d55f58e8164707986c0eedf73df87f",
+   "url": ""
+  }
+ ],
+ "publications": [
+  {
+   "volume": "286",
+   "submissionId": 20260000641,
+   "issn": "0010-2180",
+   "publisher": "Elsevier",
+   "eissn": "1556-2921",
+   "id": "9d71229504ba4773a4ef7acd4a0fbac9",
+   "publicationName": "Combustion and Flame",
+   "publicationDate": "2026-04-01T04:00:00.0000000+00:00",
+   "issuePublicationDate": "2026-04-01T04:00:00.0000000+00:00",
+   "url": "",
+   "doi": "10.1016/j.combustflame.2026.114808"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "Centrifuge Paper-Comb and Flame 2025v_Final.pdf",
+   "notes": "False positive.",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20260000641/downloads/Centrifuge%20Paper-Comb%20and%20Flame%202025v_Final.pdf",
+    "pdf": "/api/citations/20260000641/downloads/Centrifuge%20Paper-Comb%20and%20Flame%202025v_Final.pdf",
+    "fulltext": "/api/citations/20260000641/downloads/Centrifuge%20Paper-Comb%20and%20Flame%202025v_Final.pdf.txt"
+   }
+  },
+  {
+   "draft": false,
+   "mimetype": "video/mp4",
+   "name": "0pt3ge video.mp4",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20260000641/downloads/0pt3ge%20video.mp4"
+   }
+  },
+  {
+   "draft": false,
+   "mimetype": "video/mp4",
+   "name": "1ge video.mp4",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20260000641/downloads/1ge%20video.mp4"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

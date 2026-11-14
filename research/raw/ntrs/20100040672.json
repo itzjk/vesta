@@ -1,0 +1,139 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20100040672,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "0b2def1875d94908a72d39adc9284371",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20100040672,
+  "ear": "NO",
+  "id": "3ecc3ac964364f2e855f0edb3fa92a62",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-22288",
+  "Report Number: JSC-CN-22288"
+ ],
+ "title": "Life Support and Habitation Systems: Crew Support and Protection for Human Exploration Missions Beyond Low Earth Orbit",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T22:16:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20100040672,
+   "meta": {
+    "author": {
+     "name": "Barta, Daniel J."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "538a6e55c9d542d99b5acadbd632d39b"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20100040672,
+   "meta": {
+    "author": {
+     "name": "McQuillan, Jeffrey"
+    },
+    "organization": {
+     "name": "MEI Technologies, Inc.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "77ff15fc8e384ca8ab2e9b7765f66aab"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20100040672,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T22:16:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "Life Support and Habitation Systems (LSHS) is one of 10 Foundational Domains as part of the National Aeronautics and Space Administration s proposed Enabling Technology Development and Demonstration (ETDD) Program. LSHS will develop and mature technologies to sustain life on long duration human missions beyond Low Earth Orbit that are reliable, have minimal logistics supply and increase self-sufficiency. For long duration exploration missions, further closure of life support systems is paramount, including focus on key technologies for atmosphere revitalization, water recovery, waste management, thermal control and crew accommodation that recover additional consumable mass, reduce requirements for power, volume, heat rejection, crew involvement, and which have increased reliability and capability. Other areas of focus include technologies for radiation protection, environmental monitoring and fire protection. Beyond LEO, return to Earth will be constrained. The potability of recycled water and purity of regenerated air must be measured and certified aboard the spacecraft. Missions must be able to recover from fire events through early detection, use of non-toxic suppression agents, and operation of recovery systems that protect on-board Environmental Control and Life Support (ECLS) hardware. Without the protection of the Earth s geomagnetic field, missions beyond LEO must have improved radiation shielding and dosimetry, as well as warning systems to protect the crew against solar particle events. This paper will describe plans for the new LSHS Foundational Domain and mission factors that will shape its technology development portfolio.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20100040672,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "9c08fb2167114b209f4d33a63deb7bb6"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20100040672,
+   "endDate": "2011-07-21T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "e457369ceffe4b72938fbefaa9af0497",
+     "id": "15caa6a3fa2d4b479a8307944dcc31ba"
+    }
+   ],
+   "name": "International Conference on Environmental Systems",
+   "location": "Portland, OR",
+   "id": "e457369ceffe4b72938fbefaa9af0497",
+   "startDate": "2011-07-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20100040672,
+   "id": "7a2fcd1b30a6406593b23ccc10d002b5",
+   "publicationDate": "2010-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20100040672.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20100040672/downloads/20100040672.pdf",
+    "pdf": "/api/citations/20100040672/downloads/20100040672.pdf",
+    "fulltext": "/api/citations/20100040672/downloads/20100040672.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

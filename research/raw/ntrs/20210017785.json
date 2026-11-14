@@ -1,0 +1,250 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": true,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "MAY_INCLUDE_COPYRIGHT_MATERIAL",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20210017785,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "3f37fade06754fadb184cc24ca5fc76a",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "microgravity",
+  "fire safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20210017785,
+  "ear": "NO",
+  "id": "011240e4a1724b40951aa05345de18dd",
+  "itar": "NO"
+ },
+ "distributionDate": "2021-07-12T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2021-218"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "089407.02.04.22",
+   "submissionId": 20210017785,
+   "id": "96ede41e72ff4e599ecd42c6bf061a8d",
+   "type": "WBS"
+  }
+ ],
+ "title": "Opposed Flame Spreading Along a Structured PMMA Sample in Exploration Atmosphere Under Microgravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2021-06-21T20:40:15.7066430+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "153bca722b625cedbcda9c4e111f6caa",
+   "sequence": 0,
+   "submissionId": 20210017785,
+   "meta": {
+    "author": {
+     "name": "Christian Eigenbrod"
+    },
+    "organization": {
+     "name": "University of Bremen",
+     "location": "Bremen, Germany"
+    }
+   },
+   "id": "8d1015171abe447eb0bc016c5bfb46b8",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "153bca722b625cedbcda9c4e111f6caa",
+   "sequence": 1,
+   "submissionId": 20210017785,
+   "meta": {
+    "author": {
+     "name": "Florian Meyer"
+    },
+    "organization": {
+     "name": "University of Bremen",
+     "location": "Bremen, Germany"
+    }
+   },
+   "id": "53c1dc6d0580499d83b53997fc439afc",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "7ef25b3913855720818f6710ea6b8d94",
+   "sequence": 2,
+   "submissionId": 20210017785,
+   "meta": {
+    "author": {
+     "name": "Grunde Jomaas"
+    },
+    "organization": {
+     "name": "University of Edinburgh",
+     "location": "Edinburgh, United Kingdom"
+    }
+   },
+   "id": "244ae8eaaae242909047e4871b09cf11",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 3,
+   "submissionId": 20210017785,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "David L Urban"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "e836b43310134a3497725f3b012bd66c",
+   "userType": "CIVIL",
+   "userId": "e6ad9f3a70a94fc1a0a4a56bb211746a"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 4,
+   "submissionId": 20210017785,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Gary A Ruff"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "4d35088706ca44228e01e5aa02052490",
+   "userType": "CIVIL",
+   "userId": "f5daba98616b4f9faeb0dc31767c1f15"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 5,
+   "submissionId": 20210017785,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Sandra L Olson"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "68ce4b2b724c47b4be3c03d354641118",
+   "userType": "CIVIL",
+   "userId": "7568d81a24d042dd99c5f823ca00cf6b"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 6,
+   "submissionId": 20210017785,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Paul V Ferkul"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, Maryland, United States"
+    }
+   },
+   "id": "5c4d6dc37b004c909bd37195dbb423bb",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "e1b28b8eccc546bf8ff8d69e271adf75"
+  },
+  {
+   "organizationId": "d843f4f3dd0352f2808ffc1b2eadd095",
+   "sequence": 7,
+   "submissionId": 20210017785,
+   "meta": {
+    "author": {
+     "name": "Balazs Toth"
+    },
+    "organization": {
+     "name": "European Space Agency",
+     "location": "Paris, France"
+    }
+   },
+   "id": "3be0ac51ab4e4090a867a3c9cc0ebebe",
+   "userType": "OTHER"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "EXTERNAL_PEER_COMMITTEE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20210017785,
+ "created": "2021-06-21T20:34:31.4173210+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "As part of SAFFIRE V experiments on the ISS supply spacecraft CYGNUS, flame propagation along different surface structures on a PMMA sample was investigated in opposed flow. The sample was 200 x 400 mm (length x width) with a thickness of 10 mm and contained ribs of different widths (1-10 mm), each 3 mm high, on both sides, arranged in the flow direction. The total thickness of the specimen was thus 16 mm for the ribs. For the first 360 s after ignition with a Kanthal wire, the flow velocity was 20 cm/s in the opposed direction. Then the flow velocity was reduced to 5 cm/s for a duration of 300 s before it was switched off to terminate the experiment. The experimental pressure was 761 hPa and the oxygen concentration was 26.9 vol %. These conditions correspond to atmospheric conditions envisioned for future exploration missions. It was found that the flames ignited downstream propagated forward along the rib edges surprisingly fast with up to 0.88 mm/s (1 mm rib width). Also, it was observed that the wider the rib, the slower the propagation. The widest rib (10 mm) already showed two largely independent edge flames. Unintentionally, the experiment showed how sensitive the flames are to small perturbations of the flow field, as remnants of a preceding and upstream experiment disturbed the incoming flow stratification partially.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20210017785,
+   "endDate": "2021-07-15T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "ICES"
+      }
+     },
+     "meetingId": "046031f883994253a1070e5d29028b11",
+     "id": "aa29d51fd26d4f3da929e2915a275312"
+    }
+   ],
+   "name": "50th International Conference on Environmental Systems",
+   "location": "Virtual",
+   "id": "046031f883994253a1070e5d29028b11",
+   "url": "ices.space",
+   "startDate": "2021-07-12T04:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20210017785,
+   "publisher": "",
+   "id": "20cc8bd8e3fc4550bddac0b3ee889f31",
+   "publicationName": ""
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "ICES-2021-218.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20210017785/downloads/ICES-2021-218.pdf",
+    "pdf": "/api/citations/20210017785/downloads/ICES-2021-218.pdf",
+    "fulltext": "/api/citations/20210017785/downloads/ICES-2021-218.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,46 @@
+https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/science-facilities-on-the-iss/fluids-combustion-facility/
+TITLE: Fluids & Combustion Facility - NASA
+FETCHED: 2026-11-14T10:52:38
+
+#
+Fluids & Combustion Facility
+
+The Fluids and Combustion Facility (FCF) is a set of two International Space Station (ISS) research facilities designed to support physical and biological experiments in support of technology development and validation in space. The FCF consists of two modular, reconfigurable racks called the Combustion Integration Rack (CIR) and the Fluids Integration Rack (FIR). The CIR and FIR were developed at NASAʼs Glenn Research Center (GRC) in Cleveland, Ohio, under a prime contract with ZIN Technologies. The CIR was launched to the ISS on the Space Shuttle STS-126 in 2008 and the FIR was launched on STS-128 in 2009. Both racks are operated remotely from the Glenn ISS Payload Operations Center (GIPOC) at GRC. The sustaining engineering and operations team is under a prime contract with ZIN Technologies.
+
+# Combustion Integrated Rack (CIR)
+
+The Combustion Integrated Rack (CIR), located in the U.S. Laboratory Module (Destiny), enables investigators to perform combustion research to understand the fundamentals of the combustion process, understand fire safety, and methods for suppression of fires in space. The CIR’s main feature is a 100-liter combustion chamber to provide the necessary safety features necessary for the various combustion investigations and is the only rack on ISS dedicated to combustion experimentation. Developed by NASA’s Glenn Research Center, the CIR was launched to the International Space Station (ISS) in November 2008 by the Space Shuttle (STS-126).
+European Space Agency astronaut Frank De Winne, Expedition 20 flight engineer, works with the Combustion Integrated Rack (CIR) in the Destiny laboratory of the International Space Station.
+
+The CIR provides up to 90% of the required hardware to perform a majority of future microgravity combustion experiments on board the ISS. The remaining 10% of the hardware (fuel, igniters, etc.) is provided by the specific investigation teams. A significant amount of diagnostic hardware is designed for many of the planned experiments. The CIR accommodates experiments that address critical needs in the areas of spacecraft fire safety (i.e., fire prevention, detection and suppression), fundamental understanding of the combustion process, flame spread, soot production, material selection, power generation, and incineration of solid wastes.
+
+## Media
+
+10 Images
+
+# Fluids Integrated Rack (FIR)
+
+Astronaut Karen Nyberg working in the FIR rack on the ISS.
+
+The Fluids Integrated Rack (FIR), located in the U.S. Laboratory Module (Destiny), enables investigators from multiple disciplines a large, optics bench platform to integrate a large “mini-facilities” or configuration of optical components similar to their experiment in their ground laboratories. Developed by NASA’s Glenn Research Center, the FIR was launched to the International Space Station (ISS) in August 2009 by the Space Shuttle (STS-128).
+
+The Fluids Integrated Rack accommodates experiments that address critical space exploration research and technology needs for advanced life support (i.e., air revitalization, water reclamation, etc.), power, propulsion, and spacecraft thermal control systems. The primary focus of the these experiments involve boiling heat transfer, multiphase flow, liquid vapor interface control, and liquid and vapor evaporation and condensation, as they relate to the technology needs of various exploration spacecraft subsystems. Another key area of research is in the area of colloids to better understand the interaction of particles and their impact on products produced on Earth. The FIR can also serve as a platform for experiments that address human health and performance, medical technologies, and biosciences.
+
+## Media
+
+10 Images
+
+Keep Exploring
+
+## Discover More Topics From NASA
+
+###
+Combustion Science
+
+Spacecraft Fire Safety | Droplets | Gaseous – Premixed and Non-Premixed | Solid Fuels | Supercritical Reacting Fluids In the…
+
+Fluid Science
+
+Combustion Science
+
+Space Station Crew Members Tour NASA Facility, Talk Earth Science

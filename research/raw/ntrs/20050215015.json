@@ -1,0 +1,104 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050215015,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "10e5fc399a62423d87e8d4a9c9b608c4",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Communications, Spacecraft Communications, Command And Tracking"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050215015,
+  "ear": "NO",
+  "id": "72cc2b4f5ecd4b8a88a9f7866543d945",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-04T00:00:00.0000000+00:00",
+ "title": "Radiative Enhancement Effects on Flame Spread (REEFS) Project Studied \"Green House\" Effects on Fire Spread",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:04:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050215015,
+   "meta": {
+    "author": {
+     "name": "Gokoglu, Suleyman A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "09801468d1dc4b12b828bc99bedd6008"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20050215015,
+   "meta": {
+    "author": {
+     "name": "Ronney, Paul"
+    },
+    "organization": {}
+   },
+   "id": "214ef3cb60354386a82fd5a75f4e4750"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050215015,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:04:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Radiative Enhancement Effects on Flame Spread (REEFS) project, slated for flight aboard the International Space Station, reached a major milestone by holding its Science Concept Review this year. REEFS is led by principal investigator Paul Ronney from the University of Southern California in conjunction with a project team from the NASA Glenn Research Center. The study is focusing on flame spread over flat solid fuel beds to improve our understanding of more complex fires, such as those found in manned spacecraft and terrestrial buildings. The investigation has direct implications for fire safety, both for space and Earth applications, and extends previous work with emphasis on the atmospheres and flow environments likely to be present in fires that might occur in microgravity. These atmospheres will contain radiatively active gases such as carbon dioxide (CO2) from combustion products, and likely gaseous fuels such as carbon monoxide (CO) from incomplete combustion of solid fuel, as well as flows induced by ventilation currents. During tests in the 2.2-Second Drop Tower and KC-135 aircraft at Glenn, the principal investigator introduced the use of foam fuels for flame spread experiments over thermally thick fuels to obtain large spread rates in comparison to those of dense fuels such as PMMA. This enables meaningful results to be obtained even in the 2.2 s available in drop tower experiments.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20050215015,
+   "id": "334092f30bf1412498ac32d4bf4b82aa",
+   "publicationName": "Research and Technology 2002",
+   "publicationDate": "2003-03-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20050215015.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20050215015/downloads/20050215015.pdf",
+    "pdf": "/api/citations/20050215015/downloads/20050215015.pdf",
+    "fulltext": "/api/citations/20050215015/downloads/20050215015.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

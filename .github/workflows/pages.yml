@@ -1,0 +1,51 @@
+# Publishes web/ as it stands in the repository to GitHub Pages.
+# Nothing is built here: web/data, web/api/v1 and web/feed are generated before the commit
+# (node tools/build.mjs needs cached NASA text that includes one file kept out of the repository).
+name: pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Release gate
+        run: node tools/check.mjs
+      - name: Verify the recorded MCP exchange
+        run: node mcp/record.mjs --check
+      - name: Core and MCP tests
+        run: node --test "tests/core/*.test.mjs" "tests/mcp/*.test.mjs"
+
+  deploy:
+    needs: gate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+      - id: deployment
+        uses: actions/deploy-pages@v4

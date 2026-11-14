@@ -1,0 +1,41 @@
+https://www.nasa.gov/wp-json/wp/v2/migration/309159
+TITLE: Smoke Particles Are Not All the ‘SAME’
+FETCHED: 2026-11-14T10:57:43
+PUBLIC-LINK: https://www.nasa.gov/?migration=converted-node-191605
+DATE: 2013-06-07T13:42:01
+
+# Smoke Particles Are Not All the ‘SAME’
+
+NASA astronaut Shannon Walker, Expedition 24 flight engineer, works with the Smoke Aerosol Measurement Experiment (SAME) in the Microgravity Sciences Glovebox (MSG) located in the Columbus laboratory of the International Space Station. (NASA Image: ISS024E008351)
+
+View large image
+
+SAME sample carousel aboard the International Space Station. (NASA Image: ISS015E36015)
+
+View large image Where there’s smoke, you need a functioning smoke detector that can tell the difference between, say, smoke particles and dust. Yet in the microgravity environment of the International Space Station, telling the difference between an actual fire and a false alarm may not be so simple.
+
+To understand how best to detect smoke in space, researchers from NASA’s Glenn Research Center flew the Smoke Aerosol Measurement Experiment, or SAME, aboard the space station. This experiment was originally conducted in 2007 and ran a second time in 2011.
+
+“SAME had various spacecraft materials that we would overheat to make smoke. We sampled the smoke with devices that were set up to measure the particle size distribution. That, in turn, could allow us to develop a reliable and accurate early warning system,” said David Urban, principal investigator for the experiment at NASA’s Glenn Research Center.
+
+Fire is commonly detected by measuring changes in the amount of airborne microscopic particles in smoke. Among other things, smoke can include soot, ash, polymers, solids and even liquids. Soot dominates the smoke of an open-flame fire. More complex products are common in the early stages of a fire, in smoldering fires, and in charring and scorching. It is the early stage of fire that is the target for a space-based fire detection system.
+
+“Smoke detectors currently in use on the space station are based on detectors used on Earth where gravity [1-g] dominates. Other than what we’ve learned from this experiment, all we know about smoke is based upon our 1-g experience,” Urban said. “Our first experiments suggested that fires in low gravity could actually have more time for development of smoke particles. The particle size appears to be different enough that it impacts the best design for smoke detectors. The goal is to make a smoke detector that functions in low gravity and has a very low probability of false alarm. To achieve that, you need to know what the particle size is apart from the background nuisance sources like dust.”
+
+In the initial SAME experiment there was an issue with the Transmission Electron Microscopy, or TEM, grids used to collect smoke samples.
+
+“Unbeknownst to us, somewhere in the assembly process of the TEM grids of the earlier experiment, they became contaminated. It was hard to tell what was smoke and what was contamination,” Urban said.
+
+Because of this, the project team repeated the experiment with new samples. All the testing hardware was still in place on the space station. All that was needed was to remake the samples and ensure that the grids were contamination free.
+
+In the time between the runs of the investigation, NASA Glenn engineers worked with academics to develop the Multi-Parameter Aerosol Scattering Sensor, or MPASS, which measures and characterizes particulates in real time. R&D Magazine named the device an R&D 100 award winner, a prestigious honor that recognizes significant new research developments.
+
+According to researchers, the new device was developed partially based on information from the first run of SAME. Launching it as part of the second run of the investigation in 2011 capitalized on that knowledge.
+
+“MPASS replaced an existing commercial device that measured one of the three moments of smoke, concentration. MPASS provided that measurement and it also gave us the additional measurement of surface area. Surface area is garnering a lot of interest in the health arena. The device was designed to not only gain some concentration measurements of the particles, but also to get some size measurements. So you could eventually develop the logic that could tell the difference between smoke and dust. A future smoke detector could say, ‘This aerosol does not have the proper size distribution. I don’t think it’s smoke,’” MPASS developer Paul Greenberg, NASA Glenn, said.
+
+The concept may find uses on Earth where knowing about particle size could be critical. Having a small, portable sensor could help in emergency situations for first responders and others where there may be respiratory concerns.
+
+“Accurate detection of smoke in these environments can save lives,” Greenberg said.
+
+Researchers can use the data from SAME and MPASS to advance the understanding of fundamental science. By knowing more about the behavior of smoke and particles in low gravity, better nuisance-free early warning systems can be developed for both spacecraft and homes. At the same time, the sensor concept could prove useful in measuring air particles in other extreme environments, such as on submarines and in underwater laboratories, as well as in non-emergency environments like mines and factories.

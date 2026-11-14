@@ -1,0 +1,1345 @@
+{
+ "schema": "vesta.seed/1",
+ "note": "The verified seed of DESIGN.md section 11. Every quote is verbatim NASA or challenge-page text and goes through research/tools/quotecheck.py at every build. claim is SI-written and marked so on screen. evidence_level uses the short forms flight, summary, model, operations. fuel_class is the seed table's column. conditions carry a number only when the quote states it. Table findings (source.kind psi-table) have no quote: each cells[] entry must equal the raw cell of the PSI table row (the row gate), and column is the key exactly as it stands in the row, including the ? PSI left where a µ was lost.",
+ "findings": [
+  {
+   "id": "S-VENT-01",
+   "investigation": null,
+   "pillar": "prevention",
+   "topic": "ventilation_flow",
+   "claim": "The safety margin assumed from still-air tests may not hold in most spacecraft, because ventilation flow strongly enhances flames.",
+   "quote": "Microgravity experiments demonstrated that the assumed margin of safety of reduced flammability in microgravity, based on quiescent test results, may not be valid for most spacecraft environments where ventilation flow strongly enhances flames.",
+   "source": {
+    "kind": "pdf",
+    "id": "NP-2015-10-034-JSC",
+    "title": "A Researcher's Guide to: Combustion Science",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "year": 2015,
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-FLOW-01",
+   "investigation": null,
+   "pillar": "prevention",
+   "topic": "ventilation_flow",
+   "claim": "For flame spread over solid materials, a gas velocity on the order of 10 cm/s corresponds to a maximum in the flame spread rate.",
+   "quote": "For flame spread across solid materials, the characteristic gas velocity of the minimum in the curve is on the order of 10 cm/s and also corresponds to a maximum in the flame spread rate.",
+   "source": {
+    "kind": "pdf",
+    "id": "NP-2015-10-034-JSC",
+    "title": "A Researcher's Guide to: Combustion Science",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "year": 2015,
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "solid",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-SPREAD-01",
+   "investigation": null,
+   "pillar": "prevention",
+   "topic": "flame_spread",
+   "claim": "In space, at low forced-flow velocities, a flame spreads upstream into the oncoming airflow, contrary to normal-gravity behavior.",
+   "quote": "Completely contrary to normal-gravity behavior, the flame spreads upstream, into the oncoming airflow, in space when the forced-flow velocities are low",
+   "source": {
+    "kind": "pdf",
+    "id": "NP-2015-10-034-JSC",
+    "title": "A Researcher's Guide to: Combustion Science",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "year": 2015,
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "solid",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-LIMIT-01",
+   "investigation": "BASS",
+   "pillar": "prevention",
+   "topic": "flammability_limit",
+   "claim": "BASS results indicate that NASA-STD-6001 Test 1 is not conservative: materials can burn at lower oxygen levels in microgravity than on Earth.",
+   "quote": "Recent results from the BASS experiment currently running on the ISS indicate that NASA-STD-6001 Test 1 is not conservative, and materials can burn at lower oxygen levels in microgravity than on Earth.",
+   "source": {
+    "kind": "pdf",
+    "id": "NP-2015-10-034-JSC",
+    "title": "A Researcher's Guide to: Combustion Science",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "year": 2015,
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "solid",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-LIMIT-02",
+   "investigation": null,
+   "pillar": "prevention",
+   "topic": "flammability_limit",
+   "claim": "In low-flow conditions of microgravity or partial gravity, some materials are flammable at lower oxygen concentrations than in normal gravity.",
+   "quote": "In the low-flow conditions of microgravity or partial gravity, some materials are flammable at lower oxygen concentrations than in normal gravity",
+   "source": {
+    "kind": "pdf",
+    "id": "NP-2015-10-034-JSC",
+    "title": "A Researcher's Guide to: Combustion Science",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "year": 2015,
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "solid",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-O2-01",
+   "investigation": "Saffire-V",
+   "pillar": "prevention",
+   "topic": "oxygen_enrichment",
+   "claim": "In Saffire-V, elevated oxygen levels gave more energetic flames, which would have a larger impact on the vehicle.",
+   "quote": "The elevated oxygen levels show more energetic flames, which would have a larger impact on the vehicle",
+   "source": {
+    "kind": "nasa-page",
+    "id": "saffire-new-discoveries",
+    "title": "Saffire Ignites New Discoveries in Space",
+    "url": "https://www.nasa.gov/humans-in-space/saffire-ignites-new-discoveries-in-space/",
+    "year": 2021,
+    "text_file": "raw/nasa/saffire-new-discoveries.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "solid",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-O2-02",
+   "investigation": null,
+   "pillar": "prevention",
+   "topic": "oxygen_enrichment",
+   "claim": "Many commonly used ISS materials are flammable above 30% oxygen.",
+   "quote": "Further, many commonly used ISS materials are flammable above 30% O2.",
+   "source": {
+    "kind": "pdf",
+    "id": "20260003925",
+    "title": "Impacts of Reduced Pressure Atmospheres on Environmental Control and Life Support Systems (ECLSS) Architectures",
+    "url": "https://ntrs.nasa.gov/citations/20260003925",
+    "year": 2026,
+    "text_file": "raw/nasa/ntrs-reduced-pressure-eclss.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-GAP-01",
+   "investigation": null,
+   "pillar": "design",
+   "topic": "data_gap",
+   "claim": "NASA has flammability data for many materials at 30% oxygen, but limited data above that level.",
+   "quote": "NASA has data for many materials in a 30% O2 environment, but limited material flammability data above this O2 limit.",
+   "source": {
+    "kind": "pdf",
+    "id": "20260003925",
+    "title": "Impacts of Reduced Pressure Atmospheres on Environmental Control and Life Support Systems (ECLSS) Architectures",
+    "url": "https://ntrs.nasa.gov/citations/20260003925",
+    "year": 2026,
+    "text_file": "raw/nasa/ntrs-reduced-pressure-eclss.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-PRESS-01",
+   "investigation": "Saffire",
+   "pillar": "prevention",
+   "topic": "pressure",
+   "claim": "Saffire found that reducing pressure slows down the flame spread.",
+   "quote": "found that reducing pressure slows down the flame spread",
+   "source": {
+    "kind": "nasa-page",
+    "id": "iss-fire-safety-in-space-2023",
+    "title": "Science in Space: Week of Sept. 29, 2023 - Fire Safety in Space",
+    "url": "https://www.nasa.gov/missions/station/iss-research/science-in-space-week-of-sept-29-2023-fire-safety-in-space/",
+    "year": 2023,
+    "text_file": "raw/nasa/iss-fire-safety-in-space-2023.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "solid",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-PARTG-01",
+   "investigation": "FM2",
+   "pillar": "prevention",
+   "topic": "partial_gravity",
+   "claim": "Modeling, supported by parabolic-flight and ISS experiments, suggests that materials may burn at lower oxygen concentrations in lunar gravity than on Earth.",
+   "quote": "Previous computational modeling, bolstered by experiments aboard parabolicflight aircraft and the ISS, suggest that materials may burn at lower oxygen concentrations in lunar gravity compared to Earth.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "fm2",
+    "title": "Flammability of Materials on the Moon (FM2)",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-of-materials-on-the-moon-fm2/",
+    "year": null,
+    "text_file": "raw/nasa/fm2.txt"
+   },
+   "conditions": {
+    "gravity": "partial gravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "model",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-PARTG-02",
+   "investigation": null,
+   "pillar": "design",
+   "topic": "partial_gravity",
+   "claim": "The challenge page states that PSI currently holds no partial-gravity combustion data.",
+   "quote": "there is currently no partial-gravity combustion data available in PSI",
+   "source": {
+    "kind": "challenge-page",
+    "id": "flame-in-freefall",
+    "title": "Flame in Freefall (NASA Space Apps Challenge 2026, challenge page)",
+    "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+    "year": 2026,
+    "text_file": "raw/nasa/spaceapps-challenge-flame-in-freefall.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-PARTG-03",
+   "investigation": null,
+   "pillar": "design",
+   "topic": "partial_gravity",
+   "claim": "The challenge page says microgravity and normal-gravity results could bound intermediate gravity levels; it does not say this is demonstrated.",
+   "quote": "Microgravity and normal-gravity results could bound what occurs at intermediate gravity levels.",
+   "source": {
+    "kind": "challenge-page",
+    "id": "flame-in-freefall",
+    "title": "Flame in Freefall (NASA Space Apps Challenge 2026, challenge page)",
+    "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+    "year": 2026,
+    "text_file": "raw/nasa/spaceapps-challenge-flame-in-freefall.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-EXPL-01",
+   "investigation": "Saffire-V",
+   "pillar": "design",
+   "topic": "exploration_atmosphere",
+   "claim": "Saffire samples were also burned at 8.2 psia and 34% oxygen to simulate the atmosphere of deep space exploration vehicles.",
+   "quote": "In addition, the samples were burned at 8.2 psia and 34% oxygen levels to simulate atmosphere conditions for deep space exploration vehicles.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "saffire-mission",
+    "title": "Spacecraft Fire Safety (Saffire)",
+    "url": "https://www.nasa.gov/wp-json/wp/v2/migration/309559",
+    "year": 2016,
+    "text_file": "raw/nasa/saffire-mission.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": 34,
+    "pressure": "8.2 psia",
+    "flow": null
+   },
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "solid",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-EXPL-02",
+   "investigation": null,
+   "pillar": "design",
+   "topic": "exploration_atmosphere",
+   "claim": "The exploration atmosphere helps spacewalks but brings the challenge of fire management at higher-than-normal oxygen.",
+   "quote": "Unfortunately, the benefits of EA in support of safe and efficient EVAs comes with the challenge of fire management in a higher-than-normal O",
+   "source": {
+    "kind": "pdf",
+    "id": "20240003211",
+    "title": "Moon to Mars (M2M): Exploration Atmosphere",
+    "url": "https://ntrs.nasa.gov/citations/20240003211",
+    "year": 2024,
+    "text_file": "raw/nasa/ntrs-m2m-exploration-atmosphere.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-DET-01",
+   "investigation": "SAME",
+   "pillar": "detection",
+   "topic": "detector_response",
+   "claim": "Spacecraft fire detection has to target the early phase of a fire: pyrolysis products rather than soot.",
+   "quote": "Given the constrained space on any spacecraft, the target for the fire detection system is necessarily the early phase and not established flaming fires; consequently, the primary target for detection is pyrolysis products rather than soot.",
+   "source": {
+    "kind": "pdf",
+    "id": "same",
+    "title": "Smoke Aerosol Measurement Experiment (SAME), NASA fact sheet",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-aerosol-measurement-experiment-same.pdf",
+    "year": null,
+    "text_file": "raw/nasa/same.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "smoke_source",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-DET-02",
+   "investigation": "SAME",
+   "pillar": "detection",
+   "topic": "smoke_particles",
+   "claim": "In SAME, all samples produced many sub-micron particles, better detected by an ionization detector; a light-scattering detector would perform very well for most of the cases.",
+   "quote": "All samples produced significant numbers of sub-micron particulate that are better detected using an ionization smoke detector, however a light scattering detector would perform very well for most of the cases.",
+   "source": {
+    "kind": "pdf",
+    "id": "same",
+    "title": "Smoke Aerosol Measurement Experiment (SAME), NASA fact sheet",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-aerosol-measurement-experiment-same.pdf",
+    "year": null,
+    "text_file": "raw/nasa/same.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "smoke_source",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-DET-03",
+   "investigation": "SAME",
+   "pillar": "detection",
+   "topic": "detector_response",
+   "claim": "ISS smoke detectors use near-infrared forward scattering and are most sensitive to particles larger than 1 µm.",
+   "quote": "The International Space Station (ISS) smoke detectors use near-IR forward scattering, rendering them most sensitive to particles larger than 1 µm, outside of the range of sensitivity of the shuttle detector.",
+   "source": {
+    "kind": "pdf",
+    "id": "same",
+    "title": "Smoke Aerosol Measurement Experiment (SAME), NASA fact sheet",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-aerosol-measurement-experiment-same.pdf",
+    "year": null,
+    "text_file": "raw/nasa/same.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-DET-04",
+   "investigation": "DAFT",
+   "pillar": "detection",
+   "topic": "smoke_particles",
+   "claim": "Smoke particles that form in microgravity can be larger than those formed on Earth.",
+   "quote": "smoke particles that form in microgravity can be larger than those formed on Earth.",
+   "source": {
+    "kind": "pdf",
+    "id": "daft",
+    "title": "Dust and Aerosol Measurement Feasibility Test (DAFT), NASA fact sheet",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/dust-and-aerosol-measurement-feasibility-test-daft.pdf",
+    "year": null,
+    "text_file": "raw/nasa/daft.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "aerosol",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-SHAPE-01",
+   "investigation": null,
+   "pillar": "detection",
+   "topic": "flame_shape",
+   "claim": "On the space station, low-momentum flames tend to be rounded or even spherical.",
+   "quote": "In microgravity, this flow doesn't occur and on the space station, low-momentum flames tend to be rounded or even spherical.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "iss-combustion-fire-safety",
+    "title": "Studying Combustion and Fire Safety",
+    "url": "https://www.nasa.gov/missions/station/iss-research/studying-combustion-and-fire-safety/",
+    "year": 2023,
+    "text_file": "raw/nasa/iss-combustion-fire-safety.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-COOL-01",
+   "investigation": "FLEX",
+   "pillar": "detection",
+   "topic": "no_visible_flame",
+   "claim": "FLEX led to the discovery of a cool flame: the fuel kept burning under certain conditions after the visible flame went out.",
+   "quote": "FLEX, which analyzed the effectiveness of fire suppressants, led to the discovery of a type of cool flame, where the fuel continued \"burning\" under certain conditions after extinction of the visible flame.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "iss-combustion-fire-safety",
+    "title": "Studying Combustion and Fire Safety",
+    "url": "https://www.nasa.gov/missions/station/iss-research/studying-combustion-and-fire-safety/",
+    "year": 2023,
+    "text_file": "raw/nasa/iss-combustion-fire-safety.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "liquid_droplet",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-COOL-02",
+   "investigation": "FLEX",
+   "pillar": "detection",
+   "topic": "no_visible_flame",
+   "claim": "Cool flames produce carbon monoxide and formaldehyde, where typical flames produce carbon dioxide and water.",
+   "quote": "Typical flames produce carbon dioxide and water, but cool flames produce carbon monoxide and formaldehyde.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "iss-combustion-fire-safety",
+    "title": "Studying Combustion and Fire Safety",
+    "url": "https://www.nasa.gov/missions/station/iss-research/studying-combustion-and-fire-safety/",
+    "year": 2023,
+    "text_file": "raw/nasa/iss-combustion-fire-safety.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "liquid_droplet",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-AIM-00",
+   "investigation": "BASS",
+   "pillar": "suppression",
+   "topic": "suppressant_application",
+   "claim": "On Earth, an extinguisher generally works best when it attacks the base of the flame.",
+   "quote": "On Earth it is understood that the best results are generally obtained when the extinguisher \"attacks\" the base of the flame, which is both the stabilization point and the point where fresh air first enters the flame.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "title": "Burning and Suppression of Solids (BASS), NASA fact sheet",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "year": null,
+    "text_file": "raw/nasa/bass.txt"
+   },
+   "conditions": {
+    "gravity": "normal gravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-AIM-01",
+   "investigation": "BASS",
+   "pillar": "suppression",
+   "topic": "suppressant_application",
+   "claim": "A suppressant stream may be ineffective or may even make the flame worse by entraining oxygen.",
+   "quote": "it is possible that the suppressant stream will be ineffective or might actually make the flame worse through the entrainment of oxygen",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "title": "Burning and Suppression of Solids (BASS), NASA fact sheet",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "year": null,
+    "text_file": "raw/nasa/bass.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "solid",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-AIM-02",
+   "investigation": "BASS",
+   "pillar": "suppression",
+   "topic": "suppressant_application",
+   "claim": "Local application of suppressant is not adequate to extinguish the flame: the local jet entrains air and sustains the flame even with the ambient airflow off.",
+   "quote": "Also, current findings show that local application of suppressant is not adequate for flame extinguishment. The local jet entrains air and sustains the flame even when the ambient airflow is turned off.",
+   "source": {
+    "kind": "pdf",
+    "id": "NP-2015-10-034-JSC",
+    "title": "A Researcher's Guide to: Combustion Science",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "year": 2015,
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "solid",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-AIM-03",
+   "investigation": "BASS",
+   "pillar": "suppression",
+   "topic": "suppressant_application",
+   "claim": "Extinguishing methods used on the ground could be ineffective in space or even make the flame worse.",
+   "quote": "Putting out fires in space must consider flame geometry, characteristics of the materials, and methods used to extinguish it, because methods used on the ground could be ineffective or even make the flame worse.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "iss-combustion-fire-safety",
+    "title": "Studying Combustion and Fire Safety",
+    "url": "https://www.nasa.gov/missions/station/iss-research/studying-combustion-and-fire-safety/",
+    "year": 2023,
+    "text_file": "raw/nasa/iss-combustion-fire-safety.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "solid",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-INERT-01",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "suppressant_agent",
+   "claim": "Terrestrial standards for inert-gas suppressants do not offer the same margin of safety in low gravity as in normal gravity.",
+   "quote": "The implication is that terrestrial standards for inert gas suppressants in low gravity do not offer the same margin of safety as in normal gravity.",
+   "source": {
+    "kind": "pdf",
+    "id": "NP-2015-10-034-JSC",
+    "title": "A Researcher's Guide to: Combustion Science",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "year": 2015,
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": "liquid_droplet",
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-BATT-01",
+   "investigation": null,
+   "pillar": "suppression",
+   "topic": "battery",
+   "claim": "A battery in thermal runaway is a self-propagating combustion event; displacing oxygen is no longer enough to extinguish it.",
+   "quote": "When a battery goes into thermal run-away, it becomes a self-propagating combustion event and displacing oxygen is no longer a sufficient means by which to extinguish the event.",
+   "source": {
+    "kind": "pdf",
+    "id": "20220019247",
+    "title": "Evolution of Hardware and Philosophy of Emergency Response Actions on the International Space Station and Future Spacecrafts",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "year": 2023,
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "operations",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-COMM-01",
+   "investigation": null,
+   "pillar": "design",
+   "topic": "comm_delay",
+   "claim": "On a Mars mission the communication delay is up to 20 minutes one way.",
+   "quote": "Facing a communication delay of up to 20 minutes one way",
+   "source": {
+    "kind": "nasa-page",
+    "id": "hrp-distance-from-earth",
+    "title": "Hazard: Distance From Earth",
+    "url": "https://www.nasa.gov/hrp/hazard-distance-from-earth/",
+    "year": null,
+    "text_file": "raw/nasa/hrp-distance-from-earth.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "S-COMM-02",
+   "investigation": null,
+   "pillar": "design",
+   "topic": "comm_delay",
+   "claim": "On a Mars mission the round-trip communication delay is up to 40 minutes.",
+   "quote": "On a mission to Mars, the crew will experience roundtrip communication delays up to 40 minutes",
+   "source": {
+    "kind": "pdf",
+    "id": "20230002268",
+    "title": "Effects of Communication Delay on Human Spaceflight Missions",
+    "url": "https://ntrs.nasa.gov/citations/20230002268",
+    "year": 2023,
+    "text_file": "raw/nasa/ntrs-comm-delay-effects.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "fuel_class": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": true,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "T-SAF2-01",
+   "investigation": "SAFFIRE-II",
+   "pillar": "prevention",
+   "topic": "flame_spread",
+   "claim": "Two Saffire-II silicone samples that burned completely in the 1-g test show a burn length of about 0 in microgravity.",
+   "source": {
+    "kind": "psi-table",
+    "id": "PSI-99",
+    "title": "Spacecraft Fire Experiment-II, PSI experimental table",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-99",
+    "year": null,
+    "text_file": null
+   },
+   "row_ids": [
+    "PSI-99:1",
+    "PSI-99:4"
+   ],
+   "cells": [
+    {
+     "row_id": "PSI-99:1",
+     "column": "?-g Burn Length",
+     "raw": "~ 0"
+    },
+    {
+     "row_id": "PSI-99:1",
+     "column": "1-g Burn Length",
+     "raw": "Complete"
+    },
+    {
+     "row_id": "PSI-99:4",
+     "column": "?-g Burn Length",
+     "raw": "~ 0"
+    },
+    {
+     "row_id": "PSI-99:4",
+     "column": "1-g Burn Length",
+     "raw": "Complete"
+    }
+   ],
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": null,
+    "support": "direct"
+   }
+  },
+  {
+   "id": "T-SAF2-02",
+   "investigation": "SAFFIRE-II",
+   "pillar": "prevention",
+   "topic": "flame_spread",
+   "claim": "The Saffire-II SIBAL sample burned 29 cm in microgravity; the 1-g test burned the whole sample.",
+   "source": {
+    "kind": "psi-table",
+    "id": "PSI-99",
+    "title": "Spacecraft Fire Experiment-II, PSI experimental table",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-99",
+    "year": null,
+    "text_file": null
+   },
+   "row_ids": [
+    "PSI-99:5"
+   ],
+   "cells": [
+    {
+     "row_id": "PSI-99:5",
+     "column": "?-g Burn Length",
+     "raw": "29 cm"
+    },
+    {
+     "row_id": "PSI-99:5",
+     "column": "1-g Burn Length",
+     "raw": "Complete"
+    }
+   ],
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": null,
+   "si_written": [
+    "claim"
+   ],
+   "verified": {
+    "quote": null,
+    "support": "direct"
+   }
+  }
+ ]
+}

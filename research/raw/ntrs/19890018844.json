@@ -1,0 +1,167 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "approverComments": "Distribution within the U.S. granted by agreement",
+  "containsIndication": true,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 19890018844,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": true,
+  "id": "156efee4d3ef49dc97ec413ae2562ef8",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19890018844,
+  "ear": "NO",
+  "id": "3a2f57ccc1e04426bb32aa6c3b01e91f",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-27T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ESA SP-288"
+ ],
+ "title": "Status of the US Space Station ECLSS and internal TCS",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T00:13:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "ff293352e05b51ca965411fc94f5e325",
+   "sequence": 0,
+   "submissionId": 19890018844,
+   "meta": {
+    "author": {
+     "name": "R. Humphries"
+    },
+    "organization": {
+     "name": "Marshall Space Flight Center",
+     "location": "Redstone Arsenal, Alabama, United States"
+    }
+   },
+   "id": "57514bba9f0e45d1a0ec330345b65fb2",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "ff293352e05b51ca965411fc94f5e325",
+   "sequence": 1,
+   "submissionId": 19890018844,
+   "meta": {
+    "author": {
+     "name": "L. Turner"
+    },
+    "organization": {
+     "name": "Marshall Space Flight Center",
+     "location": "Redstone Arsenal, Alabama, United States"
+    }
+   },
+   "id": "d9c4e62d06524bafa179f78979a15e50",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "ff293352e05b51ca965411fc94f5e325",
+   "sequence": 2,
+   "submissionId": 19890018844,
+   "meta": {
+    "author": {
+     "name": "J. Reuter"
+    },
+    "organization": {
+     "name": "Marshall Space Flight Center",
+     "location": "Redstone Arsenal, Alabama, United States"
+    }
+   },
+   "id": "6d8fcb9cbc9740d4bfb4bbfe3753ce97",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "ff293352e05b51ca965411fc94f5e325",
+   "sequence": 3,
+   "submissionId": 19890018844,
+   "meta": {
+    "author": {
+     "name": "D. Patterson"
+    },
+    "organization": {
+     "name": "Marshall Space Flight Center",
+     "location": "Redstone Arsenal, Alabama, United States"
+    }
+   },
+   "id": "eaef52f8d4784116a7806c50a61f5860",
+   "userType": "OTHER"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19890018844,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "89N28215"
+ },
+ "created": "2013-09-06T00:13:00.0000000+00:00",
+ "center": {
+  "code": "MSFC",
+  "name": "Marshall Space Flight Center",
+  "id": "a589fc1e68af409f9d2214bb08863d11"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The U.S. Space Station includes many elements and systems. Responsibility for these have been delegated to four NASA centers via a work packaging concept. Marshall Space Flight Center (MSFC) is responsible for work package one (WPOI) which includes the habitation, laboratory modules, the logistic carrier elements, as well as the environmental control and life support system (ECLSS), the internal thermal control system (ITCS), and the internal audio and video systems. Current status of the ECLSS and internal thermal are the subjects of this paper.\n\nThe ECLSS is composed of six subsystem groups: the temperature humidity control, the atmosphere control and supply, the air revitalization, water reclamation and management, fecal waste management, and the fire detection and suppression subsystems. The internal TCS consists of all WP01 elements of passive and active thermal measures. The ECLSS and ITCS provide services for the permanently orbiting pressurized modules as well as the pressurized and unpressurized logistics carriers.\n\nThe logistics carriers are used as ground-to-station ferries for both resupply and initial delivery of selected new equipment and later replacement items. Equipment, which cannot be subjected to the rigors of the space environment, will be carried in the pressurized logistic carrier; while an unpressurized carrier is used to resupply other commodities, such as external fluid consumables. The laboratory module houses the equipment for both payloads and subsystem maintenance and repair. The habitation module is dedicated to providing living and sleeping quarters including a galley, sleeping provisions, hygiene facilities, medical services as well as services for exercise and relaxation. The four nodes that join the two modules at their ends also house electronics as well as work stations and outside viewing cupolas. The airlocks, one providing an emergency hyperbaric chamber capability, are also attached. This assembly constitutes the U.S. provided portion of the initial station. Additional international modules and docking provisions for future attached pressurized payload as well as dual logistic module and growth capabilities are also provided.\n\nThe primary heat rejection mechanism is achieved via a central set of radiators provided by another work package. The interface with the central TCS at the module heat exchangers defines the active control interface boundary of the ITCS with the central TCS.\n\nAll internal cooling of the permanent orbital elements are provided via internal active fluid loops within the elements utilizing water as the transport media. Cabin and equipment cooling are provided by forced air flow and cold plate heat sinks. A special active cooling loop is provided in the laboratory module to accommodate experiments and other payloads. Coatings and insulation are used in conjunction with the active components to passively limit heat losses/gains.\n\nThe most challenging ECLSS new technology issues relate to oxygen and water recovery. Closure of the oxygen loop requires the use of new regenerative CO 2 removal and concentration techniques, CO 2 reduction to convert the CO 2 to water with a waste by-product, and the electrolysis of water to produce breathing oxygen for water recovery. For water recovery three separate loops are currently planned. One loop provides potable water by utilizing a combination of recovered condensate and CO 2 reduction water. A second loop purifies hygiene water from waste from the showers, clothes washer, hygiene/hand wash stations and a dishwasher. The third loop provides hygiene water by the reclamation and purification of urine water.\n\nThis paper outlines the basic services provided by the ECLSS and ITCS and describes the ECLSS functional distribution throughout the pressurized assembly.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "cui": {
+  "isCui": false,
+  "submissionId": 19890018844,
+  "id": "84bedc8102a64d9187db4b6d01571014"
+ },
+ "meetings": [
+  {
+   "country": "NL",
+   "submissionId": 19890018844,
+   "endDate": "1988-10-06T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "d843f4f3dd0352f2808ffc1b2eadd095",
+     "meta": {
+      "organization": {
+       "name": "European Space Agency",
+       "location": "Paris, France"
+      }
+     },
+     "meetingId": "c9a303f46a254965aaefd2556b6ba35e",
+     "id": "828218c5ad2e46309708c6b08ea311ac"
+    }
+   ],
+   "name": "3rd European Symposium on Space Thermal Control and Life Support Systems",
+   "location": "Noordwijk",
+   "id": "c9a303f46a254965aaefd2556b6ba35e",
+   "startDate": "1988-10-03T04:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19890018844,
+   "publisher": "ESA Publications Division",
+   "id": "72f103acd8694b7b856412e377ac50c1",
+   "publicationName": "Proceedings of the third European Symposium on Space Thermal Control and Life Support Systems",
+   "publicationDate": "1988-12-01T00:00:00.0000000+00:00",
+   "issuePublicationDate": "1988-12-01T05:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,136 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20110012896,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "2114210b0ee347378d5df526b543c491",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20110012896,
+  "ear": "NO",
+  "id": "569f98b73be749be857d0e3de21e7d93",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-08-12T18:08:58.3530000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-24002",
+  "Report Number: JSC-CN-24002"
+ ],
+ "title": "Developing Standards to Qualify a Fine Water Mist Fire Extinguisher for Human Spaceflight",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T07:40:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20110012896,
+   "meta": {
+    "author": {
+     "name": "Graf, John"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "11755bc904764ec2a7998ac99cec5774"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20110012896,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T07:40:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "NASA is developing a Fine Water Mist Portable Fire Extinguisher for use on the International Space Station. The International Space Station presently uses two different types of fire extinguishers: a water foam extinguisher in the Russian Segment, and a carbon dioxide extinguisher in the US Segment and Columbus and Kibo pressurized elements. Changes in emergency breathing equipment make Fine Water Mist operationally preferable. Supplied oxygen breathing systems allow for safe discharge of a carbon dioxide fire extinguisher, without concerns of the crew inhaling unsafe levels of carbon dioxide. But the Portable Breathing Apparatus offers no more than 15 minutes of capability, and continued use of hose based supplied oxygen systems increases the oxygen content in a fire situation. NASA has developed a filtering respirator cartridge for use in a fire environment. It is qualified to provide up to 90 minutes of capability, and because it is a filtering respirator it does not add oxygen to the environment. The fire response respirator cartridge does not filter carbon dioxide, so a crew member discharging a CO2 fire extinguisher while wearing this filtering respirator would be at risk of inhaling unsafe levels of CO2. Fine Water Mist extinguishes a fire without creating a large volume of air with reduced oxygen and elevated CO2. Compared to the carbon dioxide based Portable Fire Extinguisher, the flight qualification of Fine Water Mist systems requires special care. Qualification of the CO2 based Portable Fire Extinguisher began with the assumption that any fire on ISS would be extinguished if the air in the fire environment reached a critical concentration of CO2. Qualification of a CO2 based system requires the developers to make assertions and assumptions about vehicle geometry and the ability of the extinguisher to deliver CO2 in different geometric configurations, but the developers did not need to make assertions or assumptions about the size of the fire, the temperature, or the heat generation rate. Fine Water Mist systems extinguish a fire predominantly by removing heat -- so qualification standards must evaluate geometry, but also temperature, heat transfer, and heat generation rate. This paper outlines and describes the methods used to develop standards used to qualify Fine Water Mist systems for a human spaceflight environment.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20110012896,
+   "name": "European Space Agency",
+   "location": "Paris, France",
+   "id": "fe96aa4327874a2eb02456e934958508"
+  },
+  {
+   "country": "France",
+   "submissionId": 20110012896,
+   "endDate": "2011-10-19T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "0bba4b66c88d4f6b9af09a68495f6606",
+     "meta": {
+      "organization": {
+       "name": "European Space Agency",
+       "location": "Paris, France"
+      }
+     },
+     "meetingId": "2f6d7960444f4a47a77942f06c61615c",
+     "id": "d6a5cb4aab65400e8b82f5afe7f02fd6"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "NASA Headquarters",
+       "location": "Washington, DC, United States"
+      }
+     },
+     "meetingId": "2f6d7960444f4a47a77942f06c61615c",
+     "id": "25f0df476a9e4c56845590ad4903768e"
+    }
+   ],
+   "name": "5th IAASS Conference",
+   "location": "Versailles",
+   "id": "2f6d7960444f4a47a77942f06c61615c",
+   "startDate": "2011-10-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20110012896,
+   "id": "6860c6e5556b4dceb1e2de23a428ba8d",
+   "publicationDate": "2011-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20110012896.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20110012896/downloads/20110012896.pdf",
+    "pdf": "/api/citations/20110012896/downloads/20110012896.pdf",
+    "fulltext": "/api/citations/20110012896/downloads/20110012896.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

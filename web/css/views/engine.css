@@ -1,0 +1,88 @@
+/* Engine (#/engine). The view root is 1920 x 976 with 16 px 24 px padding; this screen fits it with no page scroll.
+   Nothing here is smaller than 13 px. Green, amber and red are kept for the statuses and NO SOURCE. */
+#view.eng{display:flex;flex-direction:column;gap:14px;overflow:hidden}
+
+/* header */
+.eng-head{flex:none;display:flex;align-items:baseline;gap:var(--s5);height:48px}
+.eng-head h1{letter-spacing:.01em}
+.eng-built{font:400 18px/26px var(--font);color:var(--ice-text)}
+.eng-built b{font-weight:600;color:var(--white);font-variant-numeric:tabular-nums}
+.eng-motto{margin-left:auto;font:600 26px/30px var(--display);color:var(--white);text-shadow:0 0 18px rgba(66,163,255,.45)}
+
+/* the pipeline: sources, then four nodes, arrows between them */
+.eng-flow{flex:none;display:grid;grid-template-columns:212px 28px 1fr 28px 1fr 28px 1fr 28px 1fr;align-items:stretch;gap:8px}
+.eng-arrow{align-self:center;display:grid;place-items:center;color:var(--line-strong);filter:drop-shadow(0 0 6px rgba(66,163,255,.6))}
+.eng-src{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:var(--s4);border:1px dashed var(--line);border-radius:var(--r-panel);background:rgba(6,12,26,.5)}
+.eng-src .t-label{color:var(--dim);margin-bottom:var(--s2)}
+.eng-src b{font:600 22px/26px var(--display);color:var(--white);margin-top:var(--s3)}
+.eng-src b:first-of-type{margin-top:0}
+.eng-src span:not(.t-label){font:400 15px/20px var(--font);color:var(--ice-text)}
+
+.eng-node{min-width:0}
+.eng-node .panel-body{display:flex;flex-direction:column;gap:var(--s2);min-height:0}
+.eng-stats{display:flex;flex-direction:column;gap:2px}
+.eng-stat{display:flex;align-items:baseline;gap:10px;min-height:28px}
+.eng-num{flex:none;min-width:74px;text-align:right;font:600 22px/26px var(--font);font-variant-numeric:tabular-nums;color:var(--white)}
+.eng-num.eng-na{font:400 15px/26px var(--font);color:var(--dim);font-style:normal}
+.eng-lab{min-width:0;font:400 15px/20px var(--font);color:var(--ice-text)}
+.eng-sub{white-space:nowrap}
+.eng-sub .eng-num{min-width:0;font-size:18px;line-height:20px}
+.eng-nosource .eng-num,.eng-nosource .eng-lab{color:var(--red)}
+.eng-nosource .eng-lab{font-weight:600;letter-spacing:.06em}
+.eng-more{margin-left:4px;padding:1px 10px;border:1px solid var(--line);border-radius:var(--r-pill);background:transparent;color:var(--ice-text);font:600 13px/16px var(--font);letter-spacing:.06em;cursor:pointer}
+.eng-more:hover{border-color:var(--line-strong);color:var(--white);background:var(--panel-strong)}
+.eng-review{display:flex;flex-direction:column;gap:1px;margin-top:6px;padding-top:8px;border-top:1px solid var(--line-faint);font:400 15px/20px var(--font);color:var(--ice-text)}
+.eng-review .t-label{color:var(--dim);margin-bottom:2px}
+.eng-review .eng-num{display:inline-block;min-width:46px;margin-right:8px;font-size:18px;line-height:20px}
+.eng-review .eng-num.eng-na{min-width:0;font-size:15px}
+.eng-use{margin-top:auto;padding-top:8px;border-top:1px solid var(--line-faint);font:400 15px/20px var(--font);color:var(--dim)}
+.eng-rule{margin-top:10px;font:600 22px/26px var(--display);color:var(--white)}
+
+/* bottom row: the drawers, the coverage table, where the SI is */
+.eng-bottom{flex:1 1 0;min-height:0;display:grid;grid-template-columns:1fr 400px 372px;gap:var(--s4)}
+.eng-bottom>.panel{min-height:0;min-width:0;display:flex;flex-direction:column}
+.eng-bottom>.panel>.panel-body{flex:1 1 0;min-height:0;display:flex;flex-direction:column;gap:var(--s3)}
+
+.eng-tabs{flex:none;display:flex;flex-wrap:wrap;gap:var(--s2)}
+.eng-tab{display:inline-flex;align-items:center;gap:10px;height:36px;padding:0 14px;border:1px solid var(--line);border-radius:var(--r-pill);background:transparent;color:var(--ice-text);
+  font:600 13px/16px var(--font);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background var(--t-fast) var(--ease),border-color var(--t-fast) var(--ease)}
+.eng-tab b{font:600 15px/16px var(--font);letter-spacing:0;color:var(--white)}
+.eng-tab:hover{background:var(--panel)}
+.eng-tab.on{border-color:var(--line-strong);background:var(--panel-strong);color:var(--white);box-shadow:var(--glow)}
+.eng-drawer{flex:1 1 0;min-height:0;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--line) transparent;border-top:1px solid var(--line-faint)}
+.eng-drawer::-webkit-scrollbar{width:8px} .eng-drawer::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+.eng-none{padding:var(--s4) 0;font:400 18px/26px var(--font);color:var(--ice-text)}
+.eng-gate{flex:none;font:400 15px/20px var(--font);color:var(--ice-text)}
+.eng-gate code,.eng-table code{font:500 14px/20px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--white);background:rgba(66,163,255,.1);padding:2px 8px;border-radius:6px}
+.eng-dim{color:var(--dim);font-weight:400}
+
+.eng-table{width:100%;border-collapse:collapse;font:400 15px/20px var(--font);color:var(--ice-text)}
+.eng-table th{position:sticky;top:0;z-index:1;padding:8px 12px 8px 0;text-align:left;font:600 13px/16px var(--font);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);background:#08132a;white-space:nowrap}
+.eng-table td{padding:7px 12px 7px 0;vertical-align:top;border-top:1px solid var(--line-faint)}
+.eng-table .eng-id{white-space:nowrap;color:var(--white);font-weight:600}
+.eng-table .eng-id a{color:var(--white)}
+.eng-table .eng-q{color:var(--white)}
+.eng-table .eng-q a{white-space:nowrap}
+
+.eng-cov th{background:transparent;position:static;padding-right:8px}
+.eng-cov th:first-child{white-space:normal}
+.eng-cov td{padding:6px 8px 6px 0;vertical-align:baseline}
+.eng-cov .eng-c{text-align:right}
+.eng-cov .eng-num{min-width:0}
+.eng-line{margin-top:auto;font:600 13px/16px var(--font);letter-spacing:.12em;text-transform:uppercase;color:var(--cream)}
+.eng-where{font:400 18px/26px var(--font);color:var(--white)}
+.eng-links{margin-top:auto;display:flex;flex-wrap:wrap;gap:var(--s2)}
+
+.eng-flow{grid-template-columns:180px 24px 1fr 24px 1fr 24px 1fr 24px 1fr}
+.eng-node .panel-head,.eng-cover .panel-head{flex-wrap:wrap;gap:4px}
+.eng-node .panel-title,.eng-cover .panel-title{flex:none;max-width:100%;overflow:visible;text-overflow:clip}
+.eng-node .panel-tag{max-width:100%;white-space:normal}
+.eng-bottom{grid-template-columns:minmax(0,1fr) 570px 390px}
+.eng-cover .panel-body{overflow:auto}
+.eng-cov{table-layout:fixed}
+.eng-cov th{white-space:normal;font-size:13px;letter-spacing:.04em}
+.eng-cov th:first-child{width:27%}
+.eng-cov th [data-status=PROVEN]{color:var(--green)}
+.eng-cov th [data-status=EXTRAPOLATED]{color:var(--amber)}
+.eng-cov th [data-status=NEVER_TESTED]{color:var(--red)}
+.eng-cov td{overflow-wrap:anywhere}

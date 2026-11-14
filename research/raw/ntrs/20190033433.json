@@ -1,0 +1,195 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20190033433,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "d63edae1646146cba14a6e97069044be",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "eccnNumber": ", ",
+  "submissionId": 20190033433,
+  "ear": "NO",
+  "id": "040ab6984dd14089800a5cba129569f3",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-12-10T13:33:17.3100000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN75460",
+  "Report Number: GRC-E-DAA-TN75460"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNX16AC24A",
+   "submissionId": 20190033433,
+   "id": "861bf2b80460450193c6d960e15022bb",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "80NSSC19M0212",
+   "submissionId": 20190033433,
+   "id": "aaacb8d412224a6e929580c4a6f4bf53",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "80NSSC19M0212",
+   "submissionId": 20190033433,
+   "id": "0fed23f207124bf5825ad8e33f4e27b7",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NNX10AD96A",
+   "submissionId": 20190033433,
+   "id": "9f55b960f07540b59723e7b1c693a4d1",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "904211.04.02.20.16",
+   "submissionId": 20190033433,
+   "id": "d0e762de35a24ef69ef28b286db37b6f",
+   "type": "WBS"
+  }
+ ],
+ "title": "Infrared Measurements of Forward Heat Conduction during Simulated Microgravity Flame Spread in the Narrow Channel Apparatus",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2019-12-06T11:01:13.3370000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20190033433,
+   "meta": {
+    "author": {
+     "name": "Berry, Michael"
+    },
+    "organization": {
+     "name": "San Diego State Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "7ad7fe71e0e942ab96fd5bdd3f50819b"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20190033433,
+   "meta": {
+    "author": {
+     "name": "Miller, Fletcher"
+    },
+    "organization": {
+     "name": "San Diego State Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "9fa221991d504bca814331fa8cbaae9e"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20190033433,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "153fcffe29cb446590912171b8108b5e"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20190033433,
+   "meta": {
+    "author": {
+     "name": "Wichman, Indrek"
+    },
+    "organization": {
+     "name": "Michigan State Univ.",
+     "location": "East Lansing, MI, United States"
+    }
+   },
+   "id": "dd10e36830ee4d5587f976f447e027f8"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20190033433,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2019-12-06T11:01:13.3370000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "An infrared (IR) camera provides a way of examining temperature trends associated with simulated microgravity flame spread in the Narrow Channel Apparatus (NCA). The IR camera measures the surface temperature of solid poly methyl methacrylate (PMMA) fuel. These tests examine the forward conduction of heat ahead of the flame front in the non-thermally thin fuel.The NCA is a combustion wind tunnel that simulates a microgravity flame spread environment by employing a narrow gap between the fuel and ceiling of the device, limiting the effects of buoyancy. Test conditions of a 5 mm gap, mean opposed flow velocity of 15 cm/s, and fuel thickness of 3 mm are used.PMMA is selected as the fuel due to repeatability of test results, ease of computational modeling, and known combustion mechanics. Using specific lens and bandpass filter combinations the PMMA can be imaged as effectively opaque. The spectral emissivity for PMMA was calculated and incorporated into the calibration of the camera.Surface temperatures from the IR camera are compared to results from thermocouples embedded in the surface of the fuel. The IR camera results show that nontrivial forward conduction occurs during tests, and therefore must be included in computational models of the process.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20190033433,
+   "endDate": "2019-10-15T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "9b8b9dce88b647adb0010a8c9fab369e",
+     "meta": {
+      "organization": {
+       "name": "Combustion Inst.",
+       "location": "Pittsburgh, PA, United States"
+      }
+     },
+     "meetingId": "ae06aa12577b4e3193cec041a8cc7a90",
+     "id": "610b5af0604c429d98cd20eff788cfc9"
+    }
+   ],
+   "name": "2019 WSSCI Fall Technical Meeting",
+   "location": "Albuquerque, NM",
+   "id": "ae06aa12577b4e3193cec041a8cc7a90",
+   "startDate": "2019-10-14T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20190033433,
+   "id": "dc4ac7aed4734d6d9da532f83f8dc500",
+   "publicationDate": "2019-10-14T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20190033433.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20190033433/downloads/20190033433.pdf",
+    "pdf": "/api/citations/20190033433/downloads/20190033433.pdf",
+    "fulltext": "/api/citations/20190033433/downloads/20190033433.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,154 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20010074003,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "8a0443e23b8c4462afcb76032856cfa6",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20010074003,
+  "ear": "NO",
+  "id": "6cd281297a74440cbc8659fb065b4621",
+  "itar": "NO"
+ },
+ "distributionDate": "2016-06-06T00:00:00.0000000+00:00",
+ "title": "Three-Dimensional Upward Flame Spreading in Partial-Gravity Buoyant Flows",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-20T11:23:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20010074003,
+   "meta": {
+    "author": {
+     "name": "Sacksteder, Kurt R."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "55e4e92fe65949c88d3fdc079ae97023"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20010074003,
+   "meta": {
+    "author": {
+     "name": "Feier, Ioan I."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "7478c8a22f2c448fb60ec93257d3e74f"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20010074003,
+   "meta": {
+    "author": {
+     "name": "Shih, Hsin-Yi"
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "ede2e581fba54628b626919f6c4d75f2"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20010074003,
+   "meta": {
+    "author": {
+     "name": "T'ien, James S."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "d8073c46b3324a729059d382972ffb6f"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20010074003,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-20T11:23:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Reduced-gravity environments have been used to establish low-speed, purely forced flows for both opposed- and concurrent-flow flame spread studies. Altenkirch's group obtained spacebased experimental results and developed unsteady, two-dimensional numerical simulations of opposed-flow flame spread including gas-phase radiation, primarily away from the flammability limit for thin fuels, but including observations of thick fuel quenching in quiescent environments. T'ien's group contributed some early flame spreading results for thin fuels both in opposed flow and concurrent flow regimes, with more focus on near-limit conditions. T'ien's group also developed two- and three-dimensional numerical simulations of concurrent-flow flame spread incorporating gas-phase radiative models, including predictions of a radiatively-induced quenching limit reached in very low-speed air flows. Radiative quenching has been subsequently observed in other studies of combustion in very low-speed flows including other flame spread investigations, droplet combustion and homogeneous diffusion flames, and is the subject of several contemporary studies reported in this workshop. Using NASA aircraft flying partial-gravity \"parabolic\" trajectories, flame spreading in purely buoyant, opposed-flow (downward burning) has been studied. These results indicated increases in flame spread rates and enhanced flammability (lower limiting atmospheric oxygen content) as gravity levels were reduced from normal Earth gravity, and were consistent with earlier data obtained by Altenkirch using a centrifuge. In this work, experimental results and a three-dimensional numerical simulation of upward flame spreading in variable partial-gravity environments were obtained including some effects of reduced pressure and variable sample width. The simulation provides physical insight for interpreting the experimental results and shows the intrinsic 3-D nature of buoyant, upward flame spreading. This study is intended to link the evolving understanding of flame spreading in purely-forced flows to the purely-buoyant flow environment, particularly in the concurrent flow regime; provide additional insight into the existence of steady flame spread in concurrent flows; and stimulate direct comparisons between opposed- and concurrent-flow flame spread. Additionally, this effort is intended to provide direct practical understanding applicable to fire protection planning for the habitable facilities in partial gravity environments of anticipated Lunar and Martian explorations.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20010074003,
+   "id": "a4ec27a6474e454c996f9459681b53ea",
+   "publicationName": "Sixth International Microgravity Combustion Workshop",
+   "publicationDate": "2001-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20010074003.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20010074003/downloads/20010074003.pdf",
+    "pdf": "/api/citations/20010074003/downloads/20010074003.pdf",
+    "fulltext": "/api/citations/20010074003/downloads/20010074003.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

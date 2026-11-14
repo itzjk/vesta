@@ -1,0 +1,308 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20205003817,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "368a8af23a164b6fb6668d36478b6373",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "keywords": [
+  "Smoke",
+  "Smoke detector",
+  "fire safety",
+  "aerosol",
+  "fire",
+  "transfer standard",
+  "obscuration"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20205003817,
+  "ear": "NO",
+  "id": "3cdd77c673aa416d8b263f444e1e3be7",
+  "itar": "NO"
+ },
+ "distributionDate": "2020-07-12T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2020-340"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "80NSSC19M0152",
+   "submissionId": 20205003817,
+   "id": "a82236e525b94a7d95ba9b3564e2d1c9",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "089407.01.22",
+   "submissionId": 20205003817,
+   "id": "8c94307534b6420e9a8c5957c461c3ff",
+   "type": "WBS"
+  },
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20205003817,
+   "id": "450ff0eaad4d48f396b68f8e41555060",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "DRIN20D03",
+   "submissionId": 20205003817,
+   "id": "416e46588df04c6285eb4df2099af6af",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "submittedDate": "2020-06-25T17:49:48.1533660+00:00",
+ "title": "Spacecraft Smoke Detector Characterization with Reference and Smoke Aerosols",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "authorAffiliations": [
+  {
+   "organizationId": "ac70b1c3994755ff96f689aa52b0dfa1",
+   "sequence": 0,
+   "submissionId": 20205003817,
+   "meta": {
+    "author": {
+     "name": "Xiaoliang Wang"
+    },
+    "organization": {
+     "name": "Desert Research Institute",
+     "location": "Reno, Nevada, United States"
+    }
+   },
+   "id": "ff55cda328da431bb1af7a2d525e4f1e",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "ac70b1c3994755ff96f689aa52b0dfa1",
+   "sequence": 1,
+   "submissionId": 20205003817,
+   "meta": {
+    "author": {
+     "name": "Judith C. Chow"
+    },
+    "organization": {
+     "name": "Desert Research Institute",
+     "location": "Reno, Nevada, United States"
+    }
+   },
+   "id": "dcc856fcf36f47d6a85d8ae89f15ce63",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "ac70b1c3994755ff96f689aa52b0dfa1",
+   "sequence": 2,
+   "submissionId": 20205003817,
+   "meta": {
+    "author": {
+     "name": "John  G. Watson"
+    },
+    "organization": {
+     "name": "Desert Research Institute",
+     "location": "Reno, Nevada, United States"
+    }
+   },
+   "id": "bb2f8303f0964cc98a5b4966ed368b7b",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 3,
+   "submissionId": 20205003817,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Marit E. Meyer"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "1eb90027c82d45f58a4ae1da56b2a153",
+   "userType": "CIVIL",
+   "userId": "746679eab2894e4fb0ccd8b15c44344b"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 4,
+   "submissionId": 20205003817,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Gary Ruff"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "1e3ed9bdfec84fc7b84147fa05629fcd",
+   "userType": "CIVIL",
+   "userId": "f5daba98616b4f9faeb0dc31767c1f15"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 5,
+   "submissionId": 20205003817,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "John Easton"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "4576bb6d4ce848c8913bf08bcd8a372e",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "238872ad78464960888b70cf679121e2"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 6,
+   "submissionId": 20205003817,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Gordon Berger"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, Maryland, United States"
+    }
+   },
+   "id": "519f3d0de9a34a8bb83d2cdf960719ba",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "693850a66a124a308a32ad528c31595c"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 7,
+   "submissionId": 20205003817,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Paul D Mudgett"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "df1e12da860d4c178a2099798900ee68",
+   "userType": "CIVIL",
+   "userId": "aa9efd5a7ad445cca76f36468a6174a7"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20205003817,
+ "sourceIdentifiers": [
+  {
+   "number": "https://hdl.handle.net/2346/86366",
+   "submissionId": 20205003817,
+   "id": "43674c4ee4154a9ab4c24a9f88233584",
+   "descriptor": "Texas Tech University Libraries",
+   "type": "URL"
+  }
+ ],
+ "created": "2020-06-23T21:35:29.1451510+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Performance testing of consumer smoke detectors requires specific facilities and experiments with smoldering and flaming emissions from different fuels. Smoke detectors for use in spacecraft are tested using similar setups with representative fuel materials. To simplify smoke detector testing, this study explored the use of laboratory-generated reference aerosols as transfer standards to evaluate smoke detector performance. Among the three tested reference aerosols, mineral oil particles were reproducibly generated with a Gemini smoke detector tester, dioctyl sebacate (DOS) particles were generated with a wide concentration range and flexible size distributions using an atomizer, while polystyrene latex(PSL) particles were difficult to produce with the high concentrations needed for smoke detector testing. Reference aerosols generated from 1.5%–100% DOS solutions and mineral oil covered the response range of six types of smoke aerosols generated by oxidative pyrolysis of spacecraft-relevant materials. Although no single reference aerosol can be used to simulate the response of different smoke detection technologies to different smoke aerosols within ±10% error, the relationship between reference and smoke aerosols derived from this study can be used to predict smoke detector responses to combustion aerosols.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "PT",
+   "submissionId": 20205003817,
+   "endDate": "2020-07-16T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "5848f6aa95065acc8293f9097251ec21",
+     "meta": {
+      "organization": {
+       "name": "ILC Dover (United States)",
+       "location": "Dover, Delaware, United States"
+      }
+     },
+     "meetingId": "2f7a5c1207a04e019794af609dbf5d1e",
+     "id": "d7649056ce3542ad8ab2e882e52ea242"
+    },
+    {
+     "organizationId": "d9746b6157e85e279e653fa4710cc840",
+     "meta": {
+      "organization": {
+       "name": "Paragon Space Development Corporation (United States)",
+       "location": "Tucson, Arizona, United States"
+      }
+     },
+     "meetingId": "2f7a5c1207a04e019794af609dbf5d1e",
+     "id": "25bd55ee4dac4fdaa5cc4b1274bd84ad"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "Collins Aerospace"
+      }
+     },
+     "meetingId": "2f7a5c1207a04e019794af609dbf5d1e",
+     "id": "0b41422ab33d49c4b007c7ecb3ba5fa4"
+    }
+   ],
+   "name": "International Conference on Environmental Systems",
+   "location": "Lisbon",
+   "id": "2f7a5c1207a04e019794af609dbf5d1e",
+   "url": "https://www.ices.space/ices-info/",
+   "startDate": "2020-07-12T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "publications": [
+  {
+   "submissionId": 20205003817,
+   "publisher": "Texas Tech University Libraries",
+   "id": "21b1bdcc90304412a01fdc8def6f5222",
+   "publicationName": "International Conference on Environmental Systems",
+   "publicationDate": "2020-07-12T04:00:00.0000000+00:00",
+   "issuePublicationDate": "2020-07-31T04:00:00.0000000+00:00"
+  }
+ ],
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "ICES_Final_340.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20205003817/downloads/ICES_Final_340.pdf",
+    "pdf": "/api/citations/20205003817/downloads/ICES_Final_340.pdf",
+    "fulltext": "/api/citations/20205003817/downloads/ICES_Final_340.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

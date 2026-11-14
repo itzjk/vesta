@@ -1,0 +1,93 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19880003145,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "b63ee131a12845369f2051c72c3d6a6e",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19880003145,
+  "ear": "NO",
+  "id": "0a603976f6814235b5d7d2493bb0f5c0",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-29T00:00:00.0000000+00:00",
+ "title": "Space station internal environmental and safety concerns",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-05T18:59:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19880003145,
+   "meta": {
+    "author": {
+     "name": "Cole, Matthew B."
+    },
+    "organization": {
+     "name": "NASA Lyndon B. Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "7083208c299049069e25b242e33f4bd7"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19880003145,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "88N12527"
+ },
+ "created": "2013-09-05T18:59:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Space station environmental and safety concerns, especially those involving fires, are discussed. Several types of space station modules and the particular hazards associated with each are briefly surveyed. A brief history of fire detection and suppression aboard spacecraft is given. Microgravity fire behavior, spacecraft fire detector systems, space station fire suppression equipment and procedures, and fire safety in hyperbaric chambers are discussed.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19880003145,
+   "id": "e0e84e376fc14b8b80695d510585f3f6",
+   "publicationName": "NASA. Lewis Research Center, Spacecraft Fire Safety",
+   "publicationDate": "1987-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19880003145.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19880003145/downloads/19880003145.pdf",
+    "pdf": "/api/citations/19880003145/downloads/19880003145.pdf",
+    "fulltext": "/api/citations/19880003145/downloads/19880003145.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

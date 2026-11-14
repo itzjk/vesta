@@ -1,0 +1,114 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19890014267,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "0c4f2443b162460ca7439b5b30d18fcc",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19890014267,
+  "ear": "NO",
+  "id": "004ec6d36d544a0585edbb6fc47d38e4",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-24T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA-CR-182185",
+  "NAS 1.26:182185",
+  "E-4440",
+  "Report Number: NASA-CR-182185",
+  "Report Number: NAS 1.26:182185",
+  "Report Number: E-4440"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 674-22-05",
+   "submissionId": 19890014267,
+   "id": "bb30a6c182ab49139661bc660761535c",
+   "type": "PROJECT"
+  },
+  {
+   "number": "NGT-50088",
+   "submissionId": 19890014267,
+   "id": "ccaccf353d144e6085a47439e3160b38",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "An experimental study of opposed flow diffusion flame extinction over a thin fuel in microgravity",
+ "stiType": "THESIS_DISSERTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-05T23:52:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19890014267,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul V."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "35fe414389fa4f55acb50741e3bd1aee"
+  }
+ ],
+ "stiTypeDetails": "Thesis/Dissertation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19890014267,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "89N23638"
+ },
+ "created": "2013-09-05T23:52:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The flame spread and flame extinction characteristics of a thin fuel burning in a low-speed forced convective environment in microgravity were examined. The flame spread rate was observed to decrease both with decreasing ambient oxygen concentration as well as decreasing free stream velocity. A new mode of flame extinction was observed, caused by either of two means: keeping the free stream velocity constant and decreasing the oxygen concentration, or keeping the oxygen concentration constant and decreasing the free stream velocity. This extinction is called quenching extinction. By combining this data together with a previous microgravity quiescent flame study and normal-gravity blowoff extinction data, a flammability map was constructed with molar percentage oxygen and characteristic relative velocity as coordinates. The Damkohler number is not sufficient to predict flame spread and extinction in the near quench limit region.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19890014267,
+   "id": "8087c16575374ab5960bc99dec0256a8",
+   "publicationDate": "1989-02-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19890014267.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19890014267/downloads/19890014267.pdf",
+    "pdf": "/api/citations/19890014267/downloads/19890014267.pdf",
+    "fulltext": "/api/citations/19890014267/downloads/19890014267.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

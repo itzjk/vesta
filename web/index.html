@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VESTA · the fire officer that doesn't wait for Houston</title>
+<meta name="description" content="VESTA summarizes, ranks and interprets NASA's PSI microgravity combustion investigations into fire-safety decisions, each with its source. A decision-support prototype, not certified flight software.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#02040a">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css?v=4">
+<link rel="stylesheet" href="css/base.css?v=4">
+<link rel="stylesheet" href="css/components.css?v=4">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link id="display-font" rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" media="print">
+</head>
+<body>
+<div id="viewport">
+  <div id="stage" data-state="loading">
+    <header id="bar">
+      <a class="brand" href="#/brief" data-view="brief" aria-label="VESTA, Brief"><span id="brand-mark"></span><b>VESTA</b></a>
+      <nav id="nav" aria-label="Screens"></nav>
+      <span id="bar-actions"></span>
+      <span class="scope"><span>Decision-support prototype</span><span>Not certified flight software</span></span>
+    </header>
+    <main id="view" tabindex="-1"></main>
+    <footer id="foot">
+      <span>Quotes are verbatim NASA text. Table rows are NASA PSI data (CC0-1.0). Claims, rules and decisions are VESTA's interpretation, written with SI assistance and marked. VESTA's art is SVG drawn in code with SI assistance. Not endorsed by NASA.</span>
+      <span class="built" id="built"></span>
+    </footer>
+  </div>
+</div>
+<noscript><p style="color:#ebf5ff;font:18px system-ui;padding:24px">VESTA needs JavaScript to read its evidence files. The data is also here as plain files: <a href="api/v1/index.json" style="color:#99dbff">api/v1/index.json</a>.</p></noscript>
+<script type="module" src="js/app.js?v=4"></script>
+</body>
+</html>

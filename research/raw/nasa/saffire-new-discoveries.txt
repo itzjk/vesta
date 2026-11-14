@@ -1,0 +1,53 @@
+https://www.nasa.gov/humans-in-space/saffire-ignites-new-discoveries-in-space/
+TITLE: Saffire Ignites New Discoveries in Space - NASA
+FETCHED: 2026-11-14T10:54:36
+
+2 min read
+
+# Saffire Ignites New Discoveries in Space
+
+Nikki Welch
+
+Jan 19, 2021
+
+Article
+
+A sample of polymethyl methacrylate, also known as Plexiglas, was burned in the Saffire-V experiment. Ribs were manufactured into the material to see how the flame behaved when small structures were incorporated into larger materials. Researchers discovered that fires in microgravity typically grow and burn faster on the thinner ribs and materials as opposed to thicker samples on the right. Credits: NASA
+
+Our understanding of the way fire behaves in space is expanding as the fifth in a series of NASA investigations ignited recently. The Spacecraft Fire Safety Experiment-V (Saffire-V) successfully tested larger, more dynamic fires for over 26 hours inside Northrop Grumman’s Cygnus spacecraft, following its primary mission of delivering supplies to the International Space Station.
+
+After Cygnus departed the station on Jan. 6, operators on the ground, for the first time on a Saffire mission, lowered the pressure inside the spacecraft and backfilled it with oxygen to replicate potential atmospheric conditions that would likely be experienced inside future human spacecraft.
+
+After ignition, cameras and sensors monitored flame growth, temperature variations, and oxygen changes, which were translated into data. The data will be used to model fire response scenarios, as well as fire detection, combustion product monitoring, and post-fire cleanup.
+
+“The elevated oxygen levels show more energetic flames, which would have a larger impact on the vehicle,” says Gary A. Ruff, Saffire project manager at NASA’s Glenn Research Center in Cleveland. “The Saffire-V data will allow us to model fire scenarios and increase our confidence in safety strategies.”
+
+Another Saffire experiment is ready to fly on an upcoming launch to the space station as NASA continues to pursue a greater understanding of the risks and behaviors of fire in space for Artemis astronauts who will explore the Moon and eventually Mars.
+
+Saffire is a series of experiments developed by the Spacecraft Fire Safety Demonstration Project which supports NASA’s Exploration Capabilities Program.
+
+## Explore More
+
+2 min read
+
+### NASA Astronauts to Answer Questions from Florida Students
+
+Article
+
+1 week ago
+
+2 min read
+
+### NASA Astronaut, STEM Creator Connect with Students for STEM Day
+
+Article
+
+2 weeks ago
+
+3 min read
+
+### NASA’s ISAM State of Play: The Industry Standard for Space Servicing, Assembly, and Manufacturing
+
+Article
+
+2 weeks ago

@@ -1,0 +1,135 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20090036308,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "c2fd12eb9b6644f980a74834758fe652",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20090036308,
+  "ear": "NO",
+  "id": "aa37d2329e7c41dabac80054ba4a353b",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-18810",
+  "Report Number: JSC-CN-18810"
+ ],
+ "title": "Applicability of Aerospace Materials Ground Flammability Test Data to Spacecraft Environments Theory and Applied Technologies",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T19:18:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20090036308,
+   "meta": {
+    "author": {
+     "name": "Hirsch, David"
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "95c7871a8b164d439dd749610aa8c567"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20090036308,
+   "meta": {
+    "author": {
+     "name": "Williams, Jim"
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "2941cdcf17ef449781e68868b0081927"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20090036308,
+   "meta": {
+    "author": {
+     "name": "Beeson, Harold"
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "21a6b6ae7b3648f8a6817cb84cfb1185"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20090036308,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T19:18:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "This slide presentation reviews the use of ground test data in reference to flammability  to spacecraft environments.  It reviews the current approach to spacecraft fire safety, the challenges to fire safety that the Constellation program poses, the current trends in the evaluation of the Constellation materials flammability, and the correlation of test data from ground flammability tests with the spacecraft environment.  Included is a proposal for testing and the design of experiments to test the flammability of materials under similar spacecraft conditions.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "Germany",
+   "submissionId": 20090036308,
+   "endDate": "2009-10-10T00:00:00.0000000+00:00",
+   "name": "Technical Interchange Meeting on Aerospace Materials Flammability",
+   "location": "Bremen",
+   "id": "44b27b0ca6cb4f2aae7cbcd64ee8459b",
+   "startDate": "2009-10-07T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20090036308,
+   "id": "7a20b289493f41f5a5520b2d31c136fe",
+   "publicationDate": "2009-10-07T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20090036308.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20090036308/downloads/20090036308.pdf",
+    "pdf": "/api/citations/20090036308/downloads/20090036308.pdf",
+    "fulltext": "/api/citations/20090036308/downloads/20090036308.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

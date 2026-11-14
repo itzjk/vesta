@@ -1,0 +1,169 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19930011002,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "f78dcaa36d9745aa8e1f39ff4fb1c6f4",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19930011002,
+  "ear": "NO",
+  "id": "a3ea8be2b9ef42a5836ba94eb6a7aae3",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-29T00:00:00.0000000+00:00",
+ "title": "An Experimental and Theoretical Study of Radiative Extinction of Diffusion Flames",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T17:55:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19930011002,
+   "meta": {
+    "author": {
+     "name": "Atreya, Arvind"
+    },
+    "organization": {
+     "name": "Michigan State Univ.",
+     "location": "East Lansing, MI, United States"
+    }
+   },
+   "id": "2a6f91b40b194da7896e93d84a7c9b19"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19930011002,
+   "meta": {
+    "author": {
+     "name": "Wichman, Indrek"
+    },
+    "organization": {
+     "name": "Michigan State Univ.",
+     "location": "East Lansing, MI, United States"
+    }
+   },
+   "id": "a2a439228dd94155afbaae0773fbc642"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19930011002,
+   "meta": {
+    "author": {
+     "name": "Guenther, Mark"
+    },
+    "organization": {
+     "name": "Michigan State Univ.",
+     "location": "East Lansing, MI, United States"
+    }
+   },
+   "id": "37025243f713445386f418eec75abab0"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 19930011002,
+   "meta": {
+    "author": {
+     "name": "Ray, Anjan"
+    },
+    "organization": {
+     "name": "Michigan State Univ.",
+     "location": "East Lansing, MI, United States"
+    }
+   },
+   "id": "d41f616d940e41e186ed26417f3dc582"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 19930011002,
+   "meta": {
+    "author": {
+     "name": "Agrawal, Sanjay"
+    },
+    "organization": {
+     "name": "Michigan State Univ.",
+     "location": "East Lansing, MI, United States"
+    }
+   },
+   "id": "17819b158cb240c78674ee5c9fd166b8"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19930011002,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "93N20191"
+ },
+ "created": "2013-09-06T17:55:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "In a recent paper on 'Observations of candle flames under various atmospheres in microgravity' by Ross et al., it was found that for the same atmosphere, the burning rate per unit wick surface area and the flame temperature were considerably reduced in microgravity as compared with normal gravity. Also, the flame (spherical in microgravity) was much thicker and further removed from the wick. It thus appears that the flame becomes 'weaker' in microgravity due to the absence of buoyancy generated flow which serves to transport the oxidizer to the combustion zone and remove the hot combustion products from it. The buoyant flow, which may be characterized by the strain rate, assists the diffusion process to execute these essential functions for the survival of the flame. Thus, the diffusion flame is 'weak' at very low strain rates and as the strain rate increases the flame is initially 'strengthened' and eventually it may be 'blown out'. The computed flammability boundaries of T'ien show that such a reversal in material flammability occurs at strain rates around 5 sec. At very low or zero strain rates, flame radiation is expected to considerably affect this 'weak' diffusion flame because: (1) the concentration of combustion products which participate in gas radiation is high in the flame zone; and (2) low strain rates provide sufficient residence time for substantial amounts of soot to form which is usually responsible for a major portion of the radiative heat loss. We anticipate that flame radiation will eventually extinguish this flame. Thus, the objective of this project is to perform an experimental and theoretical investigation of radiation-induced extinction of diffusion flames under microgravity conditions. This is important for spacecraft fire safety.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19930011002,
+   "id": "7a32bab69e0d42a7ba177e07f3749479",
+   "publicationName": "NASA. Lewis Research Center, The Second International Microgravity Combustion Workshop",
+   "publicationDate": "1993-02-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19930010989,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The Second International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19930010989,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The Second International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "accessionNumber": "N93-20179 through N93-20219",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19930011002.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19930011002/downloads/19930011002.pdf",
+    "pdf": "/api/citations/19930011002/downloads/19930011002.pdf",
+    "fulltext": "/api/citations/19930011002/downloads/19930011002.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

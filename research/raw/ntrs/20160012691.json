@@ -1,0 +1,168 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20160012691,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "a04f676598854b9788814c85c1f0f8c7",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety",
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "microgravity",
+  "blowoff",
+  "flammability"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20160012691,
+  "ear": "NO",
+  "id": "6f69b41b3441419786066e16a95a2ae9",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-11T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN30478",
+  "Report Number: GRC-E-DAA-TN30478"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 904211.04.02.20.16",
+   "submissionId": 20160012691,
+   "id": "76f5a7eddcc941b69056714b9f094692",
+   "type": "WBS"
+  },
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20160012691,
+   "id": "1040b5b76e254ff5ba043df1a1684d4d",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Correlation of Normal Gravity Mixed Convection Blowoff Limits with Microgravity Forced Flow Blowoff Limits",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2016-10-27T17:03:22.5930000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20160012691,
+   "meta": {
+    "author": {
+     "name": "Marcum, Jeremy W."
+    },
+    "organization": {
+     "name": "Akron Univ.",
+     "location": "Akron, OH, United States"
+    }
+   },
+   "id": "60f71c3980374c0898d1016270216072"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20160012691,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "dffc27d17254484bbfea88e0836f044b"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20160012691,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul V."
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "8890a668593a46e5a29ec29e979cba7f"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20160012691,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2016-10-27T17:03:22.5930000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The axisymmetric rod geometry in upward axial stagnation flow provides a simple way to measure normal gravity blowoff limits to compare with microgravity Burning and Suppression of Solids - II (BASS-II) results recently obtained aboard the International Space Station. This testing utilized the same BASS-II concurrent rod geometry, but with the addition of normal gravity buoyant flow. Cast polymethylmethacrylate (PMMA) rods of diameters ranging from 0.635 cm to 3.81 cm were burned at oxygen concentrations ranging from 14 to 18% by volume. The forced flow velocity where blowoff occurred was determined for each rod size and oxygen concentration. These blowoff limits compare favorably with the BASS-II results when the buoyant stretch is included and the flow is corrected by considering the blockage factor of the fuel. From these results, the normal gravity blowoff boundary for this axisymmetric rod geometry is determined to be linear, with oxygen concentration directly proportional to flow speed. We describe a new normal gravity 'upward flame spread test' method which extrapolates the linear blowoff boundary to the zero stretch limit in order to resolve microgravity flammability limits-something current methods cannot do. This new test method can improve spacecraft fire safety for future exploration missions by providing a tractable way to obtain good estimates of material flammability in low gravity.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20160012691,
+   "endDate": "2016-05-17T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "9b8b9dce88b647adb0010a8c9fab369e",
+     "meta": {
+      "organization": {
+       "name": "Combustion Inst.",
+       "location": "Pittsburgh, PA, United States"
+      }
+     },
+     "meetingId": "aa6cbe81737d4be6a4124bda853d30b4",
+     "id": "4536f2f198b74ee491401cf7908b11df"
+    }
+   ],
+   "name": "2016 Spring Technical Meeting of the Central States Section of The Combustion Institute",
+   "location": "Knoxville, TN",
+   "id": "aa6cbe81737d4be6a4124bda853d30b4",
+   "startDate": "2016-05-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20160012691,
+   "id": "57508a461a9d470a8ca058eaa905eb24",
+   "publicationDate": "2016-05-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20160012691.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20160012691/downloads/20160012691.pdf",
+    "pdf": "/api/citations/20160012691/downloads/20160012691.pdf",
+    "fulltext": "/api/citations/20160012691/downloads/20160012691.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

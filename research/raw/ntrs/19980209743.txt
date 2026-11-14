@@ -1,0 +1,3 @@
+Fire Safety in Extraterrestrial Environments
+
+Despite rigorous fire-safety policies and practices, fire incidents are possible during lunar and Martian missions. Fire behavior and hence preventive and responsive safety actions in the missions are strongly influenced by the low-gravity environments in flight and on the planetary surfaces. This paper reviews the understanding and key issues of fire safety in the missions, stressing flame spread, fire detection, suppression, and combustion performance of propellants produced from Martian resources.

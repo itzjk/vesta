@@ -1,0 +1,104 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20080026001,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "745775f211b6408399e194e280c09d3d",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Lunar And Planetary Science And Exploration"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20080026001,
+  "ear": "NO",
+  "id": "fc681e1fd04e4b1c9890d64227de50bb",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "title": "Reduced Pressure Atmosphere Impacts on Life Support and Internal Thermal Systems",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T06:09:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20080026001,
+   "meta": {
+    "author": {
+     "name": "Anderson, Molly"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "bd7dc231ec764421b122f71b39371aed"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20080026001,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T06:09:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "Selecting the appropriate atmosphere for a spacecraft and mission is a complicated problem. NASA has previously used atmospheres from Earth normal composition and pressure to pure oxygen at low pressures. Future exploration missions will likely strike a compromise somewhere between the two, trying to balance operation impacts on EVA, safety concerns for flammability and health risks, life science and physiology questions, and other issues. Life support systems and internal thermal control systems are areas that will have to respond to changes in the atmospheric composition and pressure away from the Earthlike conditions currently used on the International Space Station. This paper examines life support and internal thermal control technologies currently in use or in development to find what impacts in design, efficiency and performance, or feasibility might be expected. Understanding these changes should be helpful in producing better results during future trade studies or mission analyses.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20080026001,
+   "endDate": "2006-07-20T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "3dd6798b3d91459f92023fb28513e5f9",
+     "meta": {
+      "organization": {
+       "name": "Society of Automotive Engineers, Inc.",
+       "location": "United States"
+      }
+     },
+     "meetingId": "5908e9977d7b47a1bc7d5810eb8cdfe8",
+     "id": "9d277bde380b4cb29b4f9e2542cb72b4"
+    }
+   ],
+   "name": "International Conference on Environmental Systems",
+   "location": "Norfolk, VA",
+   "id": "5908e9977d7b47a1bc7d5810eb8cdfe8",
+   "startDate": "2006-07-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20080026001,
+   "id": "4d034dffb3b847ddbc56b8619b3c8539",
+   "publicationDate": "2006-07-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,198 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19990053973,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "0ac71f6a5a054f13aa9b571e72c02e73",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Materials Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19990053973,
+  "ear": "NO",
+  "id": "eb2b7b30e4524b42b466e602c97f72f9",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-27T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NCC3-478",
+   "submissionId": 19990053973,
+   "id": "8259666d983c42fda67ec6b3dc98e615",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NAG3-1961",
+   "submissionId": 19990053973,
+   "id": "2b6f72e1a40446c6a6584ebd1294a350",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Flow Effects on the Flammability Diagrams of Solid Fuels: Microgravity Influence on Ignition Delay",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-19T03:33:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19990053973,
+   "meta": {
+    "author": {
+     "name": "Cordova, J. L."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA United States"
+    }
+   },
+   "id": "a0e4186f8dcb4b8d8e1e19f2223ae14e"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19990053973,
+   "meta": {
+    "author": {
+     "name": "Walther, D. C."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA United States"
+    }
+   },
+   "id": "f71d64cc0675478f9e22fee444454f0e"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19990053973,
+   "meta": {
+    "author": {
+     "name": "Fernandez-Pello, A. C."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA United States"
+    }
+   },
+   "id": "a1fdfd878a7d42bfbf70a07541193ed6"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 19990053973,
+   "meta": {
+    "author": {
+     "name": "Steinhaus, T."
+    },
+    "organization": {
+     "name": "Maryland Univ.",
+     "location": "College Park, MD United States"
+    }
+   },
+   "id": "c4efd8e3b0f44fd9bc3442aa205ffb83"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 19990053973,
+   "meta": {
+    "author": {
+     "name": "Torero, J. L."
+    },
+    "organization": {
+     "name": "Maryland Univ.",
+     "location": "College Park, MD United States"
+    }
+   },
+   "id": "5e153c8ea8df4bb3972ce2b22aecc897"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 19990053973,
+   "meta": {
+    "author": {
+     "name": "Quintere, J. G."
+    },
+    "organization": {
+     "name": "Maryland Univ.",
+     "location": "College Park, MD United States"
+    }
+   },
+   "id": "96f56933f79d414e884909390ff2cee7"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 19990053973,
+   "meta": {
+    "author": {
+     "name": "Ross, H. D."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "6a95282a410e411cb4fa8b0daa8df7ae"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19990053973,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-19T03:33:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The possibility of an accidental fire in space-based facilities is a primary concern of space exploration programs. Spacecraft environments generally present low velocity air currents produced by ventilation and heating systems (of the order of 0.1 m/s), and fluctuating oxygen concentrations around that of air due to CO2 removal systems. Recent experiments of flame spread in microgravity show the spread rate to be faster and the limiting oxygen concentration lower than in normal-gravity. To date, there is not a material flammability-testing protocol that specifically addresses issues related to microgravity conditions. The present project (FIST) aims to establish a testing methodology that is suitable for the specific conditions of reduced gravity. The concepts underlying the operation of the LIFT apparatus, ASTM-E 1321-93, have been used to develop the Forced-flow Ignition and flame-Spread Test (FIST). As in the LIFT, the FIST is used to obtain the flammability diagrams of the material, i.e., graphs of ignition delay time and flame spread rate as a function of the externally applied radiant flux, but under forced flow rather than natural convection conditions, and for different oxygen concentrations. Although the flammability diagrams are similar, the flammability properties obtained with the FIST are found to depend on the flow characteristics. A research program is currently underway with the purpose of implementing the FIST as a protocol to characterize the flammability performance of solid materials to be used in microgravity facilities. To this point, tests have been performed with the FIST apparatus in both normal-gravity and microgravity conditions to determine the effects of oxidizer flow characteristics on the flammability diagrams of polymethylmethacrylate (PMMA) fuel samples. The experiments are conducted at reduced gravity in a KC- 135 aircraft following a parabolic flight trajectory that provides up to 25 seconds of low gravity. The objective of the experiments is to obtain data of ignition delay and flame spread rate at low flow velocities (0.1 to 0.2 m/s), which cannot be obtained under normal gravity because of the natural convection induced flows (approx. 0.5 m/s). Due to the limited reduced gravity time, the data can only be obtained for high radiant fluxes, and are consequently limited in scope. These tests do, however, provide insight into the flammability diagram characteristics at low velocity and reduced gravity, and also into the implications of the flow-dependence of the flammability properties under environments similar to those encountered in space facilities.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "publications": [
+  {
+   "submissionId": 19990053973,
+   "id": "dfe53d2019ce46f2bb4a5be9e9e55081",
+   "publicationName": "Fifth International Microgravity Combustion Workshop",
+   "publicationDate": "1999-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19990053965,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Fifth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PUBLICATION",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19990053965,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Fifth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PUBLICATION",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

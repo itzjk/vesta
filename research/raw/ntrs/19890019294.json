@@ -1,0 +1,92 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19890019294,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "eafc438a3e254a82913704ac1a90ce96",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Materials Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19890019294,
+  "ear": "NO",
+  "id": "a423048ec63245d690dd0ebc4bfb39f4",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-24T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "E-4524",
+  "NASA-TM-101424",
+  "NAS 1.15:101424",
+  "Report Number: E-4524",
+  "Report Number: NASA-TM-101424",
+  "Report Number: NAS 1.15:101424"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 674-22-05",
+   "submissionId": 19890019294,
+   "id": "9a807fab81e0455f9eb673dd50fcef42",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Microgravity combustion science: A program overview",
+ "stiType": "TECHNICAL_MEMORANDUM",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T00:14:00.0000000+00:00",
+ "stiTypeDetails": "Technical Memorandum (TM)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19890019294,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "89N28665"
+ },
+ "created": "2013-09-06T00:14:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The promise of microgravity combustion research is introduced by way of a brief survey of results, the available set of reduced gravity facilities, and plans for experimental capabilities in the Space Station era. The study of fundamental combustion processes in a microgravity environment is a relatively new scientific endeavor. A few simple, precursor experiments were conducted in the early 1970's. Today the advent of the U.S. space shuttle and the anticipation of the Space Station Freedom provide for scientists and engineers a special opportunity, in the form of long duration microgravity laboratories, and need, in the form of spacecraft fire safety and a variety of terrestrial applications, to pursue fresh insight into the basic physics of combustion. The microgravity environment enables a new range of experiments to be performed since buoyancy-induced flows are nearly eliminated, normally obscured forces and flows may be isolated, gravitational settling or sedimentation is nearly eliminated, and larger time or length scales in experiments become permissible. The range of experiments completed to date was not broad, but is growing. Unexpected phenomena have been observed often in microgravity combustion experiments, raising questions about the degree of accuracy and completion of our classical understanding and our ability to estimate spacecraft fire hazards. Because of the field's relative immaturity, instrumentation has been restricted primarily to high-speed photography. To better explain these findings, more sophisticated diagnostic instrumentation, similar to that evolving in terrestrial laboratories, is being developed for use on Space Station Freedom and, along the way, in existing microgravity facilities.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19890019294,
+   "id": "6e087461da0543d1b95ff693b3b84278",
+   "publicationDate": "1989-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19890019294.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19890019294/downloads/19890019294.pdf",
+    "pdf": "/api/citations/19890019294/downloads/19890019294.pdf",
+    "fulltext": "/api/citations/19890019294/downloads/19890019294.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

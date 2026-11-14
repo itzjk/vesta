@@ -1,0 +1,117 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20030061405,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "91e65741db5b4e4483e694a86831b07f",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Nonmetallic Materials"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20030061405,
+  "ear": "NO",
+  "id": "275922d00db94d0c8f9502281a613e71",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "title": "Obtaining NASA Approval for use of Non-Metallic Materials in Manned Space Flight",
+ "stiType": "PREPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-21T04:26:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20030061405,
+   "meta": {
+    "author": {
+     "name": "Davis, Samuel E."
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "07dbe665750f483887b03a59ce2cda51"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20030061405,
+   "meta": {
+    "author": {
+     "name": "Wise, Harry L."
+    },
+    "organization": {
+     "name": "Integrated Concepts and Research Corp.",
+     "location": "United States"
+    }
+   },
+   "id": "2eab20056ffc44149925f538dcea9870"
+  }
+ ],
+ "stiTypeDetails": "Preprint (Draft being sent to journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20030061405,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-21T04:26:00.0000000+00:00",
+ "center": {
+  "code": "MSFC",
+  "name": "Marshall Space Flight Center",
+  "id": "a589fc1e68af409f9d2214bb08863d11"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Material manufacturers and suppliers are often surprised when a material commonly provided to industry is not approved for use on manned spacecraft. Often the reason is a lack of test data in environments that simulate those encountered in space applications, especially oxygen-enriched conditions, which significantly increase both the likelihood of material combustion and the propagation of a fire. This paper introduces the requirements for flight approval of non-metallic materials, focusing on material testing for human-rated space flight programs; it reviews the history of flight materials requirements and provides the rationale for such and introduces specific requirements related to testing and to good material engineering and design practices. After describing the procedure for submitting materials to be tested, the paper outlines options available if a material fails testing. In addition, this treatise introduces the National Aeronautics and Space Administration's (NASA's) Materials and Processes Technical Information System (MAPTIS), a database housing all test data produced in accordance with NASA-STD-6001, Flammability, Odor, Offgassing, and Compatibility Requirements and Test Procedures for Materials in Environments that Support Combustion.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20030061405,
+   "sponsors": [
+    {
+     "organizationId": "3f5d39cb4f1e4525b452ecabed3ca2b7",
+     "meta": {
+      "organization": {
+       "name": "Society for Advancement of Materials and Process Engineering",
+       "location": "United States"
+      }
+     },
+     "meetingId": "6669f8b66e914d17a221e4c5df34ae56",
+     "id": "c85c828fc2d0485fb49d873888224429"
+    }
+   ],
+   "name": "SAMPE 2003",
+   "location": "Long Beach, CA",
+   "id": "6669f8b66e914d17a221e4c5df34ae56",
+   "startDate": "2003-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20030061405,
+   "id": "850fa8c78b094f02bb012c71af36e8b1",
+   "publicationDate": "2003-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

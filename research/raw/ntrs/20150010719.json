@@ -1,0 +1,113 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150010719,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "b2c297943e9f4952baf43c922e4c7015",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Instrumentation And Astrionics"
+ ],
+ "keywords": [
+  "Smoke",
+  "Aerosol",
+  "Thermophoresis"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150010719,
+  "ear": "NO",
+  "id": "facaa6afd395429ca743e18367436ab5",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-11T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA/TM-2015-218746",
+  "E-19078",
+  "GRC-E-DAA-TN21549",
+  "Report Number: NASA/TM-2015-218746",
+  "Report Number: E-19078",
+  "Report Number: GRC-E-DAA-TN21549"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 067463.01.99.99.99.99.22",
+   "submissionId": 20150010719,
+   "id": "cd43150599dd455083830edf9698c9d5",
+   "type": "WBS"
+  }
+ ],
+ "title": "Design of a Thermal Precipitator for the Characterization of Smoke Particles from Common Spacecraft Materials",
+ "stiType": "TECHNICAL_MEMORANDUM",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-06-15T15:57:04.4000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150010719,
+   "meta": {
+    "author": {
+     "name": "Meyer, Marit Elisabeth"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "11107aa192b54753acccf568f5cf82ca"
+  }
+ ],
+ "stiTypeDetails": "Technical Memorandum (TM)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150010719,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-06-15T15:57:04.4000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A thermal precipitator (TP) was designed to collect smoke aerosol particles for microscopic analysis in fire characterization research. Information on particle morphology, size and agglomerate structure obtained from these tests supplements additional aerosol data collected. Modeling of the thermal precipitator throughout the design process was performed with the COMSOL Multiphysics finite element software package, including the Eulerian flow field and thermal gradients in the fluid. The COMSOL Particle Tracing Module was subsequently used to determine particle deposition. Modeling provided optimized design parameters such as geometry, flow rate and temperatures. The thermal precipitator was built and testing verified the performance of the first iteration of the device. The thermal precipitator was successfully operated and provided quality particle samples for microscopic analysis, which furthered the body of knowledge on smoke particulates. This information is a key element of smoke characterization and will be useful for future spacecraft fire detection research.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20150010719,
+   "id": "57cba2987c0746b69e1a0f20bfbf1f76",
+   "publicationDate": "2015-06-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150010719.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150010719/downloads/20150010719.pdf",
+    "pdf": "/api/citations/20150010719/downloads/20150010719.pdf",
+    "fulltext": "/api/citations/20150010719/downloads/20150010719.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

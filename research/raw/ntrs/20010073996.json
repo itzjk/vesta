@@ -1,0 +1,238 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20010073996,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "a78ad67ce9724bb5a0db0e33dd5bd600",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20010073996,
+  "ear": "NO",
+  "id": "4740a4f5f9f943048d6b228e377b7357",
+  "itar": "NO"
+ },
+ "distributionDate": "2016-06-06T00:00:00.0000000+00:00",
+ "title": "Solid Inflammability Boundary at Low-Speed (SIBAL)",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-20T11:22:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20010073996,
+   "meta": {
+    "author": {
+     "name": "T'ien, James"
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "e6a4b0bc92184292835595a0196d65e9"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20010073996,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul"
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "2c58774db2f64292a3a49d2223391cb4"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20010073996,
+   "meta": {
+    "author": {
+     "name": "Sacksteder, Kurt"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "ee9b6d6ba30b4cb49643868a4ecd4e05"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20010073996,
+   "meta": {
+    "author": {
+     "name": "Shih, Hsin-Yi"
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "f56f17f87cbc4f1aa06ae3f018b353c8"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20010073996,
+   "meta": {
+    "author": {
+     "name": "Kumar, Amit"
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "a3b4c4ab6dc647ea837a3e6ed448da24"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20010073996,
+   "meta": {
+    "author": {
+     "name": "Kleinhenz, Julie"
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "b9884b4b3aca4653b25a4a10dea03973"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20010073996,
+   "meta": {
+    "author": {
+     "name": "Bedir, Hasan"
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "011d55d6539248f187fa79dddfaee5d5"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20010073996,
+   "meta": {
+    "author": {
+     "name": "Pettegrew, Richard"
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "a256354cb26441d58a768c4cb8f08125"
+  },
+  {
+   "sequence": 8,
+   "submissionId": 20010073996,
+   "meta": {
+    "author": {
+     "name": "Piltch, Nancy"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "ab31dc7c13174b4bad864ab899e83eef"
+  },
+  {
+   "sequence": 9,
+   "submissionId": 20010073996,
+   "meta": {
+    "author": {
+     "name": "Frate, David"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "f486f45805594bb893d1e4c341682872"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20010073996,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-20T11:22:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "This research program is concerned with the effect of low-speed, concurrent flow on the spreading and extinction processes of flames over solid fuels. The primary objective is to verify the theoretically predicted extinction boundary, using oxygen percentage and flow velocity as coordinates. Of particular interest are the low-speed quenching limits and the existence of the critical oxygen flammability limit. Detailed flame spread characteristics, including flame spread rate, flame size, and flame structure are sought. Since the predicted flame behavior depends on the inclusion of flame and surface radiation, the measured results will also be used to assess the importance of radiative heat transfer by direct comparison to a comprehensive numerical model. The solid fuel used in this experiment is a custom-made fabric consisting of a 1:1 blend of cotton and fiberglass. This choice was made following an extensive search to yield a material with favorable properties, namely, rollability, non-cracking behavior during combustion, strength after combustion, and flammability in a range of oxygen limits permissible within the Combustion Integrated Rack (CIR) on the International Space Station. At the present time, an effort is being made to characterize both the radiative properties of the fuel and the flame spreading behavior in normal gravity at reduced pressure. These will provide a basis for comparison with the microgravity results as well as aid in bracketing the anticipated flammability boundary for the flight experiment. An overview of recent work, with emphasis on theoretical results, is presented.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20010073996,
+   "id": "9587d71777d94f7e86ecef70328849ee",
+   "publicationName": "Sixth International Microgravity Combustion Workshop",
+   "publicationDate": "2001-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20010073996.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20010073996/downloads/20010073996.pdf",
+    "pdf": "/api/citations/20010073996/downloads/20010073996.pdf",
+    "fulltext": "/api/citations/20010073996/downloads/20010073996.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,147 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19950017584,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "0bbe9a6aece141cea2c1cdb92d0a221d",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Chemistry And Materials (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19950017584,
+  "ear": "NO",
+  "id": "80e146fa573648f089284711f3d1dc27",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "E-9456",
+  "NASA-TM-106858",
+  "NAS 1.15:106858",
+  "Report Number: E-9456",
+  "Report Number: NASA-TM-106858",
+  "Report Number: NAS 1.15:106858"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 962-22-00",
+   "submissionId": 19950017584,
+   "id": "18e9a0b98b67440ab99f8f6846534f6e",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Microgravity Combustion Science: 1995 Program Update",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T23:20:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19950017584,
+   "meta": {
+    "author": {
+     "name": "Ross, Howard D."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "f0159f1005484885bf5cffa00bd061e0"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19950017584,
+   "meta": {
+    "author": {
+     "name": "Gokoglu, Suleyman A."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "29d9b082a737448b9a5120785a8d3ce7"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19950017584,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "45d65ecf70b74079baa27b68435b4e37"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19950017584,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "95N24004"
+ },
+ "created": "2013-09-06T23:20:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Microgravity greatly benefits the study of fundamental combustion processes. In this environment, buoyancy-induced flow is nearly eliminated, weak or normally obscured forces and flows can be isolated, gravitational settling or sedimentation is nearly eliminated, and temporal and spatial scales can be expanded. This document reviews the state of knowledge in microgravity combustion science with the emphasis on NASA-sponsored developments in the current period of 1992 to early 1995. The subjects cover basic research in gaseous premixed and diffusion-flame systems, flame structure and sooting, liquid droplets and pools, and solid-surface ignition and flame spread. They also cover applied research in combustion synthesis of ceramic-metal composites, advanced diagnostic instrumentation, and on-orbit fire safety. The review promotes continuing research by describing the opportunities for Principal Investigator participation through the NASA Research Announcement program and the available NASA Lewis Research Center ground-based facilities and spaceflight accommodations. This review is compiled by the members and associates of the NASA Lewis Microgravity Combustion Branch, and it serves as an update of two previous overview reports.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 19950017584,
+   "endDate": "1995-04-13T00:00:00.0000000+00:00",
+   "name": "International Microgravity Combustion Workshop",
+   "location": "Cleveland, OH",
+   "id": "301fbebcdcbc4d6b908b3b98f8095ec1",
+   "startDate": "1995-04-11T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19950017584,
+   "id": "d7508d2b54504ddba34666f8099f8bc6",
+   "publicationDate": "1995-04-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19950017584.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19950017584/downloads/19950017584.pdf",
+    "pdf": "/api/citations/19950017584/downloads/19950017584.pdf",
+    "fulltext": "/api/citations/19950017584/downloads/19950017584.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

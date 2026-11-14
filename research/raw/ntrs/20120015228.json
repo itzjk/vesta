@@ -1,0 +1,142 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20120015228,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "ef6005d8eeef465185f6c1bc57a1bd02",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Ground Support Systems And Facilities (Space)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20120015228,
+  "ear": "NO",
+  "id": "22400ac6692e4396bcba9c10fdf3a8bb",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "M11-1466",
+  "Report Number: M11-1466"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNM07AB36T",
+   "submissionId": 20120015228,
+   "id": "68f0a4d7798c4ad59a2d4ef1b8a07b28",
+   "type": "TASK"
+  }
+ ],
+ "title": "Microgravity Science Glovebox (MSG), Space Science's Past, Present and Future Aboard the International Space Station (ISS)",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-26T02:59:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20120015228,
+   "meta": {
+    "author": {
+     "name": "Spivey, Reggie"
+    },
+    "organization": {
+     "name": "Teledyne Brown Engineering",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "96168afe2d8a4286a95332c1563ed57a"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20120015228,
+   "meta": {
+    "author": {
+     "name": "Spearing, Scott"
+    },
+    "organization": {
+     "name": "Geocent",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "8f09dfe2799040a884ee78e8ee119251"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20120015228,
+   "meta": {
+    "author": {
+     "name": "Jordan, Lee"
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "40a17ee579e540029b152c3ca61d1c95"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20120015228,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-26T02:59:00.0000000+00:00",
+ "center": {
+  "code": "MSFC",
+  "name": "Marshall Space Flight Center",
+  "id": "a589fc1e68af409f9d2214bb08863d11"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The Microgravity Science Glovebox (MSG) is a double rack facility aboard the International Space Station (ISS), which accommodates science and technology investigations in a \"workbench' type environment. The MSG has been operating on the ISS since July 2002 and is currently located in the US Laboratory Module. In fact, the MSG has been used for over 10,000 hours of scientific payload operations and plans to continue for the life of ISS. The facility has an enclosed working volume that is held at a negative pressure with respect to the crew living area. This allows the facility to provide two levels of containment for small parts, particulates, fluids, and gases. This containment approach protects the crew from possible hazardous operations that take place inside the MSG work volume and allows researchers a controlled pristine environment for their needs. Research investigations operating inside the MSG are provided a large 255 liter enclosed work space, 1000 watts of dc power via a versatile supply interface (120, 28, + 12, and 5 Vdc), 1000 watts of cooling capability, video and data recording and real time downlink, ground commanding capabilities, access to ISS Vacuum Exhaust and Vacuum Resource Systems, and gaseous nitrogen supply. These capabilities make the MSG one of the most utilized facilities on ISS. MSG investigations have involved research in cryogenic fluid management, fluid physics, spacecraft fire safety, materials science, combustion, and plant growth technologies. Modifications to the MSG facility are currently under way to expand the capabilities and provide for investigations involving Life Science and Biological research. In addition, the MSG video system is being replaced with a state-of-the-art, digital video system with high definition/high speed capabilities, and with near real-time downlink capabilities. This paper will provide an overview of the MSG facility, a synopsis of the research that has already been accomplished in the MSG, and an overview of the facility enhancements that will shortly be available for use by future investigators.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20120015228,
+   "name": "1st Annual Informational Space Research and Development Conference",
+   "location": "Denver, CO",
+   "id": "068923f3ba694ecfb837635468e37fee",
+   "startDate": "2012-06-28T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20120015228,
+   "id": "fa55fbd856e4404c8ef813f90cd41d04",
+   "publicationDate": "2012-06-26T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20120015228.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20120015228/downloads/20120015228.pdf",
+    "pdf": "/api/citations/20120015228/downloads/20120015228.pdf",
+    "fulltext": "/api/citations/20120015228/downloads/20120015228.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

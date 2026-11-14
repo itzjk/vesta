@@ -1,0 +1,89 @@
+{
+ "keywords": [],
+ "created": "2026-11-14T06:59:11.266884+00:00",
+ "distributionDate": "2026-11-13T06:59:11.266801+00:00",
+ "fundingNumbers": [
+  {
+   "number": "80NSSC22K0364",
+   "type": "funding"
+  },
+  {
+   "number": "NNX17AC51A",
+   "type": "funding"
+  }
+ ],
+ "distribution": "PUBLIC",
+ "stiType": "REPRINT",
+ "title": "Electric-field effects on methane coflow flames aboard the international space station (ISS): ACME E-FIELD flames",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "meta": {
+    "author": {
+     "name": "Yu-Chien Chien"
+    },
+    "organization": {
+     "name": ""
+    }
+   }
+  },
+  {
+   "sequence": 1,
+   "meta": {
+    "author": {
+     "name": "Dennis P. Stocker"
+    },
+    "organization": {
+     "name": ""
+    }
+   }
+  },
+  {
+   "sequence": 2,
+   "meta": {
+    "author": {
+     "name": "Uday G. Hegde"
+    },
+    "organization": {
+     "name": ""
+    }
+   }
+  },
+  {
+   "sequence": 3,
+   "meta": {
+    "author": {
+     "name": "Derek Dunn-Rankin"
+    },
+    "organization": {
+     "name": ""
+    }
+   }
+  }
+ ],
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "stiTypeDetails": "Version of Record",
+ "modified": "2026-07-11T00:00:00",
+ "id": "30580252934587",
+ "sourceIdentifiers": [
+  {
+   "number": "https://doi.org/10.1016/j.combustflame.2022.112443"
+  }
+ ],
+ "publications": [
+  {
+   "volume": "246",
+   "pages": "112443",
+   "issn": "0010-2180",
+   "publisher": "Elsevier BV",
+   "publicationName": "Combustion and Flame",
+   "issuePublicationDate": "2022-12-01T00:00:00",
+   "doi": "10.1016/j.combustflame.2022.112443"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "chorus-2026-11-14-07-03"
+}

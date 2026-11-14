@@ -1,0 +1,348 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20170008805,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "a7f216e122554beb8006adb57d064308",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety",
+  "Engineering (General)"
+ ],
+ "keywords": [
+  "microgravity"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20170008805,
+  "ear": "NO",
+  "id": "9321ba28776c433585dfccada02f0602",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN44517",
+  "Report Number: GRC-E-DAA-TN44517"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20170008805,
+   "id": "957acd8b74dc4a38bec7392f69036c65",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 089407.02.01.22",
+   "submissionId": 20170008805,
+   "id": "08c80750ad8b4a478eac77ac0b8f9de4",
+   "type": "WBS"
+  }
+ ],
+ "title": "Results of Large-Scale Spacecraft Flammability Tests",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2017-09-14T12:05:18.3470000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul "
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c269228f939442c4988739c5e227eb7f"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra "
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "97bfb64d9a4f4bd6ac9f13e7f6717900"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "b5a76ae3463f4082a9974be866defd20"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "e5c8b0894d404469bb0ffc634a7b7553"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Easton, John "
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "4b5829cf0b2b45f683dab482c2d838b5"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "T'ien, James S."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "4ca528cef1494c68be29bd899e8909a1"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Liao, Ta-Ting T."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "4a443a9df61e43f3ae1349b94b05b88f"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Fernandez-Pello, A. Carlos"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "b16bbdd8f0a14696847e60cfe5118fb3"
+  },
+  {
+   "sequence": 8,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Torero, Jose L."
+    },
+    "organization": {
+     "name": "Queensland Univ.",
+     "location": "Brisbane, Australia"
+    }
+   },
+   "id": "da7a5001ea1b4160b271bc85f6327e82"
+  },
+  {
+   "sequence": 9,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Eigenbrand, Christian"
+    },
+    "organization": {
+     "name": "Bremen Univ.",
+     "location": "Germany"
+    }
+   },
+   "id": "6b29962b55574786b7464f761b162425"
+  },
+  {
+   "sequence": 10,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Legros, Guillaume"
+    },
+    "organization": {
+     "name": "Paris VI Univ.",
+     "location": "France"
+    }
+   },
+   "id": "eee5220b47fb47d89cbf7be894fa257f"
+  },
+  {
+   "sequence": 11,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Smirnov, Nickolay"
+    },
+    "organization": {
+     "name": "Lomonosov Moscow State Univ.",
+     "location": "Moscow, Russian Federation"
+    }
+   },
+   "id": "bdc8de12f0f54f598502e647a78f1a96"
+  },
+  {
+   "sequence": 12,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Fujita, Osamu"
+    },
+    "organization": {
+     "name": "Hokkaido Univ.",
+     "location": "Sapporo, Japan"
+    }
+   },
+   "id": "695bb138362b4d0b9e4263ccc084f3b3"
+  },
+  {
+   "sequence": 13,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Rouvreau, Sebatien"
+    },
+    "organization": {
+     "name": "Belisama Research and Development",
+     "location": "Toulouse, France"
+    }
+   },
+   "id": "f15109f4ed994a8bb1399cf4fc768cf9"
+  },
+  {
+   "sequence": 14,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Toth, Balazs"
+    },
+    "organization": {
+     "name": "European Space Agency. European Space Research and Technology Center, ESTEC",
+     "location": "Noordwijk, Netherlands"
+    }
+   },
+   "id": "4a771ba3ceb34786a5b761e22df1e0db"
+  },
+  {
+   "sequence": 15,
+   "submissionId": 20170008805,
+   "meta": {
+    "author": {
+     "name": "Jomaas, Grunde"
+    },
+    "organization": {
+     "name": "Edinburgh Univ.",
+     "location": "United Kingdom"
+    }
+   },
+   "id": "3e8d770bdc354776b24ab95969004e0c"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20170008805,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2017-09-14T12:05:18.3470000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "For the first time, a large-scale fire was intentionally set inside a spacecraft while in orbit. Testing in low gravity aboard spacecraft had been limited to samples of modest size: for thin fuels the longest samples burned were around 15 cm in length and thick fuel samples have been even smaller. This is despite the fact that fire is a catastrophic hazard for spaceflight and the spread and growth of a fire, combined with its interactions with the vehicle cannot be expected to scale linearly. While every type of occupied structure on earth has been the subject of full scale fire testing, this had never been attempted in space owing to the complexity, cost, risk and absence of a safe location. Thus, there is a gap in knowledge of fire behavior in spacecraft. The recent utilization of large, unmanned, resupply craft has provided the needed capability: a habitable but unoccupied spacecraft in low earth orbit. One such vehicle was used to study the flame spread over a 94 x 40.6 cm thin charring solid (fiberglasscotton fabric). The sample was an order of magnitude larger than anything studied to date in microgravity and was of sufficient scale that it consumed 1.5 of the available oxygen. The experiment which is called Saffire consisted of two tests, forward or concurrent flame spread (with the direction of flow) and opposed flame spread (against the direction of flow). The average forced air speed was 20 cms. For the concurrent flame spread test, the flame size remained constrained after the ignition transient, which is not the case in 1-g. These results were qualitatively different from those on earth where an upward-spreading flame on a sample of this size accelerates and grows. In addition, a curious effect of the chamber size is noted. Compared to previous microgravity work in smaller tunnels, the flame in the larger tunnel spread more slowly, even for a wider sample. This is attributed to the effect of flow acceleration in the smaller tunnels as a result of hot gas expansion. These results clearly demonstrate the unique features of purely forced flow in microgravity on flame spread, the dependence of flame behavior on the scale of the experiment, and the importance of full-scale testing for spacecraft fire safety.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20170008805,
+   "endDate": "2017-07-20T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "3194431060294fa1969c379e78d001a2",
+     "meta": {
+      "organization": {
+       "name": "UTC Aerospace Systems",
+       "location": "Charlotte, NC, United States"
+      }
+     },
+     "meetingId": "14c502108abc4694939aae21959de76e",
+     "id": "dfc2b55463dc441688d1eff2d5c31f2a"
+    }
+   ],
+   "name": "International Conference on Environmental Systems (ICES) 2017",
+   "location": "Charleston, SC",
+   "id": "14c502108abc4694939aae21959de76e",
+   "startDate": "2017-07-16T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20170008805,
+   "id": "1f9f5afa6a884d34b3ebb64b47dca62f",
+   "publicationDate": "2017-07-16T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20170008805.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20170008805/downloads/20170008805.pdf",
+    "pdf": "/api/citations/20170008805/downloads/20170008805.pdf",
+    "fulltext": "/api/citations/20170008805/downloads/20170008805.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

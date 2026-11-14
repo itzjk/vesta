@@ -1,0 +1,201 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20110007095,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "aa082715ce3048a2b7ecf7085e655230",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Lasers And Masers"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20110007095,
+  "ear": "NO",
+  "id": "2460eeaf14a34bbf9f00d9b2002824ca",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "title": "Lifetest of the High Output Maximum Efficiency Resonator (HOMER) Laser for the SAFFIRE Instrument on NASA's DESDynI Project",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T08:59:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20110007095,
+   "meta": {
+    "author": {
+     "name": "Stysley, Paul R."
+    },
+    "organization": {
+     "name": "NASA Goddard Space Flight Center",
+     "location": "Greenbelt, MD, United States"
+    }
+   },
+   "id": "b67462d30c944f7b8582d1a5a59d45fb"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20110007095,
+   "meta": {
+    "author": {
+     "name": "Coyle, D. Barry"
+    },
+    "organization": {
+     "name": "NASA Goddard Space Flight Center",
+     "location": "Greenbelt, MD, United States"
+    }
+   },
+   "id": "a7660a749dd545f3b9931595f2f56628"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20110007095,
+   "meta": {
+    "author": {
+     "name": "Kay, Richard B."
+    },
+    "organization": {
+     "name": "American Univ.",
+     "location": "Washington, DC, United States"
+    }
+   },
+   "id": "2423ebc1a8004126978eff6e75472f4e"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20110007095,
+   "meta": {
+    "author": {
+     "name": "Frederickson, Robert"
+    },
+    "organization": {
+     "name": "Science Systems and Applications, Inc.",
+     "location": "Lanham, MD, United States"
+    }
+   },
+   "id": "cca7bada68dd449a8995b9e350d78858"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20110007095,
+   "meta": {
+    "author": {
+     "name": "Poulios, Demetrios"
+    },
+    "organization": {
+     "name": "American Univ.",
+     "location": "Washington, DC, United States"
+    }
+   },
+   "id": "da13f538604f47809b8e5de2ff439efb"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20110007095,
+   "meta": {
+    "author": {
+     "name": "Blair, Bryan"
+    },
+    "organization": {
+     "name": "NASA Goddard Space Flight Center",
+     "location": "Greenbelt, MD, United States"
+    }
+   },
+   "id": "50bd50a3aecf44c0a16e71c072ef07ce"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20110007095,
+   "meta": {
+    "author": {
+     "name": "Scott, Stan"
+    },
+    "organization": {
+     "name": "NASA Goddard Space Flight Center",
+     "location": "Greenbelt, MD, United States"
+    }
+   },
+   "id": "fba124dc172a42f89bcb48fa8b4d9591"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20110007095,
+   "meta": {
+    "author": {
+     "name": "Arnold, Ed"
+    },
+    "organization": {
+     "name": "Science Systems and Applications, Inc.",
+     "location": "Lanham, MD, United States"
+    }
+   },
+   "id": "508570db3c00446baf5c21055018f89e"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20110007095,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T08:59:00.0000000+00:00",
+ "center": {
+  "code": "GSFC",
+  "name": "Goddard Space Flight Center",
+  "id": "973fae00c3584b9fb4c762ae9870d0f6"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "We update the status of a diode-pumped, Nd:YAG oscillator that is the prototype laser for NASA's DESDynI mission. After completing TRL-6 testing, this laser has fired over 5.5 billion shots in lifetesting.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20110007095,
+   "endDate": "2011-05-05T00:00:00.0000000+00:00",
+   "name": "CLEO 2011",
+   "location": "Baltimore, MD",
+   "id": "dbc5141404364a76b4560e096fe59d08",
+   "startDate": "2011-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20110007095,
+   "id": "c7f4411e48704670a6ef49e7c727b1f6",
+   "publicationDate": "2011-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20110007095.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20110007095/downloads/20110007095.pdf",
+    "pdf": "/api/citations/20110007095/downloads/20110007095.pdf",
+    "fulltext": "/api/citations/20110007095/downloads/20110007095.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

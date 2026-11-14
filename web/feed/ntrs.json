@@ -1,0 +1,334 @@
+{
+ "schema": "vesta.ntrs-feed/1",
+ "fetched_at": "2026-11-14T11:51:54-05:00",
+ "origin": "ntrs-index",
+ "origin_note": "Built without the network from research/ntrs-index.json (300 records harvested from the NTRS API): the 20 records with the most recent year. fetched_at is the time the index was written.",
+ "terms": [
+  "\"spacecraft fire safety\"",
+  "\"microgravity combustion\"",
+  "\"material flammability\" microgravity",
+  "\"smoke detection\" spacecraft"
+ ],
+ "items": [
+  {
+   "id": "20260006059",
+   "title": "Surface Vehicle Atmospheric Considerations for Moon to Mars Exploration",
+   "created": null,
+   "year": 2026,
+   "sti_type": "PRESENTATION",
+   "center": "MSFC",
+   "url": "https://ntrs.nasa.gov/citations/20260006059",
+   "matched_term": null,
+   "index_tags": [
+    "theme:exploration-atmospheres",
+    "theme:fire-suppression",
+    "theme:partial-gravity-flammability"
+   ],
+   "in_evidence_base": true
+  },
+  {
+   "id": "20260005493",
+   "title": "Fire-Resistant Textile Development for Exploration Vehicles With Enriched-Oxygen Cabin Environments",
+   "created": null,
+   "year": 2026,
+   "sti_type": "PRESENTATION",
+   "center": "JSC",
+   "url": "https://ntrs.nasa.gov/citations/20260005493",
+   "matched_term": null,
+   "index_tags": [
+    "theme:spacecraft-fire-safety",
+    "theme:exploration-atmospheres"
+   ],
+   "in_evidence_base": true
+  },
+  {
+   "id": "20260003925",
+   "title": "Impacts of Reduced Pressure Atmospheres on Environmental Control and Life Support Systems (ECLSS) Architectures",
+   "created": null,
+   "year": 2026,
+   "sti_type": "TECHNICAL_MEMORANDUM",
+   "center": "LaRC",
+   "url": "https://ntrs.nasa.gov/citations/20260003925",
+   "matched_term": null,
+   "index_tags": [
+    "theme:exploration-atmospheres"
+   ],
+   "in_evidence_base": true
+  },
+  {
+   "id": "20260001992",
+   "title": "Heat and Smoke Emission from Tests on the Saffire VI Experiment",
+   "created": null,
+   "year": 2026,
+   "sti_type": "CONFERENCE_PAPER",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20260001992",
+   "matched_term": null,
+   "index_tags": [
+    "Saffire",
+    "Saffire-VI",
+    "theme:exploration-atmospheres"
+   ],
+   "in_evidence_base": true
+  },
+  {
+   "id": "20260001600",
+   "title": "Spacecraft Fire Safety Predictions using Verified Saffire Model",
+   "created": null,
+   "year": 2026,
+   "sti_type": "CONFERENCE_PAPER",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20260001600",
+   "matched_term": null,
+   "index_tags": [
+    "Saffire",
+    "Saffire-VI",
+    "theme:spacecraft-fire-safety"
+   ],
+   "in_evidence_base": true
+  },
+  {
+   "id": "20260000641",
+   "title": "Computational Fluid Dynamics Analysis of Flame Dynamics in Partial Gravity Environments in a Rotating Centrifuge",
+   "created": null,
+   "year": 2026,
+   "sti_type": "ACCEPTED_MANUSCRIPT",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20260000641",
+   "matched_term": null,
+   "index_tags": [
+    "theme:exploration-atmospheres",
+    "theme:partial-gravity-flammability"
+   ],
+   "in_evidence_base": false
+  },
+  {
+   "id": "20250010975",
+   "title": "Characterizing the Flammability of Nomex Fabric for the Preparation of FM<sup>2</sup>",
+   "created": null,
+   "year": 2025,
+   "sti_type": "POSTER",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20250010975",
+   "matched_term": null,
+   "index_tags": [
+    "FM2",
+    "theme:material-flammability-oxygen-limits",
+    "theme:exploration-atmospheres",
+    "theme:partial-gravity-flammability",
+    "theme:solid-flame-spread"
+   ],
+   "in_evidence_base": false
+  },
+  {
+   "id": "20250010653",
+   "title": "Lunar Combustion Investigation: Flammability Results from a Rotating Sounding Rocket",
+   "created": null,
+   "year": 2025,
+   "sti_type": "PRESENTATION",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20250010653",
+   "matched_term": null,
+   "index_tags": [
+    "LUCI",
+    "FM2",
+    "theme:material-flammability-oxygen-limits",
+    "theme:partial-gravity-flammability",
+    "theme:solid-flame-spread"
+   ],
+   "in_evidence_base": true
+  },
+  {
+   "id": "20250009062",
+   "title": "NASA Johnson Space Center’s Participation in Oxygen Generation Technology",
+   "created": null,
+   "year": 2025,
+   "sti_type": "PRESENTATION",
+   "center": "JSC",
+   "url": "https://ntrs.nasa.gov/citations/20250009062",
+   "matched_term": null,
+   "index_tags": [
+    "theme:spacecraft-fire-safety"
+   ],
+   "in_evidence_base": false
+  },
+  {
+   "id": "20250006779",
+   "title": "Solid Fuel Ignition Testing for Lunar Applications, Theory and Experimental Results",
+   "created": null,
+   "year": 2025,
+   "sti_type": "PRESENTATION",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20250006779",
+   "matched_term": null,
+   "index_tags": [
+    "theme:spacecraft-fire-safety",
+    "theme:material-flammability-oxygen-limits",
+    "theme:partial-gravity-flammability"
+   ],
+   "in_evidence_base": true
+  },
+  {
+   "id": "20250006173",
+   "title": "Enhancing Future Commercial Space Stations: Applying ISS Insights to Environmental Control and Life Support Systems (ECLSS) Development on Emergency Response",
+   "created": null,
+   "year": 2025,
+   "sti_type": "PRESENTATION",
+   "center": "JSC",
+   "url": "https://ntrs.nasa.gov/citations/20250006173",
+   "matched_term": null,
+   "index_tags": [
+    "theme:ISS-fire-response"
+   ],
+   "in_evidence_base": false
+  },
+  {
+   "id": "20250004535",
+   "title": "NASA Exploration Atmosphere Tests 3 and 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures",
+   "created": null,
+   "year": 2025,
+   "sti_type": "PRESENTATION",
+   "center": "JSC",
+   "url": "https://ntrs.nasa.gov/citations/20250004535",
+   "matched_term": null,
+   "index_tags": [
+    "theme:exploration-atmospheres"
+   ],
+   "in_evidence_base": false
+  },
+  {
+   "id": "20250002675",
+   "title": "Vehicle Modeling During the Burn Events in the Saffire VI Experiments",
+   "created": null,
+   "year": 2025,
+   "sti_type": "CONFERENCE_PAPER",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20250002675",
+   "matched_term": null,
+   "index_tags": [
+    "Saffire",
+    "Saffire-V",
+    "Saffire-VI",
+    "theme:spacecraft-fire-safety"
+   ],
+   "in_evidence_base": true
+  },
+  {
+   "id": "20250002347",
+   "title": "Fire and Flame Research in the Combustion Integrated Rack (CIR) on the International Space Station (ISS)",
+   "created": null,
+   "year": 2025,
+   "sti_type": "POSTER",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20250002347",
+   "matched_term": null,
+   "index_tags": [
+    "theme:cool-flames",
+    "theme:spacecraft-fire-safety",
+    "theme:gaseous-diffusion-flames",
+    "hardware:CIR"
+   ],
+   "in_evidence_base": false
+  },
+  {
+   "id": "20250001364",
+   "title": "Fire and Flame Research in the International Space Station’s Combustion Integrated Rack",
+   "created": null,
+   "year": 2025,
+   "sti_type": "ABSTRACT",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20250001364",
+   "matched_term": null,
+   "index_tags": [
+    "theme:cool-flames",
+    "theme:spacecraft-fire-safety",
+    "theme:droplet-combustion",
+    "theme:solid-flame-spread",
+    "theme:gaseous-diffusion-flames",
+    "hardware:CIR"
+   ],
+   "in_evidence_base": false
+  },
+  {
+   "id": "20240013238",
+   "title": "Nasa Exploration Atmosphere Tests 3 & 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures",
+   "created": null,
+   "year": 2025,
+   "sti_type": "ABSTRACT",
+   "center": "JSC",
+   "url": "https://ntrs.nasa.gov/citations/20240013238",
+   "matched_term": null,
+   "index_tags": [
+    "theme:exploration-atmospheres"
+   ],
+   "in_evidence_base": false
+  },
+  {
+   "id": "20240015307",
+   "title": "Flammability of Materials on the Moon",
+   "created": null,
+   "year": 2024,
+   "sti_type": "POSTER",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20240015307",
+   "matched_term": null,
+   "index_tags": [
+    "FM2",
+    "theme:material-flammability-oxygen-limits",
+    "theme:exploration-atmospheres",
+    "theme:partial-gravity-flammability"
+   ],
+   "in_evidence_base": true
+  },
+  {
+   "id": "20240015018",
+   "title": "Compartment Fire Modeling of a Crew Cabin in 1-g and Lunar-g",
+   "created": null,
+   "year": 2024,
+   "sti_type": "POSTER",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20240015018",
+   "matched_term": null,
+   "index_tags": [
+    "theme:spacecraft-fire-safety",
+    "theme:exploration-atmospheres",
+    "theme:partial-gravity-flammability"
+   ],
+   "in_evidence_base": true
+  },
+  {
+   "id": "20240008623",
+   "title": "Flammability of Materials on the Moon",
+   "created": null,
+   "year": 2024,
+   "sti_type": "POSTER",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20240008623",
+   "matched_term": null,
+   "index_tags": [
+    "FM2",
+    "theme:exploration-atmospheres",
+    "theme:partial-gravity-flammability"
+   ],
+   "in_evidence_base": true
+  },
+  {
+   "id": "20240008602",
+   "title": "Vehicle Modeling During the Burning of Thermally Thick Samples in the Saffire V Experiments",
+   "created": null,
+   "year": 2024,
+   "sti_type": "CONFERENCE_PAPER",
+   "center": "GRC",
+   "url": "https://ntrs.nasa.gov/citations/20240008602",
+   "matched_term": null,
+   "index_tags": [
+    "Saffire",
+    "Saffire-V",
+    "theme:spacecraft-fire-safety",
+    "theme:post-fire-cleanup",
+    "theme:solid-flame-spread"
+   ],
+   "in_evidence_base": true
+  }
+ ]
+}

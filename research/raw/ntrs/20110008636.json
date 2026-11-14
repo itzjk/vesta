@@ -1,0 +1,181 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20110008636,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "c10bad4b95bb40e98e58b30f1f36cadc",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Nonmetallic Materials"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20110008636,
+  "ear": "NO",
+  "id": "18993e6c933e4e879a838a2bde83ed0d",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-23164",
+  "Report Number: JSC-CN-23164"
+ ],
+ "title": "Selected Parametric Effects on Materials Flammability Limits",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T09:07:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20110008636,
+   "meta": {
+    "author": {
+     "name": "Hirsch, David B."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "26ecdc7e563143a99954168ec7ef6f5c"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20110008636,
+   "meta": {
+    "author": {
+     "name": "Juarez, Alfredo"
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "a90c817d14e84372838f900c34b7f9d1"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20110008636,
+   "meta": {
+    "author": {
+     "name": "Peyton, Gary J."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "afd92e2ba14b4b259b8a64c10afc3ed5"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20110008636,
+   "meta": {
+    "author": {
+     "name": "Harper, Susana A."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "e5e698ca88ed417e916df4ff2fd2c9cd"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20110008636,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c8eeaf63312a42479c853b3ef444ee31"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20110008636,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T09:07:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "NASA-STD-(I)-6001B Test 1 is currently used to evaluate the flammability of materials intended for use in habitable environments of U.S. spacecraft. The method is a pass/fail upward flame propagation test conducted in the worst case configuration, which is defined as a combination of a material s thickness, test pressure, oxygen concentration, and temperature that make the material most flammable. Although simple parametric effects may be intuitive (such as increasing oxygen concentrations resulting in increased flammability), combinations of multi-parameter effects could be more complex. In addition, there are a variety of material configurations used in spacecraft. Such configurations could include, for example, exposed free edges where fire propagation may be different when compared to configurations commonly employed in standard testing. Studies involving combined oxygen concentration, pressure, and temperature on flammability limits have been conducted and are summarized in this paper. Additional effects on flammability limits of a material s thickness, mode of ignition, burn-length criteria, and exposed edges are presented. The information obtained will allow proper selection of ground flammability test conditions, support further studies comparing flammability in 1-g with microgravity and reduced gravity environments, and contribute to persuasive scientific cases for rigorous space system fire risk assessments.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20110008636,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "f4d9c77718414ad5b50e8398a2869bd6"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20110008636,
+   "endDate": "2011-07-21T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "19a85a84bad94664813eae619a3565f7",
+     "id": "0cebb1f2b8744dd4b1d5b8cd373efe88"
+    }
+   ],
+   "name": "41st International Conference on Environmental Systems",
+   "location": "Portland, OR",
+   "id": "19a85a84bad94664813eae619a3565f7",
+   "startDate": "2011-07-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20110008636,
+   "id": "40a4f2ee84304e2d874ca56af36532e8",
+   "publicationDate": "2011-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20110008636.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20110008636/downloads/20110008636.pdf",
+    "pdf": "/api/citations/20110008636/downloads/20110008636.pdf",
+    "fulltext": "/api/citations/20110008636/downloads/20110008636.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

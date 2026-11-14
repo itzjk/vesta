@@ -1,0 +1,133 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20100039627,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "0e2c0220646249c882e07ac8e9f32364",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20100039627,
+  "ear": "NO",
+  "id": "2937db053dbe47e890e4cc0245edca4b",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-22063",
+  "Report Number: JSC-CN-22063"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 869021.03.05.01.01",
+   "submissionId": 20100039627,
+   "id": "0562a892c4884457b0f136b4ff12f44f",
+   "type": "WBS"
+  }
+ ],
+ "title": "International Space Station Environmental Control and Life Support System Acceptance Testing for Node 1 Temperature and Humidity Control Subsystem",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T00:48:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20100039627,
+   "meta": {
+    "author": {
+     "name": "Williams, David E."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "70c9c50a364043718f14d44ce2413478"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20100039627,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T00:48:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The International Space Station (ISS) Node 1 Environmental Control and Life Support (ECLS) System is comprised of five subsystems: Atmosphere Control and Storage (ACS), Atmosphere Revitalization (AR), Fire Detection and Suppression (FDS), Temperature and Humidity Control (THC), and Water Recovery and Management (WRM). This paper will provide a summary of the Node 1 ECLS THC subsystem design and a detailed discussion of the ISS ECLS Acceptance Testing methodology utilized for this subsystem.The International Space Station (ISS) Node 1 Environmental Control and Life Support (ECLS) System is comprised of five subsystems: Atmosphere Control and Storage (ACS), Atmosphere Revitalization (AR), Fire Detection and Suppression (FDS), Temperature and Humidity Control (THC), and Water Recovery and Management (WRM). This paper will provide a summary of the Node 1 ECLS THC subsystem design and a detailed discussion of the ISS ECLS Acceptance Testing methodology utilized for this subsystem.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20100039627,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "f6f7cae59f314222b8f36f83b31c2c8b"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20100039627,
+   "endDate": "2011-07-21T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "78eed3cb01d24f379c0654e0c444dc72",
+     "id": "2e5f26873f6145feba6dd9110d65a025"
+    }
+   ],
+   "name": "41st International Conference on Environmental Systems",
+   "location": "Portland, OR",
+   "id": "78eed3cb01d24f379c0654e0c444dc72",
+   "startDate": "2011-07-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20100039627,
+   "id": "f32c31760d8a40c78d4089bdaccec8e1",
+   "publicationDate": "2011-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20100039627.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20100039627/downloads/20100039627.pdf",
+    "pdf": "/api/citations/20100039627/downloads/20100039627.pdf",
+    "fulltext": "/api/citations/20100039627/downloads/20100039627.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

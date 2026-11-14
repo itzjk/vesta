@@ -1,0 +1,222 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150021283,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "aa714cc222b7433b8650dc5c9e1b123f",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety",
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "keywords": [
+  "life support",
+  "fire safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150021283,
+  "ear": "NO",
+  "id": "dc70d96168294f5d9eb91f9b71bb8ea5",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN25067",
+  "Report Number: GRC-E-DAA-TN25067"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 067463.01.01.03",
+   "submissionId": 20150021283,
+   "id": "0f0ac0baddf14e3e913b3f2a4d1ff198",
+   "type": "WBS"
+  }
+ ],
+ "title": "Modeling and Analysis of Realistic Fire Scenarios in Spacecraft",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-11-17T16:10:51.5700000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150021283,
+   "meta": {
+    "author": {
+     "name": "Brooker, J. E."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "42e0964e50d94d708ae784570f710a5e"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20150021283,
+   "meta": {
+    "author": {
+     "name": "Dietrich, D. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "fb9bbd2106524dfd89e15cde62c28e33"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20150021283,
+   "meta": {
+    "author": {
+     "name": "Gokoglu, S. A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "f32ba72d24ef4b2cbaa307bbff90bca1"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20150021283,
+   "meta": {
+    "author": {
+     "name": "Urban, D. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "5bfcbffadf894803ac5d13df0a0c4edd"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20150021283,
+   "meta": {
+    "author": {
+     "name": "Ruff, G. A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "9e354dbef5424aa2ab0730c434d44bf2"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150021283,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-11-17T16:10:51.5700000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "An accidental fire inside a spacecraft is an unlikely, but very real emergency situation that can easily have dire consequences. While much has been learned over the past 25+ years of dedicated research on flame behavior in microgravity, a quantitative understanding of the initiation, spread, detection and extinguishment of a realistic fire aboard a spacecraft is lacking. Virtually all combustion experiments in microgravity have been small-scale, by necessity (hardware limitations in ground-based facilities and safety concerns in space-based facilities). Large-scale, realistic fire experiments are unlikely for the foreseeable future (unlike in terrestrial situations). Therefore, NASA will have to rely on scale modeling, extrapolation of small-scale experiments and detailed numerical modeling to provide the data necessary for vehicle and safety system design. This paper presents the results of parallel efforts to better model the initiation, spread, detection and extinguishment of fires aboard spacecraft. The first is a detailed numerical model using the freely available Fire Dynamics Simulator (FDS). FDS is a CFD code that numerically solves a large eddy simulation form of the Navier-Stokes equations. FDS provides a detailed treatment of the smoke and energy transport from a fire. The simulations provide a wealth of information, but are computationally intensive and not suitable for parametric studies where the detailed treatment of the mass and energy transport are unnecessary. The second path extends a model previously documented at ICES meetings that attempted to predict maximum survivable fires aboard space-craft. This one-dimensional model implies the heat and mass transfer as well as toxic species production from a fire. These simplifications result in a code that is faster and more suitable for parametric studies (having already been used to help in the hatch design of the Multi-Purpose Crew Vehicle, MPCV).",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20150021283,
+   "endDate": "2015-07-16T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "9381b76034b1432b8f4124cf06b3d774",
+     "meta": {
+      "organization": {
+       "name": "ILC Dover",
+       "location": "Frederica, DE, United States"
+      }
+     },
+     "meetingId": "4e0285f7c33d48598223d3ed95070516",
+     "id": "926777af010b4cac82bb55c7a01a1029"
+    },
+    {
+     "organizationId": "acaa37f260ec4a3c98804ba419da8e15",
+     "meta": {
+      "organization": {
+       "name": "UTC Aerospace Systems",
+       "location": "Houston, TX, United States"
+      }
+     },
+     "meetingId": "4e0285f7c33d48598223d3ed95070516",
+     "id": "fb9ff82a00d14920b2ea7059988a65ac"
+    },
+    {
+     "organizationId": "c4ff119599d649648019c8aacd96a69c",
+     "meta": {
+      "organization": {
+       "name": "Paragon Space Development Corp.",
+       "location": "Tucson, AZ, United States"
+      }
+     },
+     "meetingId": "4e0285f7c33d48598223d3ed95070516",
+     "id": "ab52d36cdf364882acebc1c404ca64db"
+    },
+    {
+     "organizationId": "f5eea61ce7ba452796d1a023e0c94c1c",
+     "meta": {
+      "organization": {
+       "name": "Texas Tech Univ.",
+       "location": "Lubbock, TX, United States"
+      }
+     },
+     "meetingId": "4e0285f7c33d48598223d3ed95070516",
+     "id": "079c07ae14e345509d3efea6a0ee02bd"
+    }
+   ],
+   "name": "International Conference on Environmental Systems (ICES)",
+   "location": "Bellevue, WA",
+   "id": "4e0285f7c33d48598223d3ed95070516",
+   "startDate": "2015-07-12T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20150021283,
+   "id": "4ffab524b5d0436f812af9f2b48972ce",
+   "publicationDate": "2015-07-12T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150021283.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150021283/downloads/20150021283.pdf",
+    "pdf": "/api/citations/20150021283/downloads/20150021283.pdf",
+    "fulltext": "/api/citations/20150021283/downloads/20150021283.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

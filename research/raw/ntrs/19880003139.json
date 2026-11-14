@@ -1,0 +1,93 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19880003139,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "fa98a6d65fba496ebc5795c9fb9c43b0",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Engineering (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19880003139,
+  "ear": "NO",
+  "id": "17c37e50018d480bb8d91e2bef235ecb",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-29T00:00:00.0000000+00:00",
+ "title": "Techniques for fire detection",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-05T18:58:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19880003139,
+   "meta": {
+    "author": {
+     "name": "Bukowski, Richard W."
+    },
+    "organization": {
+     "name": "National Bureau of Standards",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "cf77623d78cf4b999ef48df14df1b598"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19880003139,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "88N12521"
+ },
+ "created": "2013-09-05T18:58:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "An overview is given of the basis for an analysis of combustable materials and potential ignition sources in a spacecraft. First, the burning process is discussed in terms of the production of the fire signatures normally associated with detection devices. These include convected and radiated thermal energy, particulates, and gases. Second, the transport processes associated with the movement of these from the fire to the detector, along with the important phenomena which cause the level of these signatures to be reduced, are described. Third, the operating characteristics of the individual types of detectors which influence their response to signals, are presented. Finally, vulnerability analysis using predictive fire modeling techniques is discussed as a means to establish the necessary response of the detection system to provide the level of protection required in the application.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19880003139,
+   "id": "977301ba68e74caf891709277359ad45",
+   "publicationName": "NASA, Lewis Research Center, Spacecraft Fire Safety",
+   "publicationDate": "1987-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19880003139.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19880003139/downloads/19880003139.pdf",
+    "pdf": "/api/citations/19880003139/downloads/19880003139.pdf",
+    "fulltext": "/api/citations/19880003139/downloads/19880003139.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

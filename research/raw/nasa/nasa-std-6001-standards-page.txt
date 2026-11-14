@@ -1,0 +1,154 @@
+https://standards.nasa.gov/standard/NASA/NASA-STD-6001
+TITLE: Flammability, Offgassing, and Compatibility Requirements and Test Procedures | Standards
+FETCHED: 2026-11-14T11:01:20
+
+#
+Flammability, Offgassing, and Compatibility Requirements and Test Procedures
+
+Options for Standards Update Notification System (SUNS)
+
+Send SUNS Updates
+
+Yes
+
+SUNS Notification Type
+
+Correction
+
+Organization that Developed the Standard
+
+Organization that Developed the Standard
+
+NASA Standard
+
+Document Identifiers
+
+Document Number
+
+NASA-STD-6001
+
+Version
+
+B w/CHANGE 3
+
+Change Number
+
+3
+
+Document Date
+
+08/26/2011
+
+Change Date
+
+06/09/2025
+
+Is Active?
+
+ACTIVE
+
+NASA Organization and Technical Discipline
+
+Responsible NASA Organization
+
+NASA HQ, Office, Facility or Division
+
+NASA HQ Office, Facility or Division
+
+OCE - Office of the Chief Engineer
+
+Technical Discipline Category
+
+6000 - Materials and Processes, Parts
+
+Endorsed Standard
+
+Endorsement Details
+
+Endorsing NASA Organization
+
+OCE Endorsed Standard
+
+NASA Core Standard
+
+No
+
+NASA Endorsement Date
+
+2017-11-03
+
+NASA Endorsed Standard Status
+
+NASA Endorsed Standard
+
+Mandatory Standard
+
+NASA Mandatory Standard
+
+Not a NASA Mandatory Standard
+
+Document Scope
+
+Document Scope
+
+This NASA Technical Standard establishes requirements for evaluation, testing, and selection of materials that are intended for use in space vehicles and associated Ground Support Equipment (GSE). These requirements may also apply to facilities used during assembly, test, and flight operations when imposed contractually to ensure safety of personnel and flight hardware. Included are requirements, criteria, and test methods for evaluating the flammability, offgassing, and compatibility of materials. Provisions of this NASA Technical Standard will be included, as applicable, in all future contracts and programs involving space vehicles, payloads, and associated support equipment. This NASA Technical Standard was previously published as NASA Handbook (NHB) 8060.1, Flammability, Odor, Offgassing, and Compatibility Requirements and Test Procedures for Materials in Environments that Support Combustion.
+
+Keywords
+
+Flammability, Offgassing, and Compatibility Requirements and Test Procedures
+
+Document Access Control
+
+Document Viewable by
+
+Export Control/Distribution Authorization
+
+Internet Public -- Standard is cleared for public accessibility on the internet.
+
+PUBLIC: Upload Publicly Available Standard
+
+2025_06_25_NASA-STD-6001B_w_Change_3_FINAL_Admin-Change-FINAL.pdf
+(2.15 MB)
+
+PUBLIC: Document History for Standard
+
+nasa-std-6001.pdf
+(3.5 MB)
+
+NASA-STD-I-6001A.pdf
+(1.01 MB)
+
+Approved_2009-11-10_NASA-STD-_I_-6001B_Interim-Revisionfinal_.pdf
+(1.64 MB)
+
+nasa-std-6001b.pdf
+(1.44 MB)
+
+nasa-std-6001b_w_change_1.pdf
+(2.42 MB)
+
+Important Standard Dates
+
+Next 5-Year Review Date
+
+04/07/2021
+
+Revalidated or Reaffirmed Date
+
+04/07/2016
+
+Submitted Date
+
+Fri, 06/26/2015 - 12:00
+
+## Application Notes for this Standard
+
+-No Application Notes are associated with this standard.
+
+## Lessons Learned Related to this Standard
+
+To associate Lessons Learned to a specific standard, find the related lesson in LLIS. These lessons have been vetted and approved via the lessons learned process. Then, click “Create a new “Lessons Learned” record for this Standard” and complete the information.
+
+If you have a lesson learned that is not in LLIS, click “Proceed to the NASA Engineering Network to create a new “Lesson Learned” about this Standard” to be vetted and approved in that process. Then, associate the lesson by clicking “Create a new “Lessons Learned” record for this Standard.”
+
+-No Lessons Learned are associated with this standard.

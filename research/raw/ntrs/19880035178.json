@@ -1,0 +1,106 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19880035178,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "100f028518494fa2928bb64f74ab2d44",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Astronautics (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19880035178,
+  "ear": "NO",
+  "id": "5dc3424ec78649e7a628eccbaa464738",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-24T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "AIAA PAPER 88-0540",
+  "Report Number: AIAA PAPER 88-0540"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NAS3-25067",
+   "submissionId": 19880035178,
+   "id": "229d509207e6447e9e26a12bbc987406",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Experiments to ensure Space Station fire safety - A challenge",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-13T14:37:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19880035178,
+   "meta": {
+    "author": {
+     "name": "Youngblood, W. W."
+    },
+    "organization": {
+     "name": "Wyle Labs., Inc.",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "7078f28fee0d4c1180b0118397f62fcb"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19880035178,
+   "meta": {
+    "author": {
+     "name": "Seiser, K. M."
+    },
+    "organization": {
+     "name": "Wyle Laboratories, Inc.",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "a2de5d838de04d20b2933eb41b0b3e84"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19880035178,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "88A22405"
+ },
+ "created": "2013-08-13T14:37:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Three experiments have been formulated in order to address prominent fire safety requirements aboard the NASA Space Shuttle; these experiments are to be conducted as part of a Space Station-based Technology Development Mission for the growth phase of Space Station construction and operation. The experiments are: (1) an investigation of the flame-spread rate and combustion-product evolution in the burning of typical spacecraft materials in low gravity; (2) an evaluation of the interaction of fires and candidate fire extinguishers in low gravity; and (3) an investigation of the persistence and propagation of smoldering and deep-seated combustion in low gravity.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "publications": [
+  {
+   "submissionId": 19880035178,
+   "id": "e77255d20c7740e9bf69592743b8210a",
+   "publicationDate": "1988-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

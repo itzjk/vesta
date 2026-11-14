@@ -1,0 +1,140 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040161242,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "02cc8918fbf748fca3e0a0f56d202e42",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Propulsion And Power"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040161242,
+  "ear": "NO",
+  "id": "1f7f1c8098074560b9fa95d642d336c4",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-08-15T08:53:54.2700000+00:00",
+ "title": "EPS (Electric Particulate Suspension) Microgravity Technology Provides NASA with New Tools",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-22T04:53:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040161242,
+   "meta": {
+    "author": {
+     "name": "Colver, Gerald M."
+    },
+    "organization": {
+     "name": "Iowa State Univ. of Science and Technology",
+     "location": "Ames, IA, United States"
+    }
+   },
+   "id": "39d4fb511a7d47b78f57ee31f7d58527"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040161242,
+   "meta": {
+    "author": {
+     "name": "Greene, Nate"
+    },
+    "organization": {
+     "name": "Iowa State Univ. of Science and Technology",
+     "location": "Ames, IA, United States"
+    }
+   },
+   "id": "9386683b7cde4d23ba5f58183c3f5797"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040161242,
+   "meta": {
+    "author": {
+     "name": "Xu, Hua"
+    },
+    "organization": {
+     "name": "Iowa State Univ. of Science and Technology",
+     "location": "Ames, IA, United States"
+    }
+   },
+   "id": "21c65e5e3b114fb4a793fe149da701e8"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040161242,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-22T04:53:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Electric Particulate Suspension is a fire safety ignition test system being developed at Iowa State University with NASA support for evaluating combustion properties of powders, powder-gas mixtures, and pure gases in microgravity and gravitational atmospheres (quenching distance, ignition energy, flammability limits). A separate application is the use of EPS technology to control heat transfer in vacuum and space environment enclosures. In combustion testing, ignitable powders (aluminum, magnesium) are introduced in the EPS test cell and ignited by spark, while the addition of inert particles act as quenching media. As a combustion research tool, the EPS method has potential as a benchmark design for quenching powder flames that would provide NASA with a new fire safety standard for powder ignition testing. The EPS method also supports combustion modeling by providing accurate measurement of flame-quenching distance as an important parameter in laminar flame theory since it is closely related to characteristic flame thickness and flame structure. In heat transfer applications, inert powder suspensions (copper, steel) driven by electric fields regulate heat flow between adjacent surfaces enclosures both in vacuum (or gas) and microgravity. This simple E-field control can be particularly useful in space environments where physical separation is a requirement between heat exchange surfaces.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040161242,
+   "id": "742f6489a5d64c05b0baf68fa78de456",
+   "publicationName": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session, Volume 2",
+   "publicationDate": "2004-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040161242.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040161242/downloads/20040161242.pdf",
+    "pdf": "/api/citations/20040161242/downloads/20040161242.pdf",
+    "fulltext": "/api/citations/20040161242/downloads/20040161242.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

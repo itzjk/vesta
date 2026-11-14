@@ -1,0 +1,84 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19910029452,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "73e79e992e59448eadf499b6c32511fa",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19910029452,
+  "ear": "NO",
+  "id": "d3df03876f38430195e3b34c701a6e81",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-08-26T18:49:00.2700000+00:00",
+ "otherReportNumbers": [
+  "IAF PAPER 90-555",
+  "Report Number: IAF PAPER 90-555"
+ ],
+ "title": "Critical safety assurance factors for manned spacecraft - A fire safety perspective",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-14T20:46:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19910029452,
+   "meta": {
+    "author": {
+     "name": "Rodney, George A."
+    },
+    "organization": {
+     "name": "NASA Headquarters",
+     "location": "Washington, DC United States"
+    }
+   },
+   "id": "2e0ae44c5cd94de28a885443b79d4d7f"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19910029452,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "91A14075"
+ },
+ "created": "2013-08-14T20:46:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Safety assurance factors for manned spacecraft are discussed with a focus on the Space Station Freedom. A hazard scenario is provided to demonstrate a process commonly used by safety engineers and other analysts to identify onboard safety risks. Fire strategies are described, including a review of fire extinguishing agents being considered for the Space Station. Lessons learned about fire safety technology in other areas are also noted. NASA and industry research on fire safety applications is discussed. NASA's approach to ensuring safety for manned spacecraft is addressed in the context of its multidiscipline program.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "publications": [
+  {
+   "submissionId": 19910029452,
+   "id": "309d63f916bb471e84108d59782fcd6a",
+   "publicationDate": "1990-10-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

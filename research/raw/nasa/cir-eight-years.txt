@@ -1,0 +1,57 @@
+https://www.nasa.gov/wp-json/wp/v2/migration/265462
+TITLE: Combustion Facility Celebrates Eight Years of Hot Science
+FETCHED: 2026-11-14T10:57:52
+PUBLIC-LINK: https://www.nasa.gov/?migration=converted-node-413789
+DATE: 2017-11-21T19:26:00
+
+# Combustion Facility Celebrates Eight Years of Hot Science
+
+After more than eight years of igniting hot science aboard the International Space Station, the Multi-user Droplet Combustion Apparatus (MDCA) was recently removed from its home on the orbiting laboratory as part of the Combustion Integration Rack (CIR). Since its installation in 2009 the apparatus enabled droplet combustion experiments as part of more than five investigations.
+
+“While we expected to get more accurate extinction conditions, the MDCA enabled us to find a whole new combustion regime,” said Forman Williams, principal investigator for three of the investigations conducted within the MDCA. “We now have lots of data about how things burn at low temperatures, and it’s given us important information for future work to try to understand those results.”
+
+To celebrate its time aboard the space station, here’s a look back at some of its milestones:
+
+Hot discovery in combustion science: cool flames
+
+Early combustion experiments in microgravity showed that, although researchers couldn’t see a flame, fuel droplets were continuing to decrease in size, indicating that they were continuing to burn without a visible flame – a phenomenon called cool flames. What we know as “normal” hot flames burn at temperatures between 2,200 and 3,100 F, while “cool” flames burn at the relatively low temperature of 400 to 700 F.
+
+Cool flames were first observed in microgravity during the Flame Extinguishment Investigation (FLEX). This unexpected observation ignited the combustion community into studying low-temperature chemistry. On Earth, cool flames can only be observed for a fraction of a second. In microgravity, however, researchers have been able to observe the phenomenon for a minute or two at a time.
+
+Cool flames are much weaker than hot flames, so on Earth the oxygen being drawn into the flame, known as the buoyant flow, causes the flame to collapse and extinguish.
+
+“What is unique about microgravity is the ability to get rid of that buoyant flow uncovers things that you wouldn’t have expected to see,” said Daniel Dietrich, principal investigator for one investigation and co-investigator for two others. “This sort of omnipresent buoyant flow on Earth obscures a lot of very important chemistry and physics that can occur.”
+
+Research during five investigations improved our understanding
+
+The Multi-user Droplet Combustion Apparatus accommodated several investigations during its stay aboard the space station, notably:
+
+Flame Extinguishment Experiment (FLEX)
+
+- FLEX studied the effectiveness of fire suppressants in microgravity, focusing on minimum concentrations for putting out a fire and conditions for preventing combustion in different environments. Results from the investigation could be used to improve the safety of future crew exploration vehicles and could also improve engine performance on Earth.
+
+Flame Extinguishment Experiment-2 (FLEX-2)
+
+- Using small droplets of burning fuel, FLEX-2 studied how quickly fuel burns in space, the conditions required for soot to form, and how mixtures of fuels evaporate before burning. In addition to possibly leading to the production of a safer spacecraft, the results of FLEX-2 could also contribute to increased fuel efficiency for engines on Earth.
+
+FLEX Italian Combustion Experiment for Green Air (FLEX-ICE-GA)
+
+- The FLEX-ICE-GA investigation studied several types of renewable fuels to determine how efficiently they burn in a microgravity environment. Research from the investigation can be used to create a database of evaporation and combustion statistics for a variety of biofuel mixtures, which could help determine the type of fuel to be used in future spacecraft.
+
+Flame Extinguishment Experiment-2 JAXA (FLEX-2J)
+
+- This investigation built on previous single-droplet experiments by studying interactions among multiple fuel droplets and the flame spreading throughout them. Studying these interactions could lead to improved spacecraft propulsion systems, as well as more efficient crew safety systems.
+
+Cool Flames Investigation (Cool Flames)
+
+- The Cool Flames Investigation studied the low-temperature burning behavior of several fuels in microgravity, including pure hydrocarbons, biofuels and mixtures of pure hydrocarbons. Some types of fuels initially burn very hot, then appear to go out — but they continue burning at a much lower temperature with no visible flames, an occurrence called cool flames. Results from this investigation could lead to a better understand of low-temperature chemistry, which benefits the development of more efficient fuels and engines both in space and on Earth.
+
+Data from more than 1,400 fuel droplets burned
+
+The investigations conducted within the MDCA allowed for more than 1,400 test points to be performed. A test point refers to the burning of a fuel droplet from ignition to extinction, while measuring data points like burning rate and droplet diameter. Each test point provides flame extinction data that can be used to improve chemical reaction rates.
+
+More than 50 graduate and undergraduate students were involved in this space station research also involving 39 astronauts and five countries. The results have been published in more than 50 peer-reviewed journals.
+
+The Space Life and Physical Sciences Research and Application Division in the agency’s Human Exploration and Operations Mission Directorate at NASA Headquarters sponsored these investigations.
+
+For more information about the science happening aboard the orbiting laboratory, follow @ISS_Research.

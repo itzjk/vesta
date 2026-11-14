@@ -1,0 +1,7 @@
+Flammability of Materials on the Moon
+
+Lunar gravity has been found to increase the limits of flammability for some materials compared to Earth gravity, presenting a goldilocks zone of reduced convective heat loss, while generating enough buoyant flow to replenish fresh oxygen into the flame zone.  Combined with the elevated oxygen concentrations of planned Space Exploration Atmospheres (Sea), a long duration fire experiment in Lunar gravity is important to help understand and mitigate the increased risk.
+
+Flammability of Materials on the Moon (FM2) is a robotic, self-contained, combustion chamber which will be sent to the surface of the Moon on a Commercial Lunar Payload Services (CLPS) lander mission CP-21. The environmental control system can replicate and conduct fire experiments automatically in the expected atmospheres, specifically 21% oxygen at 14.7 psia, and 34% oxygen at 8.2 psia, which are of immediate interest to the Human Lander System (HLS) and Lunar Rover.
+
+The laboratory prototype became operational this summer. There are four samples currently planned; two SIBAL fabrics (cotton/fiberglass blend) which will be burned in air and two acrylic rods which will be burned in Normoxic Space Exploration Atmospheres (SEA). One of each fuel will be burned upward and downward. SIBAL fabric has been found to only burn downward in air in lunar gravity (via Lunar gravity centrifuge and parabolic flight) where on Earth’s gravity it extinguishes immediately after ignition. 

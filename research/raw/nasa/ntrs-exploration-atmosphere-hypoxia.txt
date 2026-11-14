@@ -1,0 +1,2032 @@
+https://ntrs.nasa.gov/citations/20150021491
+TITLE: Evidence Report: Risk of Hypobaric Hypoxia from the Exploration Atmosphere
+FETCHED: 2026-11-14T10:59:57
+NTRS-ID: 20150021491
+DATE: 2015-01-01
+AUTHORS: Norcross, Jason R.; Conkin, Johnny; Wessel, James H., III; Norsk, Peter; Law, Jennifer; Arias, Diana; Goodwin, Tom; Crucian, Brian; Whitmire, Alexandra; Bloomberg, Jacob; Platts, Steve; Ploutz-Snyder, Lori; Douglas, Grace
+REPORT: JSC-CN-34806; Report Number: JSC-CN-34806
+PDF: https://ntrs.nasa.gov/api/citations/20150021491/downloads/20150021491.pdf
+
+# Evidence Report: Risk of Hypobaric Hypoxia from the Exploration Atmosphere
+
+## Abstract (NTRS record)
+
+Extravehicular activity (EVA) is at the core of a manned space exploration program. Some elements of exploration may be safely and effectively performed by robots, but certain critical elements will require the trained, assertive, and reasoning mind of a human crewmember. To effectively use these skills, NASA needs a safe, effective, and efficient EVA component integrated into the human exploration program. The EVA preparation time should be minimized and the suit pressure should be low to accommodate EVA tasks without causing undue fatigue, physical discomfort, or suit-related trauma. Commissioned in 2005, the Exploration Atmospheres Working Group (EAWG) had the primary goal of recommending to NASA an internal environment that allowed efficient and repetitive EVAs for missions that were to be enabled by the former Constellation Program. At the conclusion of the EAWG meeting, the 8.0 psia and 32% oxygen (O2) environment were recommended for EVA-intensive phases of missions. After re-evaluation in 2012, the 8/32 environment was altered to 8.2 psia and 34% O2 to reduce the hypoxic stress to a crewmember. These two small changes increase alveolar O2 pressure by 11 mmHg, which is expected to significantly benefit crewmembers. The 8.2/34 environment (inspired O2 pressure = 128 mmHg) is also physiologically equivalent to the staged decompression atmosphere of 10.2 psia / 26.5% O2 (inspired O2 pressure = 127 mmHg) used on 34 different shuttle missions for approximately a week each flight. As a result of selecting this internal environment, NASA gains the capability for efficient EVA with low risk of decompression sickness (DCS), but not without incurring the additional negative stimulus of hypobaric hypoxia to the already physiologically challenging spaceflight environment. This report provides a review of the human health and performance risks associated with the use of the 8.2 psia / 34% O2 environment during spaceflight. Of most concern are the potential effects on the central nervous system (CNS), including increased intracranial pressure, visual impairment, sensorimotor dysfunction, and oxidative damage. Other areas of focus include validation of the DCS mitigation strategy, incidence and treatment of transient acute mountain sickness (AMS), development of new exercise countermeasure protocols, effective food preparation at 8.2 psia, assurance of quality sleep, and prevention of suit-induced injury. Although missions proposing to use an 8.2/34 environment are still years away, it is recommended that these studies begin early enough to ensure that the correct decisions pertaining to vehicle design, mission operational concepts, and human health countermeasures are appropriately informed.
+
+## Full text (pdftotext -layout)
+
+                      Risk of Hypoxia from the Exploration Atmosphere
+
+
+
+
+Evidence Report:
+
+Risk of Hypobaric Hypoxia from the Exploration
+Atmosphere
+
+
+Jason R. Norcross, MS1, Johnny Conkin, PhD2, James H. Wessel III, MS1, Peter Norsk, MD, dr.
+med.2, Jennifer Law, MD3, Diana Arias, MS1, Tom Goodwin, PhD3, Brian Crucian, PhD3,
+Alexandra Whitmire, PhD1, Jacob Bloomberg, PhD3, Steve Platts, PhD3, Lori Ploutz-Snyder,
+PhD2, Grace Douglas, PhD3
+1
+  Wyle Science, Technology & Engineering Group, Houston, TX, USA
+2
+  Universities Space Research Association, Houston, TX, USA
+3
+  NASA Johnson Space Center, Houston, TX, USA
+
+
+
+
+Human Research Program
+
+Human Health Countermeasures Element
+
+Approved for Public Release: TBD
+
+
+
+
+National Aeronautics and Space Administration
+Lyndon B. Johnson Space Center
+Houston, Texas
+
+
+
+
+                                                1
+                                      Risk of Hypoxia from the Exploration Atmosphere
+
+
+Table of Contents ........................................................................................................................ 2
+1    PRD Risk Statement ............................................................................................................................... 4
+2    Executive Summary ................................................................................................................................ 4
+3    Introduction ............................................................................................................................................ 5
+    3.1    Why and When 8.2/34 .................................................................................................................... 6
+    3.2    Important Changes since the 2006 EAWG Final Report .................................................................. 6
+      3.2.1        Constellation Program Cancellation ....................................................................................... 7
+      3.2.2        MMSEV and Suitport Development ....................................................................................... 7
+      3.2.3        Independent Pressure Effect on Hypoxic Dose ...................................................................... 7
+      3.2.4        Visual Impairment / Intracranial Pressure Syndrome ........................................................... 8
+      3.2.5        Elevated Carbon Dioxide on ISS .............................................................................................. 8
+4    Evidence for Hypoxia-Induced Physiological Concerns ........................................................................ 8
+    4.1    Hypobaric Hypoxia in Space ............................................................................................................ 9
+    4.2    VIIP Syndrome ............................................................................................................................... 10
+      4.2.1        VIIP during Spaceflight .......................................................................................................... 11
+      4.2.2        VIIP and Hypoxia ................................................................................................................... 11
+      4.2.3        VIIP Conclusion ...................................................................................................................... 12
+    4.3    Sensorimotor Performance ........................................................................................................... 12
+      4.3.1        Sensorimotor Performance during Spaceflight .................................................................... 12
+      4.3.2        Sensorimotor Performance and Hypoxia ............................................................................. 12
+      4.3.3        Sensorimotor Performance Conclusion ............................................................................... 13
+    4.4    Acute Mountain Sickness .............................................................................................................. 14
+      4.4.1        AMS Risk Specific to 8.2/34 Condition ................................................................................. 16
+    4.5    Exercise Performance .................................................................................................................... 17
+      4.5.1        Exercise Performance during Spaceflight ............................................................................. 17
+      4.5.2        Exercise Performance and Hypoxia ...................................................................................... 17
+      4.5.3        Cardiovascular System Performance and Spaceflight ......................................................... 18
+      4.5.4        Cardiovascular System Performance and Hypoxia .............................................................. 18
+      4.5.5        Exercise and Cardiovascular Performance Conclusion ........................................................ 18
+    4.6    Immune System Function .............................................................................................................. 19
+    4.7    Oxidative Stress and Damage ........................................................................................................ 20
+
+
+                                                                              2
+                                       Risk of Hypoxia from the Exploration Atmosphere
+
+    4.8      Sleep .............................................................................................................................................. 20
+       4.8.1        Sleep during Spaceflight ....................................................................................................... 21
+       4.8.2        Sleep and Hypoxia ................................................................................................................. 21
+    4.9      Decompression Sickness ............................................................................................................... 22
+    4.10       Stand-Alone Hypobaric Effects.................................................................................................... 22
+       4.10.1         Hypobaric Effects on Medical Equipment .......................................................................... 22
+       4.10.2         Hypobaric Effects on Food Preparation ............................................................................. 23
+5     Risk in Context of Exploration Mission Operational Scenarios ........................................................... 24
+    5.1      Transitioning Guidelines between different Atmospheres will Need to be Developed ............... 24
+    5.2 Exploration Missions involve Increased EVA Capability that is Required at Very Different Points
+    in Different Design Reference Missions .................................................................................................. 25
+    5.3      Exploration Atmosphere Enables New EVA Architecture ............................................................. 26
+    5.4 No Exploration Atmosphere Means Longer Denitrogenation Protocols and Higher Consumable
+    Usage....................................................................................................................................................... 27
+    5.5      Carbon Dioxide Levels May Add Additional Negative Effects ....................................................... 28
+    5.6      All Assumptions Regarding use of the 8.2/34 Environment Assume N2 as the Primary Inert Gas 29
+6     Gaps ...................................................................................................................................................... 30
+7     Conclusion ............................................................................................................................................ 30
+8     References ............................................................................................................................................ 31
+9     List of acronyms ................................................................................................................................... 42
+
+
+
+
+                                                                                3
+                       Risk of Hypoxia from the Exploration Atmosphere
+
+
+1 PRD Risk Statement
+Future human exploration missions will require extended EVAs that will expose astronauts to
+hypobaric and hypoxic atmosphere conditions. This can result in risk of compromised health
+and performance to the crewmember.
+
+
+2 Executive Summary
+Extravehicular activity (EVA) is at the core of a manned space exploration program. Some
+elements of exploration may be safely and effectively performed by robots, but certain critical
+elements will require the trained, assertive, and reasoning mind of a human crewmember. To
+effectively use these skills, NASA needs a safe, effective, and efficient EVA component
+integrated into the human exploration program. The EVA preparation time should be minimized
+and the suit pressure should be low to accommodate EVA tasks without causing undue fatigue,
+physical discomfort, or suit-related trauma. Commissioned in 2005, the Exploration
+Atmospheres Working Group (EAWG) had the primary goal of recommending to NASA an
+internal environment that allowed efficient and repetitive EVAs for missions that were to be
+enabled by the former Constellation Program. At the conclusion of the EAWG meeting, the 8.0
+psia and 32% oxygen (O2) environment were recommended for EVA-intensive phases of
+missions.
+
+After re-evaluation in 2012, the 8/32 environment was altered to 8.2 psia and 34% O2 to reduce
+the hypoxic stress to a crewmember. These two small changes increase alveolar O2 pressure by
+11 mmHg, which is expected to significantly benefit crewmembers. The 8.2/34 environment
+(inspired O2 pressure = 128 mmHg) is also physiologically equivalent to the staged
+decompression atmosphere of 10.2 psia / 26.5% O2 (inspired O2 pressure = 127 mmHg) used on
+34 different shuttle missions for approximately a week each flight.
+
+As a result of selecting this internal environment, NASA gains the capability for efficient EVA
+with low risk of decompression sickness (DCS), but not without incurring the additional negative
+stimulus of hypobaric hypoxia to the already physiologically challenging spaceflight
+environment. This report provides a review of the human health and performance risks
+associated with the use of the 8.2 psia / 34% O2 environment during spaceflight. Of most concern
+are the potential effects on the central nervous system (CNS), including increased intracranial
+pressure, visual impairment, sensorimotor dysfunction, and oxidative damage. Other areas of
+focus include validation of the DCS mitigation strategy, incidence and treatment of transient
+acute mountain sickness (AMS), development of new exercise countermeasure protocols,
+effective food preparation at 8.2 psia, assurance of quality sleep, and prevention of suit-induced
+injury. Although missions proposing to use an 8.2/34 environment are still years away, it is
+recommended that these studies begin early enough to ensure that the correct decisions
+pertaining to vehicle design, mission operational concepts, and human health countermeasures
+are appropriately informed.
+
+
+
+
+                                                4
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+
+3 Introduction
+Over the past several decades, NASA has operated spacecraft habitable elements and spacesuits
+at a variety of different atmospheres. Early missions during the Gemini and Apollo programs
+were short duration and relied on low-pressure, 100% O2 environments. Skylab missions were
+longer in duration but still employed a low-pressure (5 psia), 70% O2 environment. NASA’s
+more recent programs, including the Space Shuttle Program and International Space Station
+(ISS) program have operated at an Earth-equivalent sea level atmosphere of 14.7 psia and 21%
+O2. Selection of this atmosphere facilitated international partnerships and allowed in-flight
+scientific studies to have ground-based controls, with gravity as the primary variable of interest.
+
+In 2005, the EAWG was convened to formulate recommendations on the designs of habitable
+internal environments to inform requirements for the development of vehicles during the
+Constellation Program [1]. The process used to select among several candidate environments is
+detailed in the EAWG final report, which was first published as an internal NASA document [2]
+and then later as a NASA Technical Paper [1]. The primary trade space applied to the EAWG
+analysis for the lunar and Mars habitat and surface spacesuit designs consisted of hypoxia,
+flammability, and DCS.
+
+The 2006 EAWG recommendations were as follows:
+    Launch and transport vehicle should operate within the existing ISS and shuttle standard
+      environment designs of 14.7 psia / 21% O2 and 10.2 psia / 26.5% O2
+    Lunar and Mars landers should operate at both 10.2 psia / 26.5% O2 and 8.0 psia / 32%
+      O2
+    Surface spacesuits should operate at 100% O2 and at a pressure range of 3.5 to 8.0 psia
+    Long-duration lunar and Mars habitats should operate at 8.0 psia / 32% O2 nominally
+      with an option to decompress further to 7.6 psia / 32% O2
+    Atmospheric recommendations assumed a control box of ± 0.2 psia total pressure and ±
+      2.0% O2 concentration
+
+The consensuses of the EAWG were the recommendations for a lower-pressure surface habitat
+and a surface spacesuit with a variable operating pressure range. The 8 psia / 32% O2 (henceforth
+referred to as 8/32) environment was selected because it was considered to be a mildly hypoxic
+atmosphere with acceptable flammability risk and low O2 prebreathe (PB) overhead to maintain
+acceptable DCS risk [1]. The proposed forward work related to human physiology was almost
+solely related to DCS, with no mention of hypoxia research.
+
+The EAWG recommendations were developed through a multi-discipline working group and
+concurred upon by the heads of the Johnson Space Center (JSC) Engineering, Space and Life
+Sciences, and Flight Crew Operations Directorates as well as the manager of the JSC
+Extravehicular Activity Office. However, attempts to move forward with vehicle designs based
+on the EAWG report were met with mixed approval because the recommendations were not
+captured anywhere outside of the Constellation Program documentation. The Exploration
+Atmosphere Action Team convened in 2012 to review the 8/32 atmospheric recommendation
+and moved to alter the environment to 8.2 psia and 34% O2 to reduce the hypoxic stress without
+affecting DCS risk or materials concerns [3]. This recommendation was presented to the NASA
+
+                                                 5
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+Human Exploration and Operations Mission Directorate (HEOMD) Associate Administrator,
+who then provided a memorandum that directed programs under HEOMD to begin the work to
+enable the updated Exploration Atmosphere of 8.2 psia and 34% O2 [4].
+
+3.1 Why and When 8.2/34
+Multiple reasons were proposed for the use of the 8.2/34 environment. A primary benefit of this
+atmosphere is a reduction in O2 PB time for EVA since atmospheric ppN2 would decrease from
+11.6 psia in a 14.7/21 environment to 5.4 psia in a 8.2/34 environment. This minimizes the
+difference between tissue ppN2 and the lowest anticipated suit pressure of 4.3 psia. With the
+8.2/34 option, it is expected that a 15-minute PB may be all that is necessary to achieve
+acceptable risk of DCS during EVA. An 8.2 psia cabin pressure also allows operational use of a
+suitport, which greatly reduces the complexity and overhead associated with EVA suit donning.
+The current expectation is that an astronaut could don the EVA suit through a suitport and
+complete all necessary checkout procedures and EVA prep during this 15-minute PB window.
+Additionally, suitport-compatible suits are proposed to be variable-pressure suits capable of
+operating from the 8.2 psia cabin pressure down to the expected EVA-operating suit pressure of
+4.3 psia. A variable-pressure suit also provides immediate treatment capability for DCS because
+the suit could be repressurized to 8.2 psia in the field without requiring reentry into the cabin.
+Furthermore, the short transition times between suit and cabin allow for intermittent
+recompressions, further reducing the risk of DCS.
+
+Beyond the control of DCS to acceptable risk levels, the 8.2/34 environment coupled with
+suitport operations is a paradigm shift from NASA’s ISS and shuttle EVA protocols. Unlike the
+ISS construction and maintenance EVAs, which were well understood and very specific,
+exploration EVAs will be driven by choices made at the destination. Exploration crews need a
+robust and flexible EVA capability, which is provided by coupling the 8.2/34 environment with
+suitport operations. This combination provides an on-demand EVA capability including short-
+duration EVA, multiple EVAs per day, and single-person EVA.
+
+Application of the 8.2/34 environment is only needed during high EVA-frequency phases of a
+mission. The 8.2/34 environment is not needed for launch or transit to the destination, although
+the capability should be considered for all habitable elements to ensure transitions between
+different elements can be accomplished during contingency situations. Currently, any element
+expected to operate in the 8.2/34 environment (other than the EVA suit) will also be capable of
+repressurizing and operating at 14.7/21.
+
+3.2 Important Changes since the 2006 EAWG Final Report
+Much has changed at NASA since the 2006 EAWG recommendations, including cancellation of
+the Constellation Program, development of the Multi Mission Space Exploration Vehicle
+(MMSEV) concept, movement toward a Capability-Driven Framework for space exploration,
+advances in our understanding of human adaptation to the spaceflight environment, and the
+identification of new human risks and hazards.
+
+
+
+
+                                                6
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+
+3.2.1 Constellation Program Cancellation
+One of the largest changes since the EAWG was the cancellation of the Constellation Program.
+This program featured a clear target of the moon with rapidly evolving operational concept
+development. The requirement for an Exploration Atmosphere of 8/32 was kept in the
+Constellation Architecture Requirements Document. It is difficult to quantify how much this
+affected implementation of the EAWG recommendations for vehicle requirements, research, and
+development. It could be that discontinuity with personnel in the intervening years coupled with
+a change from a well-defined lunar target to a capability-driven framework contributed to some
+of the concerns about using the EAWG report as an approved baseline.
+
+3.2.2 MMSEV and Suitport Development
+Over this same time period, new space exploration vehicles and spacesuits were designed and
+developed in accordance with the recommendations from the EAWG. One of these vehicles is
+the MMSEV, which began as a small pressurized rover for the lunar environment. It has since
+developed additional capability beyond lunar and Mars surface operations to now include
+variants with operating capacity in the microgravity environment as well, either as a way-station
+habitat or as a near-Earth asteroid (NEA) exploration vehicle. The MMSEV assumed the 8/32
+environment as the NASA baseline and has developed both a suitport and a variable-pressure
+rear-entry suitport-compatible EVA suit. Use of a variable-pressure EVA suit with suitport
+enabled by the 8/32 internal environment yields several benefits. From an operational standpoint,
+NASA gains the capability for single-person EVA, short EVA, multiple EVAs in a single day,
+enhanced waste removal using a suitport transfer module, reduced consumables, and high work
+efficiency index. In terms of safety, there is reduced overhead for meeting acceptable DCS risk,
+multiple vehicle reentry points, and immediate capability for DCS treatment through
+repressurization of the EVA suit.
+
+3.2.3 Independent Pressure Effect on Hypoxic Dose
+Although not a new debate, recently, there has been considerable discussion on whether
+normobaric hypoxia (NH) elicits the same hypoxic symptoms as hypobaric hypoxia (HH) [5] [6]
+[7]. In many cases, the differences may not reach statistical or clinical significance, but the
+general trend indicates that almost all measurable changes associated with hypoxic exposures
+trend worse in the case of HH compared with NH for the same hypoxic PIO2. Given that the 8/32
+environment is an engineered environment and does not exist in nature, a standard equivalent air
+altitude (EAA) may not be fully representative of the hypoxic stress. An 8 psia atmospheric
+pressure (PB) is associated with an actual altitude of 4,877 m (16,000 ft). It is the enrichment of
+O2 from 21% to 32% that reduces the hypoxic stress to an EAA of approximately 1,830 m (6,000
+ft). It is unknown whether the increased hypobaric exposure will increase the hypoxic dose, but
+at least one literature review suggested that the 8/32 environment increased the risk of AMS
+from the proposed EAA of approximately 1,830 m (6,000 ft) to 2896 m (9,500 ft) [8]. This
+hypothesis is based on a literature review and a proposed model and has not been validated, but it
+does point to the need for human exposure research in the 8/32 environment. A more recent
+review lends further support that NH and HH are not equivalent for acute and subacute
+exposures and suggests that using NH as a surrogate for HH during chronic exposures is
+inappropriate [9].
+
+
+
+                                                7
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+Research is warranted to evaluate a possible PB effect on hypoxic adaptations. Results from
+these studies will aid in the understanding of human physiology in the proposed 8.2/34
+environment as well as inform the scientific community on how best to proceed with hypoxia
+research. In research settings, it is easier to design and operate systems that manipulate PIO2 by
+reducing FIO2 at 14.7 psia rather than reducing PB with or without O2-enrichment. However, in
+situations where the PB effect is significant, human or animal research will require true ascent-to-
+altitude or hypobaric chamber studies.
+
+3.2.4 Visual Impairment / Intracranial Pressure Syndrome
+Because of its prevalence and potential mission impact, visual impairment / intracranial pressure
+(VIIP) is considered the top human system risk in the ISS Program. Currently, VIIP is a poorly
+understood syndrome with potential for permanent damage to the ocular and central nervous
+systems. The changes that have been observed to date are developing in microgravity without
+additional exposure to HH. While the pathophysiology of VIIP is under active investigation, the
+addition of HH to the spaceflight environment may exacerbate the problem.
+
+3.2.5 Elevated Carbon Dioxide on ISS
+Elevated carbon dioxide (CO2) is a known problem in a closed system with humans in the loop.
+On Earth, the ambient CO2 concentration is approximately 0.23 mmHg (0.03%). In spacecraft, it
+is not practical to control CO2 to such low levels because of power and consumable constraints,
+and CO2 levels on the ISS have typically been 2.3 to 5.3 mmHg (0.5 ± 0.2%), a ten-fold increase
+compared with terrestrial levels [10]. Over the years, ISS crewmembers have been found to
+develop CO2-related symptoms, such as headache and lethargy, at lower-than-expected CO2
+levels, and symptoms tend to resolve when ambient CO2 is decreased [11]. While work to
+quantify this association is ongoing, chronic CO2 exposure appears to be a contributing factor to
+several in-flight medical issues, including VIIP [11] [12]. The CO2 elevation will likely
+complicate the adaptation to a mildly hypoxic environment, potentially making physiological
+symptoms worse.
+
+
+4 Evidence for Hypoxia-Induced Physiological Concerns
+This section will discuss the physiological concerns and impacts related to the mild hypoxic
+atmosphere of the 8.2/34 environment. Decreasing the O2 delivery to all the bodily organs and
+systems has an impact on all physiological functions. However, the 8.2/34 environment only
+induces a mild hypoxic stimulus, which we would not be concerned about in itself on the surface
+of the Earth. We know that humans adapt well to altitude with a similar ambient O2 partial
+pressure as the 8.2/34 environment, with millions of people residing at altitudes greater than
+4000 ft and even more people transiently experiencing mild hypoxia during airplane flights
+ranging from 5000-8000 ft. Such an environment in combination with other spaceflight factors,
+such as microgravity and space radiation, is of concern because the additive and/or synergistic
+effects might impair human health and performance to an unacceptable risk level. In particular,
+the effects on brain and ocular physiology are of concern because we lack knowledge as to how a
+decrease in ambient O2 partial pressure – however small – in space might affect the pressure in
+the brain and eyes and thus human performance. In addition, we do not know how the
+combinatorial effects of a mildly hypoxic atmosphere and mildly hyperoxic EVA suit
+
+                                                 8
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+atmosphere affect cellular pathways and whether they induce oxidative stress and damage,
+threatening human health to an unacceptable level. Consequently, the addition of mild hypoxia
+and its effect on the human system will be needed to augment existing NASA human research.
+Particular emphasis should be placed on brain and ocular function, sensorimotor performance,
+and cellular oxidative stress and damage.
+
+4.1 Hypobaric Hypoxia in Space
+The use of a mildly hypobaric hypoxic environment has been used for short-term exposures to
+facilitate EVA during both the shuttle and ISS programs. One serendipitous finding was that
+8.2/34 is almost physiologically equivalent to the atmosphere of 10.2 psia and 26.5% O2 used on
+the shuttle. A comparison of the two environments is shown in Table 1, demonstrating that the
+two environments are almost equivalent with respect to the hypoxia level, but that 8.2/34
+presents a much lower tissue N2 saturation level.
+
+ Table 1. Comparison of the 8.2/34 Environment to the Shuttle 10.2/26.5 Atmosphere
+
+ PB                          ppO2             PAO2            EAA              ppN2
+                O2%
+ psia                        mmHg             mmHg            m (ft)           (mmHg)
+  10.2          26.5         140              87              1265 (4150)        388
+   8.2          34           144              88              1213 (3980)        280
+ Difference                  +4               +1              -170              -108
+
+
+Any human health and performance data available from missions employing the 10.2/26.5
+environment may be helpful toward understanding the implications of employing a mildly
+hypoxic environment during flight. Table 2 describes the number of days at 10.2/26.5 as well as
+the crew size and total man-days. Days at 10.2/26.5 were calculated though a data mining
+process using the Archive Data Retrieval (ADRIFT) subprogram in the Java Mission Evaluation
+Workstation System (JMEWS) data system.
+The average duration at 10.2/26.5 was 3.48 days, with 24 of the 33 missions decompressing to
+10.2/26.5 for less than 4 days. The longest mission using 10.2/26.5 was STS-61, which
+decompressed for 8.1 consecutive days.
+Data mining efforts using both the Lifetime Surveillance of Astronaut Health (LSAH) and Life
+Sciences Data Archive (LSDA) are underway to evaluate whether there are any crew medical
+complaints related to hypoxia or if there are any past studies that may have data across both 10.2
+and sea-level Shuttle missions.
+
+
+
+
+                                                9
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+
+ Table 2. Spaceflight Experience with the 10.2 psia / 26.5% O2 Environment
+
+                                       Crew                     Days at      Man Days at
+ Flight    Launch        Landing                  Last EVA
+                                       Size                     10.2/26.5    10.2/26.5
+ STS-41B   02/03/1984    02/11/1984         5     02/09/1984        3.32        16.58
+ STS-41C   04/06/1984    04/13/1984         5     04/11/1984        4.83        24.13
+ STS-41G   10/05/1984    10/13/1984         7     10/11/1984        1.36        9.54
+ STS-51A   11/08/1984    11/16/1984         5     11/14/1984        3.74        18.70
+ STS-51D   04/12/1985    04/19/1985         7     04/16/1985        2.10        12.60
+ STS-51I   08/27/1985    09/03/1985         5     09/01/1985        2.87        14.34
+ STS-61B   11/26/1985    12/03/1985         7     12/01/1985        3.14        21.95
+ STS-37    04/05/1991    04/11/1991         5     04/08/1991        2.92        14.59
+ STS-49    05/07/1991    05/16/1992         7     05/14/1992        7.13        49.92
+ STS-54    01/13/1993    01/19/1993         5     01/17/1993        2.28        11.40
+ STS-51    09/12/1993    09/22/1993         5     09/16/1993        2.74        13.70
+ STS-61    12/02/1993    12/13/1993         7     12/08/1993        8.10        56.68
+ STS-64    09/09/1994    09/20/1994         6     09/16/1994        1.33        7.99
+ STS-69    09/07/1995    09/18/1995         5     09/16/1995        1.97        9.86
+ STS-72    01/11/1996    01/20/1996         6     01/17/1996        3.70        22.21
+ STS-76    03/22/1996    03/31/1996         6     03/27/1996        0.77        4.62
+ STS-82    02/11/1997    02/21/1997         7     02/17/1997        7.18        50.28
+ STS-87    11/19/1997    12/05/1997         6     12/03/1997        1.63        9.78
+ STS-88    12/04/1998    12/15/1998         6     12/12/1998        7.76        46.59
+ STS-96    05/27/1999    06/06/1999         7     05/29/1999        2.53        17.73
+ STS-103   12/19/1999    12/27/1999         7     12/24/1999        5.23        36.58
+ STS-101   05/19/2000    05/29/2000         7     05/21/2000        1.10        7.72
+ STS-106   09/08/2000    09/20/2000         7     09/17/2000        0.79        5.54
+ STS-92    10/11/2000    10/24/2000         7     10/18/2000        3.89        27.20
+ STS-97    11/30/2000    12/11/2000         5     12/07/2000        5.88        29.42
+ STS-98    02/07/2001    02/20/2001         5     02/14/2001        3.95        19.77
+ STS-102   03/08/2001    03/21/2001         7     03/12/2001        1.73        12.13
+ STS-100   04/19/2001    05/01/2001         7     04/24/2001        2.50        17.53
+ STS-104   07/12/2001    07/24/2001         5     07/17/2001        1.92        9.62
+ STS-105   08/10/2001    08/22/2001         4     08/18/2001        1.41        5.65
+ STS-108   12/05/2001    12/17/2001         7     12/10/2001        0.81        5.68
+ STS-109   03/01/2002    03/12/2002         7     03/08/2002        7.32        51.26
+ STS-125   05/11/2009    05/24/2009         7     05/18/2009        6.97        48.81
+                                                        Total     114.93       712.24
+
+
+
+4.2 VIIP Syndrome
+Because of its prevalence and potential mission impact, visual impairment / intracranial pressure
+(VIIP) is considered the top human system risk in the ISS Program. Currently, VIIP is a poorly
+understood syndrome with potential for permanent damage to the ocular and central nervous
+systems. The changes that have been observed to date are developing in microgravity without
+
+                                                10
+                       Risk of Hypoxia from the Exploration Atmosphere
+
+additional HH exposure. While the pathophysiology of VIIP is under active investigation, the
+addition of HH to the spaceflight environment may exacerbate the problem.
+
+4.2.1 VIIP during Spaceflight
+The VIIP syndrome was first described in 2006 with the observation of papilledema, vision
+changes, and increased intracranial pressure in long-duration astronauts returning from the ISS.
+However, post-flight questionnaires obtained between 1989 and 2011 revealed that 23% of
+shuttle and 48% of ISS long-duration mission astronauts reported a subjective degradation in
+vision [13], suggesting that spaceflight-induced visual impairment and intracranial hypertension
+may have been occurring in astronauts although the syndrome was not recognized until the
+technology advanced sufficiently to evaluate and look for it [14]. Based on a case definition
+developed by expert consensus, 15 cases have been identified among the 36 long-duration
+astronauts to date, although not all of these 36 astronauts have been fully evaluated. Although
+direct in-flight measurements have not been made, in-flight signs of papilledema and post-flight
+changes in brain imaging have documented evidence of elevated intracranial pressure (ICP). In
+addition, post-flight lumbar puncture in four ISS crewmembers has indicated elevated ICP
+ranging from 21.0 to 28.5 cmH2O (normal range: 5 to 15 cmH2O). Of note, ICP may remain
+elevated long after flight in some of the returning symptomatic astronauts, over 18 months in one
+case [13].
+Microgravity exposure induces a cephalad fluid shift likely resulting in elevated ICP. It is
+possible that the cephalad fluid shift accounts for a 50% increase in ICP in the microgravity
+environment compared with 1-g [15]. In addition, it is known that the average CO2 level is
+elevated on the ISS, which may further increase ICP due to its potent vasodilator effects. Up to
+an additional 12% increase in ICP may be attributed to current CO2 levels on ISS [16]. Thus, a
+combination of the microgravity-induced cephalad fluid shift and high ambient CO2 levels very
+likely increases ICP in astronauts, leading to known visual acuity problems and possible impacts
+on cognitive brain function.
+
+4.2.2 VIIP and Hypoxia
+One concern associated with HH alone is the incidence of AMS (to be discussed further in
+Section 4.4), which lies within the spectrum of high-altitude headache to high-altitude cerebral
+edema. High-altitude cerebral edema is associated with increased ICP [17] [18] [19]. AMS itself
+appears to be strongly associated with increased optic nerve sheath diameter, reflecting increased
+ICP [20]. Sutherland et al. found that the optic nerve sheath diameter increased in 13
+mountaineers from sea level to exposures at 2000, 3700, 5200, and 6400 m (6562, 12139, 17060,
+and 20997 ft) [21]. Increased optic nerve sheath diameter has been found to correlate positively
+with ICP based on the fact that the subarachnoid cerebrospinal fluid (CSF) compartment
+communicates with the perioptic CSF space. Therefore, increases in intracranial CSF pressure
+are transmitted to the perioptic CSF space and may be measured as changes in the optic nerve
+sheath diameter. More directly, Yang, et al. found that upon exposure to an altitude of 4,000 m
+(13,123 ft) for 2 hours, ICP measured by an intraventricular catheter increased by 78% from 15.4
+to 27.4 cmH2O in hypoxic goats compared with nonhypoxic goats [22]. Physiologically, any
+decrease in O2 delivery results in vasodilation of cerebral vessels to increase brain blood flow
+and elevate ICP. With the addition of microgravity-induced intracranial hypertension, it is likely
+that astronauts would develop greater increases in ICP in an 8.2/34 environment than in 14.7/21.
+Even limited exposures to 8.2/34 may exacerbate VIIP in an additive or synergistic manner.
+
+                                               11
+                       Risk of Hypoxia from the Exploration Atmosphere
+
+
+
+Moreover, in the setting of papilledema, hypoxia is expected to worsen optic nerve ischemia.
+Hypoxia at altitude is associated with optic disc swelling, hypothesized to be due to a hypoxia-
+induced increase in cerebral blood flow that disrupts the blood-brain barrier and results in
+cerebral edema [23] [24]. Altitude-associated optic disc swelling has been described since 1969
+[19]; a recent study of 27 high-altitude mountaineers by Bosch, et al. [23] revealed optic disc
+swelling in 59% of the climbers. Furthermore, high-altitude retinopathy, typically described as
+retinal vascular engorgement and tortuosity, has been associated with decreased visual acuity and
+cotton wool spots [25], two of the diagnostic hallmarks of VIIP [14]. There is enough overlap
+between spaceflight-induced VIIP and altitude illnesses to warrant precaution about intentionally
+adding HH to spaceflight. The concern is that an 8.2/34 environment would worsen visual
+changes, potentially leading to a decreased ability to perform tasks and possible permanent
+damage.
+
+4.2.3 VIIP Conclusion
+Currently, 42% of ISS crewmembers are affected by the VIIP syndrome, 15% of whom are
+severely affected, in a normobaric, normoxic (14.7 psi / 20.9% O2) environment. Because of its
+prevalence and potential mission impact due to visual and CNS impairment, VIIP is considered
+the top human system risk in the ISS Program. It should be noted that the changes that have been
+observed to date are developing in microgravity without additional exposure to HH. The
+combinatorial effects of spaceflight environmental factors, such as microgravity and high
+ambient CO2 levels, with an 8.2/34 environment are unknown and could potentially negatively
+impact brain blood flow and cognitive abilities based on current knowledge of the VIIP
+syndrome.
+
+4.3 Sensorimotor Performance
+Sensorimotor disturbances are well known to occur during spaceflight, and these changes may be
+exacerbated by the introduction of HH with the 8.2/34 environment.
+
+4.3.1 Sensorimotor Performance during Spaceflight
+Astronauts experience disturbances in sensorimotor function during periods of adaptive change
+on initial exposure to microgravity and on return to a gravity environment. These disturbances
+include spatial disorientation, space motion sickness, alterations in gaze control, and postflight
+postural instability and gait ataxia [26] [27] [28] [29] [30] [31]. Importantly, sensorimotor
+disturbances are more profound as the duration of exposure to microgravity increases. These
+changes can impact in-flight operational activities, including spacecraft landing, docking, remote
+manipulation, and EVA performance. In addition, postflight postural and gait instabilities could
+prevent or extend the time required to make a nominal or an emergency egress from a spacecraft.
+
+4.3.2 Sensorimotor Performance and Hypoxia
+The retina is extremely sensitive to changes in O2; therefore, acute hypoxia can lead to
+decrements in visual function. These changes are less profound in the mild hypoxic range;
+however, performance decrements have been observed [32]. In one study that focused on visual
+performance specifically in the hypoxic range of 1,830 to 2,438 m (6,000 to 8,000 ft), mesopic
+vision was impaired [33]. Mesopic vision refers to visual performance under low-light but not
+
+                                               12
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+quite dark conditions, equivalent to those experienced during twilight. Given potential low-light
+conditions during planetary operations, this decrease in visual performance may have operational
+implications.
+
+Mild hypoxia has also been shown to have an effect on the postural control system [34] [35]
+[36]. Postural sway measured in subjects standing on a force plate was shown to increase
+compared with ground-level controls at simulated altitudes of 1,524, 2,438, and 3,048 m (5,000,
+8,000, and 10,000 ft) [34]. The postural control system receives input from several sensory
+modalities, including information from vision; the vestibular system; proprioception from joints,
+tendons, and muscles; and tactile information. These multiple sensory informational sources are
+integrated in the CNS to aid in the control of postural equilibrium. Therefore, a change in
+postural equilibrium control can serve as a sensitive indicator of mild hypoxic effects on multiple
+sensory systems along with the efficacy of their central integration.
+
+In terms of pilot flight control performance, exposure to mild hypoxia does not have a significant
+impact on manual control ability for tasks such as maintaining assigned altitudes and navigation;
+however, procedural errors appear to increase at the 3,048-m (10,000-ft) level [37]. These events
+include misdialing frequency codes and failure to follow air traffic control instructions. In a
+study using self-report questionnaires to assess hypoxic symptoms of helicopter aircrew
+operating at altitudes below 3,048 m (10,000 ft), aircrew reported potentially operationally
+significant symptoms of hypoxia at a mean altitude of 2,590 m (8,497 ft) [38].
+
+During gravitational transitions, sensorimotor systems undergo adaptive changes to match motor
+output to the prevailing environment. It is currently unknown what the impact of hypoxia is on
+this essential process of sensorimotor adaptive change. Does hypoxia hinder the adaptive
+response, thereby prolonging the period of sensorimotor disturbance experienced during
+gravitational transitions? If hypoxia interacts negatively with the nominal sensorimotor adaptive
+process, performance decrements, including changes in dynamic visual acuity, postural and gait
+instability, and spatial disorientation, may be exacerbated, impacting performance and mission
+success. In addition, there are well-known vestibular-evoked responses recorded from respiratory
+muscle nerves that serve to provide adjustments in breathing and airway patency during
+movements and changes in posture [39]. It is possible that vestibular adaptation shortly following
+G-transitions may negatively impact the respiratory compensation in the 8.2/34 environment.
+Singh, et al. [40] observed that altered vestibular function, such as increased sway at high
+altitudes, may reverse with acclimatization. Therefore, sensorimotor interactions with the 8.2/34
+environment are likely to be more important within the first few days following the transitions
+between G states.
+
+4.3.3 Sensorimotor Performance Conclusion
+From a sensorimotor perspective, mild hypoxia can induce alterations in performance, including
+visual and postural stability decrements and some alterations in piloting ability. These effects are
+not profound in terms of overall impact on performance; however, in combination with other
+factors unique to spaceflight, these performance decrements may reach the threshold of
+impacting mission capability.
+
+
+
+                                                 13
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+To determine whether sensorimotor adaptive mechanisms are negatively affected by the 8.2/34
+environment, the following studies could be performed to compare the normoxic adaptive
+response with the 8.2/34 hypoxic environment:
+
+          Gaze control and dynamic visual acuity adaptive responses to vision-distorting lenses
+           (e.g., magnifying, minifying)
+          Manual control adaptive responses to modified joystick input
+          Gait adaptation to an unstable walking support surface
+          Combined effects of multitasking and increased G (entry profile) on adaptive
+           responses
+
+If performance decrements are observed that are related to hypoxic-derived reductions in the
+adaptation ability of sensorimotor systems, countermeasures could be developed to mitigate
+these changes. One potential countermeasure entails hypoxic preconditioning training [41] [42]
+[43]. This training paradigm engages the endogenous mechanisms by which the brain protects
+itself against cerebral ischemia by exposing the subject to a noxious stimulus near to but below
+the threshold for damage. Following the preconditioning training, a tolerance is developed to the
+same or even different noxious stimulus beyond the usual threshold for effect. This type of
+training has been used successfully to develop an increased tolerance for ischemic stress. In this
+context, preconditioning to mild hypoxia could be used as a training countermeasure to reduce
+the hypoxic performance decrements associated with exposure to mild hypoxia and adaptive
+sensorimotor responses.
+
+4.4 Acute Mountain Sickness
+AMS affects individuals that ascend rapidly to altitude, with symptoms such as headache,
+nausea, vomiting, disturbed sleep, and poor physical performance [44]. The acute change in
+ambient ppO2 from normoxic (159 mmHg) to the ppO2 of 144 mmHg associated with the 8.2/34
+environment can result in the possibility that some crewmembers may develop transient
+symptoms of AMS. Between 7% and 25% of adults may experience mild AMS near 2,000 m
+(6,562 ft) [44] [45]. The risk of AMS is modified by several factors, including the ascent rate to
+altitude, activity level at altitude, and individual susceptibility [46]. HH appears to induce AMS
+to a greater extent than does either normobaric hypoxia or normoxic hypobaria [47].
+
+AMS symptoms have been recorded using the Lake Louise symptom questionnaire (LLSQ) and
+include headache plus nausea, dizziness, fatigue, or sleeplessness that develops over a period of
+6 to 24 hours. While expected to be mild and transient, these symptoms could potentially impact
+crew health and performance on critical mission tasks during lunar surface missions. AMS
+headaches are reported to be throbbing, bi-temporal, or occipital, typically worse during the night
+and upon awakening. Such headaches have implications for sleep quality. When combined with
+nausea, they can be likened to the flu or a hangover. Clinical findings confirm a change in mental
+status, ataxia, peripheral edema, or changes in performance (reduction in normal activities) [44].
+
+One of the largest studies on AMS was conducted by Anderson, et al. [48] during rapid ascent to
+the Amundsen-Scott South Pole Station (2,835 m [9,300 ft]) in Antarctica. Of 246 subjects, 52%
+developed LLSQ-defined AMS (Figure 1). Anderson et al. are currently working on some
+follow-up manuscripts that will describe the known physiological differences between the
+
+                                                14
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+subjects who reported AMS and the subjects who had no AMS symptoms. The most common
+symptoms were shortness of breath with activity (87%), sleeping difficulty (74%), headache
+(66%), fatigue (65%), and dizziness/lightheadedness (46%) (Figure 2). Symptom reports at the
+South Pole were mild to moderate in severity, with symptom prevalence peaking on the day after
+arrival at altitude (day 2, approximately 12 to 18 hours after arrival); however, in greater than
+20% of individuals, shortness of breath with activity, fatigue, and sleep problems persisted
+through day 7. This result reflected conventional knowledge that symptoms appear between 6
+and 48 hours after arrival and resolve within the first 3 days [48].
+
+Located on the high plateau of Antarctica at an elevation of 2,835 m (9,300 ft), the environment
+of South Pole Station closely reflects the 8.2/34 environment as well as the operational profile of
+NASA mission scenarios. Most jobs at South Pole Station require physical activity, with a
+significant portion of personnel working outdoors. Activities include construction, heavy
+equipment operation, transport of supplies, science support, research, and fuel delivery [48]. This
+environment could serve as a high-fidelity, ground-based analog with which to research hypoxic
+effects within a true mission-like environment.
+
+
+
+
+          Figure 1. Percentage of participants who reached their maximum LLSQ symptom
+             score during the first 7 days at South Pole Station (2,835 m [9,300 ft]) [48].
+
+
+
+
+                                                15
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+
+
+
+   Figure 2. Severity of the most commonly reported symptoms over the first week of exposure in
+              personnel rapidly transported to the South Pole (2,835 m [9,300 ft]) [48].
+
+4.4.1 AMS Risk Specific to 8.2/34 Condition
+It appears through an extensive literature search [49] and statistical analysis of available data [8]
+that the 1,830-m (6,000-ft) EAA computed for the initial 8.0/32 environment may have a greater
+risk of AMS than one would expect at this altitude. This independent pressure effect on true
+hypoxic dose appears real and has been suspected since 1946. Since the derivation of the alveolar
+gas equation was published [50], there has been a physiologically founded expectation of
+different outcomes under normobaric and hypobaric hypoxia given the same hypoxic PIO2,
+termed the nitrogen dilution or the respiratory exchange ratio effect [51]. In the current context,
+there are two cases: the first is the equivalent air altitude case with assumed exposure to 1,830-m
+(6,000-ft, 11.8 psia) breathing air (21% O2), and the second is the exploration atmosphere case
+with exposure to 4,877 m (16,000 ft, 8.0 psia) at 32% O2. The difference between these two
+exposures is 3,048 m (10,000 ft), but the PIO2 is identical at 117 mmHg, and it appears that the
+risk of AMS is greater in the exploration atmosphere case due to the lower total pressure [8].
+Without considering acclimatization to mild hypoxia from one vehicle to the next, there is
+approximately a 25% probability of AMS per crewmember for the initial 8.0/32 environment and
+approximately a 10% probability of AMS for the proposed 8.2/34 environment [8]; this also
+assumes no further negative interactions due to adaptation to microgravity.
+
+Research is justified to measure the acute mild hypoxic response to the 8.2/34 environment. It
+seems that the magnitude of the pressure effect on true hypoxic dose is a function of the hypoxic
+PIO2. The pressure difference between 11.8 and 8.0 psia may or may not be sufficient to measure
+
+                                                 16
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+a pressure effect on the onset, intensity, and incidence of AMS, given a reasonable sample of
+human subjects. If time and money resources are not available, staged decompression and
+pharmacological mitigation strategies should be developed to reduce and manage the predicted
+risk of AMS.
+
+4.5 Exercise Performance
+Exercise is a primary countermeasure for many of the negative physiological changes associated
+with spaceflight. Any expected change to exercise performance, such as mild hypobaric hypoxia,
+will need to be evaluated to determine if there are difference exercise countermeasures required
+during use of the 8.2/34 environment.
+
+4.5.1 Exercise Performance during Spaceflight
+Maintenance of exercise performance is of crucial importance for mobility of astronauts during
+long-duration missions and upon return to 1-g. Despite crew allocation of approximately 2.5
+hours per day to exercise, current exercise countermeasures are not fully effective in protecting
+against spaceflight-induced decrements in muscle, cardiovascular function, and bone health. For
+example, ISS crewmembers (Expeditions 1 through 15, n = 18) demonstrated mean decreases in
+isokinetic knee extensor and flexor strength of 11% and 17%, respectively [52], 10% reductions
+in maximal aerobic capacity [53], and 2% to 7% decreases (depending on site) in bone [54].
+Recent analysis, including data from crewmembers with access to the advanced resistive exercise
+device (ARED), demonstrates that resistive exercise using ARED combined with adequate
+dietary intake has been even more effective in preserving bone mineral content and lean body
+mass [55]. It is now generally perceived that the current exercise countermeasure suite is
+effective in preserving muscle strength and aerobic performance if protocols are adhered to and
+adequate nutritional intake is maintained. There is a need to prevent spaceflight-related
+deconditioning to protect the health and mission readiness of current ISS crew as well as to
+enable NASA to protect the fitness of longer-duration astronauts on moon, Mars, and NEO
+missions.
+
+4.5.2 Exercise Performance and Hypoxia
+Exposure to hypoxia is associated with a number of adaptive responses, which could act
+synergistically with microgravity to further impair muscle and exercise performance. Acutely,
+acclimatization to a moderate altitude, e.g., 3,048 m (10,000 ft), takes approximately 3 weeks,
+during which time there is impairment in exercise performance due to decreased cardiac output,
+increased ventilation, and muscle fatigue [56] [57]. A decrease in the ability to perform exercise
+countermeasures early in flight may have negative consequences, as a large portion of the
+strength loss and muscle atrophy observed in ISS crewmembers may occur during the first few
+weeks in microgravity. Chronic exposure (> 3 weeks) to the 8/32 environment may also magnify
+microgravity-induced changes in muscle and exercise performance. For example, exposure to
+moderate altitude accelerates muscle atrophy [58] and the transition from the slow-to-fast-twitch
+fiber type [59] decrease mitochondrial function and aerobic metabolism [60] and increase muscle
+fatigability [61]. Ultimately, there is a 0.5% reduction in aerobic power output per 100 m (328 ft)
+of elevation [61] [62] [63] [64]. Moreover, similar to microgravity, individuals with higher
+aerobic capacity are more affected by hypoxic exposure [65], and there are gender differences in
+performance [66] [67] [68] as well.
+
+
+                                                17
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+
+4.5.3 Cardiovascular System Performance and Spaceflight
+Alterations in cardiovascular function have been reported following both acute and chronic
+exposure to spaceflight and are thought to be secondary to circulatory unloading mediated by a
+central redistribution of fluid and an accompanied reduction in plasma volume. It is now
+accepted that these adjustments contribute to the increased risk of orthostatic intolerance and
+underlie the reduction in exercise capacity experienced by some astronauts. More recent studies
+using both ultrasound and cardiac magnetic resonance imaging have elucidated a number of
+structural and functional changes, including left ventricular diastolic dysfunction, cardiac atrophy
+/ remodeling (an average decrease of approximately 1 gram per week), and vascular / endothelial
+dysfunction, which is differentially altered between cerebral and peripheral vascular beds.
+
+4.5.4 Cardiovascular System Performance and Hypoxia
+The cardiovascular control systems are keenly sensitive to changes in both O2 and CO2. While
+there is no literature on the specific environment in question (8/32) combined with a stressor
+such as spaceflight, there is a relatively rich literature base on the effects of hypoxia (including
+relatively mild hypoxia) here on Earth. A preliminary review of this literature revealed that
+chronic exposure to extreme HH, such as that experienced at altitudes at or above 3,400 m
+(11,154 ft), may impart protective adaptive effects on the cardiovascular system. On the other
+hand, acute or intermittent exposure to such conditions, even at altitudes that provide only
+modest hypoxia, may impart maladaptive responses. Specifically, Holloway, et al. demonstrated
+reduced left ventricular mass (approximately 11%) and impaired diastolic function in sea level-
+dwelling subjects after only a short and gradual ascent to the 5,300-m (17,388-ft) Mt. Everest
+Base Camp [69]. It was postulated that such changes were due to alterations in myocardial
+energetics, particularly reduced levels of phosphocreatine and adenosine triphosphate. Such
+results confirm and provide a mechanistic insight into an earlier finding by Kjaergaard and
+colleagues, who demonstrated that cardiovascular function was depressed even after only 18
+hours of exposure to simulated hypoxia comparable to living at 4,000 m (13,123 ft) [70]. Papers
+by Nishimura [71] and Iwasaki [72] suggest that a relative altitude as low as 2,000 m (6,562 ft) is
+sufficient to alter vascular function in the brain in as little as 5 hours.
+
+It is likely that many of these effects are mediated, at least in part, by hypoxia-inducible factor 1
+(HIF-1) [73] [74]. There is also evidence that HIF-1 interacts with reactive O2 species to form a
+positive feedback loop, thus exacerbating any oxidative stress already present during spaceflight.
+
+4.5.5 Exercise and Cardiovascular Performance Conclusion
+Acute and chronic exposure to the 8.2/34 environment may exacerbate microgravity-induced
+decrements in muscle and exercise performance. The relative impact of these changes is highly
+duration-dependent. Acute studies are needed to compare muscle and cardiovascular
+performance at 8.2/34, probably using NH simulations to determine pre- and in-flight exercise
+prescriptions. Long-duration 8.2/34 exposure would prompt the need for additional adaptation
+studies.
+
+An Exploration equivalent to the ISS Crew Health Care System (CHeCS) will consist of
+countermeasures, environmental health monitoring, and health maintenance. The impact of an
+8.2/34 environment will have to be evaluated in terms of each of these elements.
+
+                                                 18
+                       Risk of Hypoxia from the Exploration Atmosphere
+
+The Countermeasures System (CMS) will provide aerobic and anaerobic exercise capabilities for
+crewmembers to minimize cardiovascular deconditioning, bone loss, and muscle atrophy due to
+disuse in microgravity. In general, the current CMS on the ISS is believed to be adequate for
+maintaining aerobic fitness and bone mineral density (although preservation of bone architecture
+is still being debated). However, CMS hardware may be reduced in exploration missions given a
+smaller habitable volume compared with the ISS. A specific concern associated with the 8.2/34
+environment is that air pressure-dependent hardware, such as the ARED, would work less
+effectively, requiring more mass and/or more frequent cylinder evacuations to maintain the same
+range of resistance.
+
+Exercise protocols of lower intensity or shorter duration [44] have been proposed for an 8/32
+environment to preserve consumables and minimize hardware cycling, while reducing the risk of
+AMS, as exercise has been associated with more severe AMS symptoms at simulated altitude
+[46]. However, these potential benefits of reduced exercise protocols must be weighed against
+the risks of cardiovascular and musculoskeletal deconditioning in terms of ability to perform
+strenuous mission tasks (e.g., EVA) and long-term health consequences.
+
+4.6 Immune System Function
+We know that reactivation of latent herpes viruses occurs during short-duration spaceflights [75].
+Recent data from the ISS indicate that in-flight dysregulation of the immune system persists for
+the duration of a 6-month mission [76]. Persistent immune dysregulation during exploration
+missions could increase certain health risks to astronauts, including infectious disease, allergy
+and hypersensitivities, malignancies, autoimmune manifestations, and the consequences of
+continued viral reactivation [77].
+
+There is ample terrestrial evidence demonstrating that hypoxia may also adversely influence the
+immune system. We also know that T cell function is impaired during hypoxic stress [78] [79]
+and that hypoxia promotes the accumulation of extracellular adenosine as a result of enhanced
+purine nucleotide degradation from adenosine tri- and diphosphate (ATP, ADP). Binding of
+adenosine to the cAMP-elevating Gs protein-coupled A2 receptors results in an inhibition of
+effector functions of T cells and myeloid cells and includes the inhibition of expansion and
+secretion of cytotoxic molecules and cytokines [80]. This suppresses the immune system and
+thus may render the body more susceptible to some of the adverse health consequences described
+above.
+
+The combined immune-suppressive effects of spaceflight environmental factors and even a
+short-term and rather mild hypoxic atmosphere is therefore of much concern. The spaceflight
+effects per se might be controllable even during long-term missions, but the additive and/or
+synergistic effects of an 8.2/34 hypoxic environment might further dysregulate immune
+parameters, thus rendering the consequences of immune deficiencies less controllable. Thus,
+forward work investigating the degree to which an additive and/or synergistic effect of the well-
+known spaceflight environmental factors and 8.2/34 hypoxia occurs is highly recommended
+before planning for long-duration deep space missions.
+
+
+
+
+                                               19
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+
+4.7 Oxidative Stress and Damage
+There is evidence that spaceflight-induced oxidative stress and damage (OSaD) is a component
+of the following spaceflight-related effects: immune manifestations, decreases in bone and
+muscle strength, and development of the VIIP syndrome during spaceflight [81] [82] [83] [84]
+[85] [86] [87] [88] [89]. OSaD is the result of organic and systemic dysregulation of the free
+radical normalization and scavenging process and is also the cause of many different
+manifestations of disease, including atherosclerosis [90] [91] [92]. Therefore, during long-
+duration missions into deep space, OSaD could likely constitute an important mechanism for
+development of cardiac disease [90] [93] [91] [94].
+
+Changing the environment during spaceflight to an 8/32/34 environment will lead to mild
+hypoxia, which is known to further promote OSaD [95] [96]. The combination of spaceflight
+(radiation and weightlessness) and hypoxia will be a hazard that will likely induce augmented
+synergistic and additive OSaD effects, thereby rendering immune dysfunction, bone
+demineralization, muscle degradation, and the VIIP syndrome less controllable – even with use
+of the current countermeasures. Therefore, OSaD research is warranted to determine whether it is
+safe for the astronauts to change the vehicle environment to a lower O2 partial pressure during
+spaceflight [97] [98] [88]. Such research should be combined with the suggested research
+scenarios within the immune discipline [99].
+
+Given that the main motivation behind a reduced environment such as 8.2/34 is to facilitate
+frequent EVAs, several general concerns regarding the performance of frequent EVAs are
+discussed below.
+
+First, repeated cycling between suit pressure and habitable volume pressure could have
+detrimental effects on the crew. Intermittent hypoxia, defined as repeated episodes of hypoxia
+interspersed with episodes of normoxia, has been studied to enhance exercise performance in
+athletes, as the so-called “live high and train low” method can stimulate erythropoietin and red
+blood cell production and increase ventilation [100]. However, intermittent induced cyclic
+hypoxia is also associated with increased arterial blood pressure through activation of the renin-
+angiotensin system in healthy subjects [101] and enhanced sympathetic and blood pressure
+responses to acute hypoxia and hypercapnia [100]. Cumulative exposure to intermittent hypoxia
+may yield progressive brain injury and subsequent neurological impairment due to metabolic
+stresses and reactive free radicals during hypoxia [100]. Intermittent hypoxia appears to elicit the
+same ventilatory changes to hypoxia as chronic hypoxia and also changes the surface receptors
+on red blood cells, which may cause long-term changes in VO2 max [102]. Furthermore, patients
+with obstructive sleep apnea, who serve as a model for chronic intermittent hypoxia, have a high
+risk of cardiovascular disease, increased levels of inflammatory markers, oxidative stress,
+coagulation, and thrombosis [103] [104].
+
+4.8 Sleep
+The introduction of an 8.2/34 environment may have implications for sleep in microgravity. In
+particular, difficulties in sleep are anticipated in hypoxic environments during the acclimatization
+phase.
+
+
+
+                                                20
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+
+4.8.1 Sleep during Spaceflight
+Sleep deprivation is associated with degraded performance of neurobehavioral tasks, as well as
+decrements in health and well-being; thus, any stressor that has the potential to affect the quality
+of sleep during a mission could be detrimental to the astronaut. Studies have shown that sleep is
+reduced to an average nightly duration of 6 hours in short-duration missions (i.e., Space Shuttle),
+despite schedule requirements that accommodate 8 hours of sleep per night [105] [106]. Duration
+may not be the only aspect of sleep that is currently affected in spaceflight. Shuttle astronauts
+reported poor sleep quality on orbit [107]. Few studies have objectively looked at sleep structure
+in space, but those that have evaluated sleep stages have found changes, although these studies
+included only a small number of participants [106] [108]. Ground research demonstrates that
+changes in sleep structure are associated with health and performance decrements [106] [108]
+[109] [110]. Reduced sleep and possibly altered sleep structure already pose implications for
+cognition, alertness, and performance on critical tasks.
+
+4.8.2 Sleep and Hypoxia
+Terrestrial studies indicate that hypoxic environments can yield similar detriments to sleep as
+those that have been seen in the spaceflight environment, particularly field studies that include
+high workloads and increased exertion. Thus, the combination of adding a hypoxic environment
+to existing stressors associated with sleep in space could potentially exacerbate these negative
+effects.
+The lowest altitude at which sleep and/or post-sleep performance are affected is not definitively
+known. Decreased quality of sleep has been reported after acute ascent to altitudes of North
+American ski resorts (2,000 to 3,000 m) (6,561 to 9,843 ft) and higher. Changes in sleep
+architecture include a shift toward lighter sleep stages, with marked decrements in slow-wave
+sleep and variable decreases in rapid-eye-movement sleep [111]. Accordingly, the sleep quality
+at these altitudes was perceived as poor, with the sensation of occasional awakenings, a sense of
+suffocation caused by periodic breathing relieved by a few deep breaths, and resumption of
+sleep.
+
+Weil proposed that respiratory periodicity (arousals) at altitude results from alternating
+respiratory stimulation by hypoxia and subsequent inhibition by hyperventilation-induced
+hypocapnia [111]. Despite approximately the same sleep duration, upon arising from sleep,
+subjects reported impressions of greatly abbreviated and restless sleep. Additionally, during
+wakefulness, subjects experienced drowsiness [111]. This relationship may need further
+evaluation because CO2 levels are several times greater on the ISS than on Earth [11].
+
+Studies in simulated environments, however, revealed less conclusive effects on sleep and
+related outcomes. Muhm, et al. studied post-sleep neurobehavioral performance decrements at a
+simulated altitude of 2,438 m (8,000 ft) on O2 saturation, heart rate, sleep duration, sleep quality,
+post-sleep neurobehavioral performance, and mood [112]. Results showed that SaO2 before sleep
+was significantly lower at altitude than at sea level. During sleep, SpO2 decreased further at both
+altitude and ground. SaO2 was below 90% during 44.4% of the time at altitude and 0.1% of the
+time at sea level. Subjects participated in three 18-hour sessions, and sleep was more disturbed in
+the first study session than in subsequent sessions (potentially an argument for pre-adaptation
+before flight), and older subjects had more disturbed sleep. Despite these findings, objective and
+
+
+                                                 21
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+subjective measurements of sleep duration and quality did not differ significantly with altitude or
+post-sleep neurobehavioral performance and mood.
+
+Thomas, et al. found that sleep at a simulated altitude of 3,962 m (13,000 ft) was not associated
+with decrements in working memory or simple reaction time in healthy non-smoking men and
+women [113]. Weiss, et al. found no difference after hypoxia in sleepiness, encoding, verbal
+learning, objective vigilance, attention, or working memory at the same altitude with intermittent
+9-hour exposures for 28 consecutive nights [114]. While these results were unexpected, they
+highlight the limitations of simulated studies, possibly because they lack the conditions of high
+workload and exertion found in field studies and the spaceflight environment.
+
+Evidence indicates that sleep is significantly reduced during the time before an EVA [105].
+Before an EVA, it is common for crewmembers to be too “wired” to sleep [107]. General
+practice has been not to schedule 2 consecutive days of EVA unless resources are limited. The
+proposed mission scenario with an EVA every day or every other day can result in a heightened
+stress response, reduced sleep, and/or interrupted sleep in addition to the already reduced sleep in
+microgravity. This could have implications for, e.g., task performance, memory, and cognition.
+
+4.9 Decompression Sickness
+Mitigation of DCS is one of the primary reasons for the selection of a non-sea-level environment.
+When coupling the 8.2/34 Exploration Atmosphere with a variable-pressure EVA suit and a
+highly efficient suit donning/doffing technology such as the Multi Mission Space Exploration
+Vehicle (MMSEV) suitports, crew time and consumable use are efficiently maximized [115].
+To date, all predictions of the time and duration needed to effectively mitigate DCS using the
+8.2/34 environment have been derived from modeling data. Prior to use in-flight, the O2 PB
+requirements for transitioning between the 8.2/34 environment and a 4.3 psia EVA suit will need
+to be validated through a ground-based chamber test.
+This test will need to validate the requirements for the following:
+   1. Transitioning from 14.7/21 to 8.2/34 without any risk of DCS
+   2. Duration needed to saturate at 8.2/34 prior to the first EVA or additional PB requirements
+      for the first EVA
+   3. Nominal EVA PB requirements once saturated at 8.2/34
+
+4.10 Stand-Alone Hypobaric Effects
+Although the majority of human concerns regarding the 8.2/34 environment are related to the
+mild hypoxia, there are specific concerns related just to operating at a lower-pressure
+environment. For instance, reduction in pressure alone will account for an increased insensible
+water loss that will need to be replaced with additional drinking water [116]. This increased
+water loss will also need to be considered by the ECLSS team.
+
+4.10.1         Hypobaric Effects on Medical Equipment
+The Health Maintenance System (HMS) will enable nominal and contingency evaluation of crew
+health and provide treatment for a variety of illnesses and injuries. All medical hardware will
+also need to be certified to operate in an 8.2/34 environment. Additionally, air-dependent
+
+                                                22
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+diagnostic hardware may have to be modified (e.g., blood pressure cuffs) or substituted with
+devices that are not air-dependent (e.g., air-puff tonometer). In terms of therapeutics,
+medications may or may not be more stable in a reduced O2 environment in combination with the
+higher space radiation levels. Capabilities for supplemental O2 and mechanical ventilation will
+be needed to treat a subset of conditions on the Exploration Medical Conditions List, and both
+will have to be compatible with the spacecraft atmosphere. A defibrillator to treat sudden cardiac
+arrest or arrhythmia will also have to pose minimal fire risk.
+
+The purpose of the Space Medicine Exploration Condition List (SMEMCL; JSC-65722) is to
+serve as an evidence-based foundation for determining which medical conditions could affect a
+crewmember during a given mission profile, which of those conditions would be of concern and
+require treatment, and the conditions for which a gap in knowledge or technology development
+exists. This information will be used to focus research efforts and technology development.
+Atmospheric changes from sea level to 8.2/34 will change the incidence of diseases currently
+being researched, such as AMS, and the treatment of diseases not directly induced by hypoxia,
+such as a pneumothorax, which requires increased O2 for treatment.
+
+The Integrated Medical Model is a stochastic model that uses Monte Carlo methodology to
+simulate medical events and estimate the impact of these medical events for a given DRM.
+Outcomes include Crew Health Index (CHI), probability of evacuation (EVAC), and probability
+of loss of crew life (LOCL). For each DRM, 20,000 trials are simulated and probability
+distributions for CHI, EVAC, and LOCL are determined. Thus, a change in cabin pressure will
+directly affect diseases such as AMS and DCS, as well as affect the consequence of O2-
+dependent diseases such as respiratory infection and anemia.
+
+Treatment of these O2-dependent diseases requires directed delivery of concentrated O2. This
+capability may be impaired by a lower ambient cabin pressure and higher O2 concentration.
+
+4.10.2         Hypobaric Effects on Food Preparation
+In the currently used prepackaged food system, oxygen transfer through food packaging may
+cause oxidation, resulting in quality loss, including nutrient breakdown and color and flavor
+changes. There is actually a potential advantage of the 8.2/34 environment because there would
+be less O2 to deteriorate the food. Once technology gap is the degree to which the 8.2/34
+environment affects product quality and whether the packaging barrier requirements need to be
+significantly modified.
+
+On a surface mission, a partially bioregenerative or bulk food system may be implemented,
+which would include some food processing and preparation. The 8.2/34 environment can affect
+operations during an exploration mission when food preparation is conducted. At reduced
+pressure conditions, water boils at much lower temperatures, which slows the heat transfer in
+food and water. At this lower pressure, the boiling temperature for water is 84°C (183°F). To
+create safe and acceptable food, cooking and processing of food are dependent on
+time/temperature combinations. Additionally, certain resulting textures come from cooking. For
+example, if the starch in rice is not gelatinized at 83°C (181°F), the rubbery texture is replaced
+by dry, granular textures. The Advanced Food Technology (AFT) team has not conducted any
+
+                                                23
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+tests at 8.2 psi, so there are no data on what would be required under these unique conditions. A
+solution may be to use a pressure cooker, but that requires extra mass and volume and may not
+be the answer for all types of “cooking.” Understanding the physical changes in the environment
+and the impact on food preparation and processing is critical to ensure that food remains
+acceptable to support consistent caloric and nutritional intake and to ensure the food remains
+safe. There is a gap in knowledge regarding acceptability of the food and the microbial load
+throughout food processing in these conditions, which needs to be filled to quantify the risk of
+under-consumption due to unacceptable food or of foodborne illness due to unsafe food. In the
+event that knowledge in this area identifies a risk in food safety or acceptability, there would be
+an associated technology gap formed to reduce the risk to acceptable levels.
+
+The combination of hypogravity and lower pressure may improve colloidal stability, but mixing,
+fluid transport, boiling, condensation, and natural convection are all processes likely to be
+negatively affected by the reduction in gravity. Thus, any equipment evaluation must consider
+whether the equipment depends on physical phenomena that fail to exist in a hypogravity or
+hypobaric environment.
+
+
+5 Risk in Context of Exploration Mission Operational
+  Scenarios
+As of August 2013, there have been no reported cases of DCS during Shuttle and ISS missions
+due to adherence to PB protocols that have been rigorously developed and validated specific to
+Shuttle and ISS operational environments and EVA scenarios. Although DCS risk has been
+greatly reduced through these PB protocols, it is at the expense of significant crew time and
+consumable usage. This need for significant crew time and consumables will not meet the needs
+of an exploration program with robust EVA plans. To enable a robust EVA plan, an exploration
+atmosphere of 8.2 psia with 34% O2 has been proposed.
+
+5.1 Transitioning Guidelines between different Atmospheres will
+    Need to be Developed
+This section summarizes some suggested mitigation strategies that will help alleviate symptoms
+or prepare the astronaut to occupy the 8.2/34 spaceflight environment. Gradual decompression
+from 14.7 psia to 8.2 psia will diminish many of the acute symptoms, such as AMS and hypoxic-
+related sleep problems. Supplemental O2 should be available during vehicle decompressions and
+throughout the length of the mission in case certain crewmembers do not adapt as readily as
+others. This supplemental O2 will also be used as DCS prevention during this depressurization.
+
+An exact understanding of atmospheric and tissue inert gas exchange does not yet exist to
+precisely define when the inert gas tension in tissues comes into a new equilibrium after the
+breathing environment has changed. When a significant pressure reduction is used to reduce the
+tissue N2 tension, there is an additional complication of creating “silent bubbles” in the body that
+then hinder normal tissue N2 exchange with the atmosphere. In the case of the 8.2/34
+environment, the pressure reduction from 14.7 psia to 8.2 psia is conducted in tandem with an
+increase in FIO2 from 21% to 34%. Both of these changes reduce the ambient ppN2 from 11.6
+
+                                                 24
+                       Risk of Hypoxia from the Exploration Atmosphere
+
+psia to 5.4 psia (600 to 280 mmHg), but there is some uncertainty regarding the time at which the
+tissue N2 tension comes into a new equilibrium. If we accept that a 360-minute theoretical half-
+time tissue compartment is key to our DCS applications, basic exponential decay principles
+indicate the need for four half-times (24 hr) to account for 94% of the difference between the
+initial and final tissue N2 tension. Six half-times (36 hr) brings the difference to 98%, and by 8
+half times (48 hr), the difference is negligible.
+
+Based on research experience from the 10.2 psia staged denitrogenation protocol in the Shuttle
+program, it was clear that a direct decompression to 10.2 psia created “silent bubbles” that
+manifested 12 to 16 hours later as early-onset venous gas emboli (VGE) and early-onset Type II
+DCS symptoms while at the EVA pressure of 4.3 psia. A 60-minute PB was instituted such that
+the first decompression to 10.2 psia would not theoretically supersaturate the 360-minute half-
+time compartment; the computed tissue ratio was 1.0. This removed the early-onset VGE and
+DCS in subsequent tests of the staged protocol [117]. In keeping with this same philosophy,
+preliminary analysis indicates the need to implement a 180-minute PB before depressurization
+from 14.7 to 8.2 psia to keep the computed tissue ratio at 1.0. Because 100% O2 is used for the
+180-minute PB, the tissue N2 tension is lower than it would be if the astronaut was just exposed
+for 180 minutes to the 8.2/34 environment. Thus, the computed time required to achieve
+equilibrium with the 8.2/34 environment is reduced from 48 to 45 hours. If an EVA is performed
+before tissue N2 equilibration at 8.2/34, additional PB beyond the expected 15 minutes would be
+needed, possibly as much as 30 minutes for the first EVA.
+
+Crewmembers will need to be trained to understand the symptoms of hypoxia. When the
+application of the 8.2/34 environment is to be employed early in the mission phase, the
+crewmembers will have to adapt acutely to the spaceflight and hypoxic environment at the same
+time. Critical tasks should be avoided, and workload stress should remain low during the
+atmospheric transition period.
+
+Although hypoxic pre-conditioning is not a mitigation strategy for DCS, it is a technique that
+uses bouts of hypoxic exposure to prevent ischemia. This may not directly apply to the astronaut
+in the spaceflight environment, but the effect of pre-exposure to the hypoxic stimulus and the
+way in which it prepares people to tolerate the hypoxic environment on subsequent trials have
+also been discussed. The degree of hypoxia, duration of exposure, and timing of the exposure
+would need further literature review before implementation of the technique in the crew training
+and mission preparation phases.
+
+
+5.2 Exploration Missions involve Increased EVA Capability that is
+    Required at Very Different Points in Different Design Reference
+    Missions
+The planned scenarios currently being considered for future missions using the 8.2/34
+environment involve a high number of EVAs. Although all of these scenarios include a phase
+requiring numerous EVAs, this phase may take place at very different points in a mission.
+Crewmembers can reach the lunar surface or a Cis-Lunar location within a few days. On the
+other hand, it will take several months to reach a NEA or Mars. Therefore, we have to consider
+
+                                               25
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+the operational pace and known physiological changes as we investigate the potential impacts of
+the inclusion of the 8.2/34 environment.
+
+In the lunar and Cis-Lunar cases, spaceflight data from shuttle missions should be leveraged. In
+these cases, the transition to the 8.2/34 environment would superimpose adjustments to the
+hypobaric hypoxic environment with adjustments associated with adaptation to microgravity.
+The concern is that the combination of these adjustments in addition to a EVA-heavy mission
+profile may degrade the health and performance of astronauts, who must maintain a high level of
+proficiency to accomplish mission goals [44]. The first 2 weeks of a spaceflight is a period of
+dynamic physiological changes in the crewmember. Primarily, the physiological adaptation to
+the new spaceflight environment includes: cephalad fluid shift, neurovestibular adaptation,
+susceptibility to space motion sickness, and changes in spatial orientation. These changes result
+in physical symptoms such as increased fatigue, headaches, reduced sleep, lack of appetite, and
+back pain, all of which can negatively impact mood and behavior. Cognitive processes, such as
+focus and attention, memory recall, problem solving, and executive function, may affect mission
+operations, which include highly technical and complex procedures [118].
+
+Space Shuttle missions, which typically lasted approximately 2 weeks, were regarded as high-
+workload and fast-paced missions, with little to no time available for “winding down” [107].
+Crewmembers reported forgoing to eat and sleep to complete mission objectives [119] [107].
+Accordingly, objective data from spaceflight indicate that shuttle astronauts slept an average of
+approximately 6 hours per night [105]. The increase in stress response and sleep deprivation
+increases the likelihood of errors. Therefore, effects of the slightly hypoxic environment must be
+considered with these operational data in mind. It could be expected that more severe detriments
+would result from the inclusion of a hypoxic environment.
+
+In the NEA and Mars cases, spaceflight data from ISS missions will be more appropriate for
+analysis. It will take up to 6 months to reach these locations, which nicely parallels the current
+length of an ISS mission. At the end of a 6-month ISS rotation, crewmembers are acclimatized to
+the spaceflight microgravity environment; therefore, the problem of complicating the adaptation
+to spaceflight with the 8.2/34 environment is avoided. However, the long-term issues associated
+with spaceflight will pose different challenges. Crewmembers may have signs or symptoms of
+the VIIP syndrome. They may have decrements in cardiovascular, muscular, and aerobic
+capacity if the current ISS countermeasure effectiveness cannot be maintained during transit.
+Transitioning to the 8.2/34 environment in the midst of returning to a gravity environment (3/8-g
+on Mars) and adding an EVA-heavy phase to the mission after months in space is a scenario in
+which we have no operational experience. Expected problems are less likely going to stem from
+acute overload and are more likely to derive from the combination of negative chronic
+spaceflight adaptation, which may worsen with exposure to a mildly hypoxic environment
+coupled with an increased EVA frequency.
+
+5.3 Exploration Atmosphere Enables New EVA Architecture
+While it may be feasible to enable the means to transition into the EVA environment with
+significantly less overhead, there remain many unknown questions related to the risk of
+crewmember injury and performance during an EVA. To date, there have been relatively few
+
+                                                26
+                       Risk of Hypoxia from the Exploration Atmosphere
+
+EVAs performed during any one NASA mission across any flight program. The largest number
+of EVAs during any single mission has been 10. STS-61, 82, 109, and 125 each had 10 EVAs
+over 5 consecutive days spread across 4 crewmembers using the shuttle staged protocol. STS-
+123 included 10 EVAs spread across 10 days and 4 crewmembers, and STS-127 had 10 EVAs
+spread across 10 days and 4 crewmembers. In each of these specific shuttle missions, no EVA
+crewmember completed more than 3 EVAs.
+
+The greatest number of EVAs for any individual crewmember during a short-term mission is 4.
+During STS-116, Robert Curbeam completed 4 EVAs over 7 days, with a day of recovery
+between each, and Scott Parazynski completed 4 EVAs over 9 days during STS-120. With regard
+to long-duration missions, Daniel Tani and Peggy Whitson completed 5 EVAs each from 11/9/07
+to 1/30/08 during ISS Increment 16, which is the most for any crewmember during any NASA
+mission. During Apollo 15, 16, and 17, each EVA crewmember performed 3 EVAs on 3
+consecutive days, which is the highest EVA density within NASA.
+
+There is no flight experience that replicates the types of scenarios being discussed for
+Exploration missions, with possibilities of multiple EVAs per day, tens to hundreds of EVAs
+over a mission, and single-person EVAs. All data available on crewmember performance and
+injury rates are limited to the previously described duration exposures as well as the numerous
+shorter exposures. Historically, EVA has been treated as a pinnacle career event, but the newer
+EVA architectures employing numerous EVAs may need to consider EVAs as routine mission
+events. Therefore, injury rates and performance limitations that have been tolerated to date may
+not be acceptable for future Exploration missions.
+
+There are also many technical questions to address. Until the recent ISS era, in which EVA suits
+are maintained on orbit and sized for each crewmember, the EVA suits were used for a specific
+mission and then returned to the ground with no required long-term maintenance in orbit.
+
+Currently, EVAs are some of the most grueling and physically and mentally demanding activities
+required during a space mission. On EVA day, the schedule only accommodates time for EVA,
+and the EVA astronaut is not required to exercise or complete other tasks. During EVAs, the
+crew is especially vulnerable to the space environment. A dramatic shift in the perception of the
+mission will occur during an EVA-heavy mission, where astronauts will routinely expose
+themselves to an especially harsh and physically and mentally stressful environment. Increased
+training, mental preparation, and safety vigilance will be necessary for such missions and may
+have implications for selection as well.
+
+5.4 No Exploration Atmosphere Means Longer Denitrogenation
+    Protocols and Higher Consumable Usage
+Current and future spacesuit functionality requires decompression prior to EVA. Without the use
+of a staged denitrogenation protocol, such as that proposed with the 8.2/34 Exploration
+Atmosphere, or a zero-PB EVA suit operating at higher pressures, denitrogenation protocols will
+remain lengthy. Much research could be performed to reduce the length of existing ISS PB
+protocols. Understanding how a break in PB affects P(DCS) is a critical step. Additionally,
+understanding the differences in VGE, N2 washout, and micronuclei generation in the space
+
+                                               27
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+flight environment would be of great benefit. Ultimately, an operational mitigation strategy that
+relies on a long O2 PB as the primary strategy will result in longer, more complicated EVA
+preparation timelines and higher consumable use, as well as reduced flexibility and capabilities
+of Exploration EVAs.
+An example of the consumable savings available through use of the 8.2/34 Exploration
+Atmosphere is the reduction in the suit purge time by 6 min per EVA, achieving 80% O2 in the
+spacesuit rather than 95%. This modestly increases the P(DCS) risk, but the calculated savings of
+0.48 lb of gas and 6 minutes per person per EVA corresponds to more than 31 hours of crew time
+and 1800 lb of gas and tankage under the Constellation lunar architecture [115].
+Of the available strategies to significantly reduce denitrogenation time while maintaining
+acceptable DCS risk, the Exploration Atmosphere strategy is more promising than either a high-
+pressure EVA suit or an enhanced version of current ISS PB protocols.
+
+
+
+5.5 Carbon Dioxide Levels May Add Additional Negative Effects
+If exploration crews are exposed to similar CO2 levels as those on the ISS, the effect of
+hypercapnia combined with hypobaric hypoxia in hypogravity will also need to be researched.
+CO2 alone has widespread effects on human physiology, including:
+     Altering O2 binding: CO2 causes a rightward shift of the oxyhemoglobin saturation curve,
+        such that at a given ppO2, less O2 is bound to hemoglobin, resulting in worsened hypoxia,
+        especially during exercise or if a patient is in shock when O2 demand is increased.
+     Stimulating ventilatory response: CO2 not only increases minute volume and respiratory
+        rate in the short term, but it also appears to alter the pH and CO2-dependent set point for
+        respiratory drive after chronic exposure to CO2 [12].
+     Cerebral vasodilation: CO2 is a potent cerebral vasodilator and is linked to elevated
+        intracranial pressure. Silwka [120] measured cerebral blood flow (CBF) in the middle
+        cerebral artery in healthy subjects exposed to 0.7% and 1.2% CO2 environments for more
+        than 23 days and found that CBF increased by as much as 35%; moreover, CBF did not
+        return to baseline post-exposure. This persistence post-exposure is similar to the
+        persistence of elevated intracranial pressure in some of the symptomatic astronauts who
+        were subsequently diagnosed with VIIP, suggesting that CO2 may play a contributory or
+        exacerbating role in the VIIP syndrome in long-duration spaceflight.
+     Altered bone homeostasis: CO2 exposure results in respiratory acidosis that appears to be
+        compensated by the kidneys at higher levels (> 3% CO2) and by the bone at lower levels
+        (0.5 to 1.5% CO2) [121]. The bone, which contains a large reserve of the body’s
+        bicarbonate and calcium carbonate, serves as a buffer for acidosis; chronic acidosis can
+        result in the release of calcium carbonate and bone breakdown [12]. In addition, chronic
+        acidosis is associated with cell-mediated bone resorption and increased urinary calcium
+        excretion due to stimulated osteoclastic activity and suppressed osteoblastic activity [122]
+        [123] [124]. Thus, there is concern about chronic hypercapnia exacerbating an astronaut’s
+        risk of developing kidney stones.
+     Behavioral health and performance: Anecdotally, ISS crewmembers have been noted by
+        ground controllers to be more irritable or lethargic when they are gathered in a small
+
+                                                28
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+       module for public affairs events, presumably due to local accumulation of CO2.
+       Terrestrially, mild visuomotor impairment has been observed in subjects exposed to 1.2%
+       CO2 [125]. Additionally, there appears to be a dose-response relationship between CO2
+       level and symptoms such as nausea, dizziness, derealization, fear of losing control, and
+       paresthesia [126].
+
+5.6 All Assumptions Regarding use of the 8.2/34 Environment
+    Assume N2 as the Primary Inert Gas
+A significant consideration for Mars exploration is the cost required to provide life support,
+particularly the atmospheric gases in the habitat, rover vehicle, and space suit. The 95.7% CO2 in
+the Martian atmosphere can be converted to O2 or even fuel for propulsion. The remaining major
+gas constituents are 2.7% N2 and 1.6% Argon (Ar). These inert gases, which can either be used
+at their existing ratio or separated and later blended to any desired concentration, must be
+considered as the alternative to transporting N2 from Earth [127].
+
+
+An assumption is that an automated system could be sent to Mars before a manned flight to
+extract and store the thin Martian atmosphere, which exerts a total pressure of less than 5 mmHg.
+The system elements include, e.g., a vacuum pump, power supply, storage container, and control
+system. From an engineering standpoint, the preference would be to not separate the N2 and Ar
+into different containers, as this process requires too much energy and technology. Therefore, the
+breathing atmosphere would include N2 and Ar at the 1.68 ratio already present in the Martian
+atmosphere, supplemented with a sufficient amount of O2 to achieve an acceptable total pressure.
+
+Given a N2 to Ar concentration ratio of 1.68 for the inert gas component of the Martian
+atmosphere, 2.7% N2 / 1.6% Ar = 1.68, the ratio of N2 and Ar pressures in a habitat that also
+results in a 1.68 concentration ratio is computed as:
+
+N2 pressure = (tigp × 1.68) / 2.68,                                                        Eq. 1
+               where tigp is the total inert gas pressure.
+
+Consider the case of the current 8.2 psia habitat pressure with 34% O2 and 66% N2. The ambient
+ppO2 is 2.79 psia (0.34 × 8.2 psia). An alternative to this atmosphere is one with a binary inert
+gas composition. Using the Martian inert gas as is, Eq. 1 computes the required ppN2 in a habitat
+at 8.2 psia with 34% O2 to achieve the 1.68 N2-to-Ar ratio. The tigp in Eq. 1 is 5.412 psia (0.66 ×
+8.2 psia). Solving Eq. 1 for N2 pressure yields 3.393 psia. The balance of inert gas is Ar at a
+ppAr of 2.019 psia. Converting these pressures to concentrations yields 34% O2, 41.3% N2, and
+24.6% Ar.
+
+An 8.2 psia atmosphere that contains aproximately 25% Ar is problematic if EVAs are
+performed at reduced pressure [128]. This potentially cost-effective in-situ resource approach
+would drive a risky and complicated EVA program in terms of managing DCS risk. This
+conclusion needs to be challenged with empirical data from well-designed human trials.
+
+
+
+                                                 29
+                        Risk of Hypoxia from the Exploration Atmosphere
+
+There are other alternatives to consider. Nitrogen and Ar can be separated and stored in different
+containers to be blended to any atmospheric specification. The technical feasibility of this
+approach needs to be demonstrated and be cost-effective compared with just providing N2 from
+Earth. Finally, the N2 and Ar from the Martian atmosphere could be used during the return trip to
+Earth, as EVAs on the return trip would likely be infrequent.
+
+
+6 Gaps
+We have described much of the evidence related to the application of mild hypobaric hypoxia in
+space. The gaps are described in the following sub-sections and form the focus of the future
+NASA Human Research Program Exploration Atmosphere research efforts.
+Currently, there are few pre, in-, and post-flight data to characterize this risk. Below is a list of
+related unanswered issues that will help to define the VIIP syndrome and characterize the risk for
+exploration-class missions.
+
+      ExAt1 - We do not know how mild hypobaric hypoxia in combination with other
+       spaceflight environmental factors will impact the brain (e.g., VIIP syndrome,
+       sensorimotor performance, and AMS risk).
+      ExAt2 - We do not know how mild hypobaric hypoxia in combination with other
+       spaceflight environmental factors will impact exercise countermeasures.
+      ExAt3 - We do not know how mild hypobaric hypoxia in combination with other
+       spaceflight environmental factors will impact the immune system and oxidative stress
+       and damage (OSaD).
+      ExAt4 - We do not know how mild hypobaric hypoxia in combination with other
+       spaceflight environmental factors will impact sleep.
+      ExAt5 - We do not know the O2 prebreathe requirements for DCS mitigation associated
+       with the 8.3/34 environment (Shared Gap with DCS5).
+      ExAt6 - We do not know how a hypobaric environment will affect medical equipment.
+      ExAt7 - We do not know how a hypobaric environment will affect food preparation.
+
+
+7 Conclusion
+EVA is at the core of a manned space exploration program. With the 8.2/34 environment, NASA
+gains the capability for efficient EVA with low DCS risk, but it also accrues the human health
+and performance risks associated with the addition of hypobaric hypoxia to the spaceflight
+environment. These risks include increased intracranial pressure, visual impairment,
+sensorimotor dysfunction, immune dysregulation, and oxidative damage. Forward work also
+includes validating the DCS mitigation strategy, ensuring quality sleep, identifying/treating
+AMS, developing new exercise protocols and possibly hardware, effectively preparing food at
+8.2 psia, and ensuring operation of medical equipment at 8.2/34.
+
+
+
+
+                                                 30
+                          Risk of Hypoxia from the Exploration Atmosphere
+
+
+8 References
+
+[1]   NASA Exploration Atmospheres Working Group, "Recommendations for exploration spacecraft
+      internal atmospheres: The final report of the NASA exploration atmospheres working group. NASA
+      Technical Publication NASA/TP-2010-216134," NASA, Johnson Space Center, 2010.
+
+[2]   P. D. Campbell, "Recommendations for Exploration Spacecraft Internal Atmospheres: The Final
+      Report of the NASA Exploration Atmospheres Working Group," NASA, Johnson Space Center,
+      Houston TX, January 2006.
+
+[3]   J. Norcross, P. Norsk, J. Law, D. Arias, J. Conkin, M. Perchonok, A. Menon, J. Huff, J. Fogarty, J. H.
+      Wessel and S. Whitmire, "Effects of the 8 psia / 32% O2 Atmosphere on the Human in the
+      Spaceflight Environment," NASA Johnson Space Center, Houston, 2013.
+
+[4]   W. H. Gerstenmaier, "Exploration Atmospheres," 2013.
+
+[5]   G. P. Millet and V. Pialoux, "Point:counterpoint: hypobaric hypoxia induces / does not induce
+      different responses from normobaric hypoxia," J. Appl. Physiol., vol. 112, pp. 1783-84, 2012.
+
+[6]   R. Mounier and J. V. Brugniaux, "Point:counterpoint: hypobaric hypoxia induces / does not induce
+      different responses from normobaric hypoxia," J Appl Physiol, vol. 112, pp. 1784-86, 2012.
+
+[7]   O. Girard, M. S. Koehle, M. J. MacInnis, J. A. Guenette, M. S. Koehle, S. Verges, T. Rupp, M. Jubeau,
+      S. Perrey, G. Y. Millet, R. F. Chapman, B. D. Levine, J. Conkin, J. H. Wessell III, H. Nespoulet, B.
+      Wuyam, R. Tamiser, S. Verges, P. Levy, D. P. Casey, B. J. Taylor, E. M. Snyder, B. D. Johnson, A. S.
+      Laymon, J. L. Stickford, J. C. Weavil, J. A. Loeppky, M. Pun, K. Schommer, P. Bartsch, M. C. Vagula
+      and C. F. Nelatury, "Comments on point:counterpoint: hypobaric hypoxia induces / does not
+      induce different responses from normobaric hypoxia.," J Appl Physiol, vol. 112, pp. 1788-95, 2012.
+
+[8]   J. Conkin and J. H. Wessel III, "A model to predict acute mountain sickness in future spacecraft,"
+      NASA, Houston, TX, 2009.
+
+[9]   N. A. Richard and M. S. Koehle, "Differences in cardio-ventilatory responses to hypobaric and
+      normobaric hypoxia: a review," Aviation, Space and Environmental Medicine, vol. 83, pp. 677-84,
+      2012.
+
+[10] J. T. James, "The headache of carbon dioxide exposures," 2007.
+
+[11] J. Law, S. Watkins and D. Alexander, "In-flight carbon dioxide exposures and related symptoms:
+     association, susceptibility, and operational implications," Washington DC, 2010.
+
+
+
+
+                                                      31
+                          Risk of Hypoxia from the Exploration Atmosphere
+
+
+[12] P. D. Cronyn, S. Watkins and D. J. Alexander, "Chronic exposure to moderately elevated CO2
+     during long-duration space flight," NASA, Houston, TX, 2012.
+
+[13] T. H. Mader, C. R. Gibson, A. F. Pass, L. A. Kramer, A. G. Lee, J. Fogarty and e. al., "Optic disc
+     edema, globe flattening, choroidal folds, and hyperopic shifts observed in astronauts after long-
+     duration space flight," Ophthalmology, vol. 118, no. 10, pp. 2058-69, Oct 2011.
+
+[14] "Clinical Practice Guideline for Spaceflight-Induced Intracranial Hypertension [internal
+     document]," NASA, Johnson Space Center, 2011.
+
+[15] T. M. Gotoh, N. Fujiki, K. Tanaka, T. Matsuda, S. Gao and H. Morita, "Acute hemodynamic
+     responses in the head during microgravity induced by free drop in anesthetized rats," Am J Physiol
+     Regul Integr Comp Physiol, vol. 286, no. 6, pp. R1063-8, June 2004.
+
+[16] E. Rostrup, G. M. Knudsen, I. Law, S. Holm, H. B. W. Larsson and O. B. Paulson, "The relationship
+     between cerebral blood flow and volume in humans," NeuroImage, vol. 24, pp. 1-11, 2005.
+
+[17] C. Imray, A. Wright, A. Subudhi and R. Roach, "Acute mountain sickness: pathophysiology,
+     prevention, and treatment," Prog. Cardiovasc. Dis., vol. 52, no. 6, pp. 467-84, May-Jun 2010.
+
+[18] M. H. Wilson, S. Newman and C. H. Imray, "The cerebral effects of ascent to high altitudes," Lancet
+     Neurol., vol. 8, no. 2, pp. 175-91, Feb 2009.
+
+[19] I. Singh, P. K. Khanna, M. C. Srivastava, M. Lal, S. B. Roy and C. S. V. Subramanyam, "Acute
+     mountain sickness," N. Engl. J. Med., vol. 280, pp. 175-184, 1969.
+
+[20] G. Savourey, A. Guinet, Y. Besnard, N. Garcia, A. M. Hanniquet and J. Bittel, "Evaluation of the Lake
+     Louise acute mountain sickness scoring system in a hypobaric chamber," Aviat. Space Environ.
+     Med., vol. 66, no. 10, pp. 963-7, Oct 1995.
+
+[21] A. I. Sutherland, D. S. Morris, C. G. Owen, A. J. Bron and R. C. Roach, "Optic nerve sheath diameter,
+     intracranial pressure and mountain sickness on Mount Everest: A longitudinal cohort study.," Br. J.
+     Sports Med., vol. 42, pp. 183-88, 2008.
+
+[22] Y. Yang, B. Sun, Z. Yang, J. Wang and Y. Pong, "Effects of acute hypoxia on intracranial dynamics in
+     unanesthetized goats," J. Appl. Physiol., pp. 74:2067-71, 1993.
+
+[23] M. M. Bosch, D. Barthelmes, T. M. Merz, K. E. Bloch, A. J. Turk, U. Hefti and e. al., "High incidence
+     of optic disc swelling at very high altitudes," Arch. Ophthalmol., vol. 126, no. 5, pp. 644-50, May
+     2008.
+
+[24] P. H. Hackett, P. R. Yarnell, R. Hill, K. Reynard, J. Heit and J. McCormick, "High-altitude cerebral
+     edema evaluated with magnetic resonance imaging: clinical correlation and pathophysiology,"
+
+
+                                                     32
+                           Risk of Hypoxia from the Exploration Atmosphere
+
+
+      JAMA, vol. 280, no. 22, pp. 1920-5, Dec 9 1998.
+
+[25] D. S. Morris, J. Somner, M. J. Donald, I. J. McCormick, R. R. Bourne, S. S. Huang and e. al., "The eye
+     at altitude," Adv. Exp. Med. Biol., vol. 588, pp. 249-70, 2006.
+
+[26] J. J. Bloomberg and A. P. Mulavara, "Changes in walking strategies after spaceflight," IEEE
+     Engineering in Medicine and Biology Magazine, vol. 22, no. 2, pp. 58-62, 2003.
+
+[27] G. Clement and M. F. Reschke, Neuroscience in Space, New York: Springer, 2008.
+
+[28] W. H. Paloski, C. M. Oman, J. J. Bloomberg, M. F. Reschke, S. J. Wood, D. L. Harm, B. T. Peters, A. P.
+     Mulavara, J. P. Locke and L. S. Stone, "Risk of sensory-motor performance failures affecting vehicle
+     control during space missions: A review of the evidence," J. Grav. Physiol., vol. 15, no. 2, 2008.
+
+[29] A. P. Mulavara, A. Feiveson, J. Feidler, H. S. Cohen, B. T. Peters, C. A. Miller, R. Brady and J. J.
+     Bloomberg, "Locomotor function after long-duration space flight: Effects and motor learning
+     during recovery," Exp. Brain Res., vol. 202, no. 3, pp. 649-59, 2010.
+
+[30] B. T. Peters, C. A. Miller, J. T. Richards, R. A. Brady, ., A. P. Mulavara and J. J. Bloomberg, "Dynamic
+     visual acuity during walking after long-duration spaceflight," Aviat. Space Environ. Med., vol. 82,
+     no. 4, pp. 463-6, 2011.
+
+[31] S. J. Wood, J. A. Loehr and M. E. Guilliams, "Sensorimotor reconditioning during and after
+     spaceflight," NeuroRehabilitation, vol. 29, pp. 185-195, 2011.
+
+[32] F. Petrassi, S. Gaydos, J. Ramiccio and P. Walters, "Hypoxic Hypoxia at Moderate Altitudes: State of
+     the Science," 2011.
+
+[33] D. M. Connolly, "Oxygenation state and twilight vision at 2438 m," Aviat. Space Environ. Med., vol.
+     82, pp. 2-8, 2011.
+
+[34] W. D. Fraser, D. E. Eastman, M. A. Paul and J. A. Porlier, "Decrement in postural control during
+     mild hypobaric hypoxia," Aviat. Space Environ. Med., vol. 58, pp. 768-772, 1987.
+
+[35] S. H. G. Nordahl, O. J. O. Aasen T and O. I. Molvaer, "Effects of hypobaric hypoxia on postural
+     control," Aviat. Space Environ. Med., vol. 69, pp. 590-5, 1998.
+
+[36] S. H. G. Nordahl, T. Aasen, J. Risberg, J. O. Owe and O. I. Molvaer, "Postural control and venous gas
+     bubble formation during hypobaric exposure," Aviat. Space Environ. Med., vol. 73, pp. 184-90,
+     2002.
+
+[37] T. Nesthus, L. Rush and S. Wreggit, "Effects of Mild Hypoxia on Pilot Performance at General
+     Aviation Altitudes," 1997.
+
+
+                                                      33
+                          Risk of Hypoxia from the Exploration Atmosphere
+
+
+[38] A. Smith, "Hypoxia symptoms reported during helicopter operations below 10,000 ft: a
+     retrospective survey," Aviat. Space Environ. Med., vol. 76, pp. 794-798, 2005.
+
+[39] M. S. Siniaia and A. D. Miller, "Vestibular effects on upper airway musculature," Brain Res., vol.
+     736, no. 1-2, pp. 160-164, 1996.
+
+[40] D. Singh, R. C. Kochhar and S. K. Kacker, "Effects of high altitude on inner ear functions," J.
+     Laryngol. Otol., vol. 90, no. 12, p. 1113–1120, 1976.
+
+[41] U. Dirnagl, K. Becker and A. Meisel, "Preconditioning and tolerance against cerebral ischaemia:
+     from experimental strategies to clinical use," Lancet Neurol., vol. 8, pp. 398-412, 2009.
+
+[42] K. B. Shpargel, W. Jalabi, Y. Jin, A. Dadabayev, M. S. Penn and B. D. Trapp, "Preconditioning
+     paradigms and pathways in the brain," Cleve. Clin. J. Med., vol. 75, no. Suppl 2, pp. S77-82, 2008.
+
+[43] H. J. Steiger and D. Hanggi, "Ischaemic preconditioning of the brain, mechanisms and
+     applications," Acta Neurochir. (Wein), vol. 149, pp. 1-10, 2007.
+
+[44] R. A. Scheuring, J. Conkin, J. A. Jones and M. L. Gernhardt, "Risk assessment of physiological effects
+     of atmospheric composition and pressure in Constellation vehicles," Acta Astronautica, pp. 727-
+     739, 2008.
+
+[45] A. B. Montgomery, J. Mills and J. M. Luce, "Incidence of acute mountain sickness at intermediate
+     altitude," J. Am. Med. Ass., pp. 732-734, 1989.
+
+[46] R. C. Roach, D. Maes, D. Sandoval, R. A. Robergs, M. Icenogle, H. Hinghofer-Szalkay and e. al.,
+     "Exercise exacerbates acute mountain sickness at simulated high altitude," J. Appl. Physiol., vol.
+     88, no. 2, pp. 581-5, Frb 2000.
+
+[47] R. C. Roach, J. A. Loeppky and M. V. Icenogle, "Acute mountain sickness: increased severity during
+     simulated altitude compared with normobaric hypoxia," J. Appl. Physiol., vol. 81, no. 5, pp. 1908-
+     10, Nov 1996.
+
+[48] P. Anderson, W. D. Miller, K. A. O'Malley and M. L. Ceridon, "Incidence and symptoms of high
+     altitude illness in South Pole workers: Antarctic study of altitude physiology," Clinical medicine
+     Insights: Circulatory, Respiratory and Pulmonary Medicine, pp. 27-35, 2011.
+
+[49] J. Conkin and J. H. Wessel III, "Critique of the equivalent air altitude model," Aviat Space Environ
+     Med, vol. 79, pp. 975-982, 2008.
+
+[50] W. O. Fenn, H. Rahn and A. B. Otis, "A theoretical study of the composition of the alveolar air at
+     altitude," Amer. J. Physiol., vol. 146, pp. 637-653, 1946.
+
+
+
+                                                     34
+                          Risk of Hypoxia from the Exploration Atmosphere
+
+
+[51] H. Rahn and W. O. Fenn, "A graphical analysis of the respiratory gas exchange: the O2 - CO2
+     diagram.," Washington, DC, The American Physiological Society, 1956, pp. 2nd ed. p25-26.
+
+[52] K. L. English, S. M. C. Lee, J. A. Loehr, R. J. Ploutz-Snyder and L. L. Ploutz-Snyder, "Isokinetic
+     strength changes following long-duration space flight on the International Space Station," Aviat
+     Space Environ Med, submitted 2012.
+
+[53] A. D. Moore Jr, P. A. Lynn and A. H. Fieveson, "Aerobic exercise responses to long duration
+     spaceflight - the first 10 ISS years," Aviat Space Environ Med, submitted 2012.
+
+[54] T. Lang, A. LeBlanc, H. Evans, Y. Lu, H. Genant and A. Yu, "Cortical and trabecular bone mineral loss
+     from the spine and hip in long-duration spaceflight," J Bone Miner Res, vol. 19, no. 6, pp. 1006-
+     1012, 2004.
+
+[55] S. M. Smith, M. A. Heer, L. C. Shackelford, J. D. Sibonga, L. Ploutz-Snyder and S. R. Zwart, "Benefits
+     for bone from resistance exercise and nutrition in long-duration spaceflight: Evidence from
+     biochemistry and densitometry," J Bone Miner Res, vol. 27, no. 9, pp. 1896-906, 2012.
+
+[56] D. M. Bailey and B. Davies, "Physiological implications of altitude training for endurance
+     performance at sea level: a review," Br. J. Sports Med., vol. 31, no. 3, pp. 183-90, 1997.
+
+[57] D. Boning, "Altitude and hypoxia training--a short review," Br. J. Sports Med., vol. 31, no. 3, pp.
+     183-90, 1997.
+
+[58] L. M. Edwards, A. J. Murray, D. J. Tyler, G. J. Kemp, C. J. Holloway, P. A. Robbins, S. Neubauer, D.
+     Levett, H. E. Montgomery, M. P. Grocott, K. Clarke and C. X. E. R. Group, "The effect of high-
+     altitude on human skeletal muscle energetic: P-MRS results from the Caudwell Xtreme Everest
+     expedition," PLoS One, vol. 5, p. e10681, 2010.
+
+[59] M. Faucher, C. Guillot, T. Marqueste, N. Kipson, M. H. Mayet-Sornay, D. Desplanches, Y. Jammes
+     and M. Badier, "Matched adaptations of electrophysiological, physiological, and histological
+     properties of skeletal muscles in response to chronic hypoxia," Pflugers Arch., vol. 450, pp. 45-52,
+     2005.
+
+[60] H. Hoppeler, S. Klossner and M. Vogt, "Training in hypoxia and its effects on skeletal muscle
+     tissue," Scand. J. Med. Sci. Sports, vol. 18, no. Suppl 1, p. 38–49, 2008.
+
+[61] M. Flueck, "Plasticity of the muscle proteome to exercise at altitude," High Alt. Med. Biol., vol. 10,
+     p. 183–193, 2009.
+
+[62] J. P. Wehrlin and J. Hallen, "Linear decrease in V̇ o2 max and performance with increasing altitude
+     in endurance athletes," Eur. J. Appl. Physiol., vol. 96, p. 404–412, 2006.
+
+
+
+                                                    35
+                           Risk of Hypoxia from the Exploration Atmosphere
+
+
+[63] M. Amann, M. W. Eldridge, A. T. Lovering, M. K. Stickland, D. F. Pegelow and J. A. Dempsey,
+     "Arterial oxygenation influences central motor output and exercise performance via effects on
+     peripheral locomotor muscle fatigue in humans," J. Physiol., vol. 575, p. 937–952, 2006.
+
+[64] J. E. Peltonen, H. K. Rusko, J. Rantamäki, K. Sweins, S. Niittymäki and J. T. Viitasalo, "Effects of
+     oxygen fraction in inspired air on force production and electromyogram activity during ergometer
+     rowing," Eur. J. Appl. Physiol. Occup. Physiol., pp. 76(6):495-503, 1997.
+
+[65] C. J. Gore, A. G. Hahn, G. C. Scroop, D. B. Watson, K. I. Norton, R. J. Wood, D. P. Campbell and D. L.
+     Emonson, "Increased arterial desaturation in trained cyclists during maximal exercise at 580 m
+     altitude," J. Appl. Physiol., vol. 80, no. 6, pp. 2204-10, 1996.
+
+[66] C. S. Fulco, P. B. Rock, S. R. Muza, E. Lammi, B. Braun, A. Cymerman, L. G. Moore and S. F. Lewis,
+     "Gender alters impact of hypobaric hypoxia on adductor pollicis muscle performance," J. Appl.
+     Physiol., vol. 91, no. 1, pp. 100-8, 2001.
+
+[67] B. Braun, J. T. Mawson, S. R. Muza, S. B. Dominick, G. A. Brooks, M. A. Horning, P. B. Rock, L. G.
+     Moore, R. S. Mazzeo, S. C. Ezeji-Okoye and G. E. Butterfield, "Women at altitude: carbohydrate
+     utilization during exercise at 4,300 m," J. Appl. Physiol., vol. 881, pp. 246-56, 2000.
+
+[68] S. R. Muza, P. B. Rock, C. S. Fulco, S. Zamudio, B. Braun, A. Cymerman, G. E. Butterfield and L. G.
+     Moore, "Women at altitude: ventilatory acclimatization at 4,300 m," J. Appl. Physiol., vol. 91, no. 4,
+     pp. 1791-9, 2001.
+
+[69] C. J. Holloway, H. E. Montgomery, A. J. Murray, L. E. Cochlin, I. Codreanu, N. Hopwood, A. W.
+     Johnson, O. J. Rider, D. Z. Levett, D. J. Tyler, J. M. Francis, S. Neubauer, M. P. Grocott, K. Clarke and
+     C. X. E. R. Group, "Cardiac response to hypobaric hypoxia: persistent changes in cardiac mass,
+     function, and energy metabolism after a trek to Mt. Everest Base Camp," FASEB J., vol. 25, no. 2,
+     pp. 792-6, 2011.
+
+[70] J. Kjaergaard, E. M. Snyder, C. Hassager, T. P. Olson, J. K. Oh and B. D. Johnson, "The effect of 18 h
+     of simulated high altitude on left ventricular function," Eur. J. Appl. Physiol., vol. 98, no. 4, pp. 411-
+     8, 2006.
+
+[71] N. Nishimura, K. Iwasaki, Y. Ogawa and K. Aoki, "Decreased steady state cerebral blood flow
+     velocity and altered dynamic cerebral autoregulation during 5-h sustained 15% O2 hypoxia," J.
+     Appl. Physiol., vol. 108, pp. 1154-1161, 2010.
+
+[72] K. Iwasaki, Y. Ogawa, S. Shibata and K. Aoki, "Acute exposure to normobaric mild hypoxia alters
+     dynamic relationships between blood pressure and cerebral blood flow at very low frequency," J.
+     Cereb. Blood Flow & Metab., vol. 27, pp. 776-784, 2007.
+
+
+
+
+                                                      36
+                          Risk of Hypoxia from the Exploration Atmosphere
+
+
+[73] G. Czibik, "Complex role of the HIF system in cardiovascular biology," J. Mol. Med.(Berl), vol. 88,
+     no. 11, pp. 1101-11, Nov 2010.
+
+[74] S. Rey and G. L. Semenza, "Hypoxia-inducible factor-1-dependent mechanisms of vascularization
+     and vascular remodelling," Cardiovasc. Res., vol. 86, no. 2, pp. 236-42, May 1 2010.
+
+[75] S. K. Mehta, R. P. Stowe, A. H. Feiveson, S. K. Tyring and D. L. Pierson, "Reactivation and shedding
+     of cytomegalovirus in astronauts during spaceflight," J. Infect. Dis., vol. 182, no. 6, pp. 1761-4,
+     2000.
+
+[76] B. E. Crucian, R. P. Stowe, S. Mehta, P. Uchakin, H. Quiriarte, D. Pierson and C. F. Sams, "Immune
+     System Dysregulation and Herpesvirus Reactivation Persist during Long-Duration Spaceflight.," in
+     18th IAA Humans in Space Symposium, Houston, TX, April 11-15, 2011.
+
+[77] B. E. Crucian and C. Sams, "Immune system dysregulation during spaceflight: clinical risk for
+     exploration-class missions," J. Leukoc. Biol., vol. 86, no. 5, pp. 1017-8, 2009.
+
+[78] M. Klokker, A. Kharazmi, H. Galbo, I. Bygbjerg and B. K. Pedersen, "Influence of in vivo hypobaric
+     hypoxia on function of lymphocytes, neutrocytes, natural killer cells, and cytokines," J. Appl.
+     Physiol., vol. 74, no. 3, pp. 1100-6, 1993.
+
+[79] R. T. Meehan, "Immune suppression at high altitude," Ann. Emerg. Med., vol. 16, no. 9, pp. 974-9,
+     1987.
+
+[80] A. Chouker, F. Demetz, A. Martignoni, L. Smith, F. Setzer, A. Bauer, J. Holzl, K. Peter, F. Christ and
+     M. Thiel, "Strenuous physical exercise inhibits granulocyte activation induced by high altitude," J.
+     Appl. Physiol., vol. 98, no. 2, pp. 640-7, 2005.
+
+[81] F. P. Bagai, D. S. Gridley, J. M. Slater, X. Luo-Owen, L. S. Stodieck, V. Ferguson, S. K. Chapes and M.
+     J. Pecaut, "Effects of spaceflight on innate immune function and antioxidant gene expression," J
+     Appl Physiol, vol. 106, no. 6, pp. 1935-42, 2009.
+
+[82] L. Buravkova and E. Mailyan, "Oxidative phosphorylation in rat skeletal muscles after space flight
+     on board biosatellites," J Gravit Physiol, vol. 4, no. 2, pp. 127-8, 1997.
+
+[83] C. De Luca, I. Deeva, S. Mariani, G. Maiani, A. Stancato and L. Korkina, "Monitoring antioxidant
+     defenses and free radical production in space-flight, aviation and railway engine operators, for the
+     prevention and treatment of oxidative stress, immunological impairment, and pre-mature cell
+     aging," Toxicol Ind Health, vol. 25, pp. 259-67, 2009.
+
+[84] A. R. Kennedy, J. Guan and J. H. Ware, "Countermeasures against space radiation induces oxidative
+     stress in mice," Radiat Environ Biophys, vol. 46, pp. 210-203, 2007.
+
+
+
+                                                     37
+                          Risk of Hypoxia from the Exploration Atmosphere
+
+
+[85] I. Kaufmann, M. Feuerecker, A. Salam, G. Schelling, M. Thiel and A. Chouker, "Adenosine A2(A)
+     receptor modulates the oxidative stress response of primed polymorphonuclear leukocytes after
+     parabolic flight," Hum Immunol, vol. 72, no. 7, pp. 547-52, 2011.
+
+[86] C. D. Steer, P. M. Emmett, S. J. Lewis, G. D. Smith and J. H. Tobias, "Methylenetetrahydrofolate
+     reductase (MTHFR) C677T polymorphism is associated with spinal BMD in 9-year-old children," J
+     Bone Miner Res, vol. 24, no. 1, pp. 117-24, 2009.
+
+[87] N. Tyagi, T. P. Vacek, J. T. Fleming, J. C. Vacek and S. C. Tyagi, "Hyperhomocysteinemia decreases
+     bone blood flow," Vasc Health Risk Manag, vol. 7, pp. 31-5, 2011.
+
+[88] S. R. Zwart, C. R. Gibson, T. H. Mader, K. Ericson, R. Ploutz-Snyder, M. Heer and S. M. Smith,
+     "Vision changes after spaceflight are related to alterations in folate- and vitamin B-12-dependent
+     one-carbon metabolism," J Nutr, vol. 142, no. 3, pp. 427-31, 2012.
+
+[89] Q. Liu, W. K. Ju and e. al., "Oxidative stress is an early event in hydrostatic pressure induced retinal
+     ganglion cell damage," Invest. Ophthalmol. Vis. Sci., vol. 48, no. 10, pp. 4580-9, 2007.
+
+[90] N. Ahmadi, S. Tsimikas, F. Hajsadeghi, A. Saeed, V. Nabavi, M. A. Bevinal, J. Kadakia, F. Flores, R.
+     Ebrahimi and M. J. Budoff, "Relation of oxidative biomarkers, vascular dysfunction, and
+     progression of coronary artery calcium," Am J Cardiol, vol. 105, no. 4, pp. 459-66, 2010.
+
+[91] K. Campbell, "Intensive oxygen therapy as a possible cause of retrolental fibroplasia; a clinical
+     approach," Med J Aust, vol. 2, pp. 48-50, 1951.
+
+[92] F. De Marco, E. Bucaj, C. Foppoli, A. Fiorini, C. Blarzino, K. Filipi, A. Giorgi, M. E. Schinina, F. Di
+     Domenico, R. Coccia, D. A. Butterfield and M. Perluigi, "Oxidative stress in HPV-driven viral
+     carcinogenesis: redox proteomics analysis of HPV-16 dysplastic and neoplastic tissues," PLoS One,
+     vol. 7, no. 3, p. e34366, 2012.
+
+[93] M. Turanlahti, E. Pesonen, P. Lassus and S. Andersson, "Nitric oxide and hyperoxia in oxidative
+     lung injury," Acta Paediatr, vol. 89, no. 8, pp. 966-70, 2000.
+
+[94] G. G. Eigenwillig, "Comment on "Mortality from cardiovascular diseases in the German uranium
+     miners cohort study, 1946-1998" by Kreuzer M, Kreisheimer M, Kandel M, Schnelzer M, Tschense
+     A, Grosche B (2006) Radiat Environ Biophys 45:159-166," Radiat Environ Biophys, vol. 46, no. 4, pp.
+     423-5; author reply 427, 2007.
+
+[95] D. Nair and e. al., "Intermittent Hypoxia-induced Cognitive Deficits Are Mediated by NADPH
+     Oxidase Activity in a Murine Model of Sleep Apnea," PloS One, vol. 6, no. 5, p. e19847, 2011.
+
+[96] C. Xiao-Hong and e. al., "Chronic Intermittent Hypoxia Exposure Induces Memory Impairment in
+
+
+
+                                                     38
+                          Risk of Hypoxia from the Exploration Atmosphere
+
+
+      Growing Rats," Acta Neurobiologiae Experimentals, vol. 70, pp. 279-287, 2010.
+
+[97] J. Guan, X. S. Wan, Z. Zhou, J. Ware, J. J. Donahue, J. E. Bigalow and A. R. Kennedy, "Effects of
+     dietary supplements on space radiation-induced oxidative stress in Sprague-Dawley rats," Radiat
+     Res, vol. 162, no. 5, pp. 572-9, 2004.
+
+[98] J. A. Jones, P. K. Riggs and e. al., "Ionizing radiation-induced bioeffects in space and strategies to
+     reduce cellular injury and carcinogenesis," Aviat. Space Environ. Med., vol. 78, no. 4 Suppl, pp.
+     A67-78, 2007.
+
+[99] M. A. Schmidt and T. J. Goodwin, "Personalized medicine in human spaceflight: using Omics based
+     analyses to develop individualized countermeasures that enhance astronaut safety and
+     performance," Metabolomics, vol. 9, p. 1134.
+
+[100] J. A. Neubauer, "Invited review: Physiological and pathophysiological responses to intermittent
+      hypoxia," J. Appl. Physiol., vol. 90, no. 4, pp. 1593-9, Apr 2001.
+
+[101] G. E. Foster, P. J. Hanly, S. B. Ahmed, A. E. Beaudin, V. Pialoux and M. J. Poulin, "Intermittent
+      hypoxia increases arterial blood pressure in humans through a Renin-Angiotensin system-
+      dependent mechanism," Hypertension, vol. 56, no. 3, pp. 369-77, 2010.
+
+[102] J. C. Kolb, Physiological responses to intermittent hypoxia in humans, Boca Raton, FL:
+      Dissertation.com, 2004.
+
+[103] C. Fava, M. Montagnana, E. J. Favaloro, G. C. Guidi and G. Lippi, "Obstructive sleep apnea
+      syndrome and cardiovascular diseases," Semin. Thromb. Hemost., vol. 37, no. 3, pp. 280-97, Apr
+      2011.
+
+[104] A. Lurie, "Inflammation, oxidative stress, and procoagulant and thrombotic activity in adults with
+      obstructive sleep apnea," Adv. Cardiol., vol. 46, pp. 43-66, 2011.
+
+[105] L. K. Barger, J. P. Sullivan, S. W. Lockley and C. A. Czeisler, "Development of an educational
+      program for flight controllers working nightshifts (poster presentation)," in NASA Human Research
+      Program Investigators' Workshop, Houston, 2012.
+
+[106] D. J. Dijk, D. Neri, J. Wyatt and J. Rhonda, “Sleep, performance, circadian rhythms, and light-dark
+      cycles during two space shuttle flights,” Am. J. Physiol. - Regulatory, Integrative, and Comparative
+      Physiology, vol. 281, pp. R1647-R1664, 2001.
+
+[107] A. Whitmire, K. Slack, J. Locke, K. Keeton, H. Walters, J. Faulk and L. Leveton, "Sleep Quality
+      Questionnaire: Short duration missions," Manuscript in preparation.
+
+[108] A. Gundel, V. V. Polyakov and J. Zulley, "The alteration of human sleep and circadian rhythms," J.
+
+
+                                                     39
+                           Risk of Hypoxia from the Exploration Atmosphere
+
+
+      Sleep Res., vol. 6, pp. 1-8, 1997.
+
+[109] M. M. Mallis and C. W. DeRoshia, "Circadian rhythms, sleep and performance in space," Aviat.
+      Space Environ. Med., vol. 76, no. 6, Suppl., pp. B94-107, 2005.
+
+[110] T. Monk, D. Buysse, B. Billy, K. Kennedy and L. Willrich, "Sleep and circadian rhythms in four
+      orbiting Astronauts," J. Biol. Rhythms, vol. 13, pp. 188-201, 1998.
+
+[111] J. V. Weil, "Sleep at high altitude," High Alt. Med.Biol., pp. 180-189, 2004.
+
+[112] J. M. Muhm, T. L. Signal, P. B. Rock, S. P. Jones, K. M. O'Keefe, M. R. Weaver, S. Zhu, P. H. Gander
+      and G. Belenky, "Sleep at simulated 2438m: Effects on oxygenation, sleep quality, and postsleep
+      performance," Aviat. Space Environ. Med., vol. 80, no. 8, pp. 691-697, 2009.
+
+[113] R. J. Thomas, R. Tamisier, J. Boucher, Y. Kotlar and K. Vigneault, "Nocturnal hypoxia exposure with
+      simulated altitude for 14 days does not significantly alter working memory or vigilance in
+      humans," Sleep, pp. 1195-1203, 2007.
+
+[114] M. D. Weiss, R. Tamisier, J. Boucher, M. Lynch, G. Gilmartin and J. W. Weiss, "A pilot study of
+      sleep, cognition , and respiration under 4 weeks of intermittent nocturnal hypoia in adult
+      humans," Sleep Med., pp. 739-745, 2009.
+
+[115] A. F. J. Abercromby, M. L. Gernhardt and J. Conkin, "Fifteen-minute Extravehicular Activity
+      Prebreathe Protocol Using NASA's Exploration Atmosphere (8.2 psia / 34% O2)," in 43rd
+      International Conference on Environmental Systems, Vail, CO, 2013.
+
+[116] H. Yamaguchi, M. Mohri and K. Shiraki, " Evaluation of cutaneous insensible water loss during
+      hyperbaric exposure in humans," Aviat Space Environ Med, vol. 70, pp. 990-5, 1999.
+
+[117] J. Conkin, "Preventing decompression sickness over three decades of extravehicular activity,"
+      2011.
+
+[118] M. R. Barratt and S. L. Pool, Eds., Principles of Clinical Medicine for Space Flight, New York: Spring
+      Science+Business Media LLC, 2008.
+
+[119] H. W. Lane, S. M. Smith, B. L. Rice and C. T. Bourland, “Nutrition in Space: Lessons from the past
+      applied to the future,” Am. J. Clin. Nutr., pp. 801-805, 1994.
+
+[120] U. Sliwka, J. A. Krasney, S. G. Simon, P. Schmidt and J. Noth, "Effects of sustained low-level
+      elevations of carbon dioxide on cerebral blood flow and autoregulation of the intracerebral
+      arteries in humans," Aviat. Space Environ. Med., vol. 69, no. 3, pp. 299-306, Mar 1998.
+
+[121] K. E. Schaefer, C. R. Carey, J. H. Dougherty Jr, C. Morgan and A. A. Messier, "Effect of intermittent
+
+
+                                                     40
+                          Risk of Hypoxia from the Exploration Atmosphere
+
+
+      exposure to 3% CO2 on respiration, acid-base balance, and calcium-phosphorus metabolism,"
+      Undersea Biomed Res, vol. 6 Suppl, pp. S115-34, 1979.
+
+[122] T. R. Amett, "Acidosis, hypoxia and bone," Arch. Biochem. Biophys., vol. 503, no. 1, pp. 103-9, Nov
+      1 2010.
+
+[123] N. S. Krieger, K. K. Frick and D. A. Bushinsky, "Mechanism of acid-induced bone resorption," Curr.
+      Opin. Nephrol. Hypertens., vol. 13, no. 4, pp. 423-36, Jul 2004.
+
+[124] D. A. Bushinsky, "Acid-base imbalance and the skeleton," Eur. J. Nutr., vol. 40, no. 5, pp. 238-44,
+      Oct 2001.
+
+[125] D. Manzey and B. Lorenz, "Joint NASA-ESA-DARA Study. Part three: effects of chronically elevated
+      CO2 on mental performance during 26 days of confinement," Aviat. Space Environ. Med., vol. 69,
+      no. 5, pp. 506-14, May 1998.
+
+[126] A. Colasanti, E. Salamon, K. Schruers, R. van Diest, M. van Duinen and E. J. Griez, "Carbon dioxide-
+      induced emotion and respiratory symptoms in healthy volunteers," Neuropsychopharmacology,
+      vol. 33, no. 13, pp. 3103-10, Dec 2008.
+
+[127] J. Conkin, "Habitat options to protect against decompression sickness on Mars," in Concepts and
+      Approaches for Mars Exploration, Houston, Lunar and Planetary Institute, 2002, p. 73. LPI
+      Contribution No. 1062.
+
+[128] J. Conkin, "The Mars Project: Avoiding Decompression Sickness on a Distant Planet," Johnson
+      Space Center, Houston, 2000.
+
+
+
+
+                                                    41
+             Risk of Hypoxia from the Exploration Atmosphere
+
+
+9 List of acronyms
+1-G         Earth-normal gravity
+10.2 psia   cabin atmosphere used during Shuttle EVA operations
+14.7/21     normal sea-level atmosphere, 14.7 psia, 21% oxygen, nitrogen balance
+8/32%       2006 EAWG recommendation for future exploration atmosphere, 8 psia
+            pressure, 32% oxygen, balance nitrogen
+8.2/34%     Current exploration atmosphere, 8.2 psia pressure, 34% oxygen, nitrogen
+            balance
+ADP         adenosine diphosphate
+AMS         acute mountain sickness
+Ar          argon
+ARED        Advanced Resistive Exercise Device
+ASD         atrial septal defect
+AFT         Advanced Food Technology
+ATP         adenosine triphosphate
+CHeCS       Crew Health Care System
+CHI         Crew Health Index
+CMS         countermeasure system
+CNS         central nervous system
+CO2         carbon dioxide
+CSF         cerebrospinal fluid
+DCS         decompression sickness
+P          pressure difference
+DRM         design reference mission
+EAA         equivalent air altitude
+EAWG        Exploration Atmospheres Working Group
+EVA         extravehicular activity
+EVAC        evacuation
+ExMC        Exploration Medical Capability
+FIO2        inspired oxygen fraction
+ft          foot
+g           gravity
+HEOMD       Human Exploration and Operations Mission Directorate
+HH          hypobaric hypoxia
+HIF 1       hypoxia-inducible factor 1
+HMS         Health Maintenance System
+ICP         intracranial pressure
+IMM         Integrated Medical Model
+ISS         International Space Station
+JSC         Johnson Space Center
+kg          kilogram
+k           number of gas species in tissue
+lb          pounds
+LLSQ        Lake Louise symptom questionnaire
+LOCL        loss of crew life
+LSAH        Lifetime Surveillance of Astronaut Health
+
+                                    42
+          Risk of Hypoxia from the Exploration Atmosphere
+
+
+G       microgravity
+m        meter
+min      minute
+ml       milliliter
+mmHg     millimeters of mercury (pressure)
+MMSEV    Multi Mission Space Exploration Vehicle
+n        sample size
+NASA     National Aeronautics and Space Administration
+NBL      Neutral Buoyancy Laboratory
+NEA      near-Earth asteroid
+NEO      near-Earth object
+NH       normobaric hypoxia
+N2       nitrogen
+O2       oxygen
+OSaD     oxidative stress and damage
+P2       final pressure
+PB       atmospheric pressure
+PB       prebreathe
+P(DCS)   probability of decompression sickness
+pH       measure of the acidity or basicity
+PI       Principal Investigator
+PIO2     inspired (wet) partial pressure of oxygen
+ppN2     partial pressure of nitrogen
+ppO2     partial pressure of oxygen
+PRD      Program Requirements Document
+psia     pounds per square inch absolute
+SaO2     arterial blood oxygen saturation
+SMEMCL   Space Medicine Exploration Condition List
+SpO2     blood oxygen saturation
+STPD     standard temperature (0 Celsius), pressure (1 ATM), dry gas
+STS      Space Transportation System
+VGE      venous gas emboli
+VIIP     visual impairment / intracranial pressure
+WEI      Work Efficiency Index
+
+
+
+
+                                 43
+

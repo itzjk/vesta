@@ -1,0 +1,119 @@
+https://www.nasa.gov/missions/station/iss-research/nasas-crew-6-heads-to-space-station-to-conduct-scientific-studies/
+TITLE: NASA’s Crew-6 Heads to Space Station to Conduct Scientific Studies - NASA
+FETCHED: 2026-11-14T12:00:09
+
+4 min read
+
+NASA’s Crew-6 Heads to Space Station to Conduct Scientific Studies
+
+Melissa L. Gaskill
+
+International Space Station Research Communications Team
+
+Feb 22, 2023
+
+Article
+
+Contents
+
+Answering Burning Questions
+
+Testing a New Tool for Immune Monitoring
+
+Tissue Chip Investigations, Round 2
+
+Life Out There
+
+Lee esta historia en español aquí.
+
+NASA’s SpaceX Crew-6 mission is scheduled to launch to the International Space Station as soon as March 2 from the agency’s Kennedy Space Center in Florida. NASA astronauts Stephen Bowen and Warren “Woody” Hoburg, along with UAE (United Arab Emirates) astronaut Sultan Alneyadi and Roscosmos cosmonaut Andrey Fedyaev, head to the orbiting laboratory for a six-month mission to conduct scientific research.
+
+Here are details on some of the investigations the crew is scheduled to work on during their mission:
+
+Answering Burning Questions
+
+This image shows a flame from acrylic burning in microgravity for the first test of SoFIE-GEL on Jan. 13, 2023, which looked at how fuel temperature affects material flammability.
+
+Credits: NASA
+
+The Crew-6 mission continues combustion research using the Solid Fuel Ignition and Extinction (SoFIE) hardware insert for the station’s Combustion Integrated Rack (CIR). A previous investigation, SoFIE-GEL, looked at how fuel temperature affects material flammability. Now, SoFIE- MIST examines thermally-assisted burning in microgravity, changing parameters including air flow, oxygen concentration, pressure, and external radiation level. Results could help scientists assess the flammability of materials used in future space missions, a critical factor in spacecraft and facility design. The investigation also could contribute to crew safety by helping to determine the best equipment and procedures to detect and suppress a fire in space and to clean up afterwards. Results may help scientists refine combustion models that could be used in terrestrial settings as well.
+
+Testing a New Tool for Immune Monitoring
+
+ESA (European Space Agency) astronaut Alexander Gerst and NASA astronaut Serena Auñón-Chancellor conduct a blood sample draw for Functional Immune, an investigation that analyzed the changes taking place in crew members’ immune systems during flight. Future analyses may use a new test developed for Immune Assay, which monitors how spaceflight affects immune function.
+
+Credits: NASA
+
+Immunity Assay, an investigation from ESA (European Space Agency), uses a functional immune test to monitor how spaceflight stressors affect cellular immune functions. Until now, this test could only be accomplished on Earth and was conducted pre- and postflight. A newly developed assay tube makes it possible to execute the test inflight, which could provide a clearer assessment of the immune changes that happen in flight and help inform development of countermeasures. The body’s ability to defend against infections shows clear changes in response to simulated microgravity or confinement on Earth that appear to be associated with stress. Along with blood samples and saliva collections, the new test could be used to monitor stress-related immune performance during space missions and in settings on Earth.
+
+Tissue Chip Investigations, Round 2
+
+Tissue Chips in Space, a collaboration between the National Center for Advancing Translational Sciences (NCATS) at the National Institutes for Health (NIH) and the ISS National Lab, is a series of investigations testing tissue chips aboard the space station. Tissue chips are small devices that mimic functions of human organs. Using them for studies in microgravity allows scientists to model changes that may take months or years to happen on Earth.
+
+Investigations that were awarded funding under the Tissue Chips in Space initiative used their first flights to the orbiting laboratory to develop and test their systems. Some investigations have had second flights that dove deeper into the technology and tested therapies. While on station, Crew-6 crew members are set to work on the second flight for these last two investigations of the initiative.
+
+Cardinal Heart 2.0 tests whether clinically approved drugs can help prevent changes in heart cell function and gene expression that occur during spaceflight. Results could guide drug development strategies on Earth to treat patients with diseases such as heart failure more effectively.
+
+Preflight image of a BioCell, developed by BioServe Space Technologies, that contains 162 beating cardiac spheroids to be incubated in space as part of Cardinal Heart 2.0, an investigation that tests drugs to protect heart cell function.
+
+Credits: Joseph Wu, Dilip Thomas, and Xu Cao, Stanford Cardiovascular Institute
+
+Engineered Heart Tissues-2 tests therapies to prevent space-induced changes in heart tissue that could lead to cardiac disease. This research could support the development of countermeasures to protect future space explorers and help patients at risk of developing heart disease on Earth. Further development of organoid research also could make it possible to monitor systemic changes in people with heart disease.
+
+Life Out There
+
+In the Neutral Buoyancy Lab at Johnson Space Center, NASA astronaut Victor Glover tests collection methods for ISS External Microorganisms, which examines microbes released from the space station to help limit contamination on future exploration missions.
+
+Credits: NASA
+
+ISS External Microorganisms collects samples from outside the space station during spacewalks, focusing on sites near life support system vents, to examine whether the spacecraft releases microorganisms, how many, and how far they may travel. This research could help determine whether changes are needed to crewed spacecraft, including spacesuits, to limit the spread of contamination from Earth on future exploration missions. Making any such changes while plans for those missions are still in the conceptual design phase should minimize cost and effort. Extremophiles, or microorganisms that can survive harsh environments like space, have potential uses on Earth as well.
+
+Melissa Gaskill
+International Space Station Program Research Office
+Johnson Space Center
+
+Space Station Research Explorer
+
+Keep Exploring
+
+Discover More Topics
+
+Station Science 101: Human Research
+
+Station Science 101: Biology and Biotechnology
+
+ISS National Laboratory
+
+Latest News from Space Station Research
+
+@ISS
+
+@ISS_Research@Space_Station
+
+@ISS
+
+@company/nasa
+
+Share
+
+Details
+
+Last Updated
+
+Sep 27, 2023
+
+Editor
+
+Ana Guzman
+
+Related Terms
+
+ISS Research
+
+For Researchers
+
+Humans in Space
+
+International Space Station (ISS)
+
+Science & Research

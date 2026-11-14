@@ -1,0 +1,90 @@
+https://www.nasa.gov/humans-in-space/fighting-fire-with-fire-new-space-station-experiments-study-flames-in-space/
+TITLE: Fighting Fire with Fire: New Space Station Experiments Study Flames in Space - NASA
+FETCHED: 2026-11-14T10:54:48
+
+4 min read
+
+# Fighting Fire with Fire: New Space Station Experiments Study Flames in Space
+
+Kelly M. Matter
+
+Feb 16, 2022
+
+Article
+
+To demonstrate flame growth, decay, and extinction in space, a preliminary test called Burning and Suppression of Solids (BASS) burned a synthetic resin on the space station several years ago. The top row shows the flame growing, while the bottom row shows it going out.
+
+Credits: NASA
+
+Americans can feel safer in their homes now than decades ago thanks to studies and standards that have removed highly flammable materials in clothing, beds, and furniture. NASA relies on similar studies and standards to protect astronauts when selecting materials for spacesuits and spacecraft.
+
+But fire behaves differently in space. Changes in gravity and air flow can alter the way it spreads and make it harder to extinguish. So, how do engineers design fire safe homes for the Moon, where only 12 people have walked, or Mars, where no human has even visited? How do they study flammability in these little-known environments?
+
+The Solid Fuel Ignition and Extinction (SoFIE) project, a set of experiments launching aboard Northrop Grumman’s 17th cargo resupply mission to the International Space Station, could light the way to a deeper understanding of fire in space. SoFIE will run in the station’s Combustion Integrated Rack, which features a chamber where experiments can burn safely.
+
+NASA astronaut and Expedition 66 Flight Engineer Thomas Marshburn configures the Combustion Integrated Rack to begin SoFIE operations.
+
+Credits: NASA
+
+“With NASA planning outposts on other planetary bodies like the Moon and Mars, we need to be able to live there with minimal risk,” said Paul Ferkul, SoFIE project scientist at NASA’s Glenn Research Center in Cleveland. “Understanding how flames spread and how materials burn in different environments is crucial for the safety of future astronauts.”
+
+SoFIE will help NASA select materials and designs for spacesuits, cabins, and habitats. The experiments also will help NASA identify the best ways to put out fires or smoldering materials in space as it prepares to go farther and stay longer.
+
+“On Earth, gravity has a profound influence on flames, but in the reduced gravity of space, fire can behave unexpectedly and could be more hazardous,” Ferkul said.
+
+The station’s unique microgravity environment enables scientists to study the true nature of flames isolated and unaltered by gravity. The resulting data, which could never be collected on Earth, can then be applied to mathematical models that predict how those materials would burn in lunar, Martian, or other environments.
+
+“SoFIE builds on NASA’s prior flammability research,” said Lauren Brown, a project manager at Glenn. “Like other flame studies, this research will home in on how things ignite, burn, and are extinguished in space. It will provide a foundation for continuing human spaceflight beyond low-Earth orbit.”
+
+SoFIE consists of five investigations to study the flammability of plexiglass, cotton-based fabrics, and other materials commonly used in spaceflight.
+
+### The Five Experiments
+
+- Residence Time Driven Flame Spread will investigate steady and unsteady flame spread using thin spaceflight materials. Varying the thickness of the test materials helps scientists understand when a fire will grow or go out.
+
+- Narrow Channel Apparatus will measure flame spread across thick, flat surfaces and compare the results with those from a device used on Earth to test the flammability of spaceflight materials.
+
+- Growth and Extinction Limit will concentrate on the flame growth, decay, and extinction over the surface of a solid sphere. This will improve understanding of how thick and round materials heat inside and how the air flow around a sphere affects flame spread.
+
+- Material Ignition and Suppression Test consists of a small combustion wind tunnel, a cylindrical material sample, radiant heaters, an igniter, and supporting instrumentation.
+
+- Spacecraft Materials Microgravity Research on Flammability will correlate Earth gravity flammability test data with data under ventilated microgravity conditions.
+
+Although SoFIE’s purpose is to study spacecraft fire safety, data from the experiments could help improve fire safety on Earth. The data will add to the existing body of knowledge that could improve screening tests to evaluate fire-safe materials for the home, office, aircraft, or other uses.
+
+NASA plans to operate SoFIE until November 2025 and may accept proposals for additional experiments during that time.
+
+The Biological and Physical Sciences Division of NASA’s Science Mission Directorate provides funding for SoFIE and related investigations.
+
+Mike Gianonne
+NASA’s Glenn Research Center
+
+## Explore More
+
+5 min read
+
+### NASA’s Hubble Offers Cosmic Sampler of Targets for Roman
+
+A gallery of gravitational lenses captured by NASA’s Hubble Space Telescope showcases the diversity of…
+
+Article
+
+2 days ago
+
+4 min read
+
+### MAX POWER: NASA’s Inaugural Aerospace Expo Ignites America’s Future
+
+Article
+
+5 days ago
+
+5 min read
+
+### NASA’s ESCAPADE Completes Powered Earth Flybys, Now En Route to Mars
+
+NASA’s two ESCAPADE (Escape and Plasma Acceleration and Dynamics Explorers) spacecraft have each successfully completed…
+
+Article
+
+5 days ago

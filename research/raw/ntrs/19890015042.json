@@ -1,0 +1,145 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19890015042,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "8969405c7e0d4d3d8edbcf972dab1eea",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19890015042,
+  "ear": "NO",
+  "id": "49b095f43bd84c57936d1be0452c8b5c",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NAS 1.15:101463",
+  "NASA-TM-101463",
+  "E-4511",
+  "Report Number: NAS 1.15:101463",
+  "Report Number: NASA-TM-101463",
+  "Report Number: E-4511"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 323-53-62",
+   "submissionId": 19890015042,
+   "id": "8b7e401093444982bafdb7e57ca7f36c",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Fire safety applications for spacecraft",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-05T23:56:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19890015042,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "b3d19b865fb14853809f2b750c11fddf"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19890015042,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e0fa6d1fb2ff403ea63efcffb9d7fec0"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19890015042,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "89N24413"
+ },
+ "created": "2013-09-05T23:56:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Fire safety for spacecraft is reviewed by first describing current practices, many of which are adapted directly from aircraft. Then, current analyses and experimental knowledge in low-gravity combustion, with implications for fire safety are discussed. In orbiting spacecraft, the detection and suppression of flames are strongly affected by the large reduction in buoyant flows under low gravity. Generally, combustion intensity is reduced in low gravity. There are some notable exceptions, however, one example being the strong enhancement of flames by low-velocity ventilation flows in space. Finally, the future requirements in fire safety, particularly the needs of long-duration space stations in fire prevention, detection, extinguishment, and atmospheric control are examined. The goal of spacecraft fire-safety investigations is the establishment of trade-offs that promote maximum safety without hampering the useful human and scientific activities in space.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "Portugal",
+   "submissionId": 19890015042,
+   "endDate": "1989-05-26T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "7f029fd8914d417895cc94172506aaa7",
+     "meta": {
+      "organization": {
+       "name": "AGARD/NATO Propulsion Energetics Panel"
+      }
+     },
+     "meetingId": "921e9b2a30af48aabbf5c4df6e4ada49",
+     "id": "752aa058a65e425dbf234bdc1b33fee6"
+    }
+   ],
+   "name": "Symposium on Aircraft Fire Safety",
+   "location": "Sintra",
+   "id": "921e9b2a30af48aabbf5c4df6e4ada49",
+   "startDate": "1989-05-22T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19890015042,
+   "id": "fe9e4ebb171d4d8e895a0b79ddbe950a",
+   "publicationDate": "1989-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19890015042.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19890015042/downloads/19890015042.pdf",
+    "pdf": "/api/citations/19890015042/downloads/19890015042.pdf",
+    "fulltext": "/api/citations/19890015042/downloads/19890015042.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,146 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040161188,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "71111b9c39a842258a427ba025b26bbc",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040161188,
+  "ear": "NO",
+  "id": "a70ceeb61fce4c21b290d1931a23bb98",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-09T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NCC3-1056",
+   "submissionId": 20040161188,
+   "id": "69f65fe09fe443ddb16cdbeab3188a33",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Comparison of Carbon Dioxide and Helium as Fire Extinguishing Agents for Spacecraft",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:50:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040161188,
+   "meta": {
+    "author": {
+     "name": "Gokoglu, Suleyman"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "5c2bd2814c8946c09d4b2360af65da62"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040161188,
+   "meta": {
+    "author": {
+     "name": "Son, Youngjin"
+    },
+    "organization": {
+     "name": "University of Southern California"
+    }
+   },
+   "id": "ab437162b30243be9081b97341bf72e0"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040161188,
+   "meta": {
+    "author": {
+     "name": "Ronney, Paul D."
+    },
+    "organization": {
+     "name": "University of Southern California"
+    }
+   },
+   "id": "4cfc28c8e65e412eaad9816547c838d1"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040161188,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:50:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The effects of radiation heat transfer in microgravity compared to convection heat transfer in earth gravity for opposed-flow (downward) over thermally-thick fuel using low density foam fuel were investigated. Microgravity experiments on flame spread over thermally-thick fuels were conducted using foam fuels to obtain low density and thermal conductivity, and thus large flame spread rate compared to dense fuels such as PMMA. And thereby valid microgravity results were obtained even in 2.2 second drop-tower experiments not to mention for the longer duration tests in Zero Gravity Facility. Contrast to the conventional understanding, it was found that steady flame spread can occur over thick fuels in quiescent microgravity environments, especially when radiatively-active diluent gases such as CO2 were employed. This is proposed to result from radiative heat transfer from the flame to the fuel surface, which could lead to steady spread even when the amount of the heat transfer via conduction from the flame to the fuel bed is negligible. Radiative effects are more significant at microgravity conditions because the flame is thicker and thus the volume of radiating combustion products is larger as well. These results suggested that helium may be a better inert or extinguishment agent on both a mass and a mole bases at microgravity even though CO2 is much better on a mole bases at earth gravity, and these are relevant to studies of fire safety in manned spacecraft, particularly the International Space Station that uses CO2 fire extinguishers. CO2 may not be as effective as an extinguishing agent at microgravity as it is at earth gravity in some conditions because of the differences in spread mechanisms between the two cases. In particular, the difference between conduction-dominated heat transport to the fuel bed at earth gravity and radiation-dominated heat transport at microgravity indicates that radiatively-inert diluent such as helium could be preferable in microgravity applications. Helium may be a superior fire suppression agent at microgravity on several bases. First, helium is more effective than CO2 on a mole basis (thus pressure times storage volume basis) at microgravity, meaning that the size and weight of storage bottles would be smaller for the same fire-fighting capability. Second; helium is much more effective on a mass basis (by about 11 times) at microgravity. Third; helium has no physiological activity, unlike CO2 that affects human respiration. Fourth, as compared to N2 or CO2, is not very soluble in water and thus has fewer tendencies to cause bloodstream bubble formation following rapid spacecraft cabin depressurization.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040161188,
+   "id": "e44e91ad479b4dca820e81a086654ea1",
+   "publicationName": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session, Volume 2",
+   "publicationDate": "2004-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040161188.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040161188/downloads/20040161188.pdf",
+    "pdf": "/api/citations/20040161188/downloads/20040161188.pdf",
+    "fulltext": "/api/citations/20040161188/downloads/20040161188.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

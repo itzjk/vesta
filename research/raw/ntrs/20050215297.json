@@ -1,0 +1,107 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050215297,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "dde81d242c704c2bad3b3977c7719133",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050215297,
+  "ear": "NO",
+  "id": "8f53df2d452f41058b4134f6c198d580",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-04T00:00:00.0000000+00:00",
+ "title": "Carbon Dioxide Dispersion in the Combustion Integrated Rack Simulated Numerically",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T10:47:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050215297,
+   "meta": {
+    "author": {
+     "name": "Wu, Ming-Shin"
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c64cea49ff3740da8093946625d8ac8d"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20050215297,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "ccd976bd47094b4e81a75ff83332eb51"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050215297,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T10:47:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "When discharged into an International Space Station (ISS) payload rack, a carbon dioxide (CO2) portable fire extinguisher (PFE) must extinguish a fire by decreasing the oxygen in the rack by 50 percent within 60 sec. The length of time needed for this oxygen reduction throughout the rack and the length of time that the CO2 concentration remains high enough to prevent the fire from reigniting is important when determining the effectiveness of the response and postfire procedures. Furthermore, in the absence of gravity, the local flow velocity can make the difference between a fire that spreads rapidly and one that self-extinguishes after ignition. A numerical simulation of the discharge of CO2 from PFE into the Combustion Integrated Rack (CIR) in microgravity was performed to obtain the local velocity and CO2 concentration. The complicated flow field around the PFE nozzle exits was modeled by sources of equivalent mass and momentum flux at a location downstream of the nozzle. The time for the concentration of CO2 to reach a level that would extinguish a fire anywhere in the rack was determined using the Fire Dynamics Simulator (FDS), a computational fluid dynamics code developed by the National Institute of Standards and Technology specifically to evaluate the development of a fire and smoke transport. The simulation shows that CO2, as well as any smoke and combustion gases produced by a fire, would be discharged into the ISS cabin through the resource utility panel at the bottom of the rack. These simulations will be validated by comparing the results with velocity and CO2 concentration measurements obtained during the fire suppression system verification tests conducted on the CIR in March 2003. Once these numerical simulations are validated, portions of the ISS labs and living areas will be modeled to determine the local flow conditions before, during, and after a fire event. These simulations can yield specific information about how long it takes for smoke and combustion gases produced by a fire to reach a detector location, how large the fire would be when the detector alarms, and the behavior of the fire until it has been extinguished. This new capability could then be used to optimize the location of fire detectors and fire-suppression ports as well as to evaluate the effectiveness of fire suppressants and response strategies. Numerical data collected from these simulations could also be used to develop a virtual reality fire event for crew training and fire safety awareness. This work is funded by NASA's Bioastronautics Initiative, which has the objective of ensuring and enhancing the health, safety, and performance of humans in space. As part of this initiative, the Microgravity Combustion Science Branch at the NASA Glenn Research Center is conducting spacecraft fire safety research to significantly improve fire safety on inhabited spacecraft.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20050215297,
+   "id": "4d14f9f814414915bc48f35d1fe9d130",
+   "publicationName": "Research and Technology 2003",
+   "publicationDate": "2004-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20050215297.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20050215297/downloads/20050215297.pdf",
+    "pdf": "/api/citations/20050215297/downloads/20050215297.pdf",
+    "fulltext": "/api/citations/20050215297/downloads/20050215297.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,168 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053576,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "8fec54aba9bf482c8d7ca5ecb1d546b2",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "General"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053576,
+  "ear": "NO",
+  "id": "958142f89c364f8bbf866ba6209cf6a5",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "Modeling Candle Flame Behavior In Variable Gravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:35:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053576,
+   "meta": {
+    "author": {
+     "name": "Alsairafi, A."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "3d416480da914e2bb20519af6123b36f"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053576,
+   "meta": {
+    "author": {
+     "name": "Tien, J. S."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c041da622d29428a882cdec8013272fa"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053576,
+   "meta": {
+    "author": {
+     "name": "Lee, S. T."
+    },
+    "organization": {
+     "name": "National Taiwan Univ.",
+     "location": "Taiwan, Province of China"
+    }
+   },
+   "id": "28d01b93a32b4fb9b6d20081986fe71a"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040053576,
+   "meta": {
+    "author": {
+     "name": "Dietrich, D. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "ad571b598aa046b581299760ece93d20"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20040053576,
+   "meta": {
+    "author": {
+     "name": "Ross, H. D."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e1fc9ff9ae6741f2862bf12c97d5b256"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053576,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:35:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The burning of a candle, as typical non-propagating diffusion flame, has been used by a number of researchers to study the effects of electric fields on flame, spontaneous flame oscillation and flickering phenomena, and flame extinction. In normal gravity, the heat released from combustion creates buoyant convection that draws oxygen into the flame. The strength of the buoyant flow depends on the gravitational level and it is expected that the flame shape, size and candle burning rate will vary with gravity. Experimentally, there exist studies of candle burning in enhanced gravity (i.e. higher than normal earth gravity, g(sub e)), and in microgravity in drop towers and space-based facilities. There are, however, no reported experimental data on candle burning in partial gravity (g < g(sub e)). In a previous numerical model of the candle flame, buoyant forces were neglected. The treatment of momentum equation was simplified using a potential flow approximation. Although the predicted flame characteristics agreed well with the experimental results, the model cannot be extended to cases with buoyant flows. In addition, because of the use of potential flow, no-slip boundary condition is not satisfied on the wick surface. So there is some uncertainty on the accuracy of the predicted flow field. In the present modeling effort, the full Navier-Stokes momentum equations with body force term is included. This enables us to study the effect of gravity on candle flames (with zero gravity as the limiting case). In addition, we consider radiation effects in more detail by solving the radiation transfer equation. In the previous study, flame radiation is treated as a simple loss term in the energy equation. Emphasis of the present model is on the gas-phase processes. Therefore, the detailed heat and mass transfer phenomena inside the porous wick are not treated. Instead, it is assumed that a thin layer of liquid fuel coated the entire wick surface during the burning process. This is the limiting case that the mass transfer process in the wick is much faster than the evaporation process at the wick surface.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053576,
+   "id": "860b67bbb4bc4e6f8625105131e07cdd",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053576.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053576/downloads/20040053576.pdf",
+    "pdf": "/api/citations/20040053576/downloads/20040053576.pdf",
+    "fulltext": "/api/citations/20040053576/downloads/20040053576.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

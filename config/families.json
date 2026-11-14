@@ -1,0 +1,203 @@
+{
+ "schema": "vesta.families/1",
+ "note": "Six families that sum to the 24 PSI combustion investigations. grouping \"challenge-page\": the grouping is the challenge page's own (its sentence is in source and goes through the quote gate). grouping \"vesta\": VESTA's own grouping; the tooltip says so. names maps the investigation names used by the fact sheets (_facts.verified.json) and by the research findings to PSI ids; matching ignores case and punctuation. related lists NASA investigations that are not in PSI: they are shown as \"NASA page or report, not PSI data\" and never count as rows or as investigations. A name in neither list is not attached to any investigation.",
+ "families": [
+  {
+   "id": "cir-acme",
+   "label": "CIR / ACME",
+   "grouping": "challenge-page",
+   "psi_ids": [
+    "PSI-10",
+    "PSI-20",
+    "PSI-21",
+    "PSI-22",
+    "PSI-23",
+    "PSI-159"
+   ],
+   "source": {
+    "kind": "challenge-page",
+    "id": "flame-in-freefall",
+    "title": "Flame in Freefall (NASA Space Apps Challenge 2026, challenge page)",
+    "year": 2026,
+    "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+    "text_file": "raw/nasa/spaceapps-challenge-flame-in-freefall.txt",
+    "quote": "The six experiments in the ACME project featured flames of gaseous fuels and were all conducted with the same modular set of ACME hardware in the Combustion Integrated Rack (CIR)."
+   }
+  },
+  {
+   "id": "cir-mdca",
+   "label": "CIR / MDCA",
+   "grouping": "challenge-page",
+   "psi_ids": [
+    "PSI-39",
+    "PSI-68",
+    "PSI-69"
+   ],
+   "source": {
+    "kind": "challenge-page",
+    "id": "flame-in-freefall",
+    "title": "Flame in Freefall (NASA Space Apps Challenge 2026, challenge page)",
+    "year": 2026,
+    "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+    "text_file": "raw/nasa/spaceapps-challenge-flame-in-freefall.txt",
+    "quote": "FLEX, FLEX-2, and the Cool Flames Investigation (CFI) each featured burning droplets of liquid fuel and were conducted with the Multi-user Droplet Combustion Apparatus (MDCA) in the CIR."
+   }
+  },
+  {
+   "id": "msg-flow-duct",
+   "label": "MSG flow duct",
+   "grouping": "challenge-page",
+   "psi_ids": [
+    "PSI-25",
+    "PSI-26",
+    "PSI-106",
+    "PSI-107"
+   ],
+   "source": {
+    "kind": "challenge-page",
+    "id": "flame-in-freefall",
+    "title": "Flame in Freefall (NASA Space Apps Challenge 2026, challenge page)",
+    "year": 2026,
+    "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+    "text_file": "raw/nasa/spaceapps-challenge-flame-in-freefall.txt",
+    "quote": "Each of these investigations was conducted within the Microgravity Science Glovebox (MSG) using the modular fan-driven flow duct built for SPICE."
+   }
+  },
+  {
+   "id": "cygnus-saffire",
+   "label": "Cygnus / Saffire",
+   "grouping": "vesta",
+   "psi_ids": [
+    "PSI-98",
+    "PSI-99",
+    "PSI-100"
+   ],
+   "source": null
+  },
+  {
+   "id": "smoke-aerosol",
+   "label": "Smoke and aerosol",
+   "grouping": "vesta",
+   "psi_ids": [
+    "PSI-47",
+    "PSI-101",
+    "PSI-102"
+   ],
+   "source": null
+  },
+  {
+   "id": "ground-modeling",
+   "label": "Ground and modeling",
+   "grouping": "vesta",
+   "psi_ids": [
+    "PSI-60",
+    "PSI-62",
+    "PSI-115",
+    "PSI-117",
+    "PSI-142"
+   ],
+   "source": null
+  }
+ ],
+ "names": {
+  "BASS": "PSI-26",
+  "BASS-II": "PSI-25",
+  "FLEX": "PSI-69",
+  "FLEX-2": "PSI-68",
+  "CFI": "PSI-39",
+  "Cool Flames Investigation": "PSI-39",
+  "Saffire-I": "PSI-98",
+  "Saffire-II": "PSI-99",
+  "Saffire-III": "PSI-100",
+  "ACME / Flame Design": "PSI-10",
+  "ACME / BRE": "PSI-20",
+  "ACME / CLD Flame": "PSI-21",
+  "ACME / E-FIELD Flames": "PSI-22",
+  "ACME / s-Flame": "PSI-23",
+  "ACME / CFI-G": "PSI-159",
+  "Flame Design": "PSI-10",
+  "BRE": "PSI-20",
+  "CLD Flame": "PSI-21",
+  "E-FIELD Flames": "PSI-22",
+  "s-Flame": "PSI-23",
+  "CFI-G": "PSI-159",
+  "SAME": "PSI-102",
+  "SAME-R": "PSI-101",
+  "DAFT": "PSI-47",
+  "DAFT-2": "PSI-47",
+  "SLICE": "PSI-106",
+  "SPICE": "PSI-107"
+ },
+ "related": [
+  {
+   "name": "SoFIE",
+   "aliases": [
+    "SoFIE",
+    "SoFIE / RTDFS",
+    "SoFIE / NCA",
+    "SoFIE / GEL",
+    "SoFIE / MIST",
+    "SoFIE / SMuRF",
+    "SoFIE-RTDFS",
+    "SoFIE-NCA",
+    "SoFIE-GEL",
+    "SoFIE-MIST",
+    "SoFIE-SMuRF"
+   ]
+  },
+  {
+   "name": "Saffire-IV",
+   "aliases": [
+    "Saffire-IV"
+   ]
+  },
+  {
+   "name": "Saffire-V",
+   "aliases": [
+    "Saffire-V"
+   ]
+  },
+  {
+   "name": "Saffire-VI",
+   "aliases": [
+    "Saffire-VI"
+   ]
+  },
+  {
+   "name": "FM2",
+   "aliases": [
+    "FM2"
+   ]
+  },
+  {
+   "name": "FLARE",
+   "aliases": [
+    "FLARE"
+   ]
+  },
+  {
+   "name": "LUCI",
+   "aliases": [
+    "LUCI"
+   ]
+  },
+  {
+   "name": "BASS-M",
+   "aliases": [
+    "BASS-M"
+   ]
+  },
+  {
+   "name": "FLEX-2J",
+   "aliases": [
+    "FLEX-2J"
+   ]
+  },
+  {
+   "name": "FLEX-ICE-GA",
+   "aliases": [
+    "FLEX-ICE-GA"
+   ]
+  }
+ ]
+}

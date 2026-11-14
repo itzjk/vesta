@@ -1,0 +1,139 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20130011664,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "57aa1fa4b88c44039192b2259734dc45",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20130011664,
+  "ear": "NO",
+  "id": "1c7cef54d1f842909e0d4fc5d29b42c2",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-28438",
+  "Report Number: JSC-CN-28438"
+ ],
+ "title": "Development of the International Space Station Fine Water Mist Portable Fire Extinguisher",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-27T10:06:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20130011664,
+   "meta": {
+    "author": {
+     "name": "Rodriquez, Branelle"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "b11dca29a178494d880508e84f53d2c0"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20130011664,
+   "meta": {
+    "author": {
+     "name": "Young, GIna"
+    },
+    "organization": {
+     "name": "Wyle Labs., Inc.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "fff7d2974c9344dbaaffb62d6a85b101"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20130011664,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-27T10:06:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The National Aeronautics and Space Administration (NASA) is developing a Fine Water Mist (FWM) Portable Fire Extinguisher (PFE) for use on the International Space Station (ISS). The ISS presently uses two different types of fire extinguishers: a water foam extinguisher in the Russian Segments, and a carbon dioxide extinguisher in the United States Orbital Segments, which include Columbus and Kibo pressurized elements. Currently, there are operational and compatibility concerns with the emergency breathing equipment and the carbon dioxide extinguisher. ISS emergency response breathing equipment does not filter carbon dioxide; therefore, crew members are required to have an oxygen supply present during a fire event since the carbon dioxide PFE creates an unsafe breathing environment. The ISS program recommended a nontoxic fire extinguisher to mitigate this operational risk. The FWM PFE can extinguish a fire without creating a hazardous breathing environment for crewmembers. This paper will discuss the unique functional and performance requirements that have been levied on the FWM PFE, identify unique microgravity design considerations for liquid and gas systems, and discuss the NASA ISS specific fire standards that were developed to establish an acceptable portable fire extinguisher s performance.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20130011664,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "c91e3da17b8447dcabfe2d14e954fe72"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20130011664,
+   "endDate": "2013-07-18T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "262d781e562f42b9827e43c0e491cdcb",
+     "id": "6a0e7c29c16a4bd1aa0f2664cda64325"
+    }
+   ],
+   "name": "International Conference on Environmental Systems (ICES)",
+   "location": "Vail, CO",
+   "id": "262d781e562f42b9827e43c0e491cdcb",
+   "startDate": "2013-07-14T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20130011664,
+   "id": "fdd1bc01ef5d42f68734f967befb13f0",
+   "publicationDate": "2013-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20130011664.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20130011664/downloads/20130011664.pdf",
+    "pdf": "/api/citations/20130011664/downloads/20130011664.pdf",
+    "fulltext": "/api/citations/20130011664/downloads/20130011664.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

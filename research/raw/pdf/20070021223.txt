@@ -1,0 +1,380 @@
+2007-07ICES-231
+
+Crew Exploration Vehicle Environmental Control and Life
+Support Fire Protection Approach
+John F. Lewis, Richard Barido, and George C. Tuan
+NASA Johnson Space Center
+
+Copyright © 2007 SAE International
+
+ABSTRACT
+As part of preparing for the Crew Exploration Vehicle
+(CEV), the National Aeronautics and Space
+Administration (NASA) worked on developing the
+requirements to manage the fire risk. The new CEV
+poses unique challenges to current fire protection
+systems. The size and configuration of the vehicle
+resembles the Apollo capsule instead of the current
+Space Shuttle or the International Space Station. The
+smaller free air volume and fully cold plated avionic bays
+of the CEV requires a different approach in fire
+protection than the ones currently utilized. The fire
+protection approach discussed in this paper incorporates
+historical lessons learned and fire detection and
+suppression system design philosophy spanning from
+Apollo to the International Space Station. Working with
+NASA fire and materials experts, this approach outlines
+the best requirements for both the closed out area of the
+vehicle, such as the avionics bay, and the crew cabin
+area to address the unique challenges due to the size
+and configuration of the CEV.
+
+INTRODUCTION
+A fire event in a manned spacecraft is a serious
+concern. The small crew cabin combined with an
+elevated oxygen atmosphere can allow a fire to
+propagate quickly and poses a severe threat for the
+crew and vehicle. The Crew Exploration Vehicle (CEV)
+is going to have a smaller crew cabin volume than the
+current Space Shuttle and will see a higher oxygen
+concentration when going to the moon. Lunar missions
+will drive vehicle designs to have lower cabin
+atmospheric pressure and as a result, an enriched
+oxygen concentration in the environment. The Apollo
+Crew Module (CM) had an environment with 100%
+oxygen with a 6.4 psia atmosphere. The CEV is
+proposed to have a 30% oxygen environment with a
+10.4 psia atmosphere for lunar missions.
+
+The enriched oxygen atmosphere and smaller cabin of
+the CEV requires rethinking the fire protection approach
+as compared to the current Space Shuttle and the
+International Space Station (ISS). Before looking at the
+CEV fire protection approach, an understanding of the
+historical and current fire protection systems that has
+been implemented on various NASA’s manned space
+vehicle is essential. Incorporating past experiences and
+lessons is central to getting the best design.
+
+PAST AND PRESENT
+Historically, fire protection has incorporated three levels
+of protection: Fire Prevention, Fire Detection, and Fire
+Suppression. Fire Prevention is the first and most
+significant level of protection. It is based on the ability to
+design your vehicle and system in a way that minimizes
+the risk of fire ignition. This is the foundation of any
+vehicle’s approach to managing fire related risks. Fire
+Detection is the ability to detect a in the unfortunate case
+that a fire is ignited. The faster the fire is detected, the
+faster a response can be made and the damage limited.
+In space however, fire detection is not a simple task, as
+smoke and heat do not rise up in microgravity. Fire
+Suppression is the final level of protection and is there
+when the worst of the worst happens. The ability to stop
+and put out a fire as quickly as possible without putting
+the crew in danger is crucial for keeping the vehicle and
+crew safe.
+To understand how each of the three levels of protection
+work with one another and enable a successful fire
+protection strategy, a historical look at previous manned
+vehicles is beneficial for selecting the most effective fire
+protecting approach for the CEV.
+The following
+historical look at Mercury, Gemini, Apollo, Space Shuttle
+and ISS will only scratch the surface of the massive
+amount of studies and the years of developmental work
+behind each of the fire protection systems.
+
+FIRE PREVENTION
+To understand how to prevent fires, one needs to first
+understand what is necessary for a fire to occur. Fire,
+both on the ground and in microgravity, requires three
+ingredients, as represented by the familiar fire triangle:
+fuel, ignition, and oxygen. Remove and controlling any
+of these ingredients necessary have been the foundation
+of fire prevention.
+In Mercury, Gemini, and Apollo controlling the
+ingredients for a fire was difficult. All three of the
+vehicles were designed for 100% oxygen environment.
+Oxygen, necessary for crew survival, cannot be
+removed. Thus, Mercury and Gemini’s fire protection
+strategy were state-or-the-art non-flammable materials
+of the time and safe practices to prevent any ignition
+source.
+This was the approach until the Apollo 1 fire happened,
+when an unexpected ignition occurred and the state-ofthe-art materials were exposed to 16.2 psia 100%
+oxygen environment in which they had never been
+tested. After Apollo 1 fire, two major lessons were
+learned. The first is that no matter how well ignition
+source are controlled, an ignition source will always
+exist. The second is that materials flammability needs to
+be tested at the worst case conditions to which the
+material will be exposed. Subsequent to the accident,
+materials,
+components
+and
+subsystems
+were
+redesigned and tested to improve fire safety. Apollo still
+required a 6.2 psia 100% oxygen environment on orbit,
+but made the vehicle safer on the launch pad by limiting
+the oxygen concentration. Apollo went as far as building
+a complete CM mockup with flight materials and
+conducting CM level flammability tests.
+The Space Shuttle and ISS both have strict material
+flammability requirements which are verified through
+standard tests. They also have a less hazardous
+atmosphere with a maximum of 25.9% oxygen at 14.7
+psia and 30% oxygen at 10.2 psia. For materials that
+don’t meet the flammability requirements, there is
+propagation path control where flammable materials are
+isolated from ignition sources or any other flammable
+material by a specific distance.
+A major source of ignition sources on any space
+vehicles
+are
+electrical
+and
+electromechanical
+subsystems. The ISS, designed as a space laboratory,
+has high power busses and systems and they are kept
+fire safe not only by material selection but also ignition
+source control. This is done by using a Fault Detection,
+Isolation, and Recovery (FDIR) architecture and also
+Electrical, Electronic, and Electromechanical (EEE) part
+selection to meet de-rating and current protection
+requirements. FDIR detects and shuts down failures
+before ignition can occur in the subsystem while EEE
+part requirements assures properly selected parts and
+
+components to reduce risk of the parts becoming an
+ignition source.
+FIRE DETECTION
+When Mercury, Gemini, and Apollo were designed, fire
+detection technology was still immature and the most
+reliable system available was the crew nose. The fire
+protection strategy required the crew to detect a fire and
+take action to suppress it.
+Skylab was the first manned vehicle to incorporate a fire
+detection method due to the larger volume and more
+complicated systems.
+It utilized a line-of-sight
+radiometer that detected ultraviolet wavelength
+generated by OH radicals generated by a fire.
+The Space Shuttle was the first vehicle to use
+commercial ionization-type smoke detector. Unlike fire
+detectors on the ground, fire detector utilization in
+microgravity is difficult. Generally fire detection on the
+ground detects heat, smoke, flame, or particles, all of
+which are difficult to detect without movement of air. In
+the gravitational field of the earth, natural convection
+generates an upward airflow from the fire making
+detection easier. In microgravity, natural convection
+does not exist and forced air flow is required to allow for
+the use smoke/particle detectors. The Shuttle has
+several separate forced air loops in the various avionics
+bays and the crew cabin to generate the airflow required
+to transport smoke particles to the detector.
+The ISS also utilizes the same fire detection strategy as
+the shuttle, using particulate smoke detectors in forced
+air loops. Instead of avionic bays, the ISS has avionics
+throughout housed in racks. Those racks that require
+forced air cooling for the avionics have built in particle
+detectors in the forced air loop. In the general crew area
+of the ISS, there are various particle smoke detectors
+placed throughout the various modules. CFD analysis is
+necessary to make sure the air ventilation rate in the
+modules will transport smoke particles to the detectors,
+making sure there isn’t any object blocking the
+detectors.
+FIRE SUPPRESSION
+Fires can be suppressed in four basic methods:
+removing the fuel, removing the oxygen, cooling the
+reaction, or inhibiting the reaction chemically. All four
+methods have been used on various manned vehicles.
+Mercury and Gemini had potable water available as a
+fire suppression method. There was no dedicated fire
+suppression system, but in the high oxygen
+concentration environment of these vehicles, water was
+the only effective suppressant. Water essentially cools
+the reaction and stops the fire from propagating.
+
+Apollo introduced a water and foam hand-held fire
+extinguisher which used cellulous gel to form the foam
+when sprayed. It works by cooling the reaction and
+stops the fire from propagating. The same type of water
+foam extinguisher was used by Skylab.
+Space Shuttle introduced a halogenerated hydrocarbon
+(Halon) fire extinguisher. The advantage of the Halon
+fire extinguisher is that the gaseous base suppressant
+can be used to flood the crammed avionic bays with a
+chemical that inhibits further combustion chain reaction.
+This is more effective than a water foam extinguisher
+which would not be able to flood an avionics bay as
+effectively.
+While the Halon fire extinguisher system receives more
+focus on the Shuttle, there is actually a fire response
+system that happens first. When a fire is detected on
+the Shuttle, the forced air system is shut down. The
+same microgravity effect that makes detection difficult is
+also a great fire suppression method. The lack of
+natural convection in microgravity can starve the fire of
+oxygen and extinguish it. As the fire burns and uses up
+the surrounding oxygen, there isn’t any airflow to bring in
+new oxygen. Halon is used only after determining that
+the fire did not self extinguish.
+The ISS also cuts off airflow at the detection of a fire.
+However, ISS does not use Halon fire suppression as
+Halon can not be effectively removed from the cabin air
+and there are long term issues with toxicity and
+corrosiveness of the halogen acids. ISS instead utilizes
+a carbon dioxide fire suppressor which when used can
+flood either avionics racks or modules with carbon
+dioxide and starve the fire of oxygen.
+
+CEV FIRE APPROACH
+One common fire protection approach for both past and
+present manned space vehicle is the separation of the
+avionics bay and the crew cabin. The same approach
+can be taken with the CEV Command Module,
+separating it into a crew cabin and the closed-out
+avionics bays. Because both areas have different air
+ventilation, configuration, and accessibility conditions, it
+is prudent to develop different fire protection strategies
+for each of these areas. The crew cabin, being the area
+where the crew resides, has strict air ventilation
+requirements and is composed of accessible, open
+space for the crew to live and work in. The closed-out
+avionics bay areas are crammed with high powered
+electrical and electromechanical systems on cold plates,
+and there is normally no air ventilation requirement and
+no crew accessibility requirement.
+CREW CABIN
+To begin any fire protection strategy, fire prevention is
+still the basis. This was done in Apollo era through strict
+
+material and ignition control and is still done to date. But
+it has also been recognized that strict use of
+nonflammable materials in the crewed area is always
+difficult. Some materials, like clothing and books, will be
+onboard even though they do not meet non-flammable
+requirements. But as long as they are kept a safe
+distance away from ignition sources the risk is greatly
+reduced. Strict ignition control in the crew cabin involves
+testing of electronic devices to insure fire containment
+and closing off high-powered avionics boxes and wire
+bundles from the cabin.
+The crew habitable area has strict ventilation
+requirements to allow proper mixing and cooling of the
+cabin atmosphere. Ventilation is required while the crew
+is in the CEV, docked to the ISS, or docked to the Lunar
+Surface Access Module (LSAM). This ventilation allows
+and requires the use of a particle smoke detector similar
+to the Shuttle or ISS to shut down the ventilation at the
+detection of fire. As seen in previous experience,
+ventilation in microgravity will always increase fire
+propagation risk while the lack of ventilation increases
+self extinguishment. Shutting down air ventilation also
+protects the air revitalization system from toxic gases
+generated by the fire.
+Due to the small size of the CEV crew cabin, a gaseous
+fire suppression system such as Halon or carbon dioxide
+poses a hazard to the crew. Not only is the high Halon
+exposure level risk for the crew, there is no way to
+remove the Halon except thorough depressurization of
+the cabin. Carbon dioxide levels required to suffocate a
+fire can also suffocate the crew. This leads the CEV to
+consider a water foam fire extinguisher in the crew cabin
+as in Apollo and Skylab. Water foam is highly effective
+when pointed at a fire and has the added advantages of
+cooling the heat generated by a fire event.
+CLOSED-OUT AVIONICS BAY
+The CEV CM, like Apollo, must have the capability to
+depressurize to vacuum. Due to this necessity, any high
+powered electrical or electromechanical devices that
+require cooling cannot rely on air ventilation cooling,
+instead they utilize cold plates. As a result, there is no
+forced air ventilation in the closed-out avionics bays
+making conventional particulate smoke detection
+impractical.
+Smoke detection is necessary in air
+ventilated avionics bay on the Shuttle and ISS to shut
+down the airflow, but in avionic bays that don’t have
+forced air ventilation, particulate smoke detection isn’t
+provided nor is it necessary.
+Due to the lack of fire detection, avionics bays will rely
+on three levels of protection: FDIR system architecture,
+EEE parts de-rating and current protection, and nonflammable materials selection.
+This fire protection
+strategy for avionics bays is currently used on both
+
+Shuttle and ISS for racks that don’t have forced air
+ventilation.
+However, both the Shuttle and ISS racks have fire ports
+that allow the use of an external handheld fire
+extinguisher as a worst case precaution. To effectively
+use fire ports, two conditions must exist: the ability to
+quickly access the fire ports, and an effective fire
+extinguisher that can flood the avionic bay no matter
+where the fire is located. Both of these conditions are
+difficult to meet for the CEV. The CEV is a small vehicle
+with limited wall space. Fire port access requires the
+area surrounding the fire port to be kept clear at all
+times, limiting crew storage area and space. Waterfoam extinguishers are not as effective in flooding
+avionics bay volumes and as a result, a gas suppressant
+based fire extinguisher is necessary. The other option is
+to have a manually activated fire extinguisher in the
+close-out bays instead of using the fire ports. This will
+still allow the ability to have a backup fire suppression
+system that can be activated by the crew or by ground
+control if necessary.
+The decision to activate the fire suppression system
+needs to be carefully considered. When discharging,
+gaseous based fire suppression will create forced airflow
+that can stir up an already dying fire giving it a second
+life before extinguishing it, or even worse, it can force a
+fire into a smoldering event that doesn’t require oxygen.
+Generally, the fire extinguisher is only discharged when
+there is a confirmed fire event happening at the current
+time. If it can be sufficiently proven that the closed-out
+avionics bays in the worst case oxygen atmosphere with
+a fire ignition will not allow the fire to propagate due to
+materials selection and electrical and electromechanical
+enclosure design, then the fire suppression system is
+not necessary. One way to gain assurance that a fire
+will not propagate in a worst case environment is to add
+margin to the flammability requirement. For example,
+testing and using materials and equipment enclosures
+that are tested and proven to be nonflammable in a 40%
+oxygen, 10.2 psia atmosphere will give greater
+assurance for the material in a 30% oxygen atmosphere.
+
+CONCLUSION
+A quick evaluation of past and present fire protection
+methods on different vehicle shows the evolving nature
+of fire protection methods.
+As technology and
+understanding of fires in microgravity progresses, new
+and better fire protection methods continue to be
+developed. The CEV will require a fire prevention
+strategy that is similar to the Apollo CM, while
+technology has allowed better Fire Detection and
+Suppression (FDS) systems than Apollo ever had.
+Utilizing new technologies and better understanding of
+fire in microgravity will enable the CEV to have a
+successful fire protection system while minimizing risk
+and dangers to the crew.
+
+ACKNOWLEDGEMENT
+The author of this paper would like to acknowledge and
+thank the many materials experts that have helped in
+developing the CEV Fire Strategy. They include Mike
+Pedley and John Graf of NASA Johnson Space Center,
+Gary Ruff and Dave Urban of NASA Glenn Research
+Center, and Harold Beeson and David Hirsch of NASA
+White Sands Test Facility.
+
+REFERENCE
+Need to add in references.
+
+

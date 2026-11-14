@@ -1,0 +1,136 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19990053990,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "85146dce730e49daab855bd6b0fda074",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19990053990,
+  "ear": "NO",
+  "id": "46bb54a77fa74991b332242a4acd77bd",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-27T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NAG3-1939",
+   "submissionId": 19990053990,
+   "id": "f43ba4c5392e4d0db2ada661a2742d3a",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "The Effects of Buoyancy and Dilution on the Structure and Lift-off of Coflow Laminar Diffusion Flames",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-19T03:33:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19990053990,
+   "meta": {
+    "author": {
+     "name": "Walsh, Kevin T."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT United States"
+    }
+   },
+   "id": "fdcda9a4820c44c3bf922a134bdc4a14"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19990053990,
+   "meta": {
+    "author": {
+     "name": "Long, Marshall B."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT United States"
+    }
+   },
+   "id": "c62e6c3a2c7b4b3a8490572e1850966f"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19990053990,
+   "meta": {
+    "author": {
+     "name": "Smooke, Mitchell D."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT United States"
+    }
+   },
+   "id": "8e0ea54ffc9a47c3aab9d28e55d81a7e"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19990053990,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-19T03:33:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The ability to predict the coupled effects of complex transport phenomena with detailed chemical kinetics in diffusion flames is critical in the modeling of turbulent reacting flows and in understanding the processes by which soot formation and radiative transfer take place. In addition, an understanding of the factors that affect flame extinction in diffusion flames is critical in the suppression of fires and in improving engine efficiency. The goal of our characterizations of coflow laminar diffusion flames is to bring to microgravity the multidimensional diagnostic tools available in normal gravity, and in so doing provide a broader understanding of the successes and limitations of current combustion models. This will lead to a more detailed understanding of the interaction of convection, diffusion and chemistry in both buoyant and nonbuoyant environments. As a sensitive marker of changes in the flame shape, the number densities of excited-state CH (A(exp 2)delta, denoted CH*), and excited-state OH (A(exp 2)Sigma, denoted OH*) are measured in mu-g and normal gravity. Two-dimensional CH* and OH* number densities are deconvoluted from line-of-sight chemiluminescence measurements made on the NASA KC-135 reduced-gravity aircraft. Measured signal levels are calibrated, post-flight, with Rayleigh scattering. Although CH* and OH* kinetics are not well understood, the CH*, OH*, and ground-state CH distributions are spatially coincident in the flame anchoring region. Therefore, the ground-state CH distribution, which is easily computed, and the readily measured CH*/OH* distributions can be used to provide a consistent and convenient way of measuring lift-off height and flame shape in the diffusion flame under investigation. Given that the fuel composition affects flame chemistry and that buoyancy influences the velocity profile of the flow, we have the opportunity to computationally and experimentally study the roles of fluids and chemistry. In performing this microgravity study, improvements to the computational model have been made and new calculations performed for a range of gravity and flow conditions. Furthermore, modifications to the experimental approach were required as a consequence of the constraints imposed by existing microgravity facilities. Results from the computations and experiments are presented in the following sections.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "publications": [
+  {
+   "submissionId": 19990053990,
+   "id": "ca32042dac7240f1baa02f7d11abc653",
+   "publicationName": "Fifth International Microgravity Combustion Workshop",
+   "publicationDate": "1999-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19990053965,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Fifth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PUBLICATION",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19990053965,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Fifth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PUBLICATION",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

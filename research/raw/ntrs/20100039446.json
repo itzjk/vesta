@@ -1,0 +1,167 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20100039446,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "2bdad7b141e64533a5daa84d305d3e85",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20100039446,
+  "ear": "NO",
+  "id": "1268a731e3f84d98a99f54355d599d34",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-22151",
+  "Report Number: JSC-CN-22151"
+ ],
+ "title": "Commercial Orbital Transportation Cargo Services Environmental Control and Life Support Integration",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T00:47:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20100039446,
+   "meta": {
+    "author": {
+     "name": "Duchesne, Stephanie"
+    },
+    "organization": {
+     "name": "Wyle Integrated Science and Engineering Group",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "466fdadaa1c548209e90ad685308306f"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20100039446,
+   "meta": {
+    "author": {
+     "name": "Williams, Dave"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "80fb2f800f874599861e75bc7b7edd27"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20100039446,
+   "meta": {
+    "author": {
+     "name": "Orozco, Nicole"
+    },
+    "organization": {
+     "name": "Boeing Co.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "7c017acf40124a34b601c61dcb7e67dc"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20100039446,
+   "meta": {
+    "author": {
+     "name": "Philistine, Cynthia"
+    },
+    "organization": {
+     "name": "Boeing Co.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "820ffe4c12644ab98097c3c84ec97c61"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20100039446,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T00:47:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The International Space Station s (ISS) largest crew and cargo resupply vehicle, the Space Shuttle, will retire in 2011. To help augment ISS resupply and return capability, NASA announced a project to promote the development of Commercial Orbital Transportation Services (COTS) for the ISS in January of 2006. By December of 2008, NASA entered into space act agreements with SpaceX and Orbital Sciences Corporation for COTS development and ISS Commercial Resupply Services (CRS). The intent of CRS is to fly multiple resupply missions each year to ISS with SpaceX s Dragon vehicle providing resupply and return capabilities and Orbital Science Corporation s Cygnus vehicle providing resupply capability to ISS. The ISS program launched an integration effort to ensure that these new commercial vehicles met the requirements of the ISS vehicle and ISS program needs. The Environmental Control and Life Support System (ECLSS) requirements cover basic cargo vehicle needs including maintaining atmosphere, providing atmosphere circulation, and fire detection and suppression. The ISS-COTS integration effort brought unique challenges combining NASA s established processes and design knowledge with the commercial companies new initiatives and limited experience with human space flight. This paper will discuss the ISS ECLS COTS integration effort including challenges, successes, and lessons learned.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20100039446,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "94221fa3a9ff4985bb80ec5e1db758e1"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20100039446,
+   "endDate": "2011-07-21T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "f635062e6dc247f7a405324404273b40",
+     "id": "ad4edffa149c488993be62dbf5029bd5"
+    }
+   ],
+   "name": "International Conference on Environmental Systems (ICES)",
+   "location": "Portland, OR",
+   "id": "f635062e6dc247f7a405324404273b40",
+   "startDate": "2011-07-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20100039446,
+   "id": "7144dd974fe74a3eaf30b0e85389792f",
+   "publicationDate": "2010-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20100039446.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20100039446/downloads/20100039446.pdf",
+    "pdf": "/api/citations/20100039446/downloads/20100039446.pdf",
+    "fulltext": "/api/citations/20100039446/downloads/20100039446.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

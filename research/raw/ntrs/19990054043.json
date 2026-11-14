@@ -1,0 +1,122 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19990054043,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "e93f969ecbd54ab584af58171fbd68da",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Materials Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19990054043,
+  "ear": "NO",
+  "id": "b457648fd7a5410394301fdf75f08598",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-27T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NCC3-671",
+   "submissionId": 19990054043,
+   "id": "6b41cd632f7c4885a3fe29268caa062e",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Transport and Chemical Effects on Concurrent and Opposed-Flow Flame Spread at Microgravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-19T03:33:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19990054043,
+   "meta": {
+    "author": {
+     "name": "Honda, L. K."
+    },
+    "organization": {
+     "name": "University of Southern California",
+     "location": "Los Angeles, CA United States"
+    }
+   },
+   "id": "85da449313cc456b841b2430989cd395"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19990054043,
+   "meta": {
+    "author": {
+     "name": "Ronney, P. D."
+    },
+    "organization": {
+     "name": "University of Southern California",
+     "location": "Los Angeles, CA United States"
+    }
+   },
+   "id": "ed5892f54fae4b3c84473943f8ae0287"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19990054043,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-19T03:33:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "With support from a previous NASA grant, NAG3-161 1, the PI studied the effects of diluent type, the addition of sub-flammability-limit concentrations of combustible gases, and the effects of concurrent buoyant flow on flame spread processes. The results of these studies are reported and directions for the current grant outlined. Most experiments were conducted in a 20 liter combustion chamber. Exactly the same apparatus was used for 1 g and microgravity tests. The effect of inert gases He, Ar, N2, CO2 and SF6 on flame spread were tested since they provide a variety of radiative properties and oxygen Lewis numbers. CO and CH4 were used for the gaseous fuels in partially-premixed atmosphere tests, plus H2, C3H8 and NH3 for 1 g tests only. In most experiments 5 cm wide Kimwipe samples 15 cm long were used and were held by aluminum quenching plates. The samples were ignited by an electrically-heated Kanthal wire. The flame spread process was imaged via three video cameras and a laser shearing interferometer.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "publications": [
+  {
+   "submissionId": 19990054043,
+   "id": "925ad3e7087b45e0bd6173886fceebaa",
+   "publicationName": "Fifth International Microgravity Combustion Workshop",
+   "publicationDate": "1999-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19990053965,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Fifth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PUBLICATION",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19990053965,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Fifth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PUBLICATION",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

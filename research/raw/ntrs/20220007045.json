@@ -1,0 +1,152 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20220007045,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "33dda33b718a481f80ecc603ed91cd65",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Sciences (General)",
+  "Man/System Technology and Life Support"
+ ],
+ "keywords": [
+  "Modeling",
+  "Fire Safety",
+  "Spacecraft",
+  "Spacecraft Fire Safety",
+  "Multiscale Modeling",
+  "Surface Reactions"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20220007045,
+  "ear": "NO",
+  "id": "40b456cf01604322aaa699b1f9aecb5c",
+  "itar": "NO"
+ },
+ "distributionDate": "2023-04-28T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "IMECE2022-95243"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "089407",
+   "submissionId": 20220007045,
+   "id": "072eaf7ead02451b9cd24ccf3a25febf",
+   "type": "WBS"
+  }
+ ],
+ "title": "Multiscale Modeling of the Uptake of Hydrogen Chloride on Anodized Aluminum in Relevance to Spacecraft Fire Safety",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2022-05-05T19:29:54.5996520+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 0,
+   "submissionId": 20220007045,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Justin Niehaus"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "f777ae4793ee4b2280fc6235560ea5a2",
+   "userType": "CIVIL",
+   "userId": "873b729bd4544ad3a2d05c274bcad04b"
+  },
+  {
+   "organizationId": "5a0cf39738515c1086ce3c3653e9f7ca",
+   "sequence": 1,
+   "submissionId": 20220007045,
+   "meta": {
+    "author": {
+     "name": "Sandip Mazumder"
+    },
+    "organization": {
+     "name": "The Ohio State University",
+     "location": "Columbus, Ohio, United States"
+    }
+   },
+   "id": "c2722c9490ef45ffaabc2dd008144a4f",
+   "userType": "OTHER"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20220007045,
+ "created": "2022-05-05T19:06:13.9951290+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Fire safety is a critical component of space missions. An electrical fire within the spacecraft often produces gaseous hydrogen chloride (HCl) from the smoldering of wire insulation. These gases tend to stick to the interior materials of the spacecraft, which is often comprised of treated aluminum. Determining the rate of uptake for HCl by aluminum helps the safe design of the spacecraft to reduce catastrophic mission risk. Our previous studies showed that a one-step global reaction model for adsorption of HCl on aluminum is incapable of predicting the experimentally measured HCl uptake of anodized aluminum, compared to other treatments with thinner oxide layers. X-ray photoelectron spectroscopy revealed that aluminum chloride is found deep in the oxide layer of the anodized aluminum, implying that the transport of HCl within the oxide layer covering the aluminum surface must be considered. This work uses a multiscale modeling approach to predict the uptake of HCl. A pore model is developed wherein the HCl reacts with the aluminum oxide pore walls to create an aluminum chloride layer. The HCl then diffuses through that layer for further reaction, until the diffusion resistance grows too large, and the surface is said to be saturated. The pore model is then coupled with the reactor-scale model to predict overall HCl uptake. Results show that this new multiscale approach predicts the uptake of HCl far more accurately than previously used single-scale models.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20220007045,
+  "id": "8451bfc8132049c5b8b88ed003ee4cf0"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20220007045,
+   "endDate": "2022-11-03T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "3fad871ba54b5f62941f0831689c0f5b",
+     "meta": {
+      "organization": {
+       "name": "American Society of Mechanical Engineers",
+       "location": "New York, New York, United States"
+      }
+     },
+     "meetingId": "0300a8b1e1aa4092ae6263f62392464c",
+     "id": "2f750a50ee724a089577c2ac982b3edd"
+    }
+   ],
+   "name": "International Mechanical Engineering Congress & Exposition (ASME IMECE)",
+   "location": "Columbus, OH",
+   "id": "0300a8b1e1aa4092ae6263f62392464c",
+   "url": "https://event.asme.org/IMECE-2022",
+   "startDate": "2022-10-30T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "Multiscale Modeling of the Uptake of Hydrogen Chloride on Anodized Aluminum in Relevance to Spacecraft Fire Safety_IMECE2022_95243_Final.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20220007045/downloads/Multiscale%20Modeling%20of%20the%20Uptake%20of%20Hydrogen%20Chloride%20on%20Anodized%20Aluminum%20in%20Relevance%20to%20Spacecraft%20Fire%20Safety_IMECE2022_95243_Final.pdf",
+    "pdf": "/api/citations/20220007045/downloads/Multiscale%20Modeling%20of%20the%20Uptake%20of%20Hydrogen%20Chloride%20on%20Anodized%20Aluminum%20in%20Relevance%20to%20Spacecraft%20Fire%20Safety_IMECE2022_95243_Final.pdf",
+    "fulltext": "/api/citations/20220007045/downloads/Multiscale%20Modeling%20of%20the%20Uptake%20of%20Hydrogen%20Chloride%20on%20Anodized%20Aluminum%20in%20Relevance%20to%20Spacecraft%20Fire%20Safety_IMECE2022_95243_Final.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

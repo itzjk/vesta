@@ -1,0 +1,176 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053579,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "89d037cbd25d4058835583db9d93d9a3",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Propulsion And Power"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053579,
+  "ear": "NO",
+  "id": "ee1fc5005a5d4cb8bfaed97556b28d68",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-09T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NASA Order C-32066-T",
+   "submissionId": 20040053579,
+   "id": "3a477dfbbe6b468e9122afcdd20ae54f",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Suppression and Structure of Low Strain Rate Nonpremixed Flames",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:35:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053579,
+   "meta": {
+    "author": {
+     "name": "Hamins, Anthony"
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "d2b3bdc749ca4abca721ec282a343110"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053579,
+   "meta": {
+    "author": {
+     "name": "Bundy, Matthew"
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "2814a35666784079a24704a87aeed298"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053579,
+   "meta": {
+    "author": {
+     "name": "Park, Woe Chul"
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "2525c522eb75407a9132d2ee81705e5a"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040053579,
+   "meta": {
+    "author": {
+     "name": "Lee, Ki Yong"
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "487d6a649312440991e24735136af53a"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20040053579,
+   "meta": {
+    "author": {
+     "name": "Logue, Jennifer"
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "e60fc35bda7e4d4085decaa247499f58"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053579,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:35:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The agent concentration required to achieve suppression of low strain rate nonpremixed flames is an important fire safety consideration. In a microgravity environment such as a space platform, unwanted fires will likely occur in near quiescent conditions where strain rates are very low. Diffusion flames typically become more robust as the strain rate is decreased. When designing a fire suppression system for worst-case conditions, low strain rates should be considered. The objective of this study is to investigate the impact of radiative emission, flame strain, agent addition, and buoyancy on the structure and extinction of low strain rate nonpremixed flames through measurements and comparison with flame simulations. The suppression effectiveness of a suppressant (N2) added to the fuel stream of low strain rate methane-air diffusion flames was measured. Flame temperature measurements were attained in the high temperature region of the flame (T greater than 1200 K) by measurement of thin filament emission intensity. The time varying temperature was measured and simulated as the flame made the transition from normal to microgravity conditions and as the flame extinguished.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053579,
+   "id": "9e314716a53e423199ff5997a9fc3fd1",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053579.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053579/downloads/20040053579.pdf",
+    "pdf": "/api/citations/20040053579/downloads/20040053579.pdf",
+    "fulltext": "/api/citations/20040053579/downloads/20040053579.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

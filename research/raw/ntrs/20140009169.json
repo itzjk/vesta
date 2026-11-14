@@ -1,0 +1,181 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20140009169,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "8d1c1a1ff23041dc94ec1408ee8530ab",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "microgravity",
+  "flames",
+  "combustion"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20140009169,
+  "ear": "NO",
+  "id": "f13b03a456df48719911e4a74009d796",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN13358",
+  "Report Number: GRC-E-DAA-TN13358"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 904211.04.02.30.14",
+   "submissionId": 20140009169,
+   "id": "b8a0952eafba4f99a45476088aeb3376",
+   "type": "WBS"
+  },
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20140009169,
+   "id": "4504f7db8ca74116bd3271e2e64e281d",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Gaseous Non-Premixed Flame Research Planned for the International Space Station",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2014-07-15T14:10:54.3230000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20140009169,
+   "meta": {
+    "author": {
+     "name": "Stocker, Dennis P."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "3ffdc039612344598146a47bbf2a9ff5"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20140009169,
+   "meta": {
+    "author": {
+     "name": "Takahashi, Fumiaki"
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "7f303e4cdfe147eb80a43186472a0af7"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20140009169,
+   "meta": {
+    "author": {
+     "name": "Hickman, J. Mark"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "bd1abed4a9714255a5a03e04ce2b52fd"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20140009169,
+   "meta": {
+    "author": {
+     "name": "Suttles, Andrew C."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "cd249e9f43224e63b73c3b014d190bdc"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20140009169,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2014-07-15T14:10:54.3230000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Thus far, studies of gaseous diffusion flames on the International Space Station (ISS) have been limited to research conducted in the Microgravity Science Glovebox (MSG) in mid-2009 and early 2012. The research was performed with limited instrumentation, but novel techniques allowed for the determination of the soot temperature and volume fraction. Development is now underway for the next experiments of this type. The Advanced Combustion via Microgravity Experiments (ACME) project consists of five independent experiments that will be conducted with expanded instrumentation within the stations Combustion Integrated Rack (CIR). ACMEs goals are to improve our understanding of flame stability and extinction limits, soot control and reduction, oxygen-enriched combustion which could enable practical carbon sequestration, combustion at fuel lean conditions where both optimum performance and low emissions can be achieved, the use of electric fields for combustion control, and materials flammability. The microgravity environment provides longer residence times and larger length scales, yielding a broad range of flame conditions which are beneficial for simplified analysis, e.g., of limit behaviour where chemical kinetics are important. The detailed design of the modular ACME hardware, e.g., with exchangeable burners, is nearing completion, and it is expected that on-orbit testing will begin in 2016.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20140009169,
+   "endDate": "2014-03-18T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "036c0eb8a5854ca78a3588dbff5340b6",
+     "meta": {
+      "organization": {
+       "name": "Oklahoma State Univ.",
+       "location": "Tulsa, OK, United States"
+      }
+     },
+     "meetingId": "40d3c77b002a493a8edafeebb8de43ca",
+     "id": "bec86b612c93420694f8d1dde2bcc941"
+    }
+   ],
+   "name": "2014 Spring Technical Meeting of the Central States Section of The Combustion Institute",
+   "location": "Tulsa, OK",
+   "id": "40d3c77b002a493a8edafeebb8de43ca",
+   "startDate": "2014-03-16T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20140009169,
+   "id": "e8ab6cf341114421a8b3c085e651d518",
+   "publicationDate": "2014-03-16T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20140009169.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20140009169/downloads/20140009169.pdf",
+    "pdf": "/api/citations/20140009169/downloads/20140009169.pdf",
+    "fulltext": "/api/citations/20140009169/downloads/20140009169.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,121 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20130014735,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "83094aae72334bdca2f1f812145fe50f",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20130014735,
+  "ear": "NO",
+  "id": "fb91f6644bce4832b93eeb253beffb8d",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-11T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "E-13061",
+  "NASA/TP-2013-211209",
+  "Report Number: E-13061",
+  "Report Number: NASA/TP-2013-211209"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 067463.01.01.03",
+   "submissionId": 20130014735,
+   "id": "67c25281ef84493382b710f2c5ea78d6",
+   "type": "WBS"
+  }
+ ],
+ "title": "Spacecraft Fire Safety 1956 to 1999: An Annotated Bibliography",
+ "stiType": "TECHNICAL_PUBLICATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-12-17T08:48:54.5030000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20130014735,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "602dc06def934e4d9bdeb80033746722"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20130014735,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "fa6c2166fbce42de99bc562c1bf02e76"
+  }
+ ],
+ "stiTypeDetails": "Technical Publication (TP)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20130014735,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-12-17T08:48:54.5030000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Knowledge of fire safety in spacecraft has resulted from over 50 years of investigation and experience in space flight. Current practices and procedures for the operation of the Space Transportation System (STS) shuttle and the International Space Station (ISS) have been developed from this expertise, much of which has been documented in various reports. Extending manned space exploration from low Earth orbit to lunar or Martian habitats and beyond will require continued research in microgravity combustion and fire protection in low gravity. This descriptive bibliography has been produced to document and summarize significant work in the area of spacecraft fire safety that was published between 1956 and July 1999. Although some important work published in the late 1990s may be missing, these citations as well as work since 2000 can generally be found in Web-based resources that are easily accessed and searched. In addition to the citation, each reference includes a short description of the contents and conclusions of the article. The bibliography contains over 800 citations that are cross-referenced both by topic and the authors and editors. There is a DVD that accompanies this bibliography (available by request from the Center for Aerospace Information) containing the full-text articles of selected citations as well as an electronic version of this report that has these citations as active links to their corresponding full-text article.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20130014735,
+   "id": "4e60e56d114e4bb197bc77b80e17d6d2",
+   "publicationDate": "2013-09-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "redistributedDate": "2021-08-27T00:00:00.0000000",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20130014735.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20130014735/downloads/20130014735.pdf",
+    "pdf": "/api/citations/20130014735/downloads/20130014735.pdf",
+    "fulltext": "/api/citations/20130014735/downloads/20130014735.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

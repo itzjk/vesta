@@ -1,0 +1,323 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20140006578,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "6af437a7423f4d0ab6eb088ea143d1f1",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety",
+  "Mechanical Engineering"
+ ],
+ "keywords": [
+  "Life Support",
+  "Combustion",
+  "Fire Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20140006578,
+  "ear": "NO",
+  "id": "127110337ae241c3bca78681f2ce95e1",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN8241",
+  "AIAA Paper-2013-3410",
+  "Report Number: GRC-E-DAA-TN8241",
+  "Report Number: AIAA Paper-2013-3410"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 067463.01.01.03",
+   "submissionId": 20140006578,
+   "id": "09ec708cf864460db9ad54d4763c1813",
+   "type": "WBS"
+  }
+ ],
+ "title": "Development of Large-Scale Spacecraft Fire Safety Experiments",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2014-06-03T11:16:29.7170000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "5d87ad0149094674b2edf7163d72faab"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Urban, David"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "d779ece6c67c4bd4b0e135cead775891"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Fernandez-Pello, A. Carlos"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "0551f12813784455839b4ad430cad875"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "T'ien, James S."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c6ac5dce093a4d5f838c34f6763f0ae2"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Torero, Jose L."
+    },
+    "organization": {
+     "name": "Queensland Univ.",
+     "location": "Brisbane, Australia"
+    }
+   },
+   "id": "acecec1686f748babedfea41c4106cea"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Legros, Guillaume"
+    },
+    "organization": {
+     "name": "Paris VI Univ.",
+     "location": "France"
+    }
+   },
+   "id": "24924fb627264624ba0ef549dc0bd063"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Eigenbrod, Christian"
+    },
+    "organization": {
+     "name": "Bremen Univ.",
+     "location": "Germany"
+    }
+   },
+   "id": "dc4c9c543218431eb8c671dab8d60e29"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Smirnov, Nickolay"
+    },
+    "organization": {
+     "name": "Lomonosov Moscow State Univ.",
+     "location": "Moscow, Russian Federation"
+    }
+   },
+   "id": "f12ee8b1208247bfa29866976b90cea2"
+  },
+  {
+   "sequence": 8,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Fujita, Osamu"
+    },
+    "organization": {
+     "name": "Hokkaido Univ.",
+     "location": "Sapporo, Japan"
+    }
+   },
+   "id": "9dc72b869cab4a48b0f2ceab65e67974"
+  },
+  {
+   "sequence": 9,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Cowlard, Adam J."
+    },
+    "organization": {
+     "name": "Edinburgh Univ.",
+     "location": "United Kingdom"
+    }
+   },
+   "id": "998e0d56872b490aa7705e0ed0962a37"
+  },
+  {
+   "sequence": 10,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Rouvreau, Sebastien"
+    },
+    "organization": {
+     "name": "Belisama Research and Development",
+     "location": "Toulouse, France"
+    }
+   },
+   "id": "dc3bff5a9bf741f28306f61e449bc221"
+  },
+  {
+   "sequence": 11,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Minster, Olivier"
+    },
+    "organization": {
+     "name": "European Space Agency. European Space Research and Technology Center, ESTEC",
+     "location": "Noordwijk, Netherlands"
+    }
+   },
+   "id": "bea1b1f1f5d544f89143773ea31ce090"
+  },
+  {
+   "sequence": 12,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Toth, Balazs"
+    },
+    "organization": {
+     "name": "European Space Agency. European Space Research and Technology Center, ESTEC",
+     "location": "Noordwijk, Netherlands"
+    }
+   },
+   "id": "cd37466d11f445f6b6c0e31df3f12639"
+  },
+  {
+   "sequence": 13,
+   "submissionId": 20140006578,
+   "meta": {
+    "author": {
+     "name": "Jomaas, Grunde"
+    },
+    "organization": {
+     "name": "Technical Univ. of Denmark",
+     "location": "Kongens Lyngby, Denmark"
+    }
+   },
+   "id": "680a9fda53e54355bb4f8e4d190455e4"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20140006578,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2014-06-03T11:16:29.7170000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The status is presented of a spacecraft fire safety research project that is under development to reduce the uncertainty and risk in the design of spacecraft fire safety systems by testing at nearly full scale in low-gravity. Future crewed missions are expected to be more complex and longer in duration than previous exploration missions outside of low-earth orbit. This will increase the challenge of ensuring a fire-safe environment for the crew throughout the mission. Based on our fundamental uncertainty of the behavior of fires in low-gravity, the need for realistic scale testing at reduced gravity has been demonstrated. To address this gap in knowledge, a project has been established under the NASA Advanced Exploration Systems Program under the Human Exploration and Operations Mission directorate with the goal of substantially advancing our understanding of the spacecraft fire safety risk. Associated with the project is an international topical team of fire experts from other space agencies who conduct research that is integrated into the overall experiment design. The experiments are under development to be conducted in an Orbital Science Corporation Cygnus vehicle after it has undocked from the ISS. Although the experiment will need to meet rigorous safety requirements to ensure the carrier vehicle does not sustain damage, the absence of a crew removes the need for strict containment of combustion products. The tests will be fully automated with the data downlinked at the conclusion of the test before the Cygnus vehicle reenters the atmosphere. A computer modeling effort will complement the experimental effort. The international topical team is collaborating with the NASA team in the definition of the experiment requirements and performing supporting analysis, experimentation and technology development. The status of the overall experiment and the associated international technology development efforts are summarized.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20140006578,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "036643251fca47a5a7f6c1e8fa3ea0b9"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20140006578,
+   "endDate": "2013-07-18T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "fd0620eca8044956a13215864498ae89",
+     "id": "de0e5b36f6a245ceb0b3e946f42d94b7"
+    }
+   ],
+   "name": "Intl. Conf. on Environmental Systems",
+   "location": "Vail, CO",
+   "id": "fd0620eca8044956a13215864498ae89",
+   "startDate": "2013-07-14T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20140006578,
+   "id": "86e68900395d400a975f43e9c762b2cc",
+   "publicationDate": "2013-07-14T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20140006578.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20140006578/downloads/20140006578.pdf",
+    "pdf": "/api/citations/20140006578/downloads/20140006578.pdf",
+    "fulltext": "/api/citations/20140006578/downloads/20140006578.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,162 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053582,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "9f536bfa121c4b7b95f276772df6ea9e",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053582,
+  "ear": "NO",
+  "id": "45acbca8bad24705baf78f3fc84f8603",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-09T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NCC8-238",
+   "submissionId": 20040053582,
+   "id": "95e873ee724f449d8eddb897e67d467c",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "The Water-Mist Fire Suppression Experiment (Mist): Preliminary Results From The STS-107 Mission",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:35:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053582,
+   "meta": {
+    "author": {
+     "name": "Abbud-Madrid, Angel"
+    },
+    "organization": {
+     "name": "Colorado School of Mines",
+     "location": "Golden, CO, United States"
+    }
+   },
+   "id": "794f6e2a05c341909612b11acb263ee0"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053582,
+   "meta": {
+    "author": {
+     "name": "McKinnon, J. Thomas"
+    },
+    "organization": {
+     "name": "Colorado School of Mines",
+     "location": "Golden, CO, United States"
+    }
+   },
+   "id": "9343a1d18d0941f5ae09ca4940e44f78"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053582,
+   "meta": {
+    "author": {
+     "name": "Amon, Francine"
+    },
+    "organization": {
+     "name": "Colorado School of Mines",
+     "location": "Golden, CO, United States"
+    }
+   },
+   "id": "1a47853823af47babd7a7c8c9681c288"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040053582,
+   "meta": {
+    "author": {
+     "name": "Gokoglu, Suleyman"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "36b321df8cd748198d08b6ca942e48cd"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053582,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:35:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "An investigation of the effect of water mists on premixed flame propagation has been conducted onboard the Space Shuttle to take advantage of the prolonged microgravity environment to study the effect of uniformly distributed clouds of polydisperse water mists on the speed and shape of propagating propane-air premixed flames. The suspension of a quiescent and uniform water mist cloud was confirmed during the microgravity tests. Preliminary results show good agreement with trends obtained by the numerical predictions of a computational model that uses a hybrid Eulerian-Lagrangian formulation to simulate the two-phase, flame/mist interaction. Effective flame suppression is observed at progressively higher water loadings and smaller water droplet sizes. Other unusual flame behavior, such as flame front breakup and pulsating flames, is still under investigation. The promising results from the microgravity tests will be used to assess the feasibility of using water mists as fire suppressants on Earth and on spacecraft.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053582,
+   "id": "9d4b170d04b9446e8919642d67a0c5e8",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053582.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053582/downloads/20040053582.pdf",
+    "pdf": "/api/citations/20040053582/downloads/20040053582.pdf",
+    "fulltext": "/api/citations/20040053582/downloads/20040053582.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

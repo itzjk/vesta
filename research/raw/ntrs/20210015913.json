@@ -1,0 +1,137 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20210015913,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "45cc9f5dcecc4d42a9a440f468e11cfb",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "laminar flames",
+  "non-premixed flames",
+  "gaseous fuels",
+  "microgravity"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20210015913,
+  "ear": "NO",
+  "id": "966cbb2f4a0f43aeab8e3637277e6f57",
+  "itar": "NO"
+ },
+ "distributionDate": "2021-06-01T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "PS-03403-0521"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "619352.01.02.03.01.01",
+   "submissionId": 20210015913,
+   "id": "253422561ff24c1cb6e88060c066430f",
+   "type": "WBS"
+  }
+ ],
+ "title": "Advanced Combustion via Microgravity Experiments (ACME) on the International Space Station (ISS)",
+ "stiType": "POSTER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2021-05-20T20:07:42.4004750+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 0,
+   "submissionId": 20210015913,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Dennis Stocker"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "3e0a9b4e36004cb78d80aaefc8c96a5b",
+   "userType": "CIVIL",
+   "userId": "30e20cc4ba7743b790a53ab2fb0b0443"
+  }
+ ],
+ "stiTypeDetails": "Poster",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20210015913,
+ "sourceIdentifiers": [
+  {
+   "number": "https://www1.grc.nasa.gov/space/iss-research/iss-fcf/cir/acme/",
+   "submissionId": 20210015913,
+   "id": "18bd836ca1de4355b591d45ad8f150c3",
+   "descriptor": "Project website",
+   "type": "URL"
+  }
+ ],
+ "created": "2021-05-20T19:41:59.2964930+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Experimental   studies   of   laminar,   non-premixed   flames   of   gaseous   fuels   are   underway   on   the International Space Station (ISS) as part of NASA’s Advanced Combustion via Microgravity Experiments(ACME) project.  The research is primarily focused on improving practical terrestrial combustion through fundamental microgravity research, where a secondary objective is spacecraft fire safety.  Example goals are  to improve understanding of flame stability  and extinction limits, soot control and reduction, oxygen-enriched combustion which could enable practical carbon sequestration, combustion at fuel lean conditions where both optimum performance and low emissions can be achieved, the use of electric fields for combustion control, cool flame chemical kinetics, and materials flammability.  The microgravity environment avoids buoyancy-induced flicker and enables the creation of spherical flames, allowing numerical  models   to   focus   computational   power   on   transport   phenomena  and   chemical   kinetics. Compared to normal gravity, microgravity also provides longer residence times and larger length scales, yielding a broad range of flame conditions which are beneficial for simplified analysis, e.g., of limit behavior where chemical kinetics are important.  Using modular hardware, research for six independent investigations is being carried out within the station’s Combustion Integrated Rack (CIR).  While the ISS crew members set up the experimental hardware, the tests are remotely commanded with investigator input from the NASA Glenn Research Center.   Over a thousand flames have been ignited since ACME operations began in Sept. 2017 and selected results from the first five experiments are summarized.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20210015913,
+   "endDate": "2021-05-26T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "f52059f6037657c2b9489200502d5650",
+     "meta": {
+      "organization": {
+       "name": "Combustion Institute",
+       "location": "Pittsburgh, Pennsylvania, United States"
+      }
+     },
+     "meetingId": "ed9eea97358c4100b3bd9c35952ad937",
+     "id": "c23fe2054e1446c8884ff518ee9cc244"
+    }
+   ],
+   "name": "12th U.S. National Combustion Meeting",
+   "location": "Virtual",
+   "id": "ed9eea97358c4100b3bd9c35952ad937",
+   "url": "https://www.combustioninstitute.org/ci-event/12th-us-national-combustion-meeting/",
+   "startDate": "2021-05-24T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "PS-03403 ACME on the ISS.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20210015913/downloads/PS-03403%20ACME%20on%20the%20ISS.pdf",
+    "pdf": "/api/citations/20210015913/downloads/PS-03403%20ACME%20on%20the%20ISS.pdf",
+    "fulltext": "/api/citations/20210015913/downloads/PS-03403%20ACME%20on%20the%20ISS.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

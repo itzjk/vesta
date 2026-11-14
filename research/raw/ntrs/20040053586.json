@@ -1,0 +1,176 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053586,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "6ba3813f0d1345f1b6155fe0310febb2",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053586,
+  "ear": "NO",
+  "id": "f9afadd6f14646dcb94fff1a038153e8",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-09T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NRA-99-HEDS-04",
+   "submissionId": 20040053586,
+   "id": "8db0ffaefdf64decb49261afda79041f",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "CO2 Suppression of PMMA Flames In Low-Gravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-21T17:34:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053586,
+   "meta": {
+    "author": {
+     "name": "Ruff, G. A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "f3e1a698ea8341d0b3ac4fc742df4bea"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053586,
+   "meta": {
+    "author": {
+     "name": "Hicks, M."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c5c4c5cc19394f6395a86d89c9243d18"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053586,
+   "meta": {
+    "author": {
+     "name": "Mell, W."
+    },
+    "organization": {
+     "name": "Utah Univ.",
+     "location": "Salt Lake City, UT, United States"
+    }
+   },
+   "id": "479dd3136763409f958acd932aeba8af"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040053586,
+   "meta": {
+    "author": {
+     "name": "Pettegrew, R."
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "5209fe007f3a4f1b97f4c20b2fa1fd7c"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20040053586,
+   "meta": {
+    "author": {
+     "name": "Malcolm, A."
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "760d093cbcbd44859e16016464077b9b"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053586,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-21T17:34:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Even though much has been learned about the effects of microgravity on material flammability, flame spread, and suppressant effectiveness, uncertainties remain regarding some of the practical aspects of fire protection in spacecraft. The experiments and simulations underway in this project are aimed directly at testing, understanding and improving NASA's existing policies and practices toward fire safety in spacecraft and extraterrestrial habitats. Specifically, the objectives of this research are: 1) Determine systematically the conditions that will ignite onboard flammable materials upon passage of an initial premixed gas, firebrand, or aerosol flame over these materials; 2) Test the effect of firebrands and configuration spacing; and 3) Determine the effectiveness of the flow of CO2 extinguisher or other extinguishing agents. Experimental and computational investigations are planned to achieve each of the three objectives above. Even though progress has been made in all of the areas, the majority of data has been collected for objective (3). Current results from these investigations are discussed.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053586,
+   "id": "a0e5a83d92eb43fb846c6370beaf667c",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053586.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053586/downloads/20040053586.pdf",
+    "pdf": "/api/citations/20040053586/downloads/20040053586.pdf",
+    "fulltext": "/api/citations/20040053586/downloads/20040053586.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

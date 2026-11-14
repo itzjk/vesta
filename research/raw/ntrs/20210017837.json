@@ -1,0 +1,214 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "MAY_INCLUDE_COPYRIGHT_MATERIAL",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20210017837,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "ee9ba40536284e15b69aa312fcc7805e",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "microgravity",
+  "fire safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20210017837,
+  "ear": "NO",
+  "id": "c72c636a391e4b9d85462b0483569171",
+  "itar": "NO"
+ },
+ "distributionDate": "2021-07-12T04:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "089407.02.04.22",
+   "submissionId": 20210017837,
+   "id": "fe467468d26c42fe956c4be597e6b0db",
+   "type": "WBS"
+  },
+  {
+   "number": "NNX12AN67A",
+   "submissionId": 20210017837,
+   "id": "be05a321741446d4a8e3784f2575897c",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2021-06-22T18:50:13.6565050+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20210017837,
+   "meta": {
+    "author": {
+     "name": "Maria Thomsen"
+    },
+    "organization": {
+     "name": "Universidad Adolfo Ibáñez"
+    }
+   },
+   "id": "ef3dde650e764d29a0d5fa23cde78ea3",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "611f6c521bac5cdb8affc5880377a2a6",
+   "sequence": 1,
+   "submissionId": 20210017837,
+   "meta": {
+    "author": {
+     "name": "Sonia Fereres "
+    },
+    "organization": {
+     "name": "Abengoa (Spain)",
+     "location": "Seville, Spain"
+    }
+   },
+   "id": "0c7be31f172f48289823724e6ee37a0c",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "7354b6f97b02576fb9c66f60d484fa23",
+   "sequence": 2,
+   "submissionId": 20210017837,
+   "meta": {
+    "author": {
+     "name": "Luca Carmignani"
+    },
+    "organization": {
+     "name": "University of California, Berkeley",
+     "location": "Berkeley, California, United States"
+    }
+   },
+   "id": "7ad2efba9f94457aac5b7294066ac8d2",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "7354b6f97b02576fb9c66f60d484fa23",
+   "sequence": 3,
+   "submissionId": 20210017837,
+   "meta": {
+    "author": {
+     "name": "Carlos Fernandez-Pello"
+    },
+    "organization": {
+     "name": "University of California, Berkeley",
+     "location": "Berkeley, California, United States"
+    }
+   },
+   "id": "725fa272eeb648a59c79606934172000",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 4,
+   "submissionId": 20210017837,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "David Urban"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "b27e8bc61b794da28f85d1372e1e790a",
+   "userType": "CIVIL",
+   "userId": "e6ad9f3a70a94fc1a0a4a56bb211746a"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 5,
+   "submissionId": 20210017837,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Gary Ruff"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "0fc6d0ebad084fb68d749594ab2e988d",
+   "userType": "CIVIL",
+   "userId": "f5daba98616b4f9faeb0dc31767c1f15"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20210017837,
+ "created": "2021-06-22T18:46:13.3498750+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The spread of flames over the surface of solid combustible materials is affected by the environmental conditions. Variables such as flow velocity, oxygen concentration, ambient pressure, partial gravity or microgravity, may change the material flammability and influence the fire dynamics. This is an important fire safety issue for space exploration vehicles and space habitats which will very likely have different environments than those currently used on the International Space Station, such as reduced pressure and enriched oxygen concentration (SEA). However, testing experimentally the materials to be used and qualified for space exploration under these conditions is a difficult and expensive task. Here, numerical modeling is used to understand the dominant physico-chemical processes on the concurrent flame spread over thin fabrics under reduced ambient pressure (and in turn, buoyancy) and variable gravitational conditions. The numerical model uses the Fire Dynamics Simulator (FDS6) code with a single-step Arrhenius reaction rate for the solid phase decomposition. Different models are tested for the gas phase combustion kinetics. The model results are validated with experimental results obtained at similar reduced ambient pressure and flow conditions at 1 g. It is shown that as ambient pressure is reduced the flame spread rate over a thin fabric is also reduced, both experimentally and numerically. Numerical results are compared to an analytical approach previously developed to explain the experimental trends. Further interpretation of the model results provides information regarding the physics of the process and how they are affected by the lower pressure environments and gravity conditions. The results of this work provide guidance for potential on-earth testing for fire safety design in spacecraft and space habitats. ",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20210017837,
+  "id": "f7909df8d83e4efe824de32852e534c4"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20210017837,
+   "endDate": "2021-07-14T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "a4c6a63ed02340b68240e18a1c0d30ce",
+     "meta": {
+      "organization": {
+       "name": "International Conference on Environmental Systems (ICES) ",
+       "location": ""
+      }
+     },
+     "meetingId": "5f6ef0d095bd4dd8830e3e31044dd5c9",
+     "id": "9dcbc09b32b74e07bb79acd240cbd039"
+    }
+   ],
+   "name": "50th International Conference on Environmental Systems",
+   "location": "Online",
+   "id": "5f6ef0d095bd4dd8830e3e31044dd5c9",
+   "url": "ices.space",
+   "startDate": "2021-07-12T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "ICES-2021-102.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20210017837/downloads/ICES-2021-102.pdf",
+    "pdf": "/api/citations/20210017837/downloads/ICES-2021-102.pdf",
+    "fulltext": "/api/citations/20210017837/downloads/ICES-2021-102.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

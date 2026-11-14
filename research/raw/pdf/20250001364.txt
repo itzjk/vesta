@@ -1,0 +1,32 @@
+            14th United States National Combustion Meeting, Boston, MA, 16-19 March 2025
+
+
+                  Fire and Flame Research in the
+    International Space Station’s Combustion Integrated Rack
+                                          Dennis P. Stocker
+                        NASA Glenn Research Center, Cleveland, Ohio 44135, USA
+
+Poster abstract:
+Experimental studies to improve both spacecraft fire safety and our fundamental understanding of
+combustion have been conducted on the International Space Station (ISS) since 2009. Most of those
+investigations have been conducted within the Combustion Integrated Rack (CIR). While ISS crew
+members set up the experiments, the tests are remotely commanded from the NASA Glenn Research
+Center. As of this conference, CIR tests have been conducted for 14 independent experiments for
+researchers from the United States, Italy, Japan, and Russia. The first five studies featured the combustion
+of liquid droplets, while the six subsequent investigations featured flames of gaseous fuels. The
+flammability of solid fuels, such as polymethyl methacrylate (PMMA), is the focus of the current series of
+experiments. While the modular hardware has enabled a variety of combustion studies, they have all
+featured laminar, non-premixed flames at near ambient pressures. Most have been axisymmetric or
+spherically symmetric. Non-premixed cool flames were notably discovered during the droplet combustion
+research and later observed in tests with gaseous fuel using a porous burner to create nominally one-
+dimensional flames. The burning of mixed-fuel droplets and one-dimensional arrays of droplets were
+both examined. The stability and structure of gas-fueled flames were studied over a range of conditions,
+both with and without an imposed electric field. Highly sooting conditions were observed, but more often
+excessive radiative heat loss led to an absence of soot and often oscillations that led to quenching. Yet, it
+was found that microgravity flames of gaseous fuel can burn steadily despite the radiative heat loss. Flame
+spread and flammability limits have been investigated with spherical, cylindrical, and flat fuel samples
+typically with a forced oxidizer flow, but sometimes in its absence. The CIR research will be represented
+through images and text.
+
+Keywords: Microgravity combustion; International space station; Non-premixed flames; Cool flames
+

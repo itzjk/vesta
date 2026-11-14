@@ -1,0 +1,136 @@
+{
+ "copyright": {
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20250001364,
+  "containsThirdPartyMaterial": false,
+  "containsIndication": false,
+  "belongsToPublisher": false,
+  "id": "d12e58b952864e92960fb29f9738815d",
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics and Thermodynamics"
+ ],
+ "keywords": [
+  "Microgravity combustion",
+  "International space station",
+  "Non-premixed flames",
+  "Cool flames"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20250001364,
+  "ear": "NO",
+  "id": "d0c6272bfdf248ee90f310b52a5e74b2",
+  "itar": "NO"
+ },
+ "distributionDate": "2025-03-20T04:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "619352.01.01.03.01.01",
+   "submissionId": 20250001364,
+   "id": "356187787dbe49a8b5ade129c8a8bff5",
+   "type": "WBS"
+  }
+ ],
+ "title": "Fire and Flame Research in the International Space Station’s Combustion Integrated Rack",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2025-02-04T22:35:38.3463430+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 0,
+   "submissionId": 20250001364,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Dennis P Stocker"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "f3606f67e80442a0a300f2c562da5c1b",
+   "userType": "CIVIL",
+   "userId": "30e20cc4ba7743b790a53ab2fb0b0443"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20250001364,
+ "sourceIdentifiers": [
+  {
+   "number": "https://www1.grc.nasa.gov/space/iss-research/iss-fcf/combustion-science/",
+   "submissionId": 20250001364,
+   "id": "820a09afc3634c03a89bed46b6d5dcd7",
+   "descriptor": "Combustion Science (conducted in the ISS' Combustion Integrated Rack)",
+   "type": "URL"
+  }
+ ],
+ "created": "2025-02-04T22:07:00.9010250+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Experimental studies to improve both spacecraft fire safety and our fundamental understanding of combustion have been conducted on the International Space Station (ISS) since 2009.   Most of those investigations have been conducted within the Combustion Integrated Rack (CIR).  While ISS crew members set up the experiments, the tests are remotely commanded from the NASA Glenn Research Center.  As of this conference, CIR tests have been conducted for 14 independent experiments for researchers from the United States, Italy, Japan, and Russia.  The first five studies featured the combustion of liquid droplets, while the six subsequent investigations featured flames of gaseous fuels.  The flammability of solid fuels, such as polymethyl methacrylate (PMMA), is the focus of the current series of experiments.  While the modular hardware has enabled a variety of combustion studies, they have all featured laminar, non-premixed flames at near ambient pressures.  Most have been axisymmetric or spherically symmetric.  Non-premixed cool flames were notably discovered during the droplet combustion research and later observed in tests with gaseous fuel using a porous burner to create nominally one-dimensional flames.  The burning of mixed-fuel droplets and one-dimensional arrays of droplets were both examined.  The stability and structure of gas-fueled flames were studied over a range of conditions, both with and without an imposed electric field.  Highly sooting conditions were observed, but more often excessive radiative heat loss led to an absence of soot and often oscillations that led to quenching.  Yet, it was found that microgravity flames of gaseous fuel can burn steadily despite the radiative heat loss.  Flame spread and flammability limits have been investigated with spherical, cylindrical, and flat fuel samples typically with a forced oxidizer flow, but sometimes in its absence.  The CIR research will be represented through images and text.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20250001364,
+  "id": "e4f2739e8e924b27b4809398c4940dcc"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20250001364,
+   "endDate": "2025-03-19T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "f52059f6037657c2b9489200502d5650",
+     "meta": {
+      "organization": {
+       "name": "Combustion Institute",
+       "location": "Pittsburgh, Pennsylvania, United States"
+      }
+     },
+     "meetingId": "83ac4c86d7d94e4db42f769c397d21c4",
+     "id": "3276aec5e761467a932c7226ab21d5cc"
+    }
+   ],
+   "name": "14th United States National Combustion Meeting (USNCM)",
+   "location": "Boston, MA",
+   "id": "83ac4c86d7d94e4db42f769c397d21c4",
+   "url": "https://combustioninstitute.wixsite.com/14th-usncm",
+   "startDate": "2025-03-16T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "CIR USNCM poster abstract 20250203.pdf",
+   "type": "ABSTRACT",
+   "links": {
+    "original": "/api/citations/20250001364/downloads/CIR%20USNCM%20poster%20abstract%2020250203.pdf",
+    "pdf": "/api/citations/20250001364/downloads/CIR%20USNCM%20poster%20abstract%2020250203.pdf",
+    "fulltext": "/api/citations/20250001364/downloads/CIR%20USNCM%20poster%20abstract%2020250203.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

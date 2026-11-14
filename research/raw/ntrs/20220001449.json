@@ -1,0 +1,97 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "approverComments": "Items in TRS are protected by copyright, but are furnished with U.S. government purpose use rights.",
+  "containsIndication": true,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20220001449,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": true,
+  "id": "775f17d5f4954436a55397f6bbeff4ac",
+  "belongsToAuthors": false
+ },
+ "exportControl": {
+  "isExportControl": "UNSET",
+  "submissionId": 20220001449,
+  "ear": "UNSET",
+  "id": "cb61646ed86f431588eee949551912b7",
+  "itar": "UNSET"
+ },
+ "created": "2020-07-12T00:00:00.0000000+00:00",
+ "distributionDate": "2020-07-12T00:00:00.0000000+00:00",
+ "center": {
+  "code": "JPL",
+  "name": "Jet Propulsion Laboratory",
+  "id": "efbc9c123a0f47caafa95d99b7d2e1a1"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 0,
+ "abstract": "A miniaturized tunable laser absorption spectrometer capable of measuring gas-phase concentrations of CO, CO2, and O2 has been developed for operation in spacecraft environments. As part of the Spacecraft Fire Safety Demonstration (Saffire) project, we previously demonstrated the Combustion Product Monitor (CPM) instrument to characterize pyrolysis of relevant test materials in low gravity aboard a transfer vehicle returning from low Earth orbit. Here, we adapted the CPM instrument design to achieve detection of CO, CO2, and O2 with improved minimum detection limits and dynamic range as well as reduced instrument size and power. The instrument can be operated in either an open or sealed configureation, allowing for ambient gas composition measuremnts or in-line monitoring of gas streams. By accurately monitoring CO, CO2, and O2 with broad pressure/temperature calibration and response time on the order of 1 s, the instrument can be used to characterize the dynamics of combustion reactions in a variety of environments.",
+ "title": "Miniaturized Laser Absorption Spectrometer for Combustion Calorimetry and Process Monitoring",
+ "stiType": "PREPRINT",
+ "distribution": "PUBLIC",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20220001449,
+   "meta": {
+    "author": {
+     "name": "Briggs, Ryan M."
+    }
+   },
+   "id": "c562fd2950d742eb8799c825a6a26cfc"
+  },
+  {
+   "sequence": 0,
+   "submissionId": 20220001449,
+   "meta": {
+    "author": {
+     "name": "Tallarida, Nicholas R."
+    }
+   },
+   "id": "b5a705d0be8c40e1a5b35082e5d60d5f"
+  },
+  {
+   "sequence": 0,
+   "submissionId": 20220001449,
+   "meta": {
+    "author": {
+     "name": "Fradet, Mathieu"
+    }
+   },
+   "id": "b4f733b9300c43d09ef680976a1e503b"
+  }
+ ],
+ "disseminated": "METADATA_ONLY",
+ "stiTypeDetails": "Preprint (Draft being sent to journal)",
+ "technicalReviewType": "NOT_SET",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20220001449,
+ "sourceIdentifiers": [
+  {
+   "number": "2014/53053",
+   "submissionId": 20220001449,
+   "id": "acea1cc9e94549808081aa3a4547338f",
+   "type": "HANDLE"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20220001449,
+   "publisher": "Pasadena, CA: Jet Propulsion Laboratory, National Aeronautics and Space Administration, 2020",
+   "id": "3b57eecb32134f97a77cd4881f612368",
+   "publicationDate": "2020-07-12T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

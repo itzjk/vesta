@@ -1,0 +1,182 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053553,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "f125c2705407485d9cafc6dd69775fca",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Chemistry And Materials (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053553,
+  "ear": "NO",
+  "id": "fd31e439ec15473681fa8bd1d81655a4",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "Effect Of Low External Flow On Flame Spreading Over ETFE Insulated Wire Under Microgravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:35:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053553,
+   "meta": {
+    "author": {
+     "name": "Nishizawa, Katsuhiro"
+    },
+    "organization": {
+     "name": "Hokkaido Univ.",
+     "location": "Sapporo, Japan"
+    }
+   },
+   "id": "5b0a1df070aa48609cc57d2fc23a9bc2"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053553,
+   "meta": {
+    "author": {
+     "name": "Fujita, Osamu"
+    },
+    "organization": {
+     "name": "Hokkaido Univ.",
+     "location": "Sapporo, Japan"
+    }
+   },
+   "id": "c084343b016447ac9e5115cda86057c0"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053553,
+   "meta": {
+    "author": {
+     "name": "Ito, Kenichi"
+    },
+    "organization": {
+     "name": "Hokkaido Univ.",
+     "location": "Sapporo, Japan"
+    }
+   },
+   "id": "025f7adec4394b319ba678b5947373af"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040053553,
+   "meta": {
+    "author": {
+     "name": "Kikuchi, Masao"
+    },
+    "organization": {
+     "name": "National Space Development Agency",
+     "location": "Ibaraki, Japan"
+    }
+   },
+   "id": "c9085282cc114944818c339e48ec3f10"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20040053553,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c1afde349bc7496b94d79f702d5323b4"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20040053553,
+   "meta": {
+    "author": {
+     "name": "Kashiwagi, Takashi"
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "5394d7a791bb46fa8ca35317f4478cb2"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053553,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:35:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Fire safety is one of the most important issues for manned space missions. A likely cause of fires in spacecraft is wire insulation combustion in electrical system. Regarding the wire insulation combustion it important to know the effect of low external flow on the combustion because of the presence of ventilation flow in spacecraft. Although, there are many researches on flame spreading over solid material at low external flows under microgravity, research dealing with wire insulation is very limited. An example of wire insulation combustion in microgravity is the Space Shuttle experiments carried out by Greenberg et al. However, the number of experiments was very limited. Therefore, the effect of low flow velocity is still not clear. The authors have reported results on flame spreading over ETFE (ethylene - tetrafluoroetylene) insulated wire in a quiescent atmosphere in microgravity by 10 seconds drop tower. The authors also performed experiments of polyethylene insulated nichrom wire combustion in low flow velocity under microgravity. The results suggested that flame spread rate had maximum value in low flow velocity condition. Another interesting issue is the effect of dilution gas, especially CO2, which is used for fire extinguisher in ISS. There are some researches working on dilution gas effect on flame spreading over solid material in quiescent atmosphere in microgravity. However the research with low external flow is limited and, of course, the research discussing a relation of the appearance of maximum wire flammability in low flow velocity region with different dilution gas cannot be found yet. The present paper, therefore, investigates the effect of opposed flow with different dilution gas on flame spreading over ETFE insulated wire and change in the presence of the maximum flammability depending on the dilution gas type is discussed within the limit of microgravity time given by ground-based facility.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053553,
+   "id": "e2f9b119524c402ab08a4bed32709481",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053553.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053553/downloads/20040053553.pdf",
+    "pdf": "/api/citations/20040053553/downloads/20040053553.pdf",
+    "fulltext": "/api/citations/20040053553/downloads/20040053553.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,164 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150008961,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "b22d815ea1414f279be986942ba70b8e",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "flammability",
+  "concurrent",
+  "microgravity"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150008961,
+  "ear": "NO",
+  "id": "30104a45cef04acbb2edfe31392ce738",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN21414",
+  "Report Number: GRC-E-DAA-TN21414"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20150008961,
+   "id": "aa9bd2d89b644dbdb534ffe4a419c920",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 904211.04.02.20.16",
+   "submissionId": 20150008961,
+   "id": "88f7ba938343411c8fe6b252127977f3",
+   "type": "WBS"
+  }
+ ],
+ "title": "Microgravity Flammability of PMMA Rods in Concurrent Flow",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-05-28T08:06:33.8930000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150008961,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "52cd02e7a2f7401bbbeb4665838f227d"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20150008961,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul V."
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "346c075af39748eb8eb92c69989e1c0c"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150008961,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-05-28T08:06:33.8930000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Microgravity experiments burning cast PMMA cylindrical rods in axial flow have been conducted aboard the International Space Station in the Microgravity Science Glovebox (MSG) facility using the Burning and Suppression of Solids (BASS) flow duct, as part of the BASS-II experiment. Twenty-four concurrent-flow tests were performed, focusing on finding flammability limits as a function of oxygen and flow speed. The oxygen was varied by using gaseous nitrogen to vitiate the working volume of the MSG. The speed of the flow parallel to the rod was varied using a fan at the entrance to the duct. Both blowoff and quenching limits were obtained at several oxygen concentrations. Each experiment ignited the rod at the initially hemispherical stagnation tip of the rod, and allowed the flame to develop and heat the rod at a sufficient flow to sustain burning. For blowoff limit tests, the astronaut quickly turned up the flow to obtain extinction. Complementary 5.18-second Zero Gravity Facility drop tests were conducted to compare blowoff limits in short and long duration microgravity. For quenching tests, the flow was incrementally turned down and the flame allowed to stabilize at the new flow condition for at least the solid-phase response time before changing it again. Quenching was observed when the flow became sufficiently weak that the flame could no longer provide adequate heat flux to compensate for the heat losses (conduction into the rod and radiation). A surface energy balance is presented that shows the surface radiative loss exceeds the conductive loss into the rod near the limit. The flammability boundary is shown to represent a critical Damkohler number, expressed in terms of the reaction rate divided by the stretch rate. For the blowoff branch, the boundary exhibits a linear dependence on oxygen concentration and stretch rate, indicating that the temperature at blowoff must be fairly constant. For the quenching branch, the dominance of the exponential nature of the Arrhenius kinetics reaction rate indicates that the temperature is critical.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20150008961,
+   "endDate": "2015-05-20T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "1d89d3c6948442b594b711ab656ff702",
+     "meta": {
+      "organization": {
+       "name": "Combustion Inst.",
+       "location": "Pittsburgh, PA, United States"
+      }
+     },
+     "meetingId": "fe4765f3a254469b936d46edb2adfe46",
+     "id": "f866cca0e2d94c28b842356509fb5959"
+    },
+    {
+     "organizationId": "9b8b9dce88b647adb0010a8c9fab369e",
+     "meta": {
+      "organization": {
+       "name": "Cincinnati Univ.",
+       "location": "OH, United States"
+      }
+     },
+     "meetingId": "fe4765f3a254469b936d46edb2adfe46",
+     "id": "daa3c199b3b040f5a3b4a6e6dbcef44f"
+    }
+   ],
+   "name": "U.S. National Combustion Meeting",
+   "location": "Cincinnati, OH",
+   "id": "fe4765f3a254469b936d46edb2adfe46",
+   "startDate": "2015-05-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20150008961,
+   "id": "e602e33e99214aa6b0f62686c4de7db9",
+   "publicationDate": "2015-05-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150008961.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150008961/downloads/20150008961.pdf",
+    "pdf": "/api/citations/20150008961/downloads/20150008961.pdf",
+    "fulltext": "/api/citations/20150008961/downloads/20150008961.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

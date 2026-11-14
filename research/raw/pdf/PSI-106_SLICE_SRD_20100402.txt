@@ -1,0 +1,881 @@
+SLICE SRD                                                        2010-04-02
+
+
+
+                         SLICE
+   Structure & Liftoff In Combustion Experiment
+ SCIENCE REQUIREMENTS DOCUMENT
+
+            ____________________________________        _________________
+            Prof. Marshall B. Long, Yale University     Date
+            Principal Investigator
+
+
+
+            ____________________________________        _________________
+            Prof. Mitchell D. Smooke, Yale University   Date
+            Co-Investigator
+
+
+
+            ____________________________________        _________________
+            Dr. Fumiaki Takahashi, NCSER                Date
+            Co-Investigator
+
+
+
+
+            ____________________________________        _________________
+            Mr. Dennis P. Stocker, NASA Glenn           Date
+            Co-Investigator & Project Scientist
+
+
+
+            ____________________________________        _________________
+            Mr. Robert W. Hawersaat, NASA Glenn         Date
+            SLICE Project Manager
+
+
+            APPROVAL
+
+
+            ____________________________________        _________________
+            Dr. Fred J. Kohl, NASA Glenn                Date
+            ISS Research Project Manager
+
+
+                               1
+SLICE SRD                                                                                2010-04-02
+
+Executive Summary
+The Structure & Liftoff In Combustion Experiment (SLICE) is a precursor to the Coflow Laminar
+Diffusion Flame (CLD Flame) experiment, which is one of the four ACME (Advanced
+Combustion via Microgravity Experiments) investigations that are currently in development for
+conduct within the Combustion Integrated Rack (CIR). To this end, the SLICE investigator team
+consists of the PI, Co-I, and two Project Scientists for ACME’s CLD Flame experiment. The
+goal of the experiment is to investigate the structure of lifting and lifted flames, where the flame
+detaches from the nozzle and stabilizes at a downstream position. The results will be used to
+minimize risk and maximize the scientific return of the CLD Flame Experiment. The SLICE
+investigation will be conducted in the Microgravity Science Glovebox (MSG) using the Smoke
+Point In Coflow Experiment (SPICE) hardware, both of which are already on orbit.
+
+
+Outline
+       1.   Background
+       2.   Objectives
+       3.   Approach
+       4.   Science Requirements
+       5.   Operational Requirements
+       6.   Test Matrix
+       7.   Success Criteria
+       8.   Nomenclature
+       9.   Appendix: SPICE SRD
+
+
+1.0 Background
+                                   Coflow laminar diffusion flames (as shown schematically on
+                                   the left) are especially valuable for studies of combustion
+                                   because of the availability of accurate numerical modeling
+                                   with that flame configuration. In particular, excellent
+                                   agreement can be achieved when the flow conditions are
+                                   such that the flame detaches and lifts above (i.e., moves
+                                   downstream of) the nozzle. A coupled
+                                   experimental           and      numerical
+                                   investigation can enable validation and
+                                   improvements to combustion modeling.
+                                   For example, the image to the right is
+                                   not a photo, but a numerical simulation
+                                   of a 40% ethylene flame. Enhanced
+                                   modeling       capability  is    important
+                                   because it can reduce time and cost in
+                                   the design of practical combustion
+                                   devices. Furthermore, flame attachment
+                                   to (or detachment from) a burner or
+                                   condensed-fuel surface is of essential
+                                   importance in both combustion systems
+                                   and fire safety. The flame attachment
+                                   point controls the stability of the entire
+                                   trailing diffusion flame.
+
+
+                                             2
+SLICE SRD                                                                                2010-04-02
+
+Microgravity testing allows for greater temporal and spatial scales and a broader range of flame
+characteristics than can be achieved in normal gravity. As one example of the NASA-recognized
+value of such studies, the Coflow Laminar Diffusion Flame (CLD Flame) experiment of Marshall
+B. Long and Mitchell D. Smooke (both of Yale U.) is currently in development for conduct in the
+Combustion Integrated Rack (CIR) on the International Space Station, as part of the Advanced
+Combustion via Microgravity Experiments (ACME) project.
+
+The overall goal of the experiment is to improve our understanding of the physical and chemical
+processes controlling diffusion (i.e., non-premixed) flame structure and lifting phenomena (i.e.,
+stabilization) and to provide for rigorous testing of numerical models, including thermal radiation,
+soot formation, and detailed chemical kinetics. As part of this aim, an important purpose of the
+SLICE investigation is to conduct preliminary microgravity studies that will maximize the
+scientific return of the subsequent CLD Flame experiment and mitigate associated risks. In
+other words, SLICE is a precursor to the CLD Flame experiment.
+
+
+2.0    Objectives
+   (1) Identify the lift-off velocity limits in air for flames of methane, ethylene, and selected
+       dilutions of each fuel as a function of the nozzle size. When possible, also identify the
+       blow-out velocities (i.e., when the flame extinguishes).
+               This will enable refinement of the CLD Flame test matrix where the fuels for that
+               experiment are those specified here.
+   (2) Characterize the hysteresis of flame lifting and reattachment (i.e., stabilization) with
+       variations in flow conditions as a function of the fuel and nozzle size.
+               This will enable further refinement of the CLD Flame test matrix.
+   (3) Characterize the structure of the flame, especially its base (i.e., stabilizing region), from
+       attached through lifted conditions as a function of the fuel, nozzle size, and flow
+       conditions.
+               This will enable refinement of the flame diagnostic settings and test matrix for the
+               CLD Flame experiment. It will also allow for a preliminary assessment of the
+               numerical codes’ ability to predict the flame structure under the broader
+               conditions that are only found in microgravity flames. The computation of
+               attached flames will require modification of the numerical models to incorporate
+               burner heat loss.
+
+3.0    Approach
+The experimental hardware for the Smoke Points In
+Co-flow Experiment (SPICE), of David L. Urban
+(NASA Glenn) and Peter B. Sunderland (U.
+Maryland), which is currently onboard the
+International Space Station, was built to allow studies
+of coflow laminar diffusion flames. The SPICE
+hardware is within the ISS MSG in the image to the
+right. While the SPICE investigation has been
+specifically focused on a study of soot production
+and oxidation within flames, the hardware can be
+used without modification to conduct the SLICE
+experiment. In terms of the experimental hardware,
+the only additional requirements for SLICE are more
+fuel (i.e., gas bottles), recording media, and minor
+
+                                             3
+SLICE SRD                                                                               2010-04-02
+
+hardware elements such as new nozzle(s). The three existing SPICE nozzles are all smaller
+than the nozzle planned for the CLD Flame experiment. Of course, the SLICE testing could
+most benefit the CLD Flame experiment by bracketing and/or including the same nozzle size. It
+is also possible that screen(s) would be flown to alter the velocity profile of the coflow.
+
+The SLICE operating procedures will have some differences to the standard SPICE procedures
+given the differing objectives. However, those changes are fully within the capabilities of the
+SPICE hardware, as demonstrated by exploratory testing that has already been conducted on
+orbit. As a simple example, the standard SPICE procedure calls for a fixed air velocity and an
+increase of the fuel flow until the smoke point is reached. In contrast, SLICE will include testing
+where the fuel flow is fixed and the air velocity is incrementally increased until the diffusion
+flame detaches and lifts off from the nozzle. In all cases, still and video measurements of the
+flame structure will be made for comparison with detailed numerical computations. Given that
+the capture of the lifting processes in normal gravity is extremely difficult, SLICE will provide
+valuable photographic observations on the transient flame behavior. Because of the transient
+nature of the lifting process, the experiment would benefit greatly from direct air-to-ground
+Structure & Liftoff In Combustion Experiment (SLICE) communication between the astronauts
+and the investigator team, as was done for the SPICE experiment. Experience gained from the
+SPICE experiment will be helpful in preparing crew training and operating instructions.
+
+
+4.0    Science Requirements
+       The word “shall” indicates that the specification is a requirement, while the word
+       “should” indicates a desired feature. Furthermore, any text in italics is a comment and
+       not a requirement
+       4.1 General requirements
+               4.1.1 Except where alternate requirements are presented in this document, the
+                      SPICE science requirements shall apply to the SLICE investigation.
+                      Except where otherwise noted here, the SPICE hardware meets the
+                      SLICE requirements.
+       4.2 Fuel nozzles
+               4.2.1 The fuel nozzles shall be exchangeable in spaceflight.
+               4.2.2 When installed, each fuel nozzle shall be positioned on the axis of the
+                      SPICE flow duct.
+               4.2.3 Each fuel nozzle shall consist of a straight tube with a constant internal
+                      cross section which is circular.
+               4.2.4 The plane defined by each nozzle tip shall be orthogonal to the nozzle
+                      axis.
+               4.2.5 The fuel nozzles shall have the following inner diameters:
+                      4.2.5.1 0.4±0.1 mm inner diameter
+                      4.2.5.2 0.8±0.1 mm inner diameter
+                      4.2.5.3 1.6±0.1 mm inner diameter
+                      4.2.5.4 2.1±0.1 mm inner diameter
+                      4.2.5.5 3.2±0.1 mm inner diameter
+               4.2.6 Each nozzle’s inner diameter and outer diameter shall be measured and
+                      known to within ±0.05 mm.
+               4.2.7 Each fuel nozzle shall be fabricated from stainless steel tubing to match
+                      nozzles used in ground-based and past space-based testing (e.g., in
+                      regard to heat transfer, catalysis, etc.).
+       4.3 Fuels
+
+
+                                             4
+SLICE SRD                                                                               2010-04-02
+
+             4.3.1   For each fuel bottle, the gas shall be dry and the net amount of trace
+                     contaminants shall be less than a mole (i.e., volume) fraction of 0.0001.
+             4.3.2 For each fuel bottle, the gas shall not condense, but should be filled to
+                     maximum pressure allowed by operational and safety constraints.
+             4.3.3 For fuel/inert mixtures, the contents of each fuel bottle shall be well mixed
+                     and the resulting concentrations shall be known to within ±0.005 mole
+                     fraction.
+             4.3.4 The 12 fuel bottles shall be filled with the following gases:
+                     4.3.4.1 100% CH4 (methane), 3 bottles
+                     4.3.4.2 70% CH4 diluted with N2 (nitrogen), 2 bottles
+                     4.3.4.3 40% CH4 diluted with N2, 2 bottles
+                     4.3.4.4 100% C2H4 (ethylene), 1 bottle
+                     4.3.4.5 20% C2H4 diluted with N2, 2 bottles
+                     4.3.4.6 100% C3H8 (propane), 1 bottle
+                     4.3.4.7 100% C2H6 (ethane), 1 bottle
+      4.4 Oxygen concentration
+          The flame behavior is highly dependent on the oxygen concentration. It is not
+          expected that there will be SLICE instrumentation for this purpose. Knowledge of the
+          concentration is not required at the time of testing, but is valuable for analysis of the
+          results.
+             4.4.1 When possible, the oxygen concentration of the ISS cabin atmosphere
+                     shall be known on each day of SLICE testing. The oxygen concentration
+                     can be measured by the MCA (Major Constituent Analyzer) or oxygen
+                     sensors in the Columbus module or Service Module (i.e., Zarya). The
+                     oxygen concentration could also be measured by a crewmember using a
+                     CSA-CP (Compound Specific Analyzer – Combustion Products).
+             4.4.2 If possible, the oxygen concentration within the MSG working volume
+                     shall be known during SLICE testing. It should be possible for a
+                     crewmember to measure the oxygen concentration within the MSG
+                     working volume with a CSA-CP (Compound Specific Analyzer –
+                     Combustion Products).
+      4.5 Pressure
+             4.5.1 When possible, the absolute pressure of the MSG working volume shall
+                     be known during SLICE testing. The absolute pressure may be
+                     measured directly or determined by calculation from other pressures. It is
+                     expected that the pressure will be calculated from the cabin pressure
+                     (measured by 4 pressure transducers in the Columbus module) and the
+                     differential pressure between the cabin pressure and the MSG working
+                     volume (measured by 2 MSG transducers). It is not expected that there
+                     will be SLICE instrumentation for this purpose. Knowledge of the
+                     pressure is not required at the time of testing, but is valuable for analysis
+                     of the results.
+      4.6 Acceleration
+             4.6.1 SLICE testing shall not be conducted when thrusters fire or spacecraft
+                     dock or undock from ISS. The lifted flames are unstable and can be
+                     highly sensitive to such accelerations. Based on the SPICE results, the
+                     normal ISS operations should otherwise provide an adequate
+                     acceleration environment.
+             4.6.2 When possible, the acceleration environment shall be measured by
+                     SAMS during SLICE testing. SAMS is available in the Columbus module
+                     and a head can be installed within the MSG working volume, which would
+
+                                            5
+SLICE SRD                                                                               2010-04-02
+
+                      be idea for SLICE. However, SAMS measurement does require that the
+                      rack housing its electronics be activate (e.g., powered, cooled, etc.), so
+                      measurements will not be possible when that rack is inactive. It is not
+                      expected that there will be SLICE instrumentation for this purpose.
+                      Knowledge of the acceleration environment is not required at the time of
+                      testing, but is valuable for analysis of the results.
+      4.7 Still Imaging
+               4.7.1 If possible, the still flame images shall be taken with a Nikon D300s
+                      camera. This camera is superior to SPICE’s D100 camera (which is
+                      already on orbit) in terms of resolution, bracketing, shooting speed (i.e.,
+                      frames per second), etc.
+               4.7.2 The Nikon D300s camera shall be equipped with a blue-green BG-7 filter
+                      (e.g., see: www.optical-filters.com/bg7.html) that can be optionally
+                      installed or removed on orbit. This filter can enable photography of the
+                      blue CH* chemiluminescence without saturation of the red (and green) by
+                      the blackbody soot radiation. It is critical to avoid saturation when making
+                      temperature measurements via pyrometry.
+               4.7.3 The response of the Nikon D300s camera shall be characterized with a
+                      calibrated blackbody source over a temperature range of at least 800 to
+                      1200oC at increments of no more than 100oC. The characterization shall
+                      include the flight camera lens and either the top window of the SPICE
+                      experiment module or a near substitute (e.g., of the same material and
+                      thickness). The characterization shall be conducted both with and without
+                      the BG-7 filter specified above. The characterization plan, which may
+                      incorporate additional details, shall be approved by the Project Scientist in
+                      advance of the characterization. This optical characterization is critical for
+                      the planned pyrometry measurements.
+      4.8 Pyrometry Fiber
+               4.8.1 For pyrometry calibration, there shall be a single ceramic SiCO fiber that
+                      can be optionally installed in or removed from the SPICE experiment
+                      module while on orbit.
+               4.8.2 The fiber diameter shall be no more than 100 microns and shall be known
+                      to within ±5 microns.
+               4.8.3 When installed, the fiber shall be orthogonal to the fuel nozzle,
+                      downstream of the nozzle tip, and in view of the still camera through the
+                      experiment module’s top window. The distance between the nozzle tip
+                      and the fiber shall be adjustable on orbit. The fiber shall be in the plane
+                      that is parallel to the top window of the experiment module and includes
+                      the fuel nozzle axis. While it should be minimized, it is acceptable for the
+                      fiber mount to partially block the video view of the flame.
+               4.8.4 The fiber mount shall be fabricated to minimize its influence on the air
+                      flow within the experiment module, especially near the fuel nozzle and its
+                      axis.
+               4.8.5 The design of the fiber mount shall be approved by the Project Scientist in
+                      advance of its fabrication. This review will allow details to be addressed
+                      that may have been missed in the specifications stated here.
+
+
+
+
+                                            6
+SLICE SRD                                                                                 2010-04-02
+
+
+5.0   Operational Requirements
+      In developing the documentation for crew training and test procedures, it will be
+      emphasized that fuel needs to be conserved during the tests in order to maximize the
+      number of conditions that can be tested.
+      5.1 Stability Limits
+               5.1.1 During a test, the air velocity is increased to identify the liftoff velocity and
+                      measure the structure of the flame as a function of the air velocity while
+                      the flame is burner stabilized and after it is lifted. After liftoff, the air
+                      velocity is then reduced to characterize the hysteresis associated with
+                      reattachment, in addition to the structure of the lifted flame where the air
+                      velocity is lower than at liftoff. After reattachment, the air velocity is
+                      increased again to lift the flame a second time, after which the velocity is
+                      incrementally increased to further measure the flame structure until blow
+                      out (or the maximum air velocity of the SPICE hardware). The air velocity
+                      adjustments are normally made incrementally, except when near the
+                      transition points.
+               5.1.2 Same procedure as 5.1.1, but the air velocity is fixed and the variable is
+                      the fuel flow, which is increased until the flame is lifted, decreased for
+                      reattachment, and then increased until blow out.
+      5.2 Lifted Flames – The flame is ignited under conditions that are expected to be lifted as
+          determined in the stability limit experiments. The liftoff height is increased (by
+          increasing the fuel and/or air flows) until it is near the blowoff limit and still images
+          recorded. The fuel and/or air flows are reduced, (reducing the liftoff height) and still
+          images are recorded. This process is repeated until the flame attaches to the nozzle.
+      5.3 Pyrometry Calibration – The fiber is placed into position in the test chamber and a
+          non-smoking flame is established so that the luminous portion of the flame is just
+          below the fiber. Images are then taken with the still camera to provide a temperature
+          measurement at the fiber position and an absolute intensity calibration.
+      5.4 Sooting Limit – Procedure used in SPICE operations in early 2009, e.g., see SPICE
+          SRD in the appendix.
+
+
+
+
+                                             7
+SLICE SRD                                                                                2010-04-02
+
+6.0     Test Matrix
+Test Parameters
+Fuel:           methane (CH4), ethylene (C2H4), propane (C3H8), and selected dilutions
+Nozzle:         3 nozzles available with existing SPICE hardware, plus 2 additional nozzles
+Fuel flow:      within the existing limits of the SPICE hardware
+Air velocity:   within the existing limits of the SPICE hardware
+
+Sets of tests will be based
+on the fuel and nozzle size.
+For each fuel and nozzle
+combination, tests will be
+conducted       to   establish
+stability limits and structure
+as a function of the fuel flow
+and air velocity. As an
+example, a microgravity
+flame stability map from the
+ELF investigation (that was
+on STS-87) is shown here.
+
+
+
+
+Test Matrix Summary
+Test            Fuel             Nozzle       Fuel flow
+1               100% CH4         0.4 mm       20% of maximum flow
+2                                             40%
+3                                             60%
+4                                             80%
+5                                             100%
+6-10                             0.8 mm       20-100% (repeat as tests 1-5 above)
+11-15                            1.6 mm       20-100%
+16-20                            2.1 mm       20-100%
+21-25                            3.2 mm       20-100%
+26-50           70% CH4          0.4-3.2 mm   20-100% (repeat as tests 1-25 above)
+51-75           40% CH4          0.4-3.2 mm   20-100%
+76-100          100% C2H4        0.4-3.2 mm   20-100%
+101-125         20% C2H4         0.4-3.2 mm   20-100%
+126-150         100% C3H8        0.4-3.2 mm   20-100%
+151-175         100% C2H6        0.4-3.2 mm   20-100%
+
+IMPORTANT - Only an undetermined fraction of the test points identified will be conducted
+during spaceflight. As two examples, tests will generally not be conducted where flames are not
+stable when lifted or above the smoke point. Instead, testing will most often be conducted under
+conditions with flames that are stable, lifted (or near lifting), and non-sooting (i.e., not emitting
+smoke). A smaller fraction of tests will be conducted with flames that are near or at their smoke
+point, i.e., where they begin to emit smoke.
+
+
+
+                                              8
+SLICE SRD                                                       2010-04-02
+
+Test        Fuel       Nozzle   Fuel flow (% of maximum flow)
+1           100% CH4   0.4 mm   20%
+2           100% CH4   0.4 mm   40%
+3           100% CH4   0.4 mm   60%
+4           100% CH4   0.4 mm   80%
+5           100% CH4   0.4 mm   100%
+6           100% CH4   0.8 mm   20%
+7           100% CH4   0.8 mm   40%
+8           100% CH4   0.8 mm   60%
+9           100% CH4   0.8 mm   80%
+10          100% CH4   0.8 mm   100%
+11          100% CH4   1.6 mm   20%
+12          100% CH4   1.6 mm   40%
+13          100% CH4   1.6 mm   60%
+14          100% CH4   1.6 mm   80%
+15          100% CH4   1.6 mm   100%
+16          100% CH4   2.1 mm   20%
+17          100% CH4   2.1 mm   40%
+18          100% CH4   2.1 mm   60%
+19          100% CH4   2.1 mm   80%
+20          100% CH4   2.1 mm   100%
+21          100% CH4   3.2 mm   20%
+22          100% CH4   3.2 mm   40%
+23          100% CH4   3.2 mm   60%
+24          100% CH4   3.2 mm   80%
+25          100% CH4   3.2 mm   100%
+26          70% CH4    0.4 mm   20%
+27          70% CH4    0.4 mm   40%
+28          70% CH4    0.4 mm   60%
+29          70% CH4    0.4 mm   80%
+30          70% CH4    0.4 mm   100%
+31          70% CH4    0.8 mm   20%
+32          70% CH4    0.8 mm   40%
+33          70% CH4    0.8 mm   60%
+34          70% CH4    0.8 mm   80%
+35          70% CH4    0.8 mm   100%
+36          70% CH4    1.6 mm   20%
+37          70% CH4    1.6 mm   40%
+38          70% CH4    1.6 mm   60%
+39          70% CH4    1.6 mm   80%
+40          70% CH4    1.6 mm   100%
+41          70% CH4    2.1 mm   20%
+42          70% CH4    2.1 mm   40%
+43          70% CH4    2.1 mm   60%
+44          70% CH4    2.1 mm   80%
+45          70% CH4    2.1 mm   100%
+46          70% CH4    3.2 mm   20%
+47          70% CH4    3.2 mm   40%
+48          70% CH4    3.2 mm   60%
+49          70% CH4    3.2 mm   80%
+50          70% CH4    3.2 mm   100%
+
+                                9
+SLICE SRD                                                        2010-04-02
+
+Test        Fuel        Nozzle   Fuel flow (% of maximum flow)
+51          40% CH4     0.4 mm   20%
+52          40% CH4     0.4 mm   40%
+53          40% CH4     0.4 mm   60%
+54          40% CH4     0.4 mm   80%
+55          40% CH4     0.4 mm   100%
+56          40% CH4     0.8 mm   20%
+57          40% CH4     0.8 mm   40%
+58          40% CH4     0.8 mm   60%
+59          40% CH4     0.8 mm   80%
+60          40% CH4     0.8 mm   100%
+61          40% CH4     1.6 mm   20%
+62          40% CH4     1.6 mm   40%
+63          40% CH4     1.6 mm   60%
+64          40% CH4     1.6 mm   80%
+65          40% CH4     1.6 mm   100%
+66          40% CH4     2.1 mm   20%
+67          40% CH4     2.1 mm   40%
+68          40% CH4     2.1 mm   60%
+69          40% CH4     2.1 mm   80%
+70          40% CH4     2.1 mm   100%
+71          40% CH4     3.2 mm   20%
+72          40% CH4     3.2 mm   40%
+73          40% CH4     3.2 mm   60%
+74          40% CH4     3.2 mm   80%
+75          40% CH4     3.2 mm   40%
+76          100% C2H4   0.4 mm   20%
+77          100% C2H4   0.4 mm   40%
+78          100% C2H4   0.4 mm   60%
+79          100% C2H4   0.4 mm   80%
+80          100% C2H4   0.4 mm   100%
+81          100% C2H4   0.8 mm   20%
+82          100% C2H4   0.8 mm   40%
+83          100% C2H4   0.8 mm   60%
+84          100% C2H4   0.8 mm   80%
+85          100% C2H4   0.8 mm   100%
+86          100% C2H4   1.6 mm   20%
+87          100% C2H4   1.6 mm   40%
+88          100% C2H4   1.6 mm   60%
+89          100% C2H4   1.6 mm   80%
+90          100% C2H4   1.6 mm   100%
+91          100% C2H4   2.1 mm   20%
+92          100% C2H4   2.1 mm   40%
+93          100% C2H4   2.1 mm   60%
+94          100% C2H4   2.1 mm   80%
+95          100% C2H4   2.1 mm   100%
+96          100% C2H4   3.2 mm   20%
+97          100% C2H4   3.2 mm   40%
+98          100% C2H4   3.2 mm   60%
+99          100% C2H4   3.2 mm   80%
+100         100% C2H4   3.2 mm   100%
+
+                                 10
+SLICE SRD                                                        2010-04-02
+
+Test        Fuel        Nozzle   Fuel flow (% of maximum flow)
+101         20% C2H4    0.4 mm   20%
+102         20% C2H4    0.4 mm   40%
+103         20% C2H4    0.4 mm   60%
+104         20% C2H4    0.4 mm   80%
+105         20% C2H4    0.4 mm   100%
+106         20% C2H4    0.8 mm   20%
+107         20% C2H4    0.8 mm   40%
+108         20% C2H4    0.8 mm   60%
+109         20% C2H4    0.8 mm   80%
+110         20% C2H4    0.8 mm   100%
+111         20% C2H4    1.6 mm   20%
+112         20% C2H4    1.6 mm   40%
+113         20% C2H4    1.6 mm   60%
+114         20% C2H4    1.6 mm   80%
+115         20% C2H4    1.6 mm   100%
+116         20% C2H4    2.1 mm   20%
+117         20% C2H4    2.1 mm   40%
+118         20% C2H4    2.1 mm   60%
+119         20% C2H4    2.1 mm   80%
+120         20% C2H4    2.1 mm   100%
+121         20% C2H4    3.2 mm   20%
+122         20% C2H4    3.2 mm   40%
+123         20% C2H4    3.2 mm   60%
+124         20% C2H4    3.2 mm   80%
+125         20% C2H4    3.2 mm   100%
+126         100% C3H8   0.4 mm   20%
+127         100% C3H8   0.4 mm   40%
+128         100% C3H8   0.4 mm   60%
+129         100% C3H8   0.4 mm   80%
+130         100% C3H8   0.4 mm   100%
+131         100% C3H8   0.8 mm   20%
+132         100% C3H8   0.8 mm   40%
+133         100% C3H8   0.8 mm   60%
+134         100% C3H8   0.8 mm   80%
+135         100% C3H8   0.8 mm   100%
+136         100% C3H8   1.6 mm   20%
+137         100% C3H8   1.6 mm   40%
+138         100% C3H8   1.6 mm   60%
+139         100% C3H8   1.6 mm   80%
+140         100% C3H8   1.6 mm   100%
+141         100% C3H8   2.1 mm   20%
+142         100% C3H8   2.1 mm   40%
+143         100% C3H8   2.1 mm   60%
+144         100% C3H8   2.1 mm   80%
+145         100% C3H8   2.1 mm   100%
+146         100% C3H8   3.2 mm   20%
+147         100% C3H8   3.2 mm   40%
+148         100% C3H8   3.2 mm   60%
+149         100% C3H8   3.2 mm   80%
+150         100% C3H8   3.2 mm   100%
+
+                                 11
+SLICE SRD                                                                                 2010-04-02
+
+Test          Fuel            Nozzle          Fuel flow (% of maximum flow)
+151           100% C2H6       0.4 mm          20%
+152           100% C2H6       0.4 mm          40%
+153           100% C2H6       0.4 mm          60%
+154           100% C2H6       0.4 mm          80%
+155           100% C2H6       0.4 mm          100%
+156           100% C2H6       0.8 mm          20%
+157           100% C2H6       0.8 mm          40%
+158           100% C2H6       0.8 mm          60%
+159           100% C2H6       0.8 mm          80%
+160           100% C2H6       0.8 mm          100%
+161           100% C2H6       1.6 mm          20%
+162           100% C2H6       1.6 mm          40%
+163           100% C2H6       1.6 mm          60%
+164           100% C2H6       1.6 mm          80%
+165           100% C2H6       1.6 mm          100%
+166           100% C2H6       2.1 mm          20%
+167           100% C2H6       2.1 mm          40%
+168           100% C2H6       2.1 mm          60%
+169           100% C2H6       2.1 mm          80%
+170           100% C2H6       2.1 mm          100%
+171           100% C2H6       3.2 mm          20%
+172           100% C2H6       3.2 mm          40%
+173           100% C2H6       3.2 mm          60%
+174           100% C2H6       3.2 mm          80%
+175           100% C2H6       3.2 mm          40%
+
+
+7.0    Success Criteria
+       For meeting the criteria below, different fuel/inert mixtures are considered to be different
+       fuels.
+       7.1 Minimum Success – Still images are acquired for at least 15 different lifted flames
+           (i.e., with different combinations of fuel flow and air velocity) with a single fuel, or at
+           least 10 different lifted flames each of two fuels, or at least 5 different lifted flames
+           each of 3 or more fuels.
+       7.2 High Success – Still images are acquired of at least 30 different lifted flames total
+           from at least 3 different fuels. The still images are acquired with a blackbody
+           characterized camera for soot pyrometry or liftoff limits are determined for at least
+           one fuel.
+       7.3 Complete Success – Testing conducted with all 12 fuel bottles, with identification of
+           stability limits and smoke points (within the range of the SPICE velocity limits). Still
+           images are taken of lifted flames with a blackbody characterized camera.
+
+
+
+
+                                             12
+SLICE SRD                                                                                                   2010-04-02
+
+8.0     Nomenclature
+ACME         Advanced Combustion via Microgravity Experiments
+                       http://spaceflightsystems.grc.nasa.gov/Advanced/ISSResearch/Investigations/ACME/
+BG-7          a specific Blue-Green (BG) colored glass filter
+                     e.g., see: www.optical-filters.com/bg7.html
+o
+C             Celsius
+CH4           methane
+C2H4          ethylene
+C2H6          ethane
+C3H8          propane
+CLD Flame     Coflow Laminar Diffusion Flames, which is one of the 4 ACME experiments
+Columbus      European-provided ISS module in which the MSG is located
+                       www.nasa.gov/mission_pages/station/structure/Columbus_module.html
+CSA-CP        Compound Specific Analyzer – Combustion Products
+D100          Nikon digital SLR camera (part of SPICE hardware already on orbit)
+              http://imaging.nikon.com/products/imaging/technology/archives/digitalcamera/slr/2002/d100/index.htm
+D300s        Nikon digital SLR camera
+                       http://imaging.nikon.com/products/imaging/lineup/digitalcamera/slr/d300s/index.htm
+ISS          International Space Station
+                     www.nasa.gov/mission_pages/station/main/index.html
+MCA          Major Constituent Analyzer
+mm           millimeter
+MSG          Microgravity Science Glovebox
+                     http://msglovebox.msfc.nasa.gov/
+N2           nitrogen
+NCSER        National Center for Space Exploration Research
+                     http://spaceflightsystems.grc.nasa.gov/NCSER/
+Nikon        camera manufacturer
+                     www.nikon.com
+pyrometry    technique for determining temperature from blackbody radiation (e.g., from soot)
+SAMS         Space Acceleration Measurement System
+                       http://spaceflightsystems.grc.nasa.gov/Advanced/ISSResearch/Acceleration/SAMS/
+SiCO         ceramic consisting of oxidized Silicon Carbide
+SLICE        Structure & Liftoff In Combustion Experiment
+                       http://spaceflightsystems.grc.nasa.gov/Advanced/ISSResearch/MSG/SLICE/
+SPICE        Smoke Point In Coflow Experiment
+                       http://spaceflightsystems.grc.nasa.gov/Advanced/ISSResearch/MSG/SPICE/
+
+
+
+
+9.0     Appendix: SPICE SRD
+Given that SLICE will be conducted in the SPICE hardware, the SRD for that investigation is
+provided on the following pages for reference.
+
+
+
+
+                                                    13
+SLICE SRD                              2010-04-02
+
+
+
+
+            Science Requirements for
+
+   Smoke Point In Coflow Experiment
+
+                   “SPICE”
+    (Laminar Smoke Point Properties of
+  Nonbuoyant Round-Jet Diffusion Flames)
+
+
+
+
+                     May 9, 2007
+
+
+
+
+                      14
+SLICE SRD                                               2010-04-02
+
+                         Approvals
+
+
+
+
+Dr. David Urban                                  Date
+NASA Glenn Research Center
+Glovebox Investigator
+
+
+
+
+Professor Peter Sunderland                       Date
+University of Maryland
+Co-Investigator
+
+
+
+
+Dr. Zeng-Guang Yuan                              Date
+National Center for Space Exploration Research
+Project Scientist
+
+
+
+
+Robert Hawersaat                                 Date
+NASA Glenn Research Center
+Glovebox Program Manager
+
+
+
+
+                                     15
+SLICE SRD                                                                            2010-04-02
+
+
+Background
+
+        Soot formation in hydrocarbon-fueled flames is an important unresolved problem
+of combustion science that affects the durability and performance of power and
+propulsion systems, the hazards of unwanted fires, the pollutant emissions of
+combustors and the potential for developing computational combustion. The
+differences between soot processes in buoyant and nonbuoyant laminar jet diffusion
+flames can be seen by comparing their soot production regions as plotted in Fig. 1.
+Soot formation in diffusion flames generally is limited to fuel-equivalence ratios, φ, in the
+range 1-2, which are marked on the plots. Unlike gases, which both convect and
+diffuse, soot mainly convects with the flow velocity so that it moves along the
+streamline. For buoyant flames, the dividing streamline generally is inside the soot
+formation region so that most of the soot initially forms near the flame sheet, where φ,
+=1, and then moves radially inward toward cooler regions having higher fuel
+concentrations. The soot formation process for nonbuoyant flames is completely
+different: most of the soot initially forms near the cool core of the flame, where φ is close
+to 2, and is drawn directly toward the flame sheet. Recent results from the Laminar
+Soot Processes (LSP) investigation revealed that the smoke height phenomenon in
+microgravity can be substantially different form that seen in normal gravity. The
+removal of buoyancy induced acceleration can cause the smoke point phenomenon to
+be dominated by radiative heat losses for conditions of low overall flame velocity.
+Under these conditions the flame tip extinguishes allowing soot to be emitted. In spite
+of this effect, it is still possible to have flames that either emit soot along all stream lines
+or do not emit soot anywhere, for conditions where radiation losses do not dominate.
+
+
+
+
+Figure 1: Soot path lines through buoyant and non-buoyant flames
+
+                                           16
+SLICE SRD                                                                          2010-04-02
+
+
+
+
+Objectives
+The objective of the proposed experiments is to find the laminar smoke-point properties
+of nonbuoyant jet diffusion flames (i.e., the properties of the largest laminar jet diffusion
+flames that do not emit soot) for several fuels under different nozzle diameter/ co-flow
+velocity configurations. Luminous flame shape measurements would also be made to
+verify models of the flame shapes under co-flow conditions.
+
+The information of smoke-point properties and flame shapes is needed to improve our
+understanding of heat transfer mechanisms for different flame conditions. Unfortunately,
+while the laminar smoke-point properties of buoyant jet diffusion flames at normal
+gravity are well known, corresponding information for nonbuoyant flames is limited and
+questionable. Thus the results of this experiment will provide insights of soot generation
+and oxidation process under microgravity conditions, which are critical to devise better
+fire safety strategy in spacecraft needed for long term space travel and other space
+exploration activities,
+
+In addition, this information would help support current understanding of soot processes
+in laminar flames and by analogy in turbulent flames of practical interest.
+
+
+Science Requirements
+
+General requirements:
+     Configuration: Round gas jet diffusion flame in a co-flowing oxidizer stream
+     Pressure: Shuttle ambient pressure
+     Ignition: Hot wire
+     Fuel Flow Range: 0 to 500 SCCM N2 equivalent flow
+     Oxidizer Velocity: 5 to 50 cm/s
+     Nozzle Diameter: (0.4, 0.8, 1.6 mm)
+     Flame Length: 5 to 100 mm
+
+Parameters to be measured: (Accuracy +/- 10% of reading, 4 Hz)
+     Fuel Mass Flow: 25 to 500 SCCM
+     Co-flow Fan Voltage: 0.5 to 12 V
+     Co-flow Velocity: 5 to 50 cm/s
+     Flame Radiation: wavelength visible to near infra-red
+
+Imaging Requirements:
+      Video record of flame: color (FOV: 10 mm of the nozzle to the end of the duct)
+      High resolution color images of flame: 2-3 per test (FOV: 10 mm of the nozzle to
+      the end of the duct; resolution: 3000 by 2000 pixels or greater, 8 bits/pixel in 3
+      colors or greater). Images stored in raw (uncompressed) mode.
+
+
+                                          17
+SLICE SRD                                                                         2010-04-02
+
+Operation requirements:
+      Crew sets the co-flow based upon the test matrix and ignites the flame. Once
+      ignited the fuel flow is adjusted until the smoke height is found. High resolution
+      digital flame images are taken above and below the smoke height. The total
+      crew time is estimated to be 20 to 25 hours.
+
+    Downlink:
+        Real time video downlink is required for the first few tests and highly desired for
+        subsequent tests. But, it is acceptable for the crew to perform several tests
+        without downlink as long as the video is downlinked before the next series of
+        tests. Video downlink will include fuel flow rate, radiometer readings, and co-flow
+        rate.
+
+Glovebox and Mission Resources:
+      Experiment Power Converter Box, video monitor, late stowage (L-48 hours).
+
+Test Matrix
+
+       Test          Fuel     Air Coflow rate         Fuel Flow Rate     Burner Diameter
+       Point        (1 - 6)   (% Max Coflow             (% Laminar          (mm I.D.)
+                                  Velocity)            Smoke Point)
+      1             1               50%                    100%                 0.4
+      2             1               50%                    50%                  0.4
+      3             1              100%                    100%                 0.4
+      4             1               50%                    100%                 0.8
+      5             1               50%                    50%                  0.8
+      6             1              100%                    100%                 0.8
+      7             1               50%                    100%                 1.6
+      8             1               50%                    50%                  1.6
+      9             1              100%                    100%                 1.6
+   10 ~14*          1           50% - 100%             50% - 100%          0.4, 0.8, 1.6
+* Test Points 10 - 14 represent flame tests that will be repeated. They are not pre-
+determined.
+
+•     Fuels 1 - 6: methane, propane, ethylene, mixture of 50% propylene and 50%
+      nitrogen, mixture of 75% propylene and 25% nitrogen, and pure propylene.
+•     The test matrix above is representative of a single fuel.
+•     There are nine (9) specified test points plus 5 selected repeat tests per fuel.
+•     Thus the SPICE test matrix will include 54 predetermined flames plus 30 “repeat”
+      flames.
+
+
+
+
+                                           18
+SLICE SRD                                                                      2010-04-02
+
+Success Criteria
+
+•   Minimal Success: 27 flames which are nine specified test points for each of three
+    fuels.
+
+•   Complete Success: 84 flames which are nine specified points plus five “repeat”
+    flames for each of the six fuels, methane, propane, ethylene, mixture of 50%
+    propylene and 50% nitrogen, mixture of 75% propylene and 25% nitrogen, and pure
+    propylene.
+
+
+
+
+                                        19
+

@@ -1,0 +1,167 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20060003630,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "8884e10267c14a2faf818f921d829d66",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Ground Support Systems And Facilities (Space)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20060003630,
+  "ear": "NO",
+  "id": "014aed5ee7524572807a71667bcc083f",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA/TM-2005-213973",
+  "E-15291",
+  "IAC-05-A2.5.04",
+  "Report Number: NASA/TM-2005-213973",
+  "Report Number: E-15291",
+  "Report Number: IAC-05-A2.5.04"
+ ],
+ "title": "The Fluids and Combustion Facility: Enabling the Exploration of Space",
+ "stiType": "TECHNICAL_MEMORANDUM",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T10:52:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20060003630,
+   "meta": {
+    "author": {
+     "name": "Weiland, Karen J."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "29cc9ddd811844848f3e7a23e98c2dfb"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20060003630,
+   "meta": {
+    "author": {
+     "name": "Gati, Frank G."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "deceafa33fff4a478b6c4352fb837c23"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20060003630,
+   "meta": {
+    "author": {
+     "name": "Hill, Myron E."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e4245b70a05f467a85d48132cd776448"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20060003630,
+   "meta": {
+    "author": {
+     "name": "O'Malley Terence F."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "bb89763425ee49e69cc73f18629125d7"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20060003630,
+   "meta": {
+    "author": {
+     "name": "Zurawski, Robert L."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "b73cab4347694441bb2f743e882829a5"
+  }
+ ],
+ "stiTypeDetails": "Technical Memorandum (TM)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20060003630,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T10:52:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Fluids and Combustion Facility (FCF) is an International Space Station facility designed to support physical and biological research as well as technology experiments in space. The FCF consists of two racks called the Combustion Integrated Rack (CIR) and the Fluids Integrated Rack (FIR). The capabilities of the CIR and the FIR and plans for their utilization will support the President's vision for space exploration. The CIR will accommodate physical research and technology experiments that address needs in the areas of spacecraft fire prevention, detection and suppression, incineration of solid wastes, and power generation. Initial experiments will provide data to support design decisions for exploration spacecraft. The CIR provides a large sealed chamber in a near-weightless environment. The chamber supports many simulated atmospheres including lunar or Martian environments. The FIR will accommodate experiments that address needs for advanced life support, power, propulsion, and spacecraft thermal control systems. The FIR can also serve as a platform for experiments that address human health and performance, medical technologies, and biological sciences. The FIR provides a large volume for payload hardware, reconfigurable diagnostics, customizable software, active rack-level vibration isolation, and data acquisition and management in a nearly uniform temperature environment.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "Japan",
+   "submissionId": 20060003630,
+   "endDate": "2005-10-21T00:00:00.0000000+00:00",
+   "name": "56th International Astronautical Congress",
+   "location": "Fukuoka",
+   "id": "929d092278844883b01c77dc96784209",
+   "startDate": "2005-10-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20060003630,
+   "id": "21a4a885894a4a0ea2fde1461947ce9e",
+   "publicationDate": "2005-12-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20060003630.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20060003630/downloads/20060003630.pdf",
+    "pdf": "/api/citations/20060003630/downloads/20060003630.pdf",
+    "fulltext": "/api/citations/20060003630/downloads/20060003630.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

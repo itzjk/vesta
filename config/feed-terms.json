@@ -1,0 +1,15 @@
+{
+  "schema": "vesta.feed-terms/1",
+  "note": "Search phrases sent to the NTRS citations API by tools/ntrs-feed.mjs. Double quotes pin a phrase; several words narrow the result.",
+  "endpoint": "https://ntrs.nasa.gov/api/citations/search",
+  "sort": { "field": "created", "order": "desc" },
+  "page_size": 10,
+  "keep": 20,
+  "pause_ms": 1500,
+  "terms": [
+    "\"spacecraft fire safety\"",
+    "\"microgravity combustion\"",
+    "\"material flammability\" microgravity",
+    "\"smoke detection\" spacecraft"
+  ]
+}

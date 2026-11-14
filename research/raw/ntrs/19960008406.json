@@ -1,0 +1,141 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19960008406,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "dce736ec5f604d67885e91bbf2e75ddb",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Materials Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19960008406,
+  "ear": "NO",
+  "id": "cd440d7d9b5a4819b64b792fddf6fee1",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-29T00:00:00.0000000+00:00",
+ "title": "Effect of pressure on a burning solid in low-gravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T23:35:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19960008406,
+   "meta": {
+    "author": {
+     "name": "Goldmeer, Jeffrey S."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH., United States"
+    }
+   },
+   "id": "2f1b92c5c1954b958d349ee51c00731e"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19960008406,
+   "meta": {
+    "author": {
+     "name": "Urban, David"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "2c37530f6f674b5d90047d71f9d2d053"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19960008406,
+   "meta": {
+    "author": {
+     "name": "Tien, James"
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH., United States"
+    }
+   },
+   "id": "ee14bc3ae16b4c238afd08a1a2ee664d"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19960008406,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "96N15572"
+ },
+ "created": "2013-09-06T23:35:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Venting, or depressurization, has been discussed as a possible technique for extinguishing fires on aircraft and spacecraft. Fire suppression plans for the International Space Station Alpha (ISSA) discuss the use of depressurization as a method for extinguishing fires. In the case of an uncontrollable fire, the affected compartment would be vented from an initial pressure of 1.0 atm (14.7 psia) to a final pressure 0.33 atm (4.8 psia) within 10 minutes. However, the lack of low pressure flammability data for solid materials in a low-gravity environment presents an uncertainty for the use of the venting technique. There are also transient effects that need to be considered. It is possible that the flows induced by the venting could intensify the fire. This occurred during flammability tests conducted on board Skylab. In addition, the extinction pressure could be a function of the depressurization rate. Studies conducted with solid propellants have shown that if the pressure is reduced quickly enough, the pressure at extinction will be greater than the steady-state extinction limit. This project, which was started in 1992, is examining both the quasi steady-state and transient effects of pressure reduction on a burning solid in low-gravity. This research will provide low-g extinguishment data upon which policies and practices can be formulated for fire safety in orbiting spacecraft.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19960008406,
+   "id": "9a2953761aca46cd9eb16ad0d9aebe6b",
+   "publicationName": "The 3rd International Microgravity Combustion Workshop",
+   "publicationDate": "1995-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19960008386,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The 3rd International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19960008386,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The 3rd International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "accessionNumber": "N96-15553 through N96-15622",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19960008406.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19960008406/downloads/19960008406.pdf",
+    "pdf": "/api/citations/19960008406/downloads/19960008406.pdf",
+    "fulltext": "/api/citations/19960008406/downloads/19960008406.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

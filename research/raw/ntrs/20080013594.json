@@ -1,0 +1,149 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20080013594,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "0a63d63dd43e4e02af7304a412e2a573",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20080013594,
+  "ear": "NO",
+  "id": "24ac6db2ff6f4088aacd4989e2d3e58f",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "title": "An Overview of the Microgravity Science Glovebox (MSG) Facility, and the Gravity-Dependent Phenomena Research Performed in the MSG on the International Space Station (ISS)",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T05:13:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20080013594,
+   "meta": {
+    "author": {
+     "name": "Spivey, Reggie A."
+    },
+    "organization": {
+     "name": "Tec-Masters, Inc.",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "b7137eea6f3240019535b761bb84e53e"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20080013594,
+   "meta": {
+    "author": {
+     "name": "Sheredy, William A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "370c43a6c38c4a048fbd69e28e52ba63"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20080013594,
+   "meta": {
+    "author": {
+     "name": "Flores, Ginger"
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "66e38e00ca664e1e8a4384ca6a794c22"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20080013594,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T05:13:00.0000000+00:00",
+ "center": {
+  "code": "MSFC",
+  "name": "Marshall Space Flight Center",
+  "id": "a589fc1e68af409f9d2214bb08863d11"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Microgravity Science Glovebox (MSG) is a double rack facility aboard the International Space Station (ISS) designed for gravity-dependent phenomena investigation handling. The MSG has been operating in the ISS US Laboratory Module since July 2002. The MSG facility provides an enclosed working area for investigation manipulation and observation, The MSG's unique design provides two levels of containment to protect the ISS crew from hazardous operations. Research investigations operating inside the MSG are provided a large 255 liter work volume, 1000 watts of dc power via a versatile supply interface (120, 28, +/-12, and 5 Vdc), 1000 watts of cooling capability, video and data recording and real time downlink, ground commanding capabilities, access to ISS Vacuum Exhaust and Vacuum Resource Systems, and gaseous nitrogen supply. With these capabilities, the MSG is an ideal platform for research required to advance the technology readiness levels (TRL) needed for the Crew Exploration Vehicle and the Exploration Initiative. Areas of research that will benefit from investigations in the MSG include thermal management, fluid physics, spacecraft fire safety, materials science, combustion, reaction control systems, in situ fabrication and repair, and advanced life support technologies. This paper will provide a detailed explanation of the MSG facility, a synopsis of the research that has already been accomplished in the MSG and an overview of investigations planning to operate in the MSG. In addition, this paper will address possible changes to the MSG utilization process that will be brought about by the transition to ISS as a National Laboratory.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20080013594,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Washington, DC, United States",
+   "id": "175c4a7b9985436eb66fc51d39e0a17f"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20080013594,
+   "endDate": "2008-01-10T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Washington, DC, United States"
+      }
+     },
+     "meetingId": "a05b0878bb394032922119cf53249bb7",
+     "id": "270d4d7669944074b49f3ab8dd79b7a0"
+    }
+   ],
+   "name": "46th AIAA Aerospace Sciences Meeting",
+   "location": "Reno, NV",
+   "id": "a05b0878bb394032922119cf53249bb7",
+   "startDate": "2008-01-07T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20080013594,
+   "id": "437f325612e64ce4a6122b8a037783ff",
+   "publicationDate": "2008-01-07T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20080013594.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20080013594/downloads/20080013594.pdf",
+    "pdf": "/api/citations/20080013594/downloads/20080013594.pdf",
+    "fulltext": "/api/citations/20080013594/downloads/20080013594.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

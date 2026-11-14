@@ -1,0 +1,277 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20220009546,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "fa5beee0e07f49ce9943b40625d4cdf5",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Aerospace Medicine"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20220009546,
+  "ear": "NO",
+  "id": "c73d6c3ddf6541619b905191ae645985",
+  "itar": "NO"
+ },
+ "distributionDate": "2022-09-22T05:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "10449.2.03.02.31.1831",
+   "submissionId": 20220009546,
+   "id": "66d8d3930c004e3abad89fd6e27b3ba5",
+   "type": "WBS"
+  }
+ ],
+ "title": "Results of a 3-day Pilot Study to Validate Planetary Prebreathe Protocols Using a 56.5 kPa 34% O2, 66% N2 Saturation Cabin Atmosphere ",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2022-06-20T17:44:45.6492070+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "00a2a0542f9451ffac4b0aa2053787b3",
+   "sequence": 0,
+   "submissionId": 20220009546,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Alejandro Garbino"
+    },
+    "organization": {
+     "name": "Wyle (United States)",
+     "location": "El Segundo, California, United States"
+    }
+   },
+   "id": "ac9ef65829184eefb61a479aeb3c7024",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "925e5bdacd5f45cf937f12fd344cef37"
+  },
+  {
+   "organizationId": "00a2a0542f9451ffac4b0aa2053787b3",
+   "sequence": 1,
+   "submissionId": 20220009546,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "E Lichar Dillon"
+    },
+    "organization": {
+     "name": "Wyle (United States)",
+     "location": "El Segundo, California, United States"
+    }
+   },
+   "id": "ba1472b06f5648bba15e03bc5b199f1f",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "94b3a3048f4b4598891944abe5e0d86d"
+  },
+  {
+   "organizationId": "3a940b0bfec05d248fc6372a10e69788",
+   "sequence": 2,
+   "submissionId": 20220009546,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Patrick Estep"
+    },
+    "organization": {
+     "name": "GeoControl Systems (United States)",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "cb6c5c032dd84003bf7ed8cc010c83a6",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "c532ec4104e84d55a16b9412fd895c0e"
+  },
+  {
+   "organizationId": "00a2a0542f9451ffac4b0aa2053787b3",
+   "sequence": 3,
+   "submissionId": 20220009546,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Monica Hew"
+    },
+    "organization": {
+     "name": "Wyle (United States)",
+     "location": "El Segundo, California, United States"
+    }
+   },
+   "id": "55ab1025204545dcb6189eb6ed214aab",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "8b2d6e220fd044a78c0e469b7121a131"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 4,
+   "submissionId": 20220009546,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Karina Marshall-Bowman"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "94b01613f0eb4f6b9bb11501ef8ece72",
+   "userType": "CIVIL",
+   "userId": "d306465b9b514ffa9c16d9c39c336ad2"
+  },
+  {
+   "organizationId": "00a2a0542f9451ffac4b0aa2053787b3",
+   "sequence": 5,
+   "submissionId": 20220009546,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Jason Norcross"
+    },
+    "organization": {
+     "name": "Wyle (United States)",
+     "location": "El Segundo, California, United States"
+    }
+   },
+   "id": "e99658c8965b4509a36c3558735c5fe1",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "3345addf91054a269a5d9c15495aff5c"
+  },
+  {
+   "organizationId": "00a2a0542f9451ffac4b0aa2053787b3",
+   "sequence": 6,
+   "submissionId": 20220009546,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Kadambari Suri"
+    },
+    "organization": {
+     "name": "Wyle (United States)",
+     "location": "El Segundo, California, United States"
+    }
+   },
+   "id": "a4748a432a8a4050bd2c99d0a1d48a85",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "0d50e3ee11d54b85b60426f6fbe939a3"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 7,
+   "submissionId": 20220009546,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Andrew F J Abercromby"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "6329473a88eb4649beb02021d82cc9de",
+   "userType": "CIVIL",
+   "userId": "9a0d72d47391496da296b70bf62e4726"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20220009546,
+ "created": "2022-06-20T17:32:55.4721710+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "INTRODUCTION:\nApollo missions used 100% O2 cabin atmospheres which effectively eliminated the risk of decompression sickness (DCS) during extravehicular activities (EVAs, ‘spacewalks’); however, this atmosphere presented a flammability risk that is no longer acceptable to NASA. Denitrogenation prebreathe protocols used to mitigate DCS risk for Space Shuttle and International Space Station EVAs are validated for the microgravity environment, but the significantly increased risk of DCS during equivalent ambulatory surface EVAs make these protocols inapplicable to planetary/Lunar missions. An “exploration atmosphere” of 56.5 kPa (8.2 psia), 34% O2, 66% N2 has been recommended by NASA for future Moon and Mars missions as a compromise that balances subsequent pre-EVA prebreathe duration, hypoxia, and flammability risk, assuming a 29.6 kPa (4.3 psi) spacesuit.  Prebreathe validation studies was initiated utilizing a three-story 6m diameter hypobaric chamber at NASA’s Johnson Space Center. Here, we report the results of a 3-day human-in-the-loop system checkout. \n\nMETHODS:\nSix volunteers acclimated to the 56.6kPa/34% O2 66% N2 environment for 48hrs prior to conducting a 20-minute prebreathe and a 6-hour simulated EVA at 34kPa/85% O2 / 15% N2.  The EVA simulation was designed to include tasks that are physically and ergonomically representative of future planetary EVAs.  Decompression stress was evaluated by serial doppler and echocardiographs, as well as by clinical features of DCS signs/symptoms. \n\nRESULTS AND DISCUSSION:\nPreliminary data analysis noted venous gas emboli (VGE) in 3 of 6 subjects, with peak Grade II VGE by Doppler and peak E-B score of 5 by cardiac ultrasonography. No volunteers were diagnosed with DCS during this initial test. No acute hypoxic symptoms were noted. Musculoskeletal and gastrointestinal complaints were noted, likely associated with the exercise load and the food system. Validation of exploration prebreathe protocols has since been initiated with an 11-day saturation test using the same facility and protocol. \n",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20220009546,
+  "id": "acf87fb839c146efa447b50912b31a84"
+ },
+ "meetings": [
+  {
+   "country": "FR",
+   "submissionId": 20220009546,
+   "endDate": "2022-09-24T05:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "d0b811ba64ca502c8ec8636b127d210e",
+     "meta": {
+      "organization": {
+       "name": "Aerospace Medical Association",
+       "location": "Alexandria, Virginia, United States"
+      }
+     },
+     "meetingId": "5b4a533442d04e38a5d3989b442c6022",
+     "id": "77810509087944f3a15c08576075f3b9"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "European Society of Aerospace Medicine (ESAM)"
+      }
+     },
+     "meetingId": "5b4a533442d04e38a5d3989b442c6022",
+     "id": "6d1c5685c85445e8a74eef79c752db58"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "International Academy of Aviation and Space Medicine (IAASM)"
+      }
+     },
+     "meetingId": "5b4a533442d04e38a5d3989b442c6022",
+     "id": "4c8093a1cea741b48da4ade89a2d0677"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "French Society of Aviation and Space Medicine (SOFRAMAS)"
+      }
+     },
+     "meetingId": "5b4a533442d04e38a5d3989b442c6022",
+     "id": "4a35183a29b34799905827982877ae92"
+    }
+   ],
+   "name": "2022  International Conference in Aerospace Medicine (ICAM)",
+   "location": "Paris",
+   "id": "5b4a533442d04e38a5d3989b442c6022",
+   "url": "https://www.icam2022.com/",
+   "startDate": "2022-09-22T05:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+   "name": "ICAM_ExAtm_3day_abstract_final.docx",
+   "type": "ABSTRACT",
+   "links": {
+    "original": "/api/citations/20220009546/downloads/ICAM_ExAtm_3day_abstract_final.docx",
+    "pdf": "/api/citations/20220009546/downloads/ICAM_ExAtm_3day_abstract_final.docx.pdf",
+    "fulltext": "/api/citations/20220009546/downloads/ICAM_ExAtm_3day_abstract_final.docx.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

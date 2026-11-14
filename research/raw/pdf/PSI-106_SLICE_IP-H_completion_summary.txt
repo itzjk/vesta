@@ -1,0 +1,39 @@
+                Structure & Liftoff In Combustion Experiment (SLICE)
+                Research Review Board – Completed Milestone
+Task Objective:                                                                                                                Project: ISS Research
+     Improve our understanding of the physical and chemical processes controlling non-premixed flame structure and stabilization.
+     Provide for rigorous testing of numerical models including thermal radiation, soot formation, and detailed chemical kinetics.
+     Refine the upcoming ACME experiment Coflow Laminar Diffusion Flame (CLD Flame) to minimize risk and maximize science.
+     Extend the Smoke Point In Coflow Experiment (SPICE) with additional conditions (e.g., fuel) and data.
+
+Schedule:                                                                                 Attached
+                                                                                               100%
+Milestone            Due Date      Comments
+                                                                                           methane
+Launched             2/24/2011     Aboard STS-133 ULF-5                                    flame on
+                                                                                          a 1.6-mm
+Installation         1/20/2012     Hardware set up in MSG revealing anomaly                   burner
+Anomaly recovery     2/06/2012     Video overlay reset                                          tube.
+
+Testing start        2/09/2012
+Testing end          3/23/2012     Hardware next reconfigured for BASS
+
+
+Results:
+• Completely consumed all 12 fuel bottles in 13 sessions (days) of testing.
+• Approx. 120 ignitions, with ~4,000 high-resolution photos of ~700 flame conditions.
+• Soot temperature and volume fraction determined via novel camera-based pyrometry.
+• Liftoff, blowoff, and blowout limits determined; smoke points determined.
+• SLICE Work-In-Progress poster at the 2012 international combustion symposium.
+                                                                                                        Color image, soot temperature, soot volume fraction.
+
+      Lifting
+        20%                                                                                   SLICE PI: Prof. Marshall Long, Yale University
+      C2H4                                                                                    SLICE Co-I: Prof. Mitchell Smooke, Yale University
+      flame                                                                                   SLICE Co-I: Dr. Fumiaki Takahashi, NCSER
+        on a                                                                                  SLICE Co-I: Mr. Dennis Stocker, NASA GRC
+    0.8-mm                                                                                    SPICE PI: Dr. David Urban, NASA GRC
+     burner                                                                                   SPICE Co-I: Prof. Peter Sunderland, U. Maryland
+        tube                                                                                  PM: Robert Hawersaat, NASA, GRC
+                                                                                              Engineering Team: ZIN Technologies, Inc.
+

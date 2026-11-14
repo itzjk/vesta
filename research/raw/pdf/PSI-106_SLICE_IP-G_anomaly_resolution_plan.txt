@@ -1,0 +1,36 @@
+National Aeronautics and Space Administration
+
+
+
+
+       SLICE FORWARD PLAN: Jan. 26
+   •     Problem
+           –    The video overlay of data (e.g., flow conditions) is not working properly, where the titler is
+                now in its HEX trouble-shooting mode putting out scrolling hexadecimal characters.
+           –    While tests could still be conducted, this would be a MAJOR science loss and would include
+                reliance on a partial calibration conducted at the end of SPICE ops in 2009 because the fan
+                calibration planned for every session can not be carried out without the data
+   •     Hardware Recovery
+           –    A procedure has been developed and tested on the ground for full hardware recovery, i.e., to
+                return the titler to its normal mode with the proper video overlay of the SPICE hardware data.
+           –    The one-time procedure requires:
+                  • recharging the titler batteries which are now strongly believed to be present
+                  • opening the SPICE video unit (2 non-captive fasteners)
+                  • scraping conformal coating off of 5 exposed pins on the titler circuit board
+                  • making a series of temporary jumper connections between pairs of those pins to change
+                     the titler mode from HEX to NOR(mal) while the SPICE hardware is powered, where:
+                       – the crew can see titler setup menu via the video overlay
+                       – the video unit is at 12 volts, so there is no hazard of electrical shock
+                  • turning the hardware off (once) and back on, where SPICE’s onboard computer will then
+                     reset all other titler settings
+           –    In contrast to our discussion on Tuesday, the procedure does not involve battery removal.
+           –    Needed tools are available on orbit (e.g., in the ISS Pin Kit and CRE-1 tool kit)
+           –    Procedure development is in progress, where a draft is available
+                                                                                                       www.nasa.gov   1
+National Aeronautics and Space Administration
+
+
+
+
+                                                www.nasa.gov
+

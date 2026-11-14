@@ -1,0 +1,53 @@
+https://www.nasa.gov/news-release/nasa-glenn-successfully-ignites-largest-fire-experiment-in-space/
+TITLE: NASA Glenn Successfully Ignites Largest Fire Experiment in Space - NASA
+FETCHED: 2026-11-14T10:54:39
+
+3 min read
+
+# NASA Glenn Successfully Ignites Largest Fire Experiment in Space
+
+NASA
+
+Jun 15, 2016
+
+RELEASE16-021
+
+Engineers at NASA’s Glenn Research Center in Cleveland, Ohio and Orbital ATK in Dulles, Virginia successfully conducted the first remote Spacecraft Fire Experiment, or Saffire I, carried inside an Orbital ATK Cygnus cargo vehicle that departed the International Space Station on Tuesday, June 14. The experiment’s purpose is to learn how a fire might behave in a spacecraft after leaving Earth’s atmosphere. Understanding how fire spreads in a microgravity environment is critical to the safety of astronauts who live and work in space as NASA prepares for long duration missions on the journey to Mars.
+
+The Orbital ATK Cygnus cargo craft is released from the International Space Station in this June 14, 2016, photograph taken by European Space Agency astronaut Tim Peake. Credits: ESA/NASA
+
+“The first of our planned three Saffire experiments operated as designed which is a great credit to all the people at NASA who played a role in its development,” said Gary A. Ruff, NASA’s Spacecraft Fire Safety Demonstration Project manager. “The success of this experiment opens the door to future large combustion experiments in the microgravity environment and directly supports the development of technologies and materials that will make deep space exploration spacecraft safer.”
+
+Launched to the space station in an Orbital ATK Cygnus resupply cargo vehicle on March 22, Saffire remained in Cygnus for 81 days as supplies were offloaded by the station’s crew. After the supplies were offloaded and replaced with space station trash, Cygnus departed. Cygnus was then maneuvered a safe distance from the space station before the experiment began.
+
+The Saffire experiment took place in a 3-foot by 3-foot by 5-foot tall module equipped to characterize and document the burning of a sample material approximately 16 inches wide and 37 inches long. Images and data captured from inside the module will be transmitted to Orbital ATK and relayed to Glenn over a period of up to eight days prior to Cygnus’ destructive reentry to Earth. Researchers at Glenn and 10 other U.S. and international government agencies and universities will analyze the data in the coming weeks.
+
+Two subsequent flight experiments consist of Saffire-II, which will assess oxygen flammability limits using samples that are 2 inches wide and 12 inches long; and Saffire-III, which will assess a second large-scale microgravity fire. Each module will be flown aboard an Orbital ATK Cygnus cargo vehicle during a resupply mission to the space station.
+
+The Spacecraft Fire Safety Demonstration Project that developed the Saffire flight systems is sponsored by the Advanced Exploration Systems Division in NASA’s Human Exploration and Operations Mission Directorate. The three Saffire units used components manufactured in facilities at Glenn, NASA’s Johnson Space Center in Houston and White Sands Test Facility in Las Cruces, New Mexico. Three additional experiment modules will be designed and built by engineers at Glenn and launched in Orbital ATK cargo vehicles beginning in 2018.
+
+To follow updates from NASA’s Saffire experiment, visit:
+
+https://www.nasa.gov/feature/nasa-ignites-fire-experiment-aboard-space-cargo-ship
+
+For more information about NASA Glenn, visit:
+
+https://www.nasa.gov/glenn
+
+-end-
+
+Frank Jennings, Jr.
+
+NASA Glenn Research Center
+
+216-433-2776
+
+francis.t.jennings@nasa.gov
+
+Jan Wittry
+
+NASA Glenn Research Center
+
+216-433-5466
+
+jan.m.wittry-1@nasa.gov

@@ -1,0 +1,240 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "MAY_INCLUDE_COPYRIGHT_MATERIAL",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20220009086,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "fbe653a91513467c9c38151d03855a4b",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "fire",
+  "microgravity"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20220009086,
+  "ear": "NO",
+  "id": "315d11b4c690425590ff1952cd9f0c18",
+  "itar": "NO"
+ },
+ "distributionDate": "2022-07-14T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2022-219"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "089407.02.05.22",
+   "submissionId": 20220009086,
+   "id": "4725601b808444228aab7f12cb10913a",
+   "type": "WBS"
+  },
+  {
+   "number": "NNX12AN67A",
+   "submissionId": 20220009086,
+   "id": "934bfac5911444ed91819a8d0568d66c",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "submittedDate": "2022-06-08T19:26:22.3252270+00:00",
+ "title": "Opposed-flow Spreading Flames: Effect of Sub-atmospheric Pressure on Spread and Burning Rates",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "authorAffiliations": [
+  {
+   "organizationId": "7354b6f97b02576fb9c66f60d484fa23",
+   "sequence": 0,
+   "submissionId": 20220009086,
+   "meta": {
+    "author": {
+     "name": "Luca Carmignani"
+    },
+    "organization": {
+     "name": "University of California, Berkeley",
+     "location": "Berkeley, California, United States"
+    }
+   },
+   "id": "f46bfa59877245e4805e5208a3b895bd",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "7354b6f97b02576fb9c66f60d484fa23",
+   "sequence": 1,
+   "submissionId": 20220009086,
+   "meta": {
+    "author": {
+     "name": "Priya Garg"
+    },
+    "organization": {
+     "name": "University of California, Berkeley",
+     "location": "Berkeley, California, United States"
+    }
+   },
+   "id": "6742d039ce314a079a3af59ba5441cba",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "7354b6f97b02576fb9c66f60d484fa23",
+   "sequence": 2,
+   "submissionId": 20220009086,
+   "meta": {
+    "author": {
+     "name": "Michael J Gollner"
+    },
+    "organization": {
+     "name": "University of California, Berkeley",
+     "location": "Berkeley, California, United States"
+    }
+   },
+   "id": "4ab3925638bd4276ab3c529aeae42cb4",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "7354b6f97b02576fb9c66f60d484fa23",
+   "sequence": 3,
+   "submissionId": 20220009086,
+   "meta": {
+    "author": {
+     "name": "Carlos Fernandez-Pello"
+    },
+    "organization": {
+     "name": "University of California, Berkeley",
+     "location": "Berkeley, California, United States"
+    }
+   },
+   "id": "99221e3714a8496e84d19bb9eb13e102",
+   "userType": "OTHER"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20220009086,
+   "meta": {
+    "author": {
+     "name": "Maria Thomsen"
+    },
+    "organization": {
+     "name": "Universidad Adolfo Ibáñez, Santiago, Chile"
+    }
+   },
+   "id": "c0e6e6b6af214f08a9e7b9e919ccddc0",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 5,
+   "submissionId": 20220009086,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "David L Urban"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "d8e9cc768bca41bdae896ec4977d7d64",
+   "userType": "CIVIL",
+   "userId": "e6ad9f3a70a94fc1a0a4a56bb211746a"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 6,
+   "submissionId": 20220009086,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Gary A Ruff"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "c6c2436bba0d4c9797dabc4d118694cb",
+   "userType": "CIVIL",
+   "userId": "f5daba98616b4f9faeb0dc31767c1f15"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "NASA_TECHNICAL_MANAGEMENT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20220009086,
+ "created": "2022-06-08T19:14:44.8141690+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Flame spread over solid fuels is a canonical problem in fire science, due to its direct\nimplications on material flammability and importance in fire development. Flames in a microgravity environment can behave very differently than on Earth, posing additional risks for spaceflight life safety. Sub-atmospheric pressures in ground-based experiments have been proposed to approximately replicate the burning behavior of solid fuels in reduced gravity conditions because of similar effects on heat and mass transfer mechanisms from the flame to the solid. In opposed-flow flame spread, the solid fuel is heated by the flame ahead of its leading edge, and this process is strongly affected by the ambient conditions. In this work, we consider flames spreading over flat thin acrylic samples exposed to a forced flow of 20 cm/s,\nand pressures between 30 and 100 kPa. When radiation losses and chemical kinetic effects are neglected, experimental and theoretical results suggest an independence of the spread rate on pressure. However, the spread rate shows a decreasing trend with lower pressure in the range 30-60 kPa. The mass burning rate, calculated from the samples weight measured before and after the experiments, shows a similar trend. The flame length, on the other hand, shows a non-monotonic behavior, reaching a maximum at 60 kPa. Additionally, gas emissions measured during the experiments are used to estimate the heat release rate of the spreading flames. The comparison of the heat release rate obtained from the measured emissions and\nthe estimated mass burning rates, suggests that chemical kinetics is not driving the decrease in flame spread observed at low pressures, whereas radiation losses could be responsible in analogy to what has been observed in micro and partial gravity studies. These results could provide more information to guide future Earth-based material flammability testing for spacecraft applications.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20220009086,
+  "id": "bdc0256235414b6e8312355561cfe994"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20220009086,
+   "endDate": "2022-07-14T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "ICES"
+      }
+     },
+     "meetingId": "10eda23c3fd34892b02058660f0ceb6c",
+     "id": "9c28f8c2293f4852a09502692e583789"
+    }
+   ],
+   "name": "51st International Conference on Environmental Systems",
+   "location": "St. Paul, MN",
+   "id": "10eda23c3fd34892b02058660f0ceb6c",
+   "url": "https://www.ices.space/",
+   "startDate": "2022-07-10T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "publications": [
+  {
+   "submissionId": 20220009086,
+   "publisher": "",
+   "id": "0b61417e9dbc47f9b0c886e90fa7dca8",
+   "publicationName": ""
+  }
+ ],
+ "redistributedDate": "2022-07-08T16:52:32.5209440",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "ICES-2022-219.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20220009086/downloads/ICES-2022-219.pdf",
+    "pdf": "/api/citations/20220009086/downloads/ICES-2022-219.pdf",
+    "fulltext": "/api/citations/20220009086/downloads/ICES-2022-219.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

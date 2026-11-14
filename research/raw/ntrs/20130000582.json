@@ -1,0 +1,131 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20130000582,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "0a008f9cca604b478b2528d5fb24d081",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Mechanical Engineering"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20130000582,
+  "ear": "NO",
+  "id": "1ad84ca24df54358becb3320fc780b2e",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "E-18436",
+  "GRC-E-DAA-TN6013",
+  "Report Number: E-18436",
+  "Report Number: GRC-E-DAA-TN6013"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 904211.01.02.20.01",
+   "submissionId": 20130000582,
+   "id": "ab133419bfe8423b98abc3f5575bc51f",
+   "type": "WBS"
+  }
+ ],
+ "title": "Combustion, Complex Fluids, and Fluid Physics Experiments on the ISS",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-27T10:36:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20130000582,
+   "meta": {
+    "author": {
+     "name": "Motil, Brian"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "3ed9d5645eb74a4484aab84b4841b871"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20130000582,
+   "meta": {
+    "author": {
+     "name": "Urban, David"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "3158d575d7724305952f137798298d09"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20130000582,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-27T10:36:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "From the very first days of human spaceflight, NASA has been conducting experiments in space to understand the effect of weightlessness on physical and chemically reacting systems. NASA Glenn Research Center (GRC) in Cleveland, Ohio has been at the forefront of this research looking at both fundamental studies in microgravity as well as experiments targeted at reducing the risks to long duration human missions to the moon, Mars, and beyond. In the current International Space Station (ISS) era, we now have an orbiting laboratory that provides the highly desired condition of long-duration microgravity. This allows continuous and interactive research similar to Earth-based laboratories. Because of these capabilities, the ISS is an indispensible laboratory for low gravity research. NASA GRC has been actively involved in developing and operating facilities and experiments on the ISS since the beginning of a permanent human presence on November 2, 2000. As the lead Center both Combustion, Fluid Physics, and Acceleration Measurement GRC has led the successful implementation of an Acceleration Measurement systems, the Combustion Integrated Rack (CIR), the Fluids Integrated Rack (FIR) as well as the continued use of other facilities on the ISS. These facilities have supported combustion experiments in fundamental droplet combustion fire detection fire extinguishment soot phenomena flame liftoff and stability and material flammability. The fluids experiments have studied capillary flow magneto-rheological fluids colloidal systems extensional rheology pool and nucleate boiling phenomena. In this paper, we provide an overview of the experiments conducted on the ISS over the past 12 years. We also provide a look to the future development. Experiments presented in combustion include areas such as droplet combustion, gaseous diffusion flames, solid fuels, premixed flame studies, fire safety, and super critical oxidation processes. In fluid physics, experiments are discussed in multiphase flows, capillary phenomena, and heat pipes. Finally in complex fluids, experiments in rheology and soft condensed materials will be presented.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "Italy",
+   "submissionId": 20130000582,
+   "endDate": "2012-10-05T00:00:00.0000000+00:00",
+   "name": "63rd International Astronautical Congress",
+   "location": "Naples",
+   "id": "078c6162816e4bba9fa25e2c90021952",
+   "startDate": "2012-10-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20130000582,
+   "id": "d42c826f8fb74ada9e5d2db3b7359093",
+   "publicationDate": "2012-10-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20130000582.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20130000582/downloads/20130000582.pdf",
+    "pdf": "/api/citations/20130000582/downloads/20130000582.pdf",
+    "fulltext": "/api/citations/20130000582/downloads/20130000582.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

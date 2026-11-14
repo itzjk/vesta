@@ -1,0 +1,620 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "MAY_INCLUDE_COPYRIGHT_MATERIAL",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20210022403,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "ef9df10382694ada9d2ad02da74018b7",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support",
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20210022403,
+  "ear": "NO",
+  "id": "f46c8da30146416493bb945fc1b69c6e",
+  "itar": "NO"
+ },
+ "distributionDate": "2021-12-23T05:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "089407.01.22",
+   "submissionId": 20210022403,
+   "id": "b630f13eb6e1440bad1ab64644f19918",
+   "type": "WBS"
+  },
+  {
+   "number": "80GRC020D0003",
+   "submissionId": 20210022403,
+   "id": "312c0a9d905e438787eddcd7d828e587",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Topical: Challenges and Research Needs for Micro- and Partial-Gravity Fires",
+ "stiType": "WHITE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2021-10-05T18:13:23.7110980+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 0,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Ya-Ting Liao"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "85ae37b0db35458ebe14ee47a0ac097a",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "7354b6f97b02576fb9c66f60d484fa23",
+   "sequence": 1,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Luca Carmignani"
+    },
+    "organization": {
+     "name": "University of California, Berkeley",
+     "location": "Berkeley, California, United States"
+    }
+   },
+   "id": "1a5c5c132d2c49e9bb15ccaaf4a7d74f",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 2,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Justin Niehaus"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "289c86295ffb44a9af320b8f18f4459c",
+   "userType": "CIVIL",
+   "userId": "873b729bd4544ad3a2d05c274bcad04b"
+  },
+  {
+   "organizationId": "7354b6f97b02576fb9c66f60d484fa23",
+   "sequence": 3,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Michael Gollner"
+    },
+    "organization": {
+     "name": "University of California, Berkeley",
+     "location": "Berkeley, California, United States"
+    }
+   },
+   "id": "89d521971b704bb0a1fd110b2b75779e",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "94a7336689165249bdcde23e916d8497",
+   "sequence": 4,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Erica Belmont"
+    },
+    "organization": {
+     "name": "University of Wyoming",
+     "location": "Laramie, Wyoming, United States"
+    }
+   },
+   "id": "2fe3e5a563d746ad83c5e8d4515d5fe3",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "1e1c68b592ce5edd91bc8937f114814c",
+   "sequence": 5,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Subrata Bhattacharjee"
+    },
+    "organization": {
+     "name": "San Diego State University",
+     "location": "San Diego, California, United States"
+    }
+   },
+   "id": "9abf286765764dd8a8a9639c3df905d4",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "f51ca6a1a5ea5f639f71baf098260f27",
+   "sequence": 6,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "John de Ris"
+    },
+    "organization": {
+     "name": "FM Global (United States)",
+     "location": "Johnston, Rhode Island, United States"
+    }
+   },
+   "id": "c687dd0e563f47ec8031243c233271d3",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 7,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Daniel Dietrich"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "d3c7db37e03e41a592aaf4d84b6892e8",
+   "userType": "CIVIL",
+   "userId": "addb6443628246ef86b6e9dabd8e81dd"
+  },
+  {
+   "organizationId": "48dbd3822f4c53b68a4e432a4eaceef7",
+   "sequence": 8,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Christian Eigenbrod"
+    },
+    "organization": {
+     "name": "Universum Bremen",
+     "location": "Bremen, Germany"
+    }
+   },
+   "id": "7dffbad1ab21401da3c02468ff7a291d",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 9,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Makoto Endo"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "f5834b40d75446de91a9f5c4898b3f14",
+   "userType": "CIVIL",
+   "userId": "c579276c204848e4b9755b5afdd5ac0c"
+  },
+  {
+   "organizationId": "7354b6f97b02576fb9c66f60d484fa23",
+   "sequence": 10,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Carlos Fernandez-Pello"
+    },
+    "organization": {
+     "name": "University of California, Berkeley",
+     "location": "Berkeley, California, United States"
+    }
+   },
+   "id": "6e44df19d8d4469b8bda89025cccd394",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 11,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Claire Fortenberry"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, Maryland, United States"
+    }
+   },
+   "id": "bd7931a163004d03829c500ae1886ae0",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "b9cd289657ad4b388c09d1692901b134"
+  },
+  {
+   "organizationId": "99f17d32428759cc91bdde54cb45e233",
+   "sequence": 12,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Augustin Guibaud"
+    },
+    "organization": {
+     "name": "University College London",
+     "location": "London, United Kingdom"
+    }
+   },
+   "id": "eece0e2f4bbb4e0c9a72e199d9ac8b70",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 13,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Michael Johnston"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, Maryland, United States"
+    }
+   },
+   "id": "6ae82400a64a47e6b19e80f9b62225ea",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "995f4be0e19649eca742e40fb9d52045"
+  },
+  {
+   "organizationId": "3853e3f89a4359c4b1613f7fc889324a",
+   "sequence": 14,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Grunde Jomaas"
+    },
+    "organization": {
+     "name": "Slovenian National Building and Civil Engineering Institute",
+     "location": "Ljubljana, Slovenia"
+    }
+   },
+   "id": "b97c23126a414e3db775b4c440a9bc02",
+   "userType": "OTHER"
+  },
+  {
+   "sequence": 15,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Amanda Kimball"
+    },
+    "organization": {
+     "name": "Fire Protection Research Foundation"
+    }
+   },
+   "id": "591275fc0beb4ab1a9fac295a0d610e8",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "fa9d28b6ad0251e3bc48f7bc5b872d99",
+   "sequence": 16,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Sara McAllister"
+    },
+    "organization": {
+     "name": "US Forest Service",
+     "location": "Washington D.C., District of Columbia, United States"
+    }
+   },
+   "id": "b5e4dd9894744c7987869036073f29f2",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "76f4d0b314df5d3aa1a0d25bb30887ad",
+   "sequence": 17,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Randall McDermott"
+    },
+    "organization": {
+     "name": "National Institute of Standards and Technology",
+     "location": "Gaithersburg, Maryland, United States"
+    }
+   },
+   "id": "7b46f854e5134fe9848e79b6bd37008b",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "1e1c68b592ce5edd91bc8937f114814c",
+   "sequence": 18,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Fletcher Miller"
+    },
+    "organization": {
+     "name": "San Diego State University",
+     "location": "San Diego, California, United States"
+    }
+   },
+   "id": "09f57991206944848f633eb5fea82140",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 19,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Vedha Nayagam"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "3b1a52b8ccbd4fbfac39748c9fc7897c",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "1aac2709535f4da2818ba42f938b6d90"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 20,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Sandra Olson"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "c8f20ec9178141829940544233d72f48",
+   "userType": "CIVIL",
+   "userId": "7568d81a24d042dd99c5f823ca00cf6b"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 21,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Rosa Padilla"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, Maryland, United States"
+    }
+   },
+   "id": "2cf753b962844bd3bd303d04ea27a91f",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "1dcf79df71a44fcd8a2e05b7152da454"
+  },
+  {
+   "organizationId": "eeed7f9426495806b2a33dc2a92800f5",
+   "sequence": 22,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "James Quintiere"
+    },
+    "organization": {
+     "name": "University of Maryland, College Park",
+     "location": "College Park, Maryland, United States"
+    }
+   },
+   "id": "29a6f142be134f98b827a2eab488b355",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "debd298751865f0ca1b16f721abdd433",
+   "sequence": 23,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Guillermo Rein"
+    },
+    "organization": {
+     "name": "Imperial College London",
+     "location": "London, Westminster, United Kingdom"
+    }
+   },
+   "id": "6bdc94524d2a40ed99c034f2c3d0d9a8",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "2e21be8eca415f71b317153fa1736c09",
+   "sequence": 24,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Paul Ronney"
+    },
+    "organization": {
+     "name": "University of Southern California",
+     "location": "Los Angeles, California, United States"
+    }
+   },
+   "id": "fcf4d29f27a344c68afdcd5f17df4e47",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "a9ed0fafde5557249f50a7175789e07d",
+   "sequence": 25,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Sarah Scott"
+    },
+    "organization": {
+     "name": "Sandia National Laboratories",
+     "location": "Albuquerque, New Mexico, United States"
+    }
+   },
+   "id": "9806a94e89944d049025ec760144c58c",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "bf2d0b390d0c5362a9c4ac707220e0d6",
+   "sequence": 26,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Albert Simeoni"
+    },
+    "organization": {
+     "name": "Worcester Polytechnic Institute",
+     "location": "Worcester, Massachusetts, United States"
+    }
+   },
+   "id": "1d9f59438ebe4dba843ab9833f12bd89",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "186ca58a4e2852ffb81b3c00d40d2267",
+   "sequence": 27,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Ali Tohidi"
+    },
+    "organization": {
+     "name": "San Jose State University",
+     "location": "San Jose, California, United States"
+    }
+   },
+   "id": "421071d311d3424cb878594f7e9c2849",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "bf2d0b390d0c5362a9c4ac707220e0d6",
+   "sequence": 28,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "James Urban"
+    },
+    "organization": {
+     "name": "Worcester Polytechnic Institute",
+     "location": "Worcester, Massachusetts, United States"
+    }
+   },
+   "id": "9e59fbd65b9345f2943bb2232b152bae",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "7b4f52f7b59b5bd9bc5bd29bc7343ed2",
+   "sequence": 29,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Indrek S. Wichman"
+    },
+    "organization": {
+     "name": "Michigan State University",
+     "location": "East Lansing, Michigan, United States"
+    }
+   },
+   "id": "96ce0d504619433193693df53a366842",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "1aa7ccf98bdb5f79aefa0b9ac86836ac",
+   "sequence": 30,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Forman Williams"
+    },
+    "organization": {
+     "name": "University of California, San Diego",
+     "location": "San Diego, California, United States"
+    }
+   },
+   "id": "97f96427fb234b099bfc6bc8f10121e3",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "76f4d0b314df5d3aa1a0d25bb30887ad",
+   "sequence": 31,
+   "submissionId": 20210022403,
+   "meta": {
+    "author": {
+     "name": "Jiann Yang"
+    },
+    "organization": {
+     "name": "National Institute of Standards and Technology",
+     "location": "Gaithersburg, Maryland, United States"
+    }
+   },
+   "id": "b593b21e15de41369c9567118aa452cd",
+   "userType": "OTHER"
+  }
+ ],
+ "stiTypeDetails": "White Paper",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20210022403,
+ "created": "2021-10-05T18:09:54.7669140+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Spacecraft fire safety has always been an essential component for any successful space mission. The importance increases exponentially for longer duration missions, such as the upcoming Artemis missions to the Moon and the “next giant leap” to Mars. If fire occurs in the spacecraft, terrestrial help for recovery may not be possible. Crew members have limited options to suppress and escape the fires and the associated vitiated atmosphere. The partial gravity conditions after landing on the Moon or Mars, as well as the high oxygen concentration proposed for the Lunar habitat, bring in additional challenges for spacecraft fire safety. To ensure safety and mission success, there is an urgent need to advance the knowledge of fire behavior in micro and partial gravity. This will also improve the understanding of how buoyancy flow plays a role in fire behavior, leading to a more complete theory of fire dynamics for Earth applications.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20210022403,
+  "id": "1434c2c6817f4679b3d89844d8cf8c46"
+ },
+ "publications": [
+  {
+   "submissionId": 20210022403,
+   "id": "d026c6bae1f947f8bf395b850b3acdac",
+   "publicationDate": "2021-10-31T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "60-_LiaoYaTingT.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20210022403/downloads/60-_LiaoYaTingT.pdf",
+    "pdf": "/api/citations/20210022403/downloads/60-_LiaoYaTingT.pdf",
+    "fulltext": "/api/citations/20210022403/downloads/60-_LiaoYaTingT.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

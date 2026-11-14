@@ -1,0 +1,165 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20140006580,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "5925ac8ec2e3420a973d90e00371310b",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "keywords": [
+  "combustion",
+  "fire suppression",
+  "fire (spacecraft)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20140006580,
+  "ear": "NO",
+  "id": "3fdca84b9786441cba0ed0d23ba5ed29",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN8424",
+  "Report Number: GRC-E-DAA-TN8424"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 067463.04.04.03",
+   "submissionId": 20140006580,
+   "id": "09ed1d8165d140098184d43c95a831a8",
+   "type": "WBS"
+  }
+ ],
+ "title": "Determination of Realistic Fire Scenarios in Spacecraft",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2014-06-03T11:16:29.8000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20140006580,
+   "meta": {
+    "author": {
+     "name": "Dietrich, Daniel L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "5c5ec83b9c7c4241b557a726dbe489cf"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20140006580,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "995cdf3cc9e8446eb399447b0401b470"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20140006580,
+   "meta": {
+    "author": {
+     "name": "Urban, David"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "4f939c977ee2495a9b1c8052830b3619"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20140006580,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2014-06-03T11:16:29.8000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "This paper expands on previous work that examined how large a fire a crew member could successfully survive and extinguish in the confines of a spacecraft. The hazards to the crew and equipment during an accidental fire include excessive pressure rise resulting in a catastrophic rupture of the vehicle skin, excessive temperatures that burn or incapacitate the crew (due to hyperthermia), carbon dioxide build-up or accumulation of other combustion products (e.g. carbon monoxide). The previous work introduced a simplified model that treated the fire primarily as a source of heat and combustion products and sink for oxygen prescribed (input to the model) based on terrestrial standards. The model further treated the spacecraft as a closed system with no capability to vent to the vacuum of space. The model in the present work extends this analysis to more realistically treat the pressure relief system(s) of the spacecraft, include more combustion products (e.g. HF) in the analysis and attempt to predict the fire spread and limiting fire size (based on knowledge of terrestrial fires and the known characteristics of microgravity fires) rather than prescribe them in the analysis. Including the characteristics of vehicle pressure relief systems has a dramatic mitigating effect by eliminating vehicle overpressure for all but very large fires and reducing average gas-phase temperatures.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20140006580,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "e5e592876ff047f5a8ae29312433be07"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20140006580,
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "5b72155f54314379bb27c89e3248dcf8",
+     "id": "1656110606f34abeac6835c3c3d79bb0"
+    }
+   ],
+   "name": "International Conference on Environmental Systems",
+   "location": "Vail, Colorado",
+   "id": "5b72155f54314379bb27c89e3248dcf8",
+   "startDate": "2013-03-18T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20140006580,
+   "id": "e8e55bc273e445229ac82502838a5121",
+   "publicationDate": "2013-03-18T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20140006580.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20140006580/downloads/20140006580.pdf",
+    "pdf": "/api/citations/20140006580/downloads/20140006580.pdf",
+    "fulltext": "/api/citations/20140006580/downloads/20140006580.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

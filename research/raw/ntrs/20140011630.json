@@ -1,0 +1,146 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20140011630,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "c4e84e58b7d74818b5aabf8b9022e390",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20140011630,
+  "ear": "NO",
+  "id": "67c00c4b5d6d442db91bcd593caac37e",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "M13-2964",
+  "Report Number: M13-2964"
+ ],
+ "title": "An Overview of the Microgravity Science Glovebox (MSG) Facility and the Research Performed in the MSG on the International Space Station (ISS)",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2014-09-12T09:49:27.1270000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20140011630,
+   "meta": {
+    "author": {
+     "name": "Jordan, Lee P."
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "3e7f387236744e059bf1ff01766acc24"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20140011630,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2014-09-12T09:49:27.1270000+00:00",
+ "center": {
+  "code": "MSFC",
+  "name": "Marshall Space Flight Center",
+  "id": "a589fc1e68af409f9d2214bb08863d11"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The Microgravity Science Glovebox (MSG) is a rack facility aboard the International Space Station (ISS) designed for investigation handling. The MSG was built by the European Space Agency (ESA) which also provides sustaining engineering support for the facility. The MSG has been operating on the ISS since July 2002 and is currently located in the US Laboratory Module. The unique design of the facility allows it to accommodate science and technology investigations in a \"workbench\" type environment. The facility has an enclosed working volume that is held at a negative pressure with respect to the crew living area. This allows the facility to provide two levels of containment for small parts, particulates, fluids, and gases. This containment approach protects the crew from possible hazardous operations that take place inside the MSG work volume. Research investigations operating inside the MSG are provided a large 255 liter enclosed work space, 1000 watts of dc power via a versatile supply interface (120, 28, +/- 12, and 5 Vdc), 1000 watts of cooling capability, video and data recording and real time downlink, ground commanding capabilities, access to ISS Vacuum Exhaust and Vacuum Resource Systems, and gaseous nitrogen supply. These capabilities make the MSG one of the most utilized facilities on ISS. The MSG has been used for over 14500 hours of scientific payload operations. MSG investigations involve research in cryogenic fluid management, fluid physics, spacecraft fire safety, materials science, combustion, plant growth, and life support technology. The MSG facility is operated by the Payloads Operations Integration Center at Marshall Space flight Center. Payloads may also operate remotely from different telescience centers located in the United States and Europe. The investigative Payload Integration Manager (iPIM) is the focal to assist organizations that have payloads operating in the MSG facility. NASA provides an MSG engineering unit for payload developers to verify that their hardware is operating properly before actual operation on the ISS. This paper will provide an overview of the MSG facility, a synopsis of the research that has already been accomplished in the MSG, and an overview of video and biological upgrades. ",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20140011630,
+   "name": "American Society for Gravitational and Space Research",
+   "location": "Bristow, VA, United States",
+   "id": "d440c4a6d09b49d697a83cfdd46fe68b"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20140011630,
+   "endDate": "2013-11-08T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Society for Gravitational and Space Research",
+       "location": "Bristow, VA, United States"
+      }
+     },
+     "meetingId": "3e490663c6b54eaaba1f566ca8f5325b",
+     "id": "2582cd465b5c4a068b983e52122b34b8"
+    }
+   ],
+   "name": "International Symposium for Physical Sciences in Space",
+   "location": "Orlando, FL",
+   "id": "3e490663c6b54eaaba1f566ca8f5325b",
+   "startDate": "2013-11-03T00:00:00.0000000+00:00"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20140011630,
+   "endDate": "2013-11-08T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Society for Gravitational and Space Research",
+       "location": "Bristow, VA, United States"
+      }
+     },
+     "meetingId": "9fd906e02c05499cb8c49897b38feeae",
+     "id": "2907382872834274a8a53257ecb96284"
+    }
+   ],
+   "name": "American Sociey for Gravitation and Space Research",
+   "location": "Orlando, FL",
+   "id": "9fd906e02c05499cb8c49897b38feeae",
+   "startDate": "2013-11-03T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20140011630,
+   "id": "2acb5e8323684824a1ee0d5241153b77",
+   "publicationDate": "2013-11-03T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20140011630.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20140011630/downloads/20140011630.pdf",
+    "pdf": "/api/citations/20140011630/downloads/20140011630.pdf",
+    "fulltext": "/api/citations/20140011630/downloads/20140011630.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

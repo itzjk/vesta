@@ -1,0 +1,350 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150000894,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "cab60ccdd85c42349c9ae9cdbff7e673",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Design, Testing And Performance",
+  "Space Transportation And Safety"
+ ],
+ "keywords": [
+  "Combustion",
+  "Fire Safety",
+  "Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150000894,
+  "ear": "NO",
+  "id": "ab548c658e04431a970a2c00b53ccc85",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN17050",
+  "Report Number: GRC-E-DAA-TN17050"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 067463.01.01.03",
+   "submissionId": 20150000894,
+   "id": "4f3bb80a9f1f40a8b101cc31db37d52c",
+   "type": "WBS"
+  },
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20150000894,
+   "id": "f82b5029ac594db48b19ee6c654b7919",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Large-Scale Spacecraft Fire Safety Tests",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-01-30T13:39:35.9400000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Urban, David"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "c98b98671c224429bdb8958ce1cacf60"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "2236ffbc67774601a6adbcae7272edd3"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul V."
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "b2d05669dead49db84d4c3100999f0fd"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "3bfcb0150f3548cf9c8f16bfd4f3ecef"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Fernandez-Pello, A. Carlos"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "7454d5c7d8584e389279f5a20461af01"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "T'ien, James S."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e908c4a18a1c46479be5a4f3bb31dc9a"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Torero, Jose L."
+    },
+    "organization": {
+     "name": "Queensland Univ.",
+     "location": "Brisbane, Australia"
+    }
+   },
+   "id": "d6f2878142924b55b6d16b5d9f837f7b"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Cowlard, Adam J."
+    },
+    "organization": {
+     "name": "Edinburgh Univ.",
+     "location": "United Kingdom"
+    }
+   },
+   "id": "36c0d3370e4e41e79203be01207ce1e6"
+  },
+  {
+   "sequence": 8,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Rouvreau, Sebastien"
+    },
+    "organization": {
+     "name": "Belisama Research and Development",
+     "location": "Toulouse, France"
+    }
+   },
+   "id": "dcf330a1bd0e4a7e9b4c654944b1f9a9"
+  },
+  {
+   "sequence": 9,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Minster, Olivier"
+    },
+    "organization": {
+     "name": "European Space Agency. European Space Research and Technology Center, ESTEC",
+     "location": "Noordwijk, Netherlands"
+    }
+   },
+   "id": "44d2c975471541a792b5803cbf632a63"
+  },
+  {
+   "sequence": 10,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Toth, Balazs"
+    },
+    "organization": {
+     "name": "European Space Agency. European Space Research and Technology Center, ESTEC",
+     "location": "Noordwijk, Netherlands"
+    }
+   },
+   "id": "f3b0e1f88a9241c7b60e51e0a83bd0a3"
+  },
+  {
+   "sequence": 11,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Legros, Guillaume"
+    },
+    "organization": {
+     "name": "Paris VI Univ.",
+     "location": "France"
+    }
+   },
+   "id": "147bb753f72d4f9180c2005c0e79cd15"
+  },
+  {
+   "sequence": 12,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Eigenbrod, Christian"
+    },
+    "organization": {
+     "name": "Bremen Univ.",
+     "location": "Germany"
+    }
+   },
+   "id": "3bed843ce258437c919e3654237e2abc"
+  },
+  {
+   "sequence": 13,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Smirnov, Nickolay"
+    },
+    "organization": {
+     "name": "Lomonosov Moscow State Univ.",
+     "location": "Moscow, Russian Federation"
+    }
+   },
+   "id": "15151c2d2d0c43a3a48d57faddd4121a"
+  },
+  {
+   "sequence": 14,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Fujita, Osamu"
+    },
+    "organization": {
+     "name": "Hokkaido Univ.",
+     "location": "Sapporo, Japan"
+    }
+   },
+   "id": "c64a7c9e971e4671a097a2fb88316baf"
+  },
+  {
+   "sequence": 15,
+   "submissionId": 20150000894,
+   "meta": {
+    "author": {
+     "name": "Jomaas, Grunde"
+    },
+    "organization": {
+     "name": "Technical Univ. of Denmark",
+     "location": "Lyngby, Denmark"
+    }
+   },
+   "id": "598b91d681d74c11b430fef060ca7702"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150000894,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-01-30T13:39:35.9400000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "An international collaborative program is underway to address open issues in spacecraft fire safety. Because of limited access to long-term low-gravity conditions and the small volume generally allotted for these experiments, there have been relatively few experiments that directly study spacecraft fire safety under low-gravity conditions. Furthermore, none of these experiments have studied sample sizes and environment conditions typical of those expected in a spacecraft fire. The major constraint has been the size of the sample, with prior experiments limited to samples of the order of 10 cm in length and width or smaller. This lack of experimental data forces spacecraft designers to base their designs and safety precautions on 1-g understanding of flame spread, fire detection, and suppression. However, low-gravity combustion research has demonstrated substantial differences in flame behavior in low-gravity. This, combined with the differences caused by the confined spacecraft environment, necessitates practical scale spacecraft fire safety research to mitigate risks for future space missions. To address this issue, a large-scale spacecraft fire experiment is under development by NASA and an international team of investigators. This poster presents the objectives, status, and concept of this collaborative international project (Saffire). The project plan is to conduct fire safety experiments on three sequential flights of an unmanned ISS re-supply spacecraft (the Orbital Cygnus vehicle) after they have completed their delivery of cargo to the ISS and have begun their return journeys to earth. On two flights (Saffire-1 and Saffire-3), the experiment will consist of a flame spread test involving a meter-scale sample ignited in the pressurized volume of the spacecraft and allowed to burn to completion while measurements are made. On one of the flights (Saffire-2), 9 smaller (5 x 30 cm) samples will be tested to evaluate NASAs material flammability screening tests. The first flight (Saffire-1) is scheduled for July 2015 with the other two following at six-month intervals. A computer modeling effort will complement the experimental effort. Although the experiment will need to meet rigorous safety requirements to ensure the carrier vehicle does not sustain damage, the absence of a crew removes the need for strict containment of combustion products. This will facilitate the first examination of fire behavior on a scale that is relevant to spacecraft fire safety and will provide unique data for fire model validation.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20150000894,
+   "endDate": "2014-08-08T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "9b8b9dce88b647adb0010a8c9fab369e",
+     "meta": {
+      "organization": {
+       "name": "Combustion Inst.",
+       "location": "Pittsburgh, PA, United States"
+      }
+     },
+     "meetingId": "da23ea19c0924577b8a344c8505267ca",
+     "id": "c121be34155e415aaf626e2c8d6f5635"
+    }
+   ],
+   "name": "International Symposium on Combustion",
+   "location": "San Francisco, CA",
+   "id": "da23ea19c0924577b8a344c8505267ca",
+   "startDate": "2014-08-03T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20150000894,
+   "id": "afcb351f3fa64456897224969e846927",
+   "publicationDate": "2014-08-03T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150000894.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150000894/downloads/20150000894.pdf",
+    "pdf": "/api/citations/20150000894/downloads/20150000894.pdf",
+    "fulltext": "/api/citations/20150000894/downloads/20150000894.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

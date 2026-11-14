@@ -1,0 +1,138 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20070031687,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "7b9c7e8d8f3244d8bfb928f3f6728183",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Aircraft Design, Testing And Performance"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20070031687,
+  "ear": "NO",
+  "id": "1d7e0ab66f444015a9dac8671dd5e5ab",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "WBS 732759.03.01.02.21",
+   "submissionId": 20070031687,
+   "id": "eb3824eab7474561b17968872323d559",
+   "type": "WBS"
+  }
+ ],
+ "title": "Gravity-Dependent Combustion and Fluids Research - From Drop Towers to Aircraft to the ISS",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-23T23:51:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20070031687,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "cbf76561e67a44e29e349cb3d4d20707"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20070031687,
+   "meta": {
+    "author": {
+     "name": "Singh, Bhim S."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "348f45ca951e4a3d98cb39d09a0026ec"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20070031687,
+   "meta": {
+    "author": {
+     "name": "Kohl, Fred J."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "cce5410a7f2f496199b79321db29dee7"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20070031687,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-23T23:51:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Driven by the need for knowledge related to the low-gravity environment behavior of fluids in liquid fuels management, thermal control systems and fire safety for spacecraft, NASA embarked on a decades long research program to understand, accommodate and utilize the relevant phenomena. Beginning in the 1950s, and continuing through to today, drop towers and aircraft were used to conduct an ever broadening and increasingly sophisticated suite of experiments designed to elucidate the underlying gravity-dependent physics that drive these processes. But the drop towers and aircraft afford only short time periods of continuous low gravity. Some of the earliest rocket test flights and manned space missions hosted longer duration experiments. The relatively longer duration low-g times available on the space shuttle during the 1980s and 1990s enabled many specialized experiments that provided unique data for a wide range of science and engineering disciplines. Indeed, a number of STS-based Spacelab missions were dedicated solely to basic and applied microgravity research in the biological, life and physical sciences. Between 1980 and 2000, NASA implemented a vigorous Microgravity Science Program wherein combustion science and fluid physics were major components. The current era of space stations from the MIR to the International Space Station have opened up a broad range of opportunities and facilities that are now available to support both applied research for technologies that will help to enable the future exploration missions and for a continuation of the non-exploration basic research that began over fifty years ago. The ISS-based facilities of particular value to the fluid physics and combustion/fire safety communities are the Fluids and Combustion Facility Combustion Integrated Rack and the Fluids Integrated Rack.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20070031687,
+   "name": "International Space Development Conference",
+   "location": "Dallas, TX",
+   "id": "eb134169716849e386a72714a3809d0d",
+   "startDate": "2007-05-24T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20070031687,
+   "id": "62a67939ba0944d585cc13b61cb2042d",
+   "publicationDate": "2007-05-25T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20070031687.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20070031687/downloads/20070031687.pdf",
+    "pdf": "/api/citations/20070031687/downloads/20070031687.pdf",
+    "fulltext": "/api/citations/20070031687/downloads/20070031687.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

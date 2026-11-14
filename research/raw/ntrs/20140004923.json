@@ -1,0 +1,203 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20140004923,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "2cf41d2840464b4eb645758f46967f16",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "flame spread",
+  "microgravity",
+  "polymethyl methacrylate"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20140004923,
+  "ear": "NO",
+  "id": "200e3c62f1a24f629504aff02d9948bd",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "Paper 070FR-0418",
+  "GRC-E-DAA-TN8438",
+  "Report Number: Paper 070FR-0418",
+  "Report Number: GRC-E-DAA-TN8438"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 904211.04.02.30.19",
+   "submissionId": 20140004923,
+   "id": "8804113495f048c4a112dd2f8675a006",
+   "type": "WBS"
+  },
+  {
+   "number": "NNX10AD96A",
+   "submissionId": 20140004923,
+   "id": "145dff6c8af04e4ca1e049357e995095",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NNX10AD97A",
+   "submissionId": 20140004923,
+   "id": "98ac8f50f4874a6eb82fd1c14467739c",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Opposed-Flow Flame Spread in a Narrow Channel Apparatus over Thin PMMA Sheets",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2014-05-06T09:56:21.5900000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20140004923,
+   "meta": {
+    "author": {
+     "name": "Bornand, G. R."
+    },
+    "organization": {
+     "name": "San Diego State Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "00149ed9f7ba46bdb52813fca7374c65"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20140004923,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "5328a38aecf8478dbf8924daacf2871d"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20140004923,
+   "meta": {
+    "author": {
+     "name": "Miller, F. J."
+    },
+    "organization": {
+     "name": "San Diego State Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "a9c44194cc894c319cf75c74cf8b8064"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20140004923,
+   "meta": {
+    "author": {
+     "name": "Pepper, J. M."
+    },
+    "organization": {
+     "name": "San Diego State Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "a630f661bb9f464d9aa1dec25dfa2e3e"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20140004923,
+   "meta": {
+    "author": {
+     "name": "Wichman, I. S."
+    },
+    "organization": {
+     "name": "Michigan State Univ.",
+     "location": "East Lansing, MI, United States"
+    }
+   },
+   "id": "af4b48a954d94b04adf1383dbd4d9a35"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20140004923,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2014-05-06T09:56:21.5900000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Flame spread tests have been conducted over polymethylmethacrylate (PMMA) samples in San Diego State University's Narrow Channel Apparatus (SDSU NCA). The Narrow Channel Apparatus (NCA) has the ability to suppress buoyant flow in horizontally spreading flames, and is currently being investigated as a possible replacement or complement to NASA's current material flammability test standard for non-metallic solids, NASA-STD-(I)-6001B Test 1. The buoyant suppression achieved with a NCA allows for tests to be conducted in a simulated microgravity atmosphere-a characteristic that Test 1 lacks since flames present in Test 1 are buoyantly driven. The SDSU NCA allows for flame spread tests to be conducted with varying opposed flow oxidizer velocities, oxygen percent by volume, and total pressure. Also, since the test sample is placed symmetrically between two confining plates so that there is a gap above and below the sample, this gap can be adjusted. This gap height adjustment allows for a compromise between heat loss from the flame to the confining boundaries and buoyancy suppression achieved by those boundaries. This article explores the effect gap height has on the flame spread rate for 75 μm thick PMMA at 1 atm pressure and 21% oxygen concentration by volume in the SDSU NCA. Flame spread results from the SDSU NCA for thin cellulose fuels have previously been compared to results from tests in actual microgravity at various test conditions with the same sample materials and were found to be in good agreement. This article also presents results from the SDSU NCA for PMMA at 1 atm pressure, opposed oxidizer velocity ranging from 3 to 35 cm/s, oxygen concentration by volume at 21%, 30 %, and 50% and fuel thicknesses of 50 and 75 μm. These results are compared to results obtained in actual microgravity for PMMA obtained at the 4.5s drop tower of MGLAB in Gifu, Japan, and the 5.2s drop tower at NASA's Zero-Gravity Research Facility in Cleveland, OH. This comparison confirms that at 1 atm pressure, the SDSU NCA successfully simulates microgravity for not only thin cellulose fuels, but also for thin PMMA sheets as well. This further supports the idea that the NCA is a viable option to complement or replace NASA's Test 1 for material flammability testing. Tests with thick fuels will be conducted in the future to further characterize the SDSU NCA.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20140004923,
+   "endDate": "2013-05-22T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "9b8b9dce88b647adb0010a8c9fab369e",
+     "meta": {
+      "organization": {
+       "name": "Combustion Inst.",
+       "location": "Pittsburgh, PA, United States"
+      }
+     },
+     "meetingId": "d489caf45ec74f4d80447ad4ac0986b5",
+     "id": "8689f7027ed340d08b0180aec2ac8e90"
+    }
+   ],
+   "name": "U. S. National Combustion Meeting",
+   "location": "Vail, CO",
+   "id": "d489caf45ec74f4d80447ad4ac0986b5",
+   "startDate": "2013-05-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20140004923,
+   "id": "c24a28a9340248068f43c8542e18af29",
+   "publicationDate": "2013-05-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20140004923.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20140004923/downloads/20140004923.pdf",
+    "pdf": "/api/citations/20140004923/downloads/20140004923.pdf",
+    "fulltext": "/api/citations/20140004923/downloads/20140004923.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

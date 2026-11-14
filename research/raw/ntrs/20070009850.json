@@ -1,0 +1,112 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20070009850,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "a06fb5a6048546da89e2a0cd745e5fff",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Radiation"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20070009850,
+  "ear": "NO",
+  "id": "5e1ffa10320c4d2a81f77f2c4b0008d9",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-10T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA/TM-2006-214604",
+  "M-1173",
+  "Report Number: NASA/TM-2006-214604",
+  "Report Number: M-1173"
+ ],
+ "title": "The Exploration Atmospheres Working Group's Report on Space Radiation Shielding Materials",
+ "stiType": "TECHNICAL_MEMORANDUM",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T01:15:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20070009850,
+   "meta": {
+    "author": {
+     "name": "Barghouty, A. F."
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "faf23bfd9bbc4e70bbc5bba0962ce5dd"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20070009850,
+   "meta": {
+    "author": {
+     "name": "Thibeault, S. A."
+    },
+    "organization": {
+     "name": "NASA Langley Research Center",
+     "location": "Hampton, VA, United States"
+    }
+   },
+   "id": "7b5568aac506418dae031e3bd543a062"
+  }
+ ],
+ "stiTypeDetails": "Technical Memorandum (TM)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20070009850,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T01:15:00.0000000+00:00",
+ "center": {
+  "code": "MSFC",
+  "name": "Marshall Space Flight Center",
+  "id": "a589fc1e68af409f9d2214bb08863d11"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "This part of Exploration Atmospheres Working Group analyses focuses on the potential use of nonmetallic composites as the interior walls and structural elements exposed to the atmosphere of the spacecraft or habitat. The primary drive to consider nonmetallic, polymer-based composites as an alternative to aluminum structure is due to their superior radiation shielding properties. But as is shown in this analysis, these composites can also be made to combine superior mechanical properties with superior shielding properties. In addition, these composites can be made safe; i.e., with regard to flammability and toxicity, as well as \"smart\"; i.e., embedded with sensors for the continuous monitoring of material health and conditions. The analysis main conclusions are that (1) smart polymer-based composites are an enabling technology for safe and reliable exploration missions, and (2) an adaptive, synergetic systems approach is required to meet the missions requirements from structure, properties, and processes to crew health and protection for exploration missions.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20070009850,
+   "id": "ef8df3da8bb1431489a9df5f6561575b",
+   "publicationDate": "2006-09-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20070009850.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20070009850/downloads/20070009850.pdf",
+    "pdf": "/api/citations/20070009850/downloads/20070009850.pdf",
+    "fulltext": "/api/citations/20070009850/downloads/20070009850.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

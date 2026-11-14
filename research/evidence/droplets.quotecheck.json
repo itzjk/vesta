@@ -1,0 +1,458 @@
+{
+ "summary": {
+  "file": "evidence/droplets.json",
+  "total": 64,
+  "passed": 64,
+  "failed": 0
+ },
+ "rows": [
+  {
+   "id": "DROPLETS-001",
+   "cached": true,
+   "live": true,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-002",
+   "cached": true,
+   "live": true,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-003",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-004",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-005",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-006",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-007",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-008",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-009",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-010",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-011",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-012",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-013",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-014",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-015",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-016",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-017",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-018",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-019",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-020",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-021",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-022",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-023",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-024",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-025",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-026",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-027",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-028",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-029",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-030",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-031",
+   "cached": true,
+   "live": true,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-032",
+   "cached": true,
+   "live": true,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-033",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-034",
+   "cached": true,
+   "live": true,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-035",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-036",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-037",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-038",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-039",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-040",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-041",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-042",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-043",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-044",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-045",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-046",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-047",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-048",
+   "cached": true,
+   "live": true,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-049",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-050",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-051",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-052",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-053",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-054",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-055",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-056",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-057",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-058",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-059",
+   "cached": true,
+   "live": true,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-060",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-061",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-062",
+   "cached": true,
+   "live": true,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-063",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  },
+  {
+   "id": "DROPLETS-064",
+   "cached": true,
+   "live": null,
+   "why": "",
+   "pass": true
+  }
+ ]
+}

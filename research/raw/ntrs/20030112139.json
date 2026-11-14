@@ -1,0 +1,99 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20030112139,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "5a8b4977ee8d4e41a1438e8d43a05c80",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Sciences (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20030112139,
+  "ear": "NO",
+  "id": "6836de44dc6443ae909a429aa0134e4d",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "WBS 22-400-35-80-01",
+   "submissionId": 20030112139,
+   "id": "2ebad636183d4839887d0fa9e21623a1",
+   "type": "WBS"
+  }
+ ],
+ "title": "NASA Microgravity Combustion Science Research Plans for the ISS",
+ "stiType": "PREPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-21T08:22:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20030112139,
+   "meta": {
+    "author": {
+     "name": "Sutliff, Thomas J."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "a76169cddb5242ed9aa396b148208c17"
+  }
+ ],
+ "stiTypeDetails": "Preprint (Draft being sent to journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20030112139,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-21T08:22:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A peer-reviewed research program in Microgravity Combustion Science has been chartered by the Physical Sciences Research Division of the NASA Office of Biological and Physical Research. The scope of these investigations address both fundamental combustion phenomena and applied combustion research topics of interest to NASA. From this pool of research, flight investigations are selected which benefit from access to a microgravity environment. Fundamental research provides insights to develop accurate simulations of complex combustion processes and allows developers to improve the efficiency of combustion devices, to reduce the production of harmful emissions, and to reduce the incidence of accidental uncontrolled combustion (fires, explosions). Through its spacecraft fire safety program, applied research is conducted to decrease risks to humans living and working in space. The Microgravity Combustion Science program implements a structured flight research process utilizing the International Space Station (ISS) and two of its premier facilities- the Combustion Integrated Rack of the Fluids and Combustion Facility and the Microgravity Science Glovebox - to conduct space-based research investigations. This paper reviews the current plans for Microgravity Combustion Science research on the International Space Station from 2003 through 2012.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "Canada",
+   "submissionId": 20030112139,
+   "endDate": "2003-05-08T00:00:00.0000000+00:00",
+   "name": "2nd International Symposium on Physical Sciences in Space/Spacebound 2003",
+   "location": "Toronto, Ontario",
+   "id": "17a64500e480419a90eb01b687bbe3b1",
+   "startDate": "2003-05-04T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20030112139,
+   "id": "4a8f654346c34aafabc4a385827906bb",
+   "publicationDate": "2003-05-04T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

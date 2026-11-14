@@ -1,0 +1,157 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20130003189,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "2e6dc36a5d8c4df086755164b47c621f",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Sciences (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20130003189,
+  "ear": "NO",
+  "id": "77bc66868a0547faaac7c0816832b6f8",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "M12-2291",
+  "Report Number: M12-2291"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NAS8-02060",
+   "submissionId": 20130003189,
+   "id": "4f331f04ab2742c481f12ea76cf22595",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Microgravity Science Glovebox (MSG) Space Science's Past, Present, and Future on the International Space Station (ISS)",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-27T10:33:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20130003189,
+   "meta": {
+    "author": {
+     "name": "Spivey, Reggie A."
+    },
+    "organization": {
+     "name": "Teledyne Brown Engineering",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "d90b6f28229b423a8660b86cea85f067"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20130003189,
+   "meta": {
+    "author": {
+     "name": "Spearing, Scott F."
+    },
+    "organization": {
+     "name": "Geocent",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "e1593b8a18a64d5f92e1dbaabb714970"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20130003189,
+   "meta": {
+    "author": {
+     "name": "Jordan, Lee P."
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "38cf69cd8c3b4304b05e6260e544a0f6"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20130003189,
+   "meta": {
+    "author": {
+     "name": "McDaniel S. Greg"
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "f593722965ad4bf8af198b6d931b87b5"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20130003189,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-27T10:33:00.0000000+00:00",
+ "center": {
+  "code": "MSFC",
+  "name": "Marshall Space Flight Center",
+  "id": "a589fc1e68af409f9d2214bb08863d11"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Microgravity Science Glovebox (MSG) is a double rack facility designed for microgravity investigation handling aboard the International Space Station (ISS). The unique design of the facility allows it to accommodate science and technology investigations in a \"workbench\" type environment. MSG facility provides an enclosed working area for investigation manipulation and observation in the ISS. Provides two levels of containment via physical barrier, negative pressure, and air filtration. The MSG team and facilities provide quick access to space for exploratory and National Lab type investigations to gain an understanding of the role of gravity in the physics associated research areas. The MSG is a very versatile and capable research facility on the ISS. The Microgravity Science Glovebox (MSG) on the International Space Station (ISS) has been used for a large body or research in material science, heat transfer, crystal growth, life sciences, smoke detection, combustion, plant growth, human health, and technology demonstration. MSG is an ideal platform for gravity-dependent phenomena related research. Moreover, the MSG provides engineers and scientists a platform for research in an environment similar to the one that spacecraft and crew members will actually experience during space travel and exploration. The MSG facility is ideally suited to provide quick, relatively inexpensive access to space for National Lab type investigations.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20130003189,
+   "endDate": "2012-12-02T00:00:00.0000000+00:00",
+   "name": "28th Annual Meeting of the American Society for Gravitational and Space Reserach (ASGSR)",
+   "location": "New Orleans, LA",
+   "id": "6f6f015ddb0d4cc09af8c08f0b32830e",
+   "startDate": "2012-11-28T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20130003189,
+   "id": "2d32e4979deb4868b31a20068fff0b80",
+   "publicationDate": "2012-11-28T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20130003189.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20130003189/downloads/20130003189.pdf",
+    "pdf": "/api/citations/20130003189/downloads/20130003189.pdf",
+    "fulltext": "/api/citations/20130003189/downloads/20130003189.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

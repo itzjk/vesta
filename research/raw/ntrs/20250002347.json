@@ -1,0 +1,128 @@
+{
+ "copyright": {
+  "disclosedInvention": false,
+  "submissionId": 20250002347,
+  "containsThirdPartyMaterial": false,
+  "containsIndication": false,
+  "belongsToPublisher": false,
+  "id": "7520c1121d3b417d8434c2d510f72337",
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation and Safety",
+  "Fluid Mechanics and Thermodynamics"
+ ],
+ "keywords": [
+  "Cool flames",
+  "Non-premixed flames",
+  "International space station",
+  "Microgravity combustion"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20250002347,
+  "ear": "NO",
+  "id": "1d8428167ec049c793431c35a8e68443",
+  "itar": "NO"
+ },
+ "distributionDate": "2025-03-20T04:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "619352.01.01.03.01.01",
+   "submissionId": 20250002347,
+   "id": "543a1119ac6848fd8a38611364d33279",
+   "type": "WBS"
+  }
+ ],
+ "title": "Fire and Flame Research in the Combustion Integrated Rack (CIR) on the International Space Station (ISS)",
+ "stiType": "POSTER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2025-03-05T15:41:31.0913250+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 0,
+   "submissionId": 20250002347,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Dennis Stocker"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "531531dbbf7f49fda0cee7b3498bc4e2",
+   "userType": "CIVIL",
+   "userId": "30e20cc4ba7743b790a53ab2fb0b0443"
+  }
+ ],
+ "stiTypeDetails": "Poster",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20250002347,
+ "created": "2025-03-05T15:23:35.9101930+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "• What? 17 experiments with laminar, non-premixed flames of gaseous, liquid, and solid fuels.\n\n• Why? To improve spacecraft fire safety and practical combustion on Earth.\n\n• When? CIR launched in 2008, and testing has been underway since 2009.\n\n• Who? U.S. investigators, sometimes in collaboration with Italian, Japanese, and Russian researchers.\n\n• Without CIR? In Skylab, space shuttles, Mir space station, other ISS facilities, and Cygnus cargo spacecraft.\n\n• CIR precursor? Combustion Module (CM) flew on STS-83 and STS-94 in 1997. CM-2 flew on STS-107 in 2003.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20250002347,
+  "id": "6abb25f2f011495799fb230adfd5182a"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20250002347,
+   "endDate": "2025-03-19T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "f52059f6037657c2b9489200502d5650",
+     "meta": {
+      "organization": {
+       "name": "Combustion Institute",
+       "location": "Pittsburgh, Pennsylvania, United States"
+      }
+     },
+     "meetingId": "ec31198af0f64da682169a70894247ae",
+     "id": "a0c7bd1d595e47638509a21b3e4405ae"
+    }
+   ],
+   "name": "14th United States National Combustion Meeting (USNCM)",
+   "location": "Boston, MA",
+   "id": "ec31198af0f64da682169a70894247ae",
+   "url": "https://combustioninstitute.wixsite.com/14th-usncm",
+   "startDate": "2025-03-16T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "PS-04694 CIR panorama poster.pdf",
+   "notes": "author name/affiliation on the bottom of the poster",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20250002347/downloads/PS-04694%20CIR%20panorama%20poster.pdf",
+    "pdf": "/api/citations/20250002347/downloads/PS-04694%20CIR%20panorama%20poster.pdf",
+    "fulltext": "/api/citations/20250002347/downloads/PS-04694%20CIR%20panorama%20poster.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

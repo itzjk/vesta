@@ -1,0 +1,149 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20110001653,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "a7a3a5289e2743d48bbad90402bdd2bf",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20110001653,
+  "ear": "NO",
+  "id": "8de72aa8750b41d492af198f4e25afb0",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "AIAA Paper 2007-0350",
+  "E-15961",
+  "Report Number: AIAA Paper 2007-0350",
+  "Report Number: E-15961"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 567524.04.02.06",
+   "submissionId": 20110001653,
+   "id": "8dfcbbab528c4f69a3499cd95c3bf2da",
+   "type": "WBS"
+  }
+ ],
+ "title": "Technology Development for Fire Safety in Exploration Spacecraft and Habitats",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T08:30:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20110001653,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "ac139f6aabcf42faa678103c596913c0"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20110001653,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "2de5840eb7124f03ab6f3d7855139198"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20110001653,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T08:30:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Fire during an exploration mission far from Earth is a particularly critical risk for exploration vehicles and habitats. The Fire Prevention, Detection, and Suppression (FPDS) project is part of the Exploration Technology Development Program (ETDP) and has the goal to enhance crew health and safety on exploration missions by reducing the likelihood of a fire, or, if one does occur, minimizing the risk to the mission, crew, or system. Within the past year, the FPDS project has been formalized within the ETDP structure and has seen significant progress on its tasks in fire prevention, detection, and suppression. As requirements for Constellation vehicles and, specifically, the CEV have developed, the need for the FPDS technologies has become more apparent and we continue to make strides to infuse them into the Constellation architecture. This paper describes the current structure of the project within the ETDP and summarizes the significant programmatic activities. Major technical accomplishments are identified as are activities planned for FY07.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20110001653,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "United States",
+   "id": "829f84a6d19447f4a5f61d5829c40699"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20110001653,
+   "endDate": "2007-01-11T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "United States"
+      }
+     },
+     "meetingId": "d677d074e51a4e79ae0f601b5c3379be",
+     "id": "aab35ad3f61441f6b2a95ae595c4a492"
+    }
+   ],
+   "name": "AIAA Aerospace Sciences Meeling and Exhibit",
+   "location": "Reno, NV",
+   "id": "d677d074e51a4e79ae0f601b5c3379be",
+   "startDate": "2007-01-08T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20110001653,
+   "id": "63d0adf419df4a68b973034510161a6e",
+   "publicationDate": "2007-01-08T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20110001653.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20110001653/downloads/20110001653.pdf",
+    "pdf": "/api/citations/20110001653/downloads/20110001653.pdf",
+    "fulltext": "/api/citations/20110001653/downloads/20110001653.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,126 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20010074090,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "96d3ed4792274a7e9578a011182fcc42",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20010074090,
+  "ear": "NO",
+  "id": "a787d21eed864030b5cc00d4e38e1c16",
+  "itar": "NO"
+ },
+ "distributionDate": "2016-06-06T00:00:00.0000000+00:00",
+ "title": "Trioxane-Air Counterflow Diffusion Flames in Normal and Microgravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-20T11:27:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20010074090,
+   "meta": {
+    "author": {
+     "name": "Linteris, Gregory T."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD United States"
+    }
+   },
+   "id": "616a836f16024f96ac3cfb13992e44fc"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20010074090,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "7e36b21ac8a14f82a59133307df89e22"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20010074090,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-20T11:27:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Trioxane, a weakly bound polymer of formaldehyde (C3H6O3, m.p. 61 C, b.p. 115 C), is a uniquely suited compound for studying material flammability. Like many of the more commonly used materials for such tests (e.g., delrin, polyethylene, acrylic sheet, wood, and paper), it displays relevant phenomena (internal heat conduction, melting, vaporization, thermal decomposition, and gas phase reaction of the decomposition products). Unlike the other materials, however, it is non-sooting and has simple and well-known chemical kinetic pathways for its combustion. Hence it should prove to be much more useful for numerical modeling of surface combustion than the complex fuels typically used. We have performed the first exploratory tests of trioxane combustion in the counterflow configuration to determine its potential as a surrogate solid fuel which allows detailed modeling. The experiments were performed in the spring and summer of 1998 at the National Institute of Standards and Technology in Gaithersburg, MD, and at NASA-GRC in Cleveland. Using counterflow flames at 1-g, we measured the fuel consumption rate and the extinction conditions with added N2 in the air; at mg conditions, we observed the ignition characteristics and flame shape from video images. We have performed numerical calculations of the flame structure, but these are not described here due to space limitations. This paper summarizes some burning characteristics of trioxane relevant to its use for studying flame spread and fire suppression.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20010074090,
+   "id": "37bf69d4ae36418eaf4e1dcd6925dd68",
+   "publicationName": "Sixth International Microgravity Combustion Workshop",
+   "publicationDate": "2001-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20010074090.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20010074090/downloads/20010074090.pdf",
+    "pdf": "/api/citations/20010074090/downloads/20010074090.pdf",
+    "fulltext": "/api/citations/20010074090/downloads/20010074090.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

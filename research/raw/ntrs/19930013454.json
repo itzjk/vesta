@@ -1,0 +1,113 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19930013454,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "23ceb819b9fd410481bceaf86bf4d0d0",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Materials Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19930013454,
+  "ear": "NO",
+  "id": "6e30df4443194772bad0c3063f9d80a2",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-29T00:00:00.0000000+00:00",
+ "title": "Space Station Freedom combustion research",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T17:59:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19930013454,
+   "meta": {
+    "author": {
+     "name": "Faeth, G. M."
+    },
+    "organization": {
+     "name": "Michigan Univ.",
+     "location": "Ann Arbor, MI, United States"
+    }
+   },
+   "id": "0e00bad8801f4ed0a232d75c7e11738a"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19930013454,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "93N22643"
+ },
+ "created": "2013-09-06T17:59:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Extended operations in microgravity, on board spacecraft like Space Station Freedom, provide both unusual opportunities and unusual challenges for combustion science. On the one hand, eliminating the intrusion of buoyancy provides a valuable new perspective for fundamental studies of combustion phenomena. On the other hand, however, the absence of buoyancy creates new hazards of fires and explosions that must be understood to assure safe manned space activities. These considerations - and the relevance of combustion science to problems of pollutants, energy utilization, waste incineration, power and propulsion systems, and fire and explosion hazards, among others - provide strong motivation for microgravity combustion research. The intrusion of buoyancy is a greater impediment to fundamental combustion studies than to most other areas of science. Combustion intrinsically heats gases with the resulting buoyant motion at normal gravity either preventing or vastly complicating measurements. Perversely, this limitation is most evident for fundamental laboratory experiments; few practical combustion phenomena are significantly affected by buoyancy. Thus, we have never observed the most fundamental combustion phenomena - laminar premixed and diffusion flames, heterogeneous flames of particles and surfaces, low-speed turbulent flames, etc. - without substantial buoyant disturbances. This precludes rational merging of theory, where buoyancy is of little interest, and experiments, that always are contaminated by buoyancy, which is the traditional path for developing most areas of science. The current microgravity combustion program seeks to rectify this deficiency using both ground-based and space-based facilities, with experiments involving space-based facilities including: laminar premixed flames, soot processes in laminar jet diffusion flames, structure of laminar and turbulent jet diffusion flames, solid surface combustion, one-dimensional smoldering, ignition and flame spread of liquids, drop combustion, and quenching of panicle-air flames. Unfortunately, the same features that make microgravity attractive for fundamental combustion experiments, introduce new fire and explosion hazards that have no counterpart on earth. For example, microgravity can cause broader flammability limits, novel regimes of flame spread, enhanced effects of flame radiation, slower fire detector response, and enhanced combustion upon injecting fire extinguishing agents, among others. On the other hand, spacecraft provide an opportunity to use 'fire-safe' atmospheres due to their controlled environment. Investigation of these problems is just beginning, with specific fire safety experiments supplementing the space based fundamental experiments listed earlier; thus, much remains to be done to develop an adequate technology base for fire and explosion safety considerations for spacecraft.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19930013454,
+   "id": "813a9464d3f649e083925a5c97060e8b",
+   "publicationName": "NASA, Washington, Space Station Freedom Utilization Conference",
+   "publicationDate": "1992-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19930013417,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Space Station Freedom Utilization Conference",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19930013417,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Space Station Freedom Utilization Conference",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "accessionNumber": "N93-22607 through N93-22652",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19930013454.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19930013454/downloads/19930013454.pdf",
+    "pdf": "/api/citations/19930013454/downloads/19930013454.pdf",
+    "fulltext": "/api/citations/19930013454/downloads/19930013454.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

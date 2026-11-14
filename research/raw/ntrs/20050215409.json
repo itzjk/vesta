@@ -1,0 +1,93 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050215409,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "10ad5a6ced8d4c148a6b793622e06e96",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Propulsion And Power"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050215409,
+  "ear": "NO",
+  "id": "8a8593880ecb46618dc16d8532360df2",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-04T00:00:00.0000000+00:00",
+ "title": "Combustion Module-2 Achieved Scientific Success on Shuttle Mission STS-107",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T10:48:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050215409,
+   "meta": {
+    "author": {
+     "name": "Over, Ann P."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "41017d773bd54caaa18ce6617e577a4e"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050215409,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T10:48:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The familiar teardrop shape of a candle is caused by hot, spent air rising and cool fresh air flowing behind it. This type of airflow obscures many of the fundamental processes of combustion and is an impediment to our understanding and modeling of key combustion controls used for manufacturing, transportation, fire safety, and pollution. Conducting experiments in the microgravity environment onboard the space shuttles eliminates these impediments. NASA Glenn Research Center's Combustion Module-2 (CM-2) and its three experiments successfully flew on STS-107/Columbia in the SPACEHAB module and provided the answers for many research questions. However, this research also opened up new questions. The CM-2 facility was the largest and most complex pressurized system ever flown by NASA and was a precursor to the Glenn Fluids and Combustion Facility planned to fly on the International Space Station. CM-2 operated three combustion experiments: Laminar Soot Processes (LSP), Structure of Flame Balls at Low Lewis-Number (SOFBALL), and Water Mist Fire Suppression Experiment (Mist). Although Columbia's mission ended in tragedy with the loss of her crew and much data, most of the CM-2 results were sent to the ground team during the mission.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20050215409,
+   "id": "90a4388fce6b410fa8b813ab0ff071e3",
+   "publicationName": "Research and Technology 2003",
+   "publicationDate": "2004-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20050215409.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20050215409/downloads/20050215409.pdf",
+    "pdf": "/api/citations/20050215409/downloads/20050215409.pdf",
+    "fulltext": "/api/citations/20050215409/downloads/20050215409.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

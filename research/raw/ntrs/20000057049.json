@@ -1,0 +1,145 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20000057049,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "8471e0fdb4ee4a2e88a1a900d5bbff9d",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20000057049,
+  "ear": "NO",
+  "id": "3e8f0118f4fa4bd1ab0da38535df6a48",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NCC3-697",
+   "submissionId": 20000057049,
+   "id": "175f72cadb41456286e037584a9d7182",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NAG3-1910",
+   "submissionId": 20000057049,
+   "id": "aff19f940fc945ae9cc245b6e3891191",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Effects of Structure and Hydrodynamics on the Sooting Behavior of Spherical Microgravity Diffusion Flames",
+ "stiType": "PREPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T12:13:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20000057049,
+   "meta": {
+    "author": {
+     "name": "Sunderland, P. B."
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "1f901bf245054d5ba91c29bb1120cefa"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20000057049,
+   "meta": {
+    "author": {
+     "name": "Axelbaum, Richard L."
+    },
+    "organization": {
+     "name": "Washington Univ.",
+     "location": "Saint Louis, MO United States"
+    }
+   },
+   "id": "c3eb66cf4703485a8f4a91b3fb7eb503"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20000057049,
+   "meta": {
+    "author": {
+     "name": "Urban, D. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "d882f42167584aa984746a1ef5032123"
+  }
+ ],
+ "stiTypeDetails": "Preprint (Draft being sent to journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20000057049,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T12:13:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "We have examined the sooting behavior of spherical microgravity diffusion flames burning ethylene at atmospheric pressure in the NASA Glenn 2.2-second drop tower. In a novel application of microgravity, spherical flames allowed convection across the flame to be either from fuel to oxidizer or from oxidizer to fuel. Thus, microgravity flames are uniquely capable of allowing independent variation of convection direction across the flame and stoichiometric mixture fraction, Z(sub st). This allowed us to determine the dominant mechanism responsible for the phenomenon of permanently-blue diffusion flames -- flames that remain blue as strain rate approaches zero. Stoichiometric mixture fraction was varied by changing inert concentrations such that adiabatic flame temperature did not change. At low and high Z(sub st) nitrogen was supplied with the oxidizer and the fuel, respectively. For the present flames, structure (Z(sub st)) was found to have a profound effect on soot production. Soot-free conditions were observed at high Z(sub st) (Z(sub st) = 0.78) and sooting conditions were observed at low Z(sub st) (Z(sub st) = 0.064) regardless of the direction of convection. Convection direction was found to have a lesser impact on soot inception, with formation being suppressed when convection at the flame sheet was directed towards the oxidizer.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United Kingdom",
+   "submissionId": 20000057049,
+   "endDate": "2000-08-04T00:00:00.0000000+00:00",
+   "name": "Combustion",
+   "location": "Edinburgh",
+   "id": "5f2b822e80424d90bda934db97a07dd6",
+   "startDate": "2000-07-30T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20000057049,
+   "id": "c399bf2522694d088f7ef6e90f9fc81b",
+   "publicationDate": "2000-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20000057049.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20000057049/downloads/20000057049.pdf",
+    "pdf": "/api/citations/20000057049/downloads/20000057049.pdf",
+    "fulltext": "/api/citations/20000057049/downloads/20000057049.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

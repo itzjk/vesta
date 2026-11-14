@@ -1,0 +1,110 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19880009228,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "c1c8feac90904e3786769cf8b869215c",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19880009228,
+  "ear": "NO",
+  "id": "99c2c83b349d4e41aa2eb0773f9d8e67",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-08-13T13:48:37.4300000+00:00",
+ "otherReportNumbers": [
+  "PB88-178553",
+  "NBSIR-88/3712",
+  "NAS 1.26:180880",
+  "NASA-CR-180880",
+  "Report Number: PB88-178553",
+  "Report Number: NBSIR-88/3712",
+  "Report Number: NAS 1.26:180880",
+  "Report Number: NASA-CR-180880"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NASA ORDER C-32000-J",
+   "submissionId": 19880009228,
+   "id": "09ee9ceae8ef4bffaccce1bfb05e9231",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Spacecraft Fire Detection and Extinguishment: A Bibliography",
+ "stiType": "CONTRACTOR_REPORT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-05T18:07:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19880009228,
+   "meta": {
+    "author": {
+     "name": "Jason, Nora H."
+    },
+    "organization": {
+     "name": "National Bureau of Standards",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "8bd0fb39f8e14612934dfbd811aac626"
+  }
+ ],
+ "stiTypeDetails": "Contractor Report (CR)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19880009228,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "88N18612"
+ },
+ "created": "2013-09-05T18:07:00.0000000+00:00",
+ "center": {
+  "code": "HQ",
+  "name": "Headquarters",
+  "id": "f0865a34ba1f474d865ab51f212fc69f"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Pertinent fire detection and extinguishment references have been identified to further the knowledge of spacecraft fire safety. To broaden the scope of the bibliography, other unusual environments, e.g., aircraft, submarine, ship, have been included. In addition, for a more comprehensive view of the spacecraft fire safety problem, selected subjects are included, e.g., materials flammability, smoke, human behavior. The references will provide the researcher with access to state-of-the-art and historic works. Selected references from the 1960's have been included, but the emphasis is on references published from 1975 to 1987. The references are arranged by very broad categories. Often a paper will cover more than one topic, but for the purposes of this bibliography it will be cited only once.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19880009228,
+   "id": "762df7ce8a354d8b979587bb034df669",
+   "publicationDate": "1988-02-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19880009228.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19880009228/downloads/19880009228.pdf",
+    "pdf": "/api/citations/19880009228/downloads/19880009228.pdf",
+    "fulltext": "/api/citations/19880009228/downloads/19880009228.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

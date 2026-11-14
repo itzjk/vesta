@@ -1,0 +1,191 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20200000365,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "937a46f37dbe409b9bbb1698c0541449",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "eccnNumber": "",
+  "submissionId": 20200000365,
+  "ear": "NO",
+  "id": "9a2c9e05c09e44feb811019d125547ed",
+  "itar": "NO"
+ },
+ "distributionDate": "2020-01-17T19:19:59.8670000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN75331",
+  "Report Number: GRC-E-DAA-TN75331"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "089407.02.04.22",
+   "submissionId": 20200000365,
+   "id": "1d546fabe2b44663a09ede9ab4d9d844",
+   "type": "WBS"
+  },
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20200000365,
+   "id": "6d4efd3587fe4e58a53c51d69944585b",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Hazardous Product Detection and Environmental Clean-up Removal in Spacecraft Vehicles from Fire Induced Li-Ion Fires",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2020-01-16T10:46:05.1700000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20200000365,
+   "meta": {
+    "author": {
+     "name": "Padilla, Rosa E."
+    },
+    "organization": {
+     "name": "Universities Space Research Association (USRA)",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "7555c2c0d25643049bf5f2c82ef0e0d5"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20200000365,
+   "meta": {
+    "author": {
+     "name": "Miller, Thomas B."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "bfca5dbb4ab441b79db33227f499a9c8"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20200000365,
+   "meta": {
+    "author": {
+     "name": "Dietrich, Daniel L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "1abf14244bfa4dfa9bea43a70016edd5"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20200000365,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "9eb6456eead04f7db3246a2752ab7d68"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20200000365,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "4cf790b5de8147188d26b65b46989b4f"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20200000365,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2020-01-16T10:46:05.1700000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A fire on-board the International Space Station (ISS) resulting from a commercial Surface Pro tablet Lithium-Ion (Li-ion) battery can be detrimental to the spacercraft and the astronauts. The Spacecraft Fire Safety Demonstration (Saffire) program is focused on identifying and quantifying the risks that potentially arise inside a space vehicle by conducting large fire experiments inside the Cygnus cargo vehicle upon re-entry to Earth. The potential candidate that will be flown on the ISS is a 4- cell Li-ion battery pack Surface Pro tablet (42 Wh). The tablets were tested at the White Sands Test Facility (WSTF) using a localized heating method to emulate the failing mechanism that leads the unit into thermal runaway. Measurements inside the test chamber were performed on aerosol mass concentrations and for specific toxic products (i.e. from CO, HCN, HCl and CO2). These toxic products depend on the size of the fire and energy content of the tablet. Comparisons will be made with the Dell XPS (97 Wh). The concentrations are then used to extrapolate to laptop fires on a vehicle at the approximate volumetric size of the Orion spacecraft. The presentation provides an analysis on the detection capability and the response time to trigger fire alarms aboard a vehicle by using the mass concentration levels. These results will consider the rate at which the life support system is able to filter the atmosphere in order to provide a hazardous free environment.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20200000365,
+   "endDate": "2019-11-21T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "599569eabb93418db42fa10e3294bd52",
+     "meta": {
+      "organization": {
+       "name": "NASA Marshall Space Flight Center",
+       "location": "Huntsville, AL, United States"
+      }
+     },
+     "meetingId": "82230c266c0840839e65f48e84ba8598",
+     "id": "53305a152e074b1c8622e42f9cbd165f"
+    }
+   ],
+   "name": "NASA Aerospace Battery Workshop",
+   "location": "Huntsville, AL",
+   "id": "82230c266c0840839e65f48e84ba8598",
+   "startDate": "2019-11-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20200000365,
+   "id": "3c6057e477f147509ed398171297c1ea",
+   "publicationDate": "2019-11-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20200000365.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20200000365/downloads/20200000365.pdf",
+    "pdf": "/api/citations/20200000365/downloads/20200000365.pdf",
+    "fulltext": "/api/citations/20200000365/downloads/20200000365.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

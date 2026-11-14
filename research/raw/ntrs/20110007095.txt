@@ -1,0 +1,3 @@
+Lifetest of the High Output Maximum Efficiency Resonator (HOMER) Laser for the SAFFIRE Instrument on NASA's DESDynI Project
+
+We update the status of a diode-pumped, Nd:YAG oscillator that is the prototype laser for NASA's DESDynI mission. After completing TRL-6 testing, this laser has fired over 5.5 billion shots in lifetesting.

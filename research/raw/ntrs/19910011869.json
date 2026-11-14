@@ -1,0 +1,161 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19910011869,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "b7ab796129e944e7bf94f312674725f0",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19910011869,
+  "ear": "NO",
+  "id": "721938ddc921433ea36d0f7eeaa28be4",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "E-6100",
+  "NASA-TM-104334",
+  "NAS 1.15:104334",
+  "Report Number: E-6100",
+  "Report Number: NASA-TM-104334",
+  "Report Number: NAS 1.15:104334"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 323-53-62",
+   "submissionId": 19910011869,
+   "id": "b1d4d753efa94d228b241fa8c3c50d3a",
+   "type": "PROJECT"
+  },
+  {
+   "number": "NAS3-25266",
+   "submissionId": 19910011869,
+   "id": "3be7427b6e0d4260b4a5646771d0e5b3",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Fire suppression in human-crew spacecraft",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T14:25:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19910011869,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH., United States"
+    }
+   },
+   "id": "4005e3b00bf04eb0bd1f368d016914c0"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19910011869,
+   "meta": {
+    "author": {
+     "name": "Dietrich, Daniel L."
+    },
+    "organization": {
+     "name": "Sverdrup Technology, Inc., Brook Park",
+     "location": "OH., United States"
+    }
+   },
+   "id": "2a6f50c370034ca6947a225b835e158e"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19910011869,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "91N21182"
+ },
+ "created": "2013-09-06T14:25:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Fire extinguishment agents range from water and foam in early-design spacecraft (Halon 1301 in the present Shuttle) to carbon dioxide proposed for the Space Station Freedom. The major challenge to spacecraft fire extinguishment design and operations is from the micro-gravity environment, which minimizes natural convection and profoundly influences combustion and extinguishing agent effectiveness, dispersal, and post-fire cleanup. Discussed here are extinguishment in microgravity, fire-suppression problems anticipated in future spacecraft, and research needs and opportunities.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 19910011869,
+   "endDate": "1991-05-01T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "7582c2e5d73042cbad921d0153ef1e2b",
+     "meta": {
+      "organization": {
+       "name": "New Mexico Univ."
+      }
+     },
+     "meetingId": "47f65be443b249949d2ff1e295c1c586",
+     "id": "28c8d319e1744138a2f9aaa8079d8c45"
+    },
+    {
+     "organizationId": "cdd626d2ba56429ea00eba4e66cf29af",
+     "meta": {
+      "organization": {
+       "name": "Center for Global Environmental Technologies"
+      }
+     },
+     "meetingId": "47f65be443b249949d2ff1e295c1c586",
+     "id": "4de62163031c4533bc9adce77838a86e"
+    }
+   ],
+   "name": "Halon Alternatives Technical Working Conference",
+   "location": "Albuquerque, NM",
+   "id": "47f65be443b249949d2ff1e295c1c586",
+   "startDate": "1991-04-30T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19910011869,
+   "id": "ce15ee37c4c54ce3bc69916972a5576f",
+   "publicationDate": "1991-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19910011869.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19910011869/downloads/19910011869.pdf",
+    "pdf": "/api/citations/19910011869/downloads/19910011869.pdf",
+    "fulltext": "/api/citations/19910011869/downloads/19910011869.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

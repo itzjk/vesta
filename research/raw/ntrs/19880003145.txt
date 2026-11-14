@@ -1,0 +1,3 @@
+Space station internal environmental and safety concerns
+
+Space station environmental and safety concerns, especially those involving fires, are discussed. Several types of space station modules and the particular hazards associated with each are briefly surveyed. A brief history of fire detection and suppression aboard spacecraft is given. Microgravity fire behavior, spacecraft fire detector systems, space station fire suppression equipment and procedures, and fire safety in hyperbaric chambers are discussed.

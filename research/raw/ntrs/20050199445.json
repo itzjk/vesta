@@ -1,0 +1,93 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050199445,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "30e68d3b4fdc46c0ba6f8df157f63556",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050199445,
+  "ear": "NO",
+  "id": "40fb6931fb9c4dd785704e4d4fa98b97",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-01T00:00:00.0000000+00:00",
+ "title": "Ceiling Fires Studied to Simulate Low-Gravity Fires",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T10:50:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050199445,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "421e0cfb3456491b8f35635fbf08abd4"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050199445,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T10:50:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A unique new way to study low-gravity flames in normal gravity has been developed. To study flame structure and extinction characteristics in low-stretch environments, a normal gravity low-stretch diffusion flame was generated using a cylindrical PMMA sample of varying large radii, as shown in the photograph. These experiments have demonstrated that low-gravity flame characteristics can be generated in normal gravity through the proper use of scaling. On the basis of this work, it is feasible to apply this concept toward the development of an Earth-bound method of evaluating material flammability in various gravitational environments from normal gravity to microgravity, including the effects of partial gravity low-stretch rates such as those found on the Moon (1/6g) or Mars (1/3g). During these experiments, the surface regression rates for PMMA were measured for the first time over the full range of flammability in air, from blowoff at high stretch, to quenching at low stretch, as plotted in the graph. The solid line drawn through the central portion of the data (3<a<100 sec-1) has a slope of unity, which indicates regression is proportional to stretch. The figure coordinates assume that the values of stretch are equivalent, whether derived from forced stretch or from buoyant stretch. The excellent correlation of the regression-rate data over the two-order-of-magnitude variation of stretch shows the reasonableness of this assumption.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20050199445,
+   "id": "ba13f977ac7447638f881b8f9bced529",
+   "publicationName": "Research and Technology 2000",
+   "publicationDate": "2001-03-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20050199445.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20050199445/downloads/20050199445.pdf",
+    "pdf": "/api/citations/20050199445/downloads/20050199445.pdf",
+    "fulltext": "/api/citations/20050199445/downloads/20050199445.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

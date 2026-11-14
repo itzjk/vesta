@@ -1,0 +1,108 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20000120369,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "680cc1a76c0f43a89ea7296a39e09e54",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20000120369,
+  "ear": "NO",
+  "id": "f4cbd4320b3f4449975dd063d2fae53c",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-27T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "E-12429",
+  "NASA/TM-2000-210375",
+  "NAS 1.15:210375",
+  "Report Number: E-12429",
+  "Report Number: NASA/TM-2000-210375",
+  "Report Number: NAS 1.15:210375"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 101-42-0B",
+   "submissionId": 20000120369,
+   "id": "41022ec8256b48aa9c142f7469a8098b",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "A User's Guide for the Spacecraft Fire Safety Facility",
+ "stiType": "TECHNICAL_MEMORANDUM",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T12:22:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20000120369,
+   "meta": {
+    "author": {
+     "name": "Goldmeer, Jeffrey S."
+    },
+    "organization": {
+     "name": "National Academy of Sciences - National Research Council",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "7caab613a62b4ca58534238b73212ccd"
+  }
+ ],
+ "stiTypeDetails": "Technical Memorandum (TM)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20000120369,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T12:22:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Spacecraft Fire Safety Facility (SFSF) is a test facility that can be flown on NASA's reduced gravity aircraft to perform various types of combustion experiments under a variety of experimental conditions. To date, this facility has flown numerous times on the aircraft and has been used to perform experiments ranging from an examination of the effects transient depressurization on combustion, to ignition and flame spread. A list of pubfications/presentations based on experiments performed in the SFSF is included in the reference section. This facility consists of five main subsystems: combustion chamber, sample holders, gas flow system, imaging system, and the data acquisition/control system. Each of these subsystems will be reviewed in more detail. These subsystems provide the experiment operator with the ability to monitor and/or control numerous experimental parameters.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20000120369,
+   "id": "06d5ccdfd7f34f5ca7445c02b66cb041",
+   "publicationDate": "2000-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20000120369.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20000120369/downloads/20000120369.pdf",
+    "pdf": "/api/citations/20000120369/downloads/20000120369.pdf",
+    "fulltext": "/api/citations/20000120369/downloads/20000120369.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,3348 @@
+{
+ "family": "droplets",
+ "notes": [
+  "Scope: FLEX (PSI-69), FLEX-2 (PSI-68) and CFI (PSI-39), all run with the Multi-user Droplet Combustion Apparatus (MDCA) in the Combustion Integrated Rack on the ISS. FLEX-2J and FLEX-ICE-GA used the same hardware (NASA fact sheet, raw/nasa/flex.txt) but have no PSI record under those names and are not covered here.",
+  "Sources used: PSI records and per-test tables (raw/psi), PSI-hosted documents fetched for this file (raw/pdf/PSI-39_*, PSI-68_*, PSI-69_*), NTRS abstracts (raw/ntrs) and NTRS full texts (raw/pdf/<id>.txt), NASA pages and the Researcher's Guide (raw/nasa). Fetch log: raw/pdf/_fetchlog_droplets.jsonl. This file is written by raw/pdf/_droplets_tools/build_droplets.py (run with python3; it cuts every quote from the cached text and drops any it cannot verify).",
+  "NTRS 20150023456 (NASA/TP-2015-216046): the PDF is 42,900,650 bytes, over the 20 MB limit, so it was not downloaded. raw/pdf/20150023456.txt is the full text that NTRS itself serves (downloads[].links.fulltext). That text joins some words across line breaks (for example \"hydroxylfilter\"); quotes keep it as it is.",
+  "NTRS 20120015928 and 20120016855: PDFs saved, but they are scans from which pdftotext extracts nothing, and the NTRS full-text links return 0 bytes. Only their abstracts (raw/ntrs) are used.",
+  "NTRS records found by new searches and not in ntrs-index.json: 20140006750, 20150018397, 20170000666, 20190002838, 20205008449. For each, raw/pdf/<id>.record.json is the API record, raw/pdf/<id>.abstract.txt is title + blank line + abstract (same layout as raw/ntrs/<id>.txt) and raw/pdf/<id>.pdf / .txt is the full text. Findings with source.kind \"ntrs\" that point to raw/pdf/<id>.abstract.txt quote the abstract.",
+  "Quotes are cut from the text files by script; line-break hyphens of PDF text are kept (for example \"tech- nology\", \"fun- damental\"), as are ligatures and curly quotes.",
+  "Attribution of n-octane and n-decane results to FLEX-2: the 2014 paper (20140006750) calls all ISS droplet tests \"FLEX experiments\". They are filed under FLEX-2 here because the PSI-68 table lists n-Octane and Decane while the PSI-69 table lists only Methanol and Heptane. Findings from sources that pool FLEX, FLEX-2 and CFI data (20205008449, 20210022617) are filed under the investigation whose question they answer.",
+  "Background figures in the FLEX test plan (Takahashi et al. 2004, Katta et al. 2004, Honda and Ronney 1998) are results of other studies that the FLEX team cites to justify the experiment; they are marked \"background cited in the FLEX test plan\" in the topic and are not FLEX measurements.",
+  "DROPLETS findings quoting a row of a PSI CSV table restate one test record; column meanings come from the header row of the same file (for PSI-69: test number, identifier, date, GMT, fuel, pressure in mmHg, O, N, CO, He mole fractions, initial diameter mm, visible flame extinction diameter mm, burning rate, burn time s, test end). The PSI headers print \"O\", \"N\", \"CO\" for oxygen, nitrogen and carbon dioxide.",
+  "The finding on precursor CO2 tests (NTRS 20110020695) is labelled ground low-gravity because the abstract calls the experiments precursors to the ISS runs; the abstract does not name the facility.",
+  "The FLEX-2 droplet-array findings from the science requirements document describe precursor low-gravity tests cited there (the document says ground-based facilities limited them); the fuel is not named in the quoted passage, so \"fuel\" is null.",
+  "Suppressants: the PSI-69 record names CO2, He and SF6 and the Researcher's Guide names xenon; the PSI-69 test table holds only CO2 and He columns, and the NASA fact sheet says \"The suppressants are carbon dioxide and helium.\" No SF6 result was found in the saved sources.",
+  "Dates: PSI investigation start/end dates do not match flight operations (CFI flew in 2017 but PSI lists 2020-2021; FLEX-2 lists 2016-2019). Both are recorded in \"years\" with their quotes.",
+  "CFI final report wording: section 5.1 writes \"n-dodecanol\" and \"iso-dodecanol\" where the fuels flown were n-dodecane and iso-dodecane, and the caption of its Figure 3 gives a gas mixture that does not add to 100%. The quote is kept verbatim and the Figure 3 values are not used.",
+  "Test FLEX-377 (n-decane, 0.5 atm) is given as air in the 2021 presentation and as 25% oxygen in the 2015 presentation; no finding relies on its oxygen value.",
+  "Not found in the saved sources for this family: smoke particle sizes or detector response measurements (those belong to SAME/SAME-R), flame spread rates (single droplets do not spread; FLEX-2J droplet-array spread has no PSI record), and any partial-gravity droplet data.",
+  "Finding on the CO2-triggered cool flame model (source PSI-69_Presentation-1G17-070HE-0166): the quote contains a stray \"5\" between \"An increase\" and \"in the CO2\"; it is the page number, which sits inside that sentence in the PDF text.",
+  "The quote for the three n-heptane cases (20140006750) starts at \"shows three typical\" because the words \"Figure 3\" are split from it by a page break in the PDF text.",
+  "The decane/hexanol finding (20170000666): the NASA fact sheet names n-hexanol/n-decane as a FLEX-ICE-GA fuel, flown \"in the FLEX-2 configuration\"; it is filed under FLEX-2 because the PSI-68 record lists the decane/hexanol paper among its publications.",
+  "evidence_level is \"review or summary\" where the quoted sentence is a NASA summary, rationale or cited background, even when the underlying work was a flight experiment.",
+  "earth_instinct and decision_hint are interpretation written for VESTA, not NASA statements."
+ ],
+ "investigations": [
+  {
+   "name": "FLEX",
+   "full_name": "Flame Extinguishment Experiment",
+   "psi_id": "PSI-69",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+   "platform": "International Space Station (ISS), Destiny module",
+   "hardware": "Multi-User Droplet Combustion Apparatus (MDCA) inside the chamber of the Combustion Integrated Rack (CIR), part of the Fluids and Combustion Facility (FCF)",
+   "years": "2009 to 2011 for the test series reported in NASA/TP-2015-216046 (March 2009 to December 2011); the PSI record lists investigation dates 08-01-2007 to 07-31-2016",
+   "pi": "Forman A. Williams, University of California, San Diego",
+   "objectives": "Map the flammability limits of liquid fuel droplets in microgravity, in particular the limiting oxygen index (LOI) as a function of pressure; measure the effectiveness of gaseous fire suppressants (CO2, He and SF6 are named in the PSI record; the PSI test table holds CO2 and He tests); provide data for predictive models of combustion limits.",
+   "fuels": [
+    "methanol",
+    "n-heptane"
+   ],
+   "sample_geometry": "Single liquid fuel droplets with initial diameters between 2 and 5 mm (PSI test table: 1.1 to 4.67 mm), deployed free-floating or supported on a fiber in a quiescent chamber atmosphere",
+   "conditions": {
+    "o2_percent": "12 to 34 (oxygen mole fraction 0.12 to 0.34 in the PSI test table)",
+    "pressure": "0.70 to 3.05 atm; most tests between 0.7 and 1 atm",
+    "flow": "Quiescent; in some tests a fiber-supported droplet was translated at about 3 mm/s to impose a slow, sub-buoyant flow",
+    "gravity": "microgravity (ISS)"
+   },
+   "variables": "Varied from test to test: fuel (methanol or heptane), ambient oxygen mole fraction, diluent or suppressant gas and its mole fraction (nitrogen, carbon dioxide up to 0.70, helium up to 0.45 in the PSI test table), ambient pressure, initial droplet diameter, free or fiber-supported droplet, quiescent or slowly translated. Held the same: single droplet geometry, hot-wire ignition, ambient temperature, the CIR/MDCA hardware and cameras.",
+   "measurements": [
+    "Droplet diameter history from a backlit camera (HiBMs)",
+    "Flame diameter history from a low-light UV camera filtered for OH chemiluminescence at 310 nm (LLUV) and from a color camera",
+    "Average burning-rate constant and extinction droplet diameter for each burn",
+    "Flame size, shape and color overview from the MDCA color camera (downlinked during operations)",
+    "Broadband and water-vapor-band radiometers (not sensitive enough to give reliable quantitative data in the tests of the 2015 report)",
+    "Chamber gas pressure and temperature"
+   ],
+   "sources": [
+    {
+     "field": "name",
+     "quote": "\"investigationAcronym\":\"FLEX\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69",
+      "title": "PSI-69 investigation record: Flame Extinguishment Experiment (FLEX)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+      "year": 2016,
+      "text_file": "raw/psi/investigations/PSI-69.json"
+     }
+    },
+    {
+     "field": "full_name",
+     "quote": "\"title\":\"Flame Extinguishment Experiment\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69",
+      "title": "PSI-69 investigation record: Flame Extinguishment Experiment (FLEX)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+      "year": 2016,
+      "text_file": "raw/psi/investigations/PSI-69.json"
+     }
+    },
+    {
+     "field": "psi_id, psi_url",
+     "quote": "\"accession\":\"PSI-69\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69",
+      "title": "PSI-69 investigation record: Flame Extinguishment Experiment (FLEX)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+      "year": 2016,
+      "text_file": "raw/psi/investigations/PSI-69.json"
+     }
+    },
+    {
+     "field": "platform",
+     "quote": "\"flightProgram\":\"International Space Station (ISS)\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69",
+      "title": "PSI-69 investigation record: Flame Extinguishment Experiment (FLEX)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+      "year": 2016,
+      "text_file": "raw/psi/investigations/PSI-69.json"
+     }
+    },
+    {
+     "field": "platform",
+     "quote": "The Flame Extinguishment Experiment (FLEX) program is a continuing set of experiments on droplet combustion, performed employing the Multi-User Droplet Combustion Apparatus (MDCA), inside the chamber of the Combustion Integrated Rack (CIR), which is located in the Destiny module of the International Space Station (ISS).",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "hardware",
+     "quote": "\"experimentHardware\":\"Combustion Integrated Rack (CIR)-Fluids and Combustion Facility (FCF), Multi-user Droplet Combustion Appartatus (MDCA)\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69",
+      "title": "PSI-69 investigation record: Flame Extinguishment Experiment (FLEX)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+      "year": 2016,
+      "text_file": "raw/psi/investigations/PSI-69.json"
+     }
+    },
+    {
+     "field": "hardware",
+     "quote": "The Multi-User Droplet Combustion Apparatus (MDCA) is the hardware that deploys and ignites the liquid fuel droplets and provides some of the diagnostics.",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "years",
+     "quote": "those occurring between March 2009 and the end of December 2011.",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "years",
+     "quote": "\"investigationStartDate\":\"08-01-2007\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69",
+      "title": "PSI-69 investigation record: Flame Extinguishment Experiment (FLEX)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+      "year": 2016,
+      "text_file": "raw/psi/investigations/PSI-69.json"
+     }
+    },
+    {
+     "field": "years",
+     "quote": "\"investigationEndDate\":\"07-31-2016\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69",
+      "title": "PSI-69 investigation record: Flame Extinguishment Experiment (FLEX)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+      "year": 2016,
+      "text_file": "raw/psi/investigations/PSI-69.json"
+     }
+    },
+    {
+     "field": "years",
+     "quote": "Flame Extinguishment Experiment (FLEX) investigation conducted aboard the space station from 2009 to 2011.",
+     "source": {
+      "kind": "nasa-page",
+      "id": "iss-passes-torch-flame-studies",
+      "title": "ISS Passes the Torch of Flame Studies",
+      "url": "https://www.nasa.gov/wp-json/wp/v2/migration/309143",
+      "year": 2013,
+      "text_file": "raw/nasa/iss-passes-torch-flame-studies.txt"
+     }
+    },
+    {
+     "field": "pi",
+     "quote": "Principal Investigator(s): Forman A. Williams, University of California, San Diego, San Diego, CA",
+     "source": {
+      "kind": "pdf",
+      "id": "20090014812",
+      "title": "Multi-User Droplet Combustion Apparatus - Flame Extinguishment Experiment (MDCA-FLEX fact sheet)",
+      "url": "https://ntrs.nasa.gov/citations/20090014812",
+      "year": 2009,
+      "text_file": "raw/pdf/20090014812.txt"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "The FLEX (Flame Extinguishment Experiment) investigation aims to map the flammability limits of liquid fuels in microgravity environments, measure the effectiveness of various gaseous fire suppressants such as CO2, He, and SF6, and develop reliable predictive models for combustion limits under reduced gravity conditions.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69",
+      "title": "PSI-69 investigation record: Flame Extinguishment Experiment (FLEX)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+      "year": 2016,
+      "text_file": "raw/psi/investigations/PSI-69.json"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "A primary objective of the experiments is to determine the Limiting Oxygen Index (LOI) as a function of ambient pressure and determine how the presence of a suppressant influences the LOI",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69",
+      "title": "PSI-69 investigation record: Flame Extinguishment Experiment (FLEX)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+      "year": 2016,
+      "text_file": "raw/psi/investigations/PSI-69.json"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "The fuels studied in these experiments were methanol and n-heptane.",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "The droplets had initial diameters between 2 and 5 mm,",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "The MDCA can deploy both free and fiber-supported droplets in a quiescent microgravity environment.",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "69,193R002,3/23/2010,10:23:00,Heptane,767.1,0.14,0.84,0,0,1.1,0,0.94,1.3,Completion",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69/Experimental table",
+      "title": "PSI-69_Experimental table_FLEX.csv (per-test table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=6792be99b7b6ff8e65037e3a",
+      "year": 2016,
+      "text_file": "raw/psi/tables/PSI-69_Experimental table_FLEX.csv"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "70,193F001,3/23/2010,7:25:43,Heptane,761,0.15,0.84,0,0,4.67,4.6,0.41,1.6,Extinction",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69/Experimental table",
+      "title": "PSI-69_Experimental table_FLEX.csv (per-test table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=6792be99b7b6ff8e65037e3a",
+      "year": 2016,
+      "text_file": "raw/psi/tables/PSI-69_Experimental table_FLEX.csv"
+     }
+    },
+    {
+     "field": "conditions.o2_percent",
+     "quote": "86,305F002,4/19/2010,19:16:37,Methanol,770,0.12,0.87,0,0,3.07,2.56,0.35,9,Extinction",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69/Experimental table",
+      "title": "PSI-69_Experimental table_FLEX.csv (per-test table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=6792be99b7b6ff8e65037e3a",
+      "year": 2016,
+      "text_file": "raw/psi/tables/PSI-69_Experimental table_FLEX.csv"
+     }
+    },
+    {
+     "field": "conditions.o2_percent",
+     "quote": "19,196F001,8/26/2009,19:07:28,Heptane,539.1,0.34,0.66,0,0,3.39,,0.9,4.2,Disruption",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69/Experimental table",
+      "title": "PSI-69_Experimental table_FLEX.csv (per-test table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=6792be99b7b6ff8e65037e3a",
+      "year": 2016,
+      "text_file": "raw/psi/tables/PSI-69_Experimental table_FLEX.csv"
+     }
+    },
+    {
+     "field": "conditions.pressure",
+     "quote": "temperature and various pressures between 0.70 and 3.05 atm, over ranges of dilution of oxygen with nitrogen, with carbon dioxide, and with mixtures thereof. Most of the tests were conducted at pressures between 0.7 and 1 atm",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "conditions.flow",
+     "quote": "droplets in quiescent and subbuoyant flow (achieved by translating the fiber) microgravity environments.",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "conditions.flow",
+     "quote": "Figure 43.—Test FLEX−039. Fiber-supported heptane droplet translating 3 mm/s",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "conditions.gravity",
+     "quote": "\"projectType\":\"Microgravity Investigation\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69",
+      "title": "PSI-69 investigation record: Flame Extinguishment Experiment (FLEX)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+      "year": 2016,
+      "text_file": "raw/psi/investigations/PSI-69.json"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "The independent experiment variables analyzed by MDCA-FLEX are:",
+     "source": {
+      "kind": "pdf",
+      "id": "flex",
+      "title": "Flame Extinguishment Experiment (FLEX) fact sheet (FLEX, FLEX-2, FLEX-2J, FLEX-ICE-GA)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+      "year": null,
+      "text_file": "raw/nasa/flex.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "over ranges of dilution of oxygen with nitrogen, with carbon dioxide, and with mixtures thereof.",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "The inert dilution by carbon dioxide and helium varied over a range of 0% to 70% by volume.",
+     "source": {
+      "kind": "ntrs",
+      "id": "20130014061",
+      "title": "Methanol Droplet Combustion in Oxygen-Inert Environments in Microgravity",
+      "url": "https://ntrs.nasa.gov/citations/20130014061",
+      "year": 2013,
+      "text_file": "raw/ntrs/20130014061.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "270,H15H201,11/30/11,12:09:00,Heptane,532.5,0.17,0.38,0,0.45,1.61,0.91,1.06,1.4,Completion",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69/Experimental table",
+      "title": "PSI-69_Experimental table_FLEX.csv (per-test table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=6792be99b7b6ff8e65037e3a",
+      "year": 2016,
+      "text_file": "raw/psi/tables/PSI-69_Experimental table_FLEX.csv"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "18,248F001,7/1/2009,16:28:56,Heptane,1553.8,0.21,0.09,0.7,0,2.74,1.77,0.61,8.1,Extinction",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-69/Experimental table",
+      "title": "PSI-69_Experimental table_FLEX.csv (per-test table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=6792be99b7b6ff8e65037e3a",
+      "year": 2016,
+      "text_file": "raw/psi/tables/PSI-69_Experimental table_FLEX.csv"
+     }
+    },
+    {
+     "field": "measurements",
+     "quote": "The results include histories of droplet diameters obtained from the backlit camera and histories of flame diameters obtained from both the hydroxylfilter camera and the color camera.",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "measurements",
+     "quote": "The LLUV also had a spectral notch filter integrated to image the chemiluminescence at 310 nm",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "measurements",
+     "quote": "Average burning-rate constants for each burn also are reported, as are extinction diameters, for the cases where the flame extinguished at a finite droplet size.",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "measurements",
+     "quote": "The MDCA provided two diagnostics: a color camera and radiometers. The color camera provided a visual overview of the FLEX experiments. This camera view was augmented with illumination from a white-light-emitting diode (LED) located on the MDCA inside the CIR chamber. This camera had a zoom lens that provided a closeup view of the needles and droplet during droplet formation. The white LED was turned on at this time to allow the operator to see the droplet formation process. Immediately prior to droplet deployment and ignition, the camera zoomed out and the white LED turned off to provide an overview of the combustion process. The FOV of this camera was approximately 110 by 90 mm. This view, which provided flame size, shape, and color information, was downlinked to the",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "measurements",
+     "quote": "The MDCA provided two radiometers: a broadband radiometer to detect the total radiative output of the flame and a radiometer with a filter to examine the emission from the water vapor. For the tests reported herein, these radiometers were not sensitive enough to provide reliable quantitative information about flame radiometric output, so the data are not reported.",
+     "source": {
+      "kind": "pdf",
+      "id": "20150023456",
+      "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+      "url": "https://ntrs.nasa.gov/citations/20150023456",
+      "year": 2015,
+      "text_file": "raw/pdf/20150023456.txt"
+     }
+    },
+    {
+     "field": "measurements",
+     "quote": "During each test the chamber gas temperature and pressure measurements shall be required.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-69_FLEX-Test-Plan",
+      "title": "FLEX Test Plan, extracted from the Research Requirements Document for Droplet Flame Extinguishment in Microgravity (PSI-69, Science Documents)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=684347459e44646b74028a01",
+      "year": 2005,
+      "text_file": "raw/pdf/PSI-69_FLEX-Test-Plan.txt"
+     }
+    }
+   ]
+  },
+  {
+   "name": "FLEX-2",
+   "full_name": "Flame Extinguishment Experiment - 2",
+   "psi_id": "PSI-68",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+   "platform": "International Space Station (ISS)",
+   "hardware": "Multi-user Droplet Combustion Apparatus (MDCA) installed in the Combustion Integrated Rack (CIR)",
+   "years": "The PSI record lists investigation dates 08-12-2016 to 09-30-2019; the science requirements document is dated March 15, 2010. The NASA sources saved here give no FLEX-2 flight dates (a 2021 NASA presentation places the FLEX series, FLEX-2 included, on the ISS in 2008-2016).",
+   "pi": "Forman A. Williams, University of California, San Diego",
+   "objectives": "Extend FLEX to fuels and conditions that mimic real combustors and provide benchmark data on bi-component droplet combustion: liquid-phase mixing in fuel mixtures, steady and unsteady burning of pure fuels, flame extinction mechanisms and boundaries, soot formation, slow sub-buoyant convective flow, and the effect of a second droplet on flammability limits and extinction.",
+   "fuels": [
+    "iso-octane",
+    "n-octane",
+    "heptane",
+    "decane",
+    "ethanol",
+    "propanol/glycerol mixtures (95/5 and 80/20)",
+    "heptane/iso-octane mixture (50/50)"
+   ],
+   "sample_geometry": "A single droplet or a pair of droplets (binary linear array) on a support fiber, initial diameter 1.5 to 5 mm; in flow tests a tethered droplet is moved through the quiescent gas",
+   "conditions": {
+    "o2_percent": "17, 21, 25 and 30 (oxygen mole fraction 0.17, 0.21, 0.25, 0.3 in the PSI table; the PSI approach text gives 0.1 to 0.4)",
+    "pressure": "0.5, 1.0, 1.5, 2.0 or 3.0 atm",
+    "flow": "Quiescent, or a sub-buoyant flow of 0.1 to 5 cm/s made by translating the tethered droplet",
+    "gravity": "microgravity (ISS)"
+   },
+   "variables": "Varied from test to test: fuel type, ambient gas composition (O2/N2 or O2/He), ambient pressure, initial droplet diameter, droplet translation velocity (and acceleration), droplet spacing and initial size in a binary linear array. Four groups of tests: pure fuel, fuel mixture, convective flow and binary droplet array. Held the same: ambient temperature (25 C in the PSI table), the CIR/MDCA hardware.",
+   "measurements": [
+    "Droplet burning rate, flame dimensions, radiative emissions and soot volume fraction as functions of time",
+    "Extinction droplet diameter when the flame extinguishes",
+    "Color camera video downlinked in near real time",
+    "Chamber pressure and temperature"
+   ],
+   "sources": [
+    {
+     "field": "name",
+     "quote": "\"investigationAcronym\":\"FLEX-2\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68",
+      "title": "PSI-68 investigation record: Flame Extinguishment Experiment - 2 (FLEX-2)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-68.json"
+     }
+    },
+    {
+     "field": "full_name",
+     "quote": "\"title\":\"Flame Extinguishment Experiment - 2\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68",
+      "title": "PSI-68 investigation record: Flame Extinguishment Experiment - 2 (FLEX-2)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-68.json"
+     }
+    },
+    {
+     "field": "psi_id, psi_url",
+     "quote": "\"accession\":\"PSI-68\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68",
+      "title": "PSI-68 investigation record: Flame Extinguishment Experiment - 2 (FLEX-2)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-68.json"
+     }
+    },
+    {
+     "field": "platform",
+     "quote": "\"flightProgram\":\"International Space Station (ISS)\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68",
+      "title": "PSI-68 investigation record: Flame Extinguishment Experiment - 2 (FLEX-2)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-68.json"
+     }
+    },
+    {
+     "field": "hardware",
+     "quote": "\"experimentHardware\":\"Combustion Integrated Rack (CIR), Multi-user Droplet Combustion Appartatus (MDCA)\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68",
+      "title": "PSI-68 investigation record: Flame Extinguishment Experiment - 2 (FLEX-2)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-68.json"
+     }
+    },
+    {
+     "field": "hardware",
+     "quote": "The ﬂight experiment utilizes the Multiple Droplet Combustion Apparatus (MDCA) installed in the Combustion Integrated Rack (CIR) in the International Space Station (ISS)",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-68_FLEX-2-SRD-Final",
+      "title": "Science Requirements Document: Fundamental Studies in Droplet Combustion and Flame Extinguishment in Microgravity (FLEX-2) (PSI-68, Science Documents)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=685da233ee20136af540136a",
+      "year": 2010,
+      "text_file": "raw/pdf/PSI-68_FLEX-2-SRD-Final.txt"
+     }
+    },
+    {
+     "field": "years",
+     "quote": "\"investigationStartDate\":\"08-12-2016\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68",
+      "title": "PSI-68 investigation record: Flame Extinguishment Experiment - 2 (FLEX-2)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-68.json"
+     }
+    },
+    {
+     "field": "years",
+     "quote": "\"investigationEndDate\":\"09-30-2019\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68",
+      "title": "PSI-68 investigation record: Flame Extinguishment Experiment - 2 (FLEX-2)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-68.json"
+     }
+    },
+    {
+     "field": "years",
+     "quote": "Michael C. Hicks, NASA Glenn Research Center March 15, 2010",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-68_FLEX-2-SRD-Final",
+      "title": "Science Requirements Document: Fundamental Studies in Droplet Combustion and Flame Extinguishment in Microgravity (FLEX-2) (PSI-68, Science Documents)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=685da233ee20136af540136a",
+      "year": 2010,
+      "text_file": "raw/pdf/PSI-68_FLEX-2-SRD-Final.txt"
+     }
+    },
+    {
+     "field": "years",
+     "quote": "Flame Extinguishment experiments (FLEX): ISS 2008-2016 • FLEX • FLEX-2",
+     "source": {
+      "kind": "pdf",
+      "id": "20210022617",
+      "title": "Isolated Single Droplet Combustion: FLEX Experiments onboard the International Space Station",
+      "url": "https://ntrs.nasa.gov/citations/20210022617",
+      "year": 2021,
+      "text_file": "raw/pdf/20210022617.txt"
+     }
+    },
+    {
+     "field": "pi",
+     "quote": "Research Team Lead: Forman A. Williams, University of California, San Diego",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-68_FLEX-2-SRD-Final",
+      "title": "Science Requirements Document: Fundamental Studies in Droplet Combustion and Flame Extinguishment in Microgravity (FLEX-2) (PSI-68, Science Documents)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=685da233ee20136af540136a",
+      "year": 2010,
+      "text_file": "raw/pdf/PSI-68_FLEX-2-SRD-Final.txt"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "The primary goal of the FLEX-2 flight experiments is to extend the results of FLEX-1 to fuels and environmental conditions that mimic real combustor conditions, as well as, provide benchmark experimental data on bi-component droplet combustion over a wide range of initial conditions in order to validate numerical simulations and to develop new theoretical models.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68",
+      "title": "PSI-68 investigation record: Flame Extinguishment Experiment - 2 (FLEX-2)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-68.json"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "The investigation will extend and advance the research into droplet combustion, studying the inﬂuence of sub-buoyant convective ﬂows on combustion rates, determining the inﬂuence of a second burning droplet on a linear array, and beginning the study of practical fuels by burning bi-component and surrogate fuels.",
+     "source": {
+      "kind": "pdf",
+      "id": "flex",
+      "title": "Flame Extinguishment Experiment (FLEX) fact sheet (FLEX, FLEX-2, FLEX-2J, FLEX-ICE-GA)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+      "year": null,
+      "text_file": "raw/nasa/flex.txt"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "IsoOctane (pure),1.5 - 5,O2/N2 or O2/He",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "n-Octane (pure),1.5 - 5,O2/N2 or O2/He",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "Heptane (pure),1.5 - 5,O2/N2 or O2/He",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "Decane (pure),1.5 - 5,O2/N2 or O2/He",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "Ethanol (pure),1.5 - 5,O2/N2 or O2/He",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "Propanol (95%) Glycerol (5%) (mixture),1.5 - 5,O2/N2 or O2/He",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "Heptane (50%) IsoOctane (50%) (mixture),1.5 - 5,O2/N2 or O2/He",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "Propanol (80%) Glycerol (20%) (mixture),1.5 - 5,O2/N2 or O2/He",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "experiments involve dispensing, deploying and igniting either a single droplet or a pair of droplets, depending on the experiment conﬁguration, in a known and controlled gaseous environment. The ignited droplets either burn to completion or the ﬂame extinguishes at a ﬁnite droplet radius in a quiescent ambient.",
+     "source": {
+      "kind": "pdf",
+      "id": "flex",
+      "title": "Flame Extinguishment Experiment (FLEX) fact sheet (FLEX, FLEX-2, FLEX-2J, FLEX-ICE-GA)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+      "year": null,
+      "text_file": "raw/nasa/flex.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "Initial Droplet Diameter (mm),Ambient Gas Mixture ,Oxygen Mole Fraction,Ambient Pressure (atm), Ambient Temperature (C),Flow Velocity (cm/s) IsoOctane (pure),1.5 - 5",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "In the convective ﬂow tests, a single droplet is subjected to a known and controlled sub-buoyant ﬂow of the quiescent atmosphere around the droplet. The ﬂow is realized when the droplet is tethered to a substrate. In this tethered mode the droplet is placed at the intersection of two ﬁber crosshairs. The cross hairs are then moved through the quiescent atmosphere surrounding the droplet.",
+     "source": {
+      "kind": "pdf",
+      "id": "flex",
+      "title": "Flame Extinguishment Experiment (FLEX) fact sheet (FLEX, FLEX-2, FLEX-2J, FLEX-ICE-GA)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+      "year": null,
+      "text_file": "raw/nasa/flex.txt"
+     }
+    },
+    {
+     "field": "conditions.o2_percent",
+     "quote": "Decane (pure),1.5 - 5,O2/N2 or O2/He,0.17; 0.21;0.25; 0.3",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "conditions.o2_percent",
+     "quote": "O2 concentration between 0.1 to 0.4 mole fraction with the diluent gas making up the balance.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68",
+      "title": "PSI-68 investigation record: Flame Extinguishment Experiment - 2 (FLEX-2)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-68.json"
+     }
+    },
+    {
+     "field": "conditions.pressure",
+     "quote": "Decane (pure),1.5 - 5,O2/N2 or O2/He,0.17; 0.21;0.25; 0.3,0.5; 1.0; 1.5; 2.0; or 3.0",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "conditions.flow",
+     "quote": "Flow Velocity (cm/s) IsoOctane (pure),1.5 - 5,O2/N2 or O2/He,0.17; 0.21;0.25; 0.3,0.5; 1.0; 1.5; 2.0; or 3.0 ,25,0.1 - 5",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "conditions.flow",
+     "quote": "In the convective ﬂow tests the droplet is subjected to a known and controlled small, sub-buoyant ﬂow.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-68_FLEX-2-SRD-Final",
+      "title": "Science Requirements Document: Fundamental Studies in Droplet Combustion and Flame Extinguishment in Microgravity (FLEX-2) (PSI-68, Science Documents)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=685da233ee20136af540136a",
+      "year": 2010,
+      "text_file": "raw/pdf/PSI-68_FLEX-2-SRD-Final.txt"
+     }
+    },
+    {
+     "field": "conditions.gravity",
+     "quote": "\"projectType\":\"Microgravity Investigation\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68",
+      "title": "PSI-68 investigation record: Flame Extinguishment Experiment - 2 (FLEX-2)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-68.json"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "The independently varied experimental parameters during FLEX-2 experiments were 1) Fuel type 2) Ambient gas composition 3) Ambient Pressure 4) Droplet initial diameter 5) Droplet translation velocity (and acceleration) 6) Droplet spacing and initial size in a binary linear array.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68",
+      "title": "PSI-68 investigation record: Flame Extinguishment Experiment - 2 (FLEX-2)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-68.json"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "The experiments in FLEX-2 can easily be categorized into four separate groupings; these being, the pure fuel experiments, the fuel mixture experiments, the convective ﬂow experiments, and the binary droplet array experiments.",
+     "source": {
+      "kind": "pdf",
+      "id": "flex",
+      "title": "Flame Extinguishment Experiment (FLEX) fact sheet (FLEX, FLEX-2, FLEX-2J, FLEX-ICE-GA)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+      "year": null,
+      "text_file": "raw/nasa/flex.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "Decane (pure),1.5 - 5,O2/N2 or O2/He,0.17; 0.21;0.25; 0.3,0.5; 1.0; 1.5; 2.0; or 3.0 ,25,0.1 - 5",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68/Experimental table",
+      "title": "PSI-68_Experimental table_Flex2.csv (test envelope table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=67929004b7b6ff8e6502ecd0",
+      "year": 2019,
+      "text_file": "raw/psi/tables/PSI-68_Experimental table_Flex2.csv"
+     }
+    },
+    {
+     "field": "measurements",
+     "quote": "In these experiments droplet burning rate, ﬂame dimensions, radiative emissions, and soot volume fraction are measured as a function of time and droplet initial size at diﬀerent ambient conditions.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-68_FLEX-2-SRD-Final",
+      "title": "Science Requirements Document: Fundamental Studies in Droplet Combustion and Flame Extinguishment in Microgravity (FLEX-2) (PSI-68, Science Documents)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=685da233ee20136af540136a",
+      "year": 2010,
+      "text_file": "raw/pdf/PSI-68_FLEX-2-SRD-Final.txt"
+     }
+    },
+    {
+     "field": "measurements",
+     "quote": "When ﬂame extinction occurs, the diameter of the unburned droplet at extinction is also determined.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-68_FLEX-2-SRD-Final",
+      "title": "Science Requirements Document: Fundamental Studies in Droplet Combustion and Flame Extinguishment in Microgravity (FLEX-2) (PSI-68, Science Documents)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=685da233ee20136af540136a",
+      "year": 2010,
+      "text_file": "raw/pdf/PSI-68_FLEX-2-SRD-Final.txt"
+     }
+    },
+    {
+     "field": "measurements",
+     "quote": "A near real-time download of the color camera video was employed in order to verify successful droplet deployment, ignition, and overall progress of the experiment. Pressure and temperature data of the chamber environment was also recorded in near real time.",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-68",
+      "title": "PSI-68 investigation record: Flame Extinguishment Experiment - 2 (FLEX-2)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+      "year": 2019,
+      "text_file": "raw/psi/investigations/PSI-68.json"
+     }
+    }
+   ]
+  },
+  {
+   "name": "CFI",
+   "full_name": "Cool Flames Investigation",
+   "psi_id": "PSI-39",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+   "platform": "International Space Station (ISS)",
+   "hardware": "Multi-User Droplet Combustion Apparatus (MDCA) in the Combustion Integrated Rack (CIR); the same hardware as the FLEX experiments with minor changes to data acquisition",
+   "years": "2017 (January through September 2017 per the science final report; PSI test table dates run from 9-Mar-17 to 21-Aug-17). The PSI record itself lists investigation dates 10-01-2020 to 10-20-2021.",
+   "pi": "Forman A. Williams, University of California, San Diego",
+   "objectives": "Follow-up to FLEX and FLEX-2 to explore the quasi-steady cool flames they discovered: examine cool flame combustion of n-dodecane, n-dodecane/iso-dodecane mixtures and farnesane over a range of pressure and with helium dilution, measuring droplet burning rates, flame dynamics, extinction diameters and flame radiant output.",
+   "fuels": [
+    "n-dodecane",
+    "n-dodecane/iso-dodecane mixtures (75/25 and 60/40 by mass)",
+    "farnesane"
+   ],
+   "sample_geometry": "Single droplets with initial size around 4 mm, freely deployed or tethered on a 40 micron silicon-carbide fiber",
+   "conditions": {
+    "o2_percent": "21 and 17 (oxygen 0.21 and 0.17 in the PSI test table); helium-diluted tests held the O2 mole fraction at 0.21",
+    "pressure": "0.5, 0.75, 1, 1.25, 2, 3 and 5 atm",
+    "flow": "None imposed: droplets are deployed free floating without residual momentum in a quiescent chamber",
+    "gravity": "microgravity (ISS)"
+   },
+   "variables": "Varied from test to test: fuel (pure n-dodecane, two n-dodecane/iso-dodecane mixtures, farnesane), ambient pressure, helium dilution (29% and 59%), fiber-tethered or free droplet. Held the same: initial droplet size around 4 mm, the FLEX hardware and procedure.",
+   "measurements": [
+    "Droplet size against time from a backlit black-and-white camera (5 cm x 5 cm field of view)",
+    "Flame size from a UV-sensitive camera imaging OH* emission",
+    "Color camera with live downlink for operations",
+    "Narrow-band and wide-band radiometers for flame radiation",
+    "Reported data: droplet regression rate, hot and cool flame diameters, extinction conditions, broad-band and narrow-band radiant emission"
+   ],
+   "sources": [
+    {
+     "field": "name",
+     "quote": "\"investigationAcronym\":\"CFI\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-39",
+      "title": "PSI-39 investigation record: Cool Flames Investigation (CFI)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+      "year": 2024,
+      "text_file": "raw/psi/investigations/PSI-39.json"
+     }
+    },
+    {
+     "field": "full_name",
+     "quote": "\"title\":\"Cool Flames Investigation\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-39",
+      "title": "PSI-39 investigation record: Cool Flames Investigation (CFI)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+      "year": 2024,
+      "text_file": "raw/psi/investigations/PSI-39.json"
+     }
+    },
+    {
+     "field": "psi_id, psi_url",
+     "quote": "\"accession\":\"PSI-39\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-39",
+      "title": "PSI-39 investigation record: Cool Flames Investigation (CFI)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+      "year": 2024,
+      "text_file": "raw/psi/investigations/PSI-39.json"
+     }
+    },
+    {
+     "field": "platform",
+     "quote": "\"flightProgram\":\"International Space Station (ISS)\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-39",
+      "title": "PSI-39 investigation record: Cool Flames Investigation (CFI)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+      "year": 2024,
+      "text_file": "raw/psi/investigations/PSI-39.json"
+     }
+    },
+    {
+     "field": "hardware",
+     "quote": "\"experimentHardware\":\"Multi-User Droplet Combustion Apparatus (MDCA), Combustion Integrated Rack (CIR)\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-39",
+      "title": "PSI-39 investigation record: Cool Flames Investigation (CFI)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+      "year": 2024,
+      "text_file": "raw/psi/investigations/PSI-39.json"
+     }
+    },
+    {
+     "field": "hardware",
+     "quote": "The experimental hardware is same as that of the FLEX experiments with few minor modifications in the data acquisition systems.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "years",
+     "quote": "CFI experiments were conducted onboard the ISS from January 2017 through September 2017.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "years",
+     "quote": "1206,9-Mar-17,02:03:08 pm est,f068a03,1 atm,0.21,0.79,0,No,C12H26",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-39/Experimental table",
+      "title": "PSI-39_Experimental table_CFI.csv (per-test table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=67a24ba209ed061032c107a6",
+      "year": 2024,
+      "text_file": "raw/psi/tables/PSI-39_Experimental table_CFI.csv"
+     }
+    },
+    {
+     "field": "years",
+     "quote": "\"investigationStartDate\":\"10-01-2020\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-39",
+      "title": "PSI-39 investigation record: Cool Flames Investigation (CFI)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+      "year": 2024,
+      "text_file": "raw/psi/investigations/PSI-39.json"
+     }
+    },
+    {
+     "field": "years",
+     "quote": "\"investigationEndDate\":\"10-20-2021\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-39",
+      "title": "PSI-39 investigation record: Cool Flames Investigation (CFI)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+      "year": 2024,
+      "text_file": "raw/psi/investigations/PSI-39.json"
+     }
+    },
+    {
+     "field": "pi",
+     "quote": "Science Definition Team: Prof. Forman A. Williams, University of California, San Diego",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "pi",
+     "quote": "said Forman Williams, principal investigator for three of the investigations conducted within the MDCA.",
+     "source": {
+      "kind": "nasa-page",
+      "id": "cir-eight-years",
+      "title": "Combustion Facility Celebrates Eight Years of Hot Science",
+      "url": "https://www.nasa.gov/wp-json/wp/v2/migration/265462",
+      "year": 2017,
+      "text_file": "raw/nasa/cir-eight-years.txt"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "The CFI experiments are conceived as follow-up experiments to the FLEX and FLEX-2 droplet combustion experiments onboard the ISS to further explore the newly discovered quasi-steady “cool flames.”",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "Examine the cool flame combustion behavior of n-dodecane, n-dodecane/iso-dodecane fuel mixtures, and farnesane fuels over a rage of pressure from 0.25 atm to 5 atm.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "objectives",
+     "quote": "Results for droplet burning rates, flame dynamics, droplet extinction diameters, and flame radiant out put are measured.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "three different fuel combinations were investigated, namely, pure n-dodecane, n-dodecane/iso- dodecane mixtures and farnesane ( a renewable jet fuel)",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "fuels",
+     "quote": "N-dodecane/Iso-dodecane mixtures: 75/25% and 60/40% by mass",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "The initial droplet size was kept around 4 mm",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "sample_geometry",
+     "quote": "Subsequently, a droplet of desired size is dispensed between the hypodermic needles and freely deployed, and ignited. The igniter is withdrawn from the FOV once ignition is detected. When required a 40 micron silicon-carbide fiber is used to tether the droplet at one place and stop it from drifting off from the field of view.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "conditions.o2_percent",
+     "quote": "1213,27-Mar-17,10:37:21 am est,f086a04,1 atm,0.17,0.83,0,Yes,C12H26",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-39/Experimental table",
+      "title": "PSI-39_Experimental table_CFI.csv (per-test table)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=67a24ba209ed061032c107a6",
+      "year": 2024,
+      "text_file": "raw/psi/tables/PSI-39_Experimental table_CFI.csv"
+     }
+    },
+    {
+     "field": "conditions.o2_percent",
+     "quote": "Helium dilution by 29% and 59% with O2 mole fraction at 0.21",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "conditions.pressure",
+     "quote": "Pure n-dodecane at 0.5, 0.75, 1, 1.25, 2, 3, and 5 atm.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "conditions.flow",
+     "quote": "Droplets must be deployed free floating without any residual momentum",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Operational-Requirements-and-Protocols",
+      "title": "Cool Flames Investigation (CFI) Operational Requirements and Protocols (PSI-39, Engineering Documents)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec614",
+      "year": null,
+      "text_file": "raw/pdf/PSI-39_CFI-Operational-Requirements-and-Protocols.txt"
+     }
+    },
+    {
+     "field": "conditions.gravity",
+     "quote": "\"projectType\":\"Microgravity Investigation\"",
+     "source": {
+      "kind": "psi",
+      "id": "PSI-39",
+      "title": "PSI-39 investigation record: Cool Flames Investigation (CFI)",
+      "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+      "year": 2024,
+      "text_file": "raw/psi/investigations/PSI-39.json"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "Pure n-dodecane at 0.5, 0.75, 1, 1.25, 2, 3, and 5 atm. • N-dodecane/Iso-dodecane mixtures: 75/25% and 60/40% by mass at pressures from 0.5 to 5 atm • Helium dilution by 29% and 59% with O2 mole fraction at 0.21 • Farnesane: from 0.75 to 3 atm",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "variables",
+     "quote": "The operational procedure used in the CFI tests is the same as for the FLEX experiments.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "measurements",
+     "quote": "The combustion process is recorded using a backlit, black-and-white camera ( 5 cm X 5 cm FOV) to obtain droplet size as a function of time, a UV-sensitive camera is used to image the OH* emission from the flame which provides the flame size data. A color camera which is had a live downlink to the TSC is used to perform and monitor the overall process. Narrow-band and wide-band radiometers are used to measure the radiation emission from the flame.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    },
+    {
+     "field": "measurements",
+     "quote": "Data for droplet regression rate, hot and cool flame diameters, extinction conditions, and radiant emission, both broad band and narrow band, are obtained and posted to the PSI website.",
+     "source": {
+      "kind": "pdf",
+      "id": "PSI-39_CFI-Science-Final-Report",
+      "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+      "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+      "year": 2020,
+      "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+     }
+    }
+   ]
+  }
+ ],
+ "findings": [
+  {
+   "id": "DROPLETS-001",
+   "investigation": "FLEX",
+   "pillar": "prevention",
+   "topic": "Limiting oxygen index of methanol droplets",
+   "claim": "The FLEX experiments show a limiting oxygen index for methanol in the diluent gases tested of around 12% to 13% oxygen by volume.",
+   "quote": "The experiments also show that the limiting oxygen index for methanol in these diluent gases is around 12% to 13% oxygen by volume.",
+   "source": {
+    "kind": "ntrs",
+    "id": "20130014061",
+    "title": "Methanol Droplet Combustion in Oxygen-Inert Environments in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20130014061",
+    "year": 2013,
+    "text_file": "raw/ntrs/20130014061.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "International Space Station, Combustion Integrated Rack",
+    "fuel": "methanol",
+    "o2_percent": "12 to 13 (limiting oxygen index)",
+    "pressure": "0.7 and 1 atmospheric pressures",
+    "flow": "quiescent"
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Lower the oxygen a few points below normal air and nothing will burn.",
+   "decision_hint": "Treat every breathable cabin oxygen level as able to support a liquid-fuel flame; use the 12-13% figure only as the target when inerting a sealed, uncrewed volume."
+  },
+  {
+   "id": "DROPLETS-002",
+   "investigation": "FLEX",
+   "pillar": "prevention",
+   "topic": "Ignition at 13% oxygen",
+   "claim": "At one atmosphere, methanol droplets ignited and burned for some time in 13% oxygen with the rest nitrogen.",
+   "quote": "At one atmosphere pressure, ignition and some burning were observed for an oxygen concentration of 13% with the rest being nitrogen.",
+   "source": {
+    "kind": "ntrs",
+    "id": "20120016855",
+    "title": "Methanol Droplet Extinction in Oxygen/Carbon-dioxide/Nitrogen Mixtures in Microgravity: Results from the International Space Station Experiments",
+    "url": "https://ntrs.nasa.gov/citations/20120016855",
+    "year": 2012,
+    "text_file": "raw/ntrs/20120016855.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "International Space Station, Combustion Integrated Rack Facility",
+    "fuel": "methanol",
+    "o2_percent": "13",
+    "pressure": "one atmosphere",
+    "flow": "quiescent"
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "An ignition source can still start a liquid-fuel flame at 13% oxygen; keep ignition control in place even in a reduced-oxygen compartment."
+  },
+  {
+   "id": "DROPLETS-003",
+   "investigation": "FLEX",
+   "pillar": "prevention",
+   "topic": "Burning at 12% oxygen (single PSI test record)",
+   "claim": "PSI test table, FLEX test 86: a methanol droplet of 3.07 mm initial diameter in 0.12 oxygen / 0.87 nitrogen mole fraction at 770 mmHg has a recorded burn time of 9 s and a visible flame extinction diameter of 2.56 mm; the test end is recorded as Extinction.",
+   "quote": "86,305F002,4/19/2010,19:16:37,Methanol,770,0.12,0.87,0,0,3.07,2.56,0.35,9,Extinction",
+   "source": {
+    "kind": "psi",
+    "id": "PSI-69/Experimental table",
+    "title": "PSI-69_Experimental table_FLEX.csv (per-test table)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=6792be99b7b6ff8e65037e3a",
+    "year": 2016,
+    "text_file": "raw/psi/tables/PSI-69_Experimental table_FLEX.csv"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "Methanol",
+    "o2_percent": "12",
+    "pressure": "770 mmHg",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Data point for flammability models: at 12% oxygen a 3 mm methanol droplet still held a visible flame for seconds before going out with most of the fuel left."
+  },
+  {
+   "id": "DROPLETS-004",
+   "investigation": "FLEX",
+   "pillar": "prevention",
+   "topic": "Small heptane droplet burned to completion at 14% oxygen (single PSI test record)",
+   "claim": "PSI test table, FLEX test 69: a heptane droplet of 1.1 mm initial diameter in 0.14 oxygen / 0.84 nitrogen mole fraction at 767.1 mmHg is recorded with a visible flame extinction diameter of 0, a burn time of 1.3 s and test end Completion.",
+   "quote": "69,193R002,3/23/2010,10:23:00,Heptane,767.1,0.14,0.84,0,0,1.1,0,0.94,1.3,Completion",
+   "source": {
+    "kind": "psi",
+    "id": "PSI-69/Experimental table",
+    "title": "PSI-69_Experimental table_FLEX.csv (per-test table)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=6792be99b7b6ff8e65037e3a",
+    "year": 2016,
+    "text_file": "raw/psi/tables/PSI-69_Experimental table_FLEX.csv"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "Heptane",
+    "o2_percent": "14",
+    "pressure": "767.1 mmHg",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "A 1 mm droplet burned out completely at an oxygen level where 4 mm droplets in the same table went out with nearly all their fuel left (test 213); the limit depends on the size of the fuel element, so do not apply a large-droplet limit to fine droplets."
+  },
+  {
+   "id": "DROPLETS-005",
+   "investigation": "FLEX",
+   "pillar": "prevention",
+   "topic": "Heptane at 13% oxygen: probably below the flammability limit",
+   "claim": "In FLEX test 079 a free-floating heptane droplet in 0.13/0.85 O2/N2 at 1.0 atm gave only a very short, entirely transient burn; the report judges this atmosphere probably below the quasi-steady flammability limit.",
+   "quote": "Figure 83.—Test FLEX−079. Free-floating heptane droplet burning in a 0.13/0.85 O2/N2, 1.0-atm ambient environment. This very short burn was entirely transient. The ambient environment was probably below the quasi-steady flammability limit.",
+   "source": {
+    "kind": "pdf",
+    "id": "20150023456",
+    "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+    "url": "https://ntrs.nasa.gov/citations/20150023456",
+    "year": 2015,
+    "text_file": "raw/pdf/20150023456.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "heptane",
+    "o2_percent": "13",
+    "pressure": "1.0 atm",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "For heptane the quasi-steady limit sits near 13% oxygen at 1 atm in this data set; a flame can still flash briefly at ignition below the limit."
+  },
+  {
+   "id": "DROPLETS-006",
+   "investigation": "FLEX",
+   "pillar": "prevention",
+   "topic": "Observed oxygen limits lower than expected",
+   "claim": "The FLEX data report states that a principal objective was the limiting oxygen index, and that the observed LOI values for the fuels tested appear slightly lower than initially expected.",
+   "quote": "A principle objective was to determine the limiting oxygen index (LOI), the oxygen percentage below which combustion would not occur. This objective reflected the FLEX focus on investigating fire safety in spacecraft. Observed LOI values for these fuels appear to be slightly lower than initially expected.",
+   "source": {
+    "kind": "pdf",
+    "id": "20150023456",
+    "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+    "url": "https://ntrs.nasa.gov/citations/20150023456",
+    "year": 2015,
+    "text_file": "raw/pdf/20150023456.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "methanol and n-heptane",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Use measured microgravity limits, not pre-flight estimates, when setting an inerting target."
+  },
+  {
+   "id": "DROPLETS-007",
+   "investigation": "FLEX",
+   "pillar": "prevention",
+   "topic": "Oxygen limit lower in microgravity than in normal gravity",
+   "claim": "The FLEX and FLEX-2 droplet experiments identified radiative and diffusive extinction limits for heptane and methanol droplets and a limiting oxygen index that is significantly lower than in normal gravity and lower than previously predicted.",
+   "quote": "To date, these experiments have identified both the radiative and diffusive extinction limits for heptane and methanol droplets and identified an LOI that is both significantly lower than in normal gravity and lower than previously predicted and anticipated.",
+   "source": {
+    "kind": "pdf",
+    "id": "researchers-guide-combustion",
+    "title": "A Researcher's Guide to: Combustion Science (NP-2015-10-034-JSC)",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "year": 2015,
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity compared with normal gravity",
+    "platform": null,
+    "fuel": "heptane and methanol",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": "Flammability limits measured on the ground are the worst case, so what passes on Earth is safe in orbit.",
+   "decision_hint": "Add margin to oxygen limits taken from normal-gravity tests; for these liquid fuels the microgravity limit was lower. Partial gravity lies between the two and is not measured here."
+  },
+  {
+   "id": "DROPLETS-008",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "Ground standards for inert-gas suppressants lose margin in low gravity",
+   "claim": "Research to date in FLEX has shown that the flammability limit is lower in reduced gravity, with the implication that terrestrial standards for inert gas suppressants do not offer the same margin of safety in low gravity as in normal gravity.",
+   "quote": "The research to date has shown that the flammability limit is lower in reduced gravity. The implication is that terrestrial standards for inert gas suppressants in low gravity do not offer the same margin of safety as in normal gravity.",
+   "source": {
+    "kind": "pdf",
+    "id": "researchers-guide-combustion",
+    "title": "A Researcher's Guide to: Combustion Science (NP-2015-10-034-JSC)",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "year": 2015,
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   },
+   "conditions": {
+    "gravity": "reduced gravity compared with normal gravity",
+    "platform": null,
+    "fuel": "heptane and methanol",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": "An inert-gas suppressant concentration qualified on the ground gives the same protection in space.",
+   "decision_hint": "Do not carry a ground-qualified inert-gas design concentration into a spacecraft or habitat unchanged; require microgravity extinction data or added margin."
+  },
+  {
+   "id": "DROPLETS-009",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "Methanol burned with 75% carbon dioxide present when oxygen stayed at 20%",
+   "claim": "FLEX test point FLEX-145: a methanol droplet of 3.38 mm burned at 1.0 atm in 20% O2 / 75% CO2 / 5% N2, with visible flame extinction at a droplet size of 1.66.",
+   "quote": "Test Point FLEX-145 • 1.0 atm in 20% O2 / 75% CO2 / 5% N2 • Methanol droplet Do = 3.38 mm Dext = 1.66 (at visible flame extinction)",
+   "source": {
+    "kind": "pdf",
+    "id": "20130010979",
+    "title": "Dynamics of Water Absorption and Evaporation During Methanol Droplet Combustion in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20130010979",
+    "year": 2012,
+    "text_file": "raw/pdf/20130010979.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS (FLEX)",
+    "fuel": "methanol",
+    "o2_percent": "20",
+    "pressure": "1.0 atm",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": "Flood a fire with carbon dioxide and it goes out.",
+   "decision_hint": "Judge a CO2 discharge by the oxygen fraction it leaves, not by how much CO2 was released: this droplet burned with 75% CO2 around it because oxygen was still 20%."
+  },
+  {
+   "id": "DROPLETS-010",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "Heptane burned in 70% carbon dioxide with 21% oxygen (single PSI test record)",
+   "claim": "PSI test table, FLEX test 18: a heptane droplet of 2.74 mm initial diameter in 0.21 oxygen / 0.09 nitrogen / 0.7 carbon dioxide mole fraction at 1553.8 mmHg has a recorded burn time of 8.1 s and a visible flame extinction diameter of 1.77 mm.",
+   "quote": "18,248F001,7/1/2009,16:28:56,Heptane,1553.8,0.21,0.09,0.7,0,2.74,1.77,0.61,8.1,Extinction",
+   "source": {
+    "kind": "psi",
+    "id": "PSI-69/Experimental table",
+    "title": "PSI-69_Experimental table_FLEX.csv (per-test table)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=6792be99b7b6ff8e65037e3a",
+    "year": 2016,
+    "text_file": "raw/psi/tables/PSI-69_Experimental table_FLEX.csv"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "Heptane",
+    "o2_percent": "21",
+    "pressure": "1553.8 mmHg",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Flood a fire with carbon dioxide and it goes out.",
+   "decision_hint": "Same lesson as FLEX-145 for a sooting fuel: 70% CO2 did not prevent burning while oxygen remained at 21% (this record is at about twice sea-level pressure)."
+  },
+  {
+   "id": "DROPLETS-011",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "Near-limit point: 15% oxygen with 50% carbon dioxide (single PSI test record)",
+   "claim": "PSI test table, FLEX test 140: a methanol droplet of 3.98 mm initial diameter in 0.15 oxygen / 0.35 nitrogen / 0.5 carbon dioxide mole fraction at 533.5 mmHg has a recorded burn time of 1.3 s and a visible flame extinction diameter of 3.95 mm.",
+   "quote": "140,C14M101,11/4/2010,16:52:39,Methanol,533.5,0.15,0.35,0.5,0,3.98,3.95,0.2,1.3,Extinction",
+   "source": {
+    "kind": "psi",
+    "id": "PSI-69/Experimental table",
+    "title": "PSI-69_Experimental table_FLEX.csv (per-test table)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=6792be99b7b6ff8e65037e3a",
+    "year": 2016,
+    "text_file": "raw/psi/tables/PSI-69_Experimental table_FLEX.csv"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "Methanol",
+    "o2_percent": "15",
+    "pressure": "533.5 mmHg",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "A quantitative extinction point for suppression models: at about 0.7 atm, 15% oxygen with 50% CO2 let a large methanol droplet flame survive only about a second."
+  },
+  {
+   "id": "DROPLETS-012",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "Heptane in 17% oxygen with 45% carbon dioxide: quick extinction, no cool flame",
+   "claim": "In FLEX test 130 a fiber-supported heptane droplet translating at 3 mm/s in 0.17/0.38/0.45 O2/N2/CO2 at 0.7 atm burned only very briefly: the flame extinguished radiatively soon after translation began, no vapor cloud formed, and the report concludes there was probably no, or only very brief, cool flame burning.",
+   "quote": "Figure 134.—Test FLEX–130. Fiber-supported heptane droplet translating 3 mm/s and burning in a 0.17/0.38/0.45 O2/N2/CO2, 0.7-atm ambient environment. This was a very short burn, and the flame extinguished radiatively very soon after translation began. No vapor cloud formed, and the vaporization rate was quite small after the visible flame extinguished. As a result, there was probably no, or only very brief, cool flame burning.",
+   "source": {
+    "kind": "pdf",
+    "id": "20150023456",
+    "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+    "url": "https://ntrs.nasa.gov/citations/20150023456",
+    "year": 2015,
+    "text_file": "raw/pdf/20150023456.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "heptane",
+    "o2_percent": "17",
+    "pressure": "0.7 atm",
+    "flow": "3 mm/s (droplet translated on a fiber)"
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "A reference atmosphere in which both the visible flame and the cool flame failed for heptane: 17% oxygen with 45% CO2 at 0.7 atm."
+  },
+  {
+   "id": "DROPLETS-013",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "How FLEX measured the minimum carbon dioxide concentration",
+   "claim": "In the FLEX CO2 tests, CO2 was added at constant pressure starting from the highest oxygen mole fraction until quasi-steady burning was no longer observed; the report treats that point as the LOI and as the minimum CO2 mole fraction required to extinguish or prevent the spread of a flame.",
+   "quote": "These tests also began at the highest oxygen mole fraction ambient environment; then increasing amounts of CO2 were added while the ambient pressure was maintained constant. Testing concluded when quasi-steady burning was not observed, again the determination of the LOI. This also represented the minimum carbon dioxide mole fraction required to extinguish or prevent the spread of a flame.",
+   "source": {
+    "kind": "pdf",
+    "id": "20150023456",
+    "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+    "url": "https://ntrs.nasa.gov/citations/20150023456",
+    "year": 2015,
+    "text_file": "raw/pdf/20150023456.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "methanol and heptane",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "When reading FLEX tables, the last CO2 fraction with quasi-steady burning brackets the minimum extinguishing concentration for that pressure and oxygen level."
+  },
+  {
+   "id": "DROPLETS-014",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "Design goal of a total-flooding agent",
+   "claim": "The FLEX test plan states that the LOI is a critical concept in fire safety and that the goal of the agent in a total flooding application is to reduce the oxygen concentration below the LOI.",
+   "quote": "The LOI is a critical concept in fire safety, and also important in developing, refining and ultimately validating detailed chemical kinetic mechanisms. For fire safety, the goal of the agent in a total flooding application is to reduce the oxygen concentration below the LOI",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-69_FLEX-Test-Plan",
+    "title": "FLEX Test Plan, extracted from the Research Requirements Document for Droplet Flame Extinguishment in Microgravity (PSI-69, Science Documents)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=684347459e44646b74028a01",
+    "year": 2005,
+    "text_file": "raw/pdf/PSI-69_FLEX-Test-Plan.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Size a total-flooding discharge so the compartment ends below the limiting oxygen index of the worst-case fuel, and confirm with an oxygen reading."
+  },
+  {
+   "id": "DROPLETS-015",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "More agent needed in microgravity: cup-burner minimum extinction concentrations (background cited in the FLEX test plan)",
+   "claim": "Table 2 of the FLEX test plan lists minimum extinction concentrations for cup burner flames from Takahashi et al. (2004): CO2 0.16 in 1-g and 0.19 in microgravity, He 0.27 and 0.31, N2 0.26 and 0.38. The plan says Takahashi et al. conducted normal gravity tests and microgravity simulations of the suppression of methane cup-burner flames.",
+   "quote": "Table 2: Gaseous fire suppression agent efficacy, as measured by the M EC , for cup burner flames (Takahashi et al., 2004). Agent/Env. M EC , 1 − g M EC , µg CO2 0.16 0.19 He 0.27 0.31 N2 0.26 0.38 LOI = 0.209 (1 − M EC) (2) The M EC is a function of the fuel, agent and experimental geometry. Clearly, a more effective agent will have a lower M EC for a given fuel and fuel geometry. Takahashi et al. (2004) conducted normal gravity tests and microgravity simulations of the suppression of methane cup-burner flames using mixtures of various suppressants in standard air. The table below summarizes the findings for M EC in the two environments.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-69_FLEX-Test-Plan",
+    "title": "FLEX Test Plan, extracted from the Research Requirements Document for Droplet Flame Extinguishment in Microgravity (PSI-69, Science Documents)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=684347459e44646b74028a01",
+    "year": 2005,
+    "text_file": "raw/pdf/PSI-69_FLEX-Test-Plan.txt"
+   },
+   "conditions": {
+    "gravity": "1-g and microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "model or analysis",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": "The amount of extinguishing gas that works on Earth works anywhere.",
+   "decision_hint": "For all three inert gases listed the microgravity figure is higher than the 1-g figure; budget more agent than a ground test suggests, most of all for nitrogen."
+  },
+  {
+   "id": "DROPLETS-016",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "Carbon dioxide threshold higher in microgravity (background cited in the FLEX test plan)",
+   "claim": "The FLEX test plan cites Katta et al. (2004): for a methane-air diffusion flame on a cup burner, a CO2 volume fraction greater than 19.1% is needed to destabilize the flame base in microgravity compared to 16.4% for a normal gravity flame.",
+   "quote": "Katta et al. (2004) investigated the mechanism through which CO2 causes fire suppression using detailed numerical simulation and experiments in microgravity for a methane-air diffusion flame stabilized on a cup burner. Their results showed that a CO2 volume fraction greater than 19.1% is needed to destabilize the flame-base in microgravity compared to 16.4% for a normal gravity flame.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-69_FLEX-Test-Plan",
+    "title": "FLEX Test Plan, extracted from the Research Requirements Document for Droplet Flame Extinguishment in Microgravity (PSI-69, Science Documents)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=684347459e44646b74028a01",
+    "year": 2005,
+    "text_file": "raw/pdf/PSI-69_FLEX-Test-Plan.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity and normal gravity",
+    "platform": null,
+    "fuel": "methane",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": "The amount of extinguishing gas that works on Earth works anywhere.",
+   "decision_hint": "Plan for a higher CO2 concentration in microgravity than the normal-gravity value; a lunar or Martian habitat lies between the two figures and has no direct data in this source."
+  },
+  {
+   "id": "DROPLETS-017",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "Carbon dioxide less effective than helium in microgravity flame spread tests (background cited in the FLEX test plan)",
+   "claim": "The FLEX test plan cites Honda and Ronney (1998), who added inert diluents to air in microgravity tests of opposed-flow flame spread over thin solid fuels; their results seem to suggest that CO2 is less effective than He as a fire suppressant in microgravity in terms of the minimum O2 concentration that supports combustion.",
+   "quote": "Honda and Ronney (1998) studied opposed-flow flame spread rates over thin solid fuels in microgravity by adding different inert diluents (He , N2 , Ar, CO2 and SF6 ) to the standard air atmosphere. Their experimental results seem to suggest that CO2 is less effective as a fire suppressant in microgravity than He in terms of the minimum O2 concentration that supports combustion.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-69_FLEX-Test-Plan",
+    "title": "FLEX Test Plan, extracted from the Research Requirements Document for Droplet Flame Extinguishment in Microgravity (PSI-69, Science Documents)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=684347459e44646b74028a01",
+    "year": 2005,
+    "text_file": "raw/pdf/PSI-69_FLEX-Test-Plan.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "thin solid fuels",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "An agent ranking established on Earth holds in space.",
+   "decision_hint": "Do not assume the ground ranking of inert agents carries over; compare agents with microgravity data before selecting one."
+  },
+  {
+   "id": "DROPLETS-018",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "Why carbon dioxide can behave differently without buoyancy",
+   "claim": "The FLEX test plan explains that without buoyantly-driven convective flows, radiative losses can become a significant fraction of the heat loss from the reaction zone, and that when a thermally participating gas such as CO2 limits radiative exchange between flame and ambient, temperatures near the fuel source will increase.",
+   "quote": "In the absence of buoyantly-driven convective flows, however, radiative losses from the flame can become a significant fraction of the total heat loss from the reaction zone. When radiative exchanges between the flame and the ambient are limited by the presence of a thermally participating gas, such as CO2 , temperatures in the proximity of the fuel source will increase.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-69_FLEX-Test-Plan",
+    "title": "FLEX Test Plan, extracted from the Research Requirements Document for Droplet Flame Extinguishment in Microgravity (PSI-69, Science Documents)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=684347459e44646b74028a01",
+    "year": 2005,
+    "text_file": "raw/pdf/PSI-69_FLEX-Test-Plan.txt"
+   },
+   "conditions": {
+    "gravity": "reduced gravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Treat CO2 as a radiatively active gas when modeling suppression in microgravity; its effect is not only dilution."
+  },
+  {
+   "id": "DROPLETS-019",
+   "investigation": "FLEX",
+   "pillar": "response",
+   "topic": "Venting the cabin as an extinguishing strategy",
+   "claim": "The MDCA-FLEX description notes that ambient pressure does not significantly influence droplet burning rate but does influence chemistry at sufficiently low values, that one strategy for extinguishing a fire is to isolate the habitat and vent the cabin to space, and that verified suppressant data at low pressures are therefore beneficial.",
+   "quote": "Pressure: Ambient pressure does not significantly influence the droplet burning rate, but does influence chemistry at sufficiently low values. In addition, one strategy for extinguishing a fire is to isolate the habitat where it exists and vent the cabin to space. It is therefore beneficial to have verified suppressant data at low pressures.",
+   "source": {
+    "kind": "pdf",
+    "id": "20090014812",
+    "title": "Multi-User Droplet Combustion Apparatus - Flame Extinguishment Experiment (MDCA-FLEX fact sheet)",
+    "url": "https://ntrs.nasa.gov/citations/20090014812",
+    "year": 2009,
+    "text_file": "raw/pdf/20090014812.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": "0.5 to 1.0 atm (planned test range)",
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "If depressurizing a module is part of the fire response, base the plan on extinction data taken at reduced pressure, since burning rate barely drops as pressure falls."
+  },
+  {
+   "id": "DROPLETS-020",
+   "investigation": "FLEX",
+   "pillar": "detection",
+   "topic": "Fuel keeps reacting after the visible flame is gone",
+   "claim": "In FLEX, large alkane droplets burned briefly with a typical hot flame that extinguished when radiative loss lowered the flame temperature; after that the droplet continued to vaporize at the same rate for an extended period and then suddenly stopped at a finite size, with a large vapor cloud forming; this vaporization is supported by a lower-temperature cool flame that forms after visible flame extinction.",
+   "quote": "Recent spaceflight experiments (FLEX) involving single alkane droplets burning in a quiescent ambient uncovered unexplained and unexpected behavior. For the large alkane droplets, after ignition the droplet burns for a short time with a typical hot flame. As expected, the hot flame extinguished when the radiative loss reduced the flame temperature below a critical value. Inexplicably after hot flame extinction, however, the droplet continued to vaporize at the same rate for an extended period and then suddenly stopped vaporizing at a finite droplet size. The plateau in vaporization occurred coincident with the formation of a large vapor cloud. This vaporization, we now know, is supported by a lower-temperature cool flame that forms after visible flame extinction.",
+   "source": {
+    "kind": "pdf",
+    "id": "researchers-guide-combustion",
+    "title": "A Researcher's Guide to: Combustion Science (NP-2015-10-034-JSC)",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "year": 2015,
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "spaceflight (FLEX)",
+    "fuel": "alkane droplets",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": "quiescent"
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "When you can no longer see a flame, the fire is out.",
+   "decision_hint": "After a liquid hydrocarbon flame disappears, keep treating the source as burning until a non-visual signal (radiant heat, combustion gases, fuel no longer being consumed) says otherwise."
+  },
+  {
+   "id": "DROPLETS-021",
+   "investigation": "FLEX",
+   "pillar": "detection",
+   "topic": "Post-flame vaporization nearly as fast as burning (heptane in cabin air)",
+   "claim": "In FLEX test 035 (free-floating heptane droplet, cabin air, 1.0 atm), after the visible flame extinguished the droplet vaporized very vigorously at a rate only slightly lower than the burning rate constant before extinction, then the rate plateaued as a very large vapor cloud formed; the report calls this indicative of cool flame burning and extinction.",
+   "quote": "Figure 39.—Test FLEX−035. Free-floating heptane droplet in a cabin air (0.21/0.79 O2/N2), 1.0-atm ambient environment. The droplet remained in the High-Bit-Depth Multispectral (HiBMs) field of view (FOV) for the entire test including a long time after the visible flame extinguished. The flame oscillated before the visible flame extinguished, and this was apparent in both the Low Light Level Ultra-Violet (LLUV) and color camera. After the flame extinguished, the droplet vaporized very vigorously with droplet-diameter-squared versus time behavior that was nearly perfectly linear. The vaporization rate was only slightly lower than the burning rate constant before the flame extinguished. The droplet vaporization rate then plateaued coincident with the formation of a very large vapor cloud. This behavior is indicative of cool flame burning and extinction.",
+   "source": {
+    "kind": "pdf",
+    "id": "20150023456",
+    "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+    "url": "https://ntrs.nasa.gov/citations/20150023456",
+    "year": 2015,
+    "text_file": "raw/pdf/20150023456.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "heptane",
+    "o2_percent": "21 (cabin air, 0.21/0.79 O2/N2)",
+    "pressure": "1.0 atm",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "When you can no longer see a flame, the fire is out.",
+   "decision_hint": "In ordinary cabin air the invisible stage consumed fuel almost as fast as the visible flame; do not count the fuel as saved when the flame disappears."
+  },
+  {
+   "id": "DROPLETS-022",
+   "investigation": "FLEX",
+   "pillar": "detection",
+   "topic": "Cool flame temperature range",
+   "claim": "The FLEX series showed that quasi-steady stable flames can surround a droplet in microgravity without a visible flame, at temperatures in the range of 700 to 900 K, unlike hot flames, whose temperature is higher than 1200 K.",
+   "quote": "FLEX series of experiments showed for the first time that quasi-steady stable flames can be established surrounding a droplet in microgravity under certain conditions, without a visible flame at temperatures in the range of 700 to 900 K, unlike the hot flames where the flame temperature is higher than 1200 K.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-39_CFI-Science-Final-Report",
+    "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+    "year": 2020,
+    "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "n-alkane fuels",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "A fire is hot and bright.",
+   "decision_hint": "Detection logic keyed to hot-flame temperature or visible light can miss a 700 to 900 K cool flame; add sensing that does not depend on either."
+  },
+  {
+   "id": "DROPLETS-023",
+   "investigation": "FLEX",
+   "pillar": "response",
+   "topic": "The fire went out twice",
+   "claim": "In FLEX, large (about 3 mm) heptane droplets showed dual modes of combustion and extinction: the fire went out twice, once with a visible flame and once without.",
+   "quote": "In FLEX scientists observed for the first time large, about 3 mm, droplets of heptane fuel that had dual modes of combustion and extinction. The fire went out twice; once with a visible flame, once without.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "iss-passes-torch-flame-studies",
+    "title": "ISS Passes the Torch of Flame Studies",
+    "url": "https://www.nasa.gov/wp-json/wp/v2/migration/309143",
+    "year": 2013,
+    "text_file": "raw/nasa/iss-passes-torch-flame-studies.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "International Space Station",
+    "fuel": "heptane",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "A fire goes out once.",
+   "decision_hint": "Write the response procedure with two end points: visible flame out, then confirmed end of reaction."
+  },
+  {
+   "id": "DROPLETS-024",
+   "investigation": "FLEX",
+   "pillar": "detection",
+   "topic": "Cool flames last minutes in microgravity, a fraction of a second on Earth",
+   "claim": "On Earth, cool flames can only be observed for a fraction of a second; in microgravity researchers observed them for a minute or two at a time.",
+   "quote": "On Earth, cool flames can only be observed for a fraction of a second. In microgravity, however, researchers have been able to observe the phenomenon for a minute or two at a time.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "cir-eight-years",
+    "title": "Combustion Facility Celebrates Eight Years of Hot Science",
+    "url": "https://www.nasa.gov/wp-json/wp/v2/migration/265462",
+    "year": 2017,
+    "text_file": "raw/nasa/cir-eight-years.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity compared with Earth",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "A flame that weak dies almost at once.",
+   "decision_hint": "Hold the post-fire watch for minutes, not seconds, after the visible flame is gone."
+  },
+  {
+   "id": "DROPLETS-025",
+   "investigation": "FLEX",
+   "pillar": "prevention",
+   "topic": "Why cool flames do not persist on Earth",
+   "claim": "Cool flames are much weaker than hot flames, so on Earth the buoyant flow of oxygen drawn into the flame causes the flame to collapse and extinguish.",
+   "quote": "Cool flames are much weaker than hot flames, so on Earth the oxygen being drawn into the flame, known as the buoyant flow, causes the flame to collapse and extinguish.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "cir-eight-years",
+    "title": "Combustion Facility Celebrates Eight Years of Hot Science",
+    "url": "https://www.nasa.gov/wp-json/wp/v2/migration/265462",
+    "year": 2017,
+    "text_file": "raw/nasa/cir-eight-years.txt"
+   },
+   "conditions": {
+    "gravity": "Earth gravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": "buoyant flow"
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "earth"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Buoyant flow is what removes this hazard on Earth. Whether lunar or Martian gravity gives enough buoyant flow is not tested in these sources; treat partial gravity as unknown for cool flames."
+  },
+  {
+   "id": "DROPLETS-026",
+   "investigation": "FLEX",
+   "pillar": "detection",
+   "topic": "Cool flames give carbon monoxide and formaldehyde",
+   "claim": "Typical flames produce carbon dioxide and water, but cool flames produce carbon monoxide and formaldehyde.",
+   "quote": "Typical flames produce carbon dioxide and water, but cool flames produce carbon monoxide and formaldehyde.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "iss-combustion-fire-safety",
+    "title": "Studying Combustion and Fire Safety",
+    "url": "https://www.nasa.gov/missions/station/iss-research/studying-combustion-and-fire-safety/",
+    "year": 2023,
+    "text_file": "raw/nasa/iss-combustion-fire-safety.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Include carbon monoxide in the post-fire check: CO rising with no visible flame is consistent with cool-flame burning, and both products are toxic."
+  },
+  {
+   "id": "DROPLETS-027",
+   "investigation": "FLEX",
+   "pillar": "response",
+   "topic": "Cool flames can re-ignite to hot flames",
+   "claim": "The FLEX team concludes that these cool flames produce partially oxidized fuel and can potentially re-ignite to hot flames, posing fire safety concerns in spacecraft environments.",
+   "quote": "These cool flames produce partially oxidized fuel and potentially re-ignite to hot flames posing fire safety concerns in spacecraft environments",
+   "source": {
+    "kind": "pdf",
+    "id": "20210022617",
+    "title": "Isolated Single Droplet Combustion: FLEX Experiments onboard the International Space Station",
+    "url": "https://ntrs.nasa.gov/citations/20210022617",
+    "year": 2021,
+    "text_file": "raw/pdf/20210022617.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Once a fire is out, it stays out unless something lights it again.",
+   "decision_hint": "Keep suppression ready and the area isolated after flame-out; a hot flame can return without a new ignition source."
+  },
+  {
+   "id": "DROPLETS-028",
+   "investigation": "FLEX",
+   "pillar": "response",
+   "topic": "Cool flame compared to smoldering; re-ignition seen with decane",
+   "claim": "A 2013 FLEX team presentation states that in space a cool flame can persist after hot flame extinction and generate combustible vapor that can reignite, similar to smoldering combustion in solid fuels, and that recent results show re-ignition with decane.",
+   "quote": "In space “cool flame” can persist after hot flame extinction and generate combustible vapor that can reignite (similar to smoldering combustion in solid fuels) • Recent results show re-ignition with decane",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-69_Cool-Flames-in-Space-a-Hot-Prospect-on-Earth",
+    "title": "\"Cool Flames\" in Space, a Hot Prospect on Earth! (Nayagam, 2nd Annual ISS Research and Development Conference; PSI-69, Presentations)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=684344b89e44646b7402706a",
+    "year": 2013,
+    "text_file": "raw/pdf/PSI-69_Cool-Flames-in-Space-a-Hot-Prospect-on-Earth.txt"
+   },
+   "conditions": {
+    "gravity": "space",
+    "platform": null,
+    "fuel": "decane",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Liquids do not smolder; once the flame is gone the liquid is just evaporating.",
+   "decision_hint": "Handle an extinguished liquid-fuel fire like a smoldering one: assume combustible vapor is still being produced until shown otherwise."
+  },
+  {
+   "id": "DROPLETS-029",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "Model: adding carbon dioxide triggered the cool-flame mode",
+   "claim": "In simulations of a 3.0 mm n-heptane droplet, which in ambient air did not show two-stage cool flame combustion, an increase in ambient CO2 concentration readily triggered the cool flame combustion; the authors add that any enhanced heat loss mechanism, not only radiative loss, can trigger it.",
+   "quote": "To study the influence of radiative effects on the combustion characteristics, simulations were conducted for ambience containing increasing CO2 concentration since CO2 is a radiatively participating medium. An initial droplet diameter of 3.0 mm was so chosen as in ambient air it did not show a two stage “Cool Flame” combustion characteristics. The influence of CO2 concentration in the ambient is summarized in Figure 6. An increase 5 in the CO2 concentration in the ambient readily triggered the “Cool flame” combustion. The “Cool Flame” behavior can not only be triggered by radiative heat loss but rather any enhanced heat loss mechanism.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-69_Presentation-1G17-070HE-0166",
+    "title": "Isolated Alkane Droplet Combustion in Microgravity: \"Cool Flames\" (Farouk and Dryer, 8th U.S. National Combustion Meeting; PSI-69, Presentations)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=684344b89e44646b7402706c",
+    "year": 2013,
+    "text_file": "raw/pdf/PSI-69_Presentation-1G17-070HE-0166.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "n-heptane",
+    "o2_percent": "21 (0.21 XO2)",
+    "pressure": "one atmosphere",
+    "flow": null
+   },
+   "evidence_level": "model or analysis",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "More carbon dioxide only ever helps put a fire out.",
+   "decision_hint": "After a CO2 discharge knocks down the visible flame of a liquid-fuel fire, expect that a cool flame may follow; confirm with non-visual sensing before re-entering or restoring airflow."
+  },
+  {
+   "id": "DROPLETS-030",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "Cool flame followed radiative extinction with 15% carbon dioxide present",
+   "claim": "Three free-floated n-heptane droplets at one atmosphere, in 21% O2 / 79% N2, 18% O2 / 82% N2 and 18% O2 / 67% N2 / 15% CO2 (initial diameters 3.91, 3.48 and 2.49 mm), all showed radiative extinction followed by cool flame combustion and a second-stage extinction leading to pure vaporization.",
+   "quote": "shows three typical free-ﬂoated cases, corresponding to ambient gas mixtures of 21% oxygen 79% nitrogen, 18% oxygen 82% nitrogen, and 18% oxygen 67% nitrogen 15% carbon dioxide, all by volume, at one atmospheric pressure. The initial diameters for these cases respectively were 3.91, 3.48, and 2.49 mm. All three cases exhibit radiative extinction followed by cool ﬂame combustion and the second stage extinction leading to pure vaporization.",
+   "source": {
+    "kind": "pdf",
+    "id": "20140006750",
+    "title": "Cool-flame Extinction During N-Alkane Droplet Combustion in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20140006750",
+    "year": 2014,
+    "text_file": "raw/pdf/20140006750.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS, Combustion Integrated Rack",
+    "fuel": "n-heptane",
+    "o2_percent": "21 and 18",
+    "pressure": "one atmospheric pressure",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "When you can no longer see a flame, the fire is out.",
+   "decision_hint": "Lower oxygen (18%) and 15% CO2 did not stop the invisible second stage; treat partial dilution as a way to lose sight of the fire, not to end it."
+  },
+  {
+   "id": "DROPLETS-031",
+   "investigation": "FLEX",
+   "pillar": "response",
+   "topic": "Model: flash re-ignition after about 18 s of cool flame",
+   "claim": "A two-dimensional simulation of the FLEX observations with a gaseous n-heptane source in zero gravity found that in near-quiescent air (2 mm/s or less) the growing spherical flame extinguishes at about 1200 K from radiative heat loss, moves to a cool-flame regime with a reaction zone at about 700 K close to the fuel source, and after about 18 s of cool flame a flash re-ignition occurs.",
+   "quote": "In a near-quiescent air environment (< or = 2 mm/s), with a sufficiently large fuel injection velocity (1 cm/s), a growing spherical diffusion flame extinguishes at ≈1200 K due to radiative heat losses. This is typically followed by a transition to the low-temperature (cool-flame) regime with a reaction zone (at ≈700 K) in close proximity to the fuel source. The 'cool flame' regime is formed due to the negative temperature coefficient in the low-temperature chemistry. After a relatively long period (≈18 s) of the cool flame regime, a flash re-ignition occurs, associated with flame-edge propagation and subsequent extinction of the re-ignited flame.",
+   "source": {
+    "kind": "ntrs",
+    "id": "20150018397",
+    "title": "Combustion Characteristics in a Non-Premixed Cool-Flame Regime of n-Heptane in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20150018397",
+    "year": 2015,
+    "text_file": "raw/pdf/20150018397.abstract.txt"
+   },
+   "conditions": {
+    "gravity": "zero gravity",
+    "platform": null,
+    "fuel": "n-heptane (gaseous fuel source)",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": "2 mm/s or less"
+   },
+   "evidence_level": "model or analysis",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Once a fire is out, it stays out unless something lights it again.",
+   "decision_hint": "Expect a possible flash back to a hot flame some tens of seconds after flame-out in still air; keep crew and extinguisher positioned for it."
+  },
+  {
+   "id": "DROPLETS-032",
+   "investigation": "FLEX",
+   "pillar": "response",
+   "topic": "Model: millimetre-per-second airflow changes whether the flame survives",
+   "claim": "In the same simulation, a low-speed airstream of about 3 mm/s enhanced the diffusion flame upstream with local extinction downstream and steady pulsations at about 0.4 Hz, and at air velocities of 4 to 10 mm/s the locally extinguished flame became steady.",
+   "quote": "In a low-speed (≈3 mm/s) airstream (which simulates the slight droplet movement), the diffusion flame is enhanced upstream and experiences a local extinction downstream at ≈1200 K, followed by steady flame pulsations (≈0.4 Hz). At higher air velocities (4-10 mm/s), the locally extinguished flame becomes steady state.",
+   "source": {
+    "kind": "ntrs",
+    "id": "20150018397",
+    "title": "Combustion Characteristics in a Non-Premixed Cool-Flame Regime of n-Heptane in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20150018397",
+    "year": 2015,
+    "text_file": "raw/pdf/20150018397.abstract.txt"
+   },
+   "conditions": {
+    "gravity": "zero gravity",
+    "platform": null,
+    "fuel": "n-heptane (gaseous fuel source)",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": "about 3 mm/s; 4 to 10 mm/s"
+   },
+   "evidence_level": "model or analysis",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Air that barely moves cannot matter to a flame.",
+   "decision_hint": "After fans are shut off, residual air motion of a few mm/s can be enough to hold a flame on its upstream side; allow the flow to decay and check where the residual flow comes from."
+  },
+  {
+   "id": "DROPLETS-033",
+   "investigation": "FLEX",
+   "pillar": "response",
+   "topic": "Flame went out when a 3 mm/s flow stopped (single test)",
+   "claim": "In FLEX test 064 a fiber-supported heptane droplet in 0.18/0.82 O2/N2 at 1.0 atm was translated at 3 mm/s for about 4 s: during translation the leading edge of the flame was bright and the trailing edge much dimmer; after translation stopped the flame extinguished and the droplet vaporized significantly, behavior the report calls indicative of cool flame burning and extinction.",
+   "quote": "Figure 68.—Test FLEX−064. Fiber-supported heptane droplet translating 3 mm/s (for approximately 4 s) and burning in a 0.18/0.82 O2/N2, 1.0-atm ambient environment. The droplet had moderate transverse oscillations and remained within the High-Bit-Depth Multispectral (HiBMs) field of view (FOV) for the entire test. The flame grew and became dim blue. During translation, the leading edge of the flame was bright and the fiber glowed brightly. The trailing edge of the flame was much dimmer and the fiber did not glow. After the translation stopped, the flame extinguished and the droplet vaporized significantly. A small disruption very late in the droplet lifetime left a small residual droplet on the fiber. The behavior after the visible flame extinguished is indicative of cool flame burning and extinction.",
+   "source": {
+    "kind": "pdf",
+    "id": "20150023456",
+    "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011 (NASA/TP-2015-216046)",
+    "url": "https://ntrs.nasa.gov/citations/20150023456",
+    "year": 2015,
+    "text_file": "raw/pdf/20150023456.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "heptane",
+    "o2_percent": "18",
+    "pressure": "1.0 atm",
+    "flow": "3 mm/s for approximately 4 s, then none"
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Air that barely moves cannot matter to a flame.",
+   "decision_hint": "Stopping the airflow ended the visible flame in this single test at 18% oxygen, which supports fan shutdown as a first step, but fuel kept reacting afterwards: follow fan shutdown with a non-visual check."
+  },
+  {
+   "id": "DROPLETS-034",
+   "investigation": "FLEX",
+   "pillar": "suppression",
+   "topic": "Precursor tests: carbon dioxide at fixed 21% oxygen barely changed methanol extinction",
+   "claim": "In precursor microgravity experiments (before the ISS runs) with 1.25 to 1.72 mm methanol droplets at one atmosphere and oxygen fixed at 21%, the extinction diameter grew with initial droplet diameter, while increasing the carbon dioxide concentration led only to a slight decrease in the extinction diameter.",
+   "quote": "Diffusive extinction of methanol droplets with initial diameters between 1.25 mm and 1.72 mm, burning in a quiescent microgravity environment at one atmosphere pressure, was obtained experimentally for varying levels of ambient carbon-dioxide concentrations with a fixed oxygen concentration of 21% and a balance of nitrogen. These experiments serve as precursors to those which are beginning to be performed on the International Space Station and are motivated by the need to understand the effectiveness of carbon-dioxide as a fire suppressant in low-gravity environments. In these experiments, the flame standoff distance, droplet diameter, and flame radiation are measured as functions of time. The results show that the droplet extinction diameter depends on both the initial droplet diameter and the ambient concentration of carbon dioxide. Increasing the initial droplet diameter leads to an increased extinction diameter, while increasing the carbon-dioxide concentration leads to a slight decrease in the extinction diameter.",
+   "source": {
+    "kind": "ntrs",
+    "id": "20110020695",
+    "title": "Methanol Droplet Extinction in Carbon-Dioxide-Enriched Environments in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20110020695",
+    "year": 2010,
+    "text_file": "raw/ntrs/20110020695.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "methanol",
+    "o2_percent": "21",
+    "pressure": "one atmosphere",
+    "flow": "quiescent"
+   },
+   "evidence_level": "ground low-gravity (drop tower, aircraft)",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Flood a fire with carbon dioxide and it goes out.",
+   "decision_hint": "Adding CO2 without lowering the oxygen fraction did not make these small flames go out sooner; a suppressant plan has to displace oxygen."
+  },
+  {
+   "id": "DROPLETS-035",
+   "investigation": "FLEX-2",
+   "pillar": "prevention",
+   "topic": "An atmosphere that does not burn in normal gravity burned in microgravity",
+   "claim": "Precursor tests described in the FLEX-2 science requirements: in 0.15 oxygen mole fraction (balance nitrogen) at 190 mmHg, a single droplet burned to completion in microgravity although that ambient was not flammable in normal gravity, where droplets of this size could not sustain a flame at this oxygen fraction at pressures up to 760 mmHg; the flame around a binary array extinguished about one second after the igniter withdrew.",
+   "quote": "Figure 8 shows the burning behavior for a single droplet and a binary array (L ≈ 3 mm) in a 0.15 oxygen mole fraction (balance nitrogen), 190 mmHg ambient. There are several noteworthy features of the single droplet burning behavior. First, this ambient condition was not ﬂammable in normal gravity. In fact, in this ambient oxygen mole fraction, droplets of this size could not sustain a ﬂame in normal gravity at pressures up to 760 mmHg. Figure 8 also shows that while the single droplet burned to completion, the ﬂame surrounding the array extinguished approximately one second after the igniter withdrew.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-68_FLEX-2-SRD-Final",
+    "title": "Science Requirements Document: Fundamental Studies in Droplet Combustion and Flame Extinguishment in Microgravity (FLEX-2) (PSI-68, Science Documents)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=685da233ee20136af540136a",
+    "year": 2010,
+    "text_file": "raw/pdf/PSI-68_FLEX-2-SRD-Final.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity compared with normal gravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": "15",
+    "pressure": "190 mmHg",
+    "flow": null
+   },
+   "evidence_level": "ground low-gravity (drop tower, aircraft)",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": "If it will not burn in this atmosphere on the ground, it will not burn in space.",
+   "decision_hint": "A low-pressure, low-oxygen atmosphere that passes a normal-gravity flammability test can still burn in microgravity; qualify exploration atmospheres with low-gravity data."
+  },
+  {
+   "id": "DROPLETS-036",
+   "investigation": "FLEX-2",
+   "pillar": "prevention",
+   "topic": "Two neighbouring droplets extinguished earlier than one in nitrogen-diluted 15% oxygen",
+   "claim": "In the 0.15 oxygen mole fraction ambient, over a range of inter-droplet spacings and ambient pressures, the flame surrounding a binary droplet array always extinguished at a finite droplet size larger than the single droplet extinction diameter.",
+   "quote": "The above trends were consistent over a range of inter-droplet spacings and ambient pressures. In the 0.15 oxygen mole fraction ambient, the ﬂame surrounding the binary array always extinguished at a ﬁnite droplet size that was larger than the single droplet extinction diameter.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-68_FLEX-2-SRD-Final",
+    "title": "Science Requirements Document: Fundamental Studies in Droplet Combustion and Flame Extinguishment in Microgravity (FLEX-2) (PSI-68, Science Documents)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=685da233ee20136af540136a",
+    "year": 2010,
+    "text_file": "raw/pdf/PSI-68_FLEX-2-SRD-Final.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": "15",
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "ground low-gravity (drop tower, aircraft)",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "More fuel close together always burns better.",
+   "decision_hint": "Near the oxygen limit in nitrogen-diluted air, a merged flame around neighbouring fuel elements loses more heat by radiation and can go out sooner; do not extrapolate single-item limits to clustered fuel in either direction."
+  },
+  {
+   "id": "DROPLETS-037",
+   "investigation": "FLEX-2",
+   "pillar": "prevention",
+   "topic": "In helium-diluted oxygen the trend reverses: the pair burned longer",
+   "claim": "In an oxygen/helium ambient the flame around a single droplet extinguished quickly after ignition (extinction diameter about 1.4 mm) while the flame around the binary array burned much longer to a smaller extinction diameter (about 1.1 mm), a trend opposite to the O2/N2 experiments but in agreement with normal gravity experiments.",
+   "quote": "The ﬂame surrounding the single droplet extinguishes quickly after ignition (Dext ≈ 1.4 mm). The ﬂame surrounding the binary array, however, burns much longer, and the extinction droplet diameter is much smaller (Dext ≈ 1.1 mm). This extinction trend is opposite to that displayed in O2 /N2 experiments, but in agreement with the normal gravity experiments.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-68_FLEX-2-SRD-Final",
+    "title": "Science Requirements Document: Fundamental Studies in Droplet Combustion and Flame Extinguishment in Microgravity (FLEX-2) (PSI-68, Science Documents)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=685da233ee20136af540136a",
+    "year": 2010,
+    "text_file": "raw/pdf/PSI-68_FLEX-2-SRD-Final.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": "25 (0.25 oxygen mole fraction, balance helium)",
+    "pressure": "190 mm Hg",
+    "flow": null
+   },
+   "evidence_level": "ground low-gravity (drop tower, aircraft)",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "The effect of neighbouring fuel on extinction depends on the diluent gas; a habitat using a helium-bearing atmosphere needs its own data."
+  },
+  {
+   "id": "DROPLETS-038",
+   "investigation": "FLEX-2",
+   "pillar": "prevention",
+   "topic": "Paired droplets produced a cool flame where single droplets had only a hot flame",
+   "claim": "For n-decane droplets of similar size burning in 17% O2 / 83% N2 at 1 atm, single droplets showed only a hot flame while binary droplets showed a cool flame.",
+   "quote": "N-decane droplets burning in 17-83% O2-N2 ambient at 1 atm o Similar size droplets: Single droplets only hot flame – Binary droplets cool flame",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-39_Aspects-of-Cool-Flame-Supported-Droplet-Combustion",
+    "title": "Aspects of Cool-Flame Supported Droplet Combustion in Microgravity (PSI-39, Presentations)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7cda33c6f4c4cec617",
+    "year": 2015,
+    "text_file": "raw/pdf/PSI-39_Aspects-of-Cool-Flame-Supported-Droplet-Combustion.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "International Space Station",
+    "fuel": "n-decane",
+    "o2_percent": "17",
+    "pressure": "1 atm",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Clustered fuel can enter the invisible cool-flame mode under conditions where an isolated item does not; assume the less visible outcome when several fuel sources are close together."
+  },
+  {
+   "id": "DROPLETS-039",
+   "investigation": "FLEX-2",
+   "pillar": "detection",
+   "topic": "Cameras saw nothing during the cool flame; radiometers did",
+   "claim": "During the second, cool-flame stage of an n-decane droplet burn, neither the color camera nor the UV camera was sensitive enough to register any flame image, while both the broadband and narrowband radiometers registered continued radiative heat loss from the droplet, indicating active chemical heat release.",
+   "quote": "Both the color camera and the UV-camera are not sensitive enough to register any ﬂame images during this period. Both the broadband and narrowband radiometers, however, register continued radiative heat loss from the droplet indicating active chemical heat release.",
+   "source": {
+    "kind": "pdf",
+    "id": "20140006750",
+    "title": "Cool-flame Extinction During N-Alkane Droplet Combustion in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20140006750",
+    "year": 2014,
+    "text_file": "raw/pdf/20140006750.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS, Combustion Integrated Rack",
+    "fuel": "n-decane",
+    "o2_percent": "21",
+    "pressure": "0.5 atm",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "If a camera cannot see a flame, there is no flame.",
+   "decision_hint": "Pair optical flame detection with infrared radiometry or gas sensing; in this test only the radiometers showed that reaction was continuing."
+  },
+  {
+   "id": "DROPLETS-040",
+   "investigation": "FLEX-2",
+   "pillar": "detection",
+   "topic": "Burning rate in the invisible stage about four fifths of the visible stage",
+   "claim": "ISS test R298 (n-octane series, droplet of 3.6 mm burning in air): both hot-flame and cool-flame burning modes existed, with burning rates of 0.48 and 0.38 mm2/s respectively.",
+   "quote": "Test R298 results shown in Fig. (2a) corresponds to a droplet with D0 = 3.6 mm burning in air (O2 :N2 = 0.21:0.79) with no helium dilution. Both hot-ﬂame and cool-ﬂame burning modes were found to exist with the respective burning rates of 0.48 and 0.38 mm2 /s.",
+   "source": {
+    "kind": "pdf",
+    "id": "20140006750",
+    "title": "Cool-flame Extinction During N-Alkane Droplet Combustion in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20140006750",
+    "year": 2014,
+    "text_file": "raw/pdf/20140006750.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS, Combustion Integrated Rack",
+    "fuel": "n-octane",
+    "o2_percent": "21 (air, O2:N2 = 0.21:0.79)",
+    "pressure": "one atmospheric pressure",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "When you can no longer see a flame, the fire is out.",
+   "decision_hint": "Fuel was consumed in the cool-flame stage at 0.38 against 0.48 mm2/s for the hot flame; absence of a visible flame is not evidence that fuel consumption has stopped."
+  },
+  {
+   "id": "DROPLETS-041",
+   "investigation": "FLEX-2",
+   "pillar": "prevention",
+   "topic": "Lower oxygen brought earlier hot-flame and cool-flame extinction",
+   "claim": "For n-decane droplets at 0.5 atm in oxygen/nitrogen mixtures, reducing the ambient oxygen concentration led to earlier hot and cool flame extinctions.",
+   "quote": "In general it can be summarized based on the results presented in Fig. 1 that reducing the ambient oxygen concentration leads to earlier hot and cool ﬂame extinctions.",
+   "source": {
+    "kind": "pdf",
+    "id": "20140006750",
+    "title": "Cool-flame Extinction During N-Alkane Droplet Combustion in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20140006750",
+    "year": 2014,
+    "text_file": "raw/pdf/20140006750.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS, Combustion Integrated Rack",
+    "fuel": "n-decane",
+    "o2_percent": "14 to 25",
+    "pressure": "0.5 atm",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Lowering oxygen shortens both stages; an oxygen draw-down is still a valid response, provided the invisible stage is monitored."
+  },
+  {
+   "id": "DROPLETS-042",
+   "investigation": "FLEX-2",
+   "pillar": "prevention",
+   "topic": "Higher oxygen removed radiative self-extinction",
+   "claim": "When the oxygen concentration was sufficiently high, radiative extinction was avoided and visible flame extinction occurred at a much smaller droplet size, either by micro-explosion of the droplet or by diffusive extinction.",
+   "quote": "When the oxygen concentration is sufﬁciently high radiative extinction is avoided and visible ﬂame extinction occurs at a much smaller droplet size either by micro-explosion of the droplet or by diffusive extinction.",
+   "source": {
+    "kind": "pdf",
+    "id": "20140006750",
+    "title": "Cool-flame Extinction During N-Alkane Droplet Combustion in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20140006750",
+    "year": 2014,
+    "text_file": "raw/pdf/20140006750.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS, Combustion Integrated Rack",
+    "fuel": "n-alkane droplets",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base",
+    "pressurized rover"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "In oxygen-enriched exploration atmospheres do not count on a large fuel source putting itself out by radiative loss; the same paper reports a 25% oxygen, 0.5 atm case that burned until the droplet micro-exploded 26 seconds after ignition."
+  },
+  {
+   "id": "DROPLETS-043",
+   "investigation": "FLEX-2",
+   "pillar": "suppression",
+   "topic": "75% helium: hot flame died in a fraction of a second, brief cool flame followed",
+   "claim": "In ISS test R707 (n-octane series, oxygen mole fraction 0.21, helium dilution 75% by volume, droplet of 2.49 mm) first-stage burning was almost eliminated: the hot flame formed at ignition died within a fraction of a second, cool flame burning began immediately and also ended quickly, leaving the droplet to evaporate.",
+   "quote": "When helium dilution was increased to 75% by volume in test R707 for D0 of 2.49 mm ﬁrst stage burning is almost eliminated (see, Fig. (2d)). The hot ﬂame that formed during the ignition dies within a fraction of a second and the cool ﬂame burning commences immediately which also ends quickly leaving the droplet to evaporate.",
+   "source": {
+    "kind": "pdf",
+    "id": "20140006750",
+    "title": "Cool-flame Extinction During N-Alkane Droplet Combustion in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20140006750",
+    "year": 2014,
+    "text_file": "raw/pdf/20140006750.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS, Combustion Integrated Rack",
+    "fuel": "n-octane",
+    "o2_percent": "21",
+    "pressure": "one atmospheric pressure",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Heavy helium dilution removed the hot flame almost at once in this test, yet a short cool flame still occurred; 75% helium with 21% oxygen is a test atmosphere, not a cabin setting."
+  },
+  {
+   "id": "DROPLETS-044",
+   "investigation": "FLEX-2",
+   "pillar": "detection",
+   "topic": "After extinction, n-octane still lost mass faster than by evaporation alone",
+   "claim": "For an n-octane droplet of 3.61 mm initial diameter, the burning rate dropped at extinction, but the post-extinction burning rate was still higher than the rate of pure evaporation.",
+   "quote": "Figures 9a, 9d and 9e show such a decrease for n-octane with Do = 3.61 mm at about 1.0 s/mm2. At larger times the octane burning rate is much lower, though the post-extinction burning rate is still higher than the rate of pure evaporation for n-octane as shown by the green data in Fig. 9a.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-69_Presentation-2G11-070HE-0310",
+    "title": "Effect of Varying the Initial Diameter of n-Octane and n-Decane Droplets over a Wide Range on the Spherically Symmetric Combustion Process: International Space Station and Ground-based Experiments (PSI-69, Presentations)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=684344b89e44646b7402706d",
+    "year": 2013,
+    "text_file": "raw/pdf/PSI-69_Presentation-2G11-070HE-0310.txt"
+   },
+   "conditions": {
+    "gravity": "low gravity",
+    "platform": "International Space Station, MDCA",
+    "fuel": "n-octane",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "When you can no longer see a flame, the fire is out.",
+   "decision_hint": "Fuel loss faster than plain evaporation after flame-out is a usable sign that reaction continues; a mass-loss or vapor measurement can stand in for a flame sensor."
+  },
+  {
+   "id": "DROPLETS-045",
+   "investigation": "FLEX-2",
+   "pillar": "detection",
+   "topic": "Larger droplets burned dimmer and with less soot",
+   "claim": "For initial droplet diameters above 1.5 mm, n-octane and n-decane droplet flames appeared less luminous and therefore less sooty, yet the droplets burned progressively slower as initial diameter increased.",
+   "quote": "For Do > 1.5 mm the droplet flames appeared less luminous and therefore less sooty, yet the droplets continued to burn progressively slower as Do increased.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-69_Presentation-2G11-070HE-0310",
+    "title": "Effect of Varying the Initial Diameter of n-Octane and n-Decane Droplets over a Wide Range on the Spherically Symmetric Combustion Process: International Space Station and Ground-based Experiments (PSI-69, Presentations)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-69/download?file=684344b89e44646b7402706d",
+    "year": 2013,
+    "text_file": "raw/pdf/PSI-69_Presentation-2G11-070HE-0310.txt"
+   },
+   "conditions": {
+    "gravity": "low gravity",
+    "platform": "International Space Station, MDCA",
+    "fuel": "n-octane and n-decane",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "A bigger fire is brighter and smokier, so easier to detect.",
+   "decision_hint": "Larger, radiatively cooled flames in these tests gave less light and less soot; a detector that depends on soot particles or brightness has less to work with as the fuel source grows."
+  },
+  {
+   "id": "DROPLETS-046",
+   "investigation": "FLEX-2",
+   "pillar": "detection",
+   "topic": "Fire sensing in microgravity relies on particle scattering",
+   "claim": "The FLEX-2 science requirements note that understanding soot formation matters for fire safety because fire sensing technology in microgravity environments typically relies on scattering from particles.",
+   "quote": "Understanding soot formation is also important in ﬁre safety applications. Fire sensing tech- nology in microgravity environments typically relies on scattering from particles(Urban et al. (1997)).",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-68_FLEX-2-SRD-Final",
+    "title": "Science Requirements Document: Fundamental Studies in Droplet Combustion and Flame Extinguishment in Microgravity (FLEX-2) (PSI-68, Science Documents)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=685da233ee20136af540136a",
+    "year": 2010,
+    "text_file": "raw/pdf/PSI-68_FLEX-2-SRD-Final.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "A scattering smoke detector needs particles: weigh FLEX-2 soot data, and the low-soot regimes it found, when judging detector coverage for liquid-fuel fires."
+  },
+  {
+   "id": "DROPLETS-047",
+   "investigation": "FLEX-2",
+   "pillar": "design",
+   "topic": "How FLEX and FLEX-2 differ",
+   "claim": "FLEX is focused on spacecraft fire safety and fire suppression, while FLEX-2 returns to the broader objective of improving the fundamental understanding of liquid-fuel combustion.",
+   "quote": "While FLEX is focussed on spacecraft ﬁre safety and ﬁre suppression, FLEX-2 returns to the broader objective of improving the fun- damental understanding of liquid-fuel combustion.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-68_FLEX-2-SRD-Final",
+    "title": "Science Requirements Document: Fundamental Studies in Droplet Combustion and Flame Extinguishment in Microgravity (FLEX-2) (PSI-68, Science Documents)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-68/download?file=685da233ee20136af540136a",
+    "year": 2010,
+    "text_file": "raw/pdf/PSI-68_FLEX-2-SRD-Final.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Rank FLEX above FLEX-2 for suppressant and oxygen-limit questions; use FLEX-2 for fuel mixtures, soot, slow flow and droplet-pair effects."
+  },
+  {
+   "id": "DROPLETS-048",
+   "investigation": "FLEX-2",
+   "pillar": "detection",
+   "topic": "Fuel mixture at elevated pressure: very weak visible flame, high burning rate",
+   "claim": "Experiments with large bi-component droplets (n-decane and hexanol, 50/50 by volume) at elevated pressures showed the visible hot flame becoming extremely weak while the burning rate remained relatively high, with radiant output too high to be accounted for by a visible hot flame alone.",
+   "quote": "Recent experiments involving large, bi-component fuel (n-decane and hexanol, 50/50 by volume) droplets at elevated pressures show that the visible, hot flame becomes extremely weak while the burning rate remains relatively high, suggesting the possibility of simultaneous presence of \"cool\" and \"hot\" flames of roughly equal importance. The radiant output from these bi-component droplets is relatively high and cannot be accounted for only by the presence of a visible hot-flame.",
+   "source": {
+    "kind": "ntrs",
+    "id": "20170000666",
+    "title": "A Burke-Schumann Analysis of Dual-Flame Structure Supported by a Burning Droplet",
+    "url": "https://ntrs.nasa.gov/citations/20170000666",
+    "year": 2016,
+    "text_file": "raw/pdf/20170000666.abstract.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "International Space Station",
+    "fuel": "n-decane and hexanol, 50/50 by volume",
+    "o2_percent": null,
+    "pressure": "elevated pressures",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "A weak-looking flame is a weak fire.",
+   "decision_hint": "Flame brightness did not track burning rate for this fuel mixture; size the response from heat or fuel-loss signals rather than from how the flame looks."
+  },
+  {
+   "id": "DROPLETS-049",
+   "investigation": "CFI",
+   "pillar": "response",
+   "topic": "Repeated re-ignition cycles above 2 atm",
+   "claim": "In CFI, as ambient pressure was increased above 2 atm, multiple reignition cycles were observed: the hot flame extinguished by radiative heat loss, a cool flame followed, then reignition to a hot flame followed by a cool flame, the cycle repeating several times until the fuel droplet was completely consumed.",
+   "quote": "No new anomalies or surprises were observed during the CFI experiments. However, as the ambient pressure is increased above 2 atm, multiple reignition cycles were observed, where first the hot flame extinguishes due to radiative heat loss followed by cool flame, and then reignition to a hot-flame followed by a cool flame, with this cycle repeating several times until the fuel droplet is completely consumed.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-39_CFI-Science-Final-Report",
+    "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+    "year": 2020,
+    "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS",
+    "fuel": "n-dodecane",
+    "o2_percent": null,
+    "pressure": "above 2 atm",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Once a fire is out, it stays out unless something lights it again.",
+   "decision_hint": "Direct evidence that a liquid-fuel flame can relight itself several times with no new ignition source. The cycles were seen above 2 atm, higher than cabin pressures, so treat it as proof of mechanism rather than a prediction for a 1 atm or lower habitat."
+  },
+  {
+   "id": "DROPLETS-050",
+   "investigation": "CFI",
+   "pillar": "detection",
+   "topic": "Warm flames were not visible in the color camera",
+   "claim": "In CFI, warm flames were observed typically at higher pressures following radiative extinction and were not visible in the color camera; subsequently a hot flame ignited and quickly extinguished to form a cool flame.",
+   "quote": "Warm flames were observed typically at higher pressures following radiative extinction and the flame is not visible in the color camera. Subsequently, a hot flame is ignited which quickly extinguishes to form a cool flame.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-39_CFI-Science-Final-Report",
+    "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+    "year": 2020,
+    "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS",
+    "fuel": "n-dodecane",
+    "o2_percent": null,
+    "pressure": "higher pressures",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "If a camera cannot see a flame, there is no flame.",
+   "decision_hint": "There is more than one invisible burning mode; a visible-light camera is not sufficient confirmation that a liquid-fuel fire is over."
+  },
+  {
+   "id": "DROPLETS-051",
+   "investigation": "CFI",
+   "pillar": "suppression",
+   "topic": "Helium dilution ended the cool flame earlier",
+   "claim": "For n-dodecane droplets in CFI, increased helium dilution led to earlier cool flame extinction, giving a larger extinction diameter.",
+   "quote": "Figure 5 illustrates the effect of helium dilution on the extinction diameter for n-dodecane. Increase helium dilution leads to earlier cool flame extinction giving a larger extinction diameter.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-39_CFI-Science-Final-Report",
+    "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+    "year": 2020,
+    "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS",
+    "fuel": "n-dodecane",
+    "o2_percent": "21 (helium dilution tests held O2 mole fraction at 0.21)",
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Helium is the diluent in these tests that shortens the invisible stage; where a cool flame is the concern, a high-conductivity inert gas works on it more than nitrogen does."
+  },
+  {
+   "id": "DROPLETS-052",
+   "investigation": "CFI",
+   "pillar": "detection",
+   "topic": "Most of the fuel burned after the visible flame went out (test FLEX-1250)",
+   "claim": "CFI test FLEX-1250 (n-dodecane, air, 1 atm, initial diameter 4 mm): the hot flame extinguished at a droplet diameter of 3.55 mm with a burning rate of 0.383 mm2/s, and the cool flame then burned at 0.387 mm2/s down to 0.40 mm.",
+   "quote": "FLEX-1250: N-dodecane – Air -1 atm - D0 = 4 mm KHF = 0.383 mm2/s De,HF = 3.55 mm KCF = 0.387 mm2/s De,CF = 0.40 mm",
+   "source": {
+    "kind": "pdf",
+    "id": "20210022617",
+    "title": "Isolated Single Droplet Combustion: FLEX Experiments onboard the International Space Station",
+    "url": "https://ntrs.nasa.gov/citations/20210022617",
+    "year": 2021,
+    "text_file": "raw/pdf/20210022617.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS",
+    "fuel": "n-dodecane",
+    "o2_percent": "21 (air)",
+    "pressure": "1 atm",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "When you can no longer see a flame, the fire is out.",
+   "decision_hint": "In this test the visible flame took the droplet only from 4 to 3.55 mm; the invisible cool flame, burning at the same rate, took it from 3.55 to 0.40 mm. Size the post-flame watch on the fuel still present, not on the flame seen."
+  },
+  {
+   "id": "DROPLETS-053",
+   "investigation": "CFI",
+   "pillar": "prevention",
+   "topic": "Branched fuel component reduced the tendency to form cool flames",
+   "claim": "The CFI final report states that cool flames were observed for the pure fuel and for the fuel mixtures, and that adding the iso component reduced the tendency to form cool flames (the report writes \"n-dodecanol\" and \"iso-dodecanol\" in this passage; the fuels flown were n-dodecane and n-dodecane/iso-dodecane mixtures).",
+   "quote": "Cool flames were observed during n-dodecanol combustion as well as n-dodecanol/iso-dodecanol mixture cases. The addition of iso-dodecanol reduces the tendency to form cool flames in n-dodecanol.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-39_CFI-Science-Final-Report",
+    "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+    "year": 2020,
+    "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS",
+    "fuel": "n-dodecane and n-dodecane/iso-dodecane mixtures",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Cool-flame tendency depends on fuel structure: straight-chain hydrocarbons are the worst case in this data, so fluids rich in normal alkanes deserve the most caution."
+  },
+  {
+   "id": "DROPLETS-054",
+   "investigation": "CFI",
+   "pillar": "detection",
+   "topic": "No soot from the cool flame at low pressure; residual soot at higher pressure",
+   "claim": "In CFI, at low pressures soot is not formed in the cool flame because of its low flame temperature, and soot formed during the hot flame is simply convected away from the droplet surface; when the pressure increases, residual soot is seen surrounding the droplet even after hot flame extinction.",
+   "quote": "At low pressures, due to the low flame temperature of the cool flame, soot is not formed. The soot that is formed during the hot flame combustion is simply convected away from the droplet surface. But, when the pressure increases, residual soot is seen surrounding the droplet even after the hot flame extinction.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-39_CFI-Science-Final-Report",
+    "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+    "year": 2020,
+    "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS",
+    "fuel": "n-dodecane",
+    "o2_percent": null,
+    "pressure": "low pressures compared with higher pressures",
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Where there is fire there is smoke.",
+   "decision_hint": "At the lower pressures tested the cool flame made no soot of its own, so a particle-scattering smoke detector should not be the only watch after flame-out."
+  },
+  {
+   "id": "DROPLETS-055",
+   "investigation": "CFI",
+   "pillar": "design",
+   "topic": "Cool flames cannot be reproduced with droplets in normal gravity",
+   "claim": "The CFI final report gives as rationale for microgravity that cool flames need much longer residence times and cannot be observed under normal gravity conditions with droplet flames.",
+   "quote": "Moreover, the cool flames need much longer residence times and cannot be observed under normal gravity conditions with droplet flames.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-39_CFI-Science-Final-Report",
+    "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+    "year": 2020,
+    "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity compared with normal gravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station",
+    "lunar base",
+    "mars base"
+   ],
+   "earth_instinct": "A ground test will show every way the material can burn.",
+   "decision_hint": "Ground flammability testing cannot screen for this mode; label it \"not testable in 1-g\" in a hazard analysis and \"never tested\" for lunar and Martian gravity."
+  },
+  {
+   "id": "DROPLETS-056",
+   "investigation": "CFI",
+   "pillar": "detection",
+   "topic": "A vapor cloud of condensed, partly oxidized fuel marks the end of the cool flame",
+   "claim": "When the cool-flame stage ended, a vapor cloud formed around the droplet as partially oxidized fuel condensed immediately following cool-flame extinction.",
+   "quote": "A vapor cloud was also found to form around the droplet as the partially oxidized fuel condensed immediately following cool-flame extinction.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-39_CFI-Science-Final-Report",
+    "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+    "year": 2020,
+    "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS",
+    "fuel": "n-alkane droplets",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "A fog appearing around a liquid-fuel source after flame-out is a sign that a cool flame has just ended and that unburned, partly oxidized fuel is now in the air: ventilate through filters before declaring the area clear."
+  },
+  {
+   "id": "DROPLETS-057",
+   "investigation": "CFI",
+   "pillar": "design",
+   "topic": "Evidence maturity: CFI data not yet fully analyzed",
+   "claim": "The CFI final report states that all the CFI data is yet to be fully analyzed and interpreted using theoretical and numerical models.",
+   "quote": "All the CFI data is yet to be fully analyzed and interpreted using theoretical and numerical models.",
+   "source": {
+    "kind": "pdf",
+    "id": "PSI-39_CFI-Science-Final-Report",
+    "title": "Cool Flame Investigation (CFI) Science Final Report (PSI-39, Reports)",
+    "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-39/download?file=683f4b7bda33c6f4c4cec613",
+    "year": 2020,
+    "text_file": "raw/pdf/PSI-39_CFI-Science-Final-Report.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "Mark CFI-based conclusions as preliminary observations; the raw data in PSI-39 is open for the modeling the report asks for."
+  },
+  {
+   "id": "DROPLETS-058",
+   "investigation": "CFI",
+   "pillar": "design",
+   "topic": "Limits of current predictive models",
+   "claim": "The FLEX team concludes that existing, widely used detailed chemical kinetic models do not accurately predict the second-stage cool flame extinction (and warm flame) and need further improvement.",
+   "quote": "Existing, widely-used detailed chemical kinetic models do not accurately predict the 2nd stage cool flame extinction (and warm flame) and need further improvement",
+   "source": {
+    "kind": "pdf",
+    "id": "20210022617",
+    "title": "Isolated Single Droplet Combustion: FLEX Experiments onboard the International Space Station",
+    "url": "https://ntrs.nasa.gov/citations/20210022617",
+    "year": 2021,
+    "text_file": "raw/pdf/20210022617.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "A validated combustion model will predict when the fire is over.",
+   "decision_hint": "Do not let a simulation decide when a liquid-fuel fire has ended; the low-temperature stage is where today's models are weakest."
+  },
+  {
+   "id": "DROPLETS-059",
+   "investigation": "CFI",
+   "pillar": "suppression",
+   "topic": "Inert gas choice changes cool-flame extinction: helium ends it early, xenon prolongs it",
+   "claim": "ISS droplet experiments in which some of the ambient nitrogen was replaced by carbon dioxide, helium or xenon show that different diluents act very differently on cool-flame combustion: the cool-flame extinction diameter is drastically increased with helium dilution compared to N2, CO2 or Xe, and that Xe dilution leads to longer burning with a smaller extinction diameter.",
+   "quote": "In these ISS experiments, some of the nitrogen in the ambient gas mixture is replaced by an inert gas, namely, carbon dioxide, helium, or xenon. Different diluents were observed to exert remarkably different influences on the cool-flame combustion of fuel droplets. The results show that the cool-flame extinction diameter is drastically increased with helium dilution compared to N2, CO2 or Xe, and Xe dilution leads to longer burning with a smaller extinction diameter.",
+   "source": {
+    "kind": "ntrs",
+    "id": "20205008449",
+    "title": "Effects of Ambient Inert Gas Properties on Cool-Flame Combustion of Normal-Alkane Droplets in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20205008449",
+    "year": 2020,
+    "text_file": "raw/pdf/20205008449.abstract.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "International Space Station, Combustion Integrated Rack",
+    "fuel": "n-heptane, n-octane, n-decane, and n-dodecane",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Inert gases are interchangeable: any of them just dilutes the air.",
+   "decision_hint": "Against the invisible stage the diluents are not equivalent: helium cut the cool flame short far more than nitrogen, CO2 or xenon did, and xenon let it burn longer."
+  },
+  {
+   "id": "DROPLETS-060",
+   "investigation": "CFI",
+   "pillar": "suppression",
+   "topic": "Xenon sustained cool flames at much lower oxygen than helium",
+   "claim": "The same study concludes that xenon decreases burning rates substantially but can sustain cool flames at much lower oxygen concentrations compared to helium.",
+   "quote": "Xenon decreases burning rates substantially, but can sustain cool flames at much lower oxygen concentrations compared to helium.",
+   "source": {
+    "kind": "pdf",
+    "id": "20205008449",
+    "title": "Effects of Ambient Inert Gas Properties on Cool-Flame Combustion of Normal-Alkane Droplets in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20205008449",
+    "year": 2020,
+    "text_file": "raw/pdf/20205008449.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": "ISS (FLEX/FLEX-2/CFI data)",
+    "fuel": "n-alkane fuels",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "flight experiment",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "A low-conductivity diluent widens the range of oxygen levels where a cool flame survives; check the diluent before reusing an oxygen limit."
+  },
+  {
+   "id": "DROPLETS-061",
+   "investigation": "CFI",
+   "pillar": "prevention",
+   "topic": "Cool flames can extend flammability in microgravity",
+   "claim": "The investigators state that cool flames can extend the flammability of fuels in a microgravity environment, and that understanding their burning characteristics is important from a spacecraft fire safety point of view.",
+   "quote": "Cool flames can extend the flammability of fuels in a microgravity environment, and understanding their burning characteristics is important from spacecraft fire safety point of view.",
+   "source": {
+    "kind": "pdf",
+    "id": "20205008449",
+    "title": "Effects of Ambient Inert Gas Properties on Cool-Flame Combustion of Normal-Alkane Droplets in Microgravity",
+    "url": "https://ntrs.nasa.gov/citations/20205008449",
+    "year": 2020,
+    "text_file": "raw/pdf/20205008449.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": null,
+   "decision_hint": "A flammability limit defined by the visible flame understates the conditions under which fuel keeps reacting; state which limit (hot flame or cool flame) a requirement uses."
+  },
+  {
+   "id": "DROPLETS-062",
+   "investigation": "CFI",
+   "pillar": "detection",
+   "topic": "Model: hot, warm and cool flame temperatures at elevated pressure",
+   "claim": "Simulations of n-alkane droplets at elevated pressure with helium substituted for nitrogen show a hot flame (about 1500 K) that radiatively extinguishes into a warm flame mode (about 970 K maximum reaction zone temperature), followed by a transition to a quasi-steady cool flame at about 765 K.",
+   "quote": "The classical “Hot flame ” ( ∼1500 K) radiatively extinguishes into a “Warm flame ” burning mode at a moderate maximum reaction zone temperature ( ∼ 970 K), followed by a transition to a lower temperature ( ∼765 K), quasi-steady “Cool flame ” burning condition.",
+   "source": {
+    "kind": "ntrs",
+    "id": "20190002838",
+    "title": "Three Stage Cool Flame Droplet Burning Behavior of n-Alkane Droplets at Elevated Pressure Conditions: Hot, Warm and Cool Flame",
+    "url": "https://ntrs.nasa.gov/citations/20190002838",
+    "year": 2018,
+    "text_file": "raw/pdf/20190002838.abstract.txt"
+   },
+   "conditions": {
+    "gravity": null,
+    "platform": null,
+    "fuel": "n-alkane droplets",
+    "o2_percent": null,
+    "pressure": "elevated pressure",
+    "flow": null
+   },
+   "evidence_level": "model or analysis",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "A fire is hot and bright.",
+   "decision_hint": "Three temperature bands to design sensing around: about 1500 K, 970 K and 765 K; the lower two gave no visible flame in the CFI tests."
+  },
+  {
+   "id": "DROPLETS-063",
+   "investigation": "CFI",
+   "pillar": "response",
+   "topic": "Spontaneous re-ignition is poorly understood",
+   "claim": "The Researcher's Guide describes the low-temperature regime as persistent flames, invisible to the unaided eye, that will spontaneously re-ignite long after the visible flame has been extinguished, and says the necessary pre-conditions, the combustion chemistry and the mechanisms for spontaneous re-ignition are poorly understood.",
+   "quote": "persistent flames, invisible to the unaided eye, that will spontaneously re-ignite long after the visible flame has been extinguished. The necessary pre-conditions, the combustion chemistry, and the mechanisms for spontaneous re-ignition are poorly understood.",
+   "source": {
+    "kind": "pdf",
+    "id": "researchers-guide-combustion",
+    "title": "A Researcher's Guide to: Combustion Science (NP-2015-10-034-JSC)",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "year": 2015,
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   },
+   "conditions": {
+    "gravity": "reduced gravity",
+    "platform": null,
+    "fuel": null,
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "Once a fire is out, it stays out unless something lights it again.",
+   "decision_hint": "With the trigger conditions for re-ignition not established, use the conservative protocol after any liquid-fuel fire: keep the area isolated and monitored instead of predicting when it is safe."
+  },
+  {
+   "id": "DROPLETS-064",
+   "investigation": "CFI",
+   "pillar": "detection",
+   "topic": "Fuels that appear to go out but keep burning",
+   "claim": "NASA summarizes the Cool Flames Investigation: some types of fuels initially burn very hot, then appear to go out, but they continue burning at a much lower temperature with no visible flames.",
+   "quote": "Some types of fuels initially burn very hot, then appear to go out — but they continue burning at a much lower temperature with no visible flames, an occurrence called cool flames.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "cir-eight-years",
+    "title": "Combustion Facility Celebrates Eight Years of Hot Science",
+    "url": "https://www.nasa.gov/wp-json/wp/v2/migration/265462",
+    "year": 2017,
+    "text_file": "raw/nasa/cir-eight-years.txt"
+   },
+   "conditions": {
+    "gravity": "microgravity",
+    "platform": null,
+    "fuel": "pure hydrocarbons, biofuels and mixtures of pure hydrocarbons",
+    "o2_percent": null,
+    "pressure": null,
+    "flow": null
+   },
+   "evidence_level": "review or summary",
+   "environment_relevance": [
+    "spacecraft",
+    "station"
+   ],
+   "earth_instinct": "When you can no longer see a flame, the fire is out.",
+   "decision_hint": "Plain-language rule for crew training: \"looks out\" is not \"is out\" for liquid fuels in microgravity."
+  }
+ ]
+}

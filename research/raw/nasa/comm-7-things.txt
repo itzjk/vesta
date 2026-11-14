@@ -1,0 +1,152 @@
+https://www.nasa.gov/centers-and-facilities/goddard/space-communications-7-things-you-need-to-know/
+TITLE: Space Communications: 7 Things You Need to Know - NASA
+FETCHED: 2026-11-14T11:01:09
+
+5 Min Read
+
+#
+Space Communications: 7 Things You Need to Know
+
+The Near Space Network AS-2 antenna at the Alaska Satellite Facility in Fairbanks, Alaska.
+
+Credits:
+NASA/Goddard
+
+Katherine Schauer
+
+Oct 06, 2020
+
+Article
+
+## Contents
+
+1. The Basics
+
+2. Ground Networks
+
+3. Space Relays
+
+4. Bandwidth
+
+5. Data Rates
+
+6. Latency
+
+7. Interference
+
+Movies and television shows can make communicating with space look easy. Astronauts on far off planets video chat with loved ones on Earth with crystal clear quality and no delay.
+
+Do these imagined communications capabilities match reality? Not really.
+
+Communicating to and from space is a challenging endeavor. Fortunately, NASA has the experience and expertise to get space data to the ground.
+
+NASA’s Space Communications and Navigation (SCaN) program enables this data exchange, whether it’s with astronauts aboard the International Space Station, rovers on Mars, or the Artemis missions to the Moon.
+
+Let’s look at some of the challenges of space communications alongside the technologies and capabilities NASA uses to overcome them.
+
+Two ground antennas located at the Alaska Satellite Facility in Fairbanks, Alaska.
+
+NASA
+
+### 1. The Basics
+
+At its simplest, space communications relies on two things: a transmitter and a receiver. A transmitter encodes a message onto electromagnetic waves through modulation, which changes properties of the wave to represent the data. These waves flow through space toward the receiver. The receiver collects the electromagnetic waves and demodulates them, decoding the sender’s message.
+
+Consider a Wi-Fi router and networked devices around the home. Each device receives signals from the router, which transmits data from the internet. At its heart, the complex task of communicating with space resembles wireless communications in the home – only on an enormous scale and at incredible distances.
+
+A 230-feet-wide antenna located at the Canberra Deep Space Communication Complex in Canberra, Australia.
+
+NASA
+
+### 2. Ground Networks
+
+Communicating from space involves more than pointing a spacecraft’s antenna at the Earth. NASA has an extensive network of antennas around the globe — over all seven continents — to receive transmissions from spacecraft. Network engineers carefully plan communications between ground stations and missions, ensuring that antennas are ready to receive data as spacecraft pass overhead.
+
+Ground station antennas range from the small very high frequency antennas that provide backup communications to the space station to a massive, 230-foot antenna that can communicate with far-off missions like the Voyager spacecraft, over 11 billion miles away.
+
+An artist’s rendering of Tracking and Data Relay Satellites alongside two of the flagship missions they support, the International Space Station and the Hubble Space Telescope.
+
+NASA
+
+### 3. Space Relays
+
+In addition to direct-to-Earth communications, many NASA missions rely on relay satellites in order to get their data to the ground. For example, the space station communicates through Tracking and Data Relay Satellites (TDRS), which transmit data to ground stations in New Mexico and Guam. The recently launched Mars 2020 Perseverance rover will send data through orbiters around Mars, which forward the data to Earth.
+
+Relays offer unique advantages in terms of communications availability. For example, the placement of TDRS at three different regions above Earth offers global coverage and near-continuous communications between low-Earth orbit missions and the ground. Rather than waiting to pass over a ground station, TDRS users can relay data 24 hours a day, seven days a week.
+
+An artist’s rendering of the Laser Communications Relay Demonstration on the Space Test Program Satellite (STPSat-6).
+
+NASA
+
+### 4. Bandwidth
+
+NASA encodes data on various bands of electromagnetic frequencies. These bandwidths — ranges of frequencies — have different capabilities. Higher bandwidths can carry more data per second, allowing spacecraft to downlink data more quickly.
+
+Currently, NASA relies primarily on radio waves for communications, but the agency is developing ways to communicate with infrared lasers. This type of transmission — dubbed optical communications — will offer missions higher data rates than ever before.
+
+NASA’s Laser Communications Relay Demonstration (LCRD) will showcase the benefits of optical communications. The mission will relay data between ground stations in California and Hawaii over optical links, testing their capabilities. NASA will also furnish the space station with an optical terminal that can relay data to the ground via LCRD.
+
+The Orion spacecraft will help place the first woman and the first person of color on the lunar surface with the Artemis missions. Artemis II will have a high-data-rate optical communications terminal.
+
+NASA
+
+### 5. Data Rates
+
+Higher bandwidths can mean higher data rates for missions. Apollo radios sent grainy black and white video from the Moon. An upcoming optical terminal on the Artemis II mission will send 4K, ultra-high definition video from lunar orbit.
+
+But bandwidth isn’t the only constraint on data rates. Other factors that can affect data rates include the distance between the transmitter and receiver, the size of the antennas or optical terminals they use, and the power available on either end. NASA communications engineers must balance these variables in order to maximize data rates.
+
+The Mars 2020 Perseverance rover on the surface of the Red Planet will have four to 24 minutes of latency depending on Mars’ location relative to Earth.
+
+NASA / JPL-Caltech
+
+### 6. Latency
+
+Communications don’t occur instantaneously. They’re bound by a universal speed limit: the speed of light, about 186,000 miles per second. For spacecraft close to Earth, this time delay — or communications latency — is almost negligible.
+
+However, farther from Earth, latency can become a challenge. At Mars’ closest approach — about 35 million miles away — the delay is about four minutes. When the planets are at their greatest distance — about 250 million miles away — the delay is around 24 minutes. This means that astronauts would need to wait between four and 24 minutes for their messages to reach mission control, and another four to 24 minutes to receive a response.
+
+As NASA prepares to send humans to the Red Planet, communications engineers are developing ways for astronauts to stay connected with Earth while recognizing delays will be a part of the conversation.
+
+Radiation from the Sun is one potential source of interference for space communications transmissions.
+
+NASA
+
+### 7. Interference
+
+As communications transmissions travel over long distances or through the atmosphere, the quality of their data can deteriorate, garbling the message. Radiation from other missions, the Sun, or other celestial bodies can also interfere with the quality of transmissions.
+To make sure that mission operations centers receive accurate data, NASA uses methods of error detection and correction. Methods of error correction include computer algorithms that interpret noisy transmissions as usable data.
+
+While Hollywood dreams up stories that connect people across the galaxy with ease, NASA engineers endeavor to turn those dreams into reality. NASA is developing technologies and capabilities that address the real-world challenges of space communications, while empowering science and exploration missions with robust communications services.
+
+## Explore More
+
+5 min read
+
+### NASA’s Hubble Offers Cosmic Sampler of Targets for Roman
+
+A gallery of gravitational lenses captured by NASA’s Hubble Space Telescope showcases the diversity of…
+
+Article
+
+2 days ago
+
+5 min read
+
+### NASA Scientists Show How Gravitational Waves Can Reveal New Worlds
+
+The LISA (Laser Interferometer Space Antenna) observatory, now in development, will detect gravitational waves, the…
+
+Article
+
+4 days ago
+
+3 min read
+
+### Hubble Learns Galactic History From Stars
+
+This Hubble image features the sparkling collection of stars named Messier 30 (M30), also called…
+
+Article
+
+1 week ago

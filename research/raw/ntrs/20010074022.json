@@ -1,0 +1,154 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20010074022,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "202602f9e0fe49e88d0df9d22fc8096f",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20010074022,
+  "ear": "NO",
+  "id": "f6e14ccd17b74014b4dae320863bfa91",
+  "itar": "NO"
+ },
+ "distributionDate": "2016-06-06T00:00:00.0000000+00:00",
+ "title": "Unsteady Spherical Diffusion Flames in Microgravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-20T11:24:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20010074022,
+   "meta": {
+    "author": {
+     "name": "Atreya, Arvind"
+    },
+    "organization": {
+     "name": "Michigan Univ.",
+     "location": "Ann Arbor, MI United States"
+    }
+   },
+   "id": "48a959acbb42437586210bb1c54dba58"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20010074022,
+   "meta": {
+    "author": {
+     "name": "Berhan, S."
+    },
+    "organization": {
+     "name": "Michigan Univ.",
+     "location": "Ann Arbor, MI United States"
+    }
+   },
+   "id": "28b7e23417a04c9ebca8f460cb6a78af"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20010074022,
+   "meta": {
+    "author": {
+     "name": "Chernovsky, M."
+    },
+    "organization": {
+     "name": "Michigan Univ.",
+     "location": "Ann Arbor, MI United States"
+    }
+   },
+   "id": "9de2ac538d624a6d9bfabae255d37f30"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20010074022,
+   "meta": {
+    "author": {
+     "name": "Sacksteder, Kurt R."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "6acf43d2628c497ea5c154c98fc65e5d"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20010074022,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-20T11:24:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The absence of buoyancy-induced flows in microgravity (mu-g) and the resulting increase in the reactant residence time significantly alters the fundamentals of many combustion processes. Substantial differences between normal gravity (ng) and (mu-g) flames have been reported in experiments on candle flames, flame spread over solids, droplet combustion, and others. These differences are more basic than just in the visible flame shape. Longer residence times and higher concentration of combustion products in the flame zone create a thermochemical environment that changes the flame chemistry and the heat and mass transfer processes. Processes such as flame radiation, that are often ignored in ng, become very important and sometimes even controlling. Furthermore, microgravity conditions considerably enhance flame radiation by: (i) the build-up of combustion products in the high-temperature reaction zone which increases the gas radiation, and (ii) longer residence times make conditions appropriate for substantial amounts of soot to form which is also responsible for radiative heat loss. Thus, it is anticipated that radiative heat loss may eventually extinguish the \"weak\" (low burning rate per unit flame area) mu-g diffusion flame. Yet, space shuttle experiments on candle flames show that in an infinite ambient atmosphere, the hemispherical candle flame in mu-g will burn indefinitely. This may be because of the coupling between the fuel production rate and the flame via the heat-feedback mechanism for candle flames, flames over solids and fuel droplet flames. Thus, to focus only on the gas-phase phenomena leading to radiative extinction, aerodynamically stabilized gaseous diffusion flames are examined. This enables independent control of the fuel flow rate to help identify conditions under which radiative extinction occurs. Also, spherical geometry is chosen for the mu-g experiments and modeling because: (i) It reduces the complexity by making the problem one-dimensional; (ii) The spherical diffusion flame completely encloses the soot which is formed on the fuel rich side of the reaction zone. This increases the importance of flame radiation because now both soot and gaseous combustion products co-exist inside the high temperature spherical diffusion flame. (iii) For small fuel injection velocities, as is usually the case for a pyrolyzing solid, the diffusion flame in mu-g around the solid naturally develops spherical symmetry. Thus, spherical diffusion flames are of interest to fires in mu-g and identifying conditions that lead to radiation-induced extinction is important for spacecraft fire safety.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20010074022,
+   "id": "0e4c88258d654273aa590de13fa98981",
+   "publicationName": "Sixth International Microgravity Combustion Workshop",
+   "publicationDate": "2001-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20010074022.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20010074022/downloads/20010074022.pdf",
+    "pdf": "/api/citations/20010074022/downloads/20010074022.pdf",
+    "fulltext": "/api/citations/20010074022/downloads/20010074022.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,259 @@
+{
+ "schema": "vesta.table-notes/1",
+ "note": "What each PSI experimental table is allowed to speak to (DESIGN.md section 11). cabin: the table burns or overheats materials found in a cabin. pillars: which of prevention, detection, suppression its rows count for. Each source is a verbatim sentence that goes through the quote gate; a property listed in supports ships only when its sentence passes (cabin falls to false, the pillar is removed). Notes with basis \"PSI record\" carry no quote: they only restrict.",
+ "notes": [
+  {
+   "id": "bass-ii",
+   "tables": [
+    "PSI-25"
+   ],
+   "label": "BASS-II",
+   "cabin": true,
+   "fuel_class": "solid",
+   "pillars": [
+    "prevention"
+   ],
+   "facility": "msg",
+   "basis": "challenge page",
+   "sources": [
+    {
+     "supports": [
+      "cabin",
+      "prevention"
+     ],
+     "kind": "challenge-page",
+     "id": "flame-in-freefall",
+     "title": "Flame in Freefall (NASA Space Apps Challenge 2026, challenge page)",
+     "year": 2026,
+     "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+     "text_file": "raw/nasa/spaceapps-challenge-flame-in-freefall.txt",
+     "quote": "Flammability studies focus on solid materials such as fabrics and plastics, as studied in the Burning and Suppression of Solids (BASS and BASS-II) and Spacecraft Fire Safety Demonstration (Saffire-I, -II, and -III) investigations."
+    }
+   ]
+  },
+  {
+   "id": "bass",
+   "tables": [
+    "PSI-26"
+   ],
+   "label": "BASS",
+   "cabin": true,
+   "fuel_class": "solid",
+   "pillars": [
+    "prevention",
+    "suppression"
+   ],
+   "facility": "msg",
+   "basis": "challenge page and the BASS fact sheet",
+   "sources": [
+    {
+     "supports": [
+      "cabin",
+      "prevention"
+     ],
+     "kind": "challenge-page",
+     "id": "flame-in-freefall",
+     "title": "Flame in Freefall (NASA Space Apps Challenge 2026, challenge page)",
+     "year": 2026,
+     "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+     "text_file": "raw/nasa/spaceapps-challenge-flame-in-freefall.txt",
+     "quote": "Flammability studies focus on solid materials such as fabrics and plastics, as studied in the Burning and Suppression of Solids (BASS and BASS-II) and Spacecraft Fire Safety Demonstration (Saffire-I, -II, and -III) investigations."
+    },
+    {
+     "supports": [
+      "suppression"
+     ],
+     "kind": "pdf",
+     "id": "bass",
+     "title": "Burning and Suppression of Solids (BASS), NASA fact sheet",
+     "year": null,
+     "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+     "text_file": "raw/nasa/bass.txt",
+     "quote": "A nitrogen suppressant is then supplied via a mass flow controller, from 0 to 500 cc/min."
+    }
+   ]
+  },
+  {
+   "id": "saffire",
+   "tables": [
+    "PSI-98",
+    "PSI-99",
+    "PSI-100"
+   ],
+   "label": "Saffire-I, -II, -III",
+   "cabin": true,
+   "fuel_class": "solid",
+   "pillars": [
+    "prevention"
+   ],
+   "facility": null,
+   "basis": "challenge page",
+   "sources": [
+    {
+     "supports": [
+      "cabin",
+      "prevention"
+     ],
+     "kind": "challenge-page",
+     "id": "flame-in-freefall",
+     "title": "Flame in Freefall (NASA Space Apps Challenge 2026, challenge page)",
+     "year": 2026,
+     "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+     "text_file": "raw/nasa/spaceapps-challenge-flame-in-freefall.txt",
+     "quote": "Flammability studies focus on solid materials such as fabrics and plastics, as studied in the Burning and Suppression of Solids (BASS and BASS-II) and Spacecraft Fire Safety Demonstration (Saffire-I, -II, and -III) investigations."
+    }
+   ]
+  },
+  {
+   "id": "same",
+   "tables": [
+    "PSI-101",
+    "PSI-102"
+   ],
+   "label": "SAME-R, SAME",
+   "cabin": true,
+   "fuel_class": "smoke_source",
+   "pillars": [
+    "detection"
+   ],
+   "facility": null,
+   "basis": "challenge page",
+   "sources": [
+    {
+     "supports": [
+      "cabin",
+      "detection"
+     ],
+     "kind": "challenge-page",
+     "id": "flame-in-freefall",
+     "title": "Flame in Freefall (NASA Space Apps Challenge 2026, challenge page)",
+     "year": 2026,
+     "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+     "text_file": "raw/nasa/spaceapps-challenge-flame-in-freefall.txt",
+     "quote": "Fire detection was tested in microgravity through the Smoke and Aerosol Measurement Experiment studies (SAME and SAME-R)."
+    }
+   ]
+  },
+  {
+   "id": "daft",
+   "tables": [
+    "PSI-47"
+   ],
+   "label": "DAFT",
+   "cabin": false,
+   "fuel_class": "aerosol",
+   "pillars": [
+    "detection"
+   ],
+   "facility": null,
+   "basis": "PSI record",
+   "why": "A dust measurement session; nothing burns.",
+   "sources": []
+  },
+  {
+   "id": "flex",
+   "tables": [
+    "PSI-69"
+   ],
+   "label": "FLEX",
+   "cabin": false,
+   "fuel_class": "liquid_droplet",
+   "pillars": [
+    "suppression"
+   ],
+   "facility": null,
+   "basis": "challenge page",
+   "sources": [
+    {
+     "supports": [
+      "suppression"
+     ],
+     "kind": "challenge-page",
+     "id": "flame-in-freefall",
+     "title": "Flame in Freefall (NASA Space Apps Challenge 2026, challenge page)",
+     "year": 2026,
+     "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+     "text_file": "raw/nasa/spaceapps-challenge-flame-in-freefall.txt",
+     "quote": "Suppression was studied in the Flame Extinguishment Experiment (FLEX) through dilution of the chamber atmosphere with carbon dioxide and helium, both of which suppress fire."
+    }
+   ]
+  },
+  {
+   "id": "droplets",
+   "tables": [
+    "PSI-68",
+    "PSI-39"
+   ],
+   "label": "FLEX-2, CFI",
+   "cabin": false,
+   "fuel_class": "liquid_droplet",
+   "pillars": [],
+   "facility": null,
+   "basis": "PSI record",
+   "why": "Droplet combustion science; the PSI record names no fire-safety pillar.",
+   "sources": []
+  },
+  {
+   "id": "bre",
+   "tables": [
+    "PSI-20"
+   ],
+   "label": "ACME BRE",
+   "cabin": false,
+   "fuel_class": "gas",
+   "pillars": [
+    "prevention"
+   ],
+   "facility": null,
+   "basis": "challenge page",
+   "sources": [
+    {
+     "supports": [
+      "prevention"
+     ],
+     "kind": "challenge-page",
+     "id": "flame-in-freefall",
+     "title": "Flame in Freefall (NASA Space Apps Challenge 2026, challenge page)",
+     "year": 2026,
+     "url": "https://www.spaceappschallenge.org/2026/challenges/flame-in-freefall/",
+     "text_file": "raw/nasa/spaceapps-challenge-flame-in-freefall.txt",
+     "quote": "While it burned gaseous fuels, the Burning Rate Emulator (BRE) experiment of the Advanced Combustion via Microgravity Experiments (ACME) project was a study of materials flammability in still atmospheres as a function of material properties."
+    }
+   ]
+  },
+  {
+   "id": "gas-flames",
+   "tables": [
+    "PSI-10",
+    "PSI-21",
+    "PSI-22",
+    "PSI-23",
+    "PSI-159",
+    "PSI-106",
+    "PSI-107"
+   ],
+   "label": "ACME gas flames, SLICE, SPICE",
+   "cabin": false,
+   "fuel_class": "gas",
+   "pillars": [],
+   "facility": null,
+   "basis": "PSI record",
+   "why": "Flames of gaseous fuels; the PSI record names no fire-safety pillar.",
+   "sources": []
+  },
+  {
+   "id": "index",
+   "tables": [
+    "PSI-142"
+   ],
+   "label": "PSI-142",
+   "cabin": false,
+   "fuel_class": "none",
+   "pillars": [],
+   "facility": null,
+   "basis": "PSI record",
+   "why": "A data-set index of a ground investigation, not a test table.",
+   "sources": []
+  }
+ ]
+}

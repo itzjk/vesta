@@ -1,0 +1,112 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040142354,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "5231024682494af9bfc810ad3489c6b7",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Design, Testing And Performance"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040142354,
+  "ear": "NO",
+  "id": "0ffc25bfe5214bc2bb8a7041476f485f",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "Combustion and Reacting Systems for Exploration",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:49:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040142354,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c975272730f04fada5b7906ee4370dbd"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040142354,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:49:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Contents include the foloving: 1. Spacecraft Fire Prevention, Detection, and Suppression. 2. Advanced Life Support. Air/water revitalization, waste management. 3. In Situ Resource Utilization (ISRU). Fuel/consumables from regolith/atmosphere. 4. Extra vehicular Activity. Air revitalization, power systems (MEMS scale combustors). 5. In-situ Fabrication and Repair.Of these we have the lead responsibility in Fire Safety.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040142354,
+   "id": "896473d5f17248a591a41a6c119207a5",
+   "publicationName": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Presentations, Volume 1",
+   "publicationDate": "2004-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040142351,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Presentations",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040142351,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Presentations",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040142354.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040142354/downloads/20040142354.pdf",
+    "pdf": "/api/citations/20040142354/downloads/20040142354.pdf",
+    "fulltext": "/api/citations/20040142354/downloads/20040142354.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

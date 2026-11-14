@@ -1,0 +1,72 @@
+/* Stage, chrome and type roles. DESIGN.md sections 2 and 6.2. Nothing on screen is smaller than 13 px at the 1920 stage. */
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg-0);color:var(--white);overflow:hidden}
+body{font:400 18px/26px var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--ice-text);text-decoration-color:var(--line)}
+a:hover{color:var(--white)}
+h1,h2,h3,h4,p{margin:0}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--ice-text);outline-offset:2px}
+
+/* the fixed 1920x1080 stage, scaled to the viewport by ui/stage.js */
+#viewport{position:fixed;inset:0;overflow:hidden;background:var(--bg-0)}
+#stage{position:absolute;left:0;top:0;width:var(--stage-w);height:var(--stage-h);transform-origin:0 0;overflow:hidden;
+  background:radial-gradient(ellipse at 28% 18%, var(--bg-2), var(--bg-0) 70%)}
+#stars{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+html:not([data-ready]) #stage{visibility:hidden}
+
+/* type roles */
+.t-display-1{font:600 56px/60px var(--display);letter-spacing:.005em}
+.t-display-2{font:600 40px/46px var(--display)}
+.t-panel-title{font:600 26px/30px var(--display)}
+.t-body{font:400 18px/26px var(--font)}
+.t-body-strong{font:600 18px/26px var(--font)}
+.t-small{font:400 15px/20px var(--font)}
+.t-label{font:600 13px/16px var(--font);text-transform:uppercase;letter-spacing:.12em}
+.t-number{font:600 22px/26px var(--font);font-variant-numeric:tabular-nums}
+.t-dim{color:var(--dim)} .t-ice{color:var(--ice-text)} .t-white{color:var(--white)}
+.num{font-variant-numeric:tabular-nums}
+.quote{color:var(--white);font-style:normal}
+.quote::before{content:"\201C"} .quote::after{content:"\201D"}
+
+/* top bar, 64 px */
+#bar{position:absolute;left:0;top:0;width:100%;height:var(--bar-h);display:flex;align-items:center;gap:var(--s4);padding:0 var(--s5);
+  border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(13,27,51,.72),rgba(6,12,26,.5));z-index:20}
+#bar .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--white);margin-right:var(--s2)}
+#bar .brand svg{width:40px;height:40px;flex:none;filter:drop-shadow(0 0 8px rgba(255,116,34,.45))}
+#bar .brand b{font:700 28px/1 var(--display);letter-spacing:.08em}
+#nav{display:flex;align-items:stretch;gap:2px;height:100%;flex:1 1 auto;min-width:0}
+#nav a{position:relative;display:flex;align-items:center;gap:8px;padding:0 16px;font:500 17px/1 var(--font);color:var(--ice-text);text-decoration:none;white-space:nowrap;
+  transition:color var(--t-fast) var(--ease),background var(--t-fast) var(--ease)}
+#nav a .n{display:inline-grid;place-items:center;width:22px;height:22px;border:1px solid var(--line);border-radius:50%;font:600 13px/1 var(--font);color:var(--ice-text)}
+#nav a:hover{color:var(--white);background:var(--panel)}
+#nav a[aria-current="page"]{color:var(--white);font-weight:600;background:var(--panel-strong)}
+#nav a[aria-current="page"] .n{border-color:var(--line-strong);background:rgba(66,163,255,.25);color:var(--white)}
+#nav a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:var(--ice);box-shadow:var(--glow-strong)}
+#bar .scope{flex:none;display:flex;flex-direction:column;justify-content:center;padding:6px 14px;border:1px dashed rgba(243,231,207,.6);border-radius:10px;
+  font:600 13px/16px var(--font);letter-spacing:.12em;text-transform:uppercase;color:var(--cream);background:var(--cream-soft);white-space:nowrap}
+
+/* the view root */
+#view{position:absolute;left:0;top:var(--bar-h);width:100%;height:calc(var(--stage-h) - var(--bar-h) - var(--foot-h));padding:var(--s4) var(--s5);
+  overflow-x:hidden;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+#view::-webkit-scrollbar{width:8px} #view::-webkit-scrollbar-thumb{background:var(--line);border-radius:8px}
+
+/* footer, 40 px */
+#foot{position:absolute;left:0;bottom:0;width:100%;height:var(--foot-h);display:flex;align-items:center;justify-content:space-between;gap:var(--s5);padding:0 var(--s5);
+  border-top:1px solid var(--line-faint);background:rgba(2,4,10,.6);font:400 13px/16px var(--font);letter-spacing:.02em;color:var(--dim);white-space:nowrap;z-index:20}
+#foot .built{font-weight:600;color:var(--ice-text);font-variant-numeric:tabular-nums}
+
+/* full-stage empty state: the evidence did not load, so nothing else is on the stage */
+#stage[data-state="failed"] #bar,#stage[data-state="failed"] #foot,#stage[data-state="failed"] #view{display:none}
+#fail{position:absolute;inset:0;display:grid;place-items:center;padding:var(--s7)}
+
+/* capture: deterministic frames */
+html[data-capture],html[data-capture] *{cursor:none!important}
+html[data-capture] *,html[data-capture] *::before,html[data-capture] *::after{animation-duration:.001s!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;transition-delay:0s!important;caret-color:transparent}
+html[data-capture] [data-action="tour"],html[data-capture] [data-vesta-next]{display:none!important}
+html[data-capture] #view{scrollbar-width:none} html[data-capture] #view::-webkit-scrollbar{display:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}

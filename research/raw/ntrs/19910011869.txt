@@ -1,0 +1,3 @@
+Fire suppression in human-crew spacecraft
+
+Fire extinguishment agents range from water and foam in early-design spacecraft (Halon 1301 in the present Shuttle) to carbon dioxide proposed for the Space Station Freedom. The major challenge to spacecraft fire extinguishment design and operations is from the micro-gravity environment, which minimizes natural convection and profoundly influences combustion and extinguishing agent effectiveness, dispersal, and post-fire cleanup. Discussed here are extinguishment in microgravity, fire-suppression problems anticipated in future spacecraft, and research needs and opportunities.

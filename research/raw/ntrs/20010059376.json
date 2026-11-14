@@ -1,0 +1,167 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20010059376,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "495a0190b64e4cf99a66316cfd66faa6",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20010059376,
+  "ear": "NO",
+  "id": "6902929867bd47dc919aa157a5e407bf",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "AIAA Paper 2001-0466",
+  "Report Number: AIAA Paper 2001-0466"
+ ],
+ "title": "Upward Flame Spread Over Thin Solids in Partial Gravity",
+ "stiType": "PREPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T12:30:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20010059376,
+   "meta": {
+    "author": {
+     "name": "Feier, I. I."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "157137aa1c4d439eb5a2db91432f1da1"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20010059376,
+   "meta": {
+    "author": {
+     "name": "Shih, H. Y."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "21661bd646af48cbb5bbeafbd5c56a30"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20010059376,
+   "meta": {
+    "author": {
+     "name": "Sacksteder, K. R."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "b10a96410d7c4cdaa1f7c3fed15ab9b8"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20010059376,
+   "meta": {
+    "author": {
+     "name": "Tien, J. S."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "7d8690c6f7d1482f99d243013995a77e"
+  }
+ ],
+ "stiTypeDetails": "Preprint (Draft being sent to journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20010059376,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T12:30:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The effects of partial-gravity, reduced pressure, and sample width on upward flame spread over a thin cellulose fuel were studied experimentally and the results were compared to a numerical flame spread simulation. Fuel samples 1-cm, 2-cm, and 4-cm wide were burned in air at reduced pressures of 0.2 to 0.4 atmospheres in simulated gravity environments of 0.1-G, 0.16-G (Lunar), and 0.38-G (Martian) onboard the NASA KC-135 aircraft and in normal-gravity tests. Observed steady flame propagation speeds and pyrolysis lengths were approximately proportional to the gravity level. Flames spread more quickly and were longer with the wider samples and the variations with gravity and pressure increased with sample width. A numerical simulation of upward flame spread was developed including three-dimensional Navier-Stokes equations, one-step Arrhenius kinetics for the gas phase flame and for the solid surface decomposition, and a fuel-surface radiative loss. The model provides detailed structure of flame temperatures, the flow field interactions with the flame, and the solid fuel mass disappearance. The simulation agrees with experimental flame spread rates and their dependence on gravity level but predicts a wider flammable region than found by experiment. Some unique three-dimensional flame features are demonstrated in the model results.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20010059376,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA United States",
+   "id": "720aebd2275f4effafcbfb860daa3c1e"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20010059376,
+   "endDate": "2001-01-11T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA United States"
+      }
+     },
+     "meetingId": "0970124782894ca6955e60134bb6840c",
+     "id": "20af0f4e914a4c3892e290c298381830"
+    }
+   ],
+   "name": "39th Aerospace Sciences Meeting and Exhibit",
+   "location": "Reno, NV",
+   "id": "0970124782894ca6955e60134bb6840c",
+   "startDate": "2001-01-08T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20010059376,
+   "id": "618e53fa4859429d8a201cea3371f99e",
+   "publicationDate": "2001-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20010059376.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20010059376/downloads/20010059376.pdf",
+    "pdf": "/api/citations/20010059376/downloads/20010059376.pdf",
+    "fulltext": "/api/citations/20010059376/downloads/20010059376.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

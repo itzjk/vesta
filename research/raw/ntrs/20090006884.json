@@ -1,0 +1,126 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20090006884,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "dd121bb3f347486a8601866c90121dc3",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20090006884,
+  "ear": "NO",
+  "id": "8db65c9772de48949062883cf7f4f99e",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "WBS 401769.06.01.01.01",
+   "submissionId": 20090006884,
+   "id": "22d030c5f20c4eb18626b6a5a0304f1a",
+   "type": "WBS"
+  }
+ ],
+ "title": "International Space Station United States Laboratory Module Water Recovery Management Subsystem Verification from Flight 5A to Stage ULF2",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T20:27:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20090006884,
+   "meta": {
+    "author": {
+     "name": "Williams, David E."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "4c064e81c57f4b7389a4137a154e1598"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20090006884,
+   "meta": {
+    "author": {
+     "name": "Labuda, Laura"
+    },
+    "organization": {
+     "name": "Jacobs Engineering Group, Inc.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "8d554b9f4c744afc918ed5e8b1f06a80"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20090006884,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T20:27:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The International Space Station (ISS) Environmental Control and Life Support (ECLS) system comprises of seven subsystems: Atmosphere Control and Supply (ACS), Atmosphere Revitalization (AR), Fire Detection and Suppression (FDS), Temperature and Humidity Control (THC), Vacuum System (VS), Water Recovery and Management (WRM), and Waste Management (WM). This paper provides a summary of the nominal operation of the United States (U.S.) Laboratory Module WRM design and detailed element methodologies utilized during the Qualification phase of the U.S. Laboratory Module prior to launch and the Qualification of all of the modification kits added to it from Flight 5A up and including Stage ULF2.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20090006884,
+   "endDate": "2009-07-16T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "2fb8633154d94728aec2c57afa709b46",
+     "meta": {
+      "organization": {
+       "name": "Society of Automotive Engineers, Inc.",
+       "location": "Warrendale, PA, United States"
+      }
+     },
+     "meetingId": "065eca538a634f489d1eccbdb296a47d",
+     "id": "3411dcbe61a14b11895538740bfd183a"
+    }
+   ],
+   "name": "International Conference of Environmental Systems",
+   "location": "Savannah, GA",
+   "id": "065eca538a634f489d1eccbdb296a47d",
+   "startDate": "2009-07-12T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20090006884,
+   "id": "d2525afe69c2485bbff37ab8962510e6",
+   "publicationDate": "2009-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

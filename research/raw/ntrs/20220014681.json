@@ -1,0 +1,125 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20220014681,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "7791b0dc499b42fa9d42eb6e898d6133",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Geosciences (General)",
+  "Earth Resources And Remote Sensing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20220014681,
+  "ear": "NO",
+  "id": "93f0bd6dcd004a1e9b18e5326adbc5a8",
+  "itar": "NO"
+ },
+ "distributionDate": "2022-11-04T04:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "479717.02.01.01.52",
+   "submissionId": 20220014681,
+   "id": "78ba1fdd2c23465082ed40b470e95c3a",
+   "type": "WBS"
+  }
+ ],
+ "title": "A Comparison of Stratospheric Smoke Events Seen by SAGE II (1984-2005) and SAGE III (2017-2021)",
+ "stiType": "POSTER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2022-09-28T17:16:36.1375530+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "68603dff261e5d2d9de5a550aa9e6b30",
+   "sequence": 0,
+   "submissionId": 20220014681,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "L. W. Thomason"
+    },
+    "organization": {
+     "name": "Langley Research Center",
+     "location": "Hampton, Virginia, United States"
+    }
+   },
+   "id": "6bf4691a9fd24dddaea699bd8df0e006",
+   "userType": "CIVIL",
+   "userId": "216cb708d44f44fd8d00982a7b6397b8"
+  }
+ ],
+ "stiTypeDetails": "Poster",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20220014681,
+ "created": "2022-09-28T16:59:45.5221850+00:00",
+ "center": {
+  "code": "LaRC",
+  "name": "Langley Research Center",
+  "id": "1e229fe5b7284965a153b0f761643383"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The ongoing Stratospheric Aerosol and Gas Experiment aboard the International Space Station (SAGE III/ISS) has mostly occurred during a period of relatively low aerosol loading. At the same time, it has almost observed a number of small to moderate injections of volcanic material in the stratosphere from the Aoba/Ambae eruption of 2018 to that of Karymsky in 2022. In addition, two of the largest known smoke intrusions into the stratosphere have occurred during the SAGE III/ISS mission (the British Columbia fire of August 2017 and the Australian Wildfire Event of 2019/2020). At least two other much smaller smoke events have also been observed in the SAGE III data (California Creek in September 2020 and McKay Creek in June 2021).\n\nParticularly with the two large events, it is tempting to speculate that these events are increasing in intensity and frequency possibly due to ongoing climate change. Realistically, change is difficult to assess since instrument data sets that can be used for quantifying historical events can be quite different in what and where they provide measurements. This complicates comparing one event to another potentially separated by many years. An exception to this issues are the measurements by SAGE III/ISS and those of its predecessor SAGE II (1984-2005). Both use the same measurement strategy, measure aerosol extinction coefficient at 1020 nm, and have similar spatial/temporal coverage. Both instruments are known to observe smoke events in the stratosphere. However, both have the same low observation density characteristic of solar occultation such that near-global coverage takes almost a month and characterizing effectively instant events like smoke and volcanic events take a matter of weeks depending on the vagaries of where the observations are being made at a critical juncture unlike instruments with high temporal/spatial resolution like limb-scatter instruments such as OMPS and OSIRIS. The goal of this work will be to use the same analysis approach to both the SAGE II and SAGE III data and compare both the frequency and intensity of smoke events observed by these instruments. While we do not expect to be able to make conclusions about change between the periods, the analysis is a first step in interpreting changes in the contribution of smoke to the stratospheric aerosol budget between the time frames encompassed by these instruments.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20220014681,
+  "id": "3093a20cd77d4ef5895e50ffe3cd929e"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20220014681,
+   "endDate": "2022-10-28T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "38273910ccc15728bf53c6d26e483f63",
+     "meta": {
+      "organization": {
+       "name": "National Center for Atmospheric Research",
+       "location": "Boulder, Colorado, United States"
+      }
+     },
+     "meetingId": "304d245fb4874e78ac77bbfb6185fb55",
+     "id": "458b228bd88d43c48c52308bb75a5e5e"
+    }
+   ],
+   "name": "Stratosphere-troposphere Processes And their Role in Climate (SPARC) 7th General Assembly",
+   "location": "Boulder, CO",
+   "id": "304d245fb4874e78ac77bbfb6185fb55",
+   "url": "https://research.reading.ac.uk/sparc-ga2022/",
+   "startDate": "2022-10-24T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "SPARC Poster Thomason.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20220014681/downloads/SPARC%20Poster%20Thomason.pdf",
+    "pdf": "/api/citations/20220014681/downloads/SPARC%20Poster%20Thomason.pdf",
+    "fulltext": "/api/citations/20220014681/downloads/SPARC%20Poster%20Thomason.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

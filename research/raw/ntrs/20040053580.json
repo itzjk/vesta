@@ -1,0 +1,140 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053580,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "a3a64b5aa18241c6bd11bc953c091118",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053580,
+  "ear": "NO",
+  "id": "d183e02064a34937905a5891cb077a6f",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-08-14T14:25:08.9100000+00:00",
+ "title": "Experimental And Numerical Evaluation Of Gaseous Agents For Suppressing Cup-Burner Flames In Low Gravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-21T17:34:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053580,
+   "meta": {
+    "author": {
+     "name": "Takahashi, Fumiaki"
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "cbaea6a9381e4ba48898a0e8b715c97f"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053580,
+   "meta": {
+    "author": {
+     "name": "Linteris, Gregory T."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "United States"
+    }
+   },
+   "id": "baba7e2089cf436cab4c58c971d42b79"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053580,
+   "meta": {
+    "author": {
+     "name": "Katta, Viswanath R."
+    },
+    "organization": {
+     "name": "Innovative Scientific Solutions, Inc.",
+     "location": "United States"
+    }
+   },
+   "id": "0e07acd7350b401991439e4ff50aaa2a"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053580,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-21T17:34:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Longer duration missions to the moon, to Mars, and on the International Space Station (ISS) increase the likelihood of accidental fires. NASA's fire safety program for human-crewed space flight is based largely on removing ignition sources and controlling the flammability of the material on-board. There is ongoing research to improve the flammability characterization of materials in low gravity; however, very little research has been conducted on fire suppression in the low-gravity environment. Although the existing suppression systems aboard the Space Shuttle (halon 1301, CF3Br) and the ISS (CO2 or water-based form) may continue to be used, alternative effective agents or techniques are desirable for long-duration missions. The goal of the present investigation is to: (1) understand the physical and chemical processes of fire suppression in various gravity and O2 levels simulating spacecraft, Mars, and moon missions; (2) provide rigorous testing of analytical models, which include detailed combustion-suppression chemistry and radiation sub-models, so that the model can be used to interpret (and predict) the suppression behavior in low gravity; and (3) provide basic research results useful for advances in space fire safety technology, including new fire-extinguishing agents and approaches.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053580,
+   "id": "fed1a5f301694dcd9a7d6c13ada084ed",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053580.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053580/downloads/20040053580.pdf",
+    "pdf": "/api/citations/20040053580/downloads/20040053580.pdf",
+    "fulltext": "/api/citations/20040053580/downloads/20040053580.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

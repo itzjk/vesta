@@ -1,0 +1,215 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20240007628,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "924eebf16f154d7c86eb49e1fa545b49",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Sciences (General)"
+ ],
+ "keywords": [
+  "Flame quenching",
+  "Flame blowoff",
+  "Flame pulsation",
+  "Low stretch flame",
+  "Microgravity",
+  "SoFIE",
+  "GEL"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20240007628,
+  "ear": "NO",
+  "id": "ee74cd4625c645ea81da5813729199c3",
+  "itar": "NO"
+ },
+ "distributionDate": "2024-07-26T04:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "619352.06.07.02.01",
+   "submissionId": 20240007628,
+   "id": "f743d7e6affa4f41be2797b56900d557",
+   "type": "WBS"
+  },
+  {
+   "number": "80NSSC23M0035",
+   "submissionId": 20240007628,
+   "id": "b438cb6c805f4364954b6ef7d5f80807",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Extinction of Solid Diffusion Flame in Microgravity: Details of Quenching and Blowoff Processes",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2024-06-13T21:10:51.0806780+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 0,
+   "submissionId": 20240007628,
+   "meta": {
+    "author": {
+     "name": "Chengyao Li"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "96039532d1f64b3287b349976e7518e3",
+   "userType": "OTHER",
+   "userId": "574d554a6639451baf7b90f7df30e192"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 1,
+   "submissionId": 20240007628,
+   "meta": {
+    "author": {
+     "name": "James S Tien"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "3a87e67f7c3d400cb8bdb699f475e37e",
+   "userType": "OTHER",
+   "userId": "40aa1846af644f6aa44da4e607aac4d7"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 2,
+   "submissionId": 20240007628,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Paul V Ferkul"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, United States"
+    }
+   },
+   "id": "547fa37bb5304443913700891a6e25fa",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "e1b28b8eccc546bf8ff8d69e271adf75"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 3,
+   "submissionId": 20240007628,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Sandra L Olson"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "a5abfb29714b4a6584d1dee331d45223",
+   "userType": "CIVIL",
+   "userId": "7568d81a24d042dd99c5f823ca00cf6b"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 4,
+   "submissionId": 20240007628,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Michael C Johnston"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "649f1aca81cd43c0a915e2ae5201b843",
+   "userType": "CIVIL",
+   "userId": "995f4be0e19649eca742e40fb9d52045"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "NASA_TECHNICAL_MANAGEMENT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20240007628,
+ "created": "2024-06-13T20:58:37.4805080+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Long duration microgravity experiments aboard the International Space Station determine diffusion flame extinction limits of PMMA spheres. Upon ignition from an electrically-heated coil, the 4-cm-diameter samples are exposed to forced flows ranging from 0.2 to 80 cm/s and an oxygen ranging from 13 to 28% in one atmosphere total pressure. Extinction is reached as oxygen concentration gradually decreases by natural depletion. Five extinction tests are presented at different flow velocities and oxygen concentrations. Quenching at low velocity is observed with the flame tip shrinking upstream and blowoff is observed when a hole forms in the flame at the forward flow stagnation point. However, these processes are not quasistatic. The quenching motion involves periodic flame tip pulsating toward downstream and shrinking upstream with a continually decreasing flame size at the end of each cycle. In blowoff, the flame base pulsates between the flame hole and the downstream location, although with far fewer cycles compared to quenching. The pulsations appear to be the result of a premixed flame front spreading into a combustible mixture. Two specific cases are discussed. In the first, at very low flow velocity (~ 0.4 cm/s) and elevated oxygen, self-sustained flame tip cyclic pulsations are observed for a lengthy period (~15 minutes). In the second case with a higher flow velocity (50 cm/s), the diffusion flame is stabilized at the shoulder of the spherical sample after local stagnation point blowoff. With steady decrease in ambient oxygen due to depletion, spinning flamelets are formed. The long-duration microgravity environment makes it possible to observe. \nthese interesting and detailed extinction processes.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20240007628,
+  "id": "527cf84a10c14138929df03f47cc1f25"
+ },
+ "meetings": [
+  {
+   "country": "IT",
+   "submissionId": 20240007628,
+   "endDate": "2024-07-26T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "f52059f6037657c2b9489200502d5650",
+     "meta": {
+      "organization": {
+       "name": "Combustion Institute",
+       "location": "Pittsburgh, Pennsylvania, United States"
+      }
+     },
+     "meetingId": "cf69260c18674767be0898ec57e5f7a1",
+     "id": "4e440bea947444428f8b8680e7047c91"
+    }
+   ],
+   "name": "Combustion Institute's 40th International Symposium - Emphasizing Energy Transition",
+   "location": "Milan",
+   "id": "cf69260c18674767be0898ec57e5f7a1",
+   "url": "https://www.combustionsymposia.org/2024/",
+   "startDate": "2024-07-21T04:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20240007628,
+   "id": "034bdf1cbf9242ef8886b9e42040880e",
+   "publicationName": ""
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "GELsymposiumfinalRev1.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20240007628/downloads/GELsymposiumfinalRev1.pdf",
+    "pdf": "/api/citations/20240007628/downloads/GELsymposiumfinalRev1.pdf",
+    "fulltext": "/api/citations/20240007628/downloads/GELsymposiumfinalRev1.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,208 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20010074032,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "1c28d6adc5874512907c63f1c4545750",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20010074032,
+  "ear": "NO",
+  "id": "6655a55ff41340aeb95f1913c55ac7e3",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-09T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NAG3-1912",
+   "submissionId": 20010074032,
+   "id": "8c96eacf671e48ea93907263bc3b1030",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NCC3-697",
+   "submissionId": 20010074032,
+   "id": "22c247b92ba942a890a47943e30b15a9",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NCC3-696a",
+   "submissionId": 20010074032,
+   "id": "664510e77fd74a39a1962e082faa7a09",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NAG3-1910",
+   "submissionId": 20010074032,
+   "id": "b925ec4e46db4afc9f8e4271426ee891",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Effects of Flame Structure and Hydrodynamics on Soot Particle Inception and Flame Extinction in Diffusion Flames",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-20T11:24:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20010074032,
+   "meta": {
+    "author": {
+     "name": "Axelbaum, R. L."
+    },
+    "organization": {
+     "name": "Washington Univ.",
+     "location": "Saint Louis, MO United States"
+    }
+   },
+   "id": "e9401309c39e4a929821db17c07bb6d8"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20010074032,
+   "meta": {
+    "author": {
+     "name": "Chen, R."
+    },
+    "organization": {
+     "name": "Washington Univ.",
+     "location": "Saint Louis, MO United States"
+    }
+   },
+   "id": "5298e9d8f9a34e7aafa46f8e41be863c"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20010074032,
+   "meta": {
+    "author": {
+     "name": "Sunderland, P. B."
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "e25e41d5520449e9aff261fb6609084a"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20010074032,
+   "meta": {
+    "author": {
+     "name": "Urban, D. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "93102ec1f9cb43f4bce936eb929c742a"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20010074032,
+   "meta": {
+    "author": {
+     "name": "Liu, S."
+    },
+    "organization": {
+     "name": "Hawaii Univ.",
+     "location": "Honolulu, HI United States"
+    }
+   },
+   "id": "f621c1d5dffb4aa4bce79b6f7f56952a"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20010074032,
+   "meta": {
+    "author": {
+     "name": "Chao, B. H."
+    },
+    "organization": {
+     "name": "Hawaii Univ.",
+     "location": "Honolulu, HI United States"
+    }
+   },
+   "id": "14a6d5f73d04440383dd64ce5ba4f23a"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20010074032,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-20T11:24:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "This paper summarizes recent studies of the effects of stoichiometric mixture fraction (structure) and hydrodynamics on soot particle inception and flame extinction in diffusion flames. Microgravity experiments are uniquely suited for these studies because, unlike normal gravity experiments, they allow structural and hydrodynamic effects to be independently studied. As part of this recent flight definition program, microgravity studies have been performed in the 2.2 second drop tower. Normal gravity counterflow studies also have been employed and analytical and numerical models have been developed. A goal of this program is to develop sufficient understanding of the effects of flame structure that flames can be \"designed\" to specifications - consequently, the program name Flame Design. In other words, if a soot-free, strong, low temperature flame is required, can one produce such a flame by designing its structure? Certainly, as in any design, there will be constraints imposed by the properties of the available \"materials.\" For hydrocarbon combustion, the base materials are fuel and air. Additives could be considered, but for this work only fuel, oxygen and nitrogen are considered. Also, the structure of these flames is \"designed\" by varying the stoichiometric mixture fraction. Following this line of reasoning, the studies described are aimed at developing the understanding of flame structure that is needed to allow for optimum design.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20010074032,
+   "id": "76a5756904994fe5b0cb025ef3e1463b",
+   "publicationName": "Sixth International Microgravity Combustion Workshop",
+   "publicationDate": "2001-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20010074032.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20010074032/downloads/20010074032.pdf",
+    "pdf": "/api/citations/20010074032/downloads/20010074032.pdf",
+    "fulltext": "/api/citations/20010074032/downloads/20010074032.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

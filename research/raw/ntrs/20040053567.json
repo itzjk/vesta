@@ -1,0 +1,168 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053567,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "bd22d6bf0855452da826e8a5938ccf6c",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053567,
+  "ear": "NO",
+  "id": "dbec684e5b7d4168a4a1559ec90bdc61",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "Upward And Downward Flame Spreading And Extinction In Partial Gravity Environments",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-21T17:34:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053567,
+   "meta": {
+    "author": {
+     "name": "Sacksteder, Kurt R."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "abfd18d3e8f243e3a2dadb104f161f6e"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053567,
+   "meta": {
+    "author": {
+     "name": "Feier, Ioan I."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "5910c69b906147a9a4ff97a15f807f31"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053567,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul V."
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "6d6f6cbb40714e2489f092d7273ea1ff"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040053567,
+   "meta": {
+    "author": {
+     "name": "Kumar, Amit"
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e36f1a4e82a84b849d28dd29d1c37765"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20040053567,
+   "meta": {
+    "author": {
+     "name": "T'ien, James S."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "a66fd1d14c614a52a04b5a10a458a067"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053567,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-21T17:34:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The premise of this research effort has been to begin exploring the gap in the literature between studies of material flammability and flame spread phenomena in normal-gravity and those conducted in the microgravity environment, with or without forced flows. From a fundamental point of view, flame spreading in upward (concurrent) buoyant flow is considerably different from concurrent forced flow. The flow accelerates throughout the length of the buoyant flame bringing the streamlines and the flame closer to the fuel surface and strengthening the interaction between the flame and fuel. Forced flows are diverted around the flame and away from the fuel surface, except where the flow might be constrained by a finite duct. The differences may be most clearly felt as the atmospheric conditions, viz. pressure or oxygen content, approach the flammability limit. From a more practical point of view, flame spreading and material flammability behavior have not been studied under the partial gravity conditions that are the natural state in space exploration destinations such as the Moon and Mars. This effort constitutes the beginning of the research needed to engineer fire safety provisions for such future missions. In this program we have performed partial-gravity experiments (from 0.1 to 1 g/g(sub Earth)) considering both upward and downward flame spread over thin solid fuels aboard the NASA KC-135 aircraft. In those tests, the atmospheric pressure and the fuel sample width were varied. Steady flame spread rates and approximate extinction boundaries were determined. Flame images were recorded using video cameras and two-dimensional fuel surface temperature distributions were determined using an IR camera. These results are available, and complement our earlier work in downward spread in partial gravity varying oxygen content. In conjunction with the experiment, three-dimensional models of flame spreading in buoyant flow have been developed. Some of the computed results on upward spreading have been presented. A derivative three-dimensional model of downward spreading has been developed. It is currently being used to evaluate the standard limiting oxygen index (LOI) measuring device and its potential performance in different gravity levels.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053567,
+   "id": "6506ecc53e354c5aa6828a06a039cf5d",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053567.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053567/downloads/20040053567.pdf",
+    "pdf": "/api/citations/20040053567/downloads/20040053567.pdf",
+    "fulltext": "/api/citations/20040053567/downloads/20040053567.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,107 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20070021234,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "fc98a1c6c0b742259ae4e6e6f62f6e19",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20070021234,
+  "ear": "NO",
+  "id": "5ee933ad6e9b4326896c5cc97e301010",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "WSTF # PPP-07-0160",
+  "Report Number: WSTF # PPP-07-0160"
+ ],
+ "title": "ISO 14624 Series - Space Systems - Safety and Compatibility of Materials Flammability Assessment of Spacecraft Materials",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-23T23:06:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20070021234,
+   "meta": {
+    "author": {
+     "name": "Hirsch, David B."
+    },
+    "organization": {
+     "name": "Jacobs Engineering Group, Inc.",
+     "location": "Albuquerque, NM, United States"
+    }
+   },
+   "id": "0b370bf9c4a74cc6bbed8ebbdfa5992a"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20070021234,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-23T23:06:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A viewgraph presentation on the flammability of spacecraft materials is shown. The topics include: 1) Spacecraft Fire Safety; 2) Materials Flammability Test; 3) Impetus for enhanced materials flammability characterization; 4) Exploration Atmosphere Working Group Recommendations; 5) Approach; and 6) Status of implementation",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "China",
+   "submissionId": 20070021234,
+   "endDate": "2007-05-25T00:00:00.0000000+00:00",
+   "name": "International Standardization Organization ISO TC 20/SC 14, Space Systems and Operations",
+   "location": "Beijing",
+   "id": "9aa7f9a5ac304403a148f81dee39d0b1",
+   "startDate": "2007-05-21T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20070021234,
+   "id": "f9a8e4cf636445cdaa2762c71497977e",
+   "publicationDate": "2007-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20070021234.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20070021234/downloads/20070021234.pdf",
+    "pdf": "/api/citations/20070021234/downloads/20070021234.pdf",
+    "fulltext": "/api/citations/20070021234/downloads/20070021234.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

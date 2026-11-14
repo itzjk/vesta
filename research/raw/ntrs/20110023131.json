@@ -1,0 +1,175 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20110023131,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "d963fa743d7542f1b6af7bd2094b5475",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20110023131,
+  "ear": "NO",
+  "id": "ead5d5fd98f4409583af8b5182219e08",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-25052",
+  "Report Number: JSC-CN-25052"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 401769.06.03.03.02.19",
+   "submissionId": 20110023131,
+   "id": "4a7ec65f555d430fbb9087e8ddc88faa",
+   "type": "WBS"
+  }
+ ],
+ "title": "International Space Station (ISS) Emergency Mask (EM) Development",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T08:27:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20110023131,
+   "meta": {
+    "author": {
+     "name": "Toon, Katherine P."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "b608e0b9e89e41dd8155389d5f8c746b"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20110023131,
+   "meta": {
+    "author": {
+     "name": "Hahn, Jeffrey"
+    },
+    "organization": {
+     "name": "Jacobs Technologies Engineering Science Contract Group",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "e38d466037314c2aa8c63d9360796c93"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20110023131,
+   "meta": {
+    "author": {
+     "name": "Fowler, Michael"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "c99f5e84e382401ab99dd37eb2dbac1c"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20110023131,
+   "meta": {
+    "author": {
+     "name": "Young, Kevin"
+    },
+    "organization": {
+     "name": "Jacobs Technologies Engineering Science Contract Group",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "27bbcfa3358c4e93990fc42d3d8d163c"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20110023131,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T08:27:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The Emergency Mask (EM) is considered a secondary response emergency Personal Protective Equipment (PPE) designed to provide respiratory protection to the International Space Station (ISS) crewmembers in response to a post-fire event or ammonia leak. The EM is planned to be delivered to ISS in 2012 to replace the current air purifying respirator (APR) onboard ISS called the Ammonia Respirator (AR). The EM is a one ]size ]fits ]all model designed to fit any size crewmember, unlike the APR on ISS, and uses either two Fire Cartridges (FCs) or two Commercial Off-the-Shelf (COTS) 3M(Trademark). Ammonia Cartridges (ACs) to provide the crew with a minimum of 8 hours of respiratory protection with appropriate cartridge swap ]out. The EM is designed for a single exposure event, for either post ]fire or ammonia, and is a passive device that cannot help crewmembers who cannot breathe on their own. The EM fs primary and only seal is around the wearer fs neck to prevent a crewmember from inhaling contaminants. During the development of the ISS Emergency Mask, several design challenges were faced that focused around manufacturing a leak free mask. The description of those challenges are broadly discussed but focuses on one key design challenge area: bonding EPDM gasket material to Gore(Registered Trademark) fabric hood.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20110023131,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "625d70405c88425b93b0597cd8cdee96"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20110023131,
+   "endDate": "2012-07-19T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "e814da12503d4684b36e1feeb9ed2b24",
+     "id": "ca0c55abfa594b87b4c4ee1f8231d59f"
+    }
+   ],
+   "name": "International Conference on Environmental Systems (ICES)",
+   "location": "San Diego, CA",
+   "id": "e814da12503d4684b36e1feeb9ed2b24",
+   "startDate": "2012-07-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20110023131,
+   "id": "9c7fcaa651644d78babaeeec1ecddc49",
+   "publicationDate": "2011-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20110023131.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20110023131/downloads/20110023131.pdf",
+    "pdf": "/api/citations/20110023131/downloads/20110023131.pdf",
+    "fulltext": "/api/citations/20110023131/downloads/20110023131.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

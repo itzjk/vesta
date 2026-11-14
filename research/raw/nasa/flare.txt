@@ -1,0 +1,59 @@
+https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-limits-at-reduced-g-experiment-flare/
+TITLE: Flammability Limits At Reduced-g Experiment (FLARE) - NASA
+FETCHED: 2026-11-14T10:52:06
+
+# Flammability Limits At Reduced-g Experiment (FLARE)
+
+To develop a methodology to correlate material flammability limits in normal gravity and
+microgravity, which allows quantitative estimation of material flammability limit in
+microgravity based on the flammability data obtained on the ground. The project involves
+an international team including JAXA, NASA, ESA and universities in Japan, USA and
+France.
+
+#### Experimental Approach
+
+• Perform extensive research via ground-based experiments, including 1g and parabolic
+flight tests, and via theoretical formulations.
+• Flight experiments on orbit in ISS/KIBO will be performed to verify the correlation. The
+flight experiments on orbit are expected in 2017 or later.
+• By the end of the project, a new fire safety standard test method for screening
+spacecraft materials will be proposed that addresses the shortcomings of existing
+standard test method such as NASA STD 6001B.
+
+#### Relevance/Impact
+
+• Fundamental Science – studying materials flammability in space allows us to
+accurately control the flow field and thus elucidate the importance of a critical
+Damkohler number (flow time /reaction time) on flame extinction.
+• Efficiency – The anticipated improved methodology should reduce time and cost for the
+spacecraft material screening.
+• Safety – Terrestrial fire safety; spacecraft fire safety
+
+#### Development Approach
+
+• Experiment uses same hardware as JAXA’s “Solid Combustion”
+• International research team
+
+#### Contact Information
+
+Project Manager: Shigeki Kamigaichi, JAXA
+Project Scientist: Masao Kikuchi, JAXA
+JAXA PI: Prof. Osamu Fujita, Hokkaido Univ.
+US Co-Is: Dr. Sandra Olson, NASA GRC
+Dr. Harold Beeson, NASA
+Prof. Carlos Fernandez-Pello, U. C. Berkeley
+International Co-Is: Many Japanese Co-Is, Guillaume Legros,
+U. Pierre Marie Curie, Thomas Rohr, ESA, Marika Orlandi, ESA
+Customers/Adopters (Push): HEOMD/Space Life and Physical Sciences
+
+Keep Exploring
+
+## Discover More Topics From NASA
+
+Missions
+
+Humans in Space
+
+Climate Change
+
+Solar System

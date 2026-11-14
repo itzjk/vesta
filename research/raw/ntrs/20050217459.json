@@ -1,0 +1,132 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050217459,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "3c90aa88aee646d6858158c4b97786e7",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Instrumentation And Astrionics"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050217459,
+  "ear": "NO",
+  "id": "06de35e6e379441a86c0f728e383d9d2",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "title": "Development and Performance of the Oxygen Sensor in the CSA-CP Aboard the International Space Station",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-23T12:18:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050217459,
+   "meta": {
+    "author": {
+     "name": "Limero, Thomas"
+    },
+    "organization": {
+     "name": "Wyle Labs., Inc.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "0a18eeaa44d449488879c0e6eb1545e2"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20050217459,
+   "meta": {
+    "author": {
+     "name": "Beck, Steve"
+    },
+    "organization": {
+     "name": "Wyle Labs., Inc.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "a9fa490c15fa41058b71502aed5d16df"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20050217459,
+   "meta": {
+    "author": {
+     "name": "James, John T."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "c08761045272405cb973852d78ea3125"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050217459,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-23T12:18:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "A combustion products analyzer (CPA) was built for use on Shuttle in response to several thermodegradation incidents that had occurred during early flights. The CPA contained sensors that measured carbon monoxide, hydrogen chloride, hydrogen cyanide, and hydrogen fluoride. These marker compounds, monitored by the CPA, were selected based upon the likely products to be released in a spacecraft fire. When the Toxicology Laboratory group at Johnson Space Center (JSC) began to assess the air quality monitoring needs for the International Space Station (ISS), the CPA was the starting point for design of an instrument to monitor the atmosphere following a thermodegradation event. The final product was significantly different from the CPA and was named the compound specific analyzer-combustion products (CSA-CP). The major change from the CPA that will be the focus of this paper was the replacement of an unreliable hydrogen fluoride (HF) sensor with an oxygen sensor. A reliable HF sensor was not commercially available, but as the toxicology group reviewed the overall monitoring strategy for ISS, it appeared that a portable oxygen sensor to backup the major constituent analyzer was needed. Therefore, an oxygen sensor replaced the HF sensor in the new instrument. This paper will describe the development, deployment, and performance of the CSA-CP oxygen sensor on both Shuttle and ISS. Also, data for CSA-CP oxygen sensor accuracy at nominal and reduced pressures will be presented.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20050217459,
+   "endDate": "2004-07-22T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "148fa8dc053d4524a250b1eb980fe4c1",
+     "meta": {
+      "organization": {
+       "name": "Society of Automotive Engineers, Inc.",
+       "location": "Pittsburgh, PA, United States"
+      }
+     },
+     "meetingId": "965cf4aec471456eb0856e76b88950da",
+     "id": "4771aa300aa543149acbb8ebc7d6c6a3"
+    }
+   ],
+   "name": "34th International Conference on Environmental Svstems",
+   "location": "Colorado Springs, CO",
+   "id": "965cf4aec471456eb0856e76b88950da",
+   "startDate": "2004-07-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20050217459,
+   "id": "cc33fb1f70fc46a4b487dfe68cd983d4",
+   "publicationDate": "2004-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

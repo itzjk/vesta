@@ -1,0 +1,395 @@
+                         28th Annual Meeting of the
+            American Society for Space and Gravitational Research
+                                  Nov. 28th – Dec. 2nd, 2012
+
+
+Dynamics of Water Absorption and Evaporation
+             During Methanol
+    Droplet Combustion in Microgravity
+Michael C. Hicks1 , Daniel L. Dietrich1 , Vedha Nayagam2, and Forman A. Williams3
+                           1 NASA - Glenn Research Center
+
+                   2 National Center for Space Exploration Research
+
+                         3 University of California, San Diego
+                Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                Combustion in Microgravity
+
+
+   Presentation Outline
+
+     • Background
+         - MeOH as a proxy fuel for droplet combustion studies
+         - MeOH droplet combustion - water absorption / evaporation theory
+         - Review of previous work
+
+     • Recent Analysis of ISS and Ground Tests
+         - Experimental configurations
+              … Zero Gravity Facility (ZGF) and ISS (FLEX)
+
+         - Measurement of incipient water evaporation
+              … LLUV camera for imaging OH* chemi-luminescence
+              … ZGF drop rig color camera
+
+     • Future Work
+
+
+28th Annual Meeting of the American Society of Space and Gravitational Research        2 of 15
+                Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                Combustion in Microgravity
+
+
+   Methanol as an experimental proxy fuel
+
+   Aside from obtaining a better understanding of combustion of MeOH as a fuel in
+   practical applications, MeOH serves as an excellent experimental proxy for
+   refining our understanding of basic combustion phenomena …
+   •     Chemical kinetics are relatively simple … oxidation reaction is adequately captured in a
+         reduced 2 step mechanism (Zhang, '96)
+
+                                    2 CH3 OH+ O2 → H2O + CO2 + 3H2 + CO           (I)
+                                    H2 + CO+ O2 → H2O+ CO2                        (II)
+
+   • Only trace amounts of CH3 resulting in very little soot production
+
+   •   Stoichiometry results in relatively small flame stand-off distances … minimizing radiative
+       effects
+
+   •    Water vapor produced from combustion diffuses back to the droplet surface, condenses
+       (Tb= 64.7°C) … can serve as a useful model for studying condensed phase mixing and
+       bi-component fuels.
+
+28th Annual Meeting of the American Society of Space and Gravitational Research               3 of 15
+                Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                Combustion in Microgravity
+
+
+   MeOH Droplet Extinction Theory
+   •       Initially, water produced in the flame diffuses back to the
+           droplet surface and condenses
+   •       During the second half of the burning period the water is
+           absorbed and gradually builds up in the droplet
+   •       Two “idealized” limiting cases for describing the possible
+           mixing mechanisms of the binary liquid mixture
+       -     diffusion limited … no internal convection in the droplet
+             resulting in a thin boundary layer of water that quickly begins to
+             evaporate with the fuel
+       -     convection limited … binary mixture is homogenous throughout the droplet resulting in a
+             greater amount of water in the droplet and an increase in the concentration of water that
+             vaporizes with the fuel
+   •       At a certain mixture threshold water begins to evaporate with the fuel and is
+           convected back to the flame zone
+   •       As water reaches the flame zone the flame temperature decreases, the reaction time
+           increases, and eventually the reaction time reaches the limit beyond which the
+           residence time is insufficient to sustain the oxidation reaction … at which point the
+           flame extinguishes
+28th Annual Meeting of the American Society of Space and Gravitational Research                          4 of 15
+                Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                Combustion in Microgravity
+
+
+     Previous Work
+ •      Implications of water condensation on the surface of evaporating MeOH droplets first
+        investigated in the context of a theoretical study of spray evaporation (Law & Binark, '79)
+        -      condensation heat release could augment evaporation rates
+        -      water produced from combustion could "back diffuse" to fuel surface, having a similar effect to
+               environmental humidity
+ •      Experiment performed on evaporation rates of suspended MeOH droplets in cold humid
+        environments (Law et al., '87)
+        -      latent heat of condensation at droplet surface initially increase evaporation rates which gradually
+               decrease as the droplet becomes concentrated with water
+ •      The effect of water condensation and absorption at the droplet surface during rapid
+        evaporation (e.g., combustion) first reported by Choi et al. ('88, '89) and extended in later
+        studies (Cho et al. '90; Lee & Law, '92; Yang et al.'90; Dietrich et al., '96)
+
+ •       A considerable amount of theoretical and numerical work has been performed through
+        the years increasing our basic understanding of the complicated processes occurring
+        during MeOH combustion – condensed phase transport, burning rate dependencies,
+        extinction mechanisms, radiative transport, etc. (Chao et al., '90; Marchese et al., '96;
+        Zhang et al., '96, '97, '98; Okai, et al., 2000; Dwyer et al., '96, 98, Kazakov et al., '03,
+        Farouk et al., '12)
+28th Annual Meeting of the American Society of Space and Gravitational Research                               5 of 15
+                Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                Combustion in Microgravity
+
+
+   ZGF Experiment Configuration
+
+
+
+
+28th Annual Meeting of the American Society of Space and Gravitational Research        6 of 15
+                Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                Combustion in Microgravity
+
+
+ZGF Imaging Capabilities
+Test Point H-8-04
+•    1.0 atm in 21% O2 / 35% Ar / 44% N2
+•    Methanol droplet
+     Do = 1.69 mm
+     Dext = 0.79 mm (at visible flame extinction)
+•    Burning rate constant, K = 0.67 m2/s
+                                                                                  ZGF Color Camera
+
+
+
+
+                                                                                  Backlit Droplet View
+
+
+28th Annual Meeting of the American Society of Space and Gravitational Research                          7 of 15
+                Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                Combustion in Microgravity
+
+
+   ISS Experiment Configuration
+                                                                                                                        30 mm
+                                                                                                               HiBMs
+                                                                                                                Cam
+                                                                                                                 #1
+                                                                                                                        New
+                                                                                                                       Comp
+
+                                                                      1
+
+
+
+                          LLL-UV                                                                                    DCM
+                                                                                                                  S/N 2013
+                                                                                                                  No LCTF
+                                                                                                                    UML-8
+                                                                             Color                                Droplet View
+                                                                             Camera
+                                                                                                     HiBMS
+                                         3                                                   7
+                                                                                                 (Soot Temp)
+
+                                                                                                                            50 mm
+                                                                                                               HiBMs
+                                                                                                                Cam
+                                                        Radiometers
+                                                                                                                 #2 LCTF
+
+                       Color Camera
+
+
+                                                                      5
+                                                                                                                       DCM
+                                                                                                                    S/N 2001
+                                                                                      HiBMs &                       w/ LCTF
+                                             HiBMs
+                                                                                      Illumination                    UML-7
+                                                                                                                  Soot Temp View
+
+
+
+
+28th Annual Meeting of the American Society of Space and Gravitational Research                                                     8 of 15
+                Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                Combustion in Microgravity
+
+
+ISS Imaging Capabilities
+Test Point FLEX-145
+•    1.0 atm in 20% O2 / 75% CO2 / 5% N2
+•    Methanol droplet
+     Do = 3.38 mm
+     Dext = 1.66 (at visible flame extinction)
+•    Burning rate constant, K = 0.44 m2/s
+                                                                                  Mulit-User Droplet Combustion Apparatus (MDCA) Color Camera
+                                                                                      used for "real time" operations monitoring and flame imaging
+
+
+
+
+              High Bit Multi-Spectral (HiBMS-1) Camera                                       Low Light Level – Ultra Violet (LLUV) Camera
+                    used for backlit droplet image                                       used for imaging chemiluminescence from OH* emissions
+
+28th Annual Meeting of the American Society of Space and Gravitational Research                                                               9 of 15
+                Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                Combustion in Microgravity
+
+
+   MeOH Burning History
+       FLEX-145 : Pressure = 1 atm , O2 20% / N2 75% / CO2 5% , D0 = 3.3 mm
+
+
+                                   droplet regression
+
+
+
+
+                                flame diameter
+
+
+
+
+                                                        flame standoff
+
+
+
+
+         Droplet and flame histories showing progression from ignition � early transient � quasi-steady � extinction.
+
+28th Annual Meeting of the American Society of Space and Gravitational Research                                         10 of 15
+                              Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                              Combustion in Microgravity
+
+
+                        ISS FLEX MeOH Test Results
+                • Recent FLEX testing with a range of O2
+                         concentrations from 13% to 21% w/
+                         diluent mixtures of CO2 / N2 .
+                • Theory1 suggests a linear relationship
+                         between extinction diameter, de , and
+                         initial droplet diameter, d0
+1 B.L. Zhang, J.M. Card and F.A. Williams, Combustion and Flame, 1996
+
+
+
+
+  water flux fraction
+                                 evaporation
+
+
+                                                       water absorbed
+
+                                                                                     Extinction diameter, de , plotted as a function of initial
+                                                                                     diameter, d0 , in CO2/N2 diluent mixtures at 1 atm pressure.
+
+
+                                               dl(m)
+
+   28th Annual Meeting of the American Society of Space and Gravitational Research                                                      11 of 15
+                Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                Combustion in Microgravity
+
+
+   ZGF Test Results
+ • Similar results from tests performed in the ZGF using Ar/N2 diluent gas mixtures
+ • Ar/N2 diluent gas mixtures provide good comparisons with CO2 /N2 diluents w/o the
+      effects of gas phase radiation
+                                                                                              O2 = 21% w/ Ar ranging from 0% to 79%
+Test No.        O2%          N2%           Ar%        Pressure
+                                                                                  1.4
+ H-7-62          21           29            50          1 atm
+ H-7-63          21            9            70          1 atm
+                                                                                  1.2
+ H-7-65          21            9            70          1 atm
+ H-7-66          21           29            50          1 atm
+                                                                                  1.0
+ H-7-67          21           54            25          1 atm
+ H-7-96          21            9            70          1 atm                     0.8
+
+                                                                        De (mm)
+ H-8-02          21            0            79         .5 atm
+ H-8-03          21           28            51         .5 atm                     0.6
+                                                                                                                                           Dext
+ H-8-04          21           44            35          1 atm
+ H-8-05          21           56            23         1.5 atm                    0.4
+ H-8-07          21           16            63          1 atm
+ H-8-08          21           79             0          2 atm                     0.2
+ H-8-09          21           34            45          1 atm
+ H-8-11          21           16            63          1 atm                     0.0
+ H-8-12          21           54            25          1 atm                           1.0      1.2     1.4      1.6     1.8     2.0             2.2
+ H-8-13          21            6            73          1 atm                                                   Do (mm)
+
+
+28th Annual Meeting of the American Society of Space and Gravitational Research                                                       12 of 15
+                Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                Combustion in Microgravity
+
+                                                                                                                                   dc
+   FLEX - OH* Chemiluminescence
+
+
+                                                                                  water flux fraction
+                                                                                                                   evaporation
+
+
+                                                                                                              de
+                                                                                                                                         water absorption
+
+
+
+
+                                                                                                                                 dl(m)
+                                                                                                        water flux fraction as a function of regressing droplet
+
+
+
+
+ LLUV camera OH* chemiluminesence showing a line intensity
+ profile across the flame … flame boundaries are the result of
+ different intensity thresholds
+                                                                                                         OH* chemiluminesence profile during flame history
+
+28th Annual Meeting of the American Society of Space and Gravitational Research                                                                                   13 of 15
+                                             Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                                             Combustion in Microgravity
+
+
+                                ZGF Image Analysis
+                              • Preliminary analysis suggests that intensity measurements from ZGF 8-bit color
+                                   camera may provide similar information
+                                                                                                                                        ZGFTests - MeOH w/ 21% O2 and
+                                                                                                                                            Ar / N2 diluent mixtures
+
+                                60                                                                                             2
+                                         Test H-08-04
+                                         O2 21 % / Ar 35% / N2 44%                                                            1.8
+                                50       P = 1 atm
+
+
+
+
+Blue Flame Pixel Intensity
+                                                                                                                              1.6
+                                                                                                                              1.4
+                                40                                                  EVAPORATION
+
+
+                                                                                                               dc , de (mm)
+                                                                                                                              1.2
+                                30                                                                                             1
+
+                                          CONDENSATION                                                                        0.8
+                                20
+                                                                                                                              0.6
+
+                                10                                                                                            0.4
+                                                                                                                              0.2
+                                 0                                                                                             0
+                                     0            1              2             3             4             5                        0     0.5       1             1.5     2         2.5
+                                                                      t(s)                                                                              Do (mm)
+
+                                Flame emission intensity profile versus flame history                                     Plot of dc (point of water flux transition) and de (extinction
+                                obtained from color camera                                                                diameter) as a function of intial droplet diameter, d0 , using
+                                                                                                                          information from 8 bit color camera from ZGF drop rig.
+
+
+                             28th Annual Meeting of the American Society of Space and Gravitational Research                                                                    14 of 15
+                Dynamics of Water Absorption and Evaporation During Methanol Droplet
+                Combustion in Microgravity
+
+
+   Summary
+ • Flame intensity measurements using OH* chemiluminescence images from the FLEX
+      LLUV camera provide information of the water flux transition point in MeOH droplet
+      combustion studies
+ • Similar analysis using a simple color camera may provide reasonable approximation
+      of the same phenomena
+
+
+
+    Future work
+   • Extend image analysis technique to full range of FLEX MeOH experimental data
+   • Refine image analyses techniques for correlation with water flux transition point
+   • Compare experimental results with theory
+
+
+
+
+28th Annual Meeting of the American Society of Space and Gravitational Research            15 of 15
+

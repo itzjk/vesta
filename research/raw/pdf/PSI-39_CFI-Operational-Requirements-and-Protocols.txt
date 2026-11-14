@@ -1,0 +1,23 @@
+Cool Flames Investigation (CFI) Operational Requirements and Protocols
+
+Operational Requirements:
+
+Droplets must be deployed free floating without any residual momentum in the center of the field of view of the CIR
+diagnostics. Diagnostics must be capable of recording the radiant emissions of both hot and cool flames. CIR must
+store be able to store digital imagery data from a full day of test point (approx. 8 burns) for later downlink.
+
+
+Operational Protocols:
+
+Following setup and initialization of the CIR rack and MDCA, the chamber is filled with the appropriate atmosphere for
+the day’s test points. Conditions vary in pressure (0.5 atm to 5.0 atm) and oxygen concentration (10 to 30%). A
+settling time of approximately 2 minutes elapses prior to initiating the test in order to ensure that the temperature and
+pressure of the chamber gases have stabilized. This settling time is followed by the dispensing of a predetermined
+amount of fuel (based on the target droplet size) onto a support fiber. When sufficient fuel has been dispensed the
+dispensing needles are retracted and a dwell period of at least 10 seconds is allowed for the droplet internal fluid
+motion induced by deployment to subside. This is then be followed by initiating power to an igniter pair for a
+selectable amount of time ranging from 1 second to 5 seconds after which the igniter will be retracted from the field of
+view. A near real-time download of the color camera video is required in order to verify successful droplet
+deployment, ignition, and overall progress of the experiment. Pressure and temperature data of the chamber
+environment is also required in near real time.
+

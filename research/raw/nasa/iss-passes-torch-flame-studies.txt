@@ -1,0 +1,47 @@
+https://www.nasa.gov/wp-json/wp/v2/migration/309143
+TITLE: ISS Passes the Torch of Flame Studies
+FETCHED: 2026-11-14T10:57:47
+PUBLIC-LINK: https://www.nasa.gov/?migration=converted-node-216012
+DATE: 2013-11-06T21:55:21
+
+# ISS Passes the Torch of Flame Studies
+
+The Olympic torch, as the latest visitor to the International Space Station, will be part of an international relay aboard the space station, passing from one module to the next, before it makes a trip outside for its first spacewalk Nov. 9. For safety reasons, open flames are not permitted onboard the space station or spacecraft. So the torch will be unlit throughout its time in space. The torch will then return to Earth on Nov. 11 and continue its journey to Sochi, Russia.
+
+The space station is known for its historic work in combustion research, exploring all aspects of a flame and flame spread. As such, it makes sense that the Olympic torch would pass through the space station on its way to the 2014 Sochi Winter Games this February.
+
+Throughout history, the Olympics have pushed the frontiers of human performance in the pursuit of excellence. It challenges us to be the best we can be and engenders cooperation among all nations.
+
+In much the same way, the space station is a working embodiment of ongoing international cooperation, a laboratory for scientific experiments that helps us improve life for everyone on Earth and enhances our ability to push the frontiers of space and science.
+
+“Combustion research in microgravity gives us the ability to look at the fundamentals of flame behavior by removing the buoyant flows,” said David Urban, NASA’s Glenn Research Center, Cleveland. “It gives us the ability to improve earth-based power, transport, and heating systems by developing more accurate computer models resulting in pollution reduction and improved efficiency.”
+
+In particular, experiments into flame research mesh well with the Olympic flame’s symbolic idea of illuminating our world as we face new challenges and strive for perfection. Many of these investigations relied on national and international cooperation, and were performed in collaboration with Glenn.
+
+Flame studies on Earth are hampered by gravity-induced instability. Picture a flickering candle flame, which complicates analysis. This is due to buoyancy, which is when less dense materials rise within a fluid of greater density. This time imagine a hot air balloon. Buoyancy is nearly absent in the space station’s microgravity environment, making it possible to study a broader array of flame characteristics, such as the range of soot concentration, flame temperature, flame spread, different fuels, and more.
+
+A study currently aboard the station is the Flame Extinguishment Experiment Italian Combustion Experiment for Green Air (FLEX-ICE-GA). It was designed at the Istituto Motori of the Italian National Research Council (CNR) in Naples, Italy. CNR chose the fuels for the study. The hardware, processes and operation of the experiments are being handled by Glenn.
+
+FLEX-ICE-GA seeks answers to basic scientific questions that could have significant impact on green fuels here on Earth.
+
+FLEX-ICE-GA use the same hardware installed in the U.S. Destiny module that was used for the Flame Extinguishment Experiment (FLEX) investigation conducted aboard the space station from 2009 to 2011. That investigation, like FLEX-ICE-GA, used Glenn’s Multi-User Droplet Combustion Apparatus in the Combustion Integrated Rack (CIR).
+
+FLEX itself showed that, even after decades of study, flames can hold some very cool secrets. In FLEX scientists observed for the first time large, about 3 mm, droplets of heptane fuel that had dual modes of combustion and extinction. The fire went out twice; once with a visible flame, once without. While the initial burn had a traditional hot flame, the second-stage vaporization was sustained by what is known as cool-flame chemical heat release. A cool flame is one that burns at about 600 degrees Celsius. To understand how cool this is, consider that a typical candle burns at around 1,400 degrees Celsius.
+
+This discovery has many long-term implications both in space and on Earth. It will help scientists and engineers modify numerical models and better predict the behavior of flames, fuel, combustion and extinguishment.
+
+Another space station flame-specific study was the Structure and Liftoff in Combustion Experiment (SLICE). It examined co-flow, laminar and diffusion flames — where the fuel and oxidizer were not premixed. This investigation focused on flames that actually lift away from the burner, floating in midair.
+
+The goal of SLICE was to use microgravity flame studies to learn more about how combustion works and ways to make it more efficient.
+
+Also conducted on the space station, the Burning and Suppression of Solids (BASS) study looked at flames from a variety of burning materials with different shapes. Researchers used this investigation to assess the effectiveness of nitrogen in suppressing microgravity fires.
+
+The BASS investigation further explored flame behavior by looking at the burning characteristics and extinction of a wide variety of solid fuels in microgravity. It tested whether materials with adequate ventilation in microgravity burn as well as or better than the same material in normal gravity with identical pressure, oxygen concentration, temperature, etc.
+
+For both SLICE and BASS, the goal was to understand the basic structure of flames and fires. With the experiments’ results, researchers can refine computational models and put them to practical use on Earth and in space.
+
+Here on Earth, knowledge from space station flame studies can contribute to reduced pollution. Even small gains in combustion efficiencies can lead to significant improvements given the wide spread use of fuels to warm homes, cook food and fuel everything from mopeds to spacecraft.
+
+The Olympic torch passing through the space station reminds us of the dedication and cooperation it takes to achieve excellence whether it is in athletic competition or through disciplined research. While the basic science is significant, by doing research in space, scientists and engineers can improve life on Earth.
+
+When the flame is passed from scientific investigation to practical application, the world benefits.

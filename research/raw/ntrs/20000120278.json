@@ -1,0 +1,153 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20000120278,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "8c132fad2d8d4332af78807a6220313c",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Design, Testing And Performance"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20000120278,
+  "ear": "NO",
+  "id": "6f452482e4664561a941512e17b200ca",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NAS 1.15:210337",
+  "AIAA Paper 2000-5251",
+  "NASA/TM-2000-210337",
+  "E-12382",
+  "Report Number: NAS 1.15:210337",
+  "Report Number: AIAA Paper 2000-5251",
+  "Report Number: NASA/TM-2000-210337",
+  "Report Number: E-12382"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 101-52-00",
+   "submissionId": 20000120278,
+   "id": "755a732a6dcc4641b988996a80e1ba90",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Progress in Fire Detection and Suppression Technology for Future Space Missions",
+ "stiType": "PREPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T12:21:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20000120278,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "e710c9a3e57841db9d14832f7df17b53"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20000120278,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "81e3d7124b50487eb65cd64f08aa6cb5"
+  }
+ ],
+ "stiTypeDetails": "Preprint (Draft being sent to journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20000120278,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T12:21:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Fire intervention technology (detection and suppression) is a critical part of the strategy of spacecraft fire safety. This paper reviews the status, trends, and issues in fire intervention, particularly the technology applied to the protection of the International Space Station and future missions beyond Earth orbit. An important contribution to improvements in spacecraft fire safety is the understanding of the behavior of fires in the non-convective (microgravity) environment of Earth-orbiting and planetary-transit spacecraft. A key finding is the strong influence of ventilation flow on flame characteristics, flammability limits and flame suppression in microgravity. Knowledge of these flow effects will aid the development of effective processes for fire response and technology for fire suppression.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20000120278,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "United States",
+   "id": "8129b2c5fd8f4f9cad90f4e995866503"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20000120278,
+   "endDate": "2000-09-21T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "United States"
+      }
+     },
+     "meetingId": "2902b15c19e74cba8db66fc3a86a73fb",
+     "id": "6754150d87194f069e06b00303594d2b"
+    }
+   ],
+   "name": "Space 2000 Conference and Exposition",
+   "location": "Long Beach, CA",
+   "id": "2902b15c19e74cba8db66fc3a86a73fb",
+   "startDate": "2000-09-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20000120278,
+   "id": "5e638e19f9ba4d39a10207cb4fdb1a89",
+   "publicationDate": "2000-09-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20000120278.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20000120278/downloads/20000120278.pdf",
+    "pdf": "/api/citations/20000120278/downloads/20000120278.pdf",
+    "fulltext": "/api/citations/20000120278/downloads/20000120278.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

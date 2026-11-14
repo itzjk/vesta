@@ -1,0 +1,167 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20110023202,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "17d8394c4ce34d2b830336ff1d9de2a6",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20110023202,
+  "ear": "NO",
+  "id": "736acaa2bc14484d957c34aca6de35b8",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-25268",
+  "Report Number: JSC-CN-25268"
+ ],
+ "title": "Development of the International Space Station (ISS) Fine Water Mist (FWM) Portable Fire Extinguisher ICES Abstract",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T08:27:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20110023202,
+   "meta": {
+    "author": {
+     "name": "Clements, Anna L."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "5df4e3c5e2d5492c9b544abdb5585fb1"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20110023202,
+   "meta": {
+    "author": {
+     "name": "Carlile, Christie"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "a76b9b08de0141148dcfbbebb7fa6122"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20110023202,
+   "meta": {
+    "author": {
+     "name": "Graf, John"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "727717cbe8774bfc98e6bb293d03957f"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20110023202,
+   "meta": {
+    "author": {
+     "name": "Young, Gina"
+    },
+    "organization": {
+     "name": "Lockheed Martin Corp.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "12e6e2aeb39a42619901716b5f081323"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20110023202,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T08:27:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "NASA is developing a Fine Water Mist (FWM) Portable Fire Extinguisher (PFE) for use on the International Space Station. The International Space Station presently uses two different types of fire extinguishers: a water foam extinguisher in the Russian Segment, and a carbon dioxide extinguisher in the US Segment and Columbus and Kibo pressurized elements. Changes in emergency breathing equipment make Fine Water Mist operationally preferable. Supplied oxygen breathing systems allow for safe discharge of a carbon dioxide fire extinguisher, without concerns of the crew inhaling unsafe levels of carbon dioxide. But the Portable Breathing Apparatus (PBA) offers no more than 15 minutes of capability, and continued use of hose based supplied oxygen system increases the oxygen content in a fire situation. NASA has developed a filtering respirator cartridge for use in a fire environment. It is qualified to provide up to 90 minutes of capability, and because it is a filtering respirator it does not add oxygen to the environment. The fire response respirator cartridge does not filter carbon dioxide (CO2), so a crew member discharging a CO2 fire extinguisher while wearing this filtering respirator would be at risk of inhaling unsafe levels of CO2. FWM extinguishes a fire without creating a large volume of air with reduced oxygen and elevated CO2. The following paper will discuss the unique functional and performance requirements that have been levied on the FWM PFE. In addition, the NASA ISS specific fire standards will be described which were developed to establish acceptable extinguisher performance. The paper will also discuss the flight hardware design. The fin e water mist fire extinguisher has two major elements: (1) the nozzle and crew interface, and (2) the tank. The nozzle and crew interface have been under development for several years. They have gone through several design iterations, and have been part of more than 400 fire challenge and spray characterizations. The crew and vehicle interface aspects of the design will use the heritage of the CO2 based Portable Fire Extinguisher, to minimize the disruption to the crew and integration impacts to the ISS. The microgravity use environment of the system poses a set of unique design requirements specifically for the tank. The nozzle requirements drive a tank pressure that is 2-5 times higher than any commercially available water mist systems. Microgravity requires deliberate separation of gas and water, facilitated by a bladder, a diaphragm, a piston, or separate tanks. This paper will describe status of the project to date, the design details of the tank and the nozzle, and discuss the trade studies that informed the decisions to select the tank and nozzle configuration.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20110023202,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "4bb8ecba13634f07bcd2e948ca181870"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20110023202,
+   "endDate": "2012-07-19T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "2f06bb08246e48a5aa5b9880d1115874",
+     "id": "c8f96009999a48fca9b36983be9f60f0"
+    }
+   ],
+   "name": "International Conference on Environmental Systems (ICES)",
+   "location": "San Diego, CA",
+   "id": "2f06bb08246e48a5aa5b9880d1115874",
+   "startDate": "2012-07-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20110023202,
+   "id": "158e14be6a4849fda9bcdfb5ab9628dd",
+   "publicationDate": "2011-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20110023202.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20110023202/downloads/20110023202.pdf",
+    "pdf": "/api/citations/20110023202/downloads/20110023202.pdf",
+    "fulltext": "/api/citations/20110023202/downloads/20110023202.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

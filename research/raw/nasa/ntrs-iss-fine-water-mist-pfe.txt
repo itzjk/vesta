@@ -1,0 +1,444 @@
+https://ntrs.nasa.gov/citations/20130011664
+TITLE: Development of the International Space Station Fine Water Mist Portable Fire Extinguisher
+FETCHED: 2026-11-14T10:59:50
+NTRS-ID: 20130011664
+DATE: 2013-01-01
+AUTHORS: Rodriquez, Branelle; Young, GIna
+REPORT: JSC-CN-28438; Report Number: JSC-CN-28438
+PDF: https://ntrs.nasa.gov/api/citations/20130011664/downloads/20130011664.pdf
+
+# Development of the International Space Station Fine Water Mist Portable Fire Extinguisher
+
+## Abstract (NTRS record)
+
+The National Aeronautics and Space Administration (NASA) is developing a Fine Water Mist (FWM) Portable Fire Extinguisher (PFE) for use on the International Space Station (ISS). The ISS presently uses two different types of fire extinguishers: a water foam extinguisher in the Russian Segments, and a carbon dioxide extinguisher in the United States Orbital Segments, which include Columbus and Kibo pressurized elements. Currently, there are operational and compatibility concerns with the emergency breathing equipment and the carbon dioxide extinguisher. ISS emergency response breathing equipment does not filter carbon dioxide; therefore, crew members are required to have an oxygen supply present during a fire event since the carbon dioxide PFE creates an unsafe breathing environment. The ISS program recommended a nontoxic fire extinguisher to mitigate this operational risk. The FWM PFE can extinguish a fire without creating a hazardous breathing environment for crewmembers. This paper will discuss the unique functional and performance requirements that have been levied on the FWM PFE, identify unique microgravity design considerations for liquid and gas systems, and discuss the NASA ISS specific fire standards that were developed to establish an acceptable portable fire extinguisher s performance.
+
+## Full text (pdftotext -layout)
+
+    Development of the International Space Station Fine Water
+                Mist Portable Fire Extinguisher
+
+                                           Branelle Rodriguez1
+                             NASA Johnson Space Center, Houston, Texas, 77058
+
+                                               Gina Young2
+                                        Wyle, Houston, Texas, 77058
+
+
+           The National Aeronautics and Space Administration (NASA) is developing a Fine Water
+       Mist (FWM) Portable Fire Extinguisher (PFE) for use on the International Space Station
+       (ISS). The ISS presently uses two different types of fire extinguishers: a water foam
+       extinguisher in the Russian Segments, and a carbon dioxide extinguisher in the United States
+       Orbital Segments, which include Columbus and Kibo pressurized elements. Currently, there
+       are operational and compatibility concerns with the emergency breathing equipment and the
+       carbon dioxide extinguisher. ISS emergency response breathing equipment does not filter
+       carbon dioxide; therefore, crew members are required to have an oxygen supply present
+       during a fire event since the carbon dioxide PFE creates an unsafe breathing environment.
+       The ISS program recommended a nontoxic fire extinguisher to mitigate this operational
+       risk. The FWM PFE can extinguish a fire without creating a hazardous breathing
+       environment for crewmembers. This paper will discuss the unique functional and
+       performance requirements that have been levied on the FWM PFE, identify unique
+       microgravity design considerations for liquid and gas systems, and discuss the NASA ISS
+       specific fire standards that were developed to establish an acceptable portable fire
+       extinguisher’s performance.
+
+
+                                              Nomenclature
+ADA      =   ADA Technologies, Inc.
+CO2      =   carbon dioxide
+CSM      =   Colorado School of Mines
+DOE      =   design of experiment
+EDU      =   engineering development unit
+FAA      =   Federal Aviation Administration
+FWM      =   Fine Water Mist
+GRC      =   Glenn Research Center
+in.      =   inch
+ISS      =   International Space Station
+JSC      =   Johnson Space Center
+kW       =   kilowatt
+lbs      =   pounds
+MIST     =   Water-Mist Fire Suppression
+mmHg     =   millimeters of Mercury
+NASA     =   National Aeronautics and Space Administration
+NFPA     =   National Fire Protection Association
+PFE      =   Portable Fire Extinguisher
+PMMA     =   polymethyl methacrylate
+1
+  FWM PFE NASA Project Manager, Crew and Thermal Systems Division /Mail Stop: EC3, 2101 NASA Parkway,
+Houston, Texas 77058.
+2
+  FWM PFE Wyle Project Manager, Flight Hardware Department, 1290 Hercules STE. 160B, Houston, Texas
+77058.
+                                                  1
+                          American Institute of Aeronautics and Astronautics
+PRA        =   probability risk assessment
+psia       =   pounds per square inch absolute
+SBIR       =   Small Business Innovations Research
+STS        =   Space Transportation System
+UL         =   Underwriters Laboratory
+USOS       =   United States Orbital Segment
+WSTF       =   White Sands Test Facility
+
+                                                 I. Introduction
+     The National Aeronautics and Space Administration (NASA) Johnson Space Center (JSC) is currently
+developing a portable fire extinguisher for use on the International Space Station (ISS). Currently, the fire
+suppression on the ISS in the United States Orbital Segment (USOS) is a carbon dioxide (CO2)-based fire
+extinguisher. In the event of a fire on the ISS, emergency response procedures have been established to provide
+adequate response to the emergency. Breathing masks and cartridge filters have been designed to protect
+crewmembers from fire by-products. Although this hardware is effective at filtering fire by-products, it does not
+filter CO2, nor does it provide oxygen. Therefore, should a CO2 fire extinguisher be used, crewmembers are required
+to wear a portable breathing apparatus that provides oxygen. This inherently increases risk to the crew during a fire
+emergency. Additionally, it has been noted that commercial CO2 fire extinguishers are ineffective at extinguishing a
+stored energy battery fire.
+     The term “water mist” implies a very fine water spray with droplet sizes much smaller than those found in rain
+and sprinkler systems.1 The fine water mist droplets showed the capability of extinguishing a flame in the Water-
+Mist Fire Suppression (MIST) experiment on Space Transportation System (STS)-107.1 The fine water mist
+technology development has been an ongoing effort for several years through the Small Business Innovations
+Research (SBIR) grants. Throughout the past 2 years, NASA JSC has led the effort in designing a Fine Water Mist
+(FWM) Portable Fire Extinguisher (PFE) for use on the ISS, as well as developing and establishing a set of four ISS
+fire test standards to provide a conservative, repeatable fire to validate portable fire extinguishers performance. This
+paper discusses an overview of the ISS fire test standards and the design of the FWM PFE, and summarizes the
+testing that has been conducted with the engineering development unit (EDU).
+
+                           II. International Space Station Fire Test Scenarios
+    During the requirements development for the FWM PFE
+project, an absence was identified in functional performance fire
+test standards for a microgravity environment. Ground-based
+commercial regulatory standards for the design and test of all
+types of portable fire extinguishers are well defined and
+established. The development of a new type of portable fire
+extinguisher capability for the ISS also demanded the same type of
+                                                                                                     Heptane
+rigor that is put into certifying a ground-based technology. Review                                   Flame
+
+of the National Fire Protection Association (NFPA) Standard for
+Portable Fire Extinguishers, NFPA 10, as well as the applicable
+test standards for safety published by Underwriters Laboratories
+(UL), Inc., which are UL 711, Rating and Fire Testing of Fire
+Extinguishers, and UL 626 Standard for Water Fire Extinguishers,
+was performed to understand the important factors that could be
+related to use in development and testing of a capability for use in                           Left Volume      Back
+                                                                                                               Volume
+microgravity. Defining fire test standards relative to the ISS, and
+applicable to future NASA vehicles or habitats, was extremely                                                     Air
+important for consistency and non-biased decision making.                                      Right Volume
+                                                                                                               Exchange
+                                                                                                                 Vents
+    Working with fire safety experts from JSC, Glenn Research
+Center (GRC), White Sands Test Facility (WSTF), ADA
+Technologies, Inc. (ADA), and Colorado School of Mines (CSM)
+the FWM PFE team developed and standardized five fire scenarios
+that represent possible microgravity fire events for the ISS. The
+five microgravity fire events are: rack fire, open cabin, stored        Figure 1. ISS rack fire test standard
+energy battery, elevated oxygen, and stored energy oxygen candle        configuration.
+                                                         2
+                                 American Institute of Aeronautics and Astronautics
+fire. The stored energy oxygen candle fire is not a hardware requirement for this project; however, investigation of
+the FWM PFE capabilities against this fire event were investigated.
+    The ISS Rack Fire Standard represents a fire scenario where the fire is located in an enclosed volume of the ISS.
+An enclosed volume is a place obstructed from view by an ISS closeout panel, systems hardware, or within a rack
+where access is limited to a fire port or fixed delivery location.2 Replicating each rack for testing was unrealistic due
+to the various components and hardware installed in the ISS racks. Therefore, establishing a generic rack
+configuration was essential for testing the effectiveness of portable fire extinguishers. Two variables were identified
+as likely to affect the fire dynamics in a rack: free volume (which will determine the amount of oxygen that is
+available) and packing factor geometry (which will determine how tortuous the internal configuration is). The
+volume of the rack was divided into a total of three volumes: two equal volumes in the front left and right locations,
+with a common back volume (Fig. 1).3 The common back volume consisted of baffles, which produced six 90º turns.
+Operationally, the fire extinguisher would be discharged into the left volume; it would be required to travel through
+left volume, through the tortuous path in the back volume, and into the right volume to successfully extinguish the
+flame. Various packing factor percentages were tested (data not discussed) to determine the appropriate packing
+factor for the ISS standard. A 50% packing factor was determined to be challenging, conservative, and more realistic
+than a 0% packing factor.
+                                                                    The ISS Open Cabin Fire Standard represents a fire
+                                                                scenario where the crew has direct access and line-of-
+                                                                sight visibility to a fire in the ISS pressurized cabin
+                                                                environment.3 Although all materials and hardware
+                                                                located on the ISS have been through rigorous review
+                                                                and testing, allowable amounts of flammable materials
+                                                                are located in the pressurized open cabin. The open
+                                                                cabin fire test standard consists of a 55 kilowatt (kW)
+                                                                fire, which is comprised of four 1/8-inch (in.) thick
+                                                                polymethyl methacrylate (PMMA) sheets configured in
+                                                                an overlapped configuration (Fig. 2). The PMMA fuel
+                                                                sheets are suspended and ignited simultaneously from
+                                                                below. The fire is allowed to propagate until it is
+                                                                considered fully involved (measured to be 55 kW).
+                                                                Once the fire is fully involved, the PFE is discharged
+   Figure 2. ISS open cabin configuration.                      manually, with operator discretion. Once flames are no
+                                                                longer observed, the operator will stop discharge.
+    The ISS Stored Energy Battery Fire Standard represents a fire scenario where two representative ISS lithium ion
+batteries are involved in a fire event.4 Batteries are ever present on the ISS through individual hardware components,
+laptops, and general battery supply storage. A probability risk assessment (PRA) model was conducted by the
+NASA JSC safety community to determine the likelihood of a fire event on the ISS and, specifically, the probability
+of various ignition sources being the cause of that fire event. It was determined that the laptop battery fire is the
+most likely ignition source that would result in a fire. The ISS PRA fire model correlates to the risks identified by
+the Federal Aviation Administration (FAA) with respect to lithium ion battery fires. According to the fire risk model
+conducted by the FAA on cargo freighters, two of the five fires that have occurred on U.S. registered airplanes were
+the result of lithium ion batteries.5 The ISS Stored Energy Battery Fire scenario consists of two camcorder batteries
+stacked on top of each other. Four sheets of PMMA are suspended above the batteries and serve as a means to
+propagate and ensure the fire has reached a requisite size (to ignite neighboring materials), and to provide radiated
+heat to the battery packs.3 The bottom battery is heated from below using the hot plate to achieve thermal runaway.
+Once the bottom battery demonstrates flaming ignition, the hot plate is removed. The lower battery will continue in
+thermal runaway and will begin to involve the upper battery case and the overhead PMMA fuel bundle. Upon
+determining that the fire has met the required test criteria (15 seconds have passed and at least one of the
+PMMA sheets has ignited), the fire fighter will discharge the PFE manually, with operator discretion. Once
+flames are no longer present, the fire fighter will stop discharge.
+
+
+
+
+                                                         3
+                                 American Institute of Aeronautics and Astronautics
+    The ISS Elevated Oxygen Fire
+Standard represents a fire scenario in an
+environment with elevated oxygen
+conditions.       Nominal       ISS     pre-
+extravehicular       activity     operations
+involve the crew enclosed within the
+airlock overnight at a decreased pressure
+and an enriched oxygen concentration to
+allow for the oxygen level in the
+crewmembers' blood to increase. The
+ISS airlock environment has a nominal
+pressure of 527.5 millimeters of Mercury
+(mmHg) (10.2 pounds per square inch
+absolute (psia)) with an oxygen
+concentration between 24% and 30%.3
+The volume of the airlock is 31 cubic
+meters (1094.8 cubic feet) nominally,
+but equipment displaces an unknown
+amount of the airlock volume. The test
+established for this standard is conducted
+in a closed environmental chamber
+representative of the airlock volume. The
+fuel article is placed a minimum of 4 feet      Figure 3. ISS stored energy battery configuration.
+away from the PFE and consists of a
+PMMA crib configuration6 (Fig. 4). The crib is ignited and allowed to propagate until it is considered fully involved,
+which consists of visually identifying that the PMMA crib is fully involved, no structural failure of the crib has
+                                                                   occurred, the oxygen concentration near the fuel
+                                                                   configuration is 30%, and a minimum of 90 grams
+                                                                   (3.17 ounces) of mass loss (mass loss is measured
+                                                                   real time). The fire fighter will actuate the PFE
+                                                                   remotely from outside the chamber and attempt to
+                                                                   extinguish the fire. The PFE will be discharged
+                                                                   until flames are visibly extinguished; additional
+                                                                   pulses will be allowed, as required.
+                                                                       The final standard developed is the ISS Stored
+                                                                   Energy Oxygen Candle Standard. The ISS contains
+                                                                   a Russian oxygen candles as a backup oxygen
+                                                                   supply. A chemical oxygen generator failure
+                                                                   resulted in a near-catastrophic event on the MIR
+                                                                   Space Station in
+                                                                   1997.7 The purpose
+                                                                   of this fire test
+                                                                   standard is not to
+                                                                   mitigate          the
+                                                                   chemical reaction,
+Figure 4. ISS elevated oxygen fire scenario configuration.         but      to      stop
+                                                                   propagation        to
+                                                                       surrounding
+surfaces in the event of an oxygen candle failure. To replicate the on-orbit oxygen
+candle configuration, a commercial oxygen candle is modified to initiate combustion
+of its stainless steel shell.3 The combustion products of the off-nominal burn of the
+stainless steel shell serves to ignite the propagation fuel. A PMMA crib
+configuration is placed directly below the oxygen candle configuration7 (Fig. 5). The
+                                                                                            Figure 5. ISS stored
+modified commercial oxygen candle is initiated with a standard igniter. Once the
+                                                                                            energy oxygen candle
+failure of the candle has been initiated and the PMMA propagation fuel has ignited,
+                                                                                            configuration.
+the fire fighter will attempt to extinguish the PMMA fire. The fire fighter is directed
+                                                         4
+                                 American Institute of Aeronautics and Astronautics
+to first attack the PMMA fire and then evaluates continuing fires and smoking and discharge, as required. It should
+be noted that this standard is not a hard requirement for the FWM PFE project; however, the fire extinguisher will be
+tested to provide a characterization data set.
+
+                                        III. Design Considerations
+    The FWM technology has been in development at ADA through the GRC SBIR initiative for the past several
+years.8 This technology has been adapated and modified to support the FWM PFE requirements. During early
+development of the FWM PFE design, a trade study was performed to determine what style of pressure vessel would
+best meet all requirements for keeping the water and nitrogen separated prior to mixing in the nozzle at the time of
+use as well as the ability to meet launch, environmental, and life requirements. The trade study looked at a metal
+tank with a soft diaphragm, a metal tank with a soft bladder, a metal tank with a metal bellows, and a metal two-tank
+system. The potential option of using a carbon overwrapped pressure vessel was considered but ruled out due to
+concerns raised about the complexity to certify, which would not have traded well for cost and schedule. The metal
+tank with a metal bellows scored highest in the trade and was chosen as the baseline design. The next challenging
+areas of design were in understanding the ISS interface requirements to fit the FWM PFE into the existing 13 PFE
+locations currently on the ISS as well as meeting the 15-year-life requirement. The FWM PFE is being designed for
+a 15-year lifetime to support the ISS until 2028 (currently the planned end of life for the ISS). Therefore, the design
+is required to accommodate not only launch loads, but long-term storage.
+     These and other key design considerations were investigated and implemented during the preliminary design
+phase for the FWM PFE. The selection of components for the nozzle assembly and the packaging of them became
+very important in keeping the design on a path that could be molded for flight. Early in the design cycle,
+components were baselined to be welded to the nozzle manifold, and burst disks were thought to be the best route to
+mitigating leakage for the life of the FWM PFE. Custom design component requirements were defined and evolved
+to go from welding to double soft seals that met leakage requirements. The burst disks were not kept in the design as
+it evolved, due to the complexity of the nozzle design to include burst disks and reliably be certified to allow the
+PFE to perform as needed every time. The performance (capability to expel nitrogen and water in zero-g) of the
+FWM PFE also had to be kept consistant throught the evaluation of the flight design. Performance is a critical
+requirement for any fire extinguisher. As emergency response hardware, the FWM PFE is required to successfully
+extinguished the five ISS Fire Test Scenarios defined above. An additional trade was performed to look at the key
+features of the nozzle assembly design that are performing the mixing of the nitrogen and water as well as forming
+the cone angle or plume shape. These details will not be revealed in this paper as they are proprietary in nature. The
+key to performing the trade was using the results of the EDU PFE testing against the fire test standards and is further
+discussed later in this paper.
+    One of the most significant design constraints is
+the existing ISS stowage locations. Currently, 13 CO2
+PFE fire extinguishers are stowed throughout the ISS.
+The FWM PFE will replace eight of the current CO2
+PFEs (Fig 6). Crewmembers will use the FWM PFE
+for all open cabin fire events (elevated oxygen, open
+cabin, oxygen candle, and battery fires), and the CO2
+PFE will be used for all fire events located behind
+close-out panels and racks. This results in a mixed fire
+extinguisher fleet for the ISS to provide the most
+effective and efficient emergency response. Since the
+existing fire extinguishers currently have predefined
+stowage locations, it is required that the FWM PFE be
+capable of interfacing with the existing mounting            Figure 6. Node 2 PFE stowage location with FWM
+brackets that the current CO2 PFE uses, as well as fit       PFE EDU (solid) and CO2 PFE (transparent).
+within the existing volume.
+
+
+
+
+                                                         5
+                                 American Institute of Aeronautics and Astronautics
+          Nozzle Assembly
+                                                                             The FWM PFE consists of two main
+                                                       Pip Pin
+                                                                         subassemblies: a nozzle assembly and a tank
+                                                                         assembly. The nozzle assembly houses the
+                                                                         operational handle, cartridge valves, nozzle
+     Extension Wand
+                                                                         tip, and venturi. The nozzle tip and venturi
+                                                        Pressure         are the primary components responsible for
+                                                         Gauge           the FWM capability. The designs are
+                                                                         proprietary to ADA and therefore are not
+                                                                         discussed in detail in this paper. The tank
+                                                                         assembly consists of a titanium metal
+                                                                         bellows that houses 6 pounds (lbs) of water
+                                                                         and 1.2 lbs of nitrogen pressurized to
+       Metal Bellows                                                     approximately 1270 psia. The pressurized
+           Tank                                                          water and nitrogen are maintained within the
+                                                                         tank assembly until activated. To activate the
+                                                                         FWM PFE, remove the pip pin and squeeze
+                                                                         the handle. This will open two cartridge
+                                                                         valves that allow the flow of nitrogen and
+                  *Softgoods cover not shown                             water to mix in the venturi and discharge
+                 *Tether not shown on pip pin                            through the nozzle tip. A total of eight soft
+  Figure 7. FWM PFE EDU model.                                           seals are located throughout the PFE design.
+                                                                         Minimizing the number of soft seals was
+                                                                         critical to meet the 15-year lifetime. Soft
+seals are located between the tank and nozzle, cartridge valves, and pressure gauge. The EDU is assembled with
+commercially available cartridge valves and pressure gauge. Due to the unique stowage loacations, custom cartridge
+valves will be designed and integrated into the design for the final flight unit. Additionally, the pressure gauge will
+be a custom design to provide the appropriate coloring schematic based on the human factors requirements.
+    For usage behind a rack or closeout panel, a nozzle extension wand is attached prior to activation at the nozzle
+tip. This provides the capability for the FWM PFE to be inserted into an ISS PFE port allowing discharge of the
+expellant. Operationally, the FWM and CO2 PFE are very similar.
+
+                                  IV. Engineering Development Testing
+    Testing was performed using four EDU FWM PFEs (Fig. 8) to finalize some of the FWM PFE design options.
+Each EDU is identical and was fabricated, assembled, and tested using the ISS Fire Standards as described above.
+Other various environmental and design testing was conducted to support the final configuration (details not
+discussed). A key element of the design that was tested in the EDUs was
+the nozzle tip and venturi configuration. After a significant amount of
+testing conducted on various nozzle tip and venturi configurations, a down
+selection (not discussed in this paper) of two nozzle tip designs and two
+venturi designs were determined as leading candidates in the FWM PFE
+design. A design of experiment (DOE) was established to provide a
+statistical approach of testing the four different nozzle tip/venturi
+configurations. A DOE was created for each ISS Fire Test Standard,
+excluding the oxygen candle test, which consisted of performing 16 tests
+each.
+    The FWM PFE EDU successfully demonstrated its performance
+against the ISS Fire Test Standards (Fig. 9). For the open cabin fire test
+standard, the EDU successfully extinguished all 16 tests with an average
+extinguishment time of 1 second. The EDU also successfully extinguished
+all 16 tests against the rack fire test standard and elevated oxygen fire test
+standard. The average extinguishment time for the rack fire testing was
+approximately 60 seconds, and the average extinguishment time for the
+elevated oxygen fire testing was approximately 0.3 seconds. For the stored
+energy battery fire, the FWM PFE EDU successfully extinguished 15 out
+of 16 tests. Due to the nature of the battery fire, extinguishment time is not Figure 8. FWM PFE EDU.
+
+                                                         6
+                                 American Institute of Aeronautics and Astronautics
+                                                                      measured in the same matter. The
+                                                                      measurement is associated with the capability
+                                                                      of the fire extinguisher stopping the batteries
+                                                                      thermal runaway. The configuration that
+                                                                      failed to put out the battery fire was not
+                                                                      selected for the final flight design.
+                                                                          Additionally, a total of two tests were
+                                                                      conducted with the FWM PFE EDU against
+                                                                      the stored energy oxygen candle fire
+                                                                      scenario. The oxygen candle is located on the
+ Figure 9. EDU discharge against the stored energy battery fire       Russian segment, and therefore does not fall
+ (left) and prior to discharge against an open cabin fire (right).    under the USOS certification. However,
+                                                                      testing was conducted to determine the
+performance of the FWM technology at mitigating the propagation of an oxygen candle fire. The EDU successfully
+mitigated the propagation of the oxygen candle fire with an average extinguishment time of 0.3 seconds and less
+than 5% loss of surrounding materials.
+    Various other testing was conducted against the EDU to investigate and verify the design prior to flight unit
+manufacturing. Testing included launch vibrations, leak testing, and reduced-gravity testing. Initial results showed
+positive toward the final design; however, detailed review of the data was still under way at the time of this
+publication.
+
+                                       V. Conclusion and Forward Work
+    Throughout the past 2 years, the FWM PFE team has successfully established fire test standards for microgravity
+environments, and designed and manufactured an engineering unit that has successfully demonstrated its capability
+at extinguishing all fire scenarios.
+    The FWM PFE project team is currently completing the critical design review and proceeding forward with
+flight fabrication. Updates to the design include custom cartridge valves and pressure gauge to accommodate the
+current ISS stowage locations. Streamlining the nozzle assembly to remove fill valves and save space is also being
+investigated. The final flight design along with associated certification testing is scheduled to be completed by the
+summer of 2014.
+
+                                                   Acknowledgments
+    The NASA JSC and Wyle teams would like to acknowledge GRC, WSTF, ADA, CSM, and Flexial Corporation
+for their dedication and commitment to designing, developing, and testing a safe and effective fire extinguisher for
+the ISS. Special acknowledgement is given to the fire fighters in the WSTF fire department for their expertise in
+performing fire tests, willingness to provide fire fighting technique inputs, and assessment of a ground-based harness
+that allowed ground fire fighters a safe and effective means for carrying the FWM PFE during testing.
+
+                                                        References
+   1
+      Abbud-Madrid, A., Amon, F .K., McKinnon, J.T. “The MIST Experiment on STS-107; Fighting Fire in Microgravity,” 42nd
+AIAA Aerospace Sciences Meeting,1/5-8/2004, Reno Nevada.
+    2
+      Carriere, T., Butz, J., Naha, S. Abbud-Madrid, A. “Fire Suppression Tests Using a Handheld Water Mist Extinguisher
+Designed for Spacecraft Application,” SUPDET 2012 Conference Proceedings, March 5-8, 2012, Phoeniz, Arizona.
+    3
+      JSC-47442, Project Technical Requirements Specification (PTRS for the Fine Water Mist Portable Fire Extinguisher (FWM
+PFE), Revision A, September 2012.
+    4
+      Juarez, A., Harper, S.A., Hirsch, D.B., Rodriguez, B.R., Young, G.M., S. B. Tarver, “Development of a Standard Test
+Scenario to Evaluate the Effectiveness of Portable Fire Extinguishers on Stored Energy Fires” Li-Ion Battery Scenario”, 43rd
+International Conference on Environmental Systems, July 15-18, 2013, Vail, Colorado.
+    5
+      DOT/FAA/AR-11/18.
+    6
+      Juarez, A., Harper, S.A., Beeson, H., Hirsch, D.B., Young, G.M., Rodriguez, B.R., S.B. Tarver, “Development of a Standard
+Test Scenario to Evaluate the Effectiveness of Portable Fire Extinguishers in an Elevated Oxygen Environment”, 43rd
+International Conference on Environmental Systems, July 15-18, 2013, Vail, Colorado.
+    7
+      Juarez, A., Harper, S.A., Beeson, H., Hirsch, D.B., Young, G.M., Rodriguez, B.R., Tarver, S.B. “Evaluating the
+Effectiveness of Portable Fire Extinguishers on Stored Energy Fires: International Space Station self Contained Oxygen
+Generators”, 43rd International Conference on Environmental Systems, July 15-18, 2013, Vail, Colorado.
+
+
+                                                           7
+                                   American Institute of Aeronautics and Astronautics
+   8
+     Buntz, J. R., Abbud-Madrid, A. “Testing of a Fine Water Mist Portable Fire Extinguisher in a Representative Spacecraft
+Atmosphere,” AIAA International Conference on Environmental Systems, 2010.
+
+
+
+
+                                                          8
+                                  American Institute of Aeronautics and Astronautics
+

@@ -1,0 +1,148 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050175855,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "5a723c534e454beb9fdcf01eaf09c0c2",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050175855,
+  "ear": "NO",
+  "id": "d7a4e2455705497a9070bc6abdfb1930",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-10T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "E?15082",
+  "NASA/TM-2005-213621",
+  "Report Number: E?15082",
+  "Report Number: NASA/TM-2005-213621"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 22-400-35-40-05",
+   "submissionId": 20050175855,
+   "id": "2d3095058c124bc0873a7c2469d09e2c",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "STS-107 Microgravity Environment Summary Report",
+ "stiType": "TECHNICAL_MEMORANDUM",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T12:03:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050175855,
+   "meta": {
+    "author": {
+     "name": "Jules, Kenol"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e94e35b548944e809330ad3532a300e4"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20050175855,
+   "meta": {
+    "author": {
+     "name": "Hrovat, Kenneth"
+    },
+    "organization": {
+     "name": "ZIN Technologies, Inc.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "1756d2dade1640d69b821507bd715ec0"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20050175855,
+   "meta": {
+    "author": {
+     "name": "Kelly, Eric"
+    },
+    "organization": {
+     "name": "ZIN Technologies, Inc.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "31f2b18d4a81411abc4e386d4b00a2a7"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20050175855,
+   "meta": {
+    "author": {
+     "name": "Reckhart, Timothy"
+    },
+    "organization": {
+     "name": "ZIN Technologies, Inc.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "88af6cb7bb51436ab11194ddb5c118b3"
+  }
+ ],
+ "stiTypeDetails": "Technical Memorandum (TM)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050175855,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T12:03:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "This summary report presents the results of the processed acceleration data measured aboard the Columbia orbiter during the STS-107 microgravity mission from January 16 to February 1, 2003. Two accelerometer systems were used to measure the acceleration levels due to vehicle and science operations activities that took place during the 16-day mission. Due to lack of precise timeline information regarding some payload's operations, not all of the activities were analyzed for this report. However, a general characterization of the microgravity environment of the Columbia Space Shuttle during the 16-day mission is presented followed by a more specific characterization of the environment for some designated payloads during their operations. Some specific quasi-steady and vibratory microgravity environment characterization analyses were performed for the following payloads: Structure of Flame Balls at Low Lewis-number-2, Laminar Soot Processes-2, Mechanics of Granular Materials-3 and Water Mist Fire-Suppression Experiment. The Physical Science Division of the National Aeronautics and Space Administration sponsors the Orbital Acceleration Research Experiment and the Space Acceleration Measurement System for Free Flyer to support microgravity science experiments, which require microgravity acceleration measurements. On January 16, 2003, both the Orbital Acceleration Research Experiment and the Space Acceleration Measurement System for Free Flyer accelerometer systems were launched on the Columbia Space Transportation System-107 from the Kennedy Space Center. The Orbital Acceleration Research Experiment supported science experiments requiring quasi-steady acceleration measurements, while the Space Acceleration Measurement System for Free Flyer unit supported experiments requiring vibratory acceleration measurement. The Columbia reduced gravity environment analysis presented in this report uses acceleration data collected by these two sets of accelerometer systems: The Orbital Acceleration Research Experiment is a low frequency sensor, which measures acceleration up to 1 Hz, but the 1 Hz acceleration data is trimmean filtered to yield much lower frequency acceleration data up to 0.01 Hz. This filtered data can be mapped to other locations for characterizing the quasi-steady environment for payloads and the vehicle. The Space Acceleration Measurement System for Free Flyer measures vibratory acceleration in the range of 0.01 to 200 Hz at multiple measurement locations. The vibratory acceleration data measured by this system is used to assess the local vibratory environment for payloads as well as to measure the disturbance causes by the vehicle systems, crew exercise devices and payloads operation disturbances. This summary report presents analysis of selected quasi-steady and vibratory activities measured by these two accelerometers during the Columbia 16-day microgravity mission from January 16 to February 1, 2003.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20050175855,
+   "id": "ceec8e1a2923407499ecf6115f4e7243",
+   "publicationDate": "2005-04-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20050175855.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20050175855/downloads/20050175855.pdf",
+    "pdf": "/api/citations/20050175855/downloads/20050175855.pdf",
+    "fulltext": "/api/citations/20050175855/downloads/20050175855.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

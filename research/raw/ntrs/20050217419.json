@@ -1,0 +1,104 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050217419,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "b5d2319e357f44a087de724f5fe94853",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050217419,
+  "ear": "NO",
+  "id": "bf6d5567d07e486098e6692d40aba0b7",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "title": "International Space Station (ISS) Node 1 Environmental Control and Life Support (ECLS) System Keep Out Zone On-Orbit Problems",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-23T12:18:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050217419,
+   "meta": {
+    "author": {
+     "name": "Williams, David E."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "0a7baee3a69f44d5bee5282cf37b9839"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050217419,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-23T12:18:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The International Space Station (ISS) Environmental Control and Life Support (ECLS) system performance can be impacted by operations on ISS. This is especially important for the Temperature and Humidity Control (THC) and for the Fire Detection and Suppression (FDS) subsystems. It is also more important for Node 1 since it has become a convenient area for many crew tasks and for stowing hardware prior to Shuttle arrival. This paper will discuss the current requirements for ECLS keep out zones in Node 1; the issues with stowage in Node 1 during Increment 7 and how they impacted the keep out zone requirements; and the solution during Increment 7 and 8 for maintaining the keep out zones in Node 1.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20050217419,
+   "endDate": "2004-07-22T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "3dd6798b3d91459f92023fb28513e5f9",
+     "meta": {
+      "organization": {
+       "name": "Society of Automotive Engineers, Inc.",
+       "location": "United States"
+      }
+     },
+     "meetingId": "cd28d625d1644249b13f77e0e92efd4e",
+     "id": "3eec4077377543d7ab9d1c2c5ba1da1a"
+    }
+   ],
+   "name": "International Conference for Environmental Systems",
+   "location": "Colorado Springs, CO",
+   "id": "cd28d625d1644249b13f77e0e92efd4e",
+   "startDate": "2004-07-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20050217419,
+   "id": "fabf88f58c02475b920082342ac08973",
+   "publicationDate": "2004-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,119 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20200001645,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "74b7e977ecb8494a8b143fb71e60a9e8",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Instrumentation And Photography"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "eccnNumber": "",
+  "submissionId": 20200001645,
+  "ear": "NO",
+  "id": "6b8b95f3e75f438d9cfc1288c04b2c00",
+  "itar": "NO"
+ },
+ "distributionDate": "2020-03-19T13:25:42.2900000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN77919",
+  "Report Number: GRC-E-DAA-TN77919"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "432938.11.01.03.06.02.08",
+   "submissionId": 20200001645,
+   "id": "3b3d0f282bec4161add51285a8404c04",
+   "type": "WBS"
+  }
+ ],
+ "title": "Particulate Sensor Technology Development at NASA Glenn Research Center",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2020-03-16T17:14:27.6070000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20200001645,
+   "meta": {
+    "author": {
+     "name": "Fischer, David G."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "0958b4cce5334a63a126ec2e7ae20e3f"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20200001645,
+   "meta": {
+    "author": {
+     "name": "Greenberg, Paul"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "d529758f3aba4289bf14911fe88e6c00"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20200001645,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2020-03-16T17:14:27.6070000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "GRC has developed multiple innovative particulate sensor technologies for spacecraft cabin environmental monitoring, spacecraft fire safety, and lunar dust characterization. This has been driven by lack of commercial (COTS) devices to meet the volume, mass, power, reliability, and measurement requirements of any given application.\n\n\n",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20200001645,
+   "id": "ed3fb9bfb24a4db8934aa30d94e740d8",
+   "publicationDate": "2020-02-20T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20200001645.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20200001645/downloads/20200001645.pdf",
+    "pdf": "/api/citations/20200001645/downloads/20200001645.pdf",
+    "fulltext": "/api/citations/20200001645/downloads/20200001645.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

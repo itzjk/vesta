@@ -1,0 +1,148 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20220002714,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "b736cfe2f3ce4d02a6d45b3102fa07c1",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "keywords": [
+  "Modeling",
+  "Fire Safety",
+  "Spacecraft"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20220002714,
+  "ear": "NO",
+  "id": "65b423ce4b77469c9a3b07b9add0bef1",
+  "itar": "NO"
+ },
+ "distributionDate": "2022-07-18T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2022-278"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "089407",
+   "submissionId": 20220002714,
+   "id": "2fdc8838a367484fb43e71eacacb5319",
+   "type": "WBS"
+  }
+ ],
+ "title": "Model Development of Large-Scale Spacecraft Fires During the Saffire-IV Experiments",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2022-02-17T18:41:11.0456420+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 0,
+   "submissionId": 20220002714,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "John Brooker"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "c82065d795694dbdbe0bb4eef805fe37",
+   "userType": "CIVIL",
+   "userId": "33c166a76930414eb6262e5b37d90d9d"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 1,
+   "submissionId": 20220002714,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Justin Niehaus"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "98534fdcc3754c6fb20f095f3994d357",
+   "userType": "CIVIL",
+   "userId": "873b729bd4544ad3a2d05c274bcad04b"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20220002714,
+ "created": "2022-02-17T18:12:24.4920200+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "An accidental fire can pose dire consequences to crew safety and mission success. The Saffire Project aims to investigate large-scale fire behavior in microgravity in order to aid in the prediction of spacecraft fires. These series of experiments ignite solid materials within the Northrup Grumman Cygnus vehicle after it departs from a resupply mission to the International Space Station. A model of the Cygnus vehicle during the Saffire-IV experiment was developed using the commercial software PyroSim. The cargo arranged during the descent phase was used for the geometry of the model. In the model, cabin air flows into the Saffire payload while heat and combustion species flow out of the Saffire downstream through a standoff to a bed of sensors called the Far Field Diagnostic (FFD). The temperature sensors near the Saffire payload were used to determine the heat release rate at the outlet of Saffire, while the details of the combustion and stoichiometry are used to determine the species flow at the outlet. Gas measurements previously reported for the Saffire-IV experiments are compared against the simulation results and sources of error are discussed.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20220002714,
+  "id": "d3914c8e415b4bbe9822192873c59fd5"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20220002714,
+   "endDate": "2022-07-14T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "International Conference on Environmental Systems"
+      }
+     },
+     "meetingId": "b2ba4c411c4e49acb045120d6b610ee1",
+     "id": "67cd2d54cf1f43b4921d0c3efcc0b2bf"
+    }
+   ],
+   "name": "51st International Conference on Environmental Systems (ICES)",
+   "location": "Saint Paul, MN",
+   "id": "b2ba4c411c4e49acb045120d6b610ee1",
+   "url": "https://www.ices.space/ ",
+   "startDate": "2022-07-10T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "Model Development of Large-Scale Spacecraft Fires during the Saffire-IV Experiments.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20220002714/downloads/Model%20Development%20of%20Large-Scale%20Spacecraft%20Fires%20during%20the%20Saffire-IV%20Experiments.pdf",
+    "pdf": "/api/citations/20220002714/downloads/Model%20Development%20of%20Large-Scale%20Spacecraft%20Fires%20during%20the%20Saffire-IV%20Experiments.pdf",
+    "fulltext": "/api/citations/20220002714/downloads/Model%20Development%20of%20Large-Scale%20Spacecraft%20Fires%20during%20the%20Saffire-IV%20Experiments.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

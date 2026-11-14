@@ -1,0 +1,135 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20120016545,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "6fabcee8ab84441e8f88c51c2f0c0c60",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20120016545,
+  "ear": "NO",
+  "id": "65b075d037384b6994973dc0b6a4e2ba",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-27532",
+  "Report Number: JSC-CN-27532"
+ ],
+ "title": "Cargo Commercial Orbital Transportation Services Environmental Control and Life Support Integration",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-26T03:06:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20120016545,
+   "meta": {
+    "author": {
+     "name": "Duchesne, Stephanie"
+    },
+    "organization": {
+     "name": "Wyle Integrated Science and Engineering Group",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "2e87e60c5dc24602811654f11e0a2162"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20120016545,
+   "meta": {
+    "author": {
+     "name": "Thacker, Karen"
+    },
+    "organization": {
+     "name": "Boeing Co.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "62b460e013dd4cd6a4d285a130a312ad"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20120016545,
+   "meta": {
+    "author": {
+     "name": "Williams, Dave"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "266b49cfe95a43ea992c25f914787269"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20120016545,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-26T03:06:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The International Space Station s (ISS) largest crew and cargo resupply vehicle, the Space Shuttle, retired in 2011. To help augment ISS resupply and return capability, NASA announced a project to promote the development of Commercial Orbital Transportation Services (COTS) for the ISS in January of 2006. By December of 2008, NASA entered into space act agreements with SpaceX and Orbital Sciences Corporation for COTS development and ISS Commercial Resupply Services (CRS). The intent of CRS is to fly multiple resupply missions each year to ISS with SpaceX s Dragon vehicle providing resupply and return capabilities and Orbital Science Corporation s Cygnus vehicle providing resupply capability to ISS. The ISS program launched an integration effort to ensure that these new commercial vehicles met the requirements of the ISS vehicle and ISS program needs. The Environmental Control and Life Support System (ECLSS) requirements cover basic cargo vehicle needs including maintaining atmosphere, providing atmosphere circulation, and fire detection and suppression. The ISS-COTS integration effort brought unique challenges combining NASA s established processes and design knowledge with the commercial companies new initiatives and limited experience with human space flight. This paper will discuss the ISS ECLS COTS integration effort including challenges, successes, and lessons learned.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20120016545,
+   "endDate": "2013-07-18T00:00:00.0000000+00:00",
+   "name": "43rd International Conference on Environmental Systems",
+   "location": "Vail, CO",
+   "id": "4213ca61d1f040c998fe54efdb0a503b",
+   "startDate": "2013-07-14T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20120016545,
+   "id": "d9e38eaa916a4c75b098ae747a93babc",
+   "publicationDate": "2012-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20120016545.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20120016545/downloads/20120016545.pdf",
+    "pdf": "/api/citations/20120016545/downloads/20120016545.pdf",
+    "fulltext": "/api/citations/20120016545/downloads/20120016545.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

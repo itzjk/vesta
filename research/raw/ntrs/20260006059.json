@@ -1,0 +1,173 @@
+{
+ "copyright": {
+  "disclosedInvention": false,
+  "submissionId": 20260006059,
+  "containsThirdPartyMaterial": false,
+  "containsIndication": false,
+  "id": "2e268e5a62f14d43a84271943b10d558",
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET"
+ },
+ "subjectCategories": [
+  "Man/System Technology and Life Support",
+  "Space Transportation and Safety"
+ ],
+ "keywords": [
+  "Artemis",
+  "flammability",
+  "atmosphere",
+  "surface",
+  "ignition",
+  "physiology",
+  "spacesuit",
+  "mobility",
+  "prebreathe"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20260006059,
+  "ear": "NO",
+  "id": "706e6db9fada4533915e433911307ccb",
+  "category": [
+   {
+    "submissionExportControlId": "706e6db9fada4533915e433911307ccb",
+    "id": "803d753ca62347e5843c9643746e3b12",
+    "category": 0
+   }
+  ],
+  "itar": "NO"
+ },
+ "distributionDate": "2026-07-13T05:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2026-324"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "954876",
+   "submissionId": 20260006059,
+   "id": "a8ab8ad6b598419a8e8c7047003fe78e",
+   "type": "WBS"
+  }
+ ],
+ "title": "Surface Vehicle Atmospheric Considerations for Moon to Mars Exploration",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2026-07-08T14:24:13.6136960+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "ff293352e05b51ca965411fc94f5e325",
+   "sequence": 0,
+   "submissionId": 20260006059,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Logan Kennedy"
+    },
+    "organization": {
+     "name": "Marshall Space Flight Center",
+     "location": "Redstone Arsenal, United States"
+    }
+   },
+   "id": "ffbb8c327f3f49f6af15ee71f3fa31da",
+   "userType": "CIVIL",
+   "userId": "a194de00023c47138acd1e71644b9075"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 1,
+   "submissionId": 20260006059,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Brian Alpert"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, United States"
+    }
+   },
+   "id": "7a54101edd4b47abb57388b23a026c1c",
+   "userType": "CIVIL",
+   "userId": "5347ad5b564c486e8fca79741f756623"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2026-07-10T21:44:25.6450310+00:00",
+ "id": 20260006059,
+ "created": "2026-07-07T20:54:57.3778510+00:00",
+ "center": {
+  "code": "MSFC",
+  "name": "Marshall Space Flight Center",
+  "id": "a589fc1e68af409f9d2214bb08863d11"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "NASA and its Artemis commercial providers are continuing to address and mitigate materials flammability at the planned vehicle atmosphere on the lunar surface. Challenges include close integration between materials flammability, ignition control, fire mitigation, human physiology and performance, and spacesuit mobility and performance. Past NASA recommendations for exploration atmosphere identified some of these challenges as open work, but they were not funded through completion. In spring 2023, NASA created a team dedicated to this problem, including all relevant stakeholders, to develop a strategy to qualify the integrated issue, reduce the severity of its impacts, and provide alternative options to program management. This paper outlines key discussions, assumptions, interdependencies, analysis, and testing that led to the exploration atmosphere team’s findings and recommendation of an alternate vehicle atmosphere and approach for early surface missions. These efforts not only shape the path to flight certification for those surface missions, but will improve the development and certification processes through updated materials flammability standards, vehicle configuration constraints, fire barrier effectiveness, ignition guidelines, and partial gravity impacts on flammability. Additionally, recent vehicle and spacesuit design efforts have allowed the team to challenge long-standing norms and assumptions to potentially provide more mission flexibility through work including fixed fire suppression, elevated spacesuit operating pressures, and advanced vehicle environmental control systems. The team has also identified areas where standards or guidelines do not yet exist for cumulative mission decompression sickness risk and partial gravity compensation factors. These efforts will lay the groundwork for future surface elements and missions to follow a similar process, thus reducing their development time and providing clear guidance on a path to certification.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20260006059,
+  "id": "90a50bbc07f54ce1a930c7546ed95c49"
+ },
+ "meetings": [
+  {
+   "country": "PR",
+   "submissionId": 20260006059,
+   "endDate": "2026-07-16T05:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "8a4c6bb4d92d4b57b245023ae13c7536",
+     "meta": {
+      "organization": {
+       "name": "International Conference on Environmental Systems",
+       "location": "Emmaus, Pennsylvania, United States"
+      }
+     },
+     "meetingId": "6906a36ee4834d5baced7861cacb0770",
+     "id": "5fc726e2d6c94785b1c4ed0b6231e2c7"
+    }
+   ],
+   "name": "55th International Conference on Environmental Systems (ICES 2026)",
+   "location": "Rio Grande",
+   "id": "6906a36ee4834d5baced7861cacb0770",
+   "url": "https://ices.space",
+   "startDate": "2026-07-12T04:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20260006059,
+   "publisher": "International Conference on Environmental Systems",
+   "id": "0ea5c07a7e634559af60faa729a8abf2",
+   "publicationDate": "2026-07-13T05:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20260002050,
+   "type": "SEE_ALSO",
+   "title": "Surface Vehicle Atmospheric Considerations for Moon to Mars Exploration",
+   "stiType": "CONFERENCE_PAPER",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+   "name": "ICES-2026-324 Presentation_V3.pptx",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20260006059/downloads/ICES-2026-324%20Presentation_V3.pptx",
+    "fulltext": "/api/citations/20260006059/downloads/ICES-2026-324%20Presentation_V3.pptx.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

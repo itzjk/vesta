@@ -1,0 +1,19 @@
+{
+ "msg": {
+  "label": "Microgravity Science Glovebox (MSG)",
+  "pressure_kpa": 101.3,
+  "tables": [
+   "PSI-25",
+   "PSI-26"
+  ],
+  "source": {
+   "kind": "pdf",
+   "id": "researchers-guide",
+   "title": "A Researcher's Guide to: Combustion Science",
+   "year": 2015,
+   "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+   "text_file": "raw/nasa/researchers-guide-combustion.txt",
+   "quote": "The glovebox is normally limited to ISS \"air,\" nominally 21 percent oxygen by volume and one atmospheric pressure."
+  }
+ }
+}

@@ -1,0 +1,116 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20090001159,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "9ecaf24dcbae4dbd86311ff158ec6108",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20090001159,
+  "ear": "NO",
+  "id": "c310ac8aaa2f4a59be6844dec7bbb1dd",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "DAA-17434",
+  "Report Number: DAA-17434"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 401769.06.01.01.01",
+   "submissionId": 20090001159,
+   "id": "49a91e2baa6b49b8b932bfb2a1347868",
+   "type": "WBS"
+  }
+ ],
+ "title": "International Space Station Environmental Control and Life Support System Acceptance Testing for Node 1 Atmosphere Control and Supply Subsystem",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T19:56:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20090001159,
+   "meta": {
+    "author": {
+     "name": "Williams, David E."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "35a68085516e499c89fbf5260ffb2edd"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20090001159,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T19:56:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The International Space Station (ISS) Node 1 Environmental Control and Life Support (ECLS) System is comprised of five subsystems: Atmosphere Control and Supply (ACS), Atmosphere Revitalization (AR), Fire Detection and Suppression (FDS), Temperature and Humidity Control (THC), and Water Recovery and Management (WRM). This paper provides a summary of the Node 1 ECLS ACS subsystem design and a detailed discussion of the ISS ECLS Acceptance Testing methodology utilized for that subsystem.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20090001159,
+   "endDate": "2009-07-16T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "2fb8633154d94728aec2c57afa709b46",
+     "meta": {
+      "organization": {
+       "name": "Society of Automotive Engineers, Inc.",
+       "location": "Warrendale, PA, United States"
+      }
+     },
+     "meetingId": "e47ca4d737e844c3b4b0c3df0838f511",
+     "id": "3b523b1682d742278b9c83817cb0fbd9"
+    }
+   ],
+   "name": "International Conference of Environmental Systems",
+   "location": "Savannah, GA",
+   "id": "e47ca4d737e844c3b4b0c3df0838f511",
+   "startDate": "2009-07-12T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20090001159,
+   "id": "850d21246a804a57ac19c808892f6823",
+   "publicationDate": "2009-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

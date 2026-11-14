@@ -1,0 +1,107 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19900055243,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "2d89387984ee4833abafca3a5c2a70d7",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19900055243,
+  "ear": "NO",
+  "id": "9d79aadfb6ba4652ab702db902f87fe9",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-11T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ISSN: 0010-2180"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NAG3-1046",
+   "submissionId": 19900055243,
+   "id": "ad2b991e7c11494cac10417554d5283d",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "The possibility of a reversal of material flammability ranking from normal gravity to microgravity",
+ "stiType": "REPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-14T11:40:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19900055243,
+   "meta": {
+    "author": {
+     "name": "T'Ien, James S."
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "34d3f819d1794796bbbde23bb2cdd901"
+  }
+ ],
+ "stiTypeDetails": "Reprint (Version printed in journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19900055243,
+ "sourceIdentifiers": [
+  {
+   "number": "doi:10.1016/0010-2180(90)90111-4",
+   "submissionId": 19900055243,
+   "id": "76933d0e7fde4504866bfc3066f71f12",
+   "type": "DOI"
+  },
+  {
+   "submissionId": 19900055243,
+   "id": "81bb2eb8054f41cfb1a916daa8873a66",
+   "descriptor": "doi:10.1016/0010-2180(90)90111-4"
+  }
+ ],
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "90A42298"
+ },
+ "created": "2013-08-14T11:40:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The purpose of the discussion is to show, by a theoretical model, that one of the material flammability indices, the flammability limit, can be reversed in proper circumstances. A stagnation-point diffusion flame adjacent to a spherical solid-fuel surface is considered. It is shown that a reversal of the limiting oxygen indices from normal gravity and microgravity is possible. Although the example is based on a particular theoretical model with a particular flame configuration and specifically for an oxygen limit, the flammability-limit reversal phenomenon is believed to be more general.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "publications": [
+  {
+   "volume": "80",
+   "submissionId": 19900055243,
+   "issn": "0010-2180",
+   "id": "6a3ff30cdff1406aa4d8985db548cc9a",
+   "publicationName": "Combustion and Flame",
+   "publicationDate": "1990-06-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

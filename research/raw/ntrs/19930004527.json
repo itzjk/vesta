@@ -1,0 +1,170 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19930004527,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "27ec167f19914bc78439b393e8f57e61",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Design, Testing And Performance"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19930004527,
+  "ear": "NO",
+  "id": "01b594844f9945dfadaf5e194f00a708",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-26T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA-CR-189181",
+  "UCLA-ENG-92-19",
+  "NAS 1.26:189181",
+  "Report Number: NASA-CR-189181",
+  "Report Number: UCLA-ENG-92-19",
+  "Report Number: NAS 1.26:189181"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 506-48-4C",
+   "submissionId": 19930004527,
+   "id": "7d171cfdffbd4ee1839659fb458b0cb5",
+   "type": "PROJECT"
+  },
+  {
+   "number": "NAS3-25975",
+   "submissionId": 19930004527,
+   "id": "3bc9471d6f1a47cf8e425fdf8828ef6b",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Findings of a review of spacecraft fire safety needs",
+ "stiType": "CONTRACTOR_REPORT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T17:43:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19930004527,
+   "meta": {
+    "author": {
+     "name": "Apostolakis, G. E."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Los Angeles, CA, United States"
+    }
+   },
+   "id": "581de7bc099a4cac989f0ab572e9db07"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19930004527,
+   "meta": {
+    "author": {
+     "name": "Catton, I."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Los Angeles, CA, United States"
+    }
+   },
+   "id": "a610b604cf3c42188a26d47c6b8c6370"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19930004527,
+   "meta": {
+    "author": {
+     "name": "Paulos, T."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Los Angeles, CA, United States"
+    }
+   },
+   "id": "9c57db464070449a9256f511224b0592"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 19930004527,
+   "meta": {
+    "author": {
+     "name": "Paxton, K."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Los Angeles, CA, United States"
+    }
+   },
+   "id": "ded128500ff54b6f8a777ac9de84e935"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 19930004527,
+   "meta": {
+    "author": {
+     "name": "Jones, S."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Los Angeles, CA, United States"
+    }
+   },
+   "id": "23afd1919ccb4b46974088ce19401c6a"
+  }
+ ],
+ "stiTypeDetails": "Contractor Report (CR)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19930004527,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "93N13715"
+ },
+ "created": "2013-09-06T17:43:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Discussions from a workshop to guide UCLA and NASA investigators on the state of knowledge and perceived needs in spacecraft fire safety and its risk management are reviewed, for an introduction to an analytical and experimental project in this field. The report summarizes the workshop discussions and includes the visual aids used in the presentations. Probabilistic Safety Assessment (PSA) methods, which are currently not used, would be of great value to the designs and operation of future human-crew spacecraft. Key points in the discussions were the importance of understanding and testing smoldering as a likely fire scenario in space and the need for smoke damage modeling, since many fire-risk models ignore this mechanism and consider only heat damage.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19930004527,
+   "id": "be5e42530fe74d8c88075175a9e51dd2",
+   "publicationDate": "1992-07-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19930004527.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19930004527/downloads/19930004527.pdf",
+    "pdf": "/api/citations/19930004527/downloads/19930004527.pdf",
+    "fulltext": "/api/citations/19930004527/downloads/19930004527.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

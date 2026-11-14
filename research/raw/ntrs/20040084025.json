@@ -1,0 +1,140 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040084025,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "afc77ba5e9594806b22d2b5e58d043aa",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Composite Materials"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040084025,
+  "ear": "NO",
+  "id": "4fa241bd5f454e57a57c1c28c2069f0b",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-11T00:00:00.0000000+00:00",
+ "title": "Reference Material Kydex(registered trademark)-100 Test Data Message for Flammability Testing",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:39:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040084025,
+   "meta": {
+    "author": {
+     "name": "Engel, Carl D."
+    },
+    "organization": {
+     "name": "Qualis Corp.",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "06c016ba72bc4e3b87f05df9fcbf84d5"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040084025,
+   "meta": {
+    "author": {
+     "name": "Richardson, Erin"
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "be03fb87db144179a6372ac8b6ff1bd9"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040084025,
+   "meta": {
+    "author": {
+     "name": "Davis, Eddie"
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "f329af033a0b43ec9f3bb47e499c68c3"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040084025,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:39:00.0000000+00:00",
+ "center": {
+  "code": "MSFC",
+  "name": "Marshall Space Flight Center",
+  "id": "a589fc1e68af409f9d2214bb08863d11"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Marshall Space Flight Center (MSFC) Materials and Processes Technical Information System (MAPTIS) database contains, as an engineering resource, a large amount of material test data carefully obtained and recorded over a number of years. Flammability test data obtained using Test 1 of NASA-STD-6001 is a significant component of this database. NASA-STD-6001 recommends that Kydex 100 be used as a reference material for testing certification and for comparison between test facilities in the round-robin certification testing that occurs every 2 years. As a result of these regular activities, a large volume of test data is recorded within the MAPTIS database. The activity described in this technical report was undertaken to mine the database, recover flammability (Test 1) Kydex 100 data, and review the lessons learned from analysis of these data.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040084025,
+   "id": "9b39cc28c6114bcab4b289dfc4e2d4a4",
+   "publicationName": "5th Conference on Aerospace Materials, Processes, and Environmental Technology",
+   "publicationDate": "2003-11-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040083973,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "5th Conference on Aerospace Materials, Processes, and Environmental Technology",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040083973,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "5th Conference on Aerospace Materials, Processes, and Environmental Technology",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040084025.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040084025/downloads/20040084025.pdf",
+    "pdf": "/api/citations/20040084025/downloads/20040084025.pdf",
+    "fulltext": "/api/citations/20040084025/downloads/20040084025.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

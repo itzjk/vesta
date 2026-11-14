@@ -1,0 +1,64 @@
+https://www.nasa.gov/missions/station/space-station-science-highlights-week-of-june-20-2022/
+TITLE: Space Station Science Highlights: Week of June 20, 2022 - NASA
+FETCHED: 2026-11-14T12:00:11
+
+4 min read
+
+Space Station Science Highlights: Week of June 20, 2022
+
+John Love
+
+Jun 24, 2022
+
+Article
+
+This image shows the island of Groix off the northwestern Atlantic coast of France as the International Space Station orbits 264 miles above the English Channel. The rivers seen are, from top left to bottom right, La Laïta, Blavet, and Scorf, including the Rivière d’Étel.
+
+NASA
+
+Lee esta historia en español aquí.
+
+Crew members aboard the International Space Station conducted scientific investigations during the week of June 20 that included examining burning and material flammability in microgravity, demonstrating a vision-based navigation system for small spacecraft, and taking photographs of Earth.
+
+Here are details on some of the microgravity investigations currently taking place on the orbiting lab:
+
+Answering burning questions
+
+The Solid Fuel Ignition and Extinction (SoFIE) hardware insert into the station’s Combustion Integration Rack (CIR) enables a wide range of solid material combustion and fire suppression studies. The hardware supports five initial investigations, including SoFIE-MIST, examining thermally-assisted burning in microgravity, and SoFIE-GEL, which determines how fuel temperature affects the flammability of a material. Results could improve understanding of how fires grow in their early stages and inform selection of materials for future space facilities, as well as provide insight into effective methods for extinguishing fires in space. Crew members prepared hardware and conducted operations for SoFIE during the week.
+
+NASA astronaut Bob Hines replaces components inside the Combustion Integrated Rack, a platform for investigations on flames and fuel, including the SoFIE suite of solid-material combustion and fire suppression studies.
+
+NASA
+
+Navigating by sight
+
+The Smartphone Video Guidance Sensor (SVGS) demonstrates using a vision-based sensor to navigate and control a small spacecraft. This technology, developed by NASA, computes the position of a target relative to a camera in the host platform, in this case the space station’s free-flying Astrobee robots. Small size, low power consumption, and relatively simple deployment of this technology could be advantageous for operation of small satellites and docking of crewed vehicles on human exploration missions. SVGS also has potential applications in the operation of autonomous systems on Earth, such as precision landing of drone systems. During the week, the crew conducted test operations for the investigation.
+
+Planet photos
+
+During the week, crew members took photographs for Crew Earth Observations (CEO) using the station’s Window Observational Research Facility (WORF). Photographs from the station’s unique point of view 250 miles above the Earth’s surface record how the planet changes over time due to human activity such as urban growth and natural events like floods. Scientists have used these images in multiple ways, including to study marine organisms, urban vegetation, algal blooms, and river sediments and to capture Transient Luminous Events (TLEs) triggered by lightning storms. CEO also makes it possible to monitor disasters and direct response on the ground. Crew members have been photographing Earth from space since the early Mercury missions beginning in 1961. The images are available to the public for educational, entertainment, or scientific pursuits.
+
+ESA astronaut Samantha Cristoforetti monitors a pair of Astrobees performing autonomous maneuvers inside the International Space Station. These free-flying robots are used for a variety of studies and demonstrations, including SVGS, which demonstrates using a vision-based sensor to navigate and control a small spacecraft.
+
+NASA
+
+Other investigations involving the crew:
+
+With the station’s Astrobees, ISAAC demonstrates using autonomous robots to track vehicle health, transfer and unpack cargo, and respond to critical faults such as leaks and fires. This technology could be used to maintain vehicles and habitats on future exploration missions to the Moon and Mars while astronauts are away for extended periods.
+
+The Cold Atom Laboratory (CAL) produces clouds of atoms that are much colder than the average temperature of deep space. Atoms at these low temperatures have almost no motion and scientists can use them to study fundamental behaviors.
+
+The ESA (European Space Agency) BioLab facility supports experiments on microorganisms, cells, tissue cultures, small plants, and small invertebrates, giving scientists a better understanding of the effects of microgravity and space radiation on biological organisms.
+
+Phospho-aging, an investigation from the Japan Aerospace Exploration Agency (JAXA), examines the molecular mechanism behind aging-like symptoms such as bone loss and muscle atrophy. These changes occur more rapidly in microgravity, and this investigation could lead to countermeasures to protect astronauts on future missions and therapeutic interventions for people experiencing symptoms of aging on Earth.
+
+XROOTS uses hydroponic (liquid-based) and aeroponic (air-based) techniques to grow plants without traditional growth media, which could enable production of crops on a larger scale for future space exploration.
+
+ISS Ham Radio provides students, teachers, parents, and others the opportunity to communicate with astronauts using amateur radio units. Before a scheduled call, students learn about the station, radio waves, and other topics and prepare a list of questions on topics they have researched.
+
+The space station is a robust microgravity laboratory with a multitude of specialized research facilities and tools. Over more than two decades of continuous operation, it has supported many scientific breakthroughs from investigations spanning every major scientific discipline. The orbiting lab conveys benefits to future space exploration, advances basic and applied research on Earth, and provides a platform for a growing commercial presence in low-Earth orbit.
+
+For daily updates, follow @ISS_Research, Space Station Research and Technology News or our Facebook. Follow ISS National Lab for information on its sponsored investigations. For opportunities to see the space station pass over your town, check out Spot the Station.
+
+John Love, ISS Research Planning Integration Scientist
+Expedition 67

@@ -1,0 +1,133 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20020024455,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "091f611327d943a9a0ef1d81ce4c4946",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20020024455,
+  "ear": "NO",
+  "id": "01d71c9cdba04f779cc51a88156d604f",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "AIAA Paper 2001-5042",
+  "Report Number: AIAA Paper 2001-5042"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 398-15-OH",
+   "submissionId": 20020024455,
+   "id": "47c45cd8fdd746b48eacf8a6a91a09bd",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Multi-User Hardware Solutions to Combustion Science ISS Research",
+ "stiType": "PREPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T12:40:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20020024455,
+   "meta": {
+    "author": {
+     "name": "Otero, Angel M."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "dda0ad187f0c409dae82d4495db02ef2"
+  }
+ ],
+ "stiTypeDetails": "Preprint (Draft being sent to journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20020024455,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T12:40:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "In response to the budget environment and to expand on the International Space Station (ISS) Fluids and Combustion Facility (FCF) Combustion Integrated Rack (CIR), common hardware approach, the NASA Combustion Science Program shifted focus in 1999 from single investigator PI (Principal Investigator)-specific hardware to multi-user 'Minifacilities'. These mini-facilities would take the CIR common hardware philosophy to the next level. The approach that was developed re-arranged all the investigations in the program into sub-fields of research. Then common requirements within these subfields were used to develop a common system that would then be complemented by a few PI-specific components. The sub-fields of research selected were droplet combustion, solids and fire safety, and gaseous fuels. From these research areas three mini-facilities have sprung: the Multi-user Droplet Combustion Apparatus (MDCA) for droplet research, Flow Enclosure for Novel Investigations in Combustion of Solids (FEANICS) for solids and fire safety, and the Multi-user Gaseous Fuels Apparatus (MGFA) for gaseous fuels. These mini-facilities will develop common Chamber Insert Assemblies (CIA) and diagnostics for the respective investigators complementing the capability provided by CIR. Presently there are four investigators for MDCA, six for FEANICS, and four for MGFA. The goal of these multi-user facilities is to drive the cost per PI down after the initial development investment is made. Each of these mini-facilities will become a fixture of future Combustion Science NASA Research Announcements (NRAs), enabling investigators to propose against an existing capability. Additionally, an investigation is provided the opportunity to enhance the existing capability to bridge the gap between the capability and their specific science requirements. This multi-user development approach will enable the Combustion Science Program to drive cost per investigation down while drastically reducing the time required to go from selection to space flight.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20020024455,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "United States",
+   "id": "03213447ee234e2588111ad8b6bfb031"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20020024455,
+   "endDate": "2001-10-18T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "United States"
+      }
+     },
+     "meetingId": "cff29a985a9348c2949007c3abd6485b",
+     "id": "b70b37fd8d674cfca9baaa4e098cd5d3"
+    }
+   ],
+   "name": "2001Conference and Exhibit on International Space Station Utilization",
+   "location": "Cape Canaveral, FL",
+   "id": "cff29a985a9348c2949007c3abd6485b",
+   "startDate": "2001-10-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20020024455,
+   "id": "b8f15e4d88c741b28e30cf3c73186131",
+   "publicationDate": "2001-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20020024455.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20020024455/downloads/20020024455.pdf",
+    "pdf": "/api/citations/20020024455/downloads/20020024455.pdf",
+    "fulltext": "/api/citations/20020024455/downloads/20020024455.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,338 @@
+Extinction of the Stagnation Point Diffusion Flame:
+ Effect of Conductive Heat Loss into Solid Interior
+
+              Chengyao Li1, Michael Johnston2, James T’ien1
+          1Case Western Reserve University, Cleveland, OH, USA
+
+  2Universities Space Research Association, NASA Glenn Research Center,
+                           Cleveland, OH, USA
+
+
+  2021 Annual Meeting of American Society for Gravitational and Space Research
+                  Baltimore Maryland, November 3-6, 2021
+    Backgrounds
+
+•   T’ien et al. [1] and T’ien [2] developed a theoretical
+    model to study the near-limit flame in the stagnation
+    point boundary layer of condensed fuel.
+•   Gas-phase conservations of mass, momentum, energy,
+    and species and one-step second-order gas-phase
+    reaction are considered.
+•   The solid pyrolysis follows the Arrhenius law.
+•   Assumptions include constant Prandtl and Schmidt
+    number and unit Lewis number, ideal gas, constant
+    specific heat, and constant product of density and
+    viscosity.
+•   Gas-phase radiation is neglected.
+•   One-dimensional solid temperature and the solid
+    phase reaches the steady-state conduction-convection
+    energy balance.
+•   Model in this study is extended from T’ien [2]
+
+           [1] J. S. T'ien, S. N. Singhal, D. P. Harrold, and J. M. Prahl, Combustion and extinction in the stagnation-point boundary layer of a
+               condensed fuel, Combustion and Flame, Vol. 33, pp. 55-68, 1978.
+           [2] J. T’ien, Diffusion flame extinction at small stretch rates: the mechanism of radiative loss, Combustion and flame, Vol. 65(1), pp.
+               31-34, 1986.
+
+
+                                                                          2
+    Backgrounds
+
+•   Introducing the Howarth–Dorodnitsyn transformation:
+      𝜂 ≡ ⁄ ∫ 𝜌𝑑𝑦            𝑠 ≡ ∫ 𝜌 𝜇 𝑢 𝑟 𝑑𝑟
+    where 𝜖 = 1 for axisymmetric flow
+          𝜖 = 0 for two-dimensional flow
+•   The conservation equations become:
+                            1
+            𝑓 + 𝑓𝑓 =               𝑓 − 4𝜃
+                           1+𝜖
+                 1⁄𝑃𝑟 𝜃 + 𝑓𝜃 = −𝑞𝑤
+                 1⁄𝑆𝑐 𝑌 + 𝑓𝑌 = 𝑁 𝑤
+    where 𝑖 = 𝐹, 𝑂 , 𝐶𝑂 , 𝐻 𝑂
+          𝑤 = 𝐷𝑌 𝑌 𝑒 / and 𝐷 =
+•   The energy balance at the solid surface follows:
+                                𝑐
+           𝜃 = −𝑓 𝑃𝑟 𝜃 − + 𝐿 + 𝑆𝜃
+                                𝑐
+                           /
+    where S =
+           −𝑓 = (              ) / exp(−   )               Predicted Flammability Boundary of PMMA
+
+
+
+
+                                                       3
+    Backgrounds
+
+•   Olson and Ferkul [1] studied the
+    microgravity material flammability
+    boundary of PMMA rods in BASS-II
+    using a 7.6 cm x 7.6 cm x 17 cm flow
+    duct in the Microgravity Science
+    Glovebox aboard the International
+    Space Station and complementary
+    5.18s drop tower tests
+•   The minimum occurs at a stretch
+    rate of 8 – 12 s-1 and oxygen
+    concentration of 13.5%.
+
+
+
+
+           [1] S. L. Olson, and P. V. Ferkul, Microgravity flammability boundary for PMMA rods in axial stagnation flow: experimental
+               results and energy balance analyses, Combustion and Flame, Vol. 180, pp. 217-229, 2017.
+
+
+
+
+                                                                         4
+    Backgrounds
+
+•   Johnston [1] mapped the 4-cm-
+    diameter PMMA sphere flammability
+    boundary in terms of the conductive
+    heat loss into the solid interior using
+    the NASA Zero-G Facility 5.18s drop
+    tower in support of the Growth and
+    Extinction Limit (GEL) project.
+•   Within the test range (17% Oxygen by
+    volume, 2 – 25 cm/s concurrent flow),
+    the conductive heat loss increases
+    with the stretch rate.
+•   𝑎=
+
+
+
+
+              [1] M. C. Johnston, Growth and Extinction Limits: Ground Based Testing of Solid Fuel Combustion in Low Stretch
+                  Conditions in Support of Space Flight Experiments, Ph.D. dissertation, Case Western Reserve University, 2018.
+
+
+                                                                       5
+  Objective and Approach
+
+• The planned microgravity experiment Growth and Extinction Limit (GEL) is
+  designed to study the material flammability and extinction of thermally thick
+  solid with an emphasis to quantify the effect of conductive heat loss into the
+  solid interior by measuring the in-depth temperature profile.
+
+• To obtain a more detailed understanding of the extinction phenomena, the
+  one-dimensional axisymmetric stagnation-point diffusion flame model
+  developed by T’ien (1986) is expanded to account for the excessive heat loss
+  into the solid beyond the steady burning state.
+
+
+
+
+                                            6
+ Model Configuration – Gas Phase
+Continuity                                                                                                                               (1)
+
+Momentum                                                                                                                                 (2)
+
+Species                                                                                                                                  (3)
+
+            where              𝑖 = 𝐹, 𝑂 , 𝐶𝑂 , 𝐻 𝑂; 𝑁 = −1, 𝑁                      = −1.92, 𝑁             = 2.2, 𝑁          = 0.72
+
+Energy                                                                                                                                   (4)
+
+Two-flux gas-phase radiation model (consider non-scattering gray media):
+                                                                                                                                         (5)
+
+
+                                                                                                                                         (6)
+
+
+                  where 𝐾 = 𝐶 𝜅 , 𝐶 = −0.0346 − 0.152ln ∫ 𝜅 𝑑𝑦 [1], and
+            𝜅 the Plank mean absorption coefficient 𝜅 = 𝑝 𝑋  𝜅 ,   +𝑋                                                     𝜅 ,
+    [1] J. Rhatigan, H. Bedir, and J. T’ien, Gas-phase radiative effects on the burning and extinction of a solid fuel, Combustion and
+        Flame, Vol. 112, pp. 231-241, 1998.
+                                                                          7
+ Model Configuration – Solid Surface
+Energy Balance                                                   ,                                        (7)
+
+For semi-infinite thick solid, the steady state energy balance:
+
+                                                                                                          (8)
+
+y=0 on moving surface, 𝑟̅ is the steady surface regression rate (𝑚̇ = 𝜌 𝑟̅ ), bars denotes steady state
+
+From (8):                                                                                                 (9)
+
+From (7):                                                                  ,    (Steady State)            (10)
+
+
+Define                               (dimensionless excessive conductive heat loss)                       (11)
+
+
+From (7):                                                                         ,     (Transient)       (12)
+
+
+
+                                                        8
+Flame Structure at a Representative Case
+(                                            )
+
+
+
+
+• Flame standoff distance decreases to increase the convective heat input to the
+  solid when near extinction.
+• Flame becomes fatter (reaction width increases) when near extinction.
+• Slightly more fuel vapor and oxygen are left over at the flame standoff distance
+  when near extinction.
+                                         9
+Flammability Boundary –                               (                                  )
+
+
+
+
+•   The dimensionless excessive conductive heat loss (Ψ) increases with the stretch rate on the
+    quenching branch but decreases with the increase of stretch rate on the blowoff branch.
+•   The maximum Ψ equals to 1.58 with a stretch rate of 7.5 s-1.
+•   The conductive heat loss into the solid interior at the solid surface increases with the stretch
+    rate on the quenching branch but increases and then decreases on the blowoff branch.
+
+
+
+                                                 10
+Flammability Boundary –                                    (           )
+
+
+                                     (7.9 s-1, 1.88)
+
+                                    (7.5 s-1, 1.58)
+                    Increase O2
+
+                                    (7.4 s-1, 1.06)
+
+
+
+
+•   The material flammability boundary enlarges with the increase of oxygen concentration.
+•   The stretch rate of maximum dimensionless excessive conductive heat loss (Ψ    ) slightly
+    increases with the oxygen concentration.
+
+
+
+
+                                                      11
+Flame Profiles along the Flammability Boundary
+(                                     )
+        Gas Phase and Solid Surface                          Profiles at the Maximum Reaction
+
+
+
+
+                              •   Reaction intensity and hence the maximum flame temperature
+                                  increase with stretch rate.
+                              •   Flame standoff distance decreases with the increase of stretch rate.
+                              •   Mass burning rate at the solid surface increase with stretch rate.
+    𝑌    = 23.1%              •   On the blowoff branch, more fuel vapor is left over in the reaction
+                                  zone and taken away to sides by the convection flow.
+                              •   Oxygen mass fraction in the reaction zone slightly increases but is
+                                  almost invariant.
+
+                                                12
+Flame Profiles along the Flammability Boundary
+(                                               )
+                         Conservation of Energy:              𝜃 + 𝑓𝜃 −               𝜃 −         = 𝑞𝑤
+                                                        conduction convection     radiation       generation
+
+
+
+
+                     1.28 s-1                                           7.5 s-1                                94.29 s-1
+
+
+
+
+               7.5 s-1
+                                            •   Reaction width is about 0.5η at different stretch rate. Considering
+           𝑌   = 23.1%                              =    𝑆𝑐 , it scales up with diffusion distance.
+1.28 s-1                        94.29 s-1   •   Increasing stretch rate leads to decrease of the relative importance
+                                                of radiation but increase of the relative importance of convection.
+
+
+                                                                  13
+Dimensionless Maximum Reaction Rate (                                     )
+
+
+
+
+               •   𝑤=      = 𝑌        𝑌 𝑒
+               •   It is the ratio of convection time to the reaction time.
+               •   It has the classical Damhkoler number character.
+               •   It is of the order 1, but slightly increases with oxygen mass fraction.
+
+
+
+                                 14
+Heat Transfer Analysis (                                          )
+
+
+
+
+                 •   Combustion Heat = Latent Heat + Enthalpy Flow + Radiative
+                     Loss + Transient Heating of the Solid
+                            ̇
+                 •   %= ̇
+   𝑌   = 23.1%   •   Radiative heat loss is important on the quenching branch. It
+                     explains up to 46% of the total heat generation from
+                     combustion.
+                 •   Net enthalpy flow to sides increases with stretch rate.
+
+                                   15
+Flammability Boundary –                         (               )
+
+
+
+
+• The classical U-shape flammability boundary is a function of excessive conductive
+  heat loss into the solid interior.
+
+
+
+                                        16
+Acknowledgement
+
+• This work is supported by NASA Glenn Research Center under grant number
+  NNX16AE84A.
+• We also thank the fruitful discussions with Dr. Paul Ferkul, Dr. Sandra Olson
+  and other members and students in the Solid Fuel Ignition and Extinction
+  (SoFIE) project scientific team.
+
+
+
+
+                                         17
+Thank you!
+
+
+
+
+    18
+This slide is only used to generate the plots and will be removed in the final version.
+
+
+
+                                                                         𝑞̇ ,
+
+
+                                                       flame       𝑞̇
+              R
+
+
+  flame           O
+                          r
+                                                               Latent heat
+
+                      y
+          U
+                                                               Enthalpy flow
+
+
+
+
+                                          19
+

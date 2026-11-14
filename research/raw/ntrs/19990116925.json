@@ -1,0 +1,134 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19990116925,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "463c788b72ac424fbd58e37e7ffeb233",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19990116925,
+  "ear": "NO",
+  "id": "6e91a425060048249351df25aaa61690",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-27T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NAG3-2262",
+   "submissionId": 19990116925,
+   "id": "190b5496859b4bd0a5db1a955f28fc2e",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "RTOP 962-22-07",
+   "submissionId": 19990116925,
+   "id": "47fe321809234905a9dcf5cecd8a9219",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "The Effects of Buoyancy and Dilution on the Structure and Lift-Off of Coflow Laminar Diffusion Flames",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T23:07:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19990116925,
+   "meta": {
+    "author": {
+     "name": "Walsh, Kevin T."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT United States"
+    }
+   },
+   "id": "25fa32dc652c457eb9dccf82aaabf47e"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19990116925,
+   "meta": {
+    "author": {
+     "name": "Long, Marshall B."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT United States"
+    }
+   },
+   "id": "a83a9126226146639c232a42eadccf4b"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19990116925,
+   "meta": {
+    "author": {
+     "name": "Smooke, Mitchell D."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT United States"
+    }
+   },
+   "id": "8c18362e7fe44365a202958c8c48477c"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19990116925,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-06T23:07:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The ability to predict the coupled effects of complex transport phenomena with detailed chemical kinetics in diffusion flames is critical in the modeling of turbulent reacting flows and in understanding the processes by which soot formation and radiative transfer take place. In addition, an understanding of those factors that affect flame extinction in diffusion flames is critical in the suppression of fires and in improving engine efficiency. A goal of this work is to bring to microgravity flame studies the detailed experimental and numerical tools that have been used to study ground-based systems. This will lead to a more detailed understanding of the interaction of convection, diffusion and chemistry in a nonbuoyant environment. To better understand these phenomena, experimental and computational studies of a coflow laminar diffusion flame have been carried out. To date, these studies have focused on a single set of flow conditions, in which a nitrogen-diluted methane fuel stream (65% methane by volume) was surrounded by an air coflow, with exit velocities matched at 35 cm/s. Of particular interest is the change in flame shape due to the absence of buoyant forces, as well as the amount of diluent in the fuel stream and the coflow velocity. As a sensitive marker of changes in the flame shape, the number densities of excited-state CH (A(exp 2 delta) denoted CH*), and excited-state OH (A(exp 2 sigma, denoted OH*) are measured. CH* and OH* number densities are deconvoluted from line-of-sight chemiluminescence measurements made on the NASA KC135 reduced-gravity aircraft. Measured signal levels are calibrated, post-flight, with Rayleigh scattering. In extending the study to microgravity conditions, improvements to the computational model have been made and new calculations performed for a range of gravity conditions. In addition, modifications to the experimental approach were required as a consequence of the constraints imposed by existing microgravity facilities. Results from the computations and experiments are presented.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19990116925,
+   "id": "c2f88db5200f4e5cacd0cbbd767cc7db",
+   "publicationDate": "1999-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19990116925.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19990116925/downloads/19990116925.pdf",
+    "pdf": "/api/citations/19990116925/downloads/19990116925.pdf",
+    "fulltext": "/api/citations/19990116925/downloads/19990116925.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

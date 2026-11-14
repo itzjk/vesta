@@ -1,0 +1,64 @@
+VESTA
+Copyright (c) 2026 Team Zerack
+
+This repository holds four kinds of material. Each has its own terms.
+
+
+1. The code: MIT License
+
+Applies to everything Team Zerack wrote: the files under web/ (except web/data, web/api, web/feed
+and web/assets/fonts), tools/, mcp/, tests/, pipeline/, research/tools/, the authored files under config/ and seed/,
+and the documents under docs/ and at the root of the repository.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+associated documentation files (the "Software"), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish, distribute,
+sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or
+substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT
+OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+2. NASA PSI table data: CC0-1.0
+
+The test rows (data/tests.json, data/tests.csv, web/data/tests*.json, web/api/v1/tests.json,
+web/api/v1/tests.csv, web/api/v1/tests/*.csv) are normalised copies of the "Experimental table"
+files of NASA's Physical Sciences Informatics (PSI) system, https://psi.nasa.gov. The PSI records
+state their licence as CC0-1.0 (Creative Commons Zero 1.0 Universal,
+https://creativecommons.org/publicdomain/zero/1.0/). They stay under CC0-1.0 here. Every row keeps
+its PSI investigation id, its table file name, its row number and its raw cells, so it can be
+traced back to the original.
+
+
+3. NASA text: quoted with attribution
+
+The quotes in the evidence files (seed/, config/, research/evidence/, web/data/, web/api/v1/) are
+verbatim sentences from NASA web pages, NASA fact sheets and NASA Technical Reports Server (NTRS)
+records. The cached texts under research/raw/ are extracts of those same NASA sources, kept so that
+anyone can rerun the quote check. Each quote and each cached text carries the URL of its source.
+This text is NASA's, not Team Zerack's, and the MIT terms above do not relicense it. Text prepared
+by NASA is generally not subject to copyright in the United States; reuse it under NASA's media
+usage guidelines and credit NASA as the source.
+
+A few short quotes come from the NASA Space Apps Challenge 2026 page for "Flame in Freefall". They
+are quoted with attribution and marked as such; the page text itself is not redistributed here.
+
+The claims, rules, decisions and status labels built on top of these quotes are VESTA's
+interpretation, written with SI assistance and marked as such in the product.
+
+
+4. Font
+
+web/assets/fonts/SpaceGrotesk.woff2 is Space Grotesk, under the SIL Open Font License 1.1. Its
+licence text is web/assets/fonts/OFL.txt.
+
+
+VESTA is a decision-support prototype built for the NASA Space Apps Challenge 2026. It is not
+certified flight software, and it is not endorsed by NASA. No NASA logo, insignia or emblem is used.

@@ -1,0 +1,226 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20230009880,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "62da9ac372be462581e045be61ba297f",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Astronautics (General)"
+ ],
+ "keywords": [
+  "Fire Cartridge"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20230009880,
+  "ear": "NO",
+  "id": "0884288cb7374aec9085ab49287ef4ac",
+  "itar": "NO"
+ },
+ "distributionDate": "2023-07-17T05:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NNJ13HA01C",
+   "submissionId": 20230009880,
+   "id": "28a96801d24e49da8a291e824f5507f7",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "80JSC022DA035",
+   "submissionId": 20230009880,
+   "id": "fb251c1f90ee4f27a396c49405556863",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NNJ15HK11B",
+   "submissionId": 20230009880,
+   "id": "28d8978d3b1a42e5aeb12167d1da96c5",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "A Study of the Kinetics of the CO Oxidation Catalyst in a Human Spaceflight Fire Cartridges as a Method to Understand and Predict Performance",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2023-07-05T20:13:40.7462530+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "99fa64c96f0950678abfcdd84ba26bf5",
+   "sequence": 0,
+   "submissionId": 20230009880,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "L Barrett"
+    },
+    "organization": {
+     "name": "Jacobs (United States)",
+     "location": "Dallas, Texas, United States"
+    }
+   },
+   "id": "a59737f9e71e4f6c933d2380e68dbb06",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "3d36226755384bcb8f395cff160d3824"
+  },
+  {
+   "organizationId": "99fa64c96f0950678abfcdd84ba26bf5",
+   "sequence": 1,
+   "submissionId": 20230009880,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "A Korona"
+    },
+    "organization": {
+     "name": "Jacobs (United States)",
+     "location": "Dallas, Texas, United States"
+    }
+   },
+   "id": "0b4b978913004315bbe0c678981a44b0",
+   "userType": "CIVIL",
+   "userId": "e9e270f5f12e4419bba7f69c09d4ed40"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 2,
+   "submissionId": 20230009880,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "E Rabel"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "b3f8b3454a4644258e5c4e24c2fed213",
+   "userType": "CIVIL",
+   "userId": "2ef671ea1f6a4f1d8b018a93bf58e670"
+  },
+  {
+   "organizationId": "30956d12b05c56f99ba04cefabd82400",
+   "sequence": 3,
+   "submissionId": 20230009880,
+   "meta": {
+    "author": {
+     "name": "C Muko"
+    },
+    "organization": {
+     "name": "KBR (United States)",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "9fc84590fd96413d8541f31ae5aa357d",
+   "userType": "OTHER",
+   "userId": "9505612f357e4c909086c224ed4e0e5f"
+  },
+  {
+   "organizationId": "30956d12b05c56f99ba04cefabd82400",
+   "sequence": 4,
+   "submissionId": 20230009880,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "S Beck"
+    },
+    "organization": {
+     "name": "KBR (United States)",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "2f56eac8ea5b43cf87c765db6380ab9a",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "c382037fd7c646a3ac0952b7b5926dfb"
+  },
+  {
+   "organizationId": "30956d12b05c56f99ba04cefabd82400",
+   "sequence": 5,
+   "submissionId": 20230009880,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "E Hudson"
+    },
+    "organization": {
+     "name": "KBR (United States)",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "57e63e78896a4c62904d3343e49eda95",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "931525cf50574214a897bda88c8e3b08"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20230009880,
+ "created": "2023-07-05T12:59:36.8250800+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Fire Cartridges (FC) are an integral part of fire response on ISS, Orion and Gateway.  When a pair of FCs are integrated with an Emergency Mask, they can be used to provide safe breathing air on these vehicles in a post-fire environment.  The FCs have two primary mechanisms for removing contaminants from the air, an activated carbon (AC) bed which adsorbs the majority of fire byproducts, and a catalyst bed consisting of gold nanoparticles supported on iron oxide which oxidized CO to CO2 under near ambient conditions. While the FC catalyst has proven its ability to convert CO under relevant conditions, this paper attempts to address the apparent inconsistent performance of the catalyst seen in testing. Numerous variables effect the performance of the catalyst, including but not limited to: reaction environment, reactant gas composition, inert gas composition, catalyst age, and catalyst lot. This paper discusses the importance of these variables and attempts a fundamental mechanistic explanation for the effects of each variable. The fundamental mechanisms are then used to establish the magnitude of expected performance variability, which were validated against real test data of flight quality FCs.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20230009880,
+  "id": "924a520c87104bc6b390616173963ca1"
+ },
+ "meetings": [
+  {
+   "country": "CA",
+   "submissionId": 20230009880,
+   "endDate": "2023-07-20T05:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "International Conference on Environmental Systems"
+      }
+     },
+     "meetingId": "b98c5eb7097748a3afabef56cbe0e945",
+     "id": "02a60c2330664656815b4d73eee147cd"
+    }
+   ],
+   "name": "52nd International Conference on Environmental Systems",
+   "location": "Calgary",
+   "id": "b98c5eb7097748a3afabef56cbe0e945",
+   "url": "https://www.ices.space/",
+   "startDate": "2023-07-16T05:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "Fire Cartridge.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20230009880/downloads/Fire%20Cartridge.pdf",
+    "pdf": "/api/citations/20230009880/downloads/Fire%20Cartridge.pdf",
+    "fulltext": "/api/citations/20230009880/downloads/Fire%20Cartridge.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

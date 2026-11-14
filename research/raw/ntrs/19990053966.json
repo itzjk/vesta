@@ -1,0 +1,143 @@
+{
+ "copyright": {
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19990053966,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "9d2f0553db234af8a1a9f081ef5260e9",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Mechanical Engineering"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19990053966,
+  "ear": "NO",
+  "id": "d9e7ed7fcfcb4fd697296eda6509bad4",
+  "category": [
+   {
+    "submissionExportControlId": "d9e7ed7fcfcb4fd697296eda6509bad4",
+    "id": "b0a6131d6b7e4eb48815e43e157ca651",
+    "category": 0
+   }
+  ],
+  "itar": "NO"
+ },
+ "distributionDate": "1999-08-06T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA/CP-1999-208917"
+ ],
+ "title": "NASA Microgravity Combustion Science Program",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-19T03:33:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "e53641f275f15469a1b19a8980e09171",
+   "sequence": 0,
+   "submissionId": 19990053966,
+   "meta": {
+    "author": {
+     "name": "Merrill K King"
+    },
+    "organization": {
+     "name": "National Aeronautics and Space Administration",
+     "location": "Washington, United States"
+    }
+   },
+   "id": "34653ff2e3694adb97c8acb12770d4b8",
+   "userType": "OTHER"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2026-03-19T15:43:07.5584140+00:00",
+ "id": 19990053966,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-19T03:33:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Combustion has been a subject of increasingly vigorous scientific research for over a century, not surprising considering that combustion accounts for approximately 85% of the world's energy production and is a key element of many critical technologies used by contemporary society. Although combustion technology is vital to our standard of living, it also poses great challenges to maintaining a habitable environment. A major goal of combustion research is production of fundamental (foundational) knowledge that can be used in developing accurate simulations of complex combustion processes, replacing current \"cut-and-try\" approaches and allowing developers to improve the efficiency of combustion devices, to reduce the production of harmful emissions, and to reduce the incidence of accidental uncontrolled combustion. With full understanding of the physics and chemistry involved in a given combustion process, including details of the unit processes and their interactions, physically accurate models which can then be used for parametric exploration of new combustion domains via computer simulation can be developed, with possible resultant definition of radically different approaches to accomplishment of various combustion goals. Effects of gravitational forces on earth impede combustion studies more than they impede most other areas of science. The effects of buoyancy are so ubiquitous that we often do not appreciate the enormous negative impact that they have had on the rational development of combustion science. Microgravity offers potential for major gains in combustion science understanding in that it offers unique capability to establish the flow environment rather than having it dominated by uncontrollable (under normal gravity) buoyancy effects and, through this control, to extend the range of test conditions that can be studied. It cannot be emphasized too strongly that our program is dedicated to taking advantage of microgravity to untangle complications caused by gravity, allowing major strides in our understanding of combustion processes and in subsequent development of improved combustion devices leading to improved quality of life on Earth. Fire and/or explosion events aboard spacecraft could be devastating to international efforts to expand the human presence in space. Testing to date has shown that ignition and flame spread on fuel surfaces (e.g., paper, wire insulation) behave quite differently under partial gravity and microgravity conditions. In addition, fire signatures-i.e., heat release, smoke production, flame visibility, and radiation-are now known to be quite different in reduced gravity environments; this research has provided data to improve the effectiveness of fire prevention practices, smoke and fire detectors, and fire extinguishment systems. The more we can apply our scientific and technological understanding to potential fire behavior in microgravity and partial gravity, the more assurance can be given to those people whose lives depend on the environment aboard spacecraft or eventually on habitats on the Moon or Mars.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "submissionId": 19990053966,
+  "id": "5458c8b48f6147a9960c69da6b299f9d"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 19990053966,
+   "endDate": "1999-05-20T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+     "meta": {
+      "organization": {
+       "name": "Glenn Research Center",
+       "location": "Cleveland, United States"
+      }
+     },
+     "meetingId": "fecbb59dd242497d87909f9569a9fea4",
+     "id": "149130824b164282b1f1f9e1734344d9"
+    }
+   ],
+   "name": "5th International Microgravity Combustion Workshop",
+   "location": "Cleveland, OH",
+   "id": "fecbb59dd242497d87909f9569a9fea4",
+   "startDate": "1999-05-18T04:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19990053966,
+   "publisher": "National Aeronautics and Space Administration",
+   "id": "ccacf047481248b780f25a896c801137",
+   "publicationName": "Fifth International Microgravity Combustion Workshop",
+   "publicationDate": "1999-05-18T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19990053965,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Fifth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PUBLICATION",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19990053966.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19990053966/downloads/19990053966.pdf",
+    "pdf": "/api/citations/19990053966/downloads/19990053966.pdf",
+    "fulltext": "/api/citations/19990053966/downloads/19990053966.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

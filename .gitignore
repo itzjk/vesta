@@ -1,0 +1,31 @@
+# local and generated
+.DS_Store
+node_modules/
+shots/
+web-probe/
+*.log
+
+# internal working material: build infrastructure, agent notes and design drafts carry local paths
+tools/internal/
+design/
+build/
+DESIGN-BRIEF.md
+DESIGN.md
+research/*.md
+research/raw/_selftest.*
+
+# large NASA originals stay out; their extracted text stays in (it is what the quote check reads)
+research/raw/**/*.pdf
+research/raw/psi/files/
+research/raw/psi/shell/
+research/raw/psi/probes/
+research/raw/psi/_tools/
+research/raw/psi/dump_log.jsonl
+
+# the challenge statement is cached for the quote check but is not ours to redistribute
+research/raw/nasa/spaceapps-challenge-flame-in-freefall.txt
+
+# helper folders and scratch files the research agents left beside the sources
+research/raw/**/_*/
+research/evidence/_*
+.codex-respuesta.txt

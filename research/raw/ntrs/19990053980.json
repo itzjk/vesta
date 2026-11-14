@@ -1,0 +1,128 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19990053980,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "b4c2f832c6d249a785936e48664c66bc",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Materials Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19990053980,
+  "ear": "NO",
+  "id": "49b3a4d004924caeac3b100a41801d2a",
+  "itar": "NO"
+ },
+ "distributionDate": "2011-09-08T00:00:00.0000000+00:00",
+ "title": "A Study of Flame Propagation on Water-Mist Laden Gas Mixtures in Microgravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-19T03:33:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19990053980,
+   "meta": {
+    "author": {
+     "name": "Abbud-Madrid, A."
+    },
+    "organization": {
+     "name": "Colorado School of Mines",
+     "location": "Golden, CO United States"
+    }
+   },
+   "id": "dec6c54589da4e5ca4ce57d9df219245"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19990053980,
+   "meta": {
+    "author": {
+     "name": "Riedel, E. P."
+    },
+    "organization": {
+     "name": "Colorado School of Mines",
+     "location": "Golden, CO United States"
+    }
+   },
+   "id": "3a32a45794da42cb81848feac4d5724f"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19990053980,
+   "meta": {
+    "author": {
+     "name": "McKinnon, J. T."
+    },
+    "organization": {
+     "name": "Colorado School of Mines",
+     "location": "Golden, CO United States"
+    }
+   },
+   "id": "5da0d03515bc47d4a0e3edcbe7aeb1eb"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19990053980,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-19T03:33:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The use of water mists (very fine water sprays) for fire suppression is currently receiving increased attention as a replacement technology for halogen-based chemical agents-such as Halon 1301 (CF3Br)--the manufacturing of which has been banned by the Montreal Protocol due to their high ozone depletion potential. Water mist technology has been found effective for a wide range of applications such as Class B pool fires, shipboard machinery, aircraft cabins, computers, and electronic equipment. There are five distinct mechanisms by which water droplets may interact with a flame. First, the high enthalpy of vaporization of water (2450 kJ/kg) leads to heat removal from the flame front as the liquid droplets turn to steam. Second, as water vaporizes its volume increases approximately three orders of magnitude, which leads to the dilution of the oxygen and vaporized fuel required to maintain the flame. The third effect is the recombination of H-atoms and other radicals on the droplet surface. A fourth effect of water mists in fires is the retardation of surface propagation rates due to the wetting of walls and surfaces. The last potential impact of fine water mists affects the radiative propagation of the fire by forming an optically thick barrier to infrared radiation which prevents ignition of the unburned regions. Unfortunately, little fundamental information exists on the interaction of a flame with a water mist. To date, there is no widely accepted interpretation of the critical concentration of droplets required to suppress a flame or of the fundamental mechanisms involved in flame extinguishment by water mists. One of the main obstacles to obtaining such understanding is the difficulty of providing a simple, well-defined experimental setup for the flame front/water mist interaction. Some of the difficulty stems from the problem of generating, distributing and maintaining a homogeneous concentration of droplets throughout a chamber while gravity depletes the concentration and alters the droplet size by coalescence and agglomeration mechanisms. Experiments conducted in the absence of gravity provide an ideal environment to study the interaction of water mists and flames by eliminating these distorting effects. In addition, microgravity eliminates the complex flow patterns induced between the flame front and the water droplets. The long duration and quality of microgravity in space flights provide the required conditions to perform the setup and monitoring of flame suppression experiments. Consequently, a series of experiments have been identified to be performed on the Combustion Module (CM-2) in the Space Shuttle. These consist of measuring the extinguishing capability of a water mist on a premixed flame propagating along a tube. These experiments should provide the necessary data to obtain further understanding of the water mist suppression phenomena that can be later used to design and manufacture appropriate fire suppression systems. In preparation for the orbital flights, experiments have been conducted on low-gravity ground facilities to obtain the preliminary data necessary to define the scientific objectives and technical issues of the spacecraft experiments.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "publications": [
+  {
+   "submissionId": 19990053980,
+   "id": "5856521870eb4577ac67d345827fe456",
+   "publicationName": "Fifth International Microgravity Combustion Workshop",
+   "publicationDate": "1999-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19990053965,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Fifth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PUBLICATION",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19990053965,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Fifth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PUBLICATION",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,139 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20140000849,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "143363c6b6d5490794eb033629d57ddc",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20140000849,
+  "ear": "NO",
+  "id": "5e0236ba2f9f4d97b56d16afd106a46d",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-29213",
+  "Report Number: JSC-CN-29213"
+ ],
+ "title": "Portable Simulator for On-Board International Space Station Emergency Training",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2014-02-24T05:57:59.1970000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20140000849,
+   "meta": {
+    "author": {
+     "name": "Bolt, Kathy"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "9c2c6e40b9a04942befd6be0ff4c8a44"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20140000849,
+   "meta": {
+    "author": {
+     "name": "Root, Michael"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "212e6461bbdc46e4a612b3c90c3748f8"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20140000849,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2014-02-24T05:57:59.1970000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The crew on-board the International Space Station (ISS) have to be prepared for any possible emergency. The emergencies of most concern are a fire, depressurization or a toxic atmosphere. The crew members train on the ground before launch but also need to practice their emergency response skills while they are on orbit for 6 months. On-Board Training (OBT) events for emergency response proficiency used to require the crew and ground teams to use paper \"scripts\" that showed the path through the emergency procedures. This was not very realistic since the participants could read ahead and never deviate from this scripted path. The new OBT emergency simulator allows the crew to view dynamic information on an iPad only when it would become available during an event. The simulator interface allows the crew member to indicate hatch closures, don and doff masks, read pressures, and sample smoke or atmosphere levels. As the crew executes their actions using the on-board simulator, the ground teams are able to monitor those actions via ground display data flowing through the ISS Ku Band communication system which syncs the on-board simulator software with a ground simulator which is accessible in all the control centers. The OBT Working Group (OBT WG), led by the Chief Training Office (CTO) at Johnson Space center is a Multilateral working group with partners in Russia, Japan, Germany and U.S.A. The OBTWG worked together to create a simulator based on these principles: (a) Create a dynamic simulation that gives real-time data feedback; (b) Maintain real-time interface between Mission Control Centers and crew during OBTs; (c) Provide flexibility for decision making during drill execution; (d) Materially reduce Instructor and Flight Control Team man-hour costs involved with developing, updating, and maintaining emergency OBT cases/scenarios; and (e) Introduce an element of surprise to emergency scenarios so the team can't tell the outcome of the case by reading ahead in a paper script. This paper details some of the background as the project evolved with the International Partners. It also provides more details on how the simulator information for the crew is also shared with the ground teams. Finally, the paper will discuss how this remote simulator concept can be useful for future, longer term space missions.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20140000849,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "f4cf9fa037a0418e853c6c92872a55ad"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20140000849,
+   "endDate": "2014-05-09T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "d18a97b3b66141a29ece6add2c938a7d",
+     "id": "852e775f46374179b72b45114f8cd913"
+    }
+   ],
+   "name": "SpaceOps 2014",
+   "location": "Pasadena, CA",
+   "id": "d18a97b3b66141a29ece6add2c938a7d",
+   "startDate": "2014-05-05T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20140000849,
+   "id": "ab63819adcb74609b6e4e1be016a6c6e",
+   "publicationDate": "2014-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20140000849.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20140000849/downloads/20140000849.pdf",
+    "pdf": "/api/citations/20140000849/downloads/20140000849.pdf",
+    "fulltext": "/api/citations/20140000849/downloads/20140000849.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

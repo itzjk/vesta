@@ -1,0 +1,247 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": true,
+  "disclosedToPublic": false,
+  "thirdPartyLocationComments": "Slides 6-8 contain diagrams made by ZIN Technologies.",
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "MAY_INCLUDE_COPYRIGHT_MATERIAL",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20210017343,
+  "containsThirdPartyMaterial": true,
+  "belongsToPublisher": false,
+  "id": "763e18d7446a4718a7f137b0668f70a2",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Design, Testing And Performance"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20210017343,
+  "ear": "NO",
+  "id": "cd4c935b85ee41578c7209f60d5f9ca2",
+  "itar": "NO"
+ },
+ "distributionDate": "2021-07-14T04:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "089407.02.04.22",
+   "submissionId": 20210017343,
+   "id": "cbdb3e58a65b40789af3ce92a900c873",
+   "type": "WBS"
+  }
+ ],
+ "title": "Evaluation of Combustion Products from Large-Scale Spacecraft Fires during the Saffire-IV and Saffire-V Experiments",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2021-06-14T17:09:00.6207750+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 0,
+   "submissionId": 20210017343,
+   "meta": {
+    "author": {
+     "name": "Claire Fortenberry"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, Maryland, United States"
+    }
+   },
+   "id": "85b1abf633c242fb8000f4fd9809c6b4",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "b9cd289657ad4b388c09d1692901b134"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20210017343,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Michael Casteel"
+    },
+    "organization": {
+     "name": "Jacobs Technology, Inc."
+    }
+   },
+   "id": "24efabcb47dd433da7ee62189994fc97",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "8aaa8eb14fd24668a02c3e23976b21d8"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 2,
+   "submissionId": 20210017343,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "John Graf"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "f6272ae6461a4c7584b83de6eb0a4fc0",
+   "userType": "CIVIL",
+   "userId": "29f9ddbbab954724a9e80bc49932aee5"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 3,
+   "submissionId": 20210017343,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "John Easton"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "283ce9ac34884766b9923fe104050456",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "238872ad78464960888b70cf679121e2"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 4,
+   "submissionId": 20210017343,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Justin Niehaus"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "b72b1169f5ff4cee8e833b02a491207a",
+   "userType": "CIVIL",
+   "userId": "873b729bd4544ad3a2d05c274bcad04b"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 5,
+   "submissionId": 20210017343,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Marit Meyer"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "73221444a79b48a98dbf9eeefd1e297b",
+   "userType": "CIVIL",
+   "userId": "746679eab2894e4fb0ccd8b15c44344b"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 6,
+   "submissionId": 20210017343,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "David Urban"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "9554979aaae9458d8baf451ea76982f1",
+   "userType": "CIVIL",
+   "userId": "e6ad9f3a70a94fc1a0a4a56bb211746a"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 7,
+   "submissionId": 20210017343,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Gary Ruff"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "bb456fd279754fd58d3014b27838cad0",
+   "userType": "CIVIL",
+   "userId": "f5daba98616b4f9faeb0dc31767c1f15"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20210017343,
+ "created": "2021-06-11T06:47:36.1285410+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20210017343,
+  "id": "5f5c0b52610b4e22b3beea19da80b5d2"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20210017343,
+   "endDate": "2021-07-14T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "a4c6a63ed02340b68240e18a1c0d30ce",
+     "meta": {
+      "organization": {
+       "name": "International Conference on Environmental Systems (ICES) ",
+       "location": ""
+      }
+     },
+     "meetingId": "e1fab7cf83904d97949a74bdd34b55c8",
+     "id": "05be740320244618942347842503d30e"
+    }
+   ],
+   "name": "International Conference on Environmental Systems 50th Annual Conference",
+   "location": "Online",
+   "id": "e1fab7cf83904d97949a74bdd34b55c8",
+   "url": "https://www.ices.space/",
+   "startDate": "2021-07-12T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "ICES 2021 Platform v2.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20210017343/downloads/ICES%202021%20Platform%20v2.pdf",
+    "pdf": "/api/citations/20210017343/downloads/ICES%202021%20Platform%20v2.pdf",
+    "fulltext": "/api/citations/20210017343/downloads/ICES%202021%20Platform%20v2.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

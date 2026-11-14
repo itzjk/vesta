@@ -1,0 +1,39 @@
+https://www.nasa.gov/wp-json/wp/v2/migration/309116
+TITLE: NASA, Students and Others Building on Past Microgravity Fire Research
+FETCHED: 2026-11-14T10:57:50
+PUBLIC-LINK: https://www.nasa.gov/?migration=converted-node-216397
+DATE: 2013-11-14T17:41:44
+
+# NASA, Students and Others Building on Past Microgravity Fire Research
+
+Researchers build on the work of those who have gone before. New experiments intersect with published research; current investigations expand the scope of earlier work; new tests verify and challenge old results. And so it goes with all research, including microgravity flame studies.
+
+NASA engineers, academic researchers and scientists of all stripes have built on past experiments and findings to understand the fundamentals of combustion, fire sensing and fire suppression both on Earth and in space.
+
+Space-based microgravity flame investigations in the 1990s included the Fiber Supported Droplet Combustion Experiment (FSDC) and the Droplet Combustion Experiment (DCE). Both of these investigations were supported by NASA’s Glenn Research Center in Cleveland, Ohio. The lead principal investigator for both was Forman Williams from the University of California, San Diego (UCSD).
+
+Glenn and Williams also joined forces for the recent Flame Extinguishment Experiment (FLEX), which is currently being conducted on the International Space Station. This study is scheduled to complete its final experiment runs aboard station in the next six weeks.
+
+A related study to FLEX is the Flame Extinguishment Experiment – Italian Combustion Experiment for Green Air (FLEX-ICE-GA), which finalized operations Sept. 12 aboard the space station as part of Expedition 37. This study is a collaborative effort between Glenn, the Italian Space Agency, and the Istituto Motori of the National Research Council in Naples, Italy.
+
+On July 19, 2013, a new generation of engineers joined the effort to study biofuel flame behavior in microgravity. Undergraduates from UCSD flew as part of NASA’s Microgravity University aboard a modified Boeing 727. The aircraft was modified to fly up and down in parabolas to create up to 20 seconds of microgravity.
+
+Sam Avery, a fourth-year Aerospace Engineering major at UCSD, served as project manager and led a team of 12 undergrads. Williams acted as an advisor to the students for their project. For their investigation, the student team referenced Williams’ FSDC research.
+
+“Our work meshes with NASA’s by providing burning rate data for butanol, a biofuel which can act as a standalone substitute for gasoline,” Avery said. “We started with a general idea of how past FSDC experiments were conducted, including using syringes for fuel ejection and nichrome wire to ignite the droplet.”
+
+The team designed every piece of hardware for the experiment to be bolted to some part of the experiment container. This prevented any equipment from floating or lifting off the surface as the plane flew parabolic arcs to create the microgravity conditions.
+
+“The Microgravity University program had strict structural loading requirements, including that the experiment needed to be able to withstand nine times its own weight in the forward direction,” Avery said. “Therefore, we essentially designed our experiment to be able to withstand a plane crash.”
+
+Compared to studies on the space station, which can have dozens if not hundreds of runs, UCSD’s experiments were somewhat limited at 30 attempts—the total number of parabolas. Each attempt lasted 20 seconds during the reduced gravity arc of the flight. Despite the limited number of attempts and relatively short duration of the microgravity conditions, the student scientists had a high rate of success, according to Avery.
+
+“Besides the five or so parabolas that were designated as ‘fun,’ we had successful droplet ignition on all but one or two of our attempts,” Avery said. “That gives a greater than 90 percent success [rate] for achieving ignition. However, our actual usable data might be much less than 90 percent because there was ‘dirty’ gravity, additional flow around the flame, or human error during the ignition process.”
+
+The team is still evaluating the results and plans to publish in the near future. They will write a final report for NASA and will also submit a paper to an American Institute of Aeronautics and Astronautics (AIAA) student conference.
+
+The team’s findings could help improve fuel efficiency here on Earth, as well as fire extinguisher designs and other applications in weightless environments like those on the space station.
+
+While the UCSD experiment looked at butanol, other fuels were studied in earlier investigations. FLEX was the first time scientists observed large droplets of heptane fuel that had dual modes of combustion and extinction. The recently completed FLEX-ICE-GA investigation looked at “green” fuels with an emphasis on finding ecologically friendlier fuels. The fuels for FLEX-ICE-GA included mixtures of heptane and ethanol and decane and hexanol.
+
+After decades of microgravity flame studies by a diverse group of researchers, the work continues with a new generation. The building blocks that interconnect to form our understanding of the universe continue as students find new ways to build on past research and explore new mysteries.

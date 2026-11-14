@@ -1,0 +1,78 @@
+Flame Design—A Novel Approach
+Developed to Produce Clean, Efficient
+Diffusion Flames
+Soot formation and flame extinction are vital concerns in the combustion of fossil fuels. In
+particular, soot is responsible for pollutant emissions, and extinction can cause inefficient
+or unstable burning. Normal-gravity experiments have demonstrated that flames can be
+designed to improve both characteristics by redirecting some or all of the nitrogen from
+the oxidizer into the fuel. Such nitrogen exchange can produce permanently blue flames,
+which are soot free under all possible flame conditions. Furthermore, this approach can
+lead to stronger, extinction-resistant flames.
+
+Past investigations of nitrogen exchange were unable to identify the physical mechanisms
+responsible for its benefits because these mechanisms cannot be isolated when normal-
+gravity flames are studied. In contrast, the Diffusion Flame Extinction and Soot Inception
+(DESI) experiment considers spherical flames, where nearly perfect spherical symmetry
+affords new levels of control. Because of buoyancy, spherical flames cannot be created in
+Earth’s gravity.
+
+DESI was conceived by principal investigator Professor R.L. Axelbaum of Washington
+University in St. Louis. Tests to date have utilized the 2.2-Second Drop Tower at the
+NASA Glenn Research Center at Lewis Field. The experiment is slated for testing aboard
+the International Space Station in a few years.
+
+Two mechanisms have been proposed to explain the connection between nitrogen
+exchange and permanently blue flames. These are the structure (chemical effects) and
+hydrodynamics (flow direction and speed). In normal-gravity flames, the structure and
+hydrodynamics are coupled, since nitrogen exchange simultaneously modifies both.
+Spherical microgravity flames, on the other hand, allow independent control of these
+factors. Specifically, structure can be modified via nitrogen exchange, and flow direction
+can be reversed by swapping the ambient and burner-feed gases. In DESI, these variations
+can be accomplished without changing the theoretical flame temperature.
+Images of four representative flames. (a) Ethylene (C2H4) burning in air; diameter 29.3
+mm. (b) Diluted ethylene (C2H4/N2) burning in oxygen; diameter, 18.8 mm. (c) Air issuing
+into ethylene (C2H4); diameter, 24.7 mm. (d) Oxygen issuing into diluted ethylene
+(C2H4/N2); diameter, 31.3 mm. The scale is revealed by the 6.4-mm spherical burner.
+
+Images of four flames observed in the 2.2-Second Drop Tower are shown here. The
+flames surround the burner (barely visible), which is a 6-mm porous steel sphere to which
+gas is supplied though a 2-mm tube. As is typical for hydrocarbon-fueled flames, yellow
+regions indicate the presence of glowing soot, and the reaction zones are bright blue.
+These four flames burn ethylene (C2H4) at a rate of 1.5 mg/sec in a still ambient at a
+pressure of 1 atm. Several salient features of these flames are summarized in the table. In
+these flames, structure has a defining influence on soot production, with soot suppressed
+entirely when nitrogen is supplied with the fuel. Convection direction has a smaller
+influence, suppressing soot when convection is directed toward the oxidizer. These
+observations contribute significantly to the understanding of permanently blue diffusion
+flames.
+                              SUMMARY OF THE FOUR
+                             REPRESENTATIVE FLAMES
+                       Flame    Structure   Flow    Soot
+                                          direction
+                         (a)      Normal       Normal      Present
+                         (b)      Inverted     Normal      Absent
+                         (c)      Normal       Inverted    Present
+                         (d)      Inverted     Inverted    Absent
+
+Because of the inherent transient nature of 2-sec tests, preparations are underway to
+repeat these tests in Glenn’s 5-sec facility. Nevertheless, burn times of 2 min will
+ultimately be required to obtain steady flames and limit conditions. Thus, if approved,
+DESI will be conducted aboard the International Space Station. We envision that such
+tests will yield fully steady flames and will measure sooting and extinction limits,
+temperatures, soot concentrations and morphology, and radiative emissions. The tests will
+continue to exploit a class of flames that cannot be observed in Earth’s gravity.
+
+National Center for Microgravity Research contact: Dr. Peter B. Sunderland, (216)
+433–8087, Peter.B.Sunderland@grc.nasa.gov
+
+Glenn contacts: Dennis P. Stocker, (216) 433–2166, Dennis.P.Stocker@grc.nasa.gov;
+and Jeffrey A. Jones, (216) 433–2870, Jeffrey.A.Jones@grc.nasa.gov; and Dr. David L.
+Urban, (216) 433–2835, David.L.Urban@grc.nasa.gov
+
+Authors: Professor Richard L. Axelbaum, Dr. David L. Urban, Dr. Peter B. Sunderland,
+and Professor Beei-Huan Chao
+
+Headquarters program office: OLMSA
+
+Programs/Projects: HEDS, Microgravity Science
+

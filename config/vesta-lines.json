@@ -1,0 +1,21 @@
+{
+ "schema": "vesta.lines/1",
+ "note": "Fixed copy spoken by VESTA, keyed by a step's 'say'. Tagged VESTA \u00b7 interpretation on screen. The lines point at the quote and never state physics.",
+ "lines": {
+  "standby": "Earth is up to 20 minutes away. Press run.",
+  "S1": "Alarm. I am treating it as real.",
+  "S2": "Fans off. The reason is in the quote.",
+  "S3": "Look all the way round it. Read the quote.",
+  "S4": "Power off first. This one is ISS practice, not an experiment.",
+  "S5": "Careful where you aim. Read the quote.",
+  "S6": "I see no flame. The CO reading is still high. We are not done.",
+  "S7": "This material is in the tables. Read the rows before you trust them.",
+  "S8": "There is a source for this one. Read the quote first.",
+  "no_source": "No verified finding for this. I will not guess. The ISS procedure applies.",
+  "no_protocol": "No verified finding and no verified protocol line. This decision is the crew's.",
+  "end": "Eight decisions made. At the maximum delay, Earth has only now heard the alarm.",
+  "end_other": "The log is complete. Every decision keeps its source and its evidence limit.",
+  "user_file": "Your telemetry, the same officer. Every step still needs its source.",
+  "standby_no_delay": "The delay has no verified source. Press run to inspect the on-board decisions."
+ }
+}

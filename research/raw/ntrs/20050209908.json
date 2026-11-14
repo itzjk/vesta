@@ -1,0 +1,119 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050209908,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "4c7e8af25bd8444bab106c9de5d14869",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Propellants And Fuels"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050209908,
+  "ear": "NO",
+  "id": "902270d68b024f99979843937a3e24e6",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "title": "Suppression Characteristics of Cup-Burner Flames in Low Gravity",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-23T11:49:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050209908,
+   "meta": {
+    "author": {
+     "name": "Takahashi, Fumiaki"
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "2d995c7f745843ba9ccf1e09de5c1b6b"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20050209908,
+   "meta": {
+    "author": {
+     "name": "Linteris, Gregory T."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "d2c4422678c54635ab81d0c46384c02d"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20050209908,
+   "meta": {
+    "author": {
+     "name": "Katta, Viswanath R."
+    },
+    "organization": {
+     "name": "Innovative Scientific Solutions, Inc.",
+     "location": "Dayton, OH, United States"
+    }
+   },
+   "id": "29edbbded60d40fb9ad586379edf34fc"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050209908,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-23T11:49:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The structure and suppression of laminar methane-air co-flow diffusion flames formed on a cup burner have been studied experimentally and numerically using physically acting fire-extinguishing agents (CO2, N2, He, and Ar) in normal earth (lg) and zero gravity (0g). The computation uses a direct numerical simulation with detailed chemistry and radiative heat-loss models. An initial observation of the flame without agent was also made at the NASA Glenn 2.2-Second Drop Tower. An agent was introduced into a low-speed coflowing oxidizing stream by gradually replacing the air until extinguishment occurred under a fixed minimal fuel velocity. The suppression of cup-burner flames, which resemble real fires, occurred via a blowoff process (in which the flame base drifted downstream) rather than the global extinction phenomenon typical of counterflow diffusion flames. The computation revealed that the peak reactivity spot (the reaction kernel) formed in the flame base was responsible for attachment and blowoff phenomena of the trailing diffusion flame. The thermal and transport properties of the agents affected the flame extinguishment limits.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20050209908,
+   "endDate": "2004-01-08T00:00:00.0000000+00:00",
+   "name": "42nd AIAA Aerospace Sciences Meeting and Exhibit",
+   "location": "Reno, NV",
+   "id": "13514e8a006449fc85c083dce72084a7",
+   "startDate": "2004-01-05T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20050209908,
+   "id": "4c26c28bc8374d469311be096ab6610d",
+   "publicationDate": "2004-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

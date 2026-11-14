@@ -1,0 +1,67 @@
+https://www.nasa.gov/missions/station/iss-research/science-in-space-week-of-sept-29-2023-fire-safety-in-space/
+TITLE: Science in Space: Week of Sept. 29, 2023 - Fire Safety in Space - NASA
+FETCHED: 2026-11-14T10:54:45
+
+4 min read
+
+# Science in Space: Week of Sept. 29, 2023 – Fire Safety in Space
+
+John Love
+
+Sep 29, 2023
+
+Article
+
+Crew members aboard the International Space Station conducted a variety of scientific investigations during the week ending Sept. 29, 2023, including FLARE.
+
+This JAXA (Japan Aerospace Exploration Agency) investigation explores the flammability of materials in microgravity. Current tests of materials that are used in crewed spacecraft do not consider gravity, which significantly affects combustion phenomena. The ability for flames to spread over solid materials, for example, is affected by the forces of buoyancy, which are absent in microgravity. Removing the effects of buoyancy by conducting combustion experiments in microgravity also gives researchers a better understanding of specific flame behaviors.
+
+JAXA astronaut Satoshi Furukawa sets up hardware for the FLARE investigation.
+
+NASA
+
+Other investigations on the space station have examined the behavior, spread, and growth of fire. This work helps guide selection of spacecraft cabin materials, improve understanding of early fire growth behavior, validate models used to determine material flammability, and identify optimal fire suppression techniques. Developing ways to prevent and extinguish fire is of critical importance to the safety of crew members and vehicles in space and in confined spaces such as aircraft on Earth. These settings limit the options for suppressing fires and can be difficult to evacuate from.
+
+Burning and Suppression of Solids (BASS) was one of the first investigations to examine how to extinguish a variety of fuels burning in microgravity. Putting out fires in space must consider the geometry of the flame and characteristics of the materials and methods used to extinguish it, as those used on the ground could be ineffective or even make the flame worse. Analysis of 59 BASS burn tests provided data on heat flow, flame size, effects of fuel mixture flow, and other important parameters.
+
+BASS-II examined the burning and extinction characteristics of a variety of fuel samples to test the hypothesis that materials burn as well if not better in microgravity than in normal gravity, given adequate ventilation and identical conditions such as pressure, oxygen concentration, and temperature. A number of papers have been published based on results from BASS-II, with findings including a report on the differences between flame spread and fuel regression and comparison of flame spread rates.
+
+Image of a flame burning during the BASS experiments on extinguishing burning fuels.
+
+NASA
+
+Solid Fuel Ignition and Extinction – Growth and Extinction Limit (SoFIE-GEL), a research collaboration between NASA and Roscosmos, analyzes how the temperature of a fuel affects material flammability. Researchers report that experimental observations agree with trends predicted by the models. This investigation is the first in a series using the SoFIE insert for the station’s Combustion Integrated Rack.
+
+ESA (European Space Agency) astronaut Samantha Cristoforetti works on the SoFIE-GEL investigation of materials flammability.
+
+NASA
+
+Saffire is a series of experiments conducted aboard uncrewed Cygnus cargo spacecraft after they depart the station. Using these cargo vehicles provides distance from the crewed station and enables tests of larger fires. Results have shown that a flame spreading over thin fabrics in microgravity reaches a steady spread rate and a limiting length, which can be used to establish the rate of heat release in a spacecraft, and found that reducing pressure slows down the flame spread.
+
+A sample of fabric burns inside an uncrewed Cygnus cargo craft for the Saffire-IV experiment.
+
+NASA
+
+Confined Combustion, sponsored by the ISS National Lab, examines the behavior of flame spread in confined spaces of different shapes. Confinement has been shown to have significant effects on fire characteristics and hazards. Researchers report specifics on interactions between a flame and its surrounding walls and the fate of the flame, such as growth or extinction. These data provide guidance for design of structures and fire safety codes and response in space and on Earth. Other results suggest that confinement can increase or decrease solid fuel flammability depending on conditions. Researchers also demonstrated that color pyrometry – capturing flame emission simultaneously at three broad spectral bands – can determine the temperature of a flame without disrupting its spread.
+
+Flame studies help keep crews in space and people on Earth safe. This research also can lead to more efficient combustion, reducing impurities and producing greener and more efficient flames for uses on Earth such as heating and transportation.
+
+@ISS
+
+@ISS@ISS_Research
+
+@ISS
+
+@company/NASA
+
+Keep Exploring
+
+## Discover More Topics
+
+Latest News from Space Station Research
+
+ISS National Laboratory
+
+Station Science 101: Physical Science
+
+International Space Station

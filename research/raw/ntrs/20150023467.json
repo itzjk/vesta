@@ -1,0 +1,114 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150023467,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "74608d5e6e204b259053e39fc56471eb",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Chemistry And Materials (General)"
+ ],
+ "keywords": [
+  "flammability",
+  "microgravity"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150023467,
+  "ear": "NO",
+  "id": "5c072ae7bd0743999ca103e0056105a2",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN27681",
+  "Report Number: GRC-E-DAA-TN27681"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNX10AE01G",
+   "submissionId": 20150023467,
+   "id": "fcb8a50d94a04061b8204f05cecc0e32",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 067463.01.01.03",
+   "submissionId": 20150023467,
+   "id": "ab53803f83934210bb807b2dc4f3e7b7",
+   "type": "WBS"
+  }
+ ],
+ "title": "Material Ignition and Suppression Test (MIST) in Space Exploration Atmospheres, Summary of Research",
+ "stiType": "CONTRACTOR_OR_GRANTEE_REPORT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-12-23T16:24:55.7670000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150023467,
+   "meta": {
+    "author": {
+     "name": "Fernandez-Pello, Carlos"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "e9d153ab104f495f8ca4f09aea3e1b36"
+  }
+ ],
+ "stiTypeDetails": "Contractor or Grantee Report",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150023467,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-12-23T16:24:55.7670000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Material Ignition and Suppression Test (MIST) project has had the objective of evaluating the ease of ignition and the fire suppression of materials used in spacecraft under environmental condition expected in a spacecraft. For this purpose, an experimental and theoretical research program is being conducted on the effect of space exploration atmospheres (SEA) on the piloted ignition of representative combustible materials, and on their fire suppression characteristics. The experimental apparatus and test methodology is derived from the Forced Ignition and Flame Spread Test (FIST), a well-developed bench scale test designed to extract material properties relevant to prediction of material flammability. In the FIST test, materials are exposed to an external radiant flux and the ignition delay and critical mass flux at ignition are determined as a function of the type of material and environmental conditions. In the original MIST design, a small-scale cylindrical flow duct with fuel samples attached to its inside wall was heated by a cylindrical heater located at the central axis of the cylinder. However, as the project evolved it was decided by NASA that it would be better to produce an experimental design that could accommodate other experiments with different experimental concepts. Based on those instructions and input from the requirements of other researchers that may share the hardware in an ISS/CIR experiment, a cylindrical design based on placing the sample at the center of an optically transparent tube with heaters equally spaced along the exterior of the cylinder was developed. Piloted ignition is attained by a hot wire igniter downstream of the fuel sample. Environment variables that can be studied via this experimental apparatus include: external radiant flux, oxidizer oxygen concentration, flow velocity, ambient pressure, and gravity level (if flown in the ISS/CIR). This constitutes the current experimental design, which maintains fairly good consistency with Dr Tien's and Dr Olson's project approaches. A further goal of the project has been to develop a combined solid/gas phase numerical model based on the MIST test methodology to predict the flammability behavior of practical materials in spacecraft.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20150023467,
+   "id": "a860ab5ecb204aad90c08c017498a8df",
+   "publicationDate": "2013-05-13T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150023467.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150023467/downloads/20150023467.pdf",
+    "pdf": "/api/citations/20150023467/downloads/20150023467.pdf",
+    "fulltext": "/api/citations/20150023467/downloads/20150023467.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

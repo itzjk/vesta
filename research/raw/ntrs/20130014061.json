@@ -1,0 +1,165 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20130014061,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "203801f0d1634f888ce17ab3dcd66688",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Propellants And Fuels"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20130014061,
+  "ear": "NO",
+  "id": "801f2d649e49425c8dc1e0ea1bddfa80",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "Paper-70HE-0303",
+  "GRC-E-DAA-TN9229",
+  "Report Number: Paper-70HE-0303",
+  "Report Number: GRC-E-DAA-TN9229"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 904211.04.02.30.07",
+   "submissionId": 20130014061,
+   "id": "502d75aac9234e0982cd5f4bc5eb95b4",
+   "type": "WBS"
+  },
+  {
+   "number": "NNC08BA05B",
+   "submissionId": 20130014061,
+   "id": "c04ab2a3830a4399a424e62d462699f5",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Methanol Droplet Combustion in Oxygen-Inert Environments in Microgravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-27T10:16:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20130014061,
+   "meta": {
+    "author": {
+     "name": "Nayagam, Vedha"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "92f60efe82d14716baf35a56c1f376e0"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20130014061,
+   "meta": {
+    "author": {
+     "name": "Dietrich, Daniel L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "31a16e36796b4f4889c7921f28dfea8f"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20130014061,
+   "meta": {
+    "author": {
+     "name": "Hicks, Michael C."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "f016a2c34b32409891eac5764ccfb1a2"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20130014061,
+   "meta": {
+    "author": {
+     "name": "Williams, Forman A."
+    },
+    "organization": {
+     "name": "California Univ., San Diego",
+     "location": "La Jolla, CA, United States"
+    }
+   },
+   "id": "4254b2815e2d4c5f9e7395f7aacc1cf6"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20130014061,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-27T10:16:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Flame Extinguishment (FLEX) experiment that is currently underway in the Combustion Integrated Rack facility onboard the International Space Station is aimed at understanding the effects of inert diluents on the flammability of condensed phase fuels. To this end, droplets of various fuels, including alkanes and alcohols, are burned in a quiescent microgravity environment with varying amounts of oxygen and inert diluents to determine the limiting oxygen index (LOI) for these fuels. In this study we report experimental observations of methanol droplets burning in oxygen-nitrogen-carbon dioxide and oxygen-nitrogen-helium gas mixtures at 0.7 and 1 atmospheric pressures. The initial droplet size varied between approximately 1.5 mm and 4 mm to capture both diffusive extinction brought about by insufficient residence time at the flame and radiative extinction caused by excessive heat loss from the flame zone. The ambient oxygen concentration varied from a high value of 30% by volume to as low as 12%, approaching the limiting oxygen index for the fuel. The inert dilution by carbon dioxide and helium varied over a range of 0% to 70% by volume. In these experiments, both freely floated and tethered droplets were ignited using symmetrically opposed hot-wire igniters and the burning histories were recorded onboard using digital cameras, downlinked later to the ground for analysis. The digital images yielded droplet and flame diameters as functions of time and subsequently droplet burning rate, flame standoff ratio, and initial and extinction droplet diameters. Simplified theoretical models correlate the measured burning rate constant and the flame standoff ratio reasonably well. An activation energy asymptotic theory accounting for time-dependent water dissolution or evaporation from the droplet is shown to predict the measured diffusive extinction conditions well. The experiments also show that the limiting oxygen index for methanol in these diluent gases is around 12% to 13% oxygen by volume.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20130014061,
+   "endDate": "2013-05-22T00:00:00.0000000+00:00",
+   "name": "8th U.S. National Combustion Meeting",
+   "location": "Park City, UT",
+   "id": "4878bc96707445c0b154428dce9a7c08",
+   "startDate": "2013-05-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20130014061,
+   "id": "2dcfb429b79b42fead5917f1105c361f",
+   "publicationDate": "2013-05-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20130014061.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20130014061/downloads/20130014061.pdf",
+    "pdf": "/api/citations/20130014061/downloads/20130014061.pdf",
+    "fulltext": "/api/citations/20130014061/downloads/20130014061.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,135 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150002997,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "c327d60ac5d4445ab54b5820f92c81b5",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150002997,
+  "ear": "NO",
+  "id": "b0e46a38097a4faf988b7c509f224025",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-32950",
+  "Report Number: JSC-CN-32950"
+ ],
+ "title": "The Evolution of On-Board Emergency Training for the International Space Station Crew",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-03-16T17:46:41.1700000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150002997,
+   "meta": {
+    "author": {
+     "name": "LaBuff, Skyler"
+    },
+    "organization": {
+     "name": "SGT, Inc.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "60be68e576124dc38f60375c221caac4"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150002997,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-03-16T17:46:41.1700000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The crew of the International Space Station (ISS) receives extensive ground‐training in order to safely and effectively respond to any potential emergency event while on‐orbit, but few people realize that their training is not concluded when they launch into space. The evolution of the emergency On‐ Board Training events (OBTs) has recently moved from paper \"scripts\" to an intranet‐based software simulation that allows for the crew, as well as the flight control teams in Mission Control Centers across the world, to share in an improved and more realistic training event. This emergency OBT simulator ensures that the participants experience the training event as it unfolds, completely unaware of the type, location, or severity of the simulated emergency until the scenario begins. The crew interfaces with the simulation software via iPads that they keep with them as they translate through the ISS modules, receiving prompts and information as they proceed through the response. Personnel in the control centers bring up the simulation via an intranet browser at their console workstations, and can view additional telemetry signatures in simulated ground displays in order to assist the crew and communicate vital information to them as applicable. The Chief Training Officers and emergency instructors set the simulation in motion, choosing the type of emergency (rapid depressurization, fire, or toxic atmosphere) and specific initial conditions to emphasize the desired training objectives. Project development, testing, and implementation was a collaborative effort between ISS emergency instructors, Chief Training Officers, Flight Directors, and the Crew Office using commercial off the shelf (COTS) hardware along with simulation software created in‐house. Due to the success of the Emergency OBT simulator, the already‐developed software has been leveraged and repurposed to develop a new emulator used during fire response ground‐training to deliver data that the crew receives from the handheld Compound Specific Analyzer for Combustion Products (CSA‐CP). This CSA‐CP emulator makes use of a portion of codebase from the Emergency OBT simulator dealing with atmospheric contamination during fire scenarios, and feeds various data signatures to crew via an iPod Touch with a flight‐like CSA‐CP display. These innovative simulations, which make use of COTS hardware with custom in‐house software, have yielded drastic improvements to emergency training effectiveness and risk reduction for ISS crew and flight control teams during on‐orbit and ground training events.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20150002997,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "460bc309999049bab4495a763b7434d7"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20150002997,
+   "endDate": "2015-05-06T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "f0db9a01f86449d0ae79ccf31f90c6c7",
+     "id": "2c454cec781d40be94e336cadb9ef398"
+    }
+   ],
+   "name": "Annual Improving Space Operations Workshop",
+   "location": "Pasadena, CA",
+   "id": "f0db9a01f86449d0ae79ccf31f90c6c7",
+   "startDate": "2015-05-05T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20150002997,
+   "id": "0927d32d816f4105b119238e6593a07e",
+   "publicationDate": "2015-05-05T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20150006017,
+   "type": "SEE_ALSO",
+   "title": "The Evolution of On-Board Emergency Training for the International Space Station Crew",
+   "stiType": "PRESENTATION",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150002997.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150002997/downloads/20150002997.pdf",
+    "pdf": "/api/citations/20150002997/downloads/20150002997.pdf",
+    "fulltext": "/api/citations/20150002997/downloads/20150002997.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

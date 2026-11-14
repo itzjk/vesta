@@ -1,0 +1,148 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053556,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "e9de12223fc44319bed0ad617c18dd83",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Aircraft Propulsion And Power"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053556,
+  "ear": "NO",
+  "id": "9383b528b7cc4933858b08de21ac5c69",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-09T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NCC3-871",
+   "submissionId": 20040053556,
+   "id": "5915574cc11545d28ce07a7f55e8fe3f",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Cool Flames in Propane-Oxygen Premixtures at Low and Intermediate Temperatures at Reduced-Gravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:35:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053556,
+   "meta": {
+    "author": {
+     "name": "Pearlman, Howard"
+    },
+    "organization": {
+     "name": "Drexel Univ.",
+     "location": "Philadelphia, PA, United States"
+    }
+   },
+   "id": "15a1864d5bca4b2e95d8b865f0cb2f53"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053556,
+   "meta": {
+    "author": {
+     "name": "Foster, Michael"
+    },
+    "organization": {
+     "name": "Drexel Univ.",
+     "location": "Philadelphia, PA, United States"
+    }
+   },
+   "id": "29266aa519d145f6afe081d2836b0466"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053556,
+   "meta": {
+    "author": {
+     "name": "Karabacak, Devrez"
+    },
+    "organization": {
+     "name": "Drexel Univ.",
+     "location": "Philadelphia, PA, United States"
+    }
+   },
+   "id": "d19dce7ee2b147ed8af32615588ecd35"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053556,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:35:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Cool Flame Experiment aims to address the role of diffusive transport on the structure and the stability of gas-phase, non-isothermal, hydrocarbon oxidation reactions, cool flames and auto-ignition fronts in an unstirred, static reactor. These reactions cannot be studied on Earth where natural convection due to self-heating during the course of slow reaction dominates diffusive transport and produces spatio-temporal variations in the thermal and thus species concentration profiles. On Earth, reactions with associated Rayleigh numbers (Ra) less than the critical Ra for onset of convection (Ra(sub cr) approx. 600) cannot be achieved in laboratory-scale vessels for conditions representative of nearly all low-temperature reactions. In fact, the Ra at 1g ranges from 10(exp 4) - 10(exp 5) (or larger), while at reduced-gravity, these values can be reduced two to six orders of magnitude (below Ra(sub cr)), depending on the reduced-gravity test facility. Currently, laboratory (1g) and NASA s KC-135 reduced-gravity (g) aircraft studies are being conducted in parallel with the development of a detailed chemical kinetic model that includes thermal and species diffusion. Select experiments have also been conducted at partial gravity (Martian, 0.3gearth) aboard the KC-135 aircraft. This paper discusses these preliminary results for propane-oxygen premixtures in the low to intermediate temperature range (310- 350 C) at reduced-gravity.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053556,
+   "id": "99c24b0ae3f642a19da087c32607a21c",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053556.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053556/downloads/20040053556.pdf",
+    "pdf": "/api/citations/20040053556/downloads/20040053556.pdf",
+    "fulltext": "/api/citations/20040053556/downloads/20040053556.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

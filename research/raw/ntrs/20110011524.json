@@ -1,0 +1,168 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20110011524,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "a012be859af841a194d3d09f70f73f9a",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Mechanical Engineering"
+ ],
+ "keywords": [
+  "Ignition delay time",
+  "Normoxic equivalent environments",
+  "Combustible materials",
+  "Material flammability"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20110011524,
+  "ear": "NO",
+  "id": "56e69d60d95d4360835863a6129964c7",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "PB2010-102722",
+  "Paper 2009-01-2491",
+  "Report Number: PB2010-102722",
+  "ISSN: 0148-7101",
+  "Report Number: Paper 2009-01-2491"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC-05GA02G",
+   "submissionId": 20110011524,
+   "id": "ff92f9ddd5d1463f8ab0f60b252e988d",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Ignition Delay of Combustible Materials in Normoxic Equivalent Environments",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T08:00:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20110011524,
+   "meta": {
+    "author": {
+     "name": "McAllister, Sara"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "fc0c11a315284a0ba9ad697fdcf866cc"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20110011524,
+   "meta": {
+    "author": {
+     "name": "Fernandez-Pello, Carlos"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "f74c8b8d2ead445bb2b82973d77109e8"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20110011524,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "a982b22222874a23ad1bbfac37f59042"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20110011524,
+   "meta": {
+    "author": {
+     "name": "Urban, David"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "df844c91eb5f4e50b359dd1063c26481"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20110011524,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T08:00:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Material flammability is an important factor in determining the pressure and composition (fraction of oxygen and nitrogen) of the atmosphere in the habitable volume of exploration vehicles and habitats. The method chosen in this work to quantify the flammability of a material is by its ease of ignition. The ignition delay time was defined as the time it takes a combustible material to ignite after it has been exposed to an external heat flux. Previous work in the Forced Ignition and Spread Test (FIST) apparatus has shown that the ignition delay in the currently proposed space exploration atmosphere (approximately 58.6 kPa and32% oxygen concentration) is reduced by 27% compared to the standard atmosphere used in the Space Shuttle and Space Station. In order to determine whether there is a safer environment in terms of material flammability, a series of piloted ignition delay tests using polymethylmethacrylate (PMMA) was conducted in the FIST apparatus to extend the work over a range of possible exploration atmospheres. The exploration atmospheres considered were the normoxic equivalents, i.e. reduced pressure conditions with a constant partial pressure of oxygen. The ignition delay time was seen to decrease as the pressure was reduced along the normoxic curve. The minimum ignition delay observed in the normoxic equivalent environments was nearly 30% lower than in standard atmospheric conditions. The ignition delay in the proposed exploration atmosphere is only slightly larger than this minimum. Interms of material flammability, normoxic environments with a higher pressure relative to the proposed pressure would be desired.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20110011524,
+   "endDate": "2009-07-15T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "2fb8633154d94728aec2c57afa709b46",
+     "meta": {
+      "organization": {
+       "name": "Society of Automotive Engineers, Inc.",
+       "location": "Warrendale, PA, United States"
+      }
+     },
+     "meetingId": "c83de6f58d5947dcaab359455b2bb1f4",
+     "id": "8e8cbc26c4174503a47a06a587f68528"
+    }
+   ],
+   "name": "SAE 39th International Conference on Environmental Systems",
+   "location": "Savannah, GA",
+   "id": "c83de6f58d5947dcaab359455b2bb1f4",
+   "startDate": "2009-07-12T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20110011524,
+   "issn": "0148-7101",
+   "id": "9f9f7c3f668246a8ac33e0f58191ff39",
+   "publicationDate": "2009-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

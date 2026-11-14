@@ -1,0 +1,97 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "approverComments": "Items in TRS are protected by copyright, but are furnished with U.S. government purpose use rights.",
+  "containsIndication": true,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20210012108,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": true,
+  "id": "4dea73fc452d4d21874ad39d7d2e23b3",
+  "belongsToAuthors": false
+ },
+ "exportControl": {
+  "isExportControl": "UNSET",
+  "submissionId": 20210012108,
+  "ear": "UNSET",
+  "id": "df28faf8e1fc4e20950f26bd5a7e6ac0",
+  "itar": "UNSET"
+ },
+ "created": "2019-07-07T00:00:00.0000000+00:00",
+ "distributionDate": "2019-07-07T00:00:00.0000000+00:00",
+ "center": {
+  "code": "JPL",
+  "name": "Jet Propulsion Laboratory",
+  "id": "efbc9c123a0f47caafa95d99b7d2e1a1"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 0,
+ "abstract": "The Combustion Product Monitor (CPM) instrument is a six-channel tunable laser absorption spectrometer capable of measuring ambient gas-phase concentrations of CO, HCl, HCN, HF, CO2, and O2 in spacecraft environments. Monitoring of these compounds can provide early warning detection of combustion events and can also facilitate safe post-fire\r\ncleanup. Here, we will describe the development of a CPM instrument optimized for operation as part of the Spacecraft Fire Safety Demonstration (Saffire) Project. As part of Saffire, the CPM instrument will measure concentrations of the target gases during low-gravity, reduced pressure\r\noxidative pyrolysis of relevant test materials aboard a transfer vehicle returning from low Earth orbit. We will describe the CPM instrument design, absorption line selection,theoretical and experimental detection limits, and environmental testing.",
+ "title": "The Combustion Product Monitor instrument for the spacecraft fire safety demonstration project",
+ "stiType": "PREPRINT",
+ "distribution": "PUBLIC",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20210012108,
+   "meta": {
+    "author": {
+     "name": "Briggs, Ryan M."
+    }
+   },
+   "id": "657f4ba4cdee40b29ee7f3b9fd3bd249"
+  },
+  {
+   "sequence": 0,
+   "submissionId": 20210012108,
+   "meta": {
+    "author": {
+     "name": "Bendig, Rudi M."
+    }
+   },
+   "id": "39d6974d4cdc4ffbb6f1a3bdae3dd48e"
+  },
+  {
+   "sequence": 0,
+   "submissionId": 20210012108,
+   "meta": {
+    "author": {
+     "name": "Fradet, Mathieu"
+    }
+   },
+   "id": "c2be75c3ee8b431781b5e5d6bd8c4a04"
+  }
+ ],
+ "disseminated": "METADATA_ONLY",
+ "stiTypeDetails": "Preprint (Draft being sent to journal)",
+ "technicalReviewType": "NOT_SET",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20210012108,
+ "sourceIdentifiers": [
+  {
+   "number": "2014/51087",
+   "submissionId": 20210012108,
+   "id": "6bea0c63930444e4af0e8a454e1a0ef5",
+   "type": "HANDLE"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20210012108,
+   "publisher": "Pasadena, CA: Jet Propulsion Laboratory, National Aeronautics and Space Administration, 2019",
+   "id": "0bd7ffe489a345bf9fba320e75bbd84f",
+   "publicationDate": "2019-07-07T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

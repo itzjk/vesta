@@ -1,0 +1,35 @@
+SAFFIRE-III Operations
+
+Operational Requirements and Protocols
+
+Saffire-III flight system is loaded into the Cygnus PCM and be strapped into place. Power, data, and relay
+connections are then made. Saffire remains unpowered during launch, berthing, and unberthing. Following
+unberthing, the Cygnus Flight Operations Team (FOT) establishes the vehicle in a separate orbit. The Cygnus FOT
+powers on the experiment avionics and conducts a check of all experiment components. The FOT places the Cygnus
+vehicle into a free-drift mode and initiate the experiment. The Saffire-III experiment records and compresses all data
+obtained during the experiment.A subset of the experiment data is downlinked through passes at multiple ground
+sites and checked for quality. When the selected data files have been successfully retrieved, the experiment avionics
+power is turned off and the Cygnus FOT deorbits the Cygnus vehicle.
+
+The Saffire experiments are conducted in three consecutive flights of the Cygnus vehicle. Since Cygnus undergoes a
+destructive re-entry, three Saffire experiment units (Saffire-I, -II, and –III) are constructed and all data must be
+downlinked. Even with these three flight opportunities, the experiment is very limited in the amount of data and test
+conditions that can be investigated. In Saffire-I and –III, the sample material is a single large sample (approx. 0.4 m
+wide by 0.94 m tall) and demonstrates the development and spread of a large-scale low-gravity fire. Once started, the
+entire burn of each of these samples is recorded, the data compressed, and downlinked. Because of limitations in
+time available for downlinking, a maximum of 20 gigabits of data can be downlinked. The Saffire-III experiment begins
+only after Cygnus is unberthed from the ISS. Prior to unberthing, the crew must check that the inlet and outlet ends of
+the flow duct be clear of any stowage bags being deorbited.
+
+Saffire-III mission operations begin when Cygnus unberths from the ISS. The Cygnus FOT establishes the vehicle in
+a separate orbit. Based on this new orbit, ground station contact times are calculated and the experiment start is
+confirmed and coordinated with the Saffire FOT. From Cygnus undock until experiment start takes about 1/2 day. The
+experiment operations are conducted in two phases. The first phase consists of turning on power to the experiment
+avionics, checking that the experiment is initialized successfully, starting the experiment run, and recording and
+compressing the resulting data. The second phase consists of downloading all experiment data via downlink passes
+at various ground sites. Data are examined for data quality and files are retransmitted if necessary. When a complete
+set of data files has been successfully retrieved, or the timeline has reached a predetermined maximum duration, the
+experiment avionics power is switched off and the Cygnus vehicle deorbits. Cygnus burns up on re-entry into the
+Earth's atmosphere. Consequently, the flight unit is permanently disposed of during this process. No specific disposal
+processes are expected if the experiment hardware is burned up upon re-entry.
+

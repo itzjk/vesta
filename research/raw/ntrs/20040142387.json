@@ -1,0 +1,96 @@
+{
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040142387,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "8ec7c08d48464726b12b9bd68126538b",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040142387,
+  "ear": "NO",
+  "id": "c0f90fe8051141f88cb7c3e68ec67ea1",
+  "itar": "NO"
+ },
+ "created": "2013-09-07T11:49:00.0000000+00:00",
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Viewgraphs on the prevention, suppression, and detection of fires aboard a spacecraft is presented. The topics include: 1) Fire Prevention, Detection, and Suppression Sub-Element Products; 2) FPDS Organizing Questions; 3) FPDS Organizing Questions; 4) Signatures, Sensors, and Simulations; 5) Quantification of Fire and Pre-Fire Signatures; 6) Smoke; 7) DAFT Hardware; 8) Additional Benefits of DAFT; 9) Development and Characterization of Sensors 10) Simulation of the Transport of Smoke and Fire Precursors; and 11) FPDS Organizing Questions.",
+ "title": "Research Plan for Fire Signatures and Detection",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:49:00.0000000+00:00",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040142387,
+ "publications": [
+  {
+   "submissionId": 20040142387,
+   "id": "0a0a54c75ff34c75b7fa32df33bf86b3",
+   "publicationName": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Presentations, Volume 1",
+   "publicationDate": "2004-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040142351,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Presentations",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040142351,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Presentations",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040142387.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040142387/downloads/20040142387.pdf",
+    "pdf": "/api/citations/20040142387/downloads/20040142387.pdf",
+    "fulltext": "/api/citations/20040142387/downloads/20040142387.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

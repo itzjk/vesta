@@ -1,0 +1,3 @@
+Microgravity Effects on Combustion of Polymers
+
+A viewgraph presentation describing various microgravity effects on the combustion of polymers is shown. The topics include: 1) Major combustion processes and controlling mechanisms in normal and microgravity environments; 2) Review of some buoyancy effects on combustion: melting of thermoplastics; flame strength, geometry and temperature; smoldering combustion; 3) Video comparing polymeric rods burning in normal and microgravity environments; and 4) Relation to spacecraft fire safety of current knowledge of polymers microgravity combustion.

@@ -1,0 +1,262 @@
+                             Effects          of Flame             Structure               and Hydrodynamics                                 on
+             Soot Particle                 Inception              and Flame                Extinction               in Diffusion                  Flames
+
+                          R. L. Axelbaum,              R. Cher_       Washington             University,           St. Louis,           MO    USA
+    P. B. Sunderland (NCMR),                          D. L. Urban, NASA               Glenn Research                    Center,         Cleveland,        OH USA
+                                    S. Liu and B. H. Chao, University                        of Hawaii,           Hawaii,          USA
+
+
+INTRODUCTION
+    This paper summarizes                    recent     studies of the effects             of stoichiomelric              mixture         fraction      (struclam0      and
+hydrodynamics               on    soot particle         inception          and     flame     extinction           in diffusion            flames.         Microgravity
+experiments          are uniquely          suited for these studies because,                  unlike normal              gravity experiments,               they allow
+structural     and hydrodynanfic                effects to be independently                  studied.        As part of this recent                  flight definition
+program,       microgravity           studies       have      been    performed            in the 2.2 second               drop         tower.       Normal      gravity
+counterflow           studies       also     have      been       employed           and     analytical           and     numerical           models        have       been
+developed.
+    A goal of this program                    is to develop          sufficient      understanding           of the effects               of flame       slructme       that
+flames      can be "designed"                to specifications         - consequently,           the program               name Flame             Design.        In other
+words,       ff a soot-free,          strong,       low temperature               flame     is required,          can one produce                 such a flame by
+designing          its structure?      Certainly,        as in any design,            there will be consWaints                     imposed        by the properties
+of the       available        "materials."            For     hydrocarbon            combustion,            the     base        materials         are    fuel    and    air.
+Additives       could be considered,                  but for this work only fuel, oxygen                         and nitrogen             are considered.            Also,
+the saucture         of these flames is "designed"                   by _                 the stoichiomelric             mixtme          fraction.      Following       this
+line of reasoning,               the studies        described        below        ate aimed      at developing                  the understanding               of flame
+structure     that is needed          to allow for optimum                 design.
+
+
+SOOT         INCEPTION
+    Recent         experimental,           numerical        and      analytical       work      has     shown            that     the     stoichiomelric         mixture
+fraction,     Zst, can have a profound                  effect on soot formation                in diffusion            flames      [ 1- 7]. This effect appears
+even       at constant       adiabatic        flame temperature,                 Tad, as demonstrated              by Du and Axelbaum                       [1, 2].     An
+important       finding of these works was that at sufficiently                              high Z_t the flames                  remain      blue even when the
+strain     rate approaches            zero in counterflow                  flames,     or as flame           height         and residence               time approach
+infinity     in coflowing           flames.      Lin and Faeth             [4] coined        the term        permanently                  blue to describe             such
+flames.
+    Flames          considered        in past       studies      involved         counterflow         and     gas-jet       configurations,              which     do not
+allow      independent           variation     of flame        structure         and convection         direction.              Thus,      it was not possible            to
+assess       the     relative       contributions           of     structure         and     hydrodynamics                 because           both       structure       and
+hydrodynamics              suppress        soot formation         at high Z_t in nonmt-gravity                    diffusion flames.
+    To better understand               the mechanism              responsible         for permanently              blue flames, the onset of luminous
+soot (the          soot    limit)    was      examined           in spherical        microgravity           diffusion           flames       btarting       ethylene       at
+atmospheric          pressure.        In a novel application                of microgravity,           spherical          flames        were employed            to allow
+convection          across the flame to be either from fuel-to-oxidizer                               or from oxidizer-to-fuel,                    while at the same
+time allowing             Z_t to be independently                varied.     Stoichiomelric           mixture           fraction        was varied        by changing
+
+
+
+
+NASA/CP--2001-210826                                                               153
+ inert concentrations             such that adiabatic           flame temperatme                did    not change         [2].     Nitrogen      was supplied
+ with the oxidizer          at low Zst and with the fuel at high Zst.
+     Thus motivated,             we established         four flames:         (a) ethylene          issuing into air, (b) diluted ethylene                    issuing
+ into oxygen,       (c) air issuing into ethylene,              and (d) oxygen              issuing into diluted ethylene.                The stoichiometric
+ mixture      fraction      for flames        (a) and       (c) is 0.064         and        for flames        (b) and      (d) it is 0.78.            Under      the
+ assumption        of equal        diffusivities      of all Slx_ies and heat , me stoichiometric                         contours        of the flames        have
+ identical nitrogen            concentrations        and adiabatic       temperatures.
+     The      experiments          were     conducted        in the NASA               Glenn        2.2-second         drop       tower     using      a general-
+ purpose       combustion          rig. The        burner     is a 6.4 mm diameter                    porous     sphere       consisting       of sintered        i0
+ micron stainless steel particles. Temperatures       were measured                                 using an uncoated              PffPt-Rh     thermocouple
+ and were corrected for radiation losses ............
+     Since       the _p         tower     pro_des      only 2_2 seconds               of microgram@             6me,      a transient       flaeomtical      model
+ was developed            to evaluate       the effects      of unsteadiness           and heat loss on the temperatures                       of the flames.
+ The model         adopts        a simplified        single-step,      flame-sheet            approximation            for reaction         chemistry        and a
+ detailed     modeling         of heat loss.        Radiative       heat losses from the gas and the burner                          surface     are included.
+ The optically       thin model is adopted              to formulate       the gas radiation.
+    Figure 1 shows color images,                     captured       just prior to drop termination,                of representative            flames       for the
+ four conditions          considered.        Each     flame has an ethylene                 consumption          rote of 1.5 mg/s and an adiabatic
+ flame temperature              of 2370     IC      Figure 2 shows             predicted       flame     and burner         tempemtur_              for the four
+ flames      of Fig.      1.     The      numerical       results     show       that a/ter        ignition     the flame         temperature          i/acreases,
+ approaching        an asymptote           in tens of seconds.             None       of the flames has reached                    steady    state within the
+2.2 seconds        of drop time.          Furthermore,          although       the adiabatic          flame temperatures            of all four flames are
+the same, the flame temperatm'es                      vary considerably.              In particular,       Flames         (a) and (d) are substantially
+cooler and evolve              more slowlythan          Flames        (b) and (c). The agreement                   between         theory    and experiment
+is only fair, presammbly             due to the optically thin radiation                    assumption        used in the model.
+    Structure       is seen        to have       a significant        effect     on    soot formation             in the present            flames,       yielding
+permanently        blue flames when              Z_t is increased       to 0.78.        The permanently             blue state is realized             in Fig. ld
+despite       mfavorable         hydrodynamics,             where     convection            is towards        the fuel.       Flames        (a) and     (d) have
+almost      identical     measured         temperatures         and similar          theoretical       temples.               -Convection           favors    soot
+oxidation        in Flame       (a) and soot formation               in Flame        (d).     Nonetheless,         Flame         (a) produces         soot while
+Flame       (d) does not, indicating             that flame structure           is responsible          for the soot free conditions                  of Fig. ld.
+Furthermore,        the flame in Fig. lb, which has Zst = 0.78, is soot free.
+    The results of this study support                  the importance           of flame structure             on soot inception            and permanently
+blue conditions.           Nonetheless,          the transient        nature     of the problem,              as demonstrated             by the numerical
+calcttlations,      indicates       that there        are uncertainties.             Microgravity         tests in gas-jet           flames      indicate      that
+steady      soot concentratiolis           reqmre test times exceeding                  those of gi;0mad-i_dsec1 facilities.                    Furthermore,
+in the present      brief tests, thermophoresis                 may cause soot formed                  during ignition           to be trapped        within the
+flame.      Thus, longer microgravity               test times are required             and are being pursued.
+
+
+FLAME          EXTINCTION
+
+   The effects          of _t on extinction           of methane       counterflow           diffusion    flames are shown in Figure                    3, where
+numerical        predictions        of scalar       dissipation       rate at extinction              (as characterized             by (VZ) 2 at Zst) are
+plotted     as a function        of Z_t. Counterflow             experiments           have been performed                to verify the model             but are
+
+
+
+NASA/CP--2001-210826                                                           154
+not includedhere. Theprofoundimpactof Zst is evident,                                                 with an almost 40 fold increase                           in scalar
+dissipation      rote with Zst. Furthermore,                    the flame temperature                   at extinction         can be 140 °C lower when
+Zst is increased          fi'om Z_t = 0.055 (methane/air)                   to 0.65.       The minimum                  flame temperature               at extinction
+occurs     at the peak in scalar dissipation                   rate indicating        that the flames                at Z_, = 0.65 are very slrong.                        This
+result    is due to the shill in the oxygen                      profile    into the high temperature                       region      of the flame             and the
+resulting increase          in radical production,               shown      in Figs. 4 and 5.                   At Z_t = 0.65 the radical                 production
+region is coincident          with the peak temperature,                   as seen in Fig. 5. For methane                        burning         in air (Fig. 4) this
+is not the case and consequently                    much higher        flame temperatures                      are required      to sustain the flame.                     This
+interesting      finding suggests that the Z,t = 0.65 flame                        is a better            designed       flame in that it more efficiently
+uses the high temperature                 of the flame for radical production.
+
+
+This      work    was supported                 by NASA          Grants       NCC3-697,                 NAG3-1910,              NCC3-696a,              and NAG3-
+1912,      with D. P. Stocker                  serving      as Project        Scientist.              The assistance             of S. A. Gokoglu,                     B. J.
+Goldstein,       J. E. Pierce        and H. D. Ross is duly appreciated.
+
+
+REFERENCES
+1. Du, J. and Axelbaum,                   R. L., Combust.           Flame       100:367           (1995).
+2. Du, J., and Axelbaum,                  R. L., Proc.         Combust.       lnst.    26:1137             (1996).
+3. Chao, B. H., Liu, S. and Axelbaurn,                         R. L., Combust.             Sci. Tech.             138:105       (1998).
+4. Lin, K. -C. and Faeth,                 G. M., J. Prop.          Power       12:691           (1996).
+5. Lin, K. -C. and Faeth,                 G. M., J. Prop.          Power       12:10 (1996).
+6. Lin, K. -C. and Faeth, G. M., Combust.                            Flame       115:468              (1998).
+7. Sugiyama,           G., Proc.     Combust.             lnst. 25:601      (1994).
+8. Sunderland,            P. B., K6ylii, Q. 0., and Faeth,                  G. M., Combust.                     Flame     100:310         (1995).
+
+
+                             Zst   --= 0.064                                     Zst----       0.78
+
+                                      I                                                    I
+E    L            White                          d=29.3   mm                                          d=18.8    mm
+                                                                                                                              Fig. 1        Images of repre-
+                                                                                                                              sentative     flames at the end
+                                                                                                                              of the 2.2 second                drop:        (a)
+                                                                                                                              ethylene     (1.51 mg/s) issuing
+                                                                                                                              into air, ft.4; (b) diluted
+                 (a)                        _"       Blue             (b)                                                     ethylene      (19        mg/s)         issuing
+                                                                                                                              into   oxygen,           fl.4;         (c)    air
+                                      I                                                    I
+                                                                                                                              (22       rag/s)         issuing             into
+                                                 air-_2H4                                             O2--_C2H4/N2
+E                 White
+                                                 d=24.7 rnm
+                                                                       Blue
+                                                                                                      d=31.3 mm               ethylene,          f6;    (d)      oxygen
+    IJ.                                                                                                                       (5.2      mg/s)          issuing             into
+O                                                                                                                             diluted     ethylene,            f6.         The
+                                                                                                                              scale is revealed           by the 6.4
+                                                                                                                              mm     spherical          burner.            The
+
+o                (c)                                                 (d)                                                      ethylene      cormmaption                    rate
+                                                                                                                              is 1.51 mg/s in all cases.
+
+
+
+
+NASMCP--2001-210826                                                            155
+        2500            ..........                                               ,   .........                                     9O                                                                               1800
+                                                              c
+                                                                                                                                   80                                         Potential    Flow                     1780
+
+
+        2000                                                                                                                                                                                                        1760
+
+
+                        Y
+                                                                                                                                   70
+
+
+                                                                                                                                   60                    _                                         ow               1740
+
+        1500
+I---
+                               IlK                                                                                                 50
+                                                                                                                                                                                                                    1720
+
+
+
+
+       IOO0
+                        ¢                            Measurements
+                                                     •
+                                                     •
+                                                     •
+                                                           Flame a
+                                                                      Flame b
+                                                                      Flame ¢
+                                                                                                                               "-" 30
+                                                                                                                                                                                                                    1700
+
+
+
+                                                                                                                                                                                                                    1680
+
+                                                                                                                                                                                                                    1660
+
+        500                                          •                Flame d                                                      20
+                                                                                                                                                                                                                    1640
+
+                                                                                                                                   10
+                                                                                                                                                                                                                    1620
+                                                                                                                                                                               Potential    Flow
+                    i      _    •    •   .       I   t    t       J    m     I       m   ,_                                                                                                                         1600
+                                                 5                         10                    _t_=     "         20                  0                0.2     :     -074      =         0.6     :          0.8
+                                                                      t(s)
+
+Fig. 2. Predicted flame temperature and burner                                                                                  Fig. 3. Scalar               dissipation rate (as characterized
+temperature for flames (a) - (d). Also shown,                                                                                   by (VZ) 2 at Zst ) and flame                                 temperature at
+by symbols, are measured peak temperatures                                                                                      extinction for methane.
+after 2.2 s.
+       1800                                                                                             0.01
+                                                                                                                                   1800                                                                        0.01
+                        Zst = 0.055                      ,/_T
+                                                           ,
+       1600
+                                                                                                                                   1600
+                                                                                                                                                  O_H2       =H2_N_T             K_==100;635
+                                                                                                                                                                                           1,s                0.008
+                        K = 473 l/s/                                  _                                 0.008
+       1400
+                                                                                                                                   1400
+                                                 /                         \
+       1200                                                                                             0.006
+                                             /            H+O2+M=HO2 +M                                                            1200                                                                       o.oo6_
+                            H+O2=OH+O                                                                           O
+
+       1000
+
+                          /\                                                                         0.004
+                                                                                                                               "-" 1000
+
+
+                                                                                                                                                         ___                          H2=OH+H
+                                                                                                                                                                                                              0.004     "_
+
+
+       800
+       600               7:.+\
+                OH+H2=H20+H
+                                                                                                     0.002
+                                                                                                                O                   800
+                                                                                                                                    600                                                                       0.002
+
+
+       400                                                                                                                         400
+                                                                                                                                                                                                              0
+       200                                                                                                                         200
+                           2OH=O+H2_
+                                                                       H+HO2=2OH
+          0     .......................                                                          ,   -0.002                                                                                                   -0.002
+
+              0,4              0.45              0.5              0,55               0.6         0.65                                       0.4      0.45            0.5       0.55        0.6         0.65
+                                                                                                                                                                       X (era)
+                                                     X (cm)
+
+Fig. 4. Radical production rates and flame                                                                                     Fig. 5. Radical production rates and flame
+temperature distributions for a methane flame                                                                                  ten'qxcature distributions for a methane flame
+wifla Zst = 0.055.                                                                                                             with Z,t = 0.65.
+
+
+
+NASA/CP--2001-210826                                                                                                     156
+

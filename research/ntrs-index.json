@@ -1,0 +1,6759 @@
+[
+ {
+  "id": 19870006579,
+  "title": "Science and technology issues in spacecraft fire safety",
+  "year": 1987,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Friedman, Robert",
+   "Sacksteder, Kurt R."
+  ],
+  "abstract_chars": 1136,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19870006579/downloads/19870006579.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19870006579"
+ },
+ {
+  "id": 19870010909,
+  "title": "Fire safety concerns in space operations",
+  "year": 1987,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Friedman, Robert"
+  ],
+  "abstract_chars": 784,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19870010909/downloads/19870010909.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19870010909"
+ },
+ {
+  "id": 19880003139,
+  "title": "Techniques for fire detection",
+  "year": 1987,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Bukowski, Richard W."
+  ],
+  "abstract_chars": 896,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19880003139/downloads/19880003139.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19880003139"
+ },
+ {
+  "id": 19880003145,
+  "title": "Space station internal environmental and safety concerns",
+  "year": 1987,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Cole, Matthew B."
+  ],
+  "abstract_chars": 457,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19880003145/downloads/19880003145.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19880003145"
+ },
+ {
+  "id": 19880009228,
+  "title": "Spacecraft Fire Detection and Extinguishment: A Bibliography",
+  "year": 1988,
+  "stiType": "CONTRACTOR_REPORT",
+  "center": "HQ",
+  "authors": [
+   "Jason, Nora H."
+  ],
+  "abstract_chars": 801,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19880009228/downloads/19880009228.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19880009228"
+ },
+ {
+  "id": 19880010969,
+  "title": "Spacecraft Fire-Safety Experiments for Space Station: Technology Development Mission",
+  "year": 1988,
+  "stiType": "CONTRACTOR_REPORT",
+  "center": "GRC",
+  "authors": [
+   "Youngblood, Wallace W."
+  ],
+  "abstract_chars": 2108,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19880010969/downloads/19880010969.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression",
+   "theme:post-fire-cleanup",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19880010969"
+ },
+ {
+  "id": 19880014518,
+  "title": "Microgravity combustion discipline working group summary of requirements for noncontact temperature measurements",
+  "year": 1988,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Sacksteder, Kurt"
+  ],
+  "abstract_chars": 937,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19880014518/downloads/19880014518.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19880014518"
+ },
+ {
+  "id": 19880035178,
+  "title": "Experiments to ensure Space Station fire safety - A challenge",
+  "year": 1988,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Youngblood, W. W.",
+   "Seiser, K. M."
+  ],
+  "abstract_chars": 667,
+  "downloads": [],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19880035178"
+ },
+ {
+  "id": 19890014130,
+  "title": "Expert systems applied to spacecraft fire safety",
+  "year": 1989,
+  "stiType": "CONTRACTOR_REPORT",
+  "center": "CDMS",
+  "authors": [
+   "Smith, Richard L.",
+   "Kashiwagi, Takashi"
+  ],
+  "abstract_chars": 525,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19890014130/downloads/19890014130.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19890014130"
+ },
+ {
+  "id": 19890014267,
+  "title": "An experimental study of opposed flow diffusion flame extinction over a thin fuel in microgravity",
+  "year": 1989,
+  "stiType": "THESIS_DISSERTATION",
+  "center": "CDMS",
+  "authors": [
+   "Ferkul, Paul V."
+  ],
+  "abstract_chars": 941,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19890014267/downloads/19890014267.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19890014267"
+ },
+ {
+  "id": 19890015042,
+  "title": "Fire safety applications for spacecraft",
+  "year": 1989,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Friedman, Robert",
+   "Olson, Sandra L."
+  ],
+  "abstract_chars": 969,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19890015042/downloads/19890015042.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19890015042"
+ },
+ {
+  "id": 19890018844,
+  "title": "Status of the US Space Station ECLSS and internal TCS",
+  "year": 1988,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "MSFC",
+  "authors": [
+   "R. Humphries",
+   "L. Turner",
+   "J. Reuter",
+   "D. Patterson"
+  ],
+  "abstract_chars": 3825,
+  "downloads": [],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19890018844"
+ },
+ {
+  "id": 19890019294,
+  "title": "Microgravity combustion science: A program overview",
+  "year": 1989,
+  "stiType": "TECHNICAL_MEMORANDUM",
+  "center": "CDMS",
+  "authors": [],
+  "abstract_chars": 1745,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19890019294/downloads/19890019294.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19890019294"
+ },
+ {
+  "id": 19900003329,
+  "title": "Advanced spacecraft fire safety: Proposed projects and program plan",
+  "year": 1989,
+  "stiType": "CONTRACTOR_REPORT",
+  "center": "CDMS",
+  "authors": [
+   "Youngblood, Wallace W.",
+   "Vedha-Nayagam, M."
+  ],
+  "abstract_chars": 989,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19900003329/downloads/19900003329.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19900003329"
+ },
+ {
+  "id": 19900004364,
+  "title": "An Investigation of Flame Spread over Shallow Liquid Pools in Microgravity and Nonair Environments",
+  "year": 1989,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Ross, Howard D.",
+   "Sotos, Raymond G."
+  ],
+  "abstract_chars": 1228,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19900004364/downloads/19900004364.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19900004364"
+ },
+ {
+  "id": 19900004946,
+  "title": "Risk-Based Fire Safety Experiment Definition for Manned Spacecraft",
+  "year": 1989,
+  "stiType": "CONTRACTOR_REPORT",
+  "center": "CDMS",
+  "authors": [
+   "Apostolakis, G. E.",
+   "Ho, V. S.",
+   "Marcus, E.",
+   "Perry, A. T.",
+   "Thompson, S. L."
+  ],
+  "abstract_chars": 1615,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19900004946/downloads/19900004946.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19900004946"
+ },
+ {
+  "id": 19900055243,
+  "title": "The possibility of a reversal of material flammability ranking from normal gravity to microgravity",
+  "year": 1990,
+  "stiType": "REPRINT",
+  "center": "CDMS",
+  "authors": [
+   "T'Ien, James S."
+  ],
+  "abstract_chars": 594,
+  "downloads": [],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19900055243"
+ },
+ {
+  "id": 19910005065,
+  "title": "Definition of experiments to investigate fire suppressants in microgravity",
+  "year": 1990,
+  "stiType": "CONTRACTOR_REPORT",
+  "center": "CDMS",
+  "authors": [
+   "Reuther, James J."
+  ],
+  "abstract_chars": 1928,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19910005065/downloads/19910005065.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19910005065"
+ },
+ {
+  "id": 19910011869,
+  "title": "Fire suppression in human-crew spacecraft",
+  "year": 1991,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Friedman, Robert",
+   "Dietrich, Daniel L."
+  ],
+  "abstract_chars": 582,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19910011869/downloads/19910011869.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:post-fire-cleanup"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19910011869"
+ },
+ {
+  "id": 19910029452,
+  "title": "Critical safety assurance factors for manned spacecraft - A fire safety perspective",
+  "year": 1990,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Rodney, George A."
+  ],
+  "abstract_chars": 626,
+  "downloads": [],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19910029452"
+ },
+ {
+  "id": 19920004363,
+  "title": "Risks, designs, and research for fire safety in spacecraft",
+  "year": 1991,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Friedman, Robert",
+   "Sacksteder, Kurt R.",
+   "Urban, David"
+  ],
+  "abstract_chars": 887,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19920004363/downloads/19920004363.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19920004363"
+ },
+ {
+  "id": 19920033977,
+  "title": "The Implications of Experimentally Controlled Gravitational Accelerations for Combustion Science",
+  "year": 1991,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Sacksteder, Kurt R."
+  ],
+  "abstract_chars": 746,
+  "downloads": [],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:droplet-combustion",
+   "theme:solid-flame-spread",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19920033977"
+ },
+ {
+  "id": 19930004527,
+  "title": "Findings of a review of spacecraft fire safety needs",
+  "year": 1992,
+  "stiType": "CONTRACTOR_REPORT",
+  "center": "CDMS",
+  "authors": [
+   "Apostolakis, G. E.",
+   "Catton, I.",
+   "Paulos, T.",
+   "Paxton, K.",
+   "Jones, S."
+  ],
+  "abstract_chars": 763,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19930004527/downloads/19930004527.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19930004527"
+ },
+ {
+  "id": 19930010991,
+  "title": "Overview of NASA's microgravity combustion science and fire safety program",
+  "year": 1993,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Ross, Howard D."
+  ],
+  "abstract_chars": 875,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19930010991/downloads/19930010991.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19930010991"
+ },
+ {
+  "id": 19930011002,
+  "title": "An Experimental and Theoretical Study of Radiative Extinction of Diffusion Flames",
+  "year": 1993,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Atreya, Arvind",
+   "Wichman, Indrek",
+   "Guenther, Mark",
+   "Ray, Anjan",
+   "Agrawal, Sanjay"
+  ],
+  "abstract_chars": 1785,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19930011002/downloads/19930011002.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19930011002"
+ },
+ {
+  "id": 19930011015,
+  "title": "Fire safety practices in the Shuttle and the Space Station Freedom",
+  "year": 1993,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Friedman, Robert"
+  ],
+  "abstract_chars": 918,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19930011015/downloads/19930011015.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19930011015"
+ },
+ {
+  "id": 19930011018,
+  "title": "Combustion of solid fuel in very low speed oxygen streams",
+  "year": 1993,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Tien, James S.",
+   "Sacksteder, Kurt R.",
+   "Ferkul, Paul V.",
+   "Grayson, Gary D."
+  ],
+  "abstract_chars": 466,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19930011018/downloads/19930011018.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19930011018"
+ },
+ {
+  "id": 19930011025,
+  "title": "Combustion experiments in reduced gravity with two-component miscible droplets",
+  "year": 1993,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Shaw, Benjamin D.",
+   "Aharon, Israel"
+  ],
+  "abstract_chars": 1329,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19930011025/downloads/19930011025.pdf"
+  ],
+  "tags": [
+   "theme:partial-gravity-flammability",
+   "theme:droplet-combustion",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19930011025"
+ },
+ {
+  "id": 19930013454,
+  "title": "Space Station Freedom combustion research",
+  "year": 1992,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Faeth, G. M."
+  ],
+  "abstract_chars": 2909,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19930013454/downloads/19930013454.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19930013454"
+ },
+ {
+  "id": 19930015566,
+  "title": "Contributions of Microgravity Test Results to the Design of Spacecraft Fire Safety Systems",
+  "year": 1993,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Friedman, Robert",
+   "Urban, David L."
+  ],
+  "abstract_chars": 979,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19930015566/downloads/19930015566.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19930015566"
+ },
+ {
+  "id": 19930040901,
+  "title": "Downward Diffusion Flame Spread and Extinction in Variable Gravitational Fields - Lunar and Martian Simulations",
+  "year": 1993,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Sacksteder, Kurt R.",
+   "Tien, James S."
+  ],
+  "abstract_chars": 642,
+  "downloads": [],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19930040901"
+ },
+ {
+  "id": 19930066371,
+  "title": "Mechanisms of microgravity flame spread over a thin solid fuel - Oxygen and opposed flow effects",
+  "year": 1991,
+  "stiType": "REPRINT",
+  "center": "CDMS",
+  "authors": [
+   "Olson, S. L."
+  ],
+  "abstract_chars": 1125,
+  "downloads": [],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19930066371"
+ },
+ {
+  "id": 19940022933,
+  "title": "Risks and issues in fire safety on the Space Station",
+  "year": 1993,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Friedman, Robert"
+  ],
+  "abstract_chars": 1469,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19940022933/downloads/19940022933.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression",
+   "theme:post-fire-cleanup"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19940022933"
+ },
+ {
+  "id": 19950009635,
+  "title": "Combustion and fires in low gravity",
+  "year": 1994,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Friedman, Robert"
+  ],
+  "abstract_chars": 824,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19950009635/downloads/19950009635.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19950009635"
+ },
+ {
+  "id": 19950017584,
+  "title": "Microgravity Combustion Science: 1995 Program Update",
+  "year": 1995,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Ross, Howard D.",
+   "Gokoglu, Suleyman A.",
+   "Friedman, Robert"
+  ],
+  "abstract_chars": 1245,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19950017584/downloads/19950017584.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:droplet-combustion",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19950017584"
+ },
+ {
+  "id": 19960008406,
+  "title": "Effect of pressure on a burning solid in low-gravity",
+  "year": 1995,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Goldmeer, Jeffrey S.",
+   "Urban, David",
+   "Tien, James"
+  ],
+  "abstract_chars": 1402,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19960008406/downloads/19960008406.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19960008406"
+ },
+ {
+  "id": 19960008413,
+  "title": "Smoke detection in low-G fires",
+  "year": 1995,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Urban, David L.",
+   "Griffin, Devon W.",
+   "Gard, Melissa Y.",
+   "Hoy, Michael"
+  ],
+  "abstract_chars": 2765,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19960008413/downloads/19960008413.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19960008413"
+ },
+ {
+  "id": 19960008417,
+  "title": "Research on ignition and flame spread of solid materials in Japan",
+  "year": 1995,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Ito, Kenichi",
+   "Fujita, Osamu"
+  ],
+  "abstract_chars": 1628,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19960008417/downloads/19960008417.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:droplet-combustion",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19960008417"
+ },
+ {
+  "id": 19970020568,
+  "title": "Shapes of Buoyant and Nonbuoyant Methane Laminar Jet Diffusion Flames",
+  "year": 1997,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Peter B Sunderland",
+   "Zeng-Guang Yuan",
+   "David L Urban"
+  ],
+  "abstract_chars": 2329,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19970020568/downloads/19970020568.pdf"
+  ],
+  "tags": [
+   "theme:partial-gravity-flammability",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19970020568"
+ },
+ {
+  "id": 19970020570,
+  "title": "Application of Shear Plate Interferometry to Jet Diffusion Flame Temperature Measurements",
+  "year": 1997,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Brad A VanDerWege",
+   "Chris J OBrien",
+   "Simone Hochgreb"
+  ],
+  "abstract_chars": 2738,
+  "downloads": [],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19970020570"
+ },
+ {
+  "id": 19970020580,
+  "title": "Comparative Soot Diagnostics: Preliminary Results",
+  "year": 1997,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "David L Urban",
+   "DeVon W Griffin",
+   "Melissa Y Gard"
+  ],
+  "abstract_chars": 4025,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19970020580/downloads/19970020580.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19970020580"
+ },
+ {
+  "id": 19970020617,
+  "title": "Extinguishment of a Diffusion Flame Over a PMMA Cylinder by Depressurization in Low-Gravity",
+  "year": 1997,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Jeffrey S Goldmeer",
+   "James S Tien",
+   "David L Urban"
+  ],
+  "abstract_chars": 1451,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19970020617/downloads/19970020617.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:exploration-atmospheres",
+   "theme:fire-suppression",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19970020617"
+ },
+ {
+  "id": 19980209743,
+  "title": "Fire Safety in Extraterrestrial Environments",
+  "year": 1998,
+  "stiType": "REPRINT",
+  "center": "CDMS",
+  "authors": [
+   "Friedman, Robert"
+  ],
+  "abstract_chars": 505,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19980209743/downloads/19980209743.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression",
+   "theme:partial-gravity-flammability",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19980209743"
+ },
+ {
+  "id": 19990020833,
+  "title": "Comparative Soot Diagnostics: 1 Year Report",
+  "year": 1998,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "CDMS",
+  "authors": [
+   "Urban, David L.",
+   "Griffin, DeVon W.",
+   "Gard, Melissa Y."
+  ],
+  "abstract_chars": 2530,
+  "downloads": [],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19990020833"
+ },
+ {
+  "id": 19990053966,
+  "title": "NASA Microgravity Combustion Science Program",
+  "year": 1999,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Merrill K King"
+  ],
+  "abstract_chars": 3101,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19990053966/downloads/19990053966.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:partial-gravity-flammability",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19990053966"
+ },
+ {
+  "id": 19990053973,
+  "title": "Flow Effects on the Flammability Diagrams of Solid Fuels: Microgravity Influence on Ignition Delay",
+  "year": 1999,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Cordova, J. L.",
+   "Walther, D. C.",
+   "Fernandez-Pello, A. C.",
+   "Steinhaus, T.",
+   "Torero, J. L.",
+   "Quintere, J. G.",
+   "Ross, H. D."
+  ],
+  "abstract_chars": 2634,
+  "downloads": [],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19990053973"
+ },
+ {
+  "id": 19990053980,
+  "title": "A Study of Flame Propagation on Water-Mist Laden Gas Mixtures in Microgravity",
+  "year": 1999,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Abbud-Madrid, A.",
+   "Riedel, E. P.",
+   "McKinnon, J. T."
+  ],
+  "abstract_chars": 3224,
+  "downloads": [],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:droplet-combustion"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19990053980"
+ },
+ {
+  "id": 19990053990,
+  "title": "The Effects of Buoyancy and Dilution on the Structure and Lift-off of Coflow Laminar Diffusion Flames",
+  "year": 1999,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Walsh, Kevin T.",
+   "Long, Marshall B.",
+   "Smooke, Mitchell D."
+  ],
+  "abstract_chars": 2376,
+  "downloads": [],
+  "tags": [
+   "CLD Flame",
+   "theme:fire-suppression",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19990053990"
+ },
+ {
+  "id": 19990054043,
+  "title": "Transport and Chemical Effects on Concurrent and Opposed-Flow Flame Spread at Microgravity",
+  "year": 1999,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Honda, L. K.",
+   "Ronney, P. D."
+  ],
+  "abstract_chars": 1020,
+  "downloads": [],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19990054043"
+ },
+ {
+  "id": 19990054081,
+  "title": "Low Stretch Diffusion Flames Over a Solid Fuel",
+  "year": 1999,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Olson, S. L.",
+   "T'ien, J. S."
+  ],
+  "abstract_chars": 2143,
+  "downloads": [],
+  "tags": [
+   "theme:partial-gravity-flammability",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19990054081"
+ },
+ {
+  "id": 19990054085,
+  "title": "Flame Spread and Extinction in Partial-Gravity Environments",
+  "year": 1999,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "K R Sacksteder",
+   "P V Ferkul",
+   "J S T'ien"
+  ],
+  "abstract_chars": 1280,
+  "downloads": [],
+  "tags": [
+   "theme:partial-gravity-flammability",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19990054085"
+ },
+ {
+  "id": 19990063325,
+  "title": "ECLSS Design for the International Space Station Nodes 2 and 3",
+  "year": 1999,
+  "stiType": "REPRINT",
+  "center": "MSFC",
+  "authors": [
+   "Carrasquillo, Robyn L.",
+   "Bertotto, Dario"
+  ],
+  "abstract_chars": 1274,
+  "downloads": [],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19990063325"
+ },
+ {
+  "id": 19990063738,
+  "title": "Fire Safety in the Low-Gravity Spacecraft Environment",
+  "year": 1999,
+  "stiType": "REPRINT",
+  "center": "GRC",
+  "authors": [
+   "Friedman, Robert"
+  ],
+  "abstract_chars": 769,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19990063738/downloads/19990063738.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19990063738"
+ },
+ {
+  "id": 19990110713,
+  "title": "Combustion of Metals in Reduced-Gravity and Extra Terrestrial Environments",
+  "year": 1999,
+  "stiType": "OTHER",
+  "center": "GRC",
+  "authors": [
+   "Branch, M.C.",
+   "Abbud-Madrid, A.",
+   "Daily, J. W."
+  ],
+  "abstract_chars": 2629,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19990110713/downloads/19990110713.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:droplet-combustion"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19990110713"
+ },
+ {
+  "id": 19990116925,
+  "title": "The Effects of Buoyancy and Dilution on the Structure and Lift-Off of Coflow Laminar Diffusion Flames",
+  "year": 1999,
+  "stiType": "OTHER",
+  "center": "CDMS",
+  "authors": [
+   "Walsh, Kevin T.",
+   "Long, Marshall B.",
+   "Smooke, Mitchell D."
+  ],
+  "abstract_chars": 2057,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/19990116925/downloads/19990116925.pdf"
+  ],
+  "tags": [
+   "CLD Flame",
+   "theme:fire-suppression",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/19990116925"
+ },
+ {
+  "id": 20000057049,
+  "title": "Effects of Structure and Hydrodynamics on the Sooting Behavior of Spherical Microgravity Diffusion Flames",
+  "year": 2000,
+  "stiType": "PREPRINT",
+  "center": "GRC",
+  "authors": [
+   "Sunderland, P. B.",
+   "Axelbaum, Richard L.",
+   "Urban, D. L."
+  ],
+  "abstract_chars": 1356,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20000057049/downloads/20000057049.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20000057049"
+ },
+ {
+  "id": 20000120278,
+  "title": "Progress in Fire Detection and Suppression Technology for Future Space Missions",
+  "year": 2000,
+  "stiType": "PREPRINT",
+  "center": "GRC",
+  "authors": [
+   "Friedman, Robert",
+   "Urban, David L."
+  ],
+  "abstract_chars": 812,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20000120278/downloads/20000120278.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20000120278"
+ },
+ {
+  "id": 20000120369,
+  "title": "A User's Guide for the Spacecraft Fire Safety Facility",
+  "year": 2000,
+  "stiType": "TECHNICAL_MEMORANDUM",
+  "center": "GRC",
+  "authors": [
+   "Goldmeer, Jeffrey S."
+  ],
+  "abstract_chars": 889,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20000120369/downloads/20000120369.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20000120369"
+ },
+ {
+  "id": 20010004338,
+  "title": "Rheology of Foam Near the Order-Disorder Phase Transition",
+  "year": 1999,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "HQ",
+  "authors": [
+   "Holt, R. Glynn",
+   "McDaniel, J. Gregory"
+  ],
+  "abstract_chars": 1039,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20010004338/downloads/20010004338.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20010004338"
+ },
+ {
+  "id": 20010049383,
+  "title": "Microgravity Combustion Science and Fluid Physics Experiments and Facilities for the ISS",
+  "year": 2001,
+  "stiType": "PREPRINT",
+  "center": "GRC",
+  "authors": [
+   "Lauver, Richard W.",
+   "Kohl, Fred J.",
+   "Weiland, Karen J.",
+   "Zurawski, Robert L.",
+   "Hill, Myron E.",
+   "Corban, Robert R."
+  ],
+  "abstract_chars": 1887,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20010049383/downloads/20010049383.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:droplet-combustion",
+   "theme:gaseous-diffusion-flames",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20010049383"
+ },
+ {
+  "id": 20010059376,
+  "title": "Upward Flame Spread Over Thin Solids in Partial Gravity",
+  "year": 2001,
+  "stiType": "PREPRINT",
+  "center": "GRC",
+  "authors": [
+   "Feier, I. I.",
+   "Shih, H. Y.",
+   "Sacksteder, K. R.",
+   "Tien, J. S."
+  ],
+  "abstract_chars": 1349,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20010059376/downloads/20010059376.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20010059376"
+ },
+ {
+  "id": 20010073996,
+  "title": "Solid Inflammability Boundary at Low-Speed (SIBAL)",
+  "year": 2001,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "T'ien, James",
+   "Ferkul, Paul",
+   "Sacksteder, Kurt",
+   "Shih, Hsin-Yi",
+   "Kumar, Amit",
+   "Kleinhenz, Julie",
+   "Bedir, Hasan",
+   "Pettegrew, Richard",
+   "Piltch, Nancy",
+   "Frate, David"
+  ],
+  "abstract_chars": 1623,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20010073996/downloads/20010073996.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:exploration-atmospheres",
+   "theme:solid-flame-spread",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20010073996"
+ },
+ {
+  "id": 20010074003,
+  "title": "Three-Dimensional Upward Flame Spreading in Partial-Gravity Buoyant Flows",
+  "year": 2001,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Sacksteder, Kurt R.",
+   "Feier, Ioan I.",
+   "Shih, Hsin-Yi",
+   "T'ien, James S."
+  ],
+  "abstract_chars": 2557,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20010074003/downloads/20010074003.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:exploration-atmospheres",
+   "theme:partial-gravity-flammability",
+   "theme:droplet-combustion",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20010074003"
+ },
+ {
+  "id": 20010074017,
+  "title": "Low Stretch PMMA Burning in Microgravity: Status of the Ground-Based Program and New ISS Glovebox Experiment SALSA",
+  "year": 2001,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Olson, S. L.",
+   "T'ien, J. S.",
+   "Armstrong, J. B."
+  ],
+  "abstract_chars": 1724,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20010074017/downloads/20010074017.pdf"
+  ],
+  "tags": [
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20010074017"
+ },
+ {
+  "id": 20010074022,
+  "title": "Unsteady Spherical Diffusion Flames in Microgravity",
+  "year": 2001,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Atreya, Arvind",
+   "Berhan, S.",
+   "Chernovsky, M.",
+   "Sacksteder, Kurt R."
+  ],
+  "abstract_chars": 2641,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20010074022/downloads/20010074022.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:droplet-combustion",
+   "theme:solid-flame-spread",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20010074022"
+ },
+ {
+  "id": 20010074032,
+  "title": "Effects of Flame Structure and Hydrodynamics on Soot Particle Inception and Flame Extinction in Diffusion Flames",
+  "year": 2001,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Axelbaum, R. L.",
+   "Chen, R.",
+   "Sunderland, P. B.",
+   "Urban, D. L.",
+   "Liu, S.",
+   "Chao, B. H."
+  ],
+  "abstract_chars": 1459,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20010074032/downloads/20010074032.pdf"
+  ],
+  "tags": [
+   "Flame Design"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20010074032"
+ },
+ {
+  "id": 20010074090,
+  "title": "Trioxane-Air Counterflow Diffusion Flames in Normal and Microgravity",
+  "year": 2001,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Linteris, Gregory T.",
+   "Urban, David L."
+  ],
+  "abstract_chars": 1521,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20010074090/downloads/20010074090.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20010074090"
+ },
+ {
+  "id": 20010074096,
+  "title": "An Earth-Based Equivalent Low Stretch Apparatus to Assess Material Flammability for Microgravity & Extraterrestrial Fire-Safety Applications",
+  "year": 2001,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Olson, S. L.",
+   "Beeson, H.",
+   "Haas, J."
+  ],
+  "abstract_chars": 1177,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20010074096/downloads/20010074096.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20010074096"
+ },
+ {
+  "id": 20010074098,
+  "title": "Physical and Chemical Aspects of Fire Suppression in Extraterrestrial Environments",
+  "year": 2001,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "HQ",
+  "authors": [
+   "Takahashi, F.",
+   "Linteris, G. T.",
+   "Katta, V. R."
+  ],
+  "abstract_chars": 1425,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20010074098/downloads/20010074098.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:material-flammability-oxygen-limits",
+   "theme:fire-suppression",
+   "theme:ISS-fire-response",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20010074098"
+ },
+ {
+  "id": 20020024455,
+  "title": "Multi-User Hardware Solutions to Combustion Science ISS Research",
+  "year": 2001,
+  "stiType": "PREPRINT",
+  "center": "GRC",
+  "authors": [
+   "Otero, Angel M."
+  ],
+  "abstract_chars": 2043,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20020024455/downloads/20020024455.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:droplet-combustion",
+   "hardware:CIR",
+   "hardware:MDCA"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20020024455"
+ },
+ {
+  "id": 20020028886,
+  "title": "Spacecraft Fire Safety and Microgravity Combustion Research",
+  "year": 2001,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Tien, James S.",
+   "Ferkul, Paul"
+  ],
+  "abstract_chars": 737,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20020028886/downloads/20020028886.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20020028886"
+ },
+ {
+  "id": 20030053427,
+  "title": "Spacecraft Fire Safety: A Human Space Flight Program Perspective",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Pedley, Michael D."
+  ],
+  "abstract_chars": 464,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20030053427/downloads/20030053427.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20030053427"
+ },
+ {
+  "id": 20030061405,
+  "title": "Obtaining NASA Approval for use of Non-Metallic Materials in Manned Space Flight",
+  "year": 2003,
+  "stiType": "PREPRINT",
+  "center": "MSFC",
+  "authors": [
+   "Davis, Samuel E.",
+   "Wise, Harry L."
+  ],
+  "abstract_chars": 1270,
+  "downloads": [],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:NASA-STD-6001"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20030061405"
+ },
+ {
+  "id": 20030112139,
+  "title": "NASA Microgravity Combustion Science Research Plans for the ISS",
+  "year": 2003,
+  "stiType": "PREPRINT",
+  "center": "GRC",
+  "authors": [
+   "Sutliff, Thomas J."
+  ],
+  "abstract_chars": 1357,
+  "downloads": [],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "hardware:CIR",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20030112139"
+ },
+ {
+  "id": 20040053529,
+  "title": "Combustion Of Interacting Droplet Arrays In Microgravity",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Dietrich, D. L.",
+   "Struk, P. M.",
+   "Ikegami, M.",
+   "Xu, G."
+  ],
+  "abstract_chars": 1932,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053529/downloads/20040053529.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:droplet-combustion"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053529"
+ },
+ {
+  "id": 20040053539,
+  "title": "Sooting Limits Of Diffusion Flames With Oxygen-Enriched Air And Diluted Fuel",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Sunderland, P. B.",
+   "Urban, D. L.",
+   "Stocker, D. P.",
+   "Chao, B. H.",
+   "Axelbaum, R. L."
+  ],
+  "abstract_chars": 1710,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053539/downloads/20040053539.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:fire-suppression",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053539"
+ },
+ {
+  "id": 20040053549,
+  "title": "Radiant Extinction Of Gaseous Diffusion Flames",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Berhan, S.",
+   "Chernovsky, M.",
+   "Atreya, A.",
+   "Baum, Howard R.",
+   "Sacksteder, Kurt R."
+  ],
+  "abstract_chars": 2651,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053549/downloads/20040053549.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:droplet-combustion",
+   "theme:solid-flame-spread",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053549"
+ },
+ {
+  "id": 20040053553,
+  "title": "Effect Of Low External Flow On Flame Spreading Over ETFE Insulated Wire Under Microgravity",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Nishizawa, Katsuhiro",
+   "Fujita, Osamu",
+   "Ito, Kenichi",
+   "Kikuchi, Masao",
+   "Olson, Sandra L.",
+   "Kashiwagi, Takashi"
+  ],
+  "abstract_chars": 1947,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053553/downloads/20040053553.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression",
+   "theme:ISS-fire-response",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053553"
+ },
+ {
+  "id": 20040053556,
+  "title": "Cool Flames in Propane-Oxygen Premixtures at Low and Intermediate Temperatures at Reduced-Gravity",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Pearlman, Howard",
+   "Foster, Michael",
+   "Karabacak, Devrez"
+  ],
+  "abstract_chars": 1448,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053556/downloads/20040053556.pdf"
+  ],
+  "tags": [
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053556"
+ },
+ {
+  "id": 20040053557,
+  "title": "Extinction Criteria for Opposed-Flow Flame Spread in a Microgravity Environment",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Bhattacharjee, Subrata",
+   "Paolini, Chris",
+   "Wakai, Kazunori",
+   "Takahashi, Shuhei"
+  ],
+  "abstract_chars": 835,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053557/downloads/20040053557.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053557"
+ },
+ {
+  "id": 20040053558,
+  "title": "An Earth-Based Equivalent Low Stretch Apparatus to Assess Material Flammability for Microgravity and Extraterrestrial Fire-Safety Applications",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Olson, S. L.",
+   "Beeson, H.",
+   "Haas, J. P."
+  ],
+  "abstract_chars": 1229,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053558/downloads/20040053558.pdf"
+  ],
+  "tags": [
+   "theme:NASA-STD-6001",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053558"
+ },
+ {
+  "id": 20040053567,
+  "title": "Upward And Downward Flame Spreading And Extinction In Partial Gravity Environments",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Sacksteder, Kurt R.",
+   "Feier, Ioan I.",
+   "Ferkul, Paul V.",
+   "Kumar, Amit",
+   "T'ien, James S."
+  ],
+  "abstract_chars": 2268,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053567/downloads/20040053567.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:material-flammability-oxygen-limits",
+   "theme:partial-gravity-flammability",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053567"
+ },
+ {
+  "id": 20040053576,
+  "title": "Modeling Candle Flame Behavior In Variable Gravity",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Alsairafi, A.",
+   "Tien, J. S.",
+   "Lee, S. T.",
+   "Dietrich, D. L.",
+   "Ross, H. D."
+  ],
+  "abstract_chars": 2129,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053576/downloads/20040053576.pdf"
+  ],
+  "tags": [
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053576"
+ },
+ {
+  "id": 20040053578,
+  "title": "\"Smoke\": Characterization Of Smoke Particulate For Spacecraft Fire Detection",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Urban, David L.",
+   "Mulholland, George W.",
+   "Yang, Jiann",
+   "Cleary, Thomas G.",
+   "Yuan, Zeng-Guang"
+  ],
+  "abstract_chars": 1774,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053578/downloads/20040053578.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053578"
+ },
+ {
+  "id": 20040053579,
+  "title": "Suppression and Structure of Low Strain Rate Nonpremixed Flames",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Hamins, Anthony",
+   "Bundy, Matthew",
+   "Park, Woe Chul",
+   "Lee, Ki Yong",
+   "Logue, Jennifer"
+  ],
+  "abstract_chars": 1189,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053579/downloads/20040053579.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053579"
+ },
+ {
+  "id": 20040053580,
+  "title": "Experimental And Numerical Evaluation Of Gaseous Agents For Suppressing Cup-Burner Flames In Low Gravity",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Takahashi, Fumiaki",
+   "Linteris, Gregory T.",
+   "Katta, Viswanath R."
+  ],
+  "abstract_chars": 1310,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053580/downloads/20040053580.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053580"
+ },
+ {
+  "id": 20040053582,
+  "title": "The Water-Mist Fire Suppression Experiment (Mist): Preliminary Results From The STS-107 Mission",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Abbud-Madrid, Angel",
+   "McKinnon, J. Thomas",
+   "Amon, Francine",
+   "Gokoglu, Suleyman"
+  ],
+  "abstract_chars": 1029,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053582/downloads/20040053582.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:droplet-combustion"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053582"
+ },
+ {
+  "id": 20040053586,
+  "title": "CO2 Suppression of PMMA Flames In Low-Gravity",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Ruff, G. A.",
+   "Hicks, M.",
+   "Mell, W.",
+   "Pettegrew, R.",
+   "Malcolm, A."
+  ],
+  "abstract_chars": 1117,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040053586/downloads/20040053586.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040053586"
+ },
+ {
+  "id": 20040084025,
+  "title": "Reference Material Kydex(registered trademark)-100 Test Data Message for Flammability Testing",
+  "year": 2003,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "MSFC",
+  "authors": [
+   "Engel, Carl D.",
+   "Richardson, Erin",
+   "Davis, Eddie"
+  ],
+  "abstract_chars": 857,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040084025/downloads/20040084025.pdf"
+  ],
+  "tags": [
+   "theme:NASA-STD-6001"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040084025"
+ },
+ {
+  "id": 20040084155,
+  "title": "A New Test Method for Material Flammability Assessment in Microgravity and Extraterrestrial Environments",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Olson, S. L.",
+   "Beeson, H. D.",
+   "Haas, J. P.",
+   "Baas, J. S."
+  ],
+  "abstract_chars": 1876,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040084155/downloads/20040084155.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:NASA-STD-6001",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040084155"
+ },
+ {
+  "id": 20040142354,
+  "title": "Combustion and Reacting Systems for Exploration",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Urban, David L."
+  ],
+  "abstract_chars": 421,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040142354/downloads/20040142354.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040142354"
+ },
+ {
+  "id": 20040142367,
+  "title": "Fire Suppression and Response",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Ruff, Gary A."
+  ],
+  "abstract_chars": 910,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040142367/downloads/20040142367.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:post-fire-cleanup"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040142367"
+ },
+ {
+  "id": 20040142368,
+  "title": "Organizing Questions for Reduced-Gravity Flammability",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Miller, Fletcher"
+  ],
+  "abstract_chars": 822,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040142368/downloads/20040142368.pdf"
+  ],
+  "tags": [
+   "theme:NASA-STD-6001"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040142368"
+ },
+ {
+  "id": 20040142375,
+  "title": "Spacecraft and Navy Materials Flammability: Review of Some Concepts and Test Methods",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Hirsch, David"
+  ],
+  "abstract_chars": 338,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040142375/downloads/20040142375.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040142375"
+ },
+ {
+  "id": 20040142387,
+  "title": "Research Plan for Fire Signatures and Detection",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [],
+  "abstract_chars": 544,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040142387/downloads/20040142387.pdf"
+  ],
+  "tags": [
+   "DAFT",
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040142387"
+ },
+ {
+  "id": 20040161188,
+  "title": "Comparison of Carbon Dioxide and Helium as Fire Extinguishing Agents for Spacecraft",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Gokoglu, Suleyman",
+   "Son, Youngjin",
+   "Ronney, Paul D."
+  ],
+  "abstract_chars": 2682,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040161188/downloads/20040161188.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression",
+   "theme:ISS-fire-response",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040161188"
+ },
+ {
+  "id": 20040161199,
+  "title": "Understanding Material Property Impacts on Co-Current Flame Spread: Improving Understanding Crucial for Fire Safety",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Ruff, Gary",
+   "Rangwala, Ali S.",
+   "Buckley, Steven G.",
+   "Torero, Jose L."
+  ],
+  "abstract_chars": 584,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040161199/downloads/20040161199.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:NASA-STD-6001",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040161199"
+ },
+ {
+  "id": 20040161216,
+  "title": "Spacecraft Fire Suppression: Testing and Evaluation",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Abbud-Madrid, Angel",
+   "McKinnon, J. Thomas",
+   "Delplanque, Jean-Pierre",
+   "Kailasanath, Kazhikathra",
+   "Gokoglu, Suleyman",
+   "Wu, Ming-Shin"
+  ],
+  "abstract_chars": 2099,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040161216/downloads/20040161216.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression",
+   "theme:post-fire-cleanup",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040161216"
+ },
+ {
+  "id": 20040161227,
+  "title": "Suppression of Low Strain Rate Nonpremixed Flames by an Agent",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Olson, Sandra L.",
+   "Hamins, A.",
+   "Bundy, M.",
+   "Oh, C. B.",
+   "Park, J.",
+   "Puri, I. K."
+  ],
+  "abstract_chars": 1652,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040161227/downloads/20040161227.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040161227"
+ },
+ {
+  "id": 20040161242,
+  "title": "EPS (Electric Particulate Suspension) Microgravity Technology Provides NASA with New Tools",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Colver, Gerald M.",
+   "Greene, Nate",
+   "Xu, Hua"
+  ],
+  "abstract_chars": 1414,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040161242/downloads/20040161242.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040161242"
+ },
+ {
+  "id": 20040161243,
+  "title": "Partially Premixed Flame (PPF) Research for Fire Safety",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Puri, Ishwar K.",
+   "Aggarwal, Suresh K.",
+   "Lock, Andrew J.",
+   "Hegde, Uday"
+  ],
+  "abstract_chars": 890,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040161243/downloads/20040161243.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040161243"
+ },
+ {
+  "id": 20040161244,
+  "title": "Most Probable Fire Scenarios in Spacecraft and Extraterrestrial Habitats: Why NASA's Current Test 1 Might Not Always be Conservative",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Olson, S. L."
+  ],
+  "abstract_chars": 835,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040161244/downloads/20040161244.pdf"
+  ],
+  "tags": [
+   "theme:NASA-STD-6001",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040161244"
+ },
+ {
+  "id": 20040161246,
+  "title": "Fire Suppression in Low Gravity Using a Cup Burner",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Takahashi, Fumiaki",
+   "Linteris, Gregory T.",
+   "Katta, Viswanath R."
+  ],
+  "abstract_chars": 1826,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040161246/downloads/20040161246.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040161246"
+ },
+ {
+  "id": 20040161262,
+  "title": "Evaluation of CO2, N2 and He as Fire Suppression Agents in Microgravity",
+  "year": 2004,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Ruff, Gary A.",
+   "Hicks, Michael",
+   "Pettegrew, Richard"
+  ],
+  "abstract_chars": 2017,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20040161262/downloads/20040161262.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20040161262"
+ },
+ {
+  "id": 20050175855,
+  "title": "STS-107 Microgravity Environment Summary Report",
+  "year": 2005,
+  "stiType": "TECHNICAL_MEMORANDUM",
+  "center": "GRC",
+  "authors": [
+   "Jules, Kenol",
+   "Hrovat, Kenneth",
+   "Kelly, Eric",
+   "Reckhart, Timothy"
+  ],
+  "abstract_chars": 2958,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20050175855/downloads/20050175855.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050175855"
+ },
+ {
+  "id": 20050177911,
+  "title": "Comparative Soot Diagnostics Experiment Looks at the Smoky World of Microgravity Combustion",
+  "year": 1997,
+  "stiType": "OTHER",
+  "center": "JSC",
+  "authors": [
+   "Urban, David L.",
+   "Griffin, DeVon W.",
+   "Gard, Melissa Y."
+  ],
+  "abstract_chars": 2730,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20050177911/downloads/20050177911.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050177911"
+ },
+ {
+  "id": 20050181429,
+  "title": "Fluids and Combustion Facility: Combustion Integrated Rack Modal Model Correlation",
+  "year": 2005,
+  "stiType": "TECHNICAL_MEMORANDUM",
+  "center": "GRC",
+  "authors": [
+   "McNelis, Mark E.",
+   "Suarez, Vicente J.",
+   "Sullivan, Timothy L.",
+   "Otten, Kim D.",
+   "Akers, James C."
+  ],
+  "abstract_chars": 1798,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20050181429/downloads/20050181429.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050181429"
+ },
+ {
+  "id": 20050195844,
+  "title": "Flame Design: A Novel Approach Developed to Produce Clean, Efficient Diffusion Flames",
+  "year": 2000,
+  "stiType": "OTHER",
+  "center": "GRC",
+  "authors": [
+   "Axelbaum, Richard L.",
+   "Urban, David L.",
+   "Sunderland, Peter B.",
+   "Chao, Beei-Huan"
+  ],
+  "abstract_chars": 2011,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20050195844/downloads/20050195844.pdf"
+  ],
+  "tags": [
+   "Flame Design",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050195844"
+ },
+ {
+  "id": 20050199445,
+  "title": "Ceiling Fires Studied to Simulate Low-Gravity Fires",
+  "year": 2001,
+  "stiType": "OTHER",
+  "center": "GRC",
+  "authors": [
+   "Olson, Sandra L."
+  ],
+  "abstract_chars": 1457,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20050199445/downloads/20050199445.pdf"
+  ],
+  "tags": [
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050199445"
+ },
+ {
+  "id": 20050209908,
+  "title": "Suppression Characteristics of Cup-Burner Flames in Low Gravity",
+  "year": 2004,
+  "stiType": "ABSTRACT",
+  "center": "GRC",
+  "authors": [
+   "Takahashi, Fumiaki",
+   "Linteris, Gregory T.",
+   "Katta, Viswanath R."
+  ],
+  "abstract_chars": 1151,
+  "downloads": [],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050209908"
+ },
+ {
+  "id": 20050215015,
+  "title": "Radiative Enhancement Effects on Flame Spread (REEFS) Project Studied \"Green House\" Effects on Fire Spread",
+  "year": 2003,
+  "stiType": "OTHER",
+  "center": "GRC",
+  "authors": [
+   "Gokoglu, Suleyman A.",
+   "Ronney, Paul"
+  ],
+  "abstract_chars": 1420,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20050215015/downloads/20050215015.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050215015"
+ },
+ {
+  "id": 20050215025,
+  "title": "New Technologies Being Developed for the Thermophoretic Sampling of Smoke Particulates in Microgravity",
+  "year": 2003,
+  "stiType": "OTHER",
+  "center": "GRC",
+  "authors": [
+   "Sheredy, William A."
+  ],
+  "abstract_chars": 1101,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20050215025/downloads/20050215025.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050215025"
+ },
+ {
+  "id": 20050215297,
+  "title": "Carbon Dioxide Dispersion in the Combustion Integrated Rack Simulated Numerically",
+  "year": 2004,
+  "stiType": "OTHER",
+  "center": "GRC",
+  "authors": [
+   "Wu, Ming-Shin",
+   "Ruff, Gary A."
+  ],
+  "abstract_chars": 2903,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20050215297/downloads/20050215297.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression",
+   "theme:post-fire-cleanup",
+   "theme:ISS-fire-response",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050215297"
+ },
+ {
+  "id": 20050215409,
+  "title": "Combustion Module-2 Achieved Scientific Success on Shuttle Mission STS-107",
+  "year": 2004,
+  "stiType": "OTHER",
+  "center": "GRC",
+  "authors": [
+   "Over, Ann P."
+  ],
+  "abstract_chars": 1247,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20050215409/downloads/20050215409.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050215409"
+ },
+ {
+  "id": 20050215648,
+  "title": "Fundamental Research Applied To Enable Hardware Performance in Microgravity",
+  "year": 2005,
+  "stiType": "OTHER",
+  "center": "GRC",
+  "authors": [
+   "Sheredy, William A."
+  ],
+  "abstract_chars": 1921,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20050215648/downloads/20050215648.pdf"
+  ],
+  "tags": [
+   "SAME",
+   "DAFT",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050215648"
+ },
+ {
+  "id": 20050217228,
+  "title": "Summary of Resources for the International Space Station Environmental Control and Life Support System For Core Complete Modules",
+  "year": 2004,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Williams, David E."
+  ],
+  "abstract_chars": 993,
+  "downloads": [],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050217228"
+ },
+ {
+  "id": 20050217419,
+  "title": "International Space Station (ISS) Node 1 Environmental Control and Life Support (ECLS) System Keep Out Zone On-Orbit Problems",
+  "year": 2004,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Williams, David E."
+  ],
+  "abstract_chars": 702,
+  "downloads": [],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050217419"
+ },
+ {
+  "id": 20050217459,
+  "title": "Development and Performance of the Oxygen Sensor in the CSA-CP Aboard the International Space Station",
+  "year": 2004,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Limero, Thomas",
+   "Beck, Steve",
+   "James, John T."
+  ],
+  "abstract_chars": 1493,
+  "downloads": [],
+  "tags": [
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050217459"
+ },
+ {
+  "id": 20050245285,
+  "title": "Promoted Metals Combustion at Ambient and Elevated Temperatures",
+  "year": 2005,
+  "stiType": "OTHER",
+  "center": "MSFC",
+  "authors": [
+   "Engel, Carl D.",
+   "Herald, Stephen D.",
+   "Davis, S. Eddie"
+  ],
+  "abstract_chars": 1676,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20050245285/downloads/20050245285.pdf"
+  ],
+  "tags": [
+   "theme:NASA-STD-6001"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20050245285"
+ },
+ {
+  "id": 20060003630,
+  "title": "The Fluids and Combustion Facility: Enabling the Exploration of Space",
+  "year": 2005,
+  "stiType": "TECHNICAL_MEMORANDUM",
+  "center": "GRC",
+  "authors": [
+   "Weiland, Karen J.",
+   "Gati, Frank G.",
+   "Hill, Myron E.",
+   "O'Malley Terence F.",
+   "Zurawski, Robert L."
+  ],
+  "abstract_chars": 1402,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20060003630/downloads/20060003630.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20060003630"
+ },
+ {
+  "id": 20060010452,
+  "title": "International Space Station Integration of Automated Safing Responses",
+  "year": 2006,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Curry, Kim",
+   "Prokhorov, Kimberlee"
+  ],
+  "abstract_chars": 885,
+  "downloads": [],
+  "tags": [
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20060010452"
+ },
+ {
+  "id": 20070009850,
+  "title": "The Exploration Atmospheres Working Group's Report on Space Radiation Shielding Materials",
+  "year": 2006,
+  "stiType": "TECHNICAL_MEMORANDUM",
+  "center": "MSFC",
+  "authors": [
+   "Barghouty, A. F.",
+   "Thibeault, S. A."
+  ],
+  "abstract_chars": 1074,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20070009850/downloads/20070009850.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20070009850"
+ },
+ {
+  "id": 20070013692,
+  "title": "Microgravity Effects on Combustion of Polymers",
+  "year": 2007,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Hirsch, David",
+   "Williams, Jim",
+   "Beeson, Harold"
+  ],
+  "abstract_chars": 547,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20070013692/downloads/20070013692.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20070013692"
+ },
+ {
+  "id": 20070013892,
+  "title": "The Microgravity Science Glovebox (MSG), a Resource for Gravity-Dependent Phenomena Research on the International Space Station (ISS)",
+  "year": 2007,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "MSFC",
+  "authors": [
+   "Spivey, Reggie A.",
+   "Jeter, Linda B.",
+   "Vonk, Chris"
+  ],
+  "abstract_chars": 1643,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20070013892/downloads/20070013892.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20070013892"
+ },
+ {
+  "id": 20070018272,
+  "title": "International Space Station Temperature and Humidity Control Subsystem Verification for Node 1",
+  "year": 2007,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Williams, David E."
+  ],
+  "abstract_chars": 603,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20070018272/downloads/20070018272.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20070018272"
+ },
+ {
+  "id": 20070018809,
+  "title": "International Space Station Atmosphere Control and Supply, Atmosphere Revitalization, and Water Recovery and Management Subsystem - Verification for Node 1",
+  "year": 2007,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Williams, David E."
+  ],
+  "abstract_chars": 511,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20070018809/downloads/20070018809.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20070018809"
+ },
+ {
+  "id": 20070021223,
+  "title": "Crew Exploration Vehicle Environmental Control and Life Support Fire Protection Approach",
+  "year": 2007,
+  "stiType": "PREPRINT",
+  "center": "JSC",
+  "authors": [
+   "Lewis, John F.",
+   "Barido, Richard",
+   "Tuan, George C."
+  ],
+  "abstract_chars": 1028,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20070021223/downloads/20070021223.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20070021223"
+ },
+ {
+  "id": 20070021234,
+  "title": "ISO 14624 Series - Space Systems - Safety and Compatibility of Materials Flammability Assessment of Spacecraft Materials",
+  "year": 2007,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Hirsch, David B."
+  ],
+  "abstract_chars": 324,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20070021234/downloads/20070021234.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20070021234"
+ },
+ {
+  "id": 20070031686,
+  "title": "Particle and Smoke Detection on ISS for Next Generation Smoke Detectors",
+  "year": 2007,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Urban, David L.",
+   "Ruff, Gary",
+   "Yuan, Zeng-guang",
+   "Sheredy, William",
+   "Funk, Greg"
+  ],
+  "abstract_chars": 1692,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20070031686/downloads/20070031686.pdf"
+  ],
+  "tags": [
+   "SAME",
+   "DAFT",
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20070031686"
+ },
+ {
+  "id": 20070031687,
+  "title": "Gravity-Dependent Combustion and Fluids Research - From Drop Towers to Aircraft to the ISS",
+  "year": 2007,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Urban, David L.",
+   "Singh, Bhim S.",
+   "Kohl, Fred J."
+  ],
+  "abstract_chars": 1844,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20070031687/downloads/20070031687.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20070031687"
+ },
+ {
+  "id": 20080012607,
+  "title": "Effect of Pressure on Piloted Ignition Delay of PMMA",
+  "year": 2008,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "McAllister, Sara",
+   "Lai, Janice",
+   "Scott, Sarah",
+   "Ramirez-Correa, Amelia",
+   "Fernandez-Pello, Carlos",
+   "Urban, David",
+   "Ruff, Gary"
+  ],
+  "abstract_chars": 1866,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20080012607/downloads/20080012607.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20080012607"
+ },
+ {
+  "id": 20080013149,
+  "title": "Piloted Ignition Delay of PMMA in Space Exploration Atmospheres",
+  "year": 2007,
+  "stiType": "PREPRINT",
+  "center": "GRC",
+  "authors": [
+   "McAllister, Sara",
+   "Fernandez-Pello, Carlos",
+   "Urban, David",
+   "Ruff, Gary"
+  ],
+  "abstract_chars": 1951,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20080013149/downloads/20080013149.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20080013149"
+ },
+ {
+  "id": 20080013429,
+  "title": "International Space Station Environmental Control and Life Support Emergency Response Verification for Node 1",
+  "year": 2008,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Williams, David E."
+  ],
+  "abstract_chars": 856,
+  "downloads": [],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20080013429"
+ },
+ {
+  "id": 20080013594,
+  "title": "An Overview of the Microgravity Science Glovebox (MSG) Facility, and the Gravity-Dependent Phenomena Research Performed in the MSG on the International Space Station (ISS)",
+  "year": 2008,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "MSFC",
+  "authors": [
+   "Spivey, Reggie A.",
+   "Sheredy, William A.",
+   "Flores, Ginger"
+  ],
+  "abstract_chars": 1670,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20080013594/downloads/20080013594.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20080013594"
+ },
+ {
+  "id": 20080026001,
+  "title": "Reduced Pressure Atmosphere Impacts on Life Support and Internal Thermal Systems",
+  "year": 2006,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Anderson, Molly"
+  ],
+  "abstract_chars": 1005,
+  "downloads": [],
+  "tags": [
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20080026001"
+ },
+ {
+  "id": 20080031131,
+  "title": "A History of Spacecraft Environmental Control and Life Support Systems",
+  "year": 2006,
+  "stiType": "PREPRINT",
+  "center": "JSC",
+  "authors": [
+   "Daues, Katherine R."
+  ],
+  "abstract_chars": 528,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20080031131/downloads/20080031131.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20080031131"
+ },
+ {
+  "id": 20080034883,
+  "title": "Microgravity Flame Spread in Exploration Atmospheres: Pressure, Oxygen, and Velocity Effects on Opposed and Concurrent Flame Spread",
+  "year": 2008,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Olson, Sandra L.",
+   "Ruff, Gary A.",
+   "Fletcher, J. Miller"
+  ],
+  "abstract_chars": 1451,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20080034883/downloads/20080034883.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:exploration-atmospheres",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20080034883"
+ },
+ {
+  "id": 20080048044,
+  "title": "Deployable Crew Quarters",
+  "year": 2008,
+  "stiType": "OTHER",
+  "center": "JSC",
+  "authors": [
+   "Izenson, Michael G.",
+   "Chen, Weibo"
+  ],
+  "abstract_chars": 1404,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20080048044/downloads/20080048044.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20080048044"
+ },
+ {
+  "id": 20090001159,
+  "title": "International Space Station Environmental Control and Life Support System Acceptance Testing for Node 1 Atmosphere Control and Supply Subsystem",
+  "year": 2009,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Williams, David E."
+  ],
+  "abstract_chars": 490,
+  "downloads": [],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20090001159"
+ },
+ {
+  "id": 20090006884,
+  "title": "International Space Station United States Laboratory Module Water Recovery Management Subsystem Verification from Flight 5A to Stage ULF2",
+  "year": 2009,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Williams, David E.",
+   "Labuda, Laura"
+  ],
+  "abstract_chars": 695,
+  "downloads": [],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20090006884"
+ },
+ {
+  "id": 20090014812,
+  "title": "Multi-User Droplet Combustion Apparatus - Flame Extinguishment Experiment",
+  "year": 2009,
+  "stiType": "OTHER",
+  "center": "JSC",
+  "authors": [
+   "Williams, Forman A.",
+   "Nayagam, Vedha",
+   "Choi, Mun Y.",
+   "Dryer, Frederick L.",
+   "Shaw, Benjamin D."
+  ],
+  "abstract_chars": 435,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20090014812/downloads/20090014812.pdf"
+  ],
+  "tags": [
+   "FLEX",
+   "theme:exploration-atmospheres",
+   "theme:fire-suppression",
+   "theme:droplet-combustion",
+   "hardware:MDCA"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20090014812"
+ },
+ {
+  "id": 20090014827,
+  "title": "Smoke Point in Co-flow Experiment",
+  "year": 2009,
+  "stiType": "OTHER",
+  "center": "JSC",
+  "authors": [
+   "Urban, David L.",
+   "Sunderland, Peter B.",
+   "Yuan, Zeng-Guang"
+  ],
+  "abstract_chars": 2603,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20090014827/downloads/20090014827.pdf"
+  ],
+  "tags": [
+   "SPICE",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20090014827"
+ },
+ {
+  "id": 20090022745,
+  "title": "Development of a Test Protocol for Spacecraft Post-Fire Atmospheric Cleanup and Monitoring",
+  "year": 2009,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Zuniga, David",
+   "Hornung, Steven D.",
+   "Haas, Jon P.",
+   "Graf, John C."
+  ],
+  "abstract_chars": 1657,
+  "downloads": [],
+  "tags": [
+   "theme:post-fire-cleanup"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20090022745"
+ },
+ {
+  "id": 20090036308,
+  "title": "Applicability of Aerospace Materials Ground Flammability Test Data to Spacecraft Environments Theory and Applied Technologies",
+  "year": 2009,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Hirsch, David",
+   "Williams, Jim",
+   "Beeson, Harold"
+  ],
+  "abstract_chars": 565,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20090036308/downloads/20090036308.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20090036308"
+ },
+ {
+  "id": 20090037002,
+  "title": "Space Systems - Safety and Compatibility of Materials - Method to Determine the Flammability Thresholds of Materials",
+  "year": 2009,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Hirsch, David"
+  ],
+  "abstract_chars": 3742,
+  "downloads": [],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:material-flammability-oxygen-limits"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20090037002"
+ },
+ {
+  "id": 20100001376,
+  "title": "Fine-Water-Mist Multiple-Orientation-Discharge Fire Extinguisher",
+  "year": 2010,
+  "stiType": "OTHER",
+  "center": "GRC",
+  "authors": [
+   "Butz, James R.",
+   "Turchi, Craig S.",
+   "Kimball, Amanda",
+   "McKinnon, Thomas",
+   "Riedel, Edward"
+  ],
+  "abstract_chars": 1945,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20100001376/downloads/20100001376.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20100001376"
+ },
+ {
+  "id": 20100015582,
+  "title": "Pressure Flammability Thresholds of Selected Aerospace Materials",
+  "year": 2010,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Hirsch, David B.",
+   "Williams, James H.",
+   "Harper, Susana A.",
+   "Beeson, Harold D.",
+   "Ruff, Gary A.",
+   "Pedley, Michael D."
+  ],
+  "abstract_chars": 906,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20100015582/downloads/20100015582.pdf"
+  ],
+  "tags": [
+   "theme:NASA-STD-6001"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20100015582"
+ },
+ {
+  "id": 20100039446,
+  "title": "Commercial Orbital Transportation Cargo Services Environmental Control and Life Support Integration",
+  "year": 2010,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Duchesne, Stephanie",
+   "Williams, Dave",
+   "Orozco, Nicole",
+   "Philistine, Cynthia"
+  ],
+  "abstract_chars": 1399,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20100039446/downloads/20100039446.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20100039446"
+ },
+ {
+  "id": 20100039627,
+  "title": "International Space Station Environmental Control and Life Support System Acceptance Testing for Node 1 Temperature and Humidity Control Subsystem",
+  "year": 2011,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Williams, David E."
+  ],
+  "abstract_chars": 990,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20100039627/downloads/20100039627.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20100039627"
+ },
+ {
+  "id": 20100040672,
+  "title": "Life Support and Habitation Systems: Crew Support and Protection for Human Exploration Missions Beyond Low Earth Orbit",
+  "year": 2010,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Barta, Daniel J.",
+   "McQuillan, Jeffrey"
+  ],
+  "abstract_chars": 1663,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20100040672/downloads/20100040672.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20100040672"
+ },
+ {
+  "id": 20110001653,
+  "title": "Technology Development for Fire Safety in Exploration Spacecraft and Habitats",
+  "year": 2007,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Ruff, Gary A.",
+   "Urban, David L."
+  ],
+  "abstract_chars": 1060,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20110001653/downloads/20110001653.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20110001653"
+ },
+ {
+  "id": 20110007095,
+  "title": "Lifetest of the High Output Maximum Efficiency Resonator (HOMER) Laser for the SAFFIRE Instrument on NASA's DESDynI Project",
+  "year": 2011,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GSFC",
+  "authors": [
+   "Stysley, Paul R.",
+   "Coyle, D. Barry",
+   "Kay, Richard B.",
+   "Frederickson, Robert",
+   "Poulios, Demetrios",
+   "Blair, Bryan",
+   "Scott, Stan",
+   "Arnold, Ed"
+  ],
+  "abstract_chars": 205,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20110007095/downloads/20110007095.pdf"
+  ],
+  "tags": [
+   "Saffire"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20110007095"
+ },
+ {
+  "id": 20110008636,
+  "title": "Selected Parametric Effects on Materials Flammability Limits",
+  "year": 2011,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Hirsch, David B.",
+   "Juarez, Alfredo",
+   "Peyton, Gary J.",
+   "Harper, Susana A.",
+   "Olson, Sandra L."
+  ],
+  "abstract_chars": 1441,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20110008636/downloads/20110008636.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:NASA-STD-6001"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20110008636"
+ },
+ {
+  "id": 20110011524,
+  "title": "Ignition Delay of Combustible Materials in Normoxic Equivalent Environments",
+  "year": 2009,
+  "stiType": "OTHER",
+  "center": "GRC",
+  "authors": [
+   "McAllister, Sara",
+   "Fernandez-Pello, Carlos",
+   "Ruff, Gary",
+   "Urban, David"
+  ],
+  "abstract_chars": 1649,
+  "downloads": [],
+  "tags": [
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20110011524"
+ },
+ {
+  "id": 20110012896,
+  "title": "Developing Standards to Qualify a Fine Water Mist Fire Extinguisher for Human Spaceflight",
+  "year": 2011,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Graf, John"
+  ],
+  "abstract_chars": 2373,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20110012896/downloads/20110012896.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20110012896"
+ },
+ {
+  "id": 20110012900,
+  "title": "An Experimental Study of Upward Burning Over Long Solid Fuels: Facility Development and Comparison",
+  "year": 2011,
+  "stiType": "TECHNICAL_MEMORANDUM",
+  "center": "GRC",
+  "authors": [
+   "Kleinhenz, Julie",
+   "Yuan, Zeng-Guang"
+  ],
+  "abstract_chars": 2479,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20110012900/downloads/20110012900.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:fire-suppression",
+   "theme:NASA-STD-6001"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20110012900"
+ },
+ {
+  "id": 20110015892,
+  "title": "Two New Pieces of Emergency Response Equipment for use in Confined Space Environments",
+  "year": 2011,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Graf, John"
+  ],
+  "abstract_chars": 1588,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20110015892/downloads/20110015892.pdf"
+  ],
+  "tags": [
+   "theme:post-fire-cleanup",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20110015892"
+ },
+ {
+  "id": 20110020695,
+  "title": "Methanol Droplet Extinction in Carbon-Dioxide-Enriched Environments in Microgravity",
+  "year": 2010,
+  "stiType": "REPRINT",
+  "center": "GRC",
+  "authors": [
+   "Hicks, Michael C.",
+   "Nayagam, Vedha",
+   "Williams, Forman A."
+  ],
+  "abstract_chars": 1315,
+  "downloads": [],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:droplet-combustion"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20110020695"
+ },
+ {
+  "id": 20110023131,
+  "title": "International Space Station (ISS) Emergency Mask (EM) Development",
+  "year": 2011,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Toon, Katherine P.",
+   "Hahn, Jeffrey",
+   "Fowler, Michael",
+   "Young, Kevin"
+  ],
+  "abstract_chars": 1327,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20110023131/downloads/20110023131.pdf"
+  ],
+  "tags": [
+   "theme:post-fire-cleanup",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20110023131"
+ },
+ {
+  "id": 20110023202,
+  "title": "Development of the International Space Station (ISS) Fine Water Mist (FWM) Portable Fire Extinguisher ICES Abstract",
+  "year": 2011,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Clements, Anna L.",
+   "Carlile, Christie",
+   "Graf, John",
+   "Young, Gina"
+  ],
+  "abstract_chars": 2764,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20110023202/downloads/20110023202.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20110023202"
+ },
+ {
+  "id": 20120010456,
+  "title": "Detection of Carbon Monoxide Using Polymer-Composite Films with a Porphyrin-Functionalized Polypyrrole",
+  "year": 2012,
+  "stiType": "OTHER",
+  "center": "JPL",
+  "authors": [
+   "Homer, Margie L.",
+   "Ryan, Margaret A.",
+   "Yen, Shiao-Ping S.",
+   "Lara, Liana M.",
+   "Shevade, Abhijit V.",
+   "Kisor, Adam"
+  ],
+  "abstract_chars": 2072,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20120010456/downloads/20120010456.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:post-fire-cleanup"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20120010456"
+ },
+ {
+  "id": 20120015228,
+  "title": "Microgravity Science Glovebox (MSG), Space Science's Past, Present and Future Aboard the International Space Station (ISS)",
+  "year": 2012,
+  "stiType": "ABSTRACT",
+  "center": "MSFC",
+  "authors": [
+   "Spivey, Reggie",
+   "Spearing, Scott",
+   "Jordan, Lee"
+  ],
+  "abstract_chars": 2098,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20120015228/downloads/20120015228.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20120015228"
+ },
+ {
+  "id": 20120015339,
+  "title": "Environmental Control and Life Support (ECLS) Hardware Commonality for Exploration Vehicles",
+  "year": 2012,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "MSFC",
+  "authors": [
+   "Carrasquillo, Robyn",
+   "Anderson, Molly"
+  ],
+  "abstract_chars": 1561,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20120015339/downloads/20120015339.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20120015339"
+ },
+ {
+  "id": 20120015928,
+  "title": "FLEX: A Decisive Step Forward in NASA's Combustion Research Program",
+  "year": 2012,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Hickman, John M.",
+   "Dietrich, Daniel L.",
+   "Hicks, Michael C.",
+   "Nayagam, Vedha",
+   "Stocker, Dennis"
+  ],
+  "abstract_chars": 1077,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20120015928/downloads/20120015928.pdf"
+  ],
+  "tags": [
+   "FLEX",
+   "theme:fire-suppression",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20120015928"
+ },
+ {
+  "id": 20120016545,
+  "title": "Cargo Commercial Orbital Transportation Services Environmental Control and Life Support Integration",
+  "year": 2012,
+  "stiType": "OTHER",
+  "center": "JSC",
+  "authors": [
+   "Duchesne, Stephanie",
+   "Thacker, Karen",
+   "Williams, Dave"
+  ],
+  "abstract_chars": 1395,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20120016545/downloads/20120016545.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20120016545"
+ },
+ {
+  "id": 20120016855,
+  "title": "Methanol Droplet Extinction in Oxygen/Carbon-dioxide/Nitrogen Mixtures in Microgravity: Results from the International Space Station Experiments",
+  "year": 2012,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Nayagam, Vedha",
+   "Dietrich, Daniel L.",
+   "Ferkul, Paul V.",
+   "Hicks, Michael C.",
+   "Williams, Forman A."
+  ],
+  "abstract_chars": 1099,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20120016855/downloads/20120016855.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:droplet-combustion",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20120016855"
+ },
+ {
+  "id": 20120018019,
+  "title": "Development of the International Space Station (ISS) Fine Water Mist (FWM) Portable Fire Extinguisher",
+  "year": 2012,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Rodriquez, Branelle",
+   "Graf, John",
+   "Carlile, Christie",
+   "Young, GIna"
+  ],
+  "abstract_chars": 1153,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20120018019/downloads/20120018019.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20120018019"
+ },
+ {
+  "id": 20130000422,
+  "title": "Particle Morphology and Size Results from the Smoke Aerosol Measurement Experiment-2",
+  "year": 2012,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Urban, David L.",
+   "Ruff, Gary A.",
+   "Greenberg, Paul S.",
+   "Fischer, David",
+   "Meyer, Marit",
+   "Mulholland, George",
+   "Yuan, Zeng-Guang",
+   "Bryg, Victoria",
+   "Cleary, Thomas",
+   "Yang, Jiann"
+  ],
+  "abstract_chars": 1851,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20130000422/downloads/20130000422.pdf"
+  ],
+  "tags": [
+   "SAME",
+   "SAME-R",
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20130000422"
+ },
+ {
+  "id": 20130000582,
+  "title": "Combustion, Complex Fluids, and Fluid Physics Experiments on the ISS",
+  "year": 2012,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Motil, Brian",
+   "Urban, David"
+  ],
+  "abstract_chars": 2150,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20130000582/downloads/20130000582.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:droplet-combustion",
+   "theme:gaseous-diffusion-flames",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20130000582"
+ },
+ {
+  "id": 20130001713,
+  "title": "Large Scale Experiments on Spacecraft Fire Safety",
+  "year": 2012,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Urban, David",
+   "Ruff, Gary A.",
+   "Minster, Olivier",
+   "Fernandez-Pello, A. Carlos",
+   "Tien, James S.",
+   "Torero, Jose L.",
+   "Legros, Guillaume",
+   "Eigenbrod, Christian",
+   "Smirnov, Nickolay",
+   "Fujita, Osamu",
+   "Cowlard, Adam J.",
+   "Rouvreau, Sebastien",
+   "Toth, Balazs",
+   "Jomaas, Grunde"
+  ],
+  "abstract_chars": 2252,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20130001713/downloads/20130001713.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20130001713"
+ },
+ {
+  "id": 20130003189,
+  "title": "Microgravity Science Glovebox (MSG) Space Science's Past, Present, and Future on the International Space Station (ISS)",
+  "year": 2012,
+  "stiType": "PRESENTATION",
+  "center": "MSFC",
+  "authors": [
+   "Spivey, Reggie A.",
+   "Spearing, Scott F.",
+   "Jordan, Lee P.",
+   "McDaniel S. Greg"
+  ],
+  "abstract_chars": 1456,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20130003189/downloads/20130003189.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20130003189"
+ },
+ {
+  "id": 20130004397,
+  "title": "Burning Questions in Gravity-Dependent Combustion Science",
+  "year": 2012,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Urban, David",
+   "Chiaramonte, Francis P."
+  ],
+  "abstract_chars": 1869,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20130004397/downloads/20130004397.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:droplet-combustion",
+   "theme:solid-flame-spread",
+   "theme:gaseous-diffusion-flames",
+   "hardware:CIR",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20130004397"
+ },
+ {
+  "id": 20130010973,
+  "title": "Determination of Survivable Fires",
+  "year": 2012,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Dietrich, D. L.",
+   "Niehaus, J. E.",
+   "Ruff, G. A.",
+   "Urban, D. L.",
+   "Takahashi, F.",
+   "Easton, J. W.",
+   "Abbott, A. A.",
+   "Graf, J. C."
+  ],
+  "abstract_chars": 1276,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20130010973/downloads/20130010973.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20130010973"
+ },
+ {
+  "id": 20130010979,
+  "title": "Dynamics of Water Absorption and Evaporation During Methanol Droplet Combustion in Microgravity",
+  "year": 2012,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Hicks, Michael C.",
+   "Dietrich, Daniel L.",
+   "Nayagam, Vedha",
+   "Williams, Forman A."
+  ],
+  "abstract_chars": 1398,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20130010979/downloads/20130010979.pdf"
+  ],
+  "tags": [
+   "FLEX",
+   "theme:droplet-combustion",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20130010979"
+ },
+ {
+  "id": 20130010991,
+  "title": "Evaluating Material Flammability in Microgravity and Martian Gravity Compared to the NASA Standard Normal Gravity Test",
+  "year": 2012,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Oslon, Sandra. L.",
+   "Ferkul, Paul"
+  ],
+  "abstract_chars": 996,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20130010991/downloads/20130010991.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20130010991"
+ },
+ {
+  "id": 20130011664,
+  "title": "Development of the International Space Station Fine Water Mist Portable Fire Extinguisher",
+  "year": 2013,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Rodriquez, Branelle",
+   "Young, GIna"
+  ],
+  "abstract_chars": 1316,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20130011664/downloads/20130011664.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20130011664"
+ },
+ {
+  "id": 20130013749,
+  "title": "Large Scale Flame Spread Environmental Characterization Testing",
+  "year": 2013,
+  "stiType": "TECHNICAL_MEMORANDUM",
+  "center": "GRC",
+  "authors": [
+   "Clayman, Lauren K.",
+   "Olson, Sandra L.",
+   "Gokoghi, Suleyman A.",
+   "Brooker, John E.",
+   "Ferkul, Paul V.",
+   "Kacher, Henry F."
+  ],
+  "abstract_chars": 2052,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20130013749/downloads/20130013749.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20130013749"
+ },
+ {
+  "id": 20130014061,
+  "title": "Methanol Droplet Combustion in Oxygen-Inert Environments in Microgravity",
+  "year": 2013,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Nayagam, Vedha",
+   "Dietrich, Daniel L.",
+   "Hicks, Michael C.",
+   "Williams, Forman A."
+  ],
+  "abstract_chars": 2021,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20130014061/downloads/20130014061.pdf"
+  ],
+  "tags": [
+   "FLEX",
+   "theme:material-flammability-oxygen-limits",
+   "theme:droplet-combustion",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20130014061"
+ },
+ {
+  "id": 20130014735,
+  "title": "Spacecraft Fire Safety 1956 to 1999: An Annotated Bibliography",
+  "year": 2013,
+  "stiType": "TECHNICAL_PUBLICATION",
+  "center": "GRC",
+  "authors": [
+   "Friedman, Robert",
+   "Ruff, Gary A."
+  ],
+  "abstract_chars": 1461,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20130014735/downloads/20130014735.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20130014735"
+ },
+ {
+  "id": 20140000065,
+  "title": "Development of a Standard Test Scenario to Evaluate the Effectiveness of Portable Fire Extinguishers on Lithium-ion Battery Fires",
+  "year": 2013,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Juarez, Alfredo",
+   "Harper, Susan A.",
+   "Hirsch, David B.",
+   "Carriere, Thierry"
+  ],
+  "abstract_chars": 1118,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140000065/downloads/20140000065.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140000065"
+ },
+ {
+  "id": 20140000849,
+  "title": "Portable Simulator for On-Board International Space Station Emergency Training",
+  "year": 2014,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Bolt, Kathy",
+   "Root, Michael"
+  ],
+  "abstract_chars": 2340,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140000849/downloads/20140000849.pdf"
+  ],
+  "tags": [
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140000849"
+ },
+ {
+  "id": 20140004923,
+  "title": "Opposed-Flow Flame Spread in a Narrow Channel Apparatus over Thin PMMA Sheets",
+  "year": 2013,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Bornand, G. R.",
+   "Olson, Sandra L.",
+   "Miller, F. J.",
+   "Pepper, J. M.",
+   "Wichman, I. S."
+  ],
+  "abstract_chars": 2374,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140004923/downloads/20140004923.pdf"
+  ],
+  "tags": [
+   "SoFIE-NCA",
+   "theme:fire-suppression",
+   "theme:NASA-STD-6001",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140004923"
+ },
+ {
+  "id": 20140006578,
+  "title": "Development of Large-Scale Spacecraft Fire Safety Experiments",
+  "year": 2013,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Ruff, Gary A.",
+   "Urban, David",
+   "Fernandez-Pello, A. Carlos",
+   "T'ien, James S.",
+   "Torero, Jose L.",
+   "Legros, Guillaume",
+   "Eigenbrod, Christian",
+   "Smirnov, Nickolay",
+   "Fujita, Osamu",
+   "Cowlard, Adam J.",
+   "Rouvreau, Sebastien",
+   "Minster, Olivier",
+   "Toth, Balazs",
+   "Jomaas, Grunde"
+  ],
+  "abstract_chars": 1955,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140006578/downloads/20140006578.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140006578"
+ },
+ {
+  "id": 20140006580,
+  "title": "Determination of Realistic Fire Scenarios in Spacecraft",
+  "year": 2013,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Dietrich, Daniel L.",
+   "Ruff, Gary A.",
+   "Urban, David"
+  ],
+  "abstract_chars": 1397,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140006580/downloads/20140006580.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140006580"
+ },
+ {
+  "id": 20140006584,
+  "title": "Unmanned Vehicle Material Flammability Test",
+  "year": 2013,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Urban, David",
+   "Ruff, Gary A.",
+   "Fernandez-Pello, A. Carlos",
+   "T’ien, James S.",
+   "Torero, Jose L.",
+   "Cowlard, Adam",
+   "Rouvreau, Sebastian",
+   "Minster, Olivier",
+   "Toth, Balazs",
+   "Legros, Guillaume",
+   "Eigenbrod, Christian",
+   "Smirnov, Nickolay",
+   "Fujita, Osamu",
+   "Jomaas, Grande"
+  ],
+  "abstract_chars": 2100,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140006584/downloads/20140006584.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140006584"
+ },
+ {
+  "id": 20140006585,
+  "title": "Evaluation of Low-Gravity Smoke Particulate for Spacecraft Fire Detection",
+  "year": 2013,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Urban, David",
+   "Ruff, Gary A.",
+   "Greenberg, Paul",
+   "Meyer, Marit",
+   "Mulholland, George",
+   "Yuan, Zeng-guang",
+   "Bryg, Victoria",
+   "Cleary, Thomas",
+   "Yang, Jiann"
+  ],
+  "abstract_chars": 2001,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140006585/downloads/20140006585.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140006585"
+ },
+ {
+  "id": 20140009169,
+  "title": "Gaseous Non-Premixed Flame Research Planned for the International Space Station",
+  "year": 2014,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Stocker, Dennis P.",
+   "Takahashi, Fumiaki",
+   "Hickman, J. Mark",
+   "Suttles, Andrew C."
+  ],
+  "abstract_chars": 1413,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140009169/downloads/20140009169.pdf"
+  ],
+  "tags": [
+   "ACME",
+   "theme:material-flammability-oxygen-limits",
+   "theme:exploration-atmospheres",
+   "theme:gaseous-diffusion-flames",
+   "hardware:CIR",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140009169"
+ },
+ {
+  "id": 20140011015,
+  "title": "Materials Combustion Testing and Combustion Product Sensor Evaluations in FY12",
+  "year": 2013,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Meyer, Marit E.",
+   "Hunter, Gary",
+   "Ruff, Gary",
+   "Mudgett, Paul D.",
+   "Hornung, Steven D.",
+   "McClure, Mark B.",
+   "Pilgrim, Jeffrey S.",
+   "Bryg, Victoria",
+   "Makel, Darby"
+  ],
+  "abstract_chars": 2091,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140011015/downloads/20140011015.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:post-fire-cleanup"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140011015"
+ },
+ {
+  "id": 20140011099,
+  "title": "Thickness and Fuel Preheating Effects on Material Flammability in Microgravity from the BASS Experiment",
+  "year": 2013,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Ferkul, Paul V.",
+   "Olson, Sandra L.",
+   "Takahashi, Fumiaki",
+   "Endo, Makoto",
+   "Johnson, Michael C.",
+   "T'ien, James S."
+  ],
+  "abstract_chars": 1906,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140011099/downloads/20140011099.pdf"
+  ],
+  "tags": [
+   "BASS",
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140011099"
+ },
+ {
+  "id": 20140011433,
+  "title": "Large-Scale Spacecraft Fire Safety Experiments in ISS Resupply Vehicles",
+  "year": 2013,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Ruff, Gary A.",
+   "Urban, David"
+  ],
+  "abstract_chars": 2202,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140011433/downloads/20140011433.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140011433"
+ },
+ {
+  "id": 20140011630,
+  "title": "An Overview of the Microgravity Science Glovebox (MSG) Facility and the Research Performed in the MSG on the International Space Station (ISS)",
+  "year": 2013,
+  "stiType": "ABSTRACT",
+  "center": "MSFC",
+  "authors": [
+   "Jordan, Lee P."
+  ],
+  "abstract_chars": 2267,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140011630/downloads/20140011630.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140011630"
+ },
+ {
+  "id": 20140011886,
+  "title": "Quantitative Risk Modeling of Fire on the International Space Station",
+  "year": 2014,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "Castillo, Theresa",
+   "Haught, Megan"
+  ],
+  "abstract_chars": 1120,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140011886/downloads/20140011886.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140011886"
+ },
+ {
+  "id": 20140017780,
+  "title": "An Experimental and Computational Study on Soot Formation in a Coflow Jet Flame Under Microgravity and Normal Gravity",
+  "year": 2014,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Ma, Bin",
+   "Cao, Su",
+   "Giassi, Davide",
+   "Stocker, Dennis P.",
+   "Takahashi, Fumiaki",
+   "Bennett, Beth Anne V.",
+   "Smooke, Mitchell D. ",
+   "Long, Marshall B."
+  ],
+  "abstract_chars": 2010,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20140017780/downloads/20140017780.pdf"
+  ],
+  "tags": [
+   "SLICE",
+   "theme:gaseous-diffusion-flames",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20140017780"
+ },
+ {
+  "id": 20150000894,
+  "title": "Large-Scale Spacecraft Fire Safety Tests",
+  "year": 2014,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Urban, David",
+   "Ruff, Gary A.",
+   "Ferkul, Paul V.",
+   "Olson, Sandra",
+   "Fernandez-Pello, A. Carlos",
+   "T'ien, James S.",
+   "Torero, Jose L.",
+   "Cowlard, Adam J.",
+   "Rouvreau, Sebastien",
+   "Minster, Olivier",
+   "Toth, Balazs",
+   "Legros, Guillaume",
+   "Eigenbrod, Christian",
+   "Smirnov, Nickolay",
+   "Fujita, Osamu",
+   "Jomaas, Grunde"
+  ],
+  "abstract_chars": 2555,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150000894/downloads/20150000894.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-I",
+   "Saffire-II",
+   "Saffire-III",
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150000894"
+ },
+ {
+  "id": 20150002322,
+  "title": "A Computational and Experimental Study of Coflow Laminar Methane/Air Diffusion Flames: Effects of Fuel Dilution, Inlet Velocity, and Gravity",
+  "year": 2014,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Cao, S.",
+   "Ma, B.",
+   "Bennett, B. A. V.",
+   "Giassi, D.",
+   "Stocker, D. P.",
+   "Takahashi, F.",
+   "Long, M. B.",
+   "Smooke, M. D."
+  ],
+  "abstract_chars": 1855,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150002322/downloads/20150002322.pdf"
+  ],
+  "tags": [
+   "SLICE",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150002322"
+ },
+ {
+  "id": 20150002997,
+  "title": "The Evolution of On-Board Emergency Training for the International Space Station Crew",
+  "year": 2015,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "LaBuff, Skyler"
+  ],
+  "abstract_chars": 2585,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150002997/downloads/20150002997.pdf"
+  ],
+  "tags": [
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150002997"
+ },
+ {
+  "id": 20150004099,
+  "title": "Applying Flammability Limit Probabilities and the Normoxic Upward Limiting Pressure Concept to NASA STD-6001 Test 1",
+  "year": 2014,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Olson, Sandra L.",
+   "Beeson, Harold",
+   "Fernandez-Pello, A. Carlos"
+  ],
+  "abstract_chars": 1335,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150004099/downloads/20150004099.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:exploration-atmospheres",
+   "theme:NASA-STD-6001"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150004099"
+ },
+ {
+  "id": 20150008961,
+  "title": "Microgravity Flammability of PMMA Rods in Concurrent Flow",
+  "year": 2015,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Olson, Sandra L.",
+   "Ferkul, Paul V."
+  ],
+  "abstract_chars": 2077,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150008961/downloads/20150008961.pdf"
+  ],
+  "tags": [
+   "BASS",
+   "BASS-II",
+   "theme:material-flammability-oxygen-limits",
+   "theme:fire-suppression",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150008961"
+ },
+ {
+  "id": 20150008962,
+  "title": "Concurrent Flame Growth, Spread and Extinction over Composite Fabric Samples in Low Speed Purely Forced Flow in Microgravity",
+  "year": 2015,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Zhao, Xiaoyang",
+   "T'ien, James S.",
+   "Ferkul, Paul V.",
+   "Olson, Sandra L."
+  ],
+  "abstract_chars": 1370,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150008962/downloads/20150008962.pdf"
+  ],
+  "tags": [
+   "BASS",
+   "BASS-II",
+   "theme:solid-flame-spread",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150008962"
+ },
+ {
+  "id": 20150010172,
+  "title": "Particle Morphology Results from the Smoke Aerosol Measurement Experiment-Reflight",
+  "year": 2012,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Urban, David",
+   "Ruff, Gary",
+   "Greenberg, Paul",
+   "Meyer, Marit",
+   "Cleary, Thomas ",
+   "Yang, Jiann",
+   "Mulholland, George",
+   "Yuan, Zeng-guang",
+   "Bryg, Victoria"
+  ],
+  "abstract_chars": 21,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150010172/downloads/20150010172.pdf"
+  ],
+  "tags": [
+   "SAME",
+   "SAME-R"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150010172"
+ },
+ {
+  "id": 20150010719,
+  "title": "Design of a Thermal Precipitator for the Characterization of Smoke Particles from Common Spacecraft Materials",
+  "year": 2015,
+  "stiType": "TECHNICAL_MEMORANDUM",
+  "center": "GRC",
+  "authors": [
+   "Meyer, Marit Elisabeth"
+  ],
+  "abstract_chars": 1083,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150010719/downloads/20150010719.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150010719"
+ },
+ {
+  "id": 20150011070,
+  "title": "A Numerical and Experimental Study of Coflow Laminar Diffusion Flames: Effects of Gravity and Inlet Velocity",
+  "year": 2015,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Cao, S.",
+   "Bennett, B. A. V.",
+   "Ma, B.",
+   "Giassi, D.",
+   "Stocker, D. P.",
+   "Takahashi, F.",
+   "Long, M. B.",
+   "Smooke, M. D."
+  ],
+  "abstract_chars": 2134,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150011070/downloads/20150011070.pdf"
+  ],
+  "tags": [
+   "CLD Flame",
+   "SLICE",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150011070"
+ },
+ {
+  "id": 20150019858,
+  "title": "Results from On-Board CSA-CP and CDM Sensor Readings During the Burning and Suppression of Solids II (BASS-II) Experiment in the Microgravity Science Glovebox (MSG)",
+  "year": 2015,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Olson, Sandra L.",
+   "Ferkul, Paul V.",
+   "Bhattacharjee, Subrata",
+   "Miller, Fletcher J.",
+   "Fernandez-Pello, Carlos",
+   "Link, Shmuel",
+   "T'ien, James S.",
+   "Wichman, Indrek"
+  ],
+  "abstract_chars": 1493,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150019858/downloads/20150019858.pdf"
+  ],
+  "tags": [
+   "BASS-II",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150019858"
+ },
+ {
+  "id": 20150021283,
+  "title": "Modeling and Analysis of Realistic Fire Scenarios in Spacecraft",
+  "year": 2015,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Brooker, J. E.",
+   "Dietrich, D. L.",
+   "Gokoglu, S. A.",
+   "Urban, D. L.",
+   "Ruff, G. A."
+  ],
+  "abstract_chars": 1947,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150021283/downloads/20150021283.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150021283"
+ },
+ {
+  "id": 20150022123,
+  "title": "Buoyant Effects on the Flammability of Silicone Samples Planned for the Spacecraft Fire Experiment (Saffire)",
+  "year": 2015,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Niehaus, Justin ",
+   "Ferkul, Paul V.",
+   "Gokoglu, Suleyman",
+   "Ruff, Gary"
+  ],
+  "abstract_chars": 2241,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150022123/downloads/20150022123.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150022123"
+ },
+ {
+  "id": 20150022421,
+  "title": "Buoyant Effects on the Flammability of Silicone Samples Planned for the Spacecraft Fire Experiment (Saffire)",
+  "year": 2015,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Niehaus, Justin E.",
+   "Ferkul, Paul V.",
+   "Gokoglu, Suleyman A.",
+   "Ruff, Gary A."
+  ],
+  "abstract_chars": 1755,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150022421/downloads/20150022421.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150022421"
+ },
+ {
+  "id": 20150023456,
+  "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011",
+  "year": 2015,
+  "stiType": "TECHNICAL_PUBLICATION",
+  "center": "GRC",
+  "authors": [
+   "Dietrich, Daniel L.",
+   "Ferkul, Paul V.",
+   "Bryg, Victoria M.",
+   "Nayagam, M. Vedha",
+   "Hicks, Michael C.",
+   "Williams, Forman A.",
+   "Dryer, Frederick L.",
+   "Shaw, Benjamin D.",
+   "Choi, Mun Y.",
+   "Avedisian, C. Thomas"
+  ],
+  "abstract_chars": 693,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150023456/downloads/20150023456.pdf"
+  ],
+  "tags": [
+   "FLEX",
+   "theme:droplet-combustion",
+   "hardware:CIR",
+   "hardware:MDCA"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150023456"
+ },
+ {
+  "id": 20150023467,
+  "title": "Material Ignition and Suppression Test (MIST) in Space Exploration Atmospheres, Summary of Research",
+  "year": 2013,
+  "stiType": "CONTRACTOR_OR_GRANTEE_REPORT",
+  "center": "GRC",
+  "authors": [
+   "Fernandez-Pello, Carlos"
+  ],
+  "abstract_chars": 2256,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20150023467/downloads/20150023467.pdf"
+  ],
+  "tags": [
+   "SoFIE-MIST",
+   "theme:exploration-atmospheres",
+   "theme:fire-suppression",
+   "theme:partial-gravity-flammability",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20150023467"
+ },
+ {
+  "id": 20160000593,
+  "title": "Combustion of Solids in Microgravity: Results from the BASS-II Experiment",
+  "year": 2014,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Ferkul, Paul V.",
+   "Bhattacharjee, Subrata ",
+   "Fernandez-Pello, Carlos",
+   "Miller, Fletcher ",
+   "Olson, Sandra L.",
+   "Takahashi, Fumiaki ",
+   "T’ien, James S."
+  ],
+  "abstract_chars": 1397,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20160000593/downloads/20160000593.pdf"
+  ],
+  "tags": [
+   "BASS",
+   "BASS-II",
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20160000593"
+ },
+ {
+  "id": 20160009024,
+  "title": "Environmentally Friendly Corrosion Preventative Compounds",
+  "year": 2012,
+  "stiType": "OTHER",
+  "center": "KSC",
+  "authors": [
+   "Calle, Luz Marina",
+   "Montgomery, Eliza",
+   "Kolody, Mark ",
+   "Curran, Jerry",
+   "Back, Teddy",
+   "Balles, Angela"
+  ],
+  "abstract_chars": 1428,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20160009024/downloads/20160009024.pdf"
+  ],
+  "tags": [
+   "theme:NASA-STD-6001"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20160009024"
+ },
+ {
+  "id": 20160010073,
+  "title": "A Burning Rate Emulator (BRE) for Study in Microgravity",
+  "year": 2015,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Markan, A.",
+   "Sunderland, P. B.",
+   "Quintiere, J. G.",
+   "DeRis, J.",
+   "Stocker, D. P."
+  ],
+  "abstract_chars": 1555,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20160010073/downloads/20160010073.pdf"
+  ],
+  "tags": [
+   "BRE",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20160010073"
+ },
+ {
+  "id": 20160010264,
+  "title": "Quantitative Measurements of Electronically Excited CH Concentration in Normal Gravity and Microgravity Coflow Laminar Diffusion Flames",
+  "year": 2015,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Giassi, D.",
+   "Cao, S. ",
+   "Stocker, D. P.",
+   "Takahashi, F.",
+   "Bennett, B. A. V.",
+   "Smooke, M. D. ",
+   "Long, M. B. "
+  ],
+  "abstract_chars": 2445,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20160010264/downloads/20160010264.pdf"
+  ],
+  "tags": [
+   "CLD Flame",
+   "SLICE",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20160010264"
+ },
+ {
+  "id": 20160010292,
+  "title": "Spacecraft Fire Safety Demonstration",
+  "year": 2016,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Urban, David L.",
+   "Ruff, Gary A."
+  ],
+  "abstract_chars": 328,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20160010292/downloads/20160010292.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20160010292"
+ },
+ {
+  "id": 20160012298,
+  "title": "Quantitative Measurements of CH* Concentration in Normal Gravity and Microgravity Coflow Laminar Diffusion Flames",
+  "year": 2015,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Giassi, D.",
+   "Cao, S.",
+   "Stocker, D. P.",
+   "Takahashi, F.",
+   "Bennett, B. A.",
+   "Smooke, M. D.",
+   "Long, M. B."
+  ],
+  "abstract_chars": 2269,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20160012298/downloads/20160012298.pdf"
+  ],
+  "tags": [
+   "CLD Flame",
+   "SLICE",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20160012298"
+ },
+ {
+  "id": 20160012691,
+  "title": "Correlation of Normal Gravity Mixed Convection Blowoff Limits with Microgravity Forced Flow Blowoff Limits",
+  "year": 2016,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Marcum, Jeremy W.",
+   "Olson, Sandra L.",
+   "Ferkul, Paul V."
+  ],
+  "abstract_chars": 1420,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20160012691/downloads/20160012691.pdf"
+  ],
+  "tags": [
+   "BASS-II",
+   "theme:spacecraft-fire-safety",
+   "theme:material-flammability-oxygen-limits",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20160012691"
+ },
+ {
+  "id": 20160013384,
+  "title": "Overview of the Microgravity Science Glovebox (MSG) Facility and the Research Performed in the MSG",
+  "year": 2016,
+  "stiType": "ABSTRACT",
+  "center": "MSFC",
+  "authors": [
+   "Jordan, Lee"
+  ],
+  "abstract_chars": 2449,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20160013384/downloads/20160013384.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20160013384"
+ },
+ {
+  "id": 20170000230,
+  "title": "Operation and Development Status of the Spacecraft Fire Experiments (Saffire)",
+  "year": 2016,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Ruff, Gary A.",
+   "Urban, David L."
+  ],
+  "abstract_chars": 1528,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20170000230/downloads/20170000230.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-I",
+   "Saffire-II",
+   "Saffire-III",
+   "Saffire-IV",
+   "Saffire-V",
+   "Saffire-VI",
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20170000230"
+ },
+ {
+  "id": 20170001636,
+  "title": "The Spacecraft Fire Experiment (Saffire) - Objectives, Development and Status",
+  "year": 2016,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Schoren, William",
+   "Ruff, Gary A.",
+   "Urban, David L."
+  ],
+  "abstract_chars": 1898,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20170001636/downloads/20170001636.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-I",
+   "Saffire-II",
+   "Saffire-III",
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20170001636"
+ },
+ {
+  "id": 20170002628,
+  "title": "Operation and Development Status of the Spacecraft Fire Experiment (Saffire)",
+  "year": 2016,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Ruff, Gary A.",
+   "Urban, David L."
+  ],
+  "abstract_chars": 21,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20170002628/downloads/20170002628.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20170002628"
+ },
+ {
+  "id": 20170002629,
+  "title": "Fire Detection Tradeoffs as a Function of Vehicle Parameters",
+  "year": 2016,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Urban, David L.",
+   "Dietrich, Daniel L.",
+   "Brooker, John E.",
+   "Meyer, Marit E.",
+   "Ruff, Gary A."
+  ],
+  "abstract_chars": 1451,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20170002629/downloads/20170002629.pdf"
+  ],
+  "tags": [
+   "theme:smoke-detection",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20170002629"
+ },
+ {
+  "id": 20170003880,
+  "title": "Low Pressure Flame Blowoff from the Forward Stagnation Region of a Blunt-Nosed Cast PMMA Cylinder in Axial Mixed Convective Flow",
+  "year": 2017,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Marcum, J. W.",
+   "Rachow, P.",
+   "Ferkul, P. V.",
+   "Olson, S. L."
+  ],
+  "abstract_chars": 1295,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20170003880/downloads/20170003880.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20170003880"
+ },
+ {
+  "id": 20170006615,
+  "title": "Mixed Convection Blowoff Limits as a Function of Oxygen Concentration and Upward Forced Stretch Rate for Burning Pmma Rods of Various Sizes",
+  "year": 2017,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Marcum, Jeremy W.",
+   "Ferkul, Paul V.",
+   "Olson, Sandra L."
+  ],
+  "abstract_chars": 1389,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20170006615/downloads/20170006615.pdf"
+  ],
+  "tags": [
+   "BASS-II",
+   "theme:spacecraft-fire-safety",
+   "theme:material-flammability-oxygen-limits",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20170006615"
+ },
+ {
+  "id": 20170007283,
+  "title": "Spacecraft Fire Safety Research at NASA Glenn Research Center",
+  "year": 2016,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Meyer, Marit"
+  ],
+  "abstract_chars": 2235,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20170007283/downloads/20170007283.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "SAME",
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20170007283"
+ },
+ {
+  "id": 20170008805,
+  "title": "Results of Large-Scale Spacecraft Flammability Tests",
+  "year": 2017,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Ferkul, Paul ",
+   "Olson, Sandra ",
+   "Urban, David L.",
+   "Ruff, Gary A.",
+   "Easton, John ",
+   "T'ien, James S.",
+   "Liao, Ta-Ting T.",
+   "Fernandez-Pello, A. Carlos",
+   "Torero, Jose L.",
+   "Eigenbrand, Christian",
+   "Legros, Guillaume",
+   "Smirnov, Nickolay",
+   "Fujita, Osamu",
+   "Rouvreau, Sebatien",
+   "Toth, Balazs",
+   "Jomaas, Grunde"
+  ],
+  "abstract_chars": 2254,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20170008805/downloads/20170008805.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety",
+   "theme:material-flammability-oxygen-limits",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20170008805"
+ },
+ {
+  "id": 20170009141,
+  "title": "Emulation of Condensed Fuel Flames Using a Burning Rate Emulator (BRE) in Microgravity",
+  "year": 2017,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Markan, A.",
+   "Quintiere, J. G.",
+   "Sunderland, P. B.",
+   "De Ris, J. L.",
+   "Stocker, D. P."
+  ],
+  "abstract_chars": 1037,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20170009141/downloads/20170009141.pdf"
+  ],
+  "tags": [
+   "BRE"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20170009141"
+ },
+ {
+  "id": 20180004258,
+  "title": "Spacecraft Fire Safety: Protecting Vehicles and Crews on Long-Duration Exploration Missions",
+  "year": 2017,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Ruff, Gary A."
+  ],
+  "abstract_chars": 688,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20180004258/downloads/20180004258.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20180004258"
+ },
+ {
+  "id": 20180005168,
+  "title": "Saffire: A Novel Approach to Study of Spacecraft Fire Safety Using Un-Manned Spacecraft",
+  "year": 2017,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Urban, David L.",
+   "Ferkul, Paul",
+   "Olson, Sandra",
+   "Ruff, Gary A.",
+   "Easton, John"
+  ],
+  "abstract_chars": 1487,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20180005168/downloads/20180005168.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20180005168"
+ },
+ {
+  "id": 20180005251,
+  "title": "Orion Portable Fire Extinguisher Performance Testing Against a Laptop Lithium-Ion Battery Stored-Energy Fire-Method, Magnesium Fires, and Combustion By-Product Toxicity",
+  "year": 2018,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Harper, Susana A.",
+   "Juarez, Alfredo",
+   "Woods, Brenton L.",
+   "Beeson, Harold D.",
+   "Coan-Skow, Mary R.",
+   "Nagel, Christopher R.",
+   "Casper, Stephanie E.",
+   "Tarver, Sterling B."
+  ],
+  "abstract_chars": 1643,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20180005251/downloads/20180005251.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:fire-suppression",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20180005251"
+ },
+ {
+  "id": 20190025615,
+  "title": "Compact Multi-Channel Infrared Laser Absorption Spectrometer for Spacecraft Fire Safety Monitoring",
+  "year": 2016,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JPL",
+  "authors": [
+   "Briggs, Ryan M.",
+   "Fradet, Mathieu",
+   "Frez, Clifford",
+   "Forouhar, Siamak",
+   "May, Randy D."
+  ],
+  "abstract_chars": 1024,
+  "downloads": [],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:post-fire-cleanup"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20190025615"
+ },
+ {
+  "id": 20190033433,
+  "title": "Infrared Measurements of Forward Heat Conduction during Simulated Microgravity Flame Spread in the Narrow Channel Apparatus",
+  "year": 2019,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Berry, Michael",
+   "Miller, Fletcher",
+   "Olson, Sandra",
+   "Wichman, Indrek"
+  ],
+  "abstract_chars": 1267,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20190033433/downloads/20190033433.pdf"
+  ],
+  "tags": [
+   "SoFIE-NCA",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20190033433"
+ },
+ {
+  "id": 20200000361,
+  "title": "Solid Fuel Ignition and Extinction (SoFIE) Project on ISS",
+  "year": 2019,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Ferkul, Paul",
+   "Brown, Lauren",
+   "Mroczka, Christopher",
+   "Bhattacharjee, Subrata",
+   "Fernandez-Pello, Carlos",
+   "Miller, Fletcher",
+   "Olson, Sandra",
+   "T'ien, James",
+   "Wichman, Indrek"
+  ],
+  "abstract_chars": 1779,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20200000361/downloads/20200000361.pdf"
+  ],
+  "tags": [
+   "SoFIE",
+   "theme:exploration-atmospheres",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20200000361"
+ },
+ {
+  "id": 20200000365,
+  "title": "Hazardous Product Detection and Environmental Clean-up Removal in Spacecraft Vehicles from Fire Induced Li-Ion Fires",
+  "year": 2019,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Padilla, Rosa E.",
+   "Miller, Thomas B.",
+   "Dietrich, Daniel L.",
+   "Ruff, Gary",
+   "Urban, David L."
+  ],
+  "abstract_chars": 1469,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20200000365/downloads/20200000365.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety",
+   "theme:post-fire-cleanup"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20200000365"
+ },
+ {
+  "id": 20200000557,
+  "title": "Buoyancy Effects on Concurrent Flame Spread Over Thick PMMA",
+  "year": 2018,
+  "stiType": "ACCEPTED_MANUSCRIPT",
+  "center": "GRC",
+  "authors": [
+   "Maria Thomsen",
+   "Carlos Fernandez-Pello",
+   "Gary A. Ruff",
+   "David L. Urban"
+  ],
+  "abstract_chars": 2064,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20200000557/downloads/20200000557.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-II",
+   "theme:spacecraft-fire-safety",
+   "theme:exploration-atmospheres",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20200000557"
+ },
+ {
+  "id": 20200001645,
+  "title": "Particulate Sensor Technology Development at NASA Glenn Research Center",
+  "year": 2020,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Fischer, David G.",
+   "Greenberg, Paul"
+  ],
+  "abstract_chars": 335,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20200001645/downloads/20200001645.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20200001645"
+ },
+ {
+  "id": 20205000063,
+  "title": "Spacecraft Fire Safety Technology Development Plan For Exploration Missions",
+  "year": 2020,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Gary A Ruff",
+   "David L Urban",
+   "Daniel L Dietrich"
+  ],
+  "abstract_chars": 1411,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20205000063/downloads/ICES-2020_173%20Fire%20Safety%20revised%20final%20manuscript%20-%202020%2007%2020.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20205000063"
+ },
+ {
+  "id": 20205003817,
+  "title": "Spacecraft Smoke Detector Characterization with Reference and Smoke Aerosols",
+  "year": 2020,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Xiaoliang Wang",
+   "Judith C. Chow",
+   "John  G. Watson",
+   "Marit E. Meyer",
+   "Gary Ruff",
+   "John Easton",
+   "Gordon Berger",
+   "Paul D Mudgett"
+  ],
+  "abstract_chars": 1329,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20205003817/downloads/ICES_Final_340.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20205003817"
+ },
+ {
+  "id": 20205004657,
+  "title": "Effects of Confinement on Flame Spread in Microgravity",
+  "year": 2021,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Yanjun Li",
+   "Ya-Ting T Liao",
+   "Paul V Ferkul",
+   "Michael C Johnston",
+   "Charles Bunnell"
+  ],
+  "abstract_chars": 1758,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20205004657/downloads/ICES-2020-407-final.pdf"
+  ],
+  "tags": [
+   "BASS",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20205004657"
+ },
+ {
+  "id": 20210010621,
+  "title": "Modeling the Uptake of Hydrogen Chloride onto Interior Spacecraft Materials",
+  "year": 2021,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Justin E Niehaus",
+   "Suleyman A Gokoglu",
+   "Gordon Berger",
+   "John Easton",
+   "Sandip Mazumder"
+  ],
+  "abstract_chars": 1168,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210010621/downloads/Modeling%20the%20Uptake%20of%20Hydrogen%20Chloride%20onto%20Interior%20Spacecraft%20Materials.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210010621"
+ },
+ {
+  "id": 20210011385,
+  "title": "Burning and Suppression of Solids–II  (BASS-II) Summary Report",
+  "year": 2021,
+  "stiType": "TECHNICAL_MEMORANDUM",
+  "center": "GRC",
+  "authors": [
+   "Sandra L. Olson",
+   "Paul V. Ferkul",
+   "Subrata Bhattacharjee",
+   "Fletcher J. Miller",
+   "Carlos Fernandez-Pello",
+   "Shmuel Link",
+   "James S. T'ien",
+   "Indrek Wichman"
+  ],
+  "abstract_chars": 2134,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf"
+  ],
+  "tags": [
+   "BASS",
+   "BASS-II",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread",
+   "hardware:MSG"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210011385"
+ },
+ {
+  "id": 20210011521,
+  "title": "Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires",
+  "year": 2021,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "David L. Urban",
+   "Gary A. Ruff",
+   "Paul Ferkul",
+   "John Easton",
+   "Jay Owens",
+   "Sandra Olson",
+   "Marit Meyer",
+   "Claire Fortenberry",
+   "John Brooker",
+   "John Graf",
+   "Michael Casteel",
+   "Balazs Toth",
+   "Florian Meyer",
+   "Christian Eigenbrod",
+   "James S. T’ien",
+   "Ya-Ting T. Liao",
+   "A. Carlos Fernandez-Pello",
+   "Guillaume Legros",
+   "Augustin Guibaud",
+   "Nickolay Smirnov",
+   "Osamu Fujita",
+   "Grunde Jomaas"
+  ],
+  "abstract_chars": 1818,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210011521/downloads/ICES%202021-266%200503-2021%20final.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-IV",
+   "Saffire-V",
+   "theme:spacecraft-fire-safety",
+   "theme:post-fire-cleanup",
+   "theme:ISS-fire-response",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210011521"
+ },
+ {
+  "id": 20210012108,
+  "title": "The Combustion Product Monitor instrument for the spacecraft fire safety demonstration project",
+  "year": 2019,
+  "stiType": "PREPRINT",
+  "center": "JPL",
+  "authors": [
+   "Briggs, Ryan M.",
+   "Bendig, Rudi M.",
+   "Fradet, Mathieu"
+  ],
+  "abstract_chars": 881,
+  "downloads": [],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety",
+   "theme:exploration-atmospheres",
+   "theme:post-fire-cleanup"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210012108"
+ },
+ {
+  "id": 20210012606,
+  "title": "Desko Inferno - Overcoming COVID Hurdles to Light Our Fire",
+  "year": 2021,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Danelle Fogle"
+  ],
+  "abstract_chars": 0,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210012606/downloads/Desko%20Inferno%20-%20Overcoming%20COVID%20hurdles%20to%20light%20our%20fire%20v1.pptx.pdf"
+  ],
+  "tags": [
+   "Saffire"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210012606"
+ },
+ {
+  "id": 20210015913,
+  "title": "Advanced Combustion via Microgravity Experiments (ACME) on the International Space Station (ISS)",
+  "year": 2021,
+  "stiType": "POSTER",
+  "center": "GRC",
+  "authors": [
+   "Dennis Stocker"
+  ],
+  "abstract_chars": 1752,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210015913/downloads/PS-03403%20ACME%20on%20the%20ISS.pdf"
+  ],
+  "tags": [
+   "theme:cool-flames",
+   "ACME",
+   "theme:spacecraft-fire-safety",
+   "theme:material-flammability-oxygen-limits",
+   "theme:exploration-atmospheres",
+   "theme:gaseous-diffusion-flames",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210015913"
+ },
+ {
+  "id": 20210017343,
+  "title": "Evaluation of Combustion Products from Large-Scale Spacecraft Fires during the Saffire-IV and Saffire-V Experiments",
+  "year": 2021,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Claire Fortenberry",
+   "Michael Casteel",
+   "John Graf",
+   "John Easton",
+   "Justin Niehaus",
+   "Marit Meyer",
+   "David Urban",
+   "Gary Ruff"
+  ],
+  "abstract_chars": 0,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210017343/downloads/ICES%202021%20Platform%20v2.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-IV",
+   "Saffire-V"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210017343"
+ },
+ {
+  "id": 20210017780,
+  "title": "Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires",
+  "year": 2021,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "David L. Urban",
+   "Gary A. Ruff",
+   "Paul Ferkul",
+   "John Easton",
+   "Jay Owens",
+   "Sandra Olson",
+   "Marit Meyer",
+   "Claire Fortenberry",
+   "John Brooker",
+   "John Graf",
+   "Michael Casteel",
+   "Balazs Toth",
+   "Florian Meyer",
+   "Christian Eigenbrod",
+   "James S. T’ien",
+   "Ya-Ting T. Liao",
+   "A. Carlos Fernandez-Pello",
+   "Guillaume Legros",
+   "Nickolay Smirnov",
+   "Osamu Fujita",
+   "Grunde Jomaas"
+  ],
+  "abstract_chars": 1819,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210017780/downloads/Saffire%20ICES%202021%20Saffire%20Final%20presentation%20compressed.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-IV",
+   "Saffire-V",
+   "theme:spacecraft-fire-safety",
+   "theme:post-fire-cleanup",
+   "theme:ISS-fire-response",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210017780"
+ },
+ {
+  "id": 20210017785,
+  "title": "Opposed Flame Spreading Along a Structured PMMA Sample in Exploration Atmosphere Under Microgravity",
+  "year": 2021,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Christian Eigenbrod",
+   "Florian Meyer",
+   "Grunde Jomaas",
+   "David L Urban",
+   "Gary A Ruff",
+   "Sandra L Olson",
+   "Paul V Ferkul",
+   "Balazs Toth"
+  ],
+  "abstract_chars": 1348,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210017785/downloads/ICES-2021-218.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety",
+   "theme:exploration-atmospheres",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210017785"
+ },
+ {
+  "id": 20210017837,
+  "title": "Determining the Cause of Reduced Concurrent Flame Spread over Thin Solid Fuels in Low Pressure and Low Gravity",
+  "year": 2021,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Maria Thomsen",
+   "Sonia Fereres ",
+   "Luca Carmignani",
+   "Carlos Fernandez-Pello",
+   "David Urban",
+   "Gary Ruff"
+  ],
+  "abstract_chars": 1854,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210017837/downloads/ICES-2021-102.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:exploration-atmospheres",
+   "theme:partial-gravity-flammability",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210017837"
+ },
+ {
+  "id": 20210017838,
+  "title": "Opposed flame spreading along a structured PMMA-sample in exploration atmosphere under microgravity",
+  "year": 2021,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Christian Eigenbrod",
+   "Florian Meyer",
+   "David L. Urban",
+   "Gary A. Ruff",
+   "Sandra L. Olson",
+   "Paul V. Ferkul",
+   "Balazs Toth"
+  ],
+  "abstract_chars": 1348,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210017838/downloads/ICES-2021-218%20Eigenbrod.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety",
+   "theme:exploration-atmospheres",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210017838"
+ },
+ {
+  "id": 20210018206,
+  "title": "Replication of Segments of STS-94 as a Lunar Surface Mission",
+  "year": 2022,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Robert Lee Howard, Jr."
+  ],
+  "abstract_chars": 3164,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210018206/downloads/Abstract%20-%20Replication%20of%20Segments%20of%20STS-94%20as%20a%20Lunar%20Surface%20Mission.docx.pdf"
+  ],
+  "tags": [
+   "theme:partial-gravity-flammability",
+   "theme:droplet-combustion"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210018206"
+ },
+ {
+  "id": 20210020516,
+  "title": "Fire on the Moon: Solid Fuel Combustion Experiments",
+  "year": 2021,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Paul Ferkul",
+   "Ya-Ting Liao",
+   "Gary Ruff",
+   "Daniel Gotti",
+   "Jay Owens",
+   "Luke Ogorzaly"
+  ],
+  "abstract_chars": 1417,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210020516/downloads/Fire%20on%20the%20Moon-Overview%20charts-v1.pdf"
+  ],
+  "tags": [
+   "theme:material-flammability-oxygen-limits",
+   "theme:partial-gravity-flammability",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210020516"
+ },
+ {
+  "id": 20210021781,
+  "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station ",
+  "year": 2021,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Dennis P Stocker"
+  ],
+  "abstract_chars": 646,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210021781/downloads/JASMAC%20ACME%20paper%2020210921.pdf"
+  ],
+  "tags": [
+   "ACME",
+   "theme:gaseous-diffusion-flames",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210021781"
+ },
+ {
+  "id": 20210022402,
+  "title": "Topical: Solid Fuel Combustion in Partial and Micro-Gravity ",
+  "year": 2021,
+  "stiType": "WHITE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Michael Gollner",
+   "Indrek Wichman",
+   "Ya-Ting Liao",
+   "Luca Carmignani",
+   "Erica Belmont",
+   "Subrata Bhattacharjee",
+   "John de Ris",
+   "Daniel Dietrich",
+   "Christian Eigenbrod",
+   "Makoto Endo",
+   "Carlos Fernandez-Pello",
+   "Claire Fortenberry",
+   "Augustin Guibaud",
+   "Michael Johnston",
+   "Grunde Jomaas",
+   "Amanda Kimball",
+   "Sara McAllister",
+   "Randall McDermott",
+   "Fletcher Miller",
+   "Justin Niehaus",
+   "Vedha Nayagam",
+   "Sandra Olson",
+   "Rosa Padilla",
+   "James Quintiere",
+   "Guillermo Rein",
+   "Paul Ronney",
+   "Sarah Scott",
+   "Albert Simeoni",
+   "Ali Tohidi",
+   "James Urban",
+   "Qingsheng Wang",
+   "Forman Williams",
+   "Jiann Yang"
+  ],
+  "abstract_chars": 1040,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210022402/downloads/217-_GollnerMichaelJ.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:material-flammability-oxygen-limits",
+   "theme:partial-gravity-flammability",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210022402"
+ },
+ {
+  "id": 20210022403,
+  "title": "Topical: Challenges and Research Needs for Micro- and Partial-Gravity Fires",
+  "year": 2021,
+  "stiType": "WHITE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Ya-Ting Liao",
+   "Luca Carmignani",
+   "Justin Niehaus",
+   "Michael Gollner",
+   "Erica Belmont",
+   "Subrata Bhattacharjee",
+   "John de Ris",
+   "Daniel Dietrich",
+   "Christian Eigenbrod",
+   "Makoto Endo",
+   "Carlos Fernandez-Pello",
+   "Claire Fortenberry",
+   "Augustin Guibaud",
+   "Michael Johnston",
+   "Grunde Jomaas",
+   "Amanda Kimball",
+   "Sara McAllister",
+   "Randall McDermott",
+   "Fletcher Miller",
+   "Vedha Nayagam",
+   "Sandra Olson",
+   "Rosa Padilla",
+   "James Quintiere",
+   "Guillermo Rein",
+   "Paul Ronney",
+   "Sarah Scott",
+   "Albert Simeoni",
+   "Ali Tohidi",
+   "James Urban",
+   "Indrek S. Wichman",
+   "Forman Williams",
+   "Jiann Yang"
+  ],
+  "abstract_chars": 941,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210022403/downloads/60-_LiaoYaTingT.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:fire-suppression",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210022403"
+ },
+ {
+  "id": 20210022542,
+  "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station ",
+  "year": 2021,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Dennis P Stocker"
+  ],
+  "abstract_chars": 646,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210022542/downloads/ACME%20JASMAC-33%2020211007.pdf"
+  ],
+  "tags": [
+   "ACME",
+   "theme:gaseous-diffusion-flames",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210022542"
+ },
+ {
+  "id": 20210022617,
+  "title": "Isolated Single Droplet Combustion: FLEX Experiments onboard the International Space Station",
+  "year": 2021,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Vedha Nayagam",
+   "Daniel L. Dietrich",
+   "Forman A. Williams"
+  ],
+  "abstract_chars": 0,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210022617/downloads/JASMAC-33%20FLEX%20w%20video.pdf"
+  ],
+  "tags": [
+   "FLEX",
+   "theme:cool-flames",
+   "theme:droplet-combustion"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210022617"
+ },
+ {
+  "id": 20210022932,
+  "title": "Extinction of the Stagnation Point Diffusion Flame: Effect of Conductive Heat Loss into Solid Interior ",
+  "year": 2021,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Chengyao Li",
+   "Michael Johnston",
+   "James Tien "
+  ],
+  "abstract_chars": 2088,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20210022932/downloads/ASGSR2021-Li.pdf"
+  ],
+  "tags": [
+   "SoFIE-GEL",
+   "theme:material-flammability-oxygen-limits"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20210022932"
+ },
+ {
+  "id": 20220001449,
+  "title": "Miniaturized Laser Absorption Spectrometer for Combustion Calorimetry and Process Monitoring",
+  "year": 2020,
+  "stiType": "PREPRINT",
+  "center": "JPL",
+  "authors": [
+   "Briggs, Ryan M.",
+   "Tallarida, Nicholas R.",
+   "Fradet, Mathieu"
+  ],
+  "abstract_chars": 1032,
+  "downloads": [],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20220001449"
+ },
+ {
+  "id": 20220002714,
+  "title": "Model Development of Large-Scale Spacecraft Fires During the Saffire-IV Experiments",
+  "year": 2022,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "John Brooker",
+   "Justin Niehaus"
+  ],
+  "abstract_chars": 1167,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20220002714/downloads/Model%20Development%20of%20Large-Scale%20Spacecraft%20Fires%20during%20the%20Saffire-IV%20Experiments.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-IV",
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20220002714"
+ },
+ {
+  "id": 20220007045,
+  "title": "Multiscale Modeling of the Uptake of Hydrogen Chloride on Anodized Aluminum in Relevance to Spacecraft Fire Safety",
+  "year": 2022,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Justin Niehaus",
+   "Sandip Mazumder"
+  ],
+  "abstract_chars": 1480,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20220007045/downloads/Multiscale%20Modeling%20of%20the%20Uptake%20of%20Hydrogen%20Chloride%20on%20Anodized%20Aluminum%20in%20Relevance%20to%20Spacecraft%20Fire%20Safety_IMECE2022_95243_Final.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20220007045"
+ },
+ {
+  "id": 20220009086,
+  "title": "Opposed-flow Spreading Flames: Effect of Sub-atmospheric Pressure on Spread and Burning Rates",
+  "year": 2022,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Luca Carmignani",
+   "Priya Garg",
+   "Michael J Gollner",
+   "Carlos Fernandez-Pello",
+   "Maria Thomsen",
+   "David L Urban",
+   "Gary A Ruff"
+  ],
+  "abstract_chars": 1937,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20220009086/downloads/ICES-2022-219.pdf"
+  ],
+  "tags": [
+   "theme:partial-gravity-flammability",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20220009086"
+ },
+ {
+  "id": 20220009536,
+  "title": "Validation of Decompression Sickness Risk Mitigation Protocols for Planetary Spaceflight Missions ",
+  "year": 2022,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Andrew F. J. Abercromby",
+   "Alejandro Garbino",
+   "E. Lichar Dillon",
+   "Patrick Estep",
+   "Monica Hew",
+   "Grant Harman",
+   "Karina Marshall-Goebel",
+   "Jason Norcross",
+   "Kadambari Suri"
+  ],
+  "abstract_chars": 2206,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20220009536/downloads/ICAM_exploration_prebreathe_6-18-22.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20220009536"
+ },
+ {
+  "id": 20220009546,
+  "title": "Results of a 3-day Pilot Study to Validate Planetary Prebreathe Protocols Using a 56.5 kPa 34% O2, 66% N2 Saturation Cabin Atmosphere ",
+  "year": 2022,
+  "stiType": "PRESENTATION",
+  "center": "JSC",
+  "authors": [
+   "Alejandro Garbino",
+   "E Lichar Dillon",
+   "Patrick Estep",
+   "Monica Hew",
+   "Karina Marshall-Bowman",
+   "Jason Norcross",
+   "Kadambari Suri",
+   "Andrew F J Abercromby"
+  ],
+  "abstract_chars": 2070,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20220009546/downloads/ICAM_ExAtm_3day_abstract_final.docx.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20220009546"
+ },
+ {
+  "id": 20220012861,
+  "title": "Determining Flame Temperature By Broadband Two Color Pyrometry in A Flame Spreading Over A Thin Solid in Microgravity",
+  "year": 2022,
+  "stiType": "ACCEPTED_MANUSCRIPT",
+  "center": "GRC",
+  "authors": [
+   "Maria Thomsena",
+   "Juan Jose Cruz",
+   "Felipe Escudero",
+   "Andres Fuentes",
+   "Carlos Fernandez-Pello",
+   "Michael Gollner",
+   "David L. Urban",
+   "Gary A. Ruff"
+  ],
+  "abstract_chars": 1848,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20220012861/downloads/Volume_39_LaTeX_Template_Final_SFS.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-IV",
+   "theme:spacecraft-fire-safety",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20220012861"
+ },
+ {
+  "id": 20220014681,
+  "title": "A Comparison of Stratospheric Smoke Events Seen by SAGE II (1984-2005) and SAGE III (2017-2021)",
+  "year": 2022,
+  "stiType": "POSTER",
+  "center": "LaRC",
+  "authors": [
+   "L. W. Thomason"
+  ],
+  "abstract_chars": 2404,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20220014681/downloads/SPARC%20Poster%20Thomason.pdf"
+  ],
+  "tags": [
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20220014681"
+ },
+ {
+  "id": 20220015548,
+  "title": "Characterizing Fit Factor of a One Size Fits-Most Emergency Mask using Subjects with Smaller Neck Circumferences",
+  "year": 2023,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Frank Adam Korona",
+   "Emily Katherine Rabel",
+   "Justine Loren Wiles",
+   "Matthew Meyer",
+   "Alicia Elizabeth Ruiz",
+   "Jeffrey Thomas Hahn"
+  ],
+  "abstract_chars": 1554,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20220015548/downloads/EC3%20EM%20Testing%202023%20ICES%20Abstract%20first%20draft.docx.pdf"
+  ],
+  "tags": [
+   "theme:post-fire-cleanup",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20220015548"
+ },
+ {
+  "id": 20220015583,
+  "title": "ACME: Advanced Combustion via Microgravity Experiments",
+  "year": 2022,
+  "stiType": "POSTER",
+  "center": "GRC",
+  "authors": [
+   "Dennis P Stocker"
+  ],
+  "abstract_chars": 1095,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20220015583/downloads/PS-03790%20ACME%20poster%2013thUSNCM%202023.pdf"
+  ],
+  "tags": [
+   "theme:cool-flames",
+   "ACME",
+   "theme:gaseous-diffusion-flames",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20220015583"
+ },
+ {
+  "id": 20220015737,
+  "title": "Evaluation of Planetary Extravehicular Activity Prebreathe Protocols using a 56.5 kPa, 34% O2, 66% N2 Saturation Cabin Atmosphere in an 11-day Hypobaric Hypoxia Study",
+  "year": 2023,
+  "stiType": "PRESENTATION",
+  "center": "JSC",
+  "authors": [
+   "Alejandro Garbino",
+   "E Lichar Dillon",
+   "Patrick Estep",
+   "Monica Hew",
+   "Karina Marshall-Goebel",
+   "Jason Norcross",
+   "Kadambari Suri",
+   "Andrew F J Abercromby"
+  ],
+  "abstract_chars": 2410,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20220015737/downloads/Garbino_AsMA2023.docx.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20220015737"
+ },
+ {
+  "id": 20220019247,
+  "title": "Evolution of Hardware and Philosophy of Emergency Response Actions on the International Space Station and Future Spacecrafts",
+  "year": 2023,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Barry Tobias",
+   "Courtenay McMillan"
+  ],
+  "abstract_chars": 1873,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20220019247/downloads/Emergency%20Ops%20History%20for%20SpaceOps%20Conference%202023.pdf"
+  ],
+  "tags": [
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20220019247"
+ },
+ {
+  "id": 20230004106,
+  "title": "Combined Experimental and Modeling Study of the Interactions of Acid Gas with Common Spacecraft Surfaces for Fire Safety Applications",
+  "year": 2023,
+  "stiType": "THESIS_DISSERTATION",
+  "center": "GRC",
+  "authors": [
+   "Justin Niehaus"
+  ],
+  "abstract_chars": 8529,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20230004106/downloads/Combined%20Experimental%20and%20Modeling%20Study%20of%20the%20Interactions%20of%20Acid%20Gas%20with%20Common%20Spacecraft%20Surfaces%20for%20Fire%20Safety%20Applications.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:post-fire-cleanup",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20230004106"
+ },
+ {
+  "id": 20230009880,
+  "title": "A Study of the Kinetics of the CO Oxidation Catalyst in a Human Spaceflight Fire Cartridges as a Method to Understand and Predict Performance",
+  "year": 2023,
+  "stiType": "PRESENTATION",
+  "center": "JSC",
+  "authors": [
+   "L Barrett",
+   "A Korona",
+   "E Rabel",
+   "C Muko",
+   "S Beck",
+   "E Hudson"
+  ],
+  "abstract_chars": 1214,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20230009880/downloads/Fire%20Cartridge.pdf"
+  ],
+  "tags": [
+   "theme:post-fire-cleanup",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20230009880"
+ },
+ {
+  "id": 20230013826,
+  "title": "The Influence of Smoke Particle Properties and Cabin Characteristics on Smoke Detection in Lunar Gravity",
+  "year": 2023,
+  "stiType": "POSTER",
+  "center": "GRC",
+  "authors": [
+   "Claire Fortenberry",
+   "Ramaswamy Balasubramaniam",
+   "David Urban"
+  ],
+  "abstract_chars": 1704,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20230013826/downloads/AAAR%202023%20v1.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:exploration-atmospheres",
+   "theme:smoke-detection",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20230013826"
+ },
+ {
+  "id": 20230015380,
+  "title": "Development, Validation and Approval of A Planetary Extravehicular Activity Prebreathe Protocol: NASA Exploration Atmosphere Tests 1 & 2",
+  "year": 2024,
+  "stiType": "PRESENTATION",
+  "center": "JSC",
+  "authors": [
+   "A Garbino",
+   "M Y Hew-Yang",
+   "P Estep",
+   "B Siders",
+   "L Dillon",
+   "K Suri",
+   "C Ramsburg",
+   "K Marshall-Goebel",
+   "A F J Abercromby"
+  ],
+  "abstract_chars": 2451,
+  "downloads": [],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20230015380"
+ },
+ {
+  "id": 20240002119,
+  "title": "Creating the Environment for Exploration Habitats",
+  "year": 2024,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "JSC",
+  "authors": [
+   "Cristina A Anchondo",
+   "Peter A Masi",
+   "Christopher P G Briggs"
+  ],
+  "abstract_chars": 1743,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20240002119/downloads/ICES-2024-128-Draft.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20240002119"
+ },
+ {
+  "id": 20240002981,
+  "title": "Preliminary Results from the Saffire VI Experiment",
+  "year": 2024,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "David L Urban",
+   "Gary A Ruff",
+   "Paul Ferkul",
+   "John Easton",
+   "Michael Johnston",
+   "Jay Owens",
+   "Sandra Olson",
+   "Claire Fortenberry",
+   "John Graf",
+   "Oageng George",
+   "Balazs Toth",
+   "Florian Meyer",
+   "Christian Eigenbrod",
+   "James S T'ien",
+   "Ya-Ting T. Liao",
+   "A Carlos Fernandez-Pello",
+   "Guillaume Legros",
+   "Augustin Guibaud",
+   "Nickolay Smirnov",
+   "Osamu Fujita",
+   "Ulises Rojas Alva",
+   "Grunde Jomaas"
+  ],
+  "abstract_chars": 1752,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20240002981/downloads/Saffire-ICES-2024-ICES-365-accepted%20final.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-IV",
+   "Saffire-V",
+   "Saffire-VI",
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20240002981"
+ },
+ {
+  "id": 20240003211,
+  "title": "Moon to Mars (M2M): Exploration Atmosphere",
+  "year": 2024,
+  "stiType": "PRESENTATION",
+  "center": "JSC",
+  "authors": [
+   "Marlei Walton",
+   "Jason Norcross"
+  ],
+  "abstract_chars": 2678,
+  "downloads": [],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20240003211"
+ },
+ {
+  "id": 20240005668,
+  "title": "Predicting the Microgravity Performance of Terrestrial Portable Fire Extinguishers",
+  "year": 2024,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "LaRC",
+  "authors": [
+   "Morgan B Abney",
+   "Patrick Simpkins",
+   "Tim Provin",
+   "Doug Willard",
+   "Rudy Santamaria",
+   "Yongkang Chen",
+   "Mark M Weislogel",
+   "Daniel Dietrich",
+   "David Urban",
+   "Dave Williams",
+   "Chris Goetter",
+   "Susana Harper",
+   "Alfredo Juarez"
+  ],
+  "abstract_chars": 1639,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20240005668/downloads/461_ICES%202024%20PFE%20Analysis_FINAL2.pdf"
+  ],
+  "tags": [
+   "theme:fire-suppression",
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20240005668"
+ },
+ {
+  "id": 20240007488,
+  "title": "Preliminary Results from the Saffire VI Experiment",
+  "year": 2024,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "David L. Urban",
+   "Gary A. Ruff",
+   "Paul Ferkul",
+   "John Easton",
+   "Jay Owens",
+   "Sandra Olson",
+   "Claire Fortenberry",
+   "John Graf",
+   "Oageng George",
+   "Balazs Toth",
+   "Florian Meyer",
+   "Christian Eigenbrod",
+   "James S. Tien",
+   "Ya-Ting T. Liao",
+   "A. Carlos Fernandez-Pello",
+   "Guillaume Legros",
+   "Augustin Guibaud",
+   "Nickolay Smirnov",
+   "Osamu Fujita",
+   "Ulises Rojas Alva",
+   "Grunde Jomaas"
+  ],
+  "abstract_chars": 1431,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20240007488/downloads/Saffire%20ICES%202024%20Saffire%20presentation072124small.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-VI",
+   "theme:spacecraft-fire-safety",
+   "theme:smoke-detection",
+   "theme:fire-suppression",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20240007488"
+ },
+ {
+  "id": 20240007628,
+  "title": "Extinction of Solid Diffusion Flame in Microgravity: Details of Quenching and Blowoff Processes",
+  "year": 2024,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Chengyao Li",
+   "James S Tien",
+   "Paul V Ferkul",
+   "Sandra L Olson",
+   "Michael C Johnston"
+  ],
+  "abstract_chars": 1731,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20240007628/downloads/GELsymposiumfinalRev1.pdf"
+  ],
+  "tags": [
+   "SoFIE",
+   "SoFIE-GEL",
+   "theme:exploration-atmospheres",
+   "theme:gaseous-diffusion-flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20240007628"
+ },
+ {
+  "id": 20240007817,
+  "title": "Creating the Test Environment for Exploration Habitats",
+  "year": 2024,
+  "stiType": "PRESENTATION",
+  "center": "JSC",
+  "authors": [
+   "Chris Briggs",
+   "Cristina A Anchondo",
+   "Peter A Masi"
+  ],
+  "abstract_chars": 1741,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20240007817/downloads/ICES-2024-128-Final%20Presentation.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:fire-suppression"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20240007817"
+ },
+ {
+  "id": 20240008602,
+  "title": "Vehicle Modeling During the Burning of Thermally Thick Samples in the Saffire V Experiments",
+  "year": 2024,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Justin Niehaus",
+   "John Brooker",
+   "David Urban",
+   "Gary Ruff"
+  ],
+  "abstract_chars": 1163,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20240008602/downloads/ICES-2024-310.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-V",
+   "theme:spacecraft-fire-safety",
+   "theme:post-fire-cleanup",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20240008602"
+ },
+ {
+  "id": 20240008623,
+  "title": "Flammability of Materials on the Moon",
+  "year": 2024,
+  "stiType": "POSTER",
+  "center": "GRC",
+  "authors": [
+   "Jennifer Zayac",
+   "Michael Johnston",
+   "Gary Ruff",
+   "Paul Ferkul"
+  ],
+  "abstract_chars": 1019,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20240008623/downloads/20240008623.pdf"
+  ],
+  "tags": [
+   "FM2",
+   "theme:exploration-atmospheres",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20240008623"
+ },
+ {
+  "id": 20240013238,
+  "title": "Nasa Exploration Atmosphere Tests 3 & 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures",
+  "year": 2025,
+  "stiType": "ABSTRACT",
+  "center": "JSC",
+  "authors": [
+   "A Garbino",
+   "M Y Hew-Yang",
+   "P Estep",
+   "B Siders",
+   "K Marshall-Goebel"
+  ],
+  "abstract_chars": 2182,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20240013238/downloads/ASMA_2025_EA_Garbino_v2.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20240013238"
+ },
+ {
+  "id": 20240015018,
+  "title": "Compartment Fire Modeling of a Crew Cabin in 1-g and Lunar-g",
+  "year": 2024,
+  "stiType": "POSTER",
+  "center": "GRC",
+  "authors": [
+   "Justin Niehaus",
+   "David Urban"
+  ],
+  "abstract_chars": 1771,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20240015018/downloads/ASGSR%20Poster%202024.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:exploration-atmospheres",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20240015018"
+ },
+ {
+  "id": 20240015307,
+  "title": "Flammability of Materials on the Moon",
+  "year": 2024,
+  "stiType": "POSTER",
+  "center": "GRC",
+  "authors": [
+   "Jennifer Zayac",
+   "Michael Johnston",
+   "Gary Ruff",
+   "Paul Ferkul"
+  ],
+  "abstract_chars": 1458,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20240015307/downloads/Glenn_2024_ZayacPoster.pdf"
+  ],
+  "tags": [
+   "FM2",
+   "theme:material-flammability-oxygen-limits",
+   "theme:exploration-atmospheres",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20240015307"
+ },
+ {
+  "id": 20250001364,
+  "title": "Fire and Flame Research in the International Space Station’s Combustion Integrated Rack",
+  "year": 2025,
+  "stiType": "ABSTRACT",
+  "center": "GRC",
+  "authors": [
+   "Dennis P Stocker"
+  ],
+  "abstract_chars": 1969,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20250001364/downloads/CIR%20USNCM%20poster%20abstract%2020250203.pdf"
+  ],
+  "tags": [
+   "theme:cool-flames",
+   "theme:spacecraft-fire-safety",
+   "theme:droplet-combustion",
+   "theme:solid-flame-spread",
+   "theme:gaseous-diffusion-flames",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20250001364"
+ },
+ {
+  "id": 20250002347,
+  "title": "Fire and Flame Research in the Combustion Integrated Rack (CIR) on the International Space Station (ISS)",
+  "year": 2025,
+  "stiType": "POSTER",
+  "center": "GRC",
+  "authors": [
+   "Dennis Stocker"
+  ],
+  "abstract_chars": 566,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20250002347/downloads/PS-04694%20CIR%20panorama%20poster.pdf"
+  ],
+  "tags": [
+   "theme:cool-flames",
+   "theme:spacecraft-fire-safety",
+   "theme:gaseous-diffusion-flames",
+   "hardware:CIR"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20250002347"
+ },
+ {
+  "id": 20250002675,
+  "title": "Vehicle Modeling During the Burn Events in the Saffire VI Experiments",
+  "year": 2025,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Justin Niehaus",
+   "John Brooker",
+   "David Urban",
+   "Gary Ruff"
+  ],
+  "abstract_chars": 1099,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20250002675/downloads/Vehicle%20Modeling_FINAL.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-V",
+   "Saffire-VI",
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20250002675"
+ },
+ {
+  "id": 20250004535,
+  "title": "NASA Exploration Atmosphere Tests 3 and 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures",
+  "year": 2025,
+  "stiType": "PRESENTATION",
+  "center": "JSC",
+  "authors": [
+   "Alejandro Garbino",
+   "Monica Hew-Yang",
+   "Patrick Estep",
+   "Brett Siders",
+   "Karina Marshall-Goebel"
+  ],
+  "abstract_chars": 2182,
+  "downloads": [],
+  "tags": [
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20250004535"
+ },
+ {
+  "id": 20250006173,
+  "title": "Enhancing Future Commercial Space Stations: Applying ISS Insights to Environmental Control and Life Support Systems (ECLSS) Development on Emergency Response",
+  "year": 2025,
+  "stiType": "PRESENTATION",
+  "center": "JSC",
+  "authors": [
+   "Stephanie Walker",
+   "Cynthia Reuland",
+   "Leon Chen",
+   "David Williams"
+  ],
+  "abstract_chars": 1622,
+  "downloads": [],
+  "tags": [
+   "theme:ISS-fire-response"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20250006173"
+ },
+ {
+  "id": 20250006779,
+  "title": "Solid Fuel Ignition Testing for Lunar Applications, Theory and Experimental Results",
+  "year": 2025,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "David Urban",
+   "Sandra Olson",
+   "Daniel Dietrich",
+   "Dennis Stocker",
+   "Michael Johnston",
+   "Paul Ferkul",
+   "Gary A. Ruff",
+   "Jennifer Zayac",
+   "Susana Harper",
+   "Alfredo Juarez",
+   "Steven Peralta",
+   "Carlos Fernandez-Pello",
+   "Maria Thomsen",
+   "Ya-Ting T. Liao",
+   "Harold Beeson",
+   "Gregory Harrigan"
+  ],
+  "abstract_chars": 1261,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20250006779/downloads/ICES%202025-392%20Lunar%20Flam%20070725.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:material-flammability-oxygen-limits",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20250006779"
+ },
+ {
+  "id": 20250009062,
+  "title": "NASA Johnson Space Center’s Participation in Oxygen Generation Technology",
+  "year": 2025,
+  "stiType": "PRESENTATION",
+  "center": "JSC",
+  "authors": [
+   "John Graf"
+  ],
+  "abstract_chars": 2119,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20250009062/downloads/World%20Oxygen%20Day%20Presentation%20MCOG%20Graf.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20250009062"
+ },
+ {
+  "id": 20250010653,
+  "title": "Lunar Combustion Investigation: Flammability Results from a Rotating Sounding Rocket",
+  "year": 2025,
+  "stiType": "PRESENTATION",
+  "center": "GRC",
+  "authors": [
+   "Paul V Ferkul",
+   "Michael C Johnston",
+   "Nathan Kralik",
+   "Ya-Ting Liao"
+  ],
+  "abstract_chars": 1645,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20250010653/downloads/ASGSR%202025-LUCI-Ferkul-Presentation-v2-20250010653.pdf"
+  ],
+  "tags": [
+   "LUCI",
+   "FM2",
+   "theme:material-flammability-oxygen-limits",
+   "theme:partial-gravity-flammability",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20250010653"
+ },
+ {
+  "id": 20250010975,
+  "title": "Characterizing the Flammability of Nomex Fabric for the Preparation of FM<sup>2</sup>",
+  "year": 2025,
+  "stiType": "POSTER",
+  "center": "GRC",
+  "authors": [
+   "Jocelyn Schechter",
+   "Jennifer Zayac",
+   "Paul Ferkul",
+   "Daniel Dietrich",
+   "Ya-Ting Liao"
+  ],
+  "abstract_chars": 1901,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20250010975/downloads/ASGSR_FinalPoster%20JSchechter.pdf"
+  ],
+  "tags": [
+   "FM2",
+   "theme:material-flammability-oxygen-limits",
+   "theme:exploration-atmospheres",
+   "theme:partial-gravity-flammability",
+   "theme:solid-flame-spread"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20250010975"
+ },
+ {
+  "id": 20260000641,
+  "title": "Computational Fluid Dynamics Analysis of Flame Dynamics in Partial Gravity Environments in a Rotating Centrifuge",
+  "year": 2026,
+  "stiType": "ACCEPTED_MANUSCRIPT",
+  "center": "GRC",
+  "authors": [
+   "Ankit Sharma",
+   "Arland Zatania Lojo",
+   "Ya-Ting T Liao",
+   "Paul V Ferkul",
+   "Michael C Johnston"
+  ],
+  "abstract_chars": 1940,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20260000641/downloads/Centrifuge%20Paper-Comb%20and%20Flame%202025v_Final.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20260000641"
+ },
+ {
+  "id": 20260001600,
+  "title": "Spacecraft Fire Safety Predictions using Verified Saffire Model",
+  "year": 2026,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "Justin Niehaus",
+   "David Urban",
+   "Gary Ruff",
+   "Gordon Berger",
+   "John Easton"
+  ],
+  "abstract_chars": 1801,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20260001600/downloads/Spacecraft%20Fire%20Safety%20Predictions.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-VI",
+   "theme:spacecraft-fire-safety"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20260001600"
+ },
+ {
+  "id": 20260001992,
+  "title": "Heat and Smoke Emission from Tests on the Saffire VI Experiment",
+  "year": 2026,
+  "stiType": "CONFERENCE_PAPER",
+  "center": "GRC",
+  "authors": [
+   "David L Urban",
+   "Gary A Ruff",
+   "Paul Ferkul",
+   "John Easton",
+   "Jay Owens",
+   "Sandra Olson",
+   "Claire Fortenberry",
+   "John Graf",
+   "Oageng George",
+   "Balazs Toth",
+   "Florian Meyer",
+   "Christian Eigenbrod",
+   "James S T'ien",
+   "Ya-Ting T Liao",
+   "A Carlos Fernandez-Pello",
+   "Guillaume Legros",
+   "Augustin Guibaud",
+   "Nickolay Smirnov",
+   "Osamu Fujita",
+   "Ulises Rojas Alva",
+   "Grunde Jomaas"
+  ],
+  "abstract_chars": 1226,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20260001992/downloads/ICES%20Saffire%202026%2005%2004%20b.pdf"
+  ],
+  "tags": [
+   "Saffire",
+   "Saffire-VI",
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20260001992"
+ },
+ {
+  "id": 20260003925,
+  "title": "Impacts of Reduced Pressure Atmospheres on Environmental Control and Life Support Systems (ECLSS) Architectures",
+  "year": 2026,
+  "stiType": "TECHNICAL_MEMORANDUM",
+  "center": "LaRC",
+  "authors": [
+   "Morgan B Abney",
+   "Robert M. Bagdigian",
+   "Chase Hopkins",
+   "Ariel V Macatangay",
+   "Holly A Cagle",
+   "Michael D Pedley",
+   "James Knox"
+  ],
+  "abstract_chars": 747,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20260003925/downloads/20260003925.pdf"
+  ],
+  "tags": [
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20260003925"
+ },
+ {
+  "id": 20260005493,
+  "title": "Fire-Resistant Textile Development for Exploration Vehicles With Enriched-Oxygen Cabin Environments",
+  "year": 2026,
+  "stiType": "PRESENTATION",
+  "center": "JSC",
+  "authors": [
+   "Mary Walker",
+   "Karim Aly",
+   "Tianqi Gao",
+   "Kamili Shaw"
+  ],
+  "abstract_chars": 1515,
+  "downloads": [
+   "https://ntrs.nasa.gov/api/citations/20260005493/downloads/301-ICES_2026-FR-Textiles_Final.pdf"
+  ],
+  "tags": [
+   "theme:spacecraft-fire-safety",
+   "theme:exploration-atmospheres"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20260005493"
+ },
+ {
+  "id": 20260006059,
+  "title": "Surface Vehicle Atmospheric Considerations for Moon to Mars Exploration",
+  "year": 2026,
+  "stiType": "PRESENTATION",
+  "center": "MSFC",
+  "authors": [
+   "Logan Kennedy",
+   "Brian Alpert"
+  ],
+  "abstract_chars": 1995,
+  "downloads": [],
+  "tags": [
+   "theme:exploration-atmospheres",
+   "theme:fire-suppression",
+   "theme:partial-gravity-flammability"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/20260006059"
+ },
+ {
+  "id": "30580252934587",
+  "title": "Electric-field effects on methane coflow flames aboard the international space station (ISS): ACME E-FIELD flames",
+  "year": 2022,
+  "stiType": "REPRINT",
+  "center": null,
+  "authors": [
+   "Yu-Chien Chien",
+   "Dennis P. Stocker",
+   "Uday G. Hegde",
+   "Derek Dunn-Rankin"
+  ],
+  "abstract_chars": 0,
+  "downloads": [],
+  "tags": [
+   "ACME",
+   "E-FIELD Flames"
+  ],
+  "url": "https://ntrs.nasa.gov/citations/30580252934587"
+ }
+]

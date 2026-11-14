@@ -1,0 +1,191 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19990063738,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "2b97f991892f4c4c9b691da0607355c0",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19990063738,
+  "ear": "NO",
+  "id": "32eff77c565049029ee1434f5b0fd28d",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA/TM-1999-209285",
+  "E-11754",
+  "NAS 1.15:209285",
+  "Report Number: NASA/TM-1999-209285",
+  "Report Number: E-11754",
+  "Report Number: NAS 1.15:209285"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 962-22-00",
+   "submissionId": 19990063738,
+   "id": "4ef5c6193bef4936b70576a18da01646",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Fire Safety in the Low-Gravity Spacecraft Environment",
+ "stiType": "REPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T23:03:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19990063738,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "9b5d3d97aeab4969ac485e470738a89a"
+  }
+ ],
+ "stiTypeDetails": "Reprint (Version printed in journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19990063738,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-06T23:03:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Research in microgravity (low-gravity) combustion promises innovations and improvements in fire prevention and response for human-crew spacecraft. Findings indicate that material flammability and fire spread in microgravity are significantly affected by atmospheric flow rate, oxygen concentration, and diluent composition. This information can lead to modifications and correlations to standard material-assessment tests for prediction of fire resistance in space. Research on smoke-particle changes in microgravity promises future improvements and increased sensitivity of smoke detectors in spacecraft. Research on fire suppression by extinguishing agents and venting can yield new information on effective control of the rare, but serious fire events in spacecraft.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 19990063738,
+   "name": "Society of Automotive Engineers",
+   "id": "a3301b04f772449eaaa5876a1886632b"
+  },
+  {
+   "submissionId": 19990063738,
+   "name": "Aerospace Medical Association",
+   "id": "11eff5b37ddf44f4bc3608e626417714"
+  },
+  {
+   "submissionId": 19990063738,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "id": "9284cba5099f43e29341cacddb32a3fa"
+  },
+  {
+   "submissionId": 19990063738,
+   "name": "American Inst. of Chemical Engineers",
+   "id": "2b9eafdd1d4444b9b9da18cc3c7043e2"
+  },
+  {
+   "submissionId": 19990063738,
+   "name": "American Society of Mechanical Engineers",
+   "id": "5565b64fc68b40d88f29f4fed202f1b5"
+  },
+  {
+   "country": "United States",
+   "submissionId": 19990063738,
+   "endDate": "1999-07-15T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "Society of Automotive Engineers"
+      }
+     },
+     "meetingId": "93d3ec66bcde42688090d0a0cf42959e",
+     "id": "929780b08af64f8585796ee654c71586"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "Aerospace Medical Association"
+      }
+     },
+     "meetingId": "93d3ec66bcde42688090d0a0cf42959e",
+     "id": "3e84599b60c045ed96d202d19204a667"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics"
+      }
+     },
+     "meetingId": "93d3ec66bcde42688090d0a0cf42959e",
+     "id": "d7ebf80e2b484499b0cf64e11e49fb4b"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Chemical Engineers"
+      }
+     },
+     "meetingId": "93d3ec66bcde42688090d0a0cf42959e",
+     "id": "fb03b99fd84c426bbe00bec4b00d687c"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "American Society of Mechanical Engineers"
+      }
+     },
+     "meetingId": "93d3ec66bcde42688090d0a0cf42959e",
+     "id": "88b5ab9688cb4853bacf31560cadd387"
+    }
+   ],
+   "name": "Environmental Systems",
+   "location": "Denver, CO",
+   "id": "93d3ec66bcde42688090d0a0cf42959e",
+   "startDate": "1999-07-12T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19990063738,
+   "id": "7a12fd6d84e44e429572ffa6548fd229",
+   "publicationDate": "1999-07-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19990063738.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19990063738/downloads/19990063738.pdf",
+    "pdf": "/api/citations/19990063738/downloads/19990063738.pdf",
+    "fulltext": "/api/citations/19990063738/downloads/19990063738.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

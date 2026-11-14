@@ -1,0 +1,127 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19930011025,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "93c63faa3f434c0d93f71af8dedfbf2c",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19930011025,
+  "ear": "NO",
+  "id": "d3cf4cffd42b4818a80711a68ef7a31f",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-29T00:00:00.0000000+00:00",
+ "title": "Combustion experiments in reduced gravity with two-component miscible droplets",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T17:56:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19930011025,
+   "meta": {
+    "author": {
+     "name": "Shaw, Benjamin D."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Davis, CA, United States"
+    }
+   },
+   "id": "384aa45d54ee4f7dabfe90cec7826790"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19930011025,
+   "meta": {
+    "author": {
+     "name": "Aharon, Israel"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Davis, CA, United States"
+    }
+   },
+   "id": "5b6ddad2b72b420eacf3fea5cda8b6de"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19930011025,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "93N20214"
+ },
+ "created": "2013-09-06T17:56:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The combustion of liquid fuels is a topic worthy of scientific attention on practical and fundamental grounds. Most practical applications of liquid-fuel combustion involve the formation of spray diffusion flames, where droplets frequently burn in groups rather than individually. The combustion is typically complex, with interactions occurring between various physical mechanisms. Many efforts to understand liquid sprays have focused upon studying isolated droplets. Information gained from these studies is often not directly transferable to spray situations. However, isolated-droplet studies are useful in that they allow certain phenomena (e.g., extinction) to be studied under well-controlled and simplified conditions. When theory and experiment agree for simplified situations, predictions for more complex cases (where accurate experimental data may not exist) may be made with more confidence. The simplest droplet combustion scenario is that of an isolated droplet undergoing spherically-symmetric combustion in an environment of infinite extent. The idealization is approached only when forced and buoyant convection are negligible, the droplet is unsupported, and all foreign objects are far-removed from the combustion zone. Appreciable gravity levels compromise spherical symmetry by inducing buoyant convection.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19930011025,
+   "id": "556ed8db4f7846879694b7fef58c9ac8",
+   "publicationName": "NASA. Lewis Research Center, The Second International Microgravity Combustion Workshop",
+   "publicationDate": "1993-02-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19930010989,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The Second International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19930010989,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The Second International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "accessionNumber": "N93-20179 through N93-20219",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19930011025.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19930011025/downloads/19930011025.pdf",
+    "pdf": "/api/citations/19930011025/downloads/19930011025.pdf",
+    "fulltext": "/api/citations/19930011025/downloads/19930011025.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

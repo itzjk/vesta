@@ -1,0 +1,108 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20090037002,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "02a05e463d014899a948d5f29cb9a169",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20090037002,
+  "ear": "NO",
+  "id": "123784f8e0bc410999c7ea7ba595c7b4",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-18978",
+  "Report Number: JSC-CN-18978"
+ ],
+ "title": "Space Systems - Safety and Compatibility of Materials - Method to Determine the Flammability Thresholds of Materials",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T19:21:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20090037002,
+   "meta": {
+    "author": {
+     "name": "Hirsch, David"
+    },
+    "organization": {
+     "name": "Swedish Inst. of Agricultural Engineering",
+     "location": "Uppsala, Sweden"
+    }
+   },
+   "id": "476d77587b324430b5dc711914a8d225"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20090037002,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T19:21:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Spacecraft fire safety emphasizes fire prevention, which is achieved primarily through the use of fire-resistant materials. Materials selection for spacecraft is based on conventional flammability acceptance tests, along with prescribed quantity limitations and configuration control for items that are non-pass or questionable. ISO 14624-1 and -2 are the major methods used to evaluate flammability of polymeric materials intended for use in the habitable environments of spacecraft. The methods are upward flame-propagation tests initiated in static environments and using a well-defined igniter flame at the bottom of the sample. The tests are conducted in the most severe flaming combustion environment expected in the spacecraft. The pass/fail test logic of ISO 14624-1 and -2 does not allow a quantitative comparison with reduced gravity or microgravity test results; therefore their use is limited, and possibilities for in-depth theoretical analyses and realistic estimates of spacecraft fire extinguishment requirements are practically eliminated. To better understand the applicability of laboratory test data to actual spacecraft environments, a modified ISO 14624 protocol has been proposed that, as an alternative to qualifying materials as pass/fail in the worst-expected environments, measures the actual upward flammability limit for the material. A working group established by NASA to provide recommendations for exploration spacecraft internal atmospheres realized the importance of correlating laboratory data with real-life environments and recommended NASA to develop a flammability threshold test method. The working group indicated that for the Constellation Program, the flammability threshold information will allow NASA to identify materials with increased flammability risk from oxygen concentration and total pressure changes, minimize potential impacts, and allow for development of sound requirements for new spacecraft and extravehicular landers and habitats. Furthermore, recent research has shown that current normal gravity materials flammability tests do not correlate with flammability in ventilated, micro- or reduced-gravity conditions. Currently, the materials selection for spacecraft is based on the assumption of commonality between ground flammability test results and spacecraft environments, which does not appear to be valid. Materials flammability threshold data acquired in normal gravity can be correlated with data obtained in microgravity or reduced-gravity experiments, and consequently a more accurate assessment of the margin of safety of the material in the real environment can be made. In addition, the method allows the option of selecting better or best space system materials, as opposed to what would be considered just acceptable from a flammability point of view and realistic assessment of spacecraft fire extinguishment needs, which could result in significant weight savings. The knowledge afforded by this technique allows for limited extrapolations of flammability behavior to conditions not specifically tested and that could potentially result in significant cost and time savings. The intent of this Technical Specification is to bring to the attention of International Aerospace Community the importance of correlating laboratory test data with real-life space systems applications. The method presented is just one of the possibilities that are believed will lead to better understanding the applicability of laboratory aerospace materials flammability test data. International feedback on improving the proposed method, as well as suggestions for correlating other laboratory aerospace test data with real-life applications relevant to space systems are being sought.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "Israel",
+   "submissionId": 20090037002,
+   "endDate": "2009-10-23T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "4d64a30ac13a40ccb760ece01e688e23",
+     "meta": {
+      "organization": {
+       "name": "International Organization for Standardization (ISO)",
+       "location": "Geneva, Switzerland"
+      }
+     },
+     "meetingId": "5fc79369d1bb455fb139217dce6adf00",
+     "id": "de5f449ed91847f7bf9e5e6f575591fb"
+    }
+   ],
+   "name": "ISO Technical Committee: Space Systems and Operations - Materials and Processes (TC 20/SC 14/WG 6)",
+   "location": "Haifa",
+   "id": "5fc79369d1bb455fb139217dce6adf00",
+   "startDate": "2009-10-22T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20090037002,
+   "id": "aa76ae8066e74c7cb93b7ce46a15773e",
+   "publicationDate": "2009-10-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

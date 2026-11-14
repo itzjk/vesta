@@ -1,0 +1,210 @@
+{
+ "copyright": {
+  "disclosedInvention": false,
+  "submissionId": 20250004535,
+  "containsThirdPartyMaterial": false,
+  "containsIndication": false,
+  "belongsToPublisher": false,
+  "id": "a602488d87ad4ad4821c93783f37aa14",
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Aerospace Medicine",
+  "Man/System Technology and Life Support"
+ ],
+ "keywords": [
+  "decompression sickness"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20250004535,
+  "ear": "NO",
+  "id": "01cb85ee165d498bae4d4990cff89573",
+  "itar": "NO"
+ },
+ "distributionDate": "2025-06-05T05:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "10449.2.03.02.31.1831",
+   "submissionId": 20250004535,
+   "id": "4c2c6683498e4987852115a03bf505f0",
+   "type": "TASK"
+  },
+  {
+   "number": "NNJ15HK11B",
+   "submissionId": 20250004535,
+   "id": "cf1b26a38c1a4a1abb368b73aa7199b9",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "NASA Exploration Atmosphere Tests 3 and 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2025-05-05T18:48:24.3945480+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "3a940b0bfec05d248fc6372a10e69788",
+   "sequence": 0,
+   "submissionId": 20250004535,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Alejandro Garbino"
+    },
+    "organization": {
+     "name": "GeoControl Systems (United States)",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "174aeaace5be4be39b540f50bdeeaf8a",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "925e5bdacd5f45cf937f12fd344cef37"
+  },
+  {
+   "organizationId": "30956d12b05c56f99ba04cefabd82400",
+   "sequence": 1,
+   "submissionId": 20250004535,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Monica Hew-Yang"
+    },
+    "organization": {
+     "name": "KBR (United States)",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "1fc129f5b03447b5b208a693d33f1422",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "8b2d6e220fd044a78c0e469b7121a131"
+  },
+  {
+   "organizationId": "3a940b0bfec05d248fc6372a10e69788",
+   "sequence": 2,
+   "submissionId": 20250004535,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Patrick Estep"
+    },
+    "organization": {
+     "name": "GeoControl Systems (United States)",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "540242f236c6457e8a9d646561314abc",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "c532ec4104e84d55a16b9412fd895c0e"
+  },
+  {
+   "organizationId": "eef3e1a6698b41f99fd3a177d84ac5b5",
+   "sequence": 3,
+   "submissionId": 20250004535,
+   "meta": {
+    "author": {
+     "name": "Brett Siders"
+    },
+    "organization": {
+     "name": "Aegis Aerospace (United States)",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "36970bd1a88345d7ad481c99eb7c8bb8",
+   "userType": "OTHER",
+   "userId": "89f2b76f10304fd18d6d5135797d426e"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 4,
+   "submissionId": 20250004535,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Karina Marshall-Goebel"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, United States"
+    }
+   },
+   "id": "e54fd6dab50246569137e5d6087e3e53",
+   "userType": "CIVIL",
+   "userId": "d306465b9b514ffa9c16d9c39c336ad2"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20250004535,
+ "created": "2025-05-05T18:40:08.1397020+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "INTRODUCTION:\nSpace suits operate at low pressures to optimize astronauts’ performance. The drop in pressure from the habitat environment to the suit carries a risk of decompression sickness (DCS), which is mitigated by a 95% O2 prebreathe protocol. Prebreathe protocols for the lunar surface have a significantly higher risk compared to International Space Station microgravity Extravehicular Activities (EVA). In previous studies, we validated a prebreathe protocol from a 56.5 kPa 34% O2 cabin to a 29.6 kPa EVA pressure; however, the enriched oxygen cabin environment poses a flammability risk that requires significant changes to material design and selections. Here, we report outcomes for prebreathe protocols from a sub-30% O2 cabin and associated changes necessary to control DCS risk critical to upcoming lunar missions.\n\nMETHODS:\nFourteen volunteers completed 11-day hypobaric chamber studies with an “alternate exploration atmosphere” of 66.2kPa, 28.5% O2. Subjects acclimated for 48 hrs and then participated in five 6-hour simulated EVAs at 29.6 or 35.6kPa, 95% O2. Prior to EVA, subjects underwent a 20, 90, or 150-minute prebreathe. The EVA simulation was designed to be representative of future planetary EVAs, proportionate to the subject’s VO2max. Decompression stress was monitored by real-time doppler and echocardiograph alternating every 15 min, as well as clinical monitoring for DCS signs/symptoms. Venous gas emboli (VGE) and DCS outcomes were verified against NASA-STD-3001 acceptance criteria.\n\nRESULTS AND DISCUSSION:\nVenous gas emboli (VGE) were identified during all EVAs. A neurological DCS case was identified in the 90-min/29.6kPa prebreathe, terminating further testing of this protocol. No DCS cases were identified in the 150 min/29.6kPa protocol. The 20 min/36.5kPa protocol was rejected due to a Type II DCS case. All DCS symptoms resolved with treatment, with no sequelae post initial treatment of DCS. These various test points highlighted to the significant benefit of elevated suit pressure to shorten prebreathe protocols, but also the difficulty in assessing and managing DCS during sustained EVA operations in remote planetary surfaces.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20250004535,
+  "id": "9d365760dc904c379f001395d128a2ff"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20250004535,
+   "endDate": "2025-06-06T05:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "d0b811ba64ca502c8ec8636b127d210e",
+     "meta": {
+      "organization": {
+       "name": "Aerospace Medical Association",
+       "location": "Alexandria, United States"
+      }
+     },
+     "meetingId": "6158359331864f9a91e1880f33524447",
+     "id": "9e1a307de6b741829b4ee54d4854f6fa"
+    }
+   ],
+   "name": "2025 AsMA-UHMS Annual Scientific Meeting",
+   "location": "Atlanta, GA",
+   "id": "6158359331864f9a91e1880f33524447",
+   "url": "https://www.asma.org/scientific-meetings/asma-annual-scientific-meeting/2025-asma-uhms-annual-scientific-meeting",
+   "startDate": "2025-06-01T05:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20240013238,
+   "type": "SEE_ALSO",
+   "title": "Nasa Exploration Atmosphere Tests 3 & 4: Development and Validation of Planetary Extravehicular Activity Prebreathe Protocols for Alternate Atmospheres and Suit Pressures",
+   "stiType": "ABSTRACT",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+   "name": "2025_06_04_Garbino_EA_v2.pptx",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20250004535/downloads/2025_06_04_Garbino_EA_v2.pptx",
+    "fulltext": "/api/citations/20250004535/downloads/2025_06_04_Garbino_EA_v2.pptx.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

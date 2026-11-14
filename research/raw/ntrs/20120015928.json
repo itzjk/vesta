@@ -1,0 +1,190 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20120015928,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "f2a166d5c6694ee7b017715f8a25bd81",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20120015928,
+  "ear": "NO",
+  "id": "5ddd3c9853a740f6a92c489bf51281a8",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "E-18312",
+  "GRC-E-DAA-TN5423",
+  "Report Number: E-18312",
+  "Report Number: GRC-E-DAA-TN5423"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC08BA05B",
+   "submissionId": 20120015928,
+   "id": "06720932c69c45ab86a4e041277187f8",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "FLEX: A Decisive Step Forward in NASA's Combustion Research Program",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-26T03:03:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20120015928,
+   "meta": {
+    "author": {
+     "name": "Hickman, John M."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "06ec1b0acf2f429c974bcdac824a9823"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20120015928,
+   "meta": {
+    "author": {
+     "name": "Dietrich, Daniel L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c11a6e12d0184c7494a9fc2c775f2cf2"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20120015928,
+   "meta": {
+    "author": {
+     "name": "Hicks, Michael C."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e539879b13c748389b114082f81a298c"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20120015928,
+   "meta": {
+    "author": {
+     "name": "Nayagam, Vedha"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "97ccc66076f94af3a7913a65ea15a36d"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20120015928,
+   "meta": {
+    "author": {
+     "name": "Stocker, Dennis"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "42096c63fbd947edb078c7cf8b233e1e"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20120015928,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-26T03:03:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Stemming from the need to prevent, detect and suppress on-board spacecraft fires, the NASA microgravity combustion research program has grown to include fundamental research. From early experiment, we have known that flames behave differently in microgravity, and this environment would provide an ideal laboratory for refining many of the long held principals of combustion science. A microgravity environment can provide direct observation of phenomena that cannot be observed on Earth. Through the years, from precursor work performed in drop towers leading to experiments on the International Space Station (ISS), discoveries have been made about the nature of combustion in low gravity environments. These discoveries have uncovered new phenomena and shed a light on many of the fundamental phenomena that drive combustion processes. This paper discusses the NASA microgravity combustion research program taking place in the ISS Combustion Integrated Rack, its various current and planned experiments, and the early results from the Flame Extinguishment (FLEX) Experiment.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20120015928,
+   "name": "American Astronautical Society",
+   "location": "United States",
+   "id": "750e89e022c247d385e4df5b4f6fd7dc"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20120015928,
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Astronautical Society",
+       "location": "United States"
+      }
+     },
+     "meetingId": "d8224564ccdc4ff8889cbb9d260ce4d8",
+     "id": "02318d750f1940d387811efc73e74dbb"
+    }
+   ],
+   "name": "1st Annual International Space Station Research and Development",
+   "location": "Denver, CO",
+   "id": "d8224564ccdc4ff8889cbb9d260ce4d8",
+   "startDate": "2012-06-26T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20120015928,
+   "id": "b5f29524beab47c69fe84817c9150937",
+   "publicationDate": "2012-06-26T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20120015928.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20120015928/downloads/20120015928.pdf",
+    "pdf": "/api/citations/20120015928/downloads/20120015928.pdf",
+    "fulltext": "/api/citations/20120015928/downloads/20120015928.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

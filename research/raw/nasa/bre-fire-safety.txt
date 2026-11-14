@@ -1,0 +1,25 @@
+https://www.nasa.gov/wp-json/wp/v2/migration/61102
+TITLE: NASA – Burning Rate Emulator Experiments for Spacecraft Fire Safety
+FETCHED: 2026-11-14T10:57:38
+PUBLIC-LINK: https://www.nasa.gov/?migration=converted-node-136815
+DATE: 2013-06-06T21:36:01
+
+# NASA – Burning Rate Emulator Experiments for Spacecraft Fire Safety
+
+Michael Bustamante
+
+University of Maryland
+
+Experimental Investigation of Emulated Burning Rate at Various Gravity Levels Support for the initial development stages of a novel experimental apparatus, the Burning Rate Emulator (BRE), is proposed. This apparatus is capable of assessing ignitability, steady burning rate, and extinction characteristics of “virtual” solid and liquid fuels as a function of gravity level, flow characteristics, and orientation. The BRE consists of a porous burner whose temperature is controlled by a heat exchanger. A total heat flux sensor is mounted in the surface of the burner to create a feedback loop where the gaseous fuel flow rate supplied to the burner is proportional to the measured heat flux. By changing the fuel gas, it is possible to emulate steady combustion for a range of liquid and solid fuels having B-numbers (mass transfer numbers) and radiation characteristics that fall anywhere within physically realistic bounds. Measurements of the critical mass flux at ignition can also be made. These 2 measurements will be conducted as a function of scale and orientation to assess turbulent and laminar burning in natural convection. To assess gravity effects, an experiment insert will be developed for NASA parabolic trajectory aircraft that can, in principle, efficiently report the results for a range of gravity conditions, including microgravity combustion, in a single trajectory. The experiment is well suited to subsequent testing in the Combustion Integrated Rack aboard the International Space Station. This proposal is a cost effective way to obtain the burning rate characteristics of real solid fuels at various gravity levels. The results of this device and its analysis have the potential to enable the effective fire safety design and hazard analysis assessments for space missions, especially to the Moon and Mars. It can provide fundamental results for steady burning over a wide range of parameters. The burning of real fuels is problematic, as transient issues are unavoidable due to the duration of burning, thickness and other aspects. As steady burning is the limit of this transient, it is desirable to know this level for a wide range of fuels. The BRE can effectively simulate such burning, and can focus on issues involving radiation, extinction, suppression and ignition. It has the potential to serve as a quick experiment in g-variation trajectory flight tests to elucidate the effects of gravity on burning. Such a steady experiment can serve to more easily quantify mechanisms, develop general correlations, and serve to establish a basis for models. The proposed research program provides the following specific benefits:
+
+- Full mapping of burning rate for a range of realistic fuel properties.
+
+- Potential efficient capture of g-effects by designing an experiment for NASA parabolic aircraft tests (and later the ISS/CIR).
+
+- Generalized correlation of all results as a function of orientation and gravity.
+
+- Laminar and turbulent flow effects.
+
+- Potential evaluation of critical conditions for ignition and extinction for a range of realistic fuel properties.
+
+This research is particularly significant and applicable to NASA’s Space Technology Roadmaps 6th Technology Area (TA) – Human Health, Life Support and Habitation Systems. This TA includes the sub-TA: Environmental Monitoring, Safety and Emergency Response. This sub-TA is characterized via sub-elements including Fire prevention, detection, and suppression, described as “addressing the area of materials flammability in low- and partial-gravity”. This proposal accomplishes this by having the potential to efficiently and completely measure burning rate over a wide range of fuel properties.

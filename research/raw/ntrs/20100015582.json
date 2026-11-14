@@ -1,0 +1,174 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20100015582,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "a67d8232f0c341e1a1a6cbd93e15b695",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Design, Testing And Performance"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20100015582,
+  "ear": "NO",
+  "id": "e9ba95bb67a24d1e911ffb36f5197f75",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-10T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-20193",
+  "Report Number: JSC-CN-20193"
+ ],
+ "title": "Pressure Flammability Thresholds of Selected Aerospace Materials",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T22:53:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20100015582,
+   "meta": {
+    "author": {
+     "name": "Hirsch, David B."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "b4ffea0ff439473eb04718a670990985"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20100015582,
+   "meta": {
+    "author": {
+     "name": "Williams, James H."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "cf4ca4ea86db433a90dec40ee68382a4"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20100015582,
+   "meta": {
+    "author": {
+     "name": "Harper, Susana A."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "74a364c924da4b9e879f75034fa3c6ba"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20100015582,
+   "meta": {
+    "author": {
+     "name": "Beeson, Harold D."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "dee2b9e6cce9421289bf8e86ba1689c0"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20100015582,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "df1485deb0f04e558269ea5e38a4e55c"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20100015582,
+   "meta": {
+    "author": {
+     "name": "Pedley, Michael D."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "5da01fcf57e2436ba8e1a56ded47d633"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20100015582,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T22:53:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A test program was performed to determine the highest pressure in oxygen where materials used in the planned NASA Constellation Program Orion Crew Exploration Vehicle (CEV) Crew Module (CM) would not propagate a flame if an ignition source was present. The test methodology used was similar to that previously used to determine the maximum oxygen concentration (MOC) at which self-extinguishment occurs under constant total pressure conditions. An upward limiting pressure index (ULPI) was determined, where approximately 50 percent of the materials self-extinguish in a given environment. Following this, the maximum total pressure (MTP) was identified; where all samples tested (at least five) self-extinguished following the NASA-STD-6001.A Test 1 burn length criteria. The results obtained on seven materials indicate that the non-metallic materials become flammable in oxygen between 0.4 and 0.9 psia.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20100015582,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "2f6f1293c98747feb7937dd2e00837ef"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20100015582,
+   "id": "faddefebe91d4ea5aeaff93c116c8466",
+   "publicationDate": "2010-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20100015582.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20100015582/downloads/20100015582.pdf",
+    "pdf": "/api/citations/20100015582/downloads/20100015582.pdf",
+    "fulltext": "/api/citations/20100015582/downloads/20100015582.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

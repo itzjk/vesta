@@ -1,0 +1,201 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20200000557,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "bb69d276caa749268bfc1e20627d4920",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "keywords": [
+  "Environmental conditions",
+  "Flame spread rate",
+  "PMMA"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "eccnNumber": "",
+  "submissionId": 20200000557,
+  "ear": "NO",
+  "id": "da8ae446ba234774918ae16711ed6a59",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-11-05T05:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN76179",
+  "E-ISSN: 1556-2921",
+  "ISSN: 0010-2180",
+  "Report Number: GRC-E-DAA-TN76179"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "BC 72150022",
+   "submissionId": 20200000557,
+   "id": "b09b1f55ceed4604a76c3bf0885236c5",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "089407.02.04.22",
+   "submissionId": 20200000557,
+   "id": "f358b8bf212c48659cc3286597c2b518",
+   "type": "WBS"
+  },
+  {
+   "number": "ESMD_089407",
+   "submissionId": 20200000557,
+   "id": "2052fcd1aab448c48ff9bf12f712778c",
+   "type": "PROJECT"
+  },
+  {
+   "number": "NNX12AN67A",
+   "submissionId": 20200000557,
+   "id": "324c20c1079b48adbec885201d44d36f",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Buoyancy Effects on Concurrent Flame Spread Over Thick PMMA",
+ "stiType": "ACCEPTED_MANUSCRIPT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2020-01-28T08:54:03.0200000+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "7354b6f97b02576fb9c66f60d484fa23",
+   "sequence": 0,
+   "submissionId": 20200000557,
+   "meta": {
+    "author": {
+     "orcidId": "0000-0002-1454-2906",
+     "name": "Maria Thomsen"
+    },
+    "organization": {
+     "name": "University of California, Berkeley",
+     "location": "Berkeley, California, United States"
+    }
+   },
+   "id": "36fa332c3c134af1aa7718e11d89b2bc",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "7354b6f97b02576fb9c66f60d484fa23",
+   "sequence": 1,
+   "submissionId": 20200000557,
+   "meta": {
+    "author": {
+     "name": "Carlos Fernandez-Pello"
+    },
+    "organization": {
+     "name": "University of California, Berkeley",
+     "location": "Berkeley, California, United States"
+    }
+   },
+   "id": "8d2cb140400d41aaad534eb97420c960",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 2,
+   "submissionId": 20200000557,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Gary A. Ruff"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "ea1cb625b8154aa4899bca40296d2a74",
+   "userType": "CIVIL",
+   "userId": "f5daba98616b4f9faeb0dc31767c1f15"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 3,
+   "submissionId": 20200000557,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "David L. Urban"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "b53f2cfaa9934ac998d0a2c618eba369",
+   "userType": "CIVIL",
+   "userId": "e6ad9f3a70a94fc1a0a4a56bb211746a"
+  }
+ ],
+ "stiTypeDetails": "Accepted Manuscript (Version with final changes)",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20200000557,
+ "sourceIdentifiers": [
+  {
+   "submissionId": 20200000557,
+   "id": "822c10790d5a4317ae50faed3e8ab08d",
+   "descriptor": "doi:10.1016/j.combustflame.2018.10.016"
+  }
+ ],
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2020-01-28T08:54:03.0200000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The flammability of combustible materials in a spacecraft is important for fire safety applications because the conditions in spacecraft environments differ from those on earth. Experimental testing in space is difficult and expensive. However, reducing buoyancy by decreasing ambient pressure is a possible approach to simulate on-earth the burning behavior inside spacecraft environments. The objective of this work is to determine that possibility by studying the effect of pressure on concurrent flame spread, and by comparison with microgravity data, observe up to what point low-pressure can be used to replicate flame spread characteristics observed in microgravity. Specifically, this work studies the effect of pressure and microgravity on upward/concurrent flame spread over 10 mm thick polymethyl methacrylate (PMMA) slabs. Experiments in normal gravity were conducted over pressures ranging between 100 and 40 kPa and a forced flow velocity of 200 mm/s. Microgravity experiments were conducted during NASA’s Spacecraft Fire Experiment (Saffire II), on board the Cygnus spacecraft at 100 kPa with an air flow velocity of 200 mm/s. Results show that reductions of pressure slow down the flame spread over the PMMA surface approaching that in microgravity. The data is correlated in terms of a non-dimensional mixed convection analysis that describes the convective heat transferred from the flame to the solid, and the primary mechanism controlling the spread of the flame. The extrapolation of the correlation to low pressures predicts well the flame spread rate obtained in microgravity in the Saffire II experiments. Similar results were obtained by the authors with similar experiments with a thin composite cotton/fiberglass fabric (published elsewhere). Both results suggest that reduced pressure can be used to approximately replicate flame behavior of untested gravity conditions for the burning of thick and thin solids. This work could provide guidance for potential ground-based testing for fire safety design in spacecraft and space habitats.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "volume": "199",
+   "submissionId": 20200000557,
+   "issn": "0010-2180",
+   "publisher": "Elsevier",
+   "eissn": "1556-2921",
+   "id": "9c60509df2714bb4803379764faa9348",
+   "publicationName": "Combustion and Flame",
+   "publicationDate": "2018-11-05T05:00:00.0000000+00:00",
+   "issuePublicationDate": "2019-01-01T05:00:00.0000000+00:00",
+   "doi": "https://doi.org/10.1016/j.combustflame.2018.10.016"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20200000557.pdf",
+   "notes": "previewed and found no limiting markings",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20200000557/downloads/20200000557.pdf",
+    "pdf": "/api/citations/20200000557/downloads/20200000557.pdf",
+    "fulltext": "/api/citations/20200000557/downloads/20200000557.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

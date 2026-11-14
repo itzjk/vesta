@@ -1,0 +1,155 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19960008413,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "63ef1ac9e49d460ba89fe2d0584d1a61",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Materials Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19960008413,
+  "ear": "NO",
+  "id": "3a4db6d6015b4844b8f4e29074483f4a",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-29T00:00:00.0000000+00:00",
+ "title": "Smoke detection in low-G fires",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T23:35:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19960008413,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "eb687184706d4aa790ad384dfb0960f2"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19960008413,
+   "meta": {
+    "author": {
+     "name": "Griffin, Devon W."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "2178cbaa905b4df3908097ade12b0667"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19960008413,
+   "meta": {
+    "author": {
+     "name": "Gard, Melissa Y."
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL., United States"
+    }
+   },
+   "id": "b7aa18e9329441efb0661bc29d27729c"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 19960008413,
+   "meta": {
+    "author": {
+     "name": "Hoy, Michael"
+    },
+    "organization": {
+     "name": "NASA Lyndon B. Johnson Space Center",
+     "location": "Houston, TX., United States"
+    }
+   },
+   "id": "d365b060f674447bb972344fb4b7d41a"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19960008413,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "96N15579"
+ },
+ "created": "2013-09-06T23:35:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Fires in spacecraft are considered a credible risk. To respond to this risk, NASA flew fire detectors on Skylab and the Space Shuttle (STS) and included them in the design for International Space Station Alpha (ISSA). In previous missions (Mercury, Gemini and Apollo), the crew quarters were so cramped that it was not considered credible that the astronauts could fail to observe a fire. The Skylab nodule included approximately 20 UV fire detectors. The space shuttle has 9 ionization detectors in the mid deck and flight deck and Spacelab has six additional ionization detectors. The planned detectors for ISSA are laser-diode, forward-scattering, smoke or particulate detectors. Current plans for the ISSA call for two detectors in the open area of the module and detectors in racks that have both cooling air flow and electrical power. Due to the complete absence of data concerning the nature of particulate and radiant emission from low-g fires, all three of these detector systems were designed based upon 1-g test data. As planned mission durations and complexity increase and the volume of spacecraft increases, the need for and importance of effective, crew independent, fire detection grows significantly. This requires more knowledge concerning low-gravity fires and how they might be detected. To date, no combustion-generated particulate samples have been collected for well-developed microgravity flames. All of the extant data come from drop tower tests and therefore only correspond to the early stages of a fire. The fuel sources were restricted to laminar gas-jet diffusion flames and rapidly overheated wire insulation. These gas-jet drop tower tests indicate, through thermophoretic sampling, that soot primaries and aggregates (groups of primary particles) in micro-g may be significantly larger than those in normal-g (ng). This raises new scientific questions about soot processes as well as practical issues for particulate detection/alarm threshold levels used in on-orbit smoke detectors. Furthermore, it is widely speculated but unverified that the aggregates will grow to very large scales in a microgravity fire of longer duration than available on the ground. Preliminary tests in the 2.2 second drop tower suggest that particulate generated by overheated wire insulation will also be larger in microgravity than in normal gravity. TEM grids downstream of the fire region in the WIF experiment as well as visual observation of long string-like aggregates, further confirm this suggestion. The combined impact of these limited results and theoretical predictions is that direct knowledge of low-g combustion particulate as opposed to extrapolation from 1-g data is needed for a more confident design of smoke detectors for spacecraft.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19960008413,
+   "id": "f3cbe4e8ab4745ab8089a91a60603a79",
+   "publicationName": "The 3rd International Microgravity Combustion Workshop",
+   "publicationDate": "1995-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19960008386,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The 3rd International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19960008386,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The 3rd International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "accessionNumber": "N96-15553 through N96-15622",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19960008413.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19960008413/downloads/19960008413.pdf",
+    "pdf": "/api/citations/19960008413/downloads/19960008413.pdf",
+    "fulltext": "/api/citations/19960008413/downloads/19960008413.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

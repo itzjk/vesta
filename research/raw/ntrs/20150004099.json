@@ -1,0 +1,185 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150004099,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "f462ee7946804997b88c407a7d5e86d8",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "flammability",
+  "test method",
+  "Poisson distribution"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150004099,
+  "ear": "NO",
+  "id": "1d5c9814ce744584870de2b31d9979c9",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN13759",
+  "ICES-2014-179",
+  "Report Number: GRC-E-DAA-TN13759",
+  "Report Number: ICES-2014-179"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 904211.04.02.20.20.21",
+   "submissionId": 20150004099,
+   "id": "99252a66c10e4367a8e105c166ec165d",
+   "type": "WBS"
+  }
+ ],
+ "title": "Applying Flammability Limit Probabilities and the Normoxic Upward Limiting Pressure Concept to NASA STD-6001 Test 1",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-04-02T15:45:49.1970000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150004099,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "017f6c1070914aa0b0f6392da8125958"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20150004099,
+   "meta": {
+    "author": {
+     "name": "Beeson, Harold"
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM United States"
+    }
+   },
+   "id": "0ec05914e5dd43ca9e7de4da063416f6"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20150004099,
+   "meta": {
+    "author": {
+     "name": "Fernandez-Pello, A. Carlos"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "e24f38619a7b41359ce0cd196476577f"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150004099,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-04-02T15:45:49.1970000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Repeated Test 1 extinction tests near the upward flammability limit are expected to follow a Poisson process trend. This Poisson process trend suggests that rather than define a ULOI and MOC (which requires two limits to be determined), it might be better to define a single upward limit as being where 1/e (where e (approx. equal to 2.7183) is the characteristic time of the normalized Poisson process) of the materials burn, or, rounding, where approximately 1/3 of the samples fail the test (and burn). Recognizing that spacecraft atmospheres will not bound the entire oxygen-pressure parameter space, but actually lie along the normoxic atmosphere control band, we can focus the materials flammability testing along this normoxic band. A Normoxic Upward Limiting Pressure (NULP) is defined that determines the minimum safe total pressure for a material within the constant partial pressure control band. Then, increasing this pressure limit by a factor of safety, we can define the material as being safe to use at the NULP + SF (where SF is on the order of 10 kilopascal, based on existing flammability data). It is recommended that the thickest material to be tested with the current Test 1 igniter should be 3 mm thick (1/8 inches) to avoid the problem of differentiating between an ignition limit and a true flammability limit.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20150004099,
+   "endDate": "2014-07-17T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "3194431060294fa1969c379e78d001a2",
+     "meta": {
+      "organization": {
+       "name": "UTC Aerospace Systems",
+       "location": "Charlotte, NC, United States"
+      }
+     },
+     "meetingId": "4941b69b40b34029bc0ad17c8ca02841",
+     "id": "37eec7e8425f4c419191ac2f8ffda927"
+    },
+    {
+     "organizationId": "9381b76034b1432b8f4124cf06b3d774",
+     "meta": {
+      "organization": {
+       "name": "Paragon Space Development Corp.",
+       "location": "Tucson, AZ, United States"
+      }
+     },
+     "meetingId": "4941b69b40b34029bc0ad17c8ca02841",
+     "id": "7b2cccb1e2b64e869f591892a5e19f0d"
+    },
+    {
+     "organizationId": "acaa37f260ec4a3c98804ba419da8e15",
+     "meta": {
+      "organization": {
+       "name": "Texas Tech Univ.",
+       "location": "Lubbock, TX, United States"
+      }
+     },
+     "meetingId": "4941b69b40b34029bc0ad17c8ca02841",
+     "id": "d7c81c3009dc42498999b06eb79d2041"
+    }
+   ],
+   "name": "International Conference on Environmental Systems (ICES 2014)",
+   "location": "Tuscon, AZ",
+   "id": "4941b69b40b34029bc0ad17c8ca02841",
+   "startDate": "2014-07-13T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20150004099,
+   "id": "23f2effb4bb746e1ab0d287be3d0463a",
+   "publicationDate": "2014-07-13T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150004099.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150004099/downloads/20150004099.pdf",
+    "pdf": "/api/citations/20150004099/downloads/20150004099.pdf",
+    "fulltext": "/api/citations/20150004099/downloads/20150004099.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

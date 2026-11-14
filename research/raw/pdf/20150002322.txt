@@ -1,0 +1,439 @@
+          A computational and experimental study of coﬂow laminar
+ methane/air diﬀusion ﬂames: Eﬀects of fuel dilution, inlet velocity, and gravity
+
+      S. Caoa,∗, B. Maa,1 , B.A.V. Bennetta , D. Giassia , D.P. Stockerb , F. Takahashic , M.B. Longa , M.D. Smookea
+  a Department of Mechanical Engineering & Materials Science, Yale University, P.O. Box 208284, New Haven, Connecticut 06520–8284 USA
+                                          b NASA Glenn Research Center, Cleveland, Ohio 44135 USA
+    c National Center for Space Exploration Research on Fluids and Combustion, NASA Glenn Research Center, Cleveland, Ohio 44135 USA
+
+
+
+
+Abstract
+The inﬂuences of fuel dilution, inlet velocity, and gravity on the shape and structure of laminar coﬂow CH4 -air diﬀu-
+sion ﬂames were investigated computationally and experimentally. A series of nitrogen-diluted ﬂames measured in the
+Structure and Liftoﬀ in Combustion Experiment (SLICE) on board the International Space Station was assessed nu-
+merically under microgravity (μg) and normal gravity (1g) conditions with CH4 mole fraction ranging from 0.4 to 1.0
+and average inlet velocity ranging from 23 to 90 cm/s. Computationally, the MC-Smooth vorticity-velocity formula-
+tion was employed to describe the reactive gaseous mixture, and soot evolution was modeled by sectional aerosol equa-
+tions. The governing equations and boundary conditions were discretized on a two-dimensional computational domain
+by ﬁnite diﬀerences, and the resulting set of fully coupled, strongly nonlinear equations was solved simultaneously at
+all points using a damped, modiﬁed Newton’s method. Experimentally, ﬂame shape and soot temperature were deter-
+mined by ﬂame emission images recorded by a digital color camera. Very good agreement between computation and
+measurement was obtained, and the conclusions were as follows. (1) Buoyant and nonbuoyant luminous ﬂame lengths
+are proportional to the mass ﬂow rate of the fuel mixture; computed and measured nonbuoyant ﬂames are noticeably
+longer than their 1g counterparts; the eﬀect of fuel dilution on ﬂame shape (i.e., ﬂame length and ﬂame radius) is neg-
+ligible when the ﬂame shape is normalized by the methane ﬂow rate. (2) Buoyancy-induced reduction of the ﬂame ra-
+dius through radially inward convection near the ﬂame front is demonstrated. (3) Buoyant and nonbuoyant ﬂame struc-
+ture is mainly controlled by the fuel mass ﬂow rate, and the eﬀects from fuel dilution and inlet velocity are secondary.
+Keywords: laminar coﬂow diﬀusion ﬂame, gravity, fuel dilution, inlet fuel velocity, ﬂame shape and structure
+
+
+1. Introduction                                                         gravity, microgravity ﬂames generally have larger tem-
+                                                                        poral and spatial scales, they are exempt from intrusions
+   Diﬀusion ﬂames exist in most practical combustors,                   of buoyancy forces, and they can be studied over a wider
+and an accurate understanding of their structure is cru-                range of ﬂame conditions. Over the past few decades,
+cial to eﬃciency improvement and pollution suppres-                     a signiﬁcant amount of research has been conducted in
+sion. A coﬂow laminar diﬀusion ﬂame, which has well-                    microgravity, and the eﬀects of various parameters on
+deﬁned boundary conditions, is the simplest conﬁgura-                   ﬂame shape, structure, stabilization, and sooting behav-
+tion from which interactions between ﬂow ﬁeld and re-                   ior have been extensively studied (e.g., [3–11]).
+actions can be readily modiﬁed and studied [1]. Knowl-
+edge obtained from coﬂow laminar diﬀusion ﬂames is
+not only of fundamental importance, but also can facil-                    In this work, previous computational and experimen-
+itate the study of turbulent diﬀusion ﬂames in practical                tal investigations of coﬂow laminar diﬀusion ﬂames
+industrial combustors [2].                                              (e.g., [8, 9]) were further extended to characterize the
+   Microgravity provides an ideal environment for ﬂame                  eﬀects of fuel dilution, inlet velocity, and gravity. The
+research. Compared to their counterparts in normal                      present work’s objectives are: (1) to obtain an enhanced
+                                                                        understanding of the inﬂuences of fuel dilution, inlet ve-
+   ∗ Corresponding author. FAX: +1 203 432 6775                         locity, and gravity on the ﬂame structure; and (2) to as-
+    Email address: su.cao@yale.edu (S. Cao)                             sess the accuracy of the numerical model by comparing
+   1 Currently at GE Global Research.                                   computational and experimental results.
+Preprint submitted to Proceedings of the Combustion Institute                                                        November 13, 2014
+2. Burner conﬁguration                                                                                                                    30
+
+
+
+
+                                                                                                     Inlet coflow velocity vz, 0 (cm/s)
+   The burner consists of a central jet, from which the
+fuel mixture issues, and a surrounding coaxial square
+duct, from which the coﬂow air ﬂows. The inner jet’s                                                                                      20
+inner radius is rI = 0.162 cm and its wall thickness
+is wJET = 0.028 cm. The outer square duct’s width is
+7.62 cm. Details of the burner construction and opera-
+tion are provided in a companion paper [12]. Eighteen                                                                                     10
+ﬂames have been studied under both microgravity (μg)
+and normal gravity (1g) (36 ﬂames total): three fuel
+dilution levels (40%, 70%, and 100% CH4 in mole
+                                                                                                                                           0
+fractions) and six inlet velocities (approximately 24,                                                                                         0   1     2 3    4
+46, 55, 64, 80, 89 cm/s, changing slightly at diﬀerent                                                                                                 r (cm)
+fuel dilutions). Since each ﬂame is surrounded by an
+air coﬂow and takes at most 5% of the cross-sectional            Figure 1: Left: Schematic of the burner used in the simulations. Right:
+                                                                 Measured (circles) and ﬁtted (line) velocity proﬁles of the coﬂow air.
+area of the burner, the square duct is approximated as
+a coaxial tube with an identical cross-sectional area
+(radius rO = 4.288 cm); see Fig. 1 (left). The velocity
+proﬁle of the fuel stream is parabolic, with the average         of [20]) were added to allow the simulation of the soot-
+Reynolds number in the fuel jet ranging from 15 to 87.           ing process in the 70% CH4 and 100% CH4 ﬂames, with
+Due to hardware imperfections, the ﬂow ﬁeld of the               the augmented mechanism containing 42 species and
+coﬂow air is not perfectly ﬂat and has a bump near the           250 reactions. Since the maximum soot volume frac-
+inner tube; see Fig. 1 (right). To capture this nonide-          tion of all ﬂames is 0.22 ppm, eﬀects of radiation re-
+ality, the measured inlet velocity
+                                   distribution has been
+                                                               absorption are insigniﬁcant [15, 16, 21], and the power
+ﬁtted as vz (r) = v0 1 − tanh (r − 0.67rI )/0.038 cm +           radiated from soot and gas bands (CO, CO2 , and H2 O)
+                                                     
+13.50 0.5 + 0.5 tanh (r − 1.1(rI + wJET ))/0.09 cm −             is evaluated in the optically thin limit [22, 23].
+                                                              A two-dimensional computational domain is em-
+exp (r−rO )/0.240 cm +3.16 tanh (r−0.44)/0.15 cm +               ployed with rmax = 4.288 cm and zmax = 12.200 cm.
+                          
+tanh (0.96 − r)/0.35 cm , where the coeﬃcient v0 is              Other than approximating the square duct as a tube, all
+determined numerically to match the inlet mass ﬂow               boundary conditions are speciﬁed to reﬂect correspond-
+rate of the fuel mixture speciﬁed in the experiments.            ing experimental conditions. The domain is spanned by
+Since temperature measurements near the fuel tube exit           a nonuniform 129 × 202 tensor product grid with points
+are unavailable, the inlet temperature is set to 298 K.          clustered towards the burner surface and the centerline
+                                                                 to capture sharp gradients. The governing equations and
+3. Computational approach                                        boundary conditions are discretized by a nine-point ﬁ-
+                                                                 nite diﬀerence stencil, and the resulting set of fully cou-
+   The numerical framework is similar to those in                pled, strongly nonlinear equations is solved simultane-
+the authors’ previous works (see, for example, [13–              ously at all points using a damped, modiﬁed Newton’s
+16]) with the MC-Smooth vorticity-velocity formula-              method [24, 25] and a nested Bi-CGSTAB linear alge-
+tion [17] employed. The gas is assumed Newtonian                 bra solver [26]. Pseudo-transient continuation is per-
+and diﬀusion is Fickian; the nth species diﬀusion ve-            formed to aid in convergence of Newton’s method, and
+locity is calculated using detailed mixture averaging.           each ﬂame is solved to a Newton tolerance of 10−4 . All
+The Soret and Dufour eﬀects are neglected. The ﬂow’s             calculations were performed on workstations with 3.0-
+small Mach number implies that the pressure ﬁeld can             GHz processors, and the typical memory usage for a
+be obtained via the ideal gas law. All thermodynamic,            sooty ﬂame simulation is around 5.5 GB of RAM.
+chemical, and transport properties are evaluated using
+vectorized and highly eﬃcient libraries [18]. The gas-           4. Experimental approach
+phase chemistry is the GRI 3.0 mechanism [19] with all
+nitrogen-containing species (except N2 ) removed, leav-             A digital single lens reﬂex camera was used for ﬂame
+ing 35 species and 217 reactions. Certain reactions re-          shape measurement and was fully characterized as a ra-
+lated to benzene and associated species (see Table 1             tio pyrometer for soot temperature measurement. The
+                                                             2
+        100% CH4        100% CH4       100% CH4                                     40% CH4         70% CH4        100% CH4
+         46 cm/s         54 cm/s         66 cm/s                                     50 cm/s         46 cm/s         46 cm/s
+                                                             2100 K                                                                        Max
+
+
+                                                             1800 K
+
+
+                                                             1500 K
+
+
+                                                             1200 K
+
+                                                             900 K
+
+                                                             600 K
+
+                                                             300 K                                                                         Min
+
+
+
+
+Figure 2: Typical results of computed ﬂame temperature and mea-               Figure 3: Typical results of computed and measured luminous ﬂame
+sured soot temperature illustrating eﬀects of inlet velocity. Flame pa-       shapes illustrating eﬀects of fuel dilution. Color contours are mea-
+rameters and maximum temperatures are shown at the top of each plot.          sured luminous ﬂame images, and white isopleths are computed lu-
+Measured temperatures are only available in sooting regions.                  minous ﬂame boundaries deﬁned by contours of 1% of maximum CH
+                                                                              concentration. Flame parameters are shown at the top of each plot.
+
+
+
+spectral responses of the red, green, and blue channels
+have been measured following the approach detailed                            tween computed and measured temperature ﬁelds will
+in [27, 28]. A calculated lookup table that correlates                        increase slightly, where that increment is mainly caused
+color ratio and soot temperature is used to determine                         by the underpredicted soot volume fractions in μg [12].
+the axisymmetric soot temperature distribution. Details                          Figure 3 presents a comparison between computed
+are reported in a companion paper [12].                                       and measured luminous ﬂame shapes at similar inlet
+                                                                              velocities to demonstrate the eﬀects of fuel dilution and
+5. Results and discussion                                                     gravity on ﬂame geometry. This direct comparison was
+                                                                              enabled by the previous observation [9] that excellent
+   The numerical model has been validated for buoy-                           structural agreement exists between computed CH
+ant and nonbuoyant coﬂow laminar diﬀusion ﬂames in                            and measured CH∗ in CH4 -air diﬀusion ﬂames for
+previous research [8, 9]. In this work, additional vali-                      ﬂame shape and lift-oﬀ height in both μg and 1g.
+dation was conducted by comparing the computed and                            Since the ﬂames studied in our work range from lifted,
+measured temperature ﬁelds and luminous ﬂame shapes                           non-sooting ﬂames to attached, sooting ﬂames, we
+of a series of CH4 -air coﬂow laminar diﬀusion ﬂames                          deﬁned the computed luminous ﬂame boundary as the
+in both μg and 1g. In Fig. 2, portions of the com-                            contour of 1% of maximum CH concentration to ensure
+puted temperature ﬁelds and measured soot tempera-                            data consistency. Regardless of the presence of soot,
+tures (available in the sooting region only) of the buoy-                     there is generally good agreement between computed
+ant 100% CH4 ﬂames with increasing inlet velocity are                         and measured ﬂame shapes: the computed luminous
+shown. Results in Fig. 2 indicate very good agreement                         ﬂame boundaries are located very close to the measured
+between computed and measured temperature proﬁles:                            ones, and they capture the tendency that the ﬂames
+their shapes and magnitudes are modeled accurately,                           become longer and wider as buoyancy is eliminated or
+and the inﬂuences of varying inlet velocity are correctly                     fuel concentration is increased.
+captured. The largest discrepancy between the mea-                               To quantify the eﬀects of fuel dilution, inlet velocity,
+sured maximum temperatures and corresponding pre-                             and gravity on ﬂame shape as well as better evaluate the
+dictions is 33 K, which is very small and should be at-                       accuracy of the numerical model, two ﬂame shape pa-
+tributed to uncertainties in both computations and mea-                       rameters (luminous ﬂame length Lf and ﬂame radius rf )
+surements. As gravity is eliminated, the discrepancy be-                      are assessed below. Computationally, Lf is the axial dis-
+                                                                          3
+                             20                                                                                               20
+                                                     Exper. Comp.                                                                                     Exper. Comp.
+                             15                     0g 1g 0g 1g                                                               15                     0g 1g 0g 1g
+                                          40% CH4                                                                                          40% CH4
+                                          70% CH4                                                                                          70% CH4
+
+
+
+
+   Modified flame length Lf (cm)                                                                    Modified flame length Lf (cm)
+                             10                                                                                               10
+                                         100% CH4                                                                                         100% CH4
+ ~                                                                                               ~
+
+
+                                   5                                                                                                5
+
+
+
+
+                      1                                                                                                1
+                    0.8                                                                                              0.8
+                                       0.5          1            2             4     6   8                                              0.5       1             2            4      6   8
+                                                                            .                                                                                          .
+                                             Mass flow rate of fuel mixture mFM (mg/s)                                                        Mass flow rate of methane mCH4 (mg/s)
+
+
+Figure 4: Computed and measured modiﬁed ﬂame length as a function                                Figure 5: Computed and measured modiﬁed ﬂame length as a
+of the mass ﬂow rate of the fuel mixture. The ﬁgure is plotted on a                              function of the mass ﬂow rate of methane. The ﬁgure is plotted on a
+log-log scale.                                                                                   log-log scale.
+
+
+
+
+tance along the centerline from the burner exit plane to                                         model predictions [29] and previous investigations of
+the point with highest CH concentration; and rf is the                                           buoyant [30, 31] and nonbuoyant ﬂames [3, 4, 7]. It is
+maximum r value along the computed CH contour. Ex-                                               also observed in Fig. 4 that μg ﬂame lengths are longer
+perimentally, Lf is the axial distance along the centerline                                      than their 1g counterparts, with computed and measured
+from the burner exit plane to the luminous ﬂame bound-                                           nonbuoyant ﬂames 22% and 28% longer, on average,
+ary; and rf is the maximum r value along the measured                                            and the diﬀerence in L̃f increases as ṁFM increases.
+luminous ﬂame boundary. Since the coﬂow velocity is                                              This trend (i.e., decreasing L̃f with increasing gravita-
+relatively small in this study, only the 40% CH4 ﬂame                                            tional acceleration) has been reported previously in both
+in 1g is lifted and all other ﬂames are attached. Con-                                           microgravity ﬂames [3, 4] and centrifuge ﬂames [32].
+sidering that the GRI mechanism will underpredict the                                               Figure 5 shows the dependence of computed and
+lift-oﬀ height of the highly diluted 40% CH4 ﬂames [9],                                          measured L̃f on the mass ﬂow rate of just the methane,
+and that the lift-oﬀ height can take a signiﬁcant por-                                           ṁCH4 . We found that L̃f is predominantly controlled by
+tion of the ﬂame length at high ﬂowrates, the modi-                                              ṁCH4 in both μg and 1g, and that the fuel stream dilution
+ﬁed ﬂame length L̃f (obtained by subtracting the lift-oﬀ                                         has negligible inﬂuence on L̃f . The overpredicted ﬂame
+height from Lf ) is employed in the current investigation                                        length of the 40% CH4 buoyant ﬂame at ṁCH4 ≈ 2 mg/s
+to uncover better the intrinsic physics of the problem.                                          is mainly caused by the underpredicted lift-oﬀ height,
+    Computed and measured values of L̃f are illustrated                                          which is a known limitation of the GRI mechanism and
+in Fig. 4. These results are plotted as a function of the                                        has been reported previously [9]. On the other hand, as
+mass ﬂow rate of the fuel mixture, ṁFM , based on the                                           the corresponding 40% CH4 ﬂame in μg is attached, we
+theory that laminar ﬂame length should be proportional                                           are able to avoid underpredicting its lift-oﬀ height and
+to the fuel mass ﬂow rate [29]. Results in Fig. 4 reveal                                         thus can predict its length correctly. The predominant
+very good agreement between computed and measured                                                eﬀects of ṁCH4 on the velocity ﬁeld and ﬂame structure
+L̃f , where the diﬀerence between computed and mea-                                              will be further examined in the context of Figs. 7–9.
+sured L̃f is always less than 15%. In 1g, the average                                               The computed and measured ﬂame radii are shown
+slopes of the computed and measured L̃f values with                                              in Fig. 6. Very good agreement was obtained between
+respect to ṁFM on a log-log scale are 1.02 and 1.03;                                            computations and measurements for most ﬂames, and
+while in μg, the corresponding values are 1.12 and 1.07.                                         the largest discrepancy between computed and mea-
+These values reveal a strong linear dependence, and                                              sured ﬂame radii is 29% (i.e., 0.11 cm). The mea-
+the linearity shown in Fig. 4 is in good agreement with                                          sured 1g rf decreases when the CH4 concentration is in-
+                                                                                             4
+                        1.0                                                                                        1.0
+
+                        0.8                                                                                        0.8
+
+
+
+
+ Flame radius rf (cm)                                                                       Flame radius rf (cm)
+                        0.6                                                                                        0.6
+
+
+                   ~
+
+                        0.4                                                                                        0.4
+
+
+                                                             Exper.       Comp.                                                                          Exper. Comp.
+                                                             0g 1g       0g 1g                                                                          0g 1g 0g 1g
+                                                  40% CH4                                                                                    40% CH4
+                                                  70% CH4                                                                                    70% CH4
+                                                 100% CH4                                                                                   100% CH4
+                        0.2                                                                                        0.2
+                              20                   40            60       80     100                                     0.5       1             2            4      6   8
+                                                                 .                                                                                      .
+                                   Average velocity of fuel mixture vFM (cm/s)                                                 Mass flow rate of methane mCH4 (mg/s)
+
+
+Figure 6: Computed and measured ﬂame radius as a function of the                           Figure 7: Computed and measured ﬂame radius as a function of the
+average velocity of the fuel mixture. The ﬁgure is plotted on a log-log                    mass ﬂow rate of methane. The ﬁgure is plotted on a log-log scale.
+scale.
+
+
+
+                                                                                           We immediately observe that gravity has a profound
+creased from 70% to 100%. This behavior is caused by                                       eﬀect on the velocity ﬁeld. In 1g, the magnitude
+the shift of the dominant luminosity from CH∗ chemi-                                       of the velocity continues to increase with increasing
+luminescence to soot emission as depicted in Fig. 3.                                       z position, and the radial distribution of the velocity
+In 1g, the average slopes of the computed and mea-                                         ﬁeld changes from bell-shaped near the burner exit
+sured rf values with respect to the average velocity of                                    plane to parabolic in the post-ﬂame region. In μg, the
+the fuel mixture, vFM , on a log-log scale are 0.25 and                                    velocity ﬁeld shows a completely diﬀerent behavior:
+0.27, which is in good agreement with the theoretical                                      the magnitude of the velocity decreases with increasing
+prediction that rf ∝ St0.25 (where St = Fr/Re, the source                                  z position, and the radial distribution of the velocity
+Stokes number) [29, 31]. In μg, the corresponding val-                                     ﬁeld becomes more uniform. This discrepancy is
+ues are 0.43 and 0.39, and they are closer to the expres-                                  mainly caused by the absence of buoyancy-induced
+sion that rf ∝ v0.5
+                  FM from Lin and Faeth for non-buoyant                                    acceleration and the increased radial diﬀusion of mo-
+ﬂames with constant coﬂow velocity and reactant condi-                                     mentum, and it becomes more pronounced as the ﬂow
+tions [6]. It is also observed in Fig. 6 that μg ﬂames are                                 proceeds downstream. The vr proﬁles (color contours)
+considerably wider than the corresponding 1g ﬂames.                                        are remarkably aﬀected by gravity as well. When buoy-
+The diﬀerence in rf is presumably due to the radially                                      ancy is eliminated, the region near the burner exit plane
+inward convection that moves the ﬂame front towards                                        with positive vr (mainly due to thermal expansion)
+the centerline; this inward ﬂow is clearly illustrated by                                  becomes more intense and has a larger area; the radially
+the light blue region outside the stoichiometric mixture                                   inward ﬂow outside the ﬂame front (represented by the
+fraction contour in Fig. 8.                                                                stoichiometric mixture fraction contour) disappears,
+   Figure 7 shows the dependence of computed and                                           and the ﬂame becomes wider and longer.
+measured ﬂame radii on the mass ﬂow rate of just the                                          The predominant inﬂuence of methane mass ﬂow
+methane, ṁCH4 . Similar to Fig. 5, it is observed that the                                rate on the ﬂame structure is also demonstrated in
+ﬂame radius is mainly controlled by the fuel mass ﬂow                                      Fig. 8 by the 70% CH4 ﬂame with vFM = 66 cm/s and
+rate in both μg and 1g, and that the eﬀects of fuel stream                                 the 100% CH4 ﬂame with vFM = 46 cm/s, as these
+dilution on rf is secondary.                                                               two ﬂames have approximately the same ṁCH4 values.
+   Figure 8 illustrates the eﬀects of gravity, fuel dilution                               From Fig. 8, it is observed that their ﬂame fronts have
+and inlet velocity on the velocity ﬁeld and ﬂame                                           very similar shapes and dimensions in both μg and
+structure. In each plot, the μg velocity ﬁeld is plotted on                                1g, and that their velocity ﬁelds in the vicinity of
+the left and its 1g counterpart is depicted on the right.                                  the centerline become nearly indistinguishable when
+                                                                                       5
+         70% CH4          100% CH4          100% CH4          vr
+          66 cm/s          46 cm/s           66 cm/s        (cm/s)
+                                                                  -15
+
+                                                                   -10
+
+                                                                   -15
+
+                                                                   -10
+
+                                                                   1-5
+
+                                                                   -10
+                                                                   -15
+
+
+
+                                                                    vref = 200 cm/s
+
+
+
+
+Figure 8: Eﬀects of inlet velocity, fuel dilution, and gravity on radial
+velocity distribution (in color contours) and velocity vectors. Also
+plotted are heat release rate at q̇ = 100 W/cm3 (solid black isopleth),
+and stoichiometric mixture fractions (dashed black isopleths). Flame
+parameters are shown at the top of each plot. Note that the color
+distribution in the legend was modiﬁed to emphasize the radial
+convection near the ﬂame front.
+
+
+
+                                                                                           Figure 9: Temperature T CL , axial velocity vz, CL , and residence time
+z ≥ 3 cm (i.e., the centerline velocities are within 10%                                   τCL along the centerline as a function of height for the three pairs of
+of each other). We subsequently investigate the eﬀects                                     ﬂames discussed in the context of Fig. 8.
+of fuel dilution on the velocity ﬁeld by examining the
+70% and 100% CH4 ﬂames with vFM = 66 cm/s. We
+observe that as the fuel concentration increases, the
+                                                                                           in the vicinity of the centerline increases as z increases,
+ﬂame becomes larger and more exothermic, and it
+                                                                                           and this diﬀerence will result in a 3.5-fold increase in
+generates a more intense radially inward ﬂow. Since
+                                                                                           residence time τCL near the domain exit, as shown in
+more heat is generated, the 1g velocity ﬁeld will have
+                                                                                           Fig. 9. The dominant inﬂuence of methane mass ﬂow
+a larger magnitude in the post-ﬂame region. The
+                                                                                           rate is also observed: the centerline temperature and ax-
+thermal expansion of the ﬂow near the burner exit plane
+                                                                                           ial velocity of the 70% CH4 ﬂame with vFM = 66 cm/s
+becomes enhanced too, illustrated by a larger region of
+                                                                                           and the 100% CH4 ﬂame with vFM = 46 cm/s are
+ﬂow having a higher radial velocity and the stronger
+                                                                                           very similar in both μg and 1g, and they diﬀer signif-
+radially inward ﬂow inside the heat release contour (the
+                                                                                           icantly from the results of the 100% CH4 ﬂame with
+blue dot near the fuel tube). The inﬂuence of increasing
+                                                                                           vFM = 66 cm/s.
+vFM is similar to that of increasing fuel concentration,
+because both processes lead to an increase in ṁCH4 .
+   Finally, we examine the distributions of temperature,                                   6. Conclusions
+axial velocity, and residence time along the centerline.
+Results shown in Fig. 9 indicate that when buoyancy is                                        Eﬀects of fuel dilution, inlet velocity, and gravity on
+eliminated, the peak temperature along the centerline                                      the shape and structure of laminar coﬂow CH4 -air diﬀu-
+drops by around 300 K and moves downstream, with                                           sion ﬂames were investigated computationally and ex-
+larger changes occurring in ﬂames with higher fuel                                         perimentally, with very good agreement obtained. The
+concentration or higher inlet velocity. Gravity also                                       major conclusions were as follows. (1) Buoyant and
+has a profound eﬀect on the velocity ﬁeld. Since                                           nonbuoyant luminous ﬂame lengths are proportional to
+vz ∝ z0.5 [29], the diﬀerence between vz in μg and 1g                                      the mass ﬂow rate of the fuel mixture; computed and
+                                                                                       6
+measured nonbuoyant ﬂames are noticeably longer than                       [14] B.A.V. Bennett, C.S. McEnally, L.D. Pfeﬀerle, M.D. Smooke,
+their 1g counterparts; the eﬀect of fuel dilution on ﬂame                       Combust. Flame, 123 (4) (2000) 522–546.
+                                                                           [15] M.D. Smooke, R.J. Hall, M.B. Colket, J. Fielding, M.B. Long,
+shape (i.e., ﬂame length and ﬂame radius) is negligible                         C.S. McEnally, L.D. Pfeﬀerle, Combust. Theory Model. 8 (3)
+when the ﬂame shape is normalized by the methane ﬂow                            (2004) 593–606.
+rate. (2) Buoyancy-induced reduction of the ﬂame ra-                       [16] M.D. Smooke, M.B. Long, B.C. Connelly, M.B. Colket, R.J.
+dius through radially inward convection near the ﬂame                           Hall, Combust. Flame, 143 (4) (2005) 613–628.
+                                                                           [17] S. Cao, B.A.V. Bennett, M.D. Smooke, in preparation.
+front is demonstrated. (3) Buoyant and nonbuoyant                          [18] V. Giovangigli, N. Darabiha, in: C.-M. Brauner, C. Schmidt-
+ﬂame structure is mainly controlled by the fuel mass                            Lainé (Eds.), Mathematical Modeling in Combustion and Re-
+ﬂow rate, and the eﬀects of fuel dilution and inlet veloc-                      lated Topics, Nijhoﬀ, Dordrecht, 1988, pp. 491–503.
+ity are secondary. In addition to studying the behavior                    [19] G.P. Smith, D.M. Golden, M. Frenklach, N.W. Moriarty, B. Eit-
+                                                                                eneer, M. Golderberg, C.T. Bowman, R.K. Hanson, S. Song,
+of ﬂames with other fuels such as ethylene, future work                         W.C. Gardiner, Jr., V.V. Lissianski, Z. Qin, GRI-Mech 3.0, 1999;
+will likely focus on the dependence of ﬂame structure                           available at <http://www.me.berkeley.edu/gri mech>.
+and sooting behavior on coﬂow velocity and fuel tube                       [20] R.J. Hall, M.D. Smooke, M.B. Colket, in Physical and Chem-
+diameter.                                                                       ical Aspects of Combustion: A Tribute to Irvin Glassman (R.F.
+                                                                                Sawyer and F.L. Dryer, Eds.), Combustion Science and Tech-
+                                                                                nology Book Series, Gordon and Breach, Amsterdam 1997.
+                                                                           [21] F.S. Liu, H.S. Guo, G.J. Smallwood, Combust. Flame, 138 (1–2)
+7. Acknowledgments                                                              (2004) 136–154.
+                                                                           [22] D.K. Edwards, Adv. Heat Transfer 12 (1976) 115–193.
+   This research was supported by NASA, the US De-                         [23] R.J. Hall, J. Quant. Spectrosc. Radiat. Transfer 49 (5) (1993)
+partment of Energy Oﬃce of Basic Energy Sciences                                517–523.
+(Dr. Wade Sisk, contract monitor), the National Sci-                       [24] P. Deuﬂhard, Numerische Mathematik 22 (4) (1974) 289–315.
+                                                                           [25] M.D. Smooke, J. Optim. Theory Appl. 39 (4) (1983) 489–511.
+ence Foundation (Dr. Phil Westmoreland, contract mon-                      [26] H.A. van der Vorst, SIAM J. Sci. Stat. Comput. 13 (2) (1992)
+itor), and the US Air Force Oﬃce of Scientiﬁc Re-                               631–644.
+search (Dr. Fariba Fahroo and Dr. Misoon Mah, contract                     [27] P.B. Kuhn, B. Ma, B.C. Connelly, M.D. Smooke, M.B. Long,
+monitors), under contracts NNX11AP43A, DE-FG02-                                 Proc. Combust. Inst. 33 (2011) 743–750.
+                                                                           [28] B. Ma, G. Wang, G. Magnotti, R.S. Barlow, M.B. Long, Com-
+88ER13966, CTS-0328296, AFOSR FA9550-06-1-                                      bust. Flame, 161 (4) (2014) 908–916.
+0164, and AFOSR FA9550-09-1-0571, respectively.                            [29] F.G. Roper, Combust. Flame 29 (1977) 219–226.
+We are also grateful to Dr. Donald R. Pettit for conduct-                  [30] R.E. Mitchell, A.F. Saroﬁm, L.A. Clomburg, Combust. Flame
+ing the SLICE tests on the International Space Station.                         37 (1980) 227–244.
+                                                                           [31] K. Saito, F.A. Williams, A.S. Gordon, Combust. Sci. Technol.
+                                                                                47 (3–4) (1986) 117–138.
+                                                                           [32] R.A. Altenkirch, R. Eichhorn, N.N. Hsu, A.B. Brancic, N.E.
+8. References                                                                   Cevallos, Proc. Combust. Inst. 16 (1976) 1165–1174.
+ [1] G.M. Faeth, in Microgravity Combustion: Fire in Free Fall
+     (H.D. Ross, Ed.), Academic Press, San Diego 2001.
+ [2] R.W. Bilger, Combust. Flame 30 (1977) 277–284.
+ [3] M.Y. Bahadori, R.B. Edelman, D.P. Stocker, S.L. Olson, AIAA
+     J. 28 (1990) 236–244.
+ [4] M.Y. Bahadori, D.P. Stocker, D.F. Vaughan, L. Zhou, R.B.
+     Edelman, in Modern Developments in Energy, Combustion and
+     Spectroscopy (F.A. Williams et al., Eds.), Pergamon, New York,
+     1993.
+ [5] I. Glassman, Proc. Combust. Inst. 27 (1998) 1589–1596.
+ [6] K.-C. Lin, G.M. Faeth, AIAA J. 37 (1999), 759–765.
+ [7] P.B. Sunderland, B.J. Mendelson, Z.G. Yuan, D.L. Urban, Com-
+     bust. Flame 116 (3) (1999) 376–386.
+ [8] K.T. Walsh, J. Fielding, M.D. Smooke, M.B. Long, Proc. Com-
+     bust. Inst. 28 (2000) 1973–1979.
+ [9] K.T. Walsh, J. Fielding, M.D. Smooke, M.B. Long, A. Liñán,
+     Proc. Combust. Inst. 30 (2005) 357–365.
+[10] S.K. Aggarwal, Prog. Energy Combust. Sci. 35 (6) (2009) 528–
+     570.
+[11] M.R.J. Charest, C.P.T. Groth, Ö.L. Gülder, Combust. Flame 158
+     (5) (2011) 860–875.
+[12] B. Ma, S. Cao, D. Giassi, D.P. Stocker, F. Takahashi, B.A.V.
+     Bennett, M.D. Smooke, M.B. Long, (submitted to Proc. Com-
+     bust. Inst. 35).
+[13] B.A.V. Bennett, M.D. Smooke, Combust. Theory Model. 2
+     (1998) 221–258.
+
+                                                                       7
+

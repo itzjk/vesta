@@ -1,0 +1,167 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20130010991,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "b233434f1f6746f999b01af2aa74adc1",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Nonmetallic Materials"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20130010991,
+  "ear": "NO",
+  "id": "e18fa3ea200e4eecbe67c328ef0dade2",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "title": "Evaluating Material Flammability in Microgravity and Martian Gravity Compared to the NASA Standard Normal Gravity Test",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-27T10:20:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20130010991,
+   "meta": {
+    "author": {
+     "name": "Oslon, Sandra. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "2bd1f69cc1704641abe9db418125ddff"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20130010991,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research",
+     "location": "Cleveland, OH"
+    }
+   },
+   "id": "862099ab430a4e589ba31599e8bbed49"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20130010991,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-27T10:20:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Drop tower tests are conducted at Martian gravity to determine the flammability of three materials compared to previous tests in other normal gravity and reduced gravity environments. The comparison is made with consideration of a modified NASA standard test protocol. Material flammability limits in the different gravity and flow environments are tabulated to determine the factor of safety associated with normal gravity flammability screening. Previous testing at microgravity and Lunar gravity indicated that some materials burned to lower oxygen concentrations in low gravity than in normal gravity, although the low g extinction limit criteria are not the same as 1g due to time constraints in drop testing. Similarly, the data presented in this paper for Martian gravity suggest that there is a gravity level below Earth s at which materials burn more readily than on Earth. If proven for more materials, this may indicate the need to include a factor of safety on 1g flammability limits.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20130010991,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "7735dc6ddecd4bd28bca6418dddda3b6"
+  },
+  {
+   "submissionId": 20130010991,
+   "name": "American Inst. of Chemical Engineers",
+   "location": "New York, NY, United States",
+   "id": "bc26145e01764ddb936b9b0f01c98f0f"
+  },
+  {
+   "submissionId": 20130010991,
+   "name": "American Society of Mechanical Engineers",
+   "location": "New York, NY, United States",
+   "id": "8214e024566d4df4abdf349950da77cf"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20130010991,
+   "endDate": "2012-07-19T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "4fa3625f7d9a410cb9dd83f03210d71a",
+     "id": "f28c1056fa424bf79db80b6de52388c2"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Chemical Engineers",
+       "location": "New York, NY, United States"
+      }
+     },
+     "meetingId": "4fa3625f7d9a410cb9dd83f03210d71a",
+     "id": "48e7cff3249a43fea581f6bebdd57211"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "American Society of Mechanical Engineers",
+       "location": "New York, NY, United States"
+      }
+     },
+     "meetingId": "4fa3625f7d9a410cb9dd83f03210d71a",
+     "id": "eaade668fea748de989ad0271ffc8ca9"
+    }
+   ],
+   "name": "42nd International Conference on Environmental Systems (ICES)",
+   "location": "San Diego, CA",
+   "id": "4fa3625f7d9a410cb9dd83f03210d71a",
+   "startDate": "2012-07-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20130010991,
+   "id": "903bccdb789e4e4cb8b8af46153e43fe",
+   "publicationDate": "2012-07-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20130010991.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20130010991/downloads/20130010991.pdf",
+    "pdf": "/api/citations/20130010991/downloads/20130010991.pdf",
+    "fulltext": "/api/citations/20130010991/downloads/20130010991.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,221 @@
+{
+ "copyright": {
+  "disclosedInvention": false,
+  "submissionId": 20260003925,
+  "containsThirdPartyMaterial": false,
+  "containsIndication": false,
+  "id": "03826270e10b414ca645db598e2dd4fc",
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET"
+ },
+ "subjectCategories": [
+  "Man/System Technology and Life Support"
+ ],
+ "keywords": [
+  "Environmental Control and Life Support Systems",
+  "Exploration Atmospheres",
+  "Flammability",
+  "Reduced Pressure",
+  "High Oxygen Concentration",
+  "Material Selection",
+  "Thermal Control",
+  "ISS Heritage Hardware"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20260003925,
+  "ear": "NO",
+  "id": "b6ab24b6dc4b47f8ae442064e5beacd6",
+  "category": [
+   {
+    "submissionExportControlId": "b6ab24b6dc4b47f8ae442064e5beacd6",
+    "id": "ae9d7878e9ee483bb4e045e6543a65a1",
+    "category": 0
+   }
+  ],
+  "itar": "NO"
+ },
+ "distributionDate": "2026-05-11T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NESC-RP-20-01610"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "869021.01.23.01.01",
+   "submissionId": 20260003925,
+   "id": "330b23ec919941e3937c90f7a86f65f0",
+   "type": "WBS"
+  }
+ ],
+ "title": "Impacts of Reduced Pressure Atmospheres on Environmental Control and Life Support Systems (ECLSS) Architectures",
+ "stiType": "TECHNICAL_MEMORANDUM",
+ "distribution": "PUBLIC",
+ "submittedDate": "2026-05-06T14:11:16.7485710+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "68603dff261e5d2d9de5a550aa9e6b30",
+   "sequence": 0,
+   "submissionId": 20260003925,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Morgan B Abney"
+    },
+    "organization": {
+     "name": "Langley Research Center",
+     "location": "Hampton, United States"
+    }
+   },
+   "id": "5ed2c18d5b204650b7e4c68a1282afab",
+   "userType": "CIVIL",
+   "userId": "41b67c9b141246d0a4aa8e9727c3a5bf"
+  },
+  {
+   "organizationId": "861b0a024f544ba681c3bceb13c5b942",
+   "sequence": 1,
+   "submissionId": 20260003925,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Robert M. Bagdigian"
+    },
+    "organization": {
+     "name": "NASA Retired",
+     "location": "Redstone Arsenal, Alabama, United States"
+    }
+   },
+   "id": "fc0edc0dad6e4ad0a49e9f956f38f2b6",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "5b1e37c119115a80b7fe3d9ec0130af5",
+   "sequence": 2,
+   "submissionId": 20260003925,
+   "meta": {
+    "author": {
+     "name": "Chase Hopkins"
+    },
+    "organization": {
+     "name": "University of South Florida",
+     "location": "Tampa, United States"
+    }
+   },
+   "id": "0fccd81f7fa149f1a2cb8298f7c12080",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 3,
+   "submissionId": 20260003925,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Ariel V Macatangay"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, United States"
+    }
+   },
+   "id": "0e04be91c0b74374a02115bd1ebcaa59",
+   "userType": "CIVIL",
+   "userId": "d08a788fe7fb49619b3e2a6205d2d486"
+  },
+  {
+   "organizationId": "9ffc946b0f4f4c1f96ff9d6d1c4e54eb",
+   "sequence": 4,
+   "submissionId": 20260003925,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Holly A Cagle"
+    },
+    "organization": {
+     "name": "NASA Retired",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "b8cfcbecc6c34456a8dcaeceed898bc8",
+   "userType": "CIVIL",
+   "userId": "84fe67c676d64e55a9d5c6c21547a4fb"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 5,
+   "submissionId": 20260003925,
+   "meta": {
+    "author": {
+     "name": "Michael D Pedley"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, United States"
+    }
+   },
+   "id": "0519a571d0744d539d85131e8c8d005e",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "65655951f1774addb2aa9b27d276e9a8",
+   "sequence": 6,
+   "submissionId": 20260003925,
+   "meta": {
+    "author": {
+     "name": "James Knox"
+    },
+    "organization": {
+     "name": "Dynetics, Inc.",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "856b0a7b3ba74c4e9e397dc5050e81f4",
+   "userType": "OTHER"
+  }
+ ],
+ "stiTypeDetails": "Technical Memorandum (TM)",
+ "technicalReviewType": "NASA_PEER_COMMITTEE",
+ "modified": "2026-07-16T15:58:47.0057290+00:00",
+ "id": 20260003925,
+ "created": "2026-05-06T13:54:59.1973660+00:00",
+ "center": {
+  "code": "LaRC",
+  "name": "Langley Research Center",
+  "id": "1e229fe5b7284965a153b0f761643383"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The study found that while nine subsystems are viable without modification at 10.2 psia, only three remain acceptable at 8.2 psia. Material flammability presents the most critical hurdle in the 8.2 psia/34-40% O<sub>2</sub> environment, where 70% of the assessed subsystems will require material replacements, many of which have yet to be developed. Ultimately, adapting ISS heritage hardware to these exploration conditions will introduce varied mass, power (e.g., increased fan speeds), and significant schedule impacts driven by the need for extensive testing, redesign, and recertification. The report concludes with specific recommendations for targeted analysis and testing to quantify these impacts and guide necessary design modifications.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20260003925,
+  "id": "26669f27bd5a4b6d8140ac0c437116db"
+ },
+ "publications": [
+  {
+   "submissionId": 20260003925,
+   "id": "3f3fc73514a24db19983f8fe7d378e42",
+   "publicationDate": "2026-05-01T04:00:00.0000000+00:00",
+   "doi": "10.64631/YGTG2229"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20260003925.pdf",
+   "notes": "False Positive",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20260003925/downloads/20260003925.pdf",
+    "pdf": "/api/citations/20260003925/downloads/20260003925.pdf",
+    "fulltext": "/api/citations/20260003925/downloads/20260003925.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

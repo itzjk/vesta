@@ -1,0 +1,182 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040161216,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "6d886c1634e04077b2db52f3b0100f3e",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040161216,
+  "ear": "NO",
+  "id": "05e06d6eb72f4ff29f93fe9d28329622",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "Spacecraft Fire Suppression: Testing and Evaluation",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:50:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040161216,
+   "meta": {
+    "author": {
+     "name": "Abbud-Madrid, Angel"
+    },
+    "organization": {
+     "name": "Colorado School of Mines",
+     "location": "Golden, CO, United States"
+    }
+   },
+   "id": "4b575ea6ba4e4e369c4f103fb7525aa7"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040161216,
+   "meta": {
+    "author": {
+     "name": "McKinnon, J. Thomas"
+    },
+    "organization": {
+     "name": "Colorado School of Mines",
+     "location": "Golden, CO, United States"
+    }
+   },
+   "id": "5211113675594575b96d549d4c811626"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040161216,
+   "meta": {
+    "author": {
+     "name": "Delplanque, Jean-Pierre"
+    },
+    "organization": {
+     "name": "Colorado School of Mines",
+     "location": "Golden, CO, United States"
+    }
+   },
+   "id": "9fd8f2ccbebf4ac5988111dd87c804da"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040161216,
+   "meta": {
+    "author": {
+     "name": "Kailasanath, Kazhikathra"
+    },
+    "organization": {
+     "name": "Naval Research Lab.",
+     "location": "Washington, DC, United States"
+    }
+   },
+   "id": "0bbab8252d5b4d1bb5d2dcb9b3680d78"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20040161216,
+   "meta": {
+    "author": {
+     "name": "Gokoglu, Suleyman"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "4481ea04f46b4c5aa71887ee2bb4319a"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20040161216,
+   "meta": {
+    "author": {
+     "name": "Wu, Ming-Shin"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "059c05f3a2514dd9887e893306ba2bdb"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040161216,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:50:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The objective of this project is the testing and evaluation of the effectiveness of a variety of fire suppressants and fire-response techniques that will be used in the next generation of spacecraft (Crew Exploration Vehicle, CEV) and planetary habitats. From the many lessons learned in the last 40 years of space travel, there is common agreement in the spacecraft fire safety community that a new fire suppression system will be needed for the various types of fire threats anticipated in new space vehicles and habitats. To date, there is no single fire extinguishing system that can address all possible fire situations in a spacecraft in an effective, reliable, clean, and safe way. The testing conducted under this investigation will not only validate the various numerical models that are currently being developed, but it will provide new design standards on fire suppression that can then be applied to the next generation of spacecraft extinguishment systems. The test program will provide validation of scaling methods by conducting small, medium, and large scale fires. A variety of suppression methods will be tested, such as water mist, carbon dioxide, and nitrogen with single and multiple injection points and direct or distributed agent deployment. These injection methods cover the current ISS fire suppression method of a portable hand-held fire extinguisher spraying through a port in a rack and also next generation spacecraft units that may have a multi-point suppression delivery system built into the design. Consideration will be given to the need of a crew to clean-up the agent and recharge the extinguishers in flight in a long-duration mission. The fire suppression methods mentioned above will be used to extinguish several fire scenarios that have been identified as the most relevant to spaceflight, such as overheated wires, cable bundles, and circuit boards, as well as burning cloth and paper. Further testing will be conducted in which obstructions and ventilation will be added to represent actual spacecraft conditions (e.g., a series of cards in a card rack).",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040161216,
+   "id": "b0ba62ec0e104c5c94fae03545579dbd",
+   "publicationName": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session, Volume 2",
+   "publicationDate": "2004-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040161216.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040161216/downloads/20040161216.pdf",
+    "pdf": "/api/citations/20040161216/downloads/20040161216.pdf",
+    "fulltext": "/api/citations/20040161216/downloads/20040161216.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

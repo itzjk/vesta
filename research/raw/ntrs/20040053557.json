@@ -1,0 +1,154 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053557,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "676f8998f0de484da668dce6a65eec09",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053557,
+  "ear": "NO",
+  "id": "fa104430a0d14edbba47cb5abeb9c61c",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "Extinction Criteria for Opposed-Flow Flame Spread in a Microgravity Environment",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:35:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053557,
+   "meta": {
+    "author": {
+     "name": "Bhattacharjee, Subrata"
+    },
+    "organization": {
+     "name": "San Diego State Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "5160b00544574da4b5eed9936e56b222"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053557,
+   "meta": {
+    "author": {
+     "name": "Paolini, Chris"
+    },
+    "organization": {
+     "name": "San Diego State Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "9fbc802e415d46669260d9dfd26ed47e"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053557,
+   "meta": {
+    "author": {
+     "name": "Wakai, Kazunori"
+    },
+    "organization": {
+     "name": "Gifu Univ.",
+     "location": "Gifu, Japan"
+    }
+   },
+   "id": "8653d4e0dd224834b7b33343fdc09149"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040053557,
+   "meta": {
+    "author": {
+     "name": "Takahashi, Shuhei"
+    },
+    "organization": {
+     "name": "Gifu Univ.",
+     "location": "Gifu, Japan"
+    }
+   },
+   "id": "37913bcce3d04d53a169161ce2ed56c7"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053557,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:35:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A simplified analysis is presented to extend a previous work on flame extinction in a quiescent microgravity environment to a more likely situation of a mild opposing flow. The energy balance equation, that includes surface re-radiation, is solved to yield a closed form spread rate expression in terms of its thermal limit, and a radiation number that can be evaluated from the known parameters of the problem. Based on this spread rate expression, extinction criterions for a flame over solid fuels, both thin and thick, have been developed that are qualitatively verified with experiments conducted at the MGLAB in Japan. Flammability maps with oxygen level, opposing flow velocity and fuel thickness as independent variables are extracted from the theory that explains the well-established trends in the existing experimental data.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053557,
+   "id": "49f03812a3eb460196621c2f0ba1d848",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053557.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053557/downloads/20040053557.pdf",
+    "pdf": "/api/citations/20040053557/downloads/20040053557.pdf",
+    "fulltext": "/api/citations/20040053557/downloads/20040053557.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

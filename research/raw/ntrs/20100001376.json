@@ -1,0 +1,172 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20100001376,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "b21142f0f1424d738f79d87b02944810",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20100001376,
+  "ear": "NO",
+  "id": "6c89ad072d9a49a1acb0331e8421c325",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-10T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "LEW-18190-1",
+  "Report Number: LEW-18190-1"
+ ],
+ "title": "Fine-Water-Mist Multiple-Orientation-Discharge Fire Extinguisher",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T01:01:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20100001376,
+   "meta": {
+    "author": {
+     "name": "Butz, James R."
+    },
+    "organization": {
+     "name": "ADA Technologies, Inc.",
+     "location": "Littleton, CO, United States"
+    }
+   },
+   "id": "23ae5d7c941547b78f16f3c8ee7269dc"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20100001376,
+   "meta": {
+    "author": {
+     "name": "Turchi, Craig S."
+    },
+    "organization": {
+     "name": "ADA Technologies, Inc.",
+     "location": "Littleton, CO, United States"
+    }
+   },
+   "id": "2fa00162e5f34c36a1a32302e5a48712"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20100001376,
+   "meta": {
+    "author": {
+     "name": "Kimball, Amanda"
+    },
+    "organization": {
+     "name": "ADA Technologies, Inc.",
+     "location": "Littleton, CO, United States"
+    }
+   },
+   "id": "dd75678b2a054c238bfcc5595d7c1888"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20100001376,
+   "meta": {
+    "author": {
+     "name": "McKinnon, Thomas"
+    },
+    "organization": {
+     "name": "Colorado School of Mines",
+     "location": "Golden, CO, United States"
+    }
+   },
+   "id": "a37a4bde98a34bcea256cd7c6b897502"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20100001376,
+   "meta": {
+    "author": {
+     "name": "Riedel, Edward"
+    },
+    "organization": {
+     "name": "Colorado School of Mines",
+     "location": "Golden, CO, United States"
+    }
+   },
+   "id": "ad0bc692a55c4d43bb9d1121db94ae55"
+  }
+ ],
+ "stiTypeDetails": "Other - NASA Tech Brief",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20100001376,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T01:01:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A fine-water-mist fire-suppression device has been designed so that it can be discharged uniformly in any orientation via a high-pressure gas propellant. Standard fire extinguishers used while slightly tilted or on their side will not discharge all of their contents. Thanks to the new design, this extinguisher can be used in multiple environments such as aboard low-gravity spacecraft, airplanes, and aboard vehicles that may become overturned prior to or during a fire emergency. Research in recent years has shown that fine water mist can be an effective alternative to Halons now banned from manufacture. Currently, NASA uses carbon dioxide for fire suppression on the International Space Station (ISS) and Halon chemical extinguishers on the space shuttle. While each of these agents is effective, they have drawbacks. The toxicity of carbon dioxide requires that the crew don breathing apparatus when the extinguishers are deployed on the ISS, and Halon use in future spacecraft has been eliminated because of international protocols on substances that destroy atmospheric ozone. A major advantage to the new system on occupied spacecraft is that the discharged system is locally rechargeable. Since the only fluids used are water and nitrogen, the system can be recharged from stores of both carried aboard the ISS or spacecraft. The only support requirement would be a pump to fill the water and a compressor to pressurize the nitrogen propellant gas. This system uses a gaseous agent to pressurize the storage container as well as to assist in the generation of the fine water mist. The portable fire extinguisher hardware works like a standard fire extinguisher with a single storage container for the agents (water and nitrogen), a control valve assembly for manual actuation, and a discharge nozzle. The design implemented in the proof-of-concept experiment successfully extinguished both open fires and fires in baffled enclosures.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20100001376,
+   "id": "93410e4b74454a6c8c28f4c08ae643e2",
+   "publicationName": "NASA Tech Briefs, January 2010",
+   "publicationDate": "2010-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20100001335,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "NASA Tech Briefs, January 2010",
+   "stiType": "OTHER",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20100001335,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "NASA Tech Briefs, January 2010",
+   "stiType": "OTHER",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20100001376.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20100001376/downloads/20100001376.pdf",
+    "pdf": "/api/citations/20100001376/downloads/20100001376.pdf",
+    "fulltext": "/api/citations/20100001376/downloads/20100001376.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

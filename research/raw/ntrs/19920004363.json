@@ -1,0 +1,152 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19920004363,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "cd65d7a203bb494d9a34e5c8886dc148",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19920004363,
+  "ear": "NO",
+  "id": "dbf403a377464ff892cea3978ba596b4",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA-TM-105317",
+  "E-6672",
+  "NAS 1.15:105317",
+  "Report Number: NASA-TM-105317",
+  "Report Number: E-6672",
+  "Report Number: NAS 1.15:105317"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 323-53-62",
+   "submissionId": 19920004363,
+   "id": "c3e5e66f4fd446388b1f5739a45ad5f5",
+   "type": "PROJECT"
+  },
+  {
+   "number": "NAS3-25266",
+   "submissionId": 19920004363,
+   "id": "8e094e980daa4961841fbbfbe58055fd",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Risks, designs, and research for fire safety in spacecraft",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T16:58:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19920004363,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH., United States"
+    }
+   },
+   "id": "630c07ff7fed47b786107cca066067f6"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19920004363,
+   "meta": {
+    "author": {
+     "name": "Sacksteder, Kurt R."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "0e49dd884d264bb08a367c242bbe83cf"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19920004363,
+   "meta": {
+    "author": {
+     "name": "Urban, David"
+    },
+    "organization": {
+     "name": "Sverdrup Technology, Inc., Brook Park",
+     "location": "OH., United States"
+    }
+   },
+   "id": "05db1a546572446abcb78eea582903dc"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19920004363,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "92N13581"
+ },
+ "created": "2013-09-06T16:58:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Current fire protection for spacecraft relies mainly on fire prevention through the use of nonflammable materials and strict storage controls of other materials. The Shuttle also has smoke detectors and fire extinguishers, using technology similar to aircraft practices. While experience has shown that the current fire protection is adequate, future improvements in fire safety technology to meet the challenges of long duration space missions, such as the Space Station Freedom, are essential. All spacecraft fire protection systems, however, must deal with the unusual combustion characteristics and operational problems in the low gravity environment. The features of low gravity combustion that affect spacecraft fire safety, and the issues in fire protection for Freedom that must be addressed eventually to provide effective and conservative fire protection systems are discussed.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "Canada",
+   "submissionId": 19920004363,
+   "name": "Fall Meeting of the National Fire Protection Association, Inc.",
+   "location": "Montreal, Quebec",
+   "id": "3582fc599c3c4a42b9c7af55ed593e8a",
+   "startDate": "1991-11-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19920004363,
+   "id": "26eaddadff7045ee919ee3505f92bf52",
+   "publicationDate": "1991-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19920004363.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19920004363/downloads/19920004363.pdf",
+    "pdf": "/api/citations/19920004363/downloads/19920004363.pdf",
+    "fulltext": "/api/citations/19920004363/downloads/19920004363.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

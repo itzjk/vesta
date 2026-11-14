@@ -1,0 +1,213 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20080012607,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "9e651025007941e6a8996fddc4e97371",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Mechanical Engineering"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20080012607,
+  "ear": "NO",
+  "id": "0eb352ce34d24f4292936ef9ce0b685a",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NNC05GA02G",
+   "submissionId": 20080012607,
+   "id": "7150f489515642a18e64257fd0a50e9f",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Effect of Pressure on Piloted Ignition Delay of PMMA",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T05:09:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20080012607,
+   "meta": {
+    "author": {
+     "name": "McAllister, Sara"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "77e9dd60dd4142a69cb5ec5379bc4aa3"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20080012607,
+   "meta": {
+    "author": {
+     "name": "Lai, Janice"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "5a36e1e224fa4d7aa2d63edc91d44a31"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20080012607,
+   "meta": {
+    "author": {
+     "name": "Scott, Sarah"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "89f42338867a43d080f67cf14d8af8c9"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20080012607,
+   "meta": {
+    "author": {
+     "name": "Ramirez-Correa, Amelia"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "d06a8d9b98fc44fea1d7a59b061281a0"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20080012607,
+   "meta": {
+    "author": {
+     "name": "Fernandez-Pello, Carlos"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "999697e259c64f35a5ce30103e2a5c53"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20080012607,
+   "meta": {
+    "author": {
+     "name": "Urban, David"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "fa3da4721f2f4bc0a9744eed55708bea"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20080012607,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "14385135d16d40dd9c06dc7651e332e1"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20080012607,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T05:09:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "In order to reduce the risk of decompression sickness associated with spacewalks, NASA is considering designing the next generation of exploration vehicles and habitats with a different cabin environment than used previously. The proposed environment uses a total cabin pressure of 52.7 to 58.6 kPa with an oxygen concentration of 30 to 34% by volume and was chosen with material flammability in mind. Because materials may burn differently under these conditions and there is little information on how this new environment affects the flammability of the materials onboard, it is important to conduct material flammability experiments at the intended exploration atmosphere. One method to evaluate material flammability is by its ease of ignition. To this end, piloted ignition delay tests were conducted in the Forced Ignition and Spread Test (FIST) apparatus subject to this new environment. In these tests, polymethylmethacylate (PMMA) was exposed to a range of oxidizer flow velocities and externally applied heat fluxes. The ultimate goal is to determine the individual effect of pressure and the combined effect of pressure and oxygen concentration on the ignition delay. Tests were conducted for a baseline case of normal pressure and oxygen concentration, low pressure (58.6 kPa) with normal oxygen (21%). Future work will focus on low pressure with 32% oxygen concentration (space exploration atmosphere - SEA) conditions. It was found that reducing the pressure while keeping the oxygen concentration at 21% reduced the ignition time by 17% on average. It was also noted that the critical heat flux for ignition decreases in low-pressure conditions. Because tests conducted in standard atmospheric conditions will underpredict the flammability of materials intended for use on spacecraft, fire safety onboard at exploration atmospheres may be compromised.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20080012607,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "United States",
+   "id": "327ed8fddab340c7841e257747309c55"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20080012607,
+   "endDate": "2008-01-10T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "United States"
+      }
+     },
+     "meetingId": "7070af7c8e5e4f9e8e900881f928a35d",
+     "id": "d085493894c046cea0abc34b37ac78f2"
+    }
+   ],
+   "name": "36th AIAA Aerospace Sciences Meeting",
+   "location": "Reno, NV",
+   "id": "7070af7c8e5e4f9e8e900881f928a35d",
+   "startDate": "2008-01-07T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20080012607,
+   "id": "4d5b744b14e34b938039309dfe15a44d",
+   "publicationDate": "2008-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20080012607.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20080012607/downloads/20080012607.pdf",
+    "pdf": "/api/citations/20080012607/downloads/20080012607.pdf",
+    "fulltext": "/api/citations/20080012607/downloads/20080012607.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

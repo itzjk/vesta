@@ -1,0 +1,178 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20130013749,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "46664797f78248b0b8583b3710062765",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20130013749,
+  "ear": "NO",
+  "id": "2ac73798cb1d435baddb173bb401b42c",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-11T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA/TM-2013-216501",
+  "GRC-E-DAA-TN7479",
+  "E-18642",
+  "Report Number: NASA/TM-2013-216501",
+  "Report Number: GRC-E-DAA-TN7479",
+  "Report Number: E-18642"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC08BA05B",
+   "submissionId": 20130013749,
+   "id": "e5fd96acaec848c0a1eb326ba52c31ba",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Large Scale Flame Spread Environmental Characterization Testing",
+ "stiType": "TECHNICAL_MEMORANDUM",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-27T10:15:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20130013749,
+   "meta": {
+    "author": {
+     "name": "Clayman, Lauren K."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "79a793e0043c4870a8b1327142fc94cb"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20130013749,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "b76b348bfc2a481aa47c554ee0eb9e6f"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20130013749,
+   "meta": {
+    "author": {
+     "name": "Gokoghi, Suleyman A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "6023ce3594844d929dd513d66db3f63b"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20130013749,
+   "meta": {
+    "author": {
+     "name": "Brooker, John E."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "2a6667c1876e4432a5effd26e65bcf7f"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20130013749,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul V."
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "8f3ea923e57f4d77af681316f3f5b00a"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20130013749,
+   "meta": {
+    "author": {
+     "name": "Kacher, Henry F."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "5ae3957c86a54def96148c9e3e2b78cc"
+  }
+ ],
+ "stiTypeDetails": "Technical Memorandum (TM)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20130013749,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-27T10:15:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Under the Advanced Exploration Systems (AES) Spacecraft Fire Safety Demonstration Project (SFSDP), as a risk mitigation activity in support of the development of a large-scale fire demonstration experiment in microgravity, flame-spread tests were conducted in normal gravity on thin, cellulose-based fuels in a sealed chamber. The primary objective of the tests was to measure pressure rise in a chamber as sample material, burning direction (upward/downward), total heat release, heat release rate, and heat loss mechanisms were varied between tests. A Design of Experiments (DOE) method was imposed to produce an array of tests from a fixed set of constraints and a coupled response model was developed. Supplementary tests were run without experimental design to additionally vary select parameters such as initial chamber pressure. The starting chamber pressure for each test was set below atmospheric to prevent chamber overpressure. Bottom ignition, or upward propagating burns, produced rapid acceleratory turbulent flame spread. Pressure rise in the chamber increases as the amount of fuel burned increases mainly because of the larger amount of heat generation and, to a much smaller extent, due to the increase in gaseous number of moles. Top ignition, or downward propagating burns, produced a steady flame spread with a very small flat flame across the burning edge. Steady-state pressure is achieved during downward flame spread as the pressure rises and plateaus. This indicates that the heat generation by the flame matches the heat loss to surroundings during the longer, slower downward burns. One heat loss mechanism included mounting a heat exchanger directly above the burning sample in the path of the plume to act as a heat sink and more efficiently dissipate the heat due to the combustion event. This proved an effective means for chamber overpressure mitigation for those tests producing the most total heat release and thusly was determined to be a feasible mitigation strategy to incorporate into the microgravity experiment.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20130013749,
+   "id": "b7f64f624b354d89af20c0ff94bc7dd3",
+   "publicationDate": "2013-04-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20130013749.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20130013749/downloads/20130013749.pdf",
+    "pdf": "/api/citations/20130013749/downloads/20130013749.pdf",
+    "fulltext": "/api/citations/20130013749/downloads/20130013749.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

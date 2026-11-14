@@ -1,0 +1,45 @@
+https://www.nasa.gov/centers-and-facilities/white-sands/flight-acceptance-standard-testing-nasa-std-6001-familiarization-course/
+TITLE: Flight Acceptance Standard Testing (NASA-STD-6001) Familiarization Course - NASA
+FETCHED: 2026-11-14T10:54:59
+
+1 min read
+
+# Flight Acceptance Standard Testing (NASA-STD-6001) Familiarization Course
+
+Heather F. Riley
+
+Nov 06, 2019
+
+Article
+
+Flammability engineers evaluating posttest flammability samples
+
+NASA-WSTF
+
+White Sands Test Facility offers a familiarization course to help our customers navigate the requirements of flammability, offgas toxicity, volatile condensable materials, and fluid compatibility testing contained in the NASA Technical Standards
+
+- “Flammability, Offgassing, and Compatibility Requirements and Test Procedures” NASA-STD-6001,
+
+- “Standard Materials and Processes Requirements for Spacecraft“, NASA-STD-6016.
+
+Overview
+
+Our experts will assist your NASA organization and partners with understanding the requirements, testing capabilities, customization options, and test request process including the
+
+- Purpose and application for each test,
+
+- Variations of each test and when they are warranted,
+
+- Testing exemptions,
+
+- Custom testing to meet your specific needs,
+
+- Historical data (data resources/application limitations),
+
+- Test request process, and
+
+- Materials and processes role/interface.
+
+Target audience
+
+Any NASA organizations and their partners who design and develop manned spacecraft or hardware

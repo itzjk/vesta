@@ -1,0 +1,414 @@
+Paper # 000                                           Topic: Heterogeneous combustion, sprays & droplets
+
+
+                                8th U. S. National Combustion Meeting
+                  Organized by the Western States Section of the Combustion Institute
+                                 and hosted by the University of Utah
+                                           May 19-22, 2013
+
+   Isolated Alkane Droplet Combustion in Microgravity: “Cool
+                            Flames”
+                                  Tanvir Farouk1 and Frederick L. Dryer2
+              1
+               Department of Mechanical Engineering, University of South Carolina,
+                                      Columbia, SC 29208
+           2
+             Department of Mechanical & Aerospace Engineering, Princeton University,
+                                      Princeton, NJ 08544
+
+
+      Flame Extinguishment (FLEX) Experiment Program has been conducting isolated droplet
+      combustion experiments aboard the International Space Station (ISS) with an overall goal to
+      determine and analyze burning behavior, limiting oxygen index, and extinction mechanisms as a
+      function of fuel, drop diameter, pressure, oxygen index, and dilution (using various diluents,
+      including helium, nitrogen, and carbon dioxide). In recent experiments anomalous combustion of n-
+      heptane droplets are observed; high temperature combustion followed by radiative visible extinction
+      and a transition to a second stage (‘cool flame’) burn characterized by loss of visible flame emission.
+      In the cool flame regime the droplet regression continues eventually resulting in extinction diameters
+      characteristic of diffusive extinction. Experimental examples of the two stage burning and
+      extinction characteristics of isolated n-heptane droplets under microgravity conditions are presented
+      and analyzed numerically using a novel spherosymmetric droplet combustion code that includes full
+      two-stage detailed chemical kinetics, multi-component transport, and spectral radiative interactions.
+      Simulations are presented for a wide range of droplet sizes as well as different diluents. Radiant heat
+      loss from the larger diameter cases results in the transition to the “cool-flame” configuration.
+      Simulations further show that ambient diluent conditions and initial droplet sizes that favor enhanced
+      radiative heat loss transition from a high temperature combustion stage to a “low temperature”
+      diffusive combustion stage and continues to diffusive extinction. Numerical results are analyzed in
+      detail to identify key controlling experimental parameters and detailed kinetic properties that result
+      in the noted observations. Special attention is given towards identifying the dominant kinetic
+      pathways responsible for the cool diffusion flame behavior as well as extinction. Predictions are
+      found to be in good qualitative agreement with the experimental measurements. The generic
+      character of these results as they pertain to other alkanes-fuels will also be discussed.
+
+
+1. Introduction
+
+    Since 2009, the Flame Extinguishment (FLEX) Experiment has been conducting isolated droplet
+combustion experiments aboard the International Space Station (ISS). The overall goal of these
+experiments is to determine and analyze burning behavior, limiting oxygen index, and extinction
+mechanisms as a function of fuel, drop diameter, pressure, oxygen index, and dilution (using various
+diluents, including helium, nitrogen, and carbon dioxide) [1]. Unique to microgravity experiments is the
+ability to study a wide range of initial drop diameters so as to characterize both radiative and diffusive
+extinction phenomena. In the first phase of the program, methanol was utilized to obtain data on a non
+sooting fuel which absorbs combustion products over its burning history, notably water [1, 2]. More
+recently, the study of hydrocarbons was initiated using n-heptane as the fuel. In the case of methanol,
+classical diffusive and radiative extinction phenomena are observed, and a detailed numerical analysis of
+the results has recently appeared [2]. In the n-heptane experiments, radiative heat loss from larger
+diameter, ignited droplets results in cessation of classical (high temperature) droplet combustion behavior
+at a relatively large droplet size. In contrast to the classical radiative extinction observed with methanol, a
+transition to a second stage of low temperature constant burning rate behavior characterized by loss of
+visible flame emission follows; indicating an anomalous combustion characteristic. In this second stage
+the droplet continues to undergo rapid and apparent quasi-steady vaporization without the presence of a
+visible flame. This second stage burning and droplet regression continues, eventually resulting in
+diffusive extinction at a finite drop size that then apparently experiences additional time-dependent
+evaporation into the surrounding environment. This dual mode of combustion is only observed for
+sufficiently large initial droplet diameter; at smaller droplet diameters, classical single stage burning and
+high temperature diffusive extinction occur.
+     Dual-mode combustion as evidenced by two different burning rates has been reported and studied in
+the past for fuel droplets [3, 4] composed of two components of widely different saturation temperatures
+(e.g. heptane/hexadecane, methanol/dodecanol). In these studies, the two stage combustion process was
+attributed to liquid phase “batch-like” distillation with the initial lighter component vaporization
+supporting the initial first stage flame, and the heavier component supporting the second stage flame.
+Both stages produced traditional, high temperature, visible flames. Dual-mode combustion has not been
+observed for single component liquid fuel droplets previously – to our knowledge, the possibility of a low
+temperature, diffusive burning configuration has never been proposed or hypothesized.
+    Since the accidental discovery by Sir Humphery Davy in 1810 and the coining of “Cold Flames” by
+Harry Julius Emeléus in 1928, premixed “Cool Flames” have intrigued researchers. Classically,
+premixed “Cool Flames” undergo transient laminar propagation, with multiple occurrences potentially
+leading to a hot flame propagation. Bradley and coworkers [5] studied cool flame and second-stage
+ignition phenomena in a vertical flow reactor arrangement during the oxidation of acetaldehyde and
+propionaldehyde. They obtained a “Cool Flame” (pale blue, ~ 425°C) and a second-stage flame (deeper
+blue, ~ 690°C) by increasing the oxygen concentration. They further conducted mass spectrometry to
+determine the kinetic processes responsible for the flames. Fairlie et al. [6, 7] studied “Cool Flames” and
+oscillatory flames for a premixed propane-oxygen system under microgravity conditions. Their study
+involved both experimental and numerical aspects. The onset, spatial growth and stability of the “Cool
+Flame” was attributed to the interaction between the elementary reactions rates governing the negative
+temperature coefficient (NTC) and the temperature field controlled by thermal diffusion to the reaction
+wall. Foster [8] and Pearlman [9] conducted additional numerical studies on “Cool Flame” configuration
+and formation at terrestrial, partial and near-zero gravity condition. They simulated the same unstirred
+reactor system as that of Fairlie and co-workers. Moriue et al. [10] utilized the tethered droplet
+configuration to experimentally measure the ignition delays of “Cool Flame” and hot flame for single n-
+decane, n-dodecane, n-tetradecane and n-hexadecane droplets in a multiphase system. The “Cool Flame”
+was triggered by inserting the droplet in a temperature controlled furnace and observing the flames by
+Michelson interferometry.
+    In very recent work emerging from FLEX, Nayagam et al. [11] analyzed the observed dual-stage
+combustion of n-heptane droplets onboard the ISS. . Measured droplet burning rates and extinction
+diameters were not only utilized to extract effective heat release, overall activation energy and pre-
+exponential factor, but to specifically relate them to low-temperature, oxidative reaction chemistry. Their
+analysis concluded that the temperature during the second stage burn ranged in between 1000 – 1400K
+assuming a 50% heat release rate. They however suggest that if the second stage combustion is indeed a
+“Cool Flame” then the cool flame chemistry taking place would have to sit at the position of the
+maximum reaction rate in the NTC curve and will therefore have a flame temperature of ~ 700 K with
+heptylketoperoxide, formaldehyde and alkenes being the major reaction products instead of H2O, CO2 and
+CO.
+
+
+
+                                                         2
+    It is well known [12] that premixed n-heptane-air, low and intermediate temperature chemistry
+involves the reactions of n-heptyl radicals, R, with molecular oxygen, O2, (see Figure 1). The
+addition/isomeration/further addition of O2 and the thermodynamic reversibility RO2 and QOOH
+formation are responsible for “cool flame”, i.e. negative temperature coefficient (NTC) kinetic behavior,
+eventually leading to “hot ignition”. However, the observed low temperature diffusive burning of n-
+heptane droplets seems incongruous with this low temperature oxidation chemistry which requires (at
+least partial) premixedness. This seeming dilemma stimulated the present numerical studies on the dual
+mode of combustion observed for large sized spherosymmetric n-heptane droplet burning under the
+microgravity conditions of the FLEX experiments.
+    Simulations are conducted to elucidate the influence of the coupled physico-chemical processes that
+triggers the observed dual-mode behavior. Simulations were conducted using a recently developed, one-
+dimensional, sphero-symmetric, transient combustion model [13]. The predictions from the model is
+compared against the recent ISS n-heptane droplet experiments [1]. Predictions from the model were
+found to compare favorably with the experimentally measured droplet and flame diameter evolution.
+Special attention is given to delineate whether the observed flames result from classical NTC, “Cool
+Flame” kinetic behavior or are other driving factors responsible for the dual-mode/two stage combustion
+process. Using the model, special attention is given to elucidating the effects of different atmospheric
+condition (CO2, He) and initial droplet sizes on predicted behavior. Finally, the prospects that similar
+behavior will be observed with other large carbon number n-alkane droplets are discussed.
+
+
+2. Mathematical Model
+
+    The mathematical model employed in this current work is a transient, spherosymmetric droplet combustion
+model featuring detailed gas phase kinetics, spectrally resolved radiative heat transfer and multi-component gas
+phase transport. Details of the model have been reported in some of our recent publications [2, 14]. A brief
+description of the model is provided here. The model comprises of species conservation for each of species
+considered and energy conservation in both the phases. Species and energy conservation equations for the control
+volumes in both phases are:
+                                              r
+                  r
+                       ( yi  ) 2      r 2 r r r                                                          r
+
+                  r t                        r  i                                                          
+                                                                                     2 r              2 r
+                                r  dr          
+                                                     y  r 2
+                                                             dr  yi (  u   
+                                                                               r ) r        yi Vi r           i r 2 dr   (1)
+                                        1 3                                           r                r
+                                       3 r r                                                                r
+                                              r
+                                                          r
+                              r
+                                   (h ) 2      r 2 r r r
+                              r t                        
+                                                                                            r         r
+                                         r  dr         r
+                                                         
+                                                              h r 2
+                                                                     dr  h (  u   ) r 2   q r 2
+                                                                                      r                                        (2)
+                                                 1 3                                       r         r
+                                                  r r
+                                                   3      r
+
+                                                                  y 1
+                                                                 i
+                                                                       i                                                       (3)
+
+where, yi = mass fraction,  = mass density, r = radius, u = bulk fluid velocity, r = velocity of the control volume
+boundary, Vi = diffusion velocity,  i = rate of species production due to chemical reaction, h = enthalpy per unit
+mass and q = heat flux. The heat flux q represents contributions from diffusive and radiative heat transport. Three
+channels of diffusive heat transfer are considered, thermal conduction, enthalpic transport via species diffusion and
+Dufour effect where heat flow is established due to gradients in composition. The equation for the diffusive heat flux
+is given as:
+
+                                            qdiff   hi  yiVi  Tg  p   i d i                                           (4)
+                                                   iS , gas                          iS , gas
+
+where,  is the thermal conductivity, Tg is the gas temperature, p is the thermodynamic pressure, i is the thermal
+diffusion coefficient expressed as i  Dij  j . Dij is the diffusion coefficient and  j is the thermal diffusion ratio. di
+is the thermodynamic driving force and is expressed in the form of Stefan-Maxwell equation.
+
+
+
+                                                                           3
+In the model the radiative heat flux is expressed in the following form:
+
+                                                                                              
+                                          
+                                                                                  
+                                 qrad   a( , r )  4 I b ( , r )   I ( , r ,  ) d  d                 (5)
+                                          0                              4                    
+where, I is the radiative intensity,  is the radiative path length and  is the solid angle. For convenience the
+radiative flux term is only shown for a single wavelength.
+
+    Equations at the liquid-gas interface arise either through satisfaction of thermodynamic constraints or
+conservation of material fluxes:
+
+                                                                                         
+                                                    yi (  u   r)    yi Vi                                  (6)
+
+                                        h  y (  u   r)  y V    q
+                                                                                                  
+                                                  vap ,i   i                      i     i        
+                                                                                                                    (7)
+                                      iliquid
+
+                                        y  1 ,  y  1 , and T  T
+                                       igas
+                                                 i ,
+                                                               iliquid
+                                                                          i ,                                    (8)
+
+                                                 xi , p  xi , i (T , x j ,  ) pvap ,i (T )                     (9)
+
+where, hvap ,i = enthalpy of vaporization, p = system pressure, T = temperature, xi = mole fraction,  i = activity
+coefficient and pvap ,i = vapor pressure of the ith component in its pure state. The symbols ‘+’ and ‘-’ denote location
+in the gas and liquid phase, respectively. The heat flux q at the interface has contribution from chemical enthalpy of
+diffusing species, thermal conductive heat transport, radiative heat transport and Dufour effect.
+
+     In the model, the volume boundaries are defined to coincide with the liquid–gas interface, and the far field (two
+hundred times the initial droplet diameter) boundary is well defined using Dirichlet conditions and remains fixed in
+the simulations. The Dirichlet conditions imposed on the far-field are of fixed ambient composition and temperature
+(298 K). The inner most liquid node is centered at the origin, providing the required no-flux condition.
+
+3. Results and Discussion
+
+    Unlike conventional droplet combustion where the combustion process is strictly due to the high
+temperature chemical kinetics process due to the dual stage nature of the observed combustion
+phenomena a detailed n-heptane chemical kinetics model is used [15, 16] in the present study. The
+detailed n-heptane chemical kinetics model consists of 1038 species and corresponding 2739 reaction
+steps. To keep the chemical kinetics numerically tractable for spatio-temporal simulations the detailed
+chemical kinetics model was reduced employing the path flux analysis method (PFA) [17]. For the
+mechanism reduction in addition to the high temperature kinetics special attention was given to the low
+and intermediate temperature regime so that the entire temperature range (low temperature, NTC, high
+temperature) can be captured with sufficient resolution. The reduced mechanism consisted of 128 species
+and 565 elementary reaction and is essentially identical to the one used in [18]. As shown in Figure 2, the
+reduced mechanism with 128 species is sufficiently comprehensive to reproduce the low temperature and
+NTC region for both shock tube ignition delay and flow reactor oxidation. In addition the prediction from
+the reduced mechanism is in fairly good agreement with the experimental measurements. All the droplet
+combustion simulation presented in this current study is conducted with this reduced mechanism unless
+otherwise noted and will be referred to as the “detailed” model.
+
+    To get insight into the anomalous dual stage burning characteristics and hence affirm the combustion
+regime simulations were conducted with two chemical kinetics model, a “detailed” chemical kinetics
+model and a high temperature n-heptane chemical kinetic model [19] separately. It should be noted that
+
+
+                                                                              4
+the “high temperature” model of Chaos et al. was specifically developed for high temperature oxidation
+and did not include any low and intermediate temperature reaction pathways. Figure 3 shows the
+predicted droplet diameter, burning rate, flame diameter and peak gas temperature evolution from both
+these kinetic models and compares them to the experimental measurements [1]. The experimental
+conditions are do = 3.91 mm, 0.21 XO2, 0.79 XN2, one atmosphere pressure and is referred to as the base
+case. It can be seen that the predictions from the two kinetic models are distinctively different. The “high
+temperature” model predicts extinction of the droplet at a large droplet size due to radiative heat losses [2,
+20] associated with the larger droplet size. After extinction the droplet is predicted to undergo evaporation
+in the quiescent environment, which is evident in the droplet diameter regression and burning rate
+evolution (Figure 3 a and c). Consistently the flame diameter evolution predictions with “high
+temperature” model shows a abrupt decrease corresponding to the flame extinction. In the simulations the
+peak temperature is utilized as the flame position marker as has been done some of our previous work. [2,
+13]. As a consequence the flame diameter shows continuing evolution even after extinction. The
+“detailed” model shows significantly different combustion characteristics and captures the experimental
+observation qualitatively. The “detailed” model indicates that following the visible flame extinction
+which corresponds to the typical radiative extinction the droplet transitions to a second stage combustion
+where droplet diameter regresses at a significantly higher rate suggesting higher burning rate. In addition
+the “detailed” model predicts extinction towards the end of the second stage burn. During this second
+stage the flame diameter is found to be significantly smaller, locating itself very close to the droplet
+surface. Due to the large radiative heat loss (Figure 4) the flame positions itself closer to the droplet
+surface to compensate and sustain continuous burning. It can be seen that during the second stage the
+flame temperature is significantly lower and has a value of ~ 750K (Figure 3 d). The predictions from the
+“detailed” model are very similar to the “high temperature” model in the first stage the only difference
+being the temporal location of the transition. In comparison to the experiments the “high temperature”
+model shows an earlier extinction of the visible flame in contrast the “detailed” model predicts the
+transition to occur slightly later and is in good agreement with the experiments. Even though the
+“detailed” model qualitatively captures the experimental measurements, the second stage burning rate is
+significantly over predicted and vice versa for the extinction diameter. The predicted extinction diameter
+was found to be ~0.35 mm being smaller by a factor of 3.5 than the experiment.
+    The integrated heat generation (Qgeneration) and losses due to radiation (Qradiation) and conduction
+(Qconduction) are presented in Figure 4 for the base case. It can be seen that the integrated heat generation
+has a very sharp rise during ignition which also decreases very rapidly as a somewhat quasi-steady
+diffusion flame structure is established. The decrease in Qgeneration after ignition is also a consequence of
+the increasing radiative loss Qradiation during the first stage of the burn when the flame radius is still
+increasing (Figure 3). At the same time the conductive heat losses is also substantial. In this first stage of
+combustion the radiative heat loss is almost a factor of ~ 2 higher than the conductive losses. It can be
+clearly seen that the transition to the second stage occurs when the summation of the heat loss terms are
+close to the heat generation. As significant heat loss dominates the combustion process the flame
+positions itself close to the droplet surface for compensation as it is evident in Figure 3. During this
+second stage QGeneration is approximately ~ 17 W, which is ~ 11% of the first stage generation. It is
+interesting to note that during the second stage the dominant heat loss term switches from being radiation
+to conduction.
+     Figure 5, 6 and 7 summarizes the influence of initial droplet size, carbon-dioxide and helium
+concentration on the dual stage “Cool Flame: behavior. The influence of initial droplet shows that as the
+initial droplet diameter increases an earlier transition to the second stage takes place. This further enforces
+the fact that the radiative heat loss plays a dominant role in this transition. To study the influence of
+radiative effects on the combustion characteristics, simulations were conducted for ambience containing
+increasing CO2 concentration since CO2 is a radiatively participating medium. An initial droplet diameter
+of 3.0 mm was so chosen as in ambient air it did not show a two stage “Cool Flame” combustion
+characteristics. The influence of CO2 concentration in the ambient is summarized in Figure 6. An increase
+
+
+                                                         5
+in the CO2 concentration in the ambient readily triggered the “Cool flame” combustion. The “Cool
+Flame” behavior can not only be triggered by radiative heat loss but rather any enhanced heat loss
+mechanism. Figure 7 which summarizes the effect of increasing helium in the ambient shows that
+increasing the diffusive heat loss but increasing the helium concentration to promote increasing diffusive
+heat loss initiates the “Cool Flame” combustion.
+
+4. Concluding Remarks
+
+     n-heptane droplet combustion under microgravity conditions has been successfully simulated using a
+recently developed transient spherosymmetric droplet combustion model. The simulation showed unique
+two stage “Cool Flame” like combustion behavior for large sized droplets. Unlike classical “Cool flames”
+these two stage combustion initiates at the high temperature combustion and then transitions to the “Cool
+flame” combustion process. The predictions from the simulations were found to be in good qualitative
+agreements with the experimental measurements The simulation results further indicated that heat losses
+initiates the two-stage behavior. Providing ambience that accentuates heat loss has the potential to the
+initiate the two stage burning.
+
+Acknowledgements
+
+   The authors are pleased to acknowledge the financial support of National Aeronautics and Space
+Administration (Grant No. NNX09AW 19A).
+
+References
+
+[1]     D. Dietrich, Technical Publication NASA/TP-2013-216046 (2013) NASA, Glenn Research Center,
+Cleveland OH 44135, USA, December 2013.
+[2]     T. I. Farouk, F. L. Dryer, Combust. Flame (2012) 159, 3208-3233.
+[3]     C. H. Wang, X. Q. Liu, C. K. Law, Combust. Flame (1984) 56, (2), 175-197.
+[4]     J. C. Yang, G. S. Jackson, C. T. Avedisian, Twenty-Third Symposium (International) on Combustion
+(1990), 1619-1625.
+[5]     J. N. Bradley, G. A. Jones, G. Skirrow, C. F. H. Tipper, Tenth Symposium (International) of
+Combustion (1965), 139-144.
+[6]     R. Fairlie, J. F. Griffiths, H. Pearlman, Proc. Combust. Inst. (2000) 28, 1693-1699.
+[7]     R. Fairlie, J. F. Griffiths, K. J. Hughes, H. Pearlman, Proc. Combust. Inst. (2005) 30, 1057-1064.
+[8]     M. Foster, H. Pearlman, Combust. Flame (2006) 147, 108-117.
+[9]     H. Pearlman, Combust. Flame (2000) 121, 390-393.
+[10]    O. Moriue, C. Eigenbrod, H. J. Rath, M. Tsue, M. Kono, J. Sato, Trans. Japan Soc. Aero. Space Sci.
+(2004) 47, (157), 189-194.
+[11]    V. Nayagam, D. L. Dietrich, P. Ferkul, M. C. Hicks, F. A. Williams, Combust. Flame (2012) 159,
+3583-3588.
+[12]    H. J. Curran, P. Gaffuri, W. J. Pitz, C. K. Westbrook, Combust. Flame (1998) 114, 149-177.
+[13]    T. Farouk, F. L. Dryer, Combust. Theory Model. (2011) 15, (4), 487-515.
+[14]    T. Farouk, F. L. Dryer, Combust. Flame (2012) 159, 200-209.
+[15]    H. J. Curran, P. Gaffuri, W. J. Pitz, C. K. Westbrook, Combust. Flame (2002) 129, 253-280.
+[16]    http://www-cmls.llnl.gov/data/docs/science_and_technology/chemistry/combustion/nc7_2b_mech.txt.
+[17]    W. Sun, Z. Chen, X. Gou, Y. Ju, Combust. Flame (2010) 157, 1298-1307.
+[18]    Y. Ju, W. Sun, M. P. Burke, X. Gou, Z. Chen, Proc. Combust. Inst. (2011) 33, 1245-1251.
+[19]    M. Chaos, A. Kazakhov, Z. Zhao, F. L. Dryer, Int. J. Chem. Kinet. (2007) 39, 399-414.
+[20]    A. J. Marchese, F. L. Dryer, Combust. Sci. Technol. (1997) 124, 371-402.
+[21]    H. K. Ciezki, G. Adomeit, Combust. Flame (1993) 93, 421-433.
+
+
+                                                      6
+Fig. 1. Schematic of the kinetic scheme [15] of the oxidation reactions at high and low temperature. An
+  inset of flow reactor reactivity measurements showing the high, intermediate and low temperature
+                                          oxidation regimes.
+
+
+
+
+                                                    7
+Fig. 2. Comparisons of predicted and measured a) ignition delay time for stoichiometric n-heptane at 1,
+  13.5 and 30 atm respectively. The experimental ignition delay measurements at 13.5 atm are that of
+ Ciezki and Adomeit [21]. b) flow reactor oxidation data for n-heptane for conditions of 8.0 atm, 0.3
+mole% carbon,  at 1.0 s residence time, inset; change in temperature due to chemical heat release
+               T. Predictions using both the full and reduced mechanisms are shown.
+
+
+
+
+                                                     8
+Fig. 3. Measured and predicted evolution of : a) droplet diameter, b) burning rate, c) flame radius and d) peak
+  gas temperature for a n-heptane droplet in ambient air (do = 3.91 mm, 0.21 XO2, 0.79 XN2, one atmosphere
+ pressure). The experimental data are that of [1]. The flame radius experimental data contains measurement
+  from both a color camera (Color) and low light UV (LLUV) camera. Predictions are shown with both the
+        detail chemical kinetics model and the high temperature n-heptane model of Chaos et al. [19].
+
+
+
+
+                                                      9
+Fig. 4. Total heat generation, radiative and conductive heat losses for a n-heptane droplet undergoing two
+          stage combustion in air (do = 3.91 mm, 0.21 XO2, 0.79 XN2, one atmosphere pressure).
+
+
+
+
+                                                     10
+Fig. 5. Numerically predicted evolution of: a) droplet diameter; b) burning rate; c) flame standoff ratio; d)
+peak gas temperature for n-heptane droplet combustion having different initial droplet diameter (0.21 XO2,
+                                  0.79 XN2, one atmosphere pressure).
+
+
+
+
+                                                       11
+Fig. 6. Numerically predicted evolution of: a) droplet diameter; b) burning rate; c) flame standoff ratio; d)
+peak gas temperature for a n-heptane droplet in different ambient carbon-dioxide mole fractions (do = 3.0
+                   mm, 0.21 XO2, noted XCO2, balance XN2, one atmosphere pressure).
+
+
+
+
+                                                       12
+Fig. 7. Numerically predicted evolution of: a) droplet diameter; b) burning rate; c) flame standoff ratio; d)
+  peak gas temperature for a n-heptane droplet in different ambient helium mole fractions (do = 3.0 mm,
+                      0.21 XO2, noted XHe, balance XN2, one atmosphere pressure).
+
+
+
+
+                                                       13
+

@@ -1,0 +1,93 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19880014518,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "a04da4fdf934461b9498910328017c90",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Materials Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19880014518,
+  "ear": "NO",
+  "id": "93702bf6093442ca83e1c2a21cfc68fe",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-29T00:00:00.0000000+00:00",
+ "title": "Microgravity combustion discipline working group summary of requirements for noncontact temperature measurements",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-05T18:32:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19880014518,
+   "meta": {
+    "author": {
+     "name": "Sacksteder, Kurt"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "2b171fa11b9c40d28689e54806251c10"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19880014518,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "88N23902"
+ },
+ "created": "2013-09-05T18:32:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Current efforts of the Microgravity Combustion Working Group are summarized and the temperature measurement requirements for the combustion studies are defined. Many of the combustion systems that are studied in the low gravity environment are near-limit systems, that is, systems that are acting near the limit of flammability in terms of oxygen concentration or fuel concentration. Systems of this type are normally weak in the sense that there is a delicate balance between the heat released in the flame and the heat required to sustain the flame. Intrusive or perturbative temperature measurement probes can be inaccurate in these situations and in the limiting case extinguish the flame. Noncontact techniques then become the only way to obtain the required measurements. Noncontact measurement requirements for each of the three thermodynamic phases are described in terms of spatial and temporal resolution and temperature range.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19880014518,
+   "id": "d9bad262a4d44885836d50b7759da25e",
+   "publicationName": "NASA, Washington, D.C. Noncontact Temperature Measurement",
+   "publicationDate": "1988-03-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19880014518.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19880014518/downloads/19880014518.pdf",
+    "pdf": "/api/citations/19880014518/downloads/19880014518.pdf",
+    "fulltext": "/api/citations/19880014518/downloads/19880014518.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,135 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19930040901,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "53173ac1b04d4579a5d02298f431b6f3",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19930040901,
+  "ear": "NO",
+  "id": "96aeb7fa974645de80a480bc0ad1b198",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "AIAA PAPER 93-0828",
+  "E-8377",
+  "Report Number: AIAA PAPER 93-0828",
+  "Report Number: E-8377"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NAG3-1046",
+   "submissionId": 19930040901,
+   "id": "1e370da27af24bbb9865ed63d33ad843",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Downward Diffusion Flame Spread and Extinction in Variable Gravitational Fields - Lunar and Martian Simulations",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-16T00:57:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19930040901,
+   "meta": {
+    "author": {
+     "name": "Sacksteder, Kurt R."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "107989a378ee41efafb7f0d02437e081"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19930040901,
+   "meta": {
+    "author": {
+     "name": "Tien, James S."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "3f2808278c064ad7a144bab39cbd780c"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19930040901,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "93A24898"
+ },
+ "created": "2013-08-16T00:57:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "This paper describes experimental observations of downward, opposed-flow flame spreading made under partial-gravity conditions aboard NASA research aircraft. Flame spreading and flammability limit behavior of a thin cellulosic fuel tested at normal pressure in oxygen/nitrogen mixtures of 21 percent oxygen, by volume, and below are described over effective acceleration levels ranging from 0.05 to 0.6 times normal earth gravity. Downward burning flammability and flame spread rates are shown to be enhanced by reductions in gravitational acceleration. These data have fire safety implications for the planning of lunar and Martian outposts.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "submissionId": 19930040901,
+   "name": "AIAA",
+   "id": "3f6ffbbd3e964096bdec760e2829f855"
+  },
+  {
+   "country": "United States",
+   "submissionId": 19930040901,
+   "endDate": "1993-01-14T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "AIAA"
+      }
+     },
+     "meetingId": "94d3c712e25b41698dacde73a0807b2c",
+     "id": "871d638286014516b591cb48f0a13d0e"
+    }
+   ],
+   "name": "AIAA, Aerospace Sciences Meeting and Exhibit",
+   "location": "Reno, NV",
+   "id": "94d3c712e25b41698dacde73a0807b2c",
+   "startDate": "1993-01-11T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19930040901,
+   "id": "4902565b2c9e4c41b526992dce65fcd6",
+   "publicationDate": "1993-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

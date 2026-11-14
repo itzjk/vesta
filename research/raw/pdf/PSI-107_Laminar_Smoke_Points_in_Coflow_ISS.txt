@@ -1,0 +1,429 @@
+       48th AIAA Aerospace Sciences Meeting
+                Orlando, FL, January 6, 2010
+
+
+
+   Laminar Smoke Points in Coflow
+Measured Aboard the International Space
+               Station
+             K. T. Dotson1, P.B. Sunderland1,
+                 Z.-G. Yuan2, D.L. Urban2
+
+                 1University of Maryland,
+
+        Department of Fire Protection Engineering
+             2NASA Glenn Research Center
+
+
+
+
+                      Acknowledgments
+                       Gerard M. Faeth
+                  SPICE Engineering Team
+  ISS Crew: M. Barratt, E.M. Fincke, S.H. Magnus, K. Wakata
+   Supported by NASA cooperative agreement NNX07AO91A
+                                                              1
+                                 Motivation
+
+
+•   Soot
+     – Pollutant, carcinogen, contributes to glacial melting
+
+
+•   Smoke point (SP) measures sooting propensity.
+     – Luminous flame length before smoke emission.
+     – Correlates w/ soot volume fraction and radiative loss fraction.
+
+
+•   Prediction: Non-buoyant flames don’t have smoke points.
+     – Residence time would not scale with flow rate.
+
+
+•   Smoke points found aboard parabolic aircraft and p
+                                                    space shuttle.
+
+•   It is believed that residence time influences smoking behavior.
+     ԟ Use coflow to control residence time.
+
+
+                                                                         2
+                             Background
+
+
+
+
+               Typical 1-g Smoke Point Behavior:
+Ethylene 1 Atm, Nozzle I.D. 14 mm, co-flow ID 101 mm, co-flow 6.4 cm/s (Air)
+                                                                               3
+                            Background
+
+
+
+•   Non-buoyant smoke points were first observed on low-gravity aircraft.
+
+•   Drop tower test results were ambiguous for ethylene smoke points
+    owing to short development times
+
+•   The Laminar Soot Processes Experiment (1997) with quiescent
+    ambient offered the inadvertent opportunity to study smoke points in a
+    quiescent ambient.
+
+•   Two type of soot emission were observed: termed closed tip and
+    open tip.
+
+
+
+
+                                                                             4
+                   Background
+
+
+
+
+Onset of open-tip laminar smoke-point condition
+100 kPa
+1.6 mm nozzle
+Ethylene
+                 Structure of open-tip flame
+
+
+
+100kPa ethylene flame soot
+concentration and temperature
+
+
+
+
+                                50 mm
+
+                                        Luminous flame length 49 cm
+                     Background
+
+
+
+
+Onset of closed-tip laminar smoke-point condition
+50 kPa
+1.6 mm Nozzle
+Ethylene
+                Structure of closed-tip flame
+
+
+50 kPa Ethylene flame soot
+concentration and temperature
+
+
+
+
+                                50 mm
+                                        Luminous flame length 63 mm
+                                  Background
+
+•   In buoyant flames, coflow increases smoke point.
+    – SP increases up to a point, then effect ceases (Schalla 1954).
+    – SP increases for low pressure flames .
+
+    – Hypothesis: Altered soot pathways, reduced soot formation time.
+
+
+           •   Non-buoyant smoke point flame lengths3,4.
+                – Based on Mahalingam et. al (1990) and Spalding (1979).
+
+                Coflow Case        ( L f  L0 )       C f Re d Sc
+                                                  
+                 Neglects v               d             16 Z ST              m f
+                                                                    Lf  C
+                                 ( L f  L0 )       3C f Re d Sc             Z ST
+                Still Air Case                  
+                                      d                32 Z ST
+
+                                                                                    11
+                                      Objectives
+
+     •   Measure nonbuoyant smoke points of various fuels.
+
+     •   Identify the effects of coflow velocity, ua, and burner diameter, d.
+          – They control of the flame velocity field.
+
+
+     •   Correlate the luminous flame lengths, LSP.
+
+
+
+
+Microgravity Science Glovebox (MSG)               ISS Crewmember Micheal Barratt   12
+                              Experimental
+
+                                                           Perforated
+•   Brought to ISS 2008                                   Copper Plate
+
+•   Operated on ISS in 2009.
+
+•   Adjust air and fuel velocities.
+
+•   Find smoke point.
+
+•   Nikon D100 SLR color digital camera for stills.
+
+•   Color video down-linked in real-time.
+                                                          Screen
+•   Smoke points from video.
+     – Flame tip at maximum rate of change in grayscale   Honeycomb
+       intensity.
+                                                              Fan
+                                                                         13
+                            Test Matrix
+
+
+
+•   Fuels: C2H4, C3H8, C3H6, C3H6/N2
+     – No smoke points for CH4 - flames too long
+
+
+•   2 Mixtures: 75% and 50% C3H6 w/ balance N2
+
+•   Round burners ID : 0.41, 0.76, 1.60 mm
+
+•   Duct (76 x 76 mm) x 170 mm long
+
+•   Coflow velocity: 5 – 65 cm/s
+
+•   Conditions limited by length of test volume and onset of flame
+    lifting.
+
+•   Red < 788 → laminar jets                                         14
+             Effects of Fuel and Coflow Velocity
+
+
+
+
+Fixed Fuel V l
+            elocity, uf
+ Decreasing Coflow
+    Velocity, ua
+
+
+
+
+Fixed Coflow Velocity,
+         ua
+   Increasing Fuel
+      Velocity, uf
+
+                                                   15
+                        Smoke Point Images
+
+                                     Propylene C3H6
+                                                                         50mm
+
+
+
+
+                                                                        25mm
+
+
+
+
+d (mm)            1.6                   0.76                0.41
+
+uf (cm/s)   12    21      29   61        96    126    484   595    716
+
+ua (cm/s)   9.1   34      51   7.2       27    41     5.4   15     27
+
+
+
+
+                                                                                16
+Smoke Points in Coflow
+
+                         •   Increasing ua
+                             increases LSP.
+                              – Decreases soot
+                                formation time.
+
+
+                         •   Decreasing d
+                             increases LSP.
+
+                         •   For d = 1.6 mm,
+                             fuel order is that of
+                             buoyant SPs.
+
+                         •   For d = 0.76 mm,
+                             C2H4 LSP longer
+                             than C3H8 LSP.
+
+
+                                                     17
+           Smoke Points in Coflow & Quiescent
+
+
+                                     •   C3H8 and C2H4,
+                                         SPICE and LSP.
+
+                                     •   Extrapolation to ua = 0
+                                          – Matches for C2H4.
+                                          – 0.76 mm C3H8 hits
+                                            lower end of LSP
+Urban                                       range.
+et. al.,
+(1995)
+                                     •   LSP observed weak
+                                         diameter
+                                         dependence.
+
+
+
+
+                                                                   18
+Smoke Point Luminous Lengths
+
+
+                              •   Reasonable
+                                  correlation without
+                                  virtual origin
+                                  correction.
+
+                              •   LSP depends
+                                  primarily on mf and
+                                  Zst.
+
+                              •   Larger slope for
+                                  lower ua/uf.
+
+
+            Forced to (0,0)
+                              •   Coflow flame shape
+                                  theory neglects radial
+                                  velocity.
+
+                                                           19
+Smoke Point Luminous Lengths
+
+
+
+
+                       LSP points were
+                       • Quiescent 30 - 130
+                         kPa
+                       • d = 1.6 and 2.7 mm.
+
+
+
+                       •   Similar slopes despite
+                           change in co-flow .
+                            h
+
+
+
+
+                                                    20
+                      Simplified Treatment of Residence Time
+
+
+
+            150
+                                                                    •   Centerline velocity of
+                                                                        non-reacting jet
+            120                                                         (Spauling).
+                                                                    •   Similarity of jet-coflow
+                                                                        defect velocity.
+
+tres (ms)
+             90
+                                                                    •   Shift solution to match
+                                                                        boundary conditions.
+             60
+                                        d(mm) 0.41 0.76 1.6
+                                                                    •  Residence time for
+                                        C 2H 4
+                                        C 3H 8                         smoke points
+             30                         C 3H 6                         decrease with LSP
+                                        75% C 3H 6
+                                                                        – Effect of coflow.
+                                        50% C 3H 6       +
+              0                                                     • Similar scatter was
+                  0    20   40     60       80     100        120     seen with formation
+                                 LSP (mm)                             time/oxidation time
+                                       Threshold Soot Indices
+     120
+
+                         y = 5.99x                                                   0g TSI   1g TSI
+     100                 R² = 0.93
+                                                                          C2H4       1.3      1.3
+                                                                          C3H8       1.39     0.6
+           80                                                             C3H6       4.51     4.8
+
+
+
+LSP (mm)
+                                                                          75% C3H6 3.38       3.6
+           60                                                             50% C3H6 2.26       2.4
+
+
+           40                                  d(mm) 0.41 0.76 1.6        1-g TSI’s from Calcote and
+                                               C 2H 4                     Manos
+                                               C 3H 8
+           20                                  C 3H 6
+                                               75% C 3H 6
+                                               50% C 3H 6       +
+           0
+                0            5            10           15            20
+                    TSI-1 ( d / mm )-0.8 [ uair / ( mm / s ) ]0.5                                      22
+                             Conclusions
+
+
+Over the presently tested range of fuel, ua, and d:
+• Smoke point increases with increasing coflow velocity.
+
+•   Smoke point decreases with increasing burner diameter.
+
+•   Fuel sooting propensities agree with those of buoyant flames.
+     – Propane < Ethylene < 50% Propylene < 75% Propylene < Propylene
+
+
+•   Ethylene less sooty than propane for 0.76 mm burner. (appears
+    as a different TSI for propane)
+
+•   LSP scales with fuel mass flow rate.
+     – Consistent with simplified theory.
+     – Second order effect: Longer LSP for low ua / uf .
+     – Coflow theory neglects radial velocity, v.
+                                                                        23
+                                         Test Points
+
+Parameter         C2H4             C3H8             C3H6          75% C3H6     50% C3H6
+Zst              0.0637           0.0603           0.0637           0.0768       0.1018
+Tad, K            2367             2264             2332                2317      2288
+d, mm          0.76 – 1.6       0.76 – 1.6       0.41 – 1.6       0.76 – 1.6   0.76 – 1.6
+ua, cm/s         18 – 58          16 – 45         5.4 – 57          13 – 65      11 – 49
+LSP, mm         37 – 105         46 – 105          13 – 59          15 – 44      22 – 50
+uf, cm/s       69.6 – 734       48.9 – 460       11.2 – 763       19.9 – 272   49.6 – 112
+mf, mg/s       1.62 – 3.89      1.80 – 3.84      0.39 – 1.73     0.64 – 1.98   1.45 – 3.29
+Red            127 – 636        176 – 788        36.4 – 630       49.8 – 324   89.4 – 207
+# SP                6                6               23                 13          7
+All smoke point flames were attached to the burner, i e
+                                                     .e., not lifted.
+For mixtures the fuel mole fraction is shown and the inert is N2.
+Parameters ua, uf, and Red assume conditions of 298 K, 101 kPa and 211% O2, and
+uniform velocity profiles.
+Viscosities used to calculate Red involve burner gas properties at 298 K and 101 kPa.
+
+                                                                                             24
+Air – Fuel Velocity Ratio
+
+
+                              Slopes
+                            (Nonzero y –
+                              intercept)
+                             C1 = 1.357
+                             C2 = 1.649
+                             C3 = 2.046
+           ua / uf
+                     1      C3 = 1.51 C1
+                     2
+                     3   LSP Propane data
+                           CLSP = 2.026
+
+                                            25
+

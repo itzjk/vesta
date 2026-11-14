@@ -1,0 +1,140 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20010074098,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "6caeff80098f4138b5d46721b82ac8be",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20010074098,
+  "ear": "NO",
+  "id": "6c90cb418fa64b44bbd757d46334e2b5",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-08-15T08:39:34.3870000+00:00",
+ "title": "Physical and Chemical Aspects of Fire Suppression in Extraterrestrial Environments",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-20T11:27:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20010074098,
+   "meta": {
+    "author": {
+     "name": "Takahashi, F."
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "ad1a9bf621cd4c4b8d007db09c87d647"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20010074098,
+   "meta": {
+    "author": {
+     "name": "Linteris, G. T."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD United States"
+    }
+   },
+   "id": "72379faf96f24bc1a90d4a910c6ba3ba"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20010074098,
+   "meta": {
+    "author": {
+     "name": "Katta, V. R."
+    },
+    "organization": {
+     "name": "Innovative Scientific Solutions, Inc.",
+     "location": "Dayton, OH United States"
+    }
+   },
+   "id": "6b7e7d70b6354af888fb96797c5e6ae8"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20010074098,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-20T11:27:00.0000000+00:00",
+ "center": {
+  "code": "HQ",
+  "name": "Headquarters",
+  "id": "f0865a34ba1f474d865ab51f212fc69f"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A fire, whether in a spacecraft or in occupied spaces on extraterrestrial bases, can lead to mission termination or loss of life. While the fire-safety record of US space missions has been excellent, the advent of longer duration missions to Mars, the moon, or aboard the International Space Station (ISS) increases the likelihood of fire events, with more limited mission termination options. The fire safety program of NASA's manned space flight program is based largely upon the principles of controlling the flammability of on-board materials and greatly eliminating sources of ignition. As a result, very little research has been conducted on fire suppression in the microgravity or reduced-gravity environment. The objectives of this study are: to obtain fundamental knowledge of physical and chemical processes of fire suppression, using gravity and oxygen concentration as independent variables to simulate various extraterrestrial environments, including spacecraft and surface bases in Mars and moon missions; to provide rigorous testing of analytical models, which include comprehensive descriptions of combustion and suppression chemistry; and to provide basic research results useful for technological advances in fire safety, including the development of new fire-extinguishing agents and approaches, in the microgravity environment associated with ISS and in the partial-gravity Martian and lunar environments.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20010074098,
+   "id": "9fd819e3063c43c7ba9b7cac6c683385",
+   "publicationName": "Sixth International Microgravity Combustion Workshop",
+   "publicationDate": "2001-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20010074098.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20010074098/downloads/20010074098.pdf",
+    "pdf": "/api/citations/20010074098/downloads/20010074098.pdf",
+    "fulltext": "/api/citations/20010074098/downloads/20010074098.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

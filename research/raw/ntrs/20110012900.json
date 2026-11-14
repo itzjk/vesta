@@ -1,0 +1,120 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20110012900,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "e3d6524238724d1c91dda572928af17a",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20110012900,
+  "ear": "NO",
+  "id": "ffcc1f61583744308c691ee5e2b2a6d8",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-11T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA/TM-2011-217024",
+  "E-17689",
+  "Report Number: NASA/TM-2011-217024",
+  "Report Number: E-17689"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 253225.01.03",
+   "submissionId": 20110012900,
+   "id": "450712ad8c63476ca1ef2a5518886a5a",
+   "type": "WBS"
+  }
+ ],
+ "title": "An Experimental Study of Upward Burning Over Long Solid Fuels: Facility Development and Comparison",
+ "stiType": "TECHNICAL_MEMORANDUM",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T07:40:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20110012900,
+   "meta": {
+    "author": {
+     "name": "Kleinhenz, Julie"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c4529c70fd9f42b2b391e633b39a386e"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20110012900,
+   "meta": {
+    "author": {
+     "name": "Yuan, Zeng-Guang"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "99e13885e3cf4374ac2018caf10a5873"
+  }
+ ],
+ "stiTypeDetails": "Technical Memorandum (TM)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20110012900,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T07:40:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "As NASA's mission evolves, new spacecraft and habitat environments necessitate expanded study of materials flammability. Most of the upward burning tests to date, including the NASA standard material screening method NASA-STD-6001, have been conducted in small chambers where the flame often terminates before a steady state flame is established. In real environments, the same limitations may not be present. The use of long fuel samples would allow the flames to proceed in an unhindered manner. In order to explore sample size and chamber size effects, two large chambers were developed at NASA GRC under the Flame Prevention, Detection and Suppression (FPDS) project. The first was an existing vacuum facility, VF-13, located at NASA John Glenn Research Center. This 6350 liter chamber could accommodate fuels sample lengths up to 2 m. However, operational costs and restricted accessibility limited the test program, so a second laboratory scale facility was developed in parallel. By stacking additional two chambers on top of an existing combustion chamber facility, this 81 liter Stacked-chamber facility could accommodate a 1.5 m sample length. The larger volume, more ideal environment of VF-13 was used to obtain baseline data for comparison with the stacked chamber facility. In this way, the stacked chamber facility was intended for long term testing, with VF-13 as the proving ground. Four different solid fuels (adding machine paper, poster paper, PMMA plates, and Nomex fabric) were tested with fuel sample lengths up to 2 m. For thin samples (papers) with widths up to 5 cm, the flame reached a steady state length, which demonstrates that flame length may be stabilized even when the edge effects are reduced. For the thick PMMA plates, flames reached lengths up to 70 cm but were highly energetic and restricted by oxygen depletion. Tests with the Nomex fabric confirmed that the cyclic flame phenomena, observed in small facility tests, continued over longer sample. New features were also observed at the higher oxygen/pressure conditions available in the large chamber. Comparison of flame behavior between the two facilities under identical conditions revealed disparities, both qualitative and quantitative. This suggests that, in certain ranges of controlling parameters, chamber size and shape could be one of the parameters that affect the material flammability. If this proves to be true, it may limit the applicability of existing flammability data.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20110012900,
+   "id": "af34c1b259184ae5b82252f14279bb24",
+   "publicationDate": "2011-06-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20110012900.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20110012900/downloads/20110012900.pdf",
+    "pdf": "/api/citations/20110012900/downloads/20110012900.pdf",
+    "fulltext": "/api/citations/20110012900/downloads/20110012900.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

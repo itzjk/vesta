@@ -1,0 +1,148 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": true,
+  "publisherPermissionOrRightsToDistribute": true,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20220019247,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": true,
+  "id": "9c81dd461ddd47f7b9629de036752263",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "keywords": [
+  "Emergency",
+  "Depress",
+  "Fire"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20220019247,
+  "ear": "NO",
+  "id": "e17caace761a4ea0b1de2b27c4433d6e",
+  "itar": "NO"
+ },
+ "distributionDate": "2023-03-20T05:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "609524.09.03.04.02.31",
+   "submissionId": 20220019247,
+   "id": "23b9067f429c49f495077545dd27f368",
+   "type": "WBS"
+  }
+ ],
+ "title": "Evolution of Hardware and Philosophy of Emergency Response Actions on the International Space Station and Future Spacecrafts",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2022-12-27T04:36:13.0214660+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 0,
+   "submissionId": 20220019247,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Barry Tobias"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "2c87967a6ceb4b8a84b5ba373878ef2d",
+   "userType": "CIVIL",
+   "userId": "59bcfdf393b94c55a87a26cbf8326d85"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 1,
+   "submissionId": 20220019247,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Courtenay McMillan"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "78093096f2dc4681a3ae43aaee01de97",
+   "userType": "CIVIL",
+   "userId": "51bfbeccea344e46b6c7db48057e13cc"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20220019247,
+ "created": "2022-12-27T04:13:12.2467290+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Human spaceflight is dangerous for numerous reasons.  This ranges from the dynamic environment of launching on a rocket, flying in space among the thousands and thousands pieces of space debris, to the hazards of re-entry & landing, as well as being surrounded by vehicle systems containing hazardous materials or gasses.  In-flight emergencies fall into four categories:  Rapid Depressurization, Fire, Toxic Spill, and Medical emergency.  This paper will address the first three, which fall under the responsibility of the Environmental Control and Life Support (ECLS) Systems flight control and engineering teams.  It will review the evolution of the International Space Station’s emergency response philosophy, procedures, training, and equipment changes over the years.  The ISS emergency equipment has evolved over the last two decades of operations in many ways, but in some it has remained the same.   The core actions the flight crew takes to ensure team safety, personal safety, vehicle safety, and equipment safety has not changed.  However, the equipment and capabilities provided to them have.  From early days of minimal capability when the ISS consisted of a few modules, to today’s 30,000 ft^3 vehicle with over a dozen isolatable segments.  From use of Russian gas masks to positive pressure O2 masks, to the development of respirators.  From a lack of procedures for a deadly ammonia leak scenario to a memorized response utilizing numerous atmosphere measurement systems.  This paper will review all these various areas that fall under the umbrella of “on-board emergencies”.  In addition, the comparison to the planned emergency operations on the Orion vehicle will be reviewed.  The Orion vehicle differs from the ISS in that it has no isolatable volume, being approximately 2% the size of ISS, as well as not having a quick return to earth capability. ",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20220019247,
+  "id": "04bf457819354e9dbf05a0985a0e792e"
+ },
+ "meetings": [
+  {
+   "country": "AE",
+   "submissionId": 20220019247,
+   "endDate": "2023-03-10T06:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "bdc9bfb19f7f52678be38b3d02a74d57",
+     "meta": {
+      "organization": {
+       "name": "GMV Innovating Solutions (Spain)",
+       "location": "Tres Cantos, Spain"
+      }
+     },
+     "meetingId": "5630ea3465214c4abc204c66af41fc4f",
+     "id": "1859c1b15b5a473a86a79ca58150f1eb"
+    }
+   ],
+   "name": "17th International Conference on Space Operations (SpaceOps)",
+   "location": "Dubai",
+   "id": "5630ea3465214c4abc204c66af41fc4f",
+   "url": "spaceops2023.org",
+   "startDate": "2023-03-06T06:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "redistributedDate": "2023-03-21T12:22:12.5539950",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "Emergency Ops History for SpaceOps Conference 2023.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20220019247/downloads/Emergency%20Ops%20History%20for%20SpaceOps%20Conference%202023.pdf",
+    "pdf": "/api/citations/20220019247/downloads/Emergency%20Ops%20History%20for%20SpaceOps%20Conference%202023.pdf",
+    "fulltext": "/api/citations/20220019247/downloads/Emergency%20Ops%20History%20for%20SpaceOps%20Conference%202023.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

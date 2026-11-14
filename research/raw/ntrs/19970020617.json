@@ -1,0 +1,184 @@
+{
+ "copyright": {
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19970020617,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "4690c1d4fb124c0aa03d16b810ac9ce4",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Materials Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19970020617,
+  "ear": "NO",
+  "id": "7cf2be2aefa543ba91bd0e7e24420667",
+  "category": [
+   {
+    "submissionExportControlId": "7cf2be2aefa543ba91bd0e7e24420667",
+    "id": "f99d411d23074b36a1259cc38296f26c",
+    "category": 0
+   }
+  ],
+  "itar": "NO"
+ },
+ "distributionDate": "1997-07-15T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA-CP-10194"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NGT-50862",
+   "submissionId": 19970020617,
+   "id": "8694188d1a8949e98b4896ee3b02a9b2",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Extinguishment of a Diffusion Flame Over a PMMA Cylinder by Depressurization in Low-Gravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-17T15:17:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 0,
+   "submissionId": 19970020617,
+   "meta": {
+    "author": {
+     "name": "Jeffrey S Goldmeer"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "9349266bf2944c23b909536da78934ee",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 1,
+   "submissionId": 19970020617,
+   "meta": {
+    "author": {
+     "name": "James S Tien"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "bdc66c0f326e4cb0844d073b32afc175",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "25b061d860a74d37b5938b104d1099ce",
+   "sequence": 2,
+   "submissionId": 19970020617,
+   "meta": {
+    "author": {
+     "name": "David L Urban"
+    },
+    "organization": {
+     "name": "Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "7bad9757ebb1477da24eb6ba781990cc",
+   "userType": "OTHER"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "NASA_TECHNICAL_MANAGEMENT",
+ "modified": "2026-09-24T13:38:41.5328780+00:00",
+ "id": 19970020617,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "97N21890"
+ },
+ "created": "2013-08-17T15:17:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The behavior of flames in low-speed flows in low-gravity is relevant to spacecraft fire safety. Previous work has shown that flames in the presence of low-speed forced flows in low-gravity may be more flammable than in a forced flow of the same magnitude in normal gravity. Additionally, fire suppression plans for the International Space Station include the use of venting (depressurization) as an emergency option for extinguishing fires. This procedure would induce flows in the affected compartment that could temporarily intensify the fire, as was observed in flammability tests of solids conducted on board Skylab. Despite a general Understanding, current knowledge of the combined effects of reduced pressure and forced flow on a burning solid in low-gravity is inadequate for the design of a venting extinguishment system. Previous studies in low-g have examined flammability limits for thermally thin solids. However, there are differences when burning thick materials because the interior solid-phase temperature continuously changes, which affects the percentage of gas-phase heat feedback to the solid-phase. Changes in the heat feedback to the solid-phase can affect the flammability characteristics of the material. In the current work, the extinction of a diffusion flame burning over PMMA (polymethyl methacrylate) cylinders during depressurization with a low-speed cross flow was examined experimentally and via numerical simulations.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 19970020617,
+  "id": "2cbf676be0b540399cde683fe7d0842f"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 19970020617,
+   "endDate": "1997-05-21T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "e53641f275f15469a1b19a8980e09171",
+     "meta": {
+      "organization": {
+       "name": "National Aeronautics and Space Administration",
+       "location": "Washington, United States"
+      }
+     },
+     "meetingId": "bab2e248890c409ab9da2dd43ea9438f",
+     "id": "91f3eecd089d46649c1838c13c075751"
+    }
+   ],
+   "name": "Fourth International Microgravity Combustion Workshop",
+   "location": "Cleveland, OH",
+   "id": "bab2e248890c409ab9da2dd43ea9438f",
+   "startDate": "1997-05-19T04:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19970020617,
+   "publisher": "National Aeronautics and Space Administration",
+   "id": "bbbfb3f91a4545e1be4093ef6fe80a71",
+   "publicationName": "Fourth International Microgravity Combustion Workshop",
+   "publicationDate": "1997-05-01T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19970020547,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Fourth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19970020617.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19970020617/downloads/19970020617.pdf",
+    "pdf": "/api/citations/19970020617/downloads/19970020617.pdf",
+    "fulltext": "/api/citations/19970020617/downloads/19970020617.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

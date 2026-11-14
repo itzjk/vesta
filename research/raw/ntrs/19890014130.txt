@@ -1,0 +1,3 @@
+Expert systems applied to spacecraft fire safety
+
+Expert systems are problem-solving programs that combine a knowledge base and a reasoning mechanism to simulate a human expert. The development of an expert system to manage fire safety in spacecraft, in particular the NASA Space Station Freedom, is difficult but clearly advantageous in the long-term. Some needs in low-gravity flammability characteristics, ventilating-flow effects, fire detection, fire extinguishment, and decision models, all necessary to establish the knowledge base for an expert system, are discussed.

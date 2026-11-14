@@ -1,0 +1,50 @@
+https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-of-materials-on-the-moon-fm2/
+TITLE: Flammability of Materials on the Moon (FM2) - NASA
+FETCHED: 2026-11-14T10:52:03
+
+# Flammability of Materials on the Moon (FM2)
+
+### Background
+
+FM2 is the first-ever combustion experiment to be performed on another planetary body. Building on the success of the decades-long combustion science ground (1g) program and International Space Station (ISS) microgravity (~0g) combustion experiment campaigns, FM2 investigates burning materials on the Moon at its 1/6 reduced gravity level. Previous computational modeling, bolstered by experiments aboard parabolicflight aircraft and the ISS, suggest that materials may burn at lower oxygen concentrations in lunar gravity compared to Earth. This means that some things that are not flammable on Earth, may be flammable in potential habitats on the Moon and other places with reduced gravity. Since fire can be a catastrophic hazard for spaceflight and extreme human exploration, FM2 is a critical step in determining material flammability and safety for future missions.
+
+### Objectives
+
+Edge view of Solid Inflammability Boundary at Low-Speed (SIBAL) fabric, a cotton-fiberglass blend, burning in air in lunar gravity (simulated in drop tower centrifuge). Left: downward burning, right: upward burning.
+
+- Conduct the first-ever observations and measurements of flame spread on the Moon.
+
+- Verify whether some materials burning in partial-gravity environments may be more flammable compared to 1g.
+
+- Provide a bridge between the standard 1g material screening method
+and actual behavior in reduced gravity.
+
+Candle flame in microgravity, 1/6 gravity, and Earth gravity (left to right).
+
+### Approach and Hardware
+
+External view of FM2 engineering hardware.
+| The experiment burns four fuel samples individually in atmospheric conditions planned for future lunar habitats or vehicles. The experiment is housed inside a sealed chamber and operates autonomously through software. Cameras record flame characteristics including size, intensity, color, and spread rate. Onboard sensors measure flame and fuel temperatures, oxygen concentration, and carbon-dioxide concentrations.
+
+Images of FM2 engineering hardware that is 28.5 by 28.5 by 38.5 cm tall. Weight is 25 kg. |
+Internal view of FM2 engineering hardware.
+
+### Contact Information
+
+Principal Investigator…..Dr. Paul Ferkul, Universities Space Research Association
+Co-Investigator ………….Prof. Ya-Ting Liao, Case Western Reserve University
+
+Co-Investigator ………….Dr. Michael Johnston, Glenn Research Center
+Project Manager………..Amber Krauss, Glenn Research Center
+
+Keep Exploring
+
+## Discover More Topics From NASA
+
+Missions
+
+Humans in Space
+
+Climate Change
+
+Solar System

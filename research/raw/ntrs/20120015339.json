@@ -1,0 +1,141 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20120015339,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "d05de739209b4a03833ce0b9b7358e74",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20120015339,
+  "ear": "NO",
+  "id": "2b5cc9c4b8aa4580899022fe32186d77",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "M12-1718",
+  "M12-1935",
+  "Report Number: M12-1718",
+  "Report Number: M12-1935"
+ ],
+ "title": "Environmental Control and Life Support (ECLS) Hardware Commonality for Exploration Vehicles",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-26T02:59:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20120015339,
+   "meta": {
+    "author": {
+     "name": "Carrasquillo, Robyn"
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "8e5fe7959ac54679be2e37a28e3d8f56"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20120015339,
+   "meta": {
+    "author": {
+     "name": "Anderson, Molly"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "dd25a4874d49465ea84e0aae9f9426b9"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20120015339,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-26T02:59:00.0000000+00:00",
+ "center": {
+  "code": "MSFC",
+  "name": "Marshall Space Flight Center",
+  "id": "a589fc1e68af409f9d2214bb08863d11"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "In August 2011, the Environmental Control and Life Support Systems (ECLSS) technical community, along with associated stakeholders, held a workshop to review NASA s plans for Exploration missions and vehicles with two objectives: revisit the Exploration Atmospheres Working Group (EAWG) findings from 2006, and discuss preliminary ECLSS architecture concepts and technology choices for Exploration vehicles, identifying areas for potential common hardware or technologies to be utilized. Key considerations for selection of vehicle design total pressure and percent oxygen include operational concepts for extravehicular activity (EVA) and prebreathe protocols, materials flammability, and controllability within pressure and oxygen ranges. New data for these areas since the 2006 study were presented and discussed, and the community reached consensus on conclusions and recommendations for target design pressures for each Exploration vehicle concept. For the commonality study, the workshop identified many areas of potential commonality across the Exploration vehicles as well as with heritage International Space Station (ISS) and Shuttle hardware. Of the 36 ECLSS functions reviewed, 16 were considered to have strong potential for commonality, 13 were considered to have some potential commonality, and 7 were considered to have limited potential for commonality due to unique requirements or lack of sufficient heritage hardware. These findings, which will be utilized in architecture studies and budget exercises going forward, are presented in detail.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20120015339,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "United States",
+   "id": "39a062342f7e4c4cae1505ab8060a37c"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20120015339,
+   "endDate": "2012-07-19T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "United States"
+      }
+     },
+     "meetingId": "03832f2933264fbf9d8a5a39fb0a6b38",
+     "id": "e8799edad4244c8a8316d1cdf253e934"
+    }
+   ],
+   "name": "42nd International Conference on Environmental Systems",
+   "location": "San Diego, CA",
+   "id": "03832f2933264fbf9d8a5a39fb0a6b38",
+   "startDate": "2012-07-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20120015339,
+   "id": "5ceab66470c9447faccb99553775585a",
+   "publicationDate": "2012-07-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20120015339.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20120015339/downloads/20120015339.pdf",
+    "pdf": "/api/citations/20120015339/downloads/20120015339.pdf",
+    "fulltext": "/api/citations/20120015339/downloads/20120015339.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

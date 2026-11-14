@@ -1,0 +1,182 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040161227,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "35a3c6472b274c7cac9f80c0c85e41d8",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Mechanical Engineering"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040161227,
+  "ear": "NO",
+  "id": "6303627aa58a422da0d600a5f315337a",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "Suppression of Low Strain Rate Nonpremixed Flames by an Agent",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:50:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040161227,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "9e286b44f0ba44b8882309d7102987db"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040161227,
+   "meta": {
+    "author": {
+     "name": "Hamins, A."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "889600f65d9f469288605421b46d922c"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040161227,
+   "meta": {
+    "author": {
+     "name": "Bundy, M."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "1f7efdd046374d9f84c1a86878287414"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040161227,
+   "meta": {
+    "author": {
+     "name": "Oh, C. B."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "976f3700e4fc4b7e857eb0d39f674de9"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20040161227,
+   "meta": {
+    "author": {
+     "name": "Park, J."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "048b21e9c2fc46b1815c8e9be6ddcd94"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20040161227,
+   "meta": {
+    "author": {
+     "name": "Puri, I. K."
+    },
+    "organization": {
+     "name": "Illinois Univ.",
+     "location": "Chicago, IL, United States"
+    }
+   },
+   "id": "d1dbe7d17ba54389b600ed163832dd91"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040161227,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:50:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The extinction and structure of non-premixed methane/air flames were investigated in normal gravity and microgravity through the comparison of experiments and calculations using a counterflow configuration. From a fire safety perspective, low strain rate conditions are important for several reasons. In normal gravity, many fires start from small ignition sources where the convective flow and strain rates are weak. Fires in microgravity conditions, such as a manned spacecraft, may also occur in near quiescent conditions where strain rates are very low. When designing a fire suppression system, worst-case conditions should be considered. Most diffusion flames become more robust as the strain rate is decreased. The goal of this project is to investigate the extinction limits of non-premixed flames using various agents and to compare reduced gravity and normal gravity conditions. Experiments at the NASA Glenn Research Center's 2.2-second drop tower were conducted to attain extinction and temperature measurements in low-strain non-premixed flames. Extinction measurements using nitrogen added to the fuel stream were performed for global strain rates from 7/s to 50/s. The results confirmed the \"turning point\" behavior observed previously by Maruta et al. in a 10 s drop tower. The maximum nitrogen volume fraction in the fuel stream needed to assure extinction for all strain rates was measured to be 0.855+/-0.016, associated with the turning point determined to occur at a strain rate of 15/s. The critical nitrogen volume fraction in the fuel stream needed for extinction of 0-g flames was measured to be higher than that of 1-g flames.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040161227,
+   "id": "bafdb3ec9cbe46feade28bd4de94ad85",
+   "publicationName": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session, Volume 2",
+   "publicationDate": "2004-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040161227.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040161227/downloads/20040161227.pdf",
+    "pdf": "/api/citations/20040161227/downloads/20040161227.pdf",
+    "fulltext": "/api/citations/20040161227/downloads/20040161227.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

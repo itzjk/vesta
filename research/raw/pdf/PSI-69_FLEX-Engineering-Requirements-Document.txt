@@ -1,0 +1,1712 @@
+                                                                                      FLX-REQ-0001
+
+
+FLEX-2 Engineering Requirements
+Document
+
+Fluids and Combustion Facility (FCF)
+Flame Extinguishment Experiment 2
+(FLEX-2)
+
+
+
+Final
+February 04, 2010
+    AUTHORIZED by CM when under FORMAL
+            Configuration Control
+   Date                  Signature
+02/16/10        /s/ Lori Yost
+
+Availability:
+
+ [ ] Public (No Restriction)    [ X ] Export Controlled
+
+
+
+
+                                         This document contains information controlled by the
+                                         Export Administration Regulations (EAR) 15 CFR ET.
+                                         SEQ., and has been classified as EAR 99/No License
+                                         Required. Export to embargoed countries, in violation of
+                                         EAR regulations, is prohibited by law.
+
+
+
+
+National Aeronautics and Space Administration
+John H. Glenn Research Center
+Exploration Systems Division
+Cleveland, Ohio 44135
+                                                                                 FLX-REQ-0001
+                                                                               February 04, 2010
+
+                                          PREFACE
+
+The National Aeronautics and Space Administration (NASA) has developed a modular, multi-
+user experimentation mini-facility for conducting droplet combustion science experiments in the
+microgravity environment of the International Space Station (ISS). This facility, called the
+Multi-user Droplet Combustion Apparatus (MDCA), resides in Combustion Integrated Rack
+(CIR), a component of the Fluids and Combustion Facility (FCF) on-board the ISS. The Flame
+Extinguishment Experiment 2 (FLEX-2) uses the MDCA platform to conduct droplet
+combustion tests.
+
+This document will define the engineering and science requirements necessary to successfully
+complete the FLEX-2 experiments.
+
+
+
+
+                                               ii               FLEX-2 Engineering Requirements
+                                                                                      Document
+                                                               FLX-REQ-0001
+                                                             February 04, 2010
+
+                              SIGNATURE PAGE
+
+              FLEX-2 ENGINEERING REQUIREMENTS DOCUMENT
+                                FOR THE
+                    FLUIDS COMBUSTION FACILITY (FCF)
+              FLAME EXTINGUISHMENT EXPERIMENT 2 (FLEX-2)
+
+
+
+
+Prepared By: /s/ Jesse Robbins                   Date: 02/05/10
+             Jesse Robbins
+             FLEX-2 Systems Engineering Lead
+             ZIN Technologies, Inc.
+
+
+
+Approved By: /s/ M. O’Toole                      Date: 02/05/10
+             Martin O’Toole
+             FLEX-2 Project Lead
+             ZIN Technologies, Inc.
+
+
+
+Approved By: /s/ Brian Finley                    Date: 02/05/10
+             Brian Finley
+             SpaceDOC Manager
+             ZIN Technologies, Inc.
+
+
+
+Approved By: /s/ Michael Hicks                   Date: 02/16/10
+             Michael Hicks
+             FLEX-2 Project Scientist
+             NASA Glenn Research Center
+
+
+
+
+                                      iii      FLEX-2 Engineering Requirements
+                                                                     Document
+                                                                              FLX-REQ-0001
+                                                                            February 04, 2010
+
+                                      REVISION PAGE
+
+                   FLEX 2 ENGINEERING REQUIREMENTS DOCUMENT
+                                     FOR THE
+                         FLUIDS COMBUSTION FACILITY (FCF)
+                   FLAME EXTINGUISHMENT EXPERIMENT 2 (FLEX-2)
+
+                                                                           Contractor     NASA
+Revision    Date          Description of Change or ECOs Incorporated       Verification Verification
+                                                                            and Date     and Date
+ Final     02/04/10 Initial Release                                         02/05/10     02/16/10
+
+
+
+
+                                              iv              FLEX-2 Engineering Requirements
+                                                                                    Document
+                                                                                                      FLX-REQ-0001
+                                                                                                    February 04, 2010
+
+                                       TABLE OF CONTENTS
+
+
+1.0         INTRODUCTION ....................................................................................... 1
+1.1         Purpose ..................................................................................................... 1
+1.2         Scope......................................................................................................... 1
+
+2.0         DOCUMENTS............................................................................................ 2
+2.1         Order of Precedence for Documents ......................................................... 2
+2.2         Applicable Documents ............................................................................... 2
+2.3         Reference Documents ............................................................................... 2
+
+3.0         MDCA OVERVIEW.................................................................................... 4
+3.1         Payload Description ................................................................................... 4
+3.2         MDCA Mission ........................................................................................... 4
+3.3         FLEX-2 Requirements Flow....................................................................... 4
+3.4         MDCA Hardware Description..................................................................... 6
+3.4.1       MDCA Chamber Insert Assembly .............................................................. 6
+3.4.1.1     Experiment Mounting Structure ................................................................. 6
+3.4.1.2     Internal Apparatus ..................................................................................... 6
+3.4.1.2.1   Fuel Dispenser System.............................................................................. 6
+3.4.1.2.2   Deployment System................................................................................... 7
+3.4.1.2.3   Fiber Support System ................................................................................ 7
+3.4.1.2.4   Ignition System .......................................................................................... 7
+3.4.1.2.5   Cooling Plate System................................................................................. 8
+3.4.1.2.6   Radiometers .............................................................................................. 8
+3.4.2       MDCA Avionics.......................................................................................... 8
+3.4.2.1     Data and Control........................................................................................ 8
+3.4.2.2     Power Control and Distribution .................................................................. 9
+3.4.3       MDCA Diagnostics..................................................................................... 9
+3.4.3.1     Color Camera Package.............................................................................. 9
+3.4.3.2     White Light Illumination.............................................................................. 9
+3.5         Interfaces ................................................................................................. 10
+3.5.1       External Interfaces................................................................................... 10
+3.5.1.1     Launch Configuration Interfaces .............................................................. 10
+3.5.1.2     On-Orbit External Interfaces .................................................................... 10
+3.5.2       Internal Interfaces .................................................................................... 10
+
+4.0         REQUIREMENTS .................................................................................... 11
+4.1         Science Requirements............................................................................. 11
+4.1.1       Experimental Fuels - Alcohol ................................................................... 11
+4.1.2       Experimental Fuels – Hydrocarbon.......................................................... 11
+4.1.3       Experimental Fuels – Alcohol Mixture...................................................... 11
+4.1.4       Experimental Fuels – Hydrocarbon Mixture 1 .......................................... 11
+4.1.5       Experimental Fuels – Hydrocarbon Mixture 2 .......................................... 11
+4.1.6       Experimental Fuels – Other Mixture ........................................................ 11
+4.1.7       Fuel Purity................................................................................................ 11
+
+                                                         v                      FLEX-2 Engineering Requirements
+                                                                                                      Document
+                                                                                                   FLX-REQ-0001
+                                                                                                 February 04, 2010
+
+4.1.8    Fuel Quality.............................................................................................. 11
+4.1.9    Fuel Degassing........................................................................................ 12
+4.1.10   Fuel Quality Assurance............................................................................ 12
+4.1.11   Fuel Temperature .................................................................................... 12
+4.1.12   Droplet Size Tolerance ............................................................................ 12
+4.1.13   Droplet Size Reproducibility..................................................................... 12
+4.1.14   Fiber Size................................................................................................. 12
+4.1.15   Fiber Material Thermal Diffusivity ............................................................ 12
+4.1.16   Fiber Material Emissivity .......................................................................... 12
+4.1.17   Droplet Anchoring Capability ................................................................... 12
+4.1.18    Droplet Arrays......................................................................................... 12
+4.1.19    Bead Material.......................................................................................... 13
+4.1.20   Bead Shape ............................................................................................. 13
+4.1.21   Bead Size ................................................................................................ 13
+4.1.22   Bead Surface ........................................................................................... 13
+4.1.23   Bead Spacing .......................................................................................... 13
+4.1.24   Ignite in Flow............................................................................................ 13
+4.1.25   Igniter Material ......................................................................................... 13
+4.1.26   Igniter on Time......................................................................................... 13
+4.1.27   Ignition Timing ......................................................................................... 13
+4.1.28   Ignition Disturbance ................................................................................. 13
+4.1.29   Igniter Position Control............................................................................. 14
+4.1.30   Igniter Retraction ..................................................................................... 14
+4.1.31   Igniter Control .......................................................................................... 14
+4.1.32   Hardware Exclusion ................................................................................. 14
+4.1.33   Non-Quiescent Test Point Timing ............................................................ 14
+4.1.34   Chamber Atmosphere Pressure .............................................................. 14
+4.1.35   Chamber Atmosphere Pressure Rise ...................................................... 14
+4.1.36   Oxygen Mole Fractions ............................................................................ 14
+4.1.37   Chamber Atmosphere Temperature ........................................................ 14
+4.1.38   Atmospheric Mixing.................................................................................. 15
+4.1.39   Atmospheric Quiescence ......................................................................... 15
+4.1.40   Atmospheric Humidity .............................................................................. 15
+4.1.41   Chamber Atmosphere Test Set 1 ............................................................ 15
+4.1.42   Chamber Atmosphere Test Set 2 ............................................................ 15
+4.1.43   Flow Field Production .............................................................................. 15
+4.1.44   Flow Field Velocity Ranges...................................................................... 15
+4.1.45   Flow Field Control .................................................................................... 15
+4.1.46   Test Point Initiation .................................................................................. 15
+4.1.47   Display of Diagnostic Views..................................................................... 15
+4.1.48   Downlink of Chamber Temperature Data................................................. 15
+4.1.49   Downlink of Chamber Pressure Data....................................................... 16
+4.1.50   Atmospheric Fuel Vapor .......................................................................... 16
+4.1.51   Atmospheric Purity................................................................................... 16
+4.1.52   G-Level .................................................................................................... 16
+4.1.53   Microgravity Measurement....................................................................... 16
+
+
+                                                     vi                     FLEX-2 Engineering Requirements
+                                                                                                  Document
+                                                                                                     FLX-REQ-0001
+                                                                                                   February 04, 2010
+
+4.1.54   Diagnostics Imaging ................................................................................ 16
+4.1.55   Droplet Imaging Orientation ..................................................................... 16
+4.1.56   Droplet Imaging FOV ............................................................................... 16
+4.1.57   Droplet Imaging Spatial Resolution.......................................................... 16
+4.1.58   Droplet Imaging Temporal Resolution ..................................................... 16
+4.1.59   Droplet Imaging Temporal Resolution Additional Capability .................... 17
+4.1.60   Droplet Imaging DOF ............................................................................... 17
+4.1.61   Droplet Imaging Illumination .................................................................... 17
+4.1.62   OH Flame Imaging Orientation ................................................................ 17
+4.1.63   OH Flame Imaging FOV .......................................................................... 17
+4.1.64   OH Flame Imaging Emission ................................................................... 17
+4.1.65   OH Flame Imaging Spatial Resolution ..................................................... 17
+4.1.66   OH Flame Imaging Temporal Resolution................................................. 17
+4.1.67   OH Flame Imaging DOF .......................................................................... 17
+4.1.68   OH Flame Imaging Gain .......................................................................... 17
+4.1.69   Color Imaging Orientation ........................................................................ 18
+4.1.70   Color Imaging FOV .................................................................................. 18
+4.1.71   Color Imaging Spatial Resolution............................................................. 18
+4.1.72   Color Imaging Temporal Resolution ........................................................ 18
+4.1.73   Color Imaging DOF .................................................................................. 18
+4.1.74   Color Imaging Zoom ................................................................................ 18
+4.1.75   Narrow Band Radiative Emission ............................................................ 18
+4.1.76   Narrow and Broad Band Radiative Emission Sampling Rate................... 18
+4.1.77   Narrow Band and Broad Band Radiative Emission Placement................ 18
+4.1.78   Narrow Band and Broad Band Radiometer Isolation ............................... 18
+4.1.79   Narrow Band and Broad Band Radiative Emission Accuracy .................. 19
+4.1.80   Narrow Band and Broad Band Radiative Emission Response Time........ 19
+4.1.81   Narrow Band and Broad Band Radiative Emission FOV ......................... 19
+4.1.82   Broad Band Radiative Emission .............................................................. 19
+4.1.83   Soot Volume Fraction Imaging Orientation .............................................. 19
+4.1.84   Soot Volume Fraction Backlight............................................................... 19
+4.1.85   Soot Volume Fraction Temporal Resolution ............................................ 19
+4.1.86   Soot Volume Fraction Spatial Resolution................................................. 19
+4.1.87   Soot Volume Fraction Field of View ......................................................... 19
+4.1.88   Soot/Fiber Temperature Imaging Orientation........................................... 20
+4.1.89   Soot/Fiber Temperature Field of View ..................................................... 20
+4.1.90   Soot/Fiber Temperature Temporal Resolution of Liquid Crystal Tunable
+         Filter......................................................................................................... 20
+4.1.91   Soot/Fiber Temperature Spatial Resolution ............................................. 20
+4.1.92   Flow Velocity Measurement..................................................................... 20
+4.1.93   Flow Field Sampling Rate ........................................................................ 20
+4.1.94   Chamber Temperature Measurement Sampling Frequency .................... 20
+4.1.95   Chamber Pressure Measurement Sampling Frequency .......................... 20
+4.1.96   Pressure Measurement Accuracy............................................................ 20
+4.1.97   Temperature Measurement Accuracy...................................................... 21
+4.1.98   Synchronization of Measurements........................................................... 21
+
+
+                                                      vii                     FLEX-2 Engineering Requirements
+                                                                                                    Document
+                                                                                                          FLX-REQ-0001
+                                                                                                        February 04, 2010
+
+4.2               Derived Requirements ............................................................................. 21
+4.2.1             Fuel Dispenser System............................................................................ 21
+4.2.1.1           Fuel Mixture Ratio Accuracy .................................................................... 21
+4.2.1.2           Fuel Material Compatibility....................................................................... 21
+4.2.1.3           Purity Degradation ................................................................................... 21
+4.2.2             Atmospheric Conditions ........................................................................... 21
+4.2.2.1           CO Removal ............................................................................................ 22
+4.2.2.2           CO2 Removal ........................................................................................... 22
+4.2.2.3           Water Vapor Removal.............................................................................. 22
+4.2.2.4           Fuel Vapor Removal ................................................................................ 22
+4.2.3             Internal Apparatus ................................................................................... 22
+4.2.3.1           Oxygen Compatibility ............................................................................... 22
+4.2.3.2           Igniter Compatibility ................................................................................. 22
+4.2.3.3           Igniter Hoop Diameter.............................................................................. 22
+4.2.3.4           Fiber Alignment with Needles .................................................................. 22
+4.2.3.5           Fiber Positioning ...................................................................................... 23
+4.2.3.6           Fiber Beads ............................................................................................. 23
+4.2.4             Diagnostics .............................................................................................. 23
+4.2.4.1           Droplet View Filter ................................................................................... 23
+4.2.5             Flight Unit Hardware ................................................................................ 23
+4.2.5.1           Flight Unit Packaging, Handling, and Transportation............................... 23
+
+5.0               CARRIER CAPABILITIES....................................................................... 24
+
+
+                                             LIST OF APPENDICES
+
+
+APPENDIX A        ACRONYMS AND ABBREVIATIONS.......................................... 27
+A.1       Scope....................................................................................................... 27
+A.2       List of Acronyms and Abbreviations......................................................... 27
+
+APPENDIX B        DEFINITIONS ............................................................................... 29
+B.1       Scope....................................................................................................... 29
+B.2       List of Definitions ..................................................................................... 29
+
+
+                                                 LIST OF TABLES
+
+TABLE I.          Previously Verified MDCA/FLEX Requirements from MDC-REQ-0005A. 24
+
+
+                                                LIST OF FIGURES
+
+Figure 1 FLEX-2 Requirements Flow .............................................................................. 5
+
+
+
+
+                                                            viii                    FLEX-2 Engineering Requirements
+                                                                                                          Document
+                                                                                  FLX-REQ-0001
+                                                                                February 04, 2010
+
+
+1.0            INTRODUCTION
+
+1.1            Purpose
+This document will define the engineering requirements necessary to successfully complete the
+science and safety requirements. This document will be used by the FLEX-2 design engineers to
+develop the systems necessary for FLEX-2. Interface and carrier requirements levied on FLEX-
+2 are documented in the CIR-MDCA Interface Control Document (FCF-ICD-CIR-MDCA).
+FLEX-2 will use the existing Multi-User Droplet Combustion Apparatus (MDCA) hardware and
+software platform already developed as a baseline for meeting many of the requirements found in
+this document. Safety requirements are documented in the CIR/MDCA Integrated Hazard
+Reports and the MDCA Hazard Reports (Re-Flight).
+
+
+1.2            Scope
+This FLEX-2 Engineering Requirements Document (ERD) serves to document two sets of
+requirements: Science Requirements and Derived Engineering Requirements. The FLEX-2
+Science Requirements Document (SRD) is created by the experiment’s Principle Investigators
+(PI’s) and defines the requirements that are necessary to accomplish the FLEX-2 science
+objectives. The purpose of this document is to provide traceability to the SRD and to formalize
+these requirements. Also, it defines the engineering requirements derived to establish the
+capabilities for a system that achieves the science requirements in conjunction with existing CIR
+and MDCA capabilities.
+
+
+
+
+                                                1                FLEX-2 Engineering Requirements
+                                                                                       Document
+                                                                                   FLX-REQ-0001
+                                                                                 February 04, 2010
+
+
+2.0            DOCUMENTS
+This section lists specifications, models, standards, guidelines, handbooks, and other special
+publications. These documents have been grouped into two categories: applicable documents
+and reference documents.
+
+
+2.1            Order of Precedence for Documents
+In the event of a conflict between this document and other documents specified herein, the
+requirements of this document shall apply. In the event of a conflict between this document and
+the contract, the contractual requirements shall take precedence over this document. In the event
+of a conflict between this document and higher-level documents, the higher-level documents
+shall take precedence over this document.
+
+All documents used, applicable or reference, are to be the versions defined in the current version
+of the SpaceDOC contract. Nothing in this document supersedes applicable laws and regulations
+unless a specific exemption has been obtained.
+
+
+2.2            Applicable Documents
+The documents in the following table are applicable to the FLEX-2 Project to the extent
+specified herein.
+
+
+FCF-ICD-CIR-
+                     CIR FLEX-2 Interface Control Document
+MDCA
+FLX-PLN-0002         FLEX-2 Science Engineering Verification Plan
+                     Science Requirements Document, Fundamental Studies in Droplet
+N/A                  Combustion and Flame Extinguishment in Micro-gravity (FLEX-2)
+                     December 6, 2009
+MDC-REQ-0005         MDCA Engineering Requirements Document
+                     Requirements for Packaging, Handling, and Transportation for
+NPR 6000.1           Aeronautical and Space Systems, Equipment, and Associated
+                     Components
+
+
+2.3            Reference Documents
+The documents in the following table are provided only as reference material for background
+information and are not imposed as requirements.
+
+
+
+FCF-IA-MV-MDCA          Flame Extinguishment Experiment Integration Agreement - Main Body
+
+
+
+                                                2                FLEX-2 Engineering Requirements
+                                                                                       Document
+                                                                        FLX-REQ-0001
+                                                                      February 04, 2010
+
+FCF-ICD-0076    FCF Software Interface Control Document
+KHB 1700.7      Space Shuttle Payload Ground Safety Handbook
+MSFC-HDBK-
+                Materials Selection List for Space Hardware Systems
+527/JSC 09604
+
+MSFC-SPEC-522   Design Criteria for Stress Corrosion Cracking
+
+MDC-DOC-1364    MDCA Baseline Systems Description
+
+                Implementation Procedure for NSTS Payloads System Safety
+NSTS 13830
+                Requirements
+NSTS 14046      Payload Verification Requirements
+                Safety Policy and Requirements for Payloads Using the Space
+NSTS 1700.7
+                Transportation System
+NSTS 1700.7     Safety Policy and Requirements for Payloads Using the International
+ISS Addendum    Space Station
+NSTS 18798A
+                Interpretation of NSTS Payload Safety Requirements
+MA2-95-048
+SSP 50005       International Space Station Flight Crew Integration Standard
+                International Space Station Payload Flight Equipment Requirements and
+SSP 52005
+                Guidelines for Safety-Critical Structures
+
+
+
+
+                                       3                FLEX-2 Engineering Requirements
+                                                                              Document
+                                                                                  FLX-REQ-0001
+                                                                                February 04, 2010
+
+
+3.0           MDCA OVERVIEW
+
+3.1           Payload Description
+The Multi-user Droplet Combustion Apparatus is a mini-facility designed to support Principal
+Investigators (PI) interested in studying various aspects of droplet combustion in a microgravity
+environment. MDCA will be integrated into the Fluids and Combustion Facility’s (FCF)
+Combustion Integrated Rack (CIR) onboard the International Space Station (ISS). Currently, the
+Flame Extinguishment Experiment (FLEX) and the Flame Extinguishment Experiment 2 (FLEX-
+2) have been selected for use in the MDCA.
+
+
+3.2           MDCA Mission
+The MDCA mission is to perform microgravity experiments to study fire suppression/flame
+extinguishment investigations using the CIR. The MDCA will allow investigation using pure
+liquid fuels and mixtures of liquid fuels at various chamber atmosphere pressures, compositions,
+and oxygen concentrations. The microgravity environment allows for measurement and
+observation of flame extinguishment processes that cannot be made in sustained gravity. The
+modular design of the MDCA allows for flexibility in configuring for specific experiments and
+easy maintainability of the hardware. This hardware will provide the apparatus for dispensing,
+deploying and igniting fuel droplets. When new droplet experiments are proposed, the additional
+experiment specific hardware will be provided. This requirements document reflects such a
+case, including only the requirements of the FLEX-2 investigation.
+
+
+3.3           FLEX-2 Requirements Flow
+Figure 1 represents the requirements flow for all of the FLEX-2 requirements. The requirements
+in the Science Requirements Document (SRD) are agreed upon by the FLEX-2 Principle
+Investigators (PI’s), and this document serves as the top level source of those requirements
+necessary to achieve the FLEX-2 science objectives. Derived requirements come from
+engineering requirements and are set by the FLEX-2 Project Team. These two sets of
+requirements are incorporated into this the FLEX-2 Engineering Requirements Document (FLX-
+REQ-0001).
+
+Safety requirements are contained in the updated FLEX-2 safety review hazard reports from the
+Payload Safety Review Panel (PSRP). The carrier requirements are found in the CIR/FLEX-2
+Interface Control Document (FCF-ICD-CIR-MDCA).
+
+
+
+
+                                               4                FLEX-2 Engineering Requirements
+                                                                                      Document
+                                                                         FLX-REQ-0001
+                                                                       February 04, 2010
+
+
+
+
+ FLEX-2
+ Science                                                         SSP Safety
+ Requirement                 SSP 57000                           Documents
+ Document
+ (SRD)
+
+
+
+
+          Derived                    CIR            FLEX-2 Phase III       CIR/MDCA
+          Engineering                Requirements   Re-Flight Review       Integrated Safety
+          Requirements                                                     Review
+
+
+
+
+ FLEX-2 Engineering      CIR/FLEX-2 Interface       FLEX-2 Phase III       CIR/MDCA
+ Requirements            Control Document           Hazard Reports         Hazard Reports
+ Document                FCF-ICD-CIR-MDCA
+ FLX-REQ-0001
+
+
+
+FLEX-2 Responsibility       CIR Responsibility              FLEX-2 Responsibility
+
+
+
+
+                         Figure 1 FLEX-2 Requirements Flow
+
+
+
+
+                                            5            FLEX-2 Engineering Requirements
+                                                                               Document
+                                                                                   FLX-REQ-0001
+                                                                                 February 04, 2010
+
+
+3.4            MDCA Hardware Description
+The FLEX-2 investigation will be using the existing MDCA hardware and software. MDCA
+should be considered the platform on which the FLEX-2 experiments are carried out. The
+MDCA hardware consists of three hardware domains: the Chamber Insert Assembly (CIA), the
+Avionics Package, and MDCA Diagnostics. The CIA provides the mechanism for the
+combustion event. The Avionics Package is the center of the control and power distribution for
+the FLEX-2. The FLEX-2 hardware is discussed in detail below. If more detail is desired,
+please refer to MDC-DOC-1364, MDCA Baseline Systems Description.
+
+
+3.4.1          MDCA Chamber Insert Assembly
+The MDCA Chamber Insert Assembly provides all the necessary hardware and interfaces to
+perform science on one platform. Most experimental functions occur within the CIA structure
+and many associated systems are found on the CIA. The CIA consists of the Internal Apparatus
+(IA), which is the functional hardware and the Experiment Mounting Structure (EMS) upon
+which the IA is structurally based. Other subsystems found on the CIA include the Droplet
+Dispensing System, the Droplet Deployment System, the Fiber Support System, and the Ignition
+System.
+
+
+3.4.1.1        Experiment Mounting Structure
+The EMS provides the main structure for the CIA and acts as the primary mechanical interface
+with the CIR combustion chamber. It consists of two endplates, the support structure, and the
+removable shrouds to protect the IA during crew activity.
+
+
+3.4.1.2        Internal Apparatus
+The IA provides the primary mounting platform for all experiment specific hardware and
+functions such as droplet dispensing, deployment and ignition. The IA encompasses all motors
+used in MDCA, as well as a cooling plate, radiometers, and some avionics hardware. The IA is
+also available for future add-on hardware for different PIs.
+
+
+3.4.1.2.1      Fuel Dispenser System
+There are two separate fuel dispenser systems on the CIA. Each fuel dispenser system consists
+of a motor housing and a replaceable reservoir. The motor housing is permanently fixed to the
+IA and contains the motor, encoder, and lead screw assembly. The encoder verifies position of
+the motor and allows ground operators to keep account of fuel usage. The replaceable reservoir
+is composed of the syringe, the latching solenoid valve, the reservoir housing, and a transparent
+Lexan cover. The replaceable reservoir assembly is located on top of the motor housing. The
+syringe is covered in a Tygon sleeve and contained in aluminum housing. The syringe is
+connected directly to a fuel isolation, latching, solenoid valve. The polytetraflouroethylene
+(PTFE) fuel line tubing is attached to the valve with a removable fitting to disconnect the
+
+
+
+                                                6                FLEX-2 Engineering Requirements
+                                                                                       Document
+                                                                                    FLX-REQ-0001
+                                                                                  February 04, 2010
+
+deployment needles from the fuel system. Fuel is dispensed by moving the lead screw using a
+stepper motor, which in turn pushes the plunger on the syringe.
+
+
+3.4.1.2.2      Deployment System
+The deployment system consists of two deployment needles made from .010-inch O.D. stainless
+steel tubing supported by a ceramic sleeve. Each needle tip is flared to aid in the droplet
+deployment. The needles are mounted to individual rotary servomotors with a specially designed
+coupling that allows replacement of the needles and maintains the precise alignment of the
+system. The motors rotate the needles to a pre-determined location where they are nearly tip-to-
+tip. Metered fuel from the dispenser is routed via the PTFE tubing to one needle forming a
+droplet of very precise volume. The deployment motors then actuate again, creating a slight gap
+between the needles. This causes the droplet to center itself between the needle tips and
+minimizes the contact area with the needles. Finally, the needles are rapidly accelerated apart,
+deploying the droplet off the needle tips. The rapid acceleration leaves the droplet in place with
+little or no residual motion.
+
+
+3.4.1.2.3      Fiber Support System
+The fiber mechanism consists of a 235 mm long, 79μm diameter silicon carbide fiber fastened
+between two arms with epoxy to a tension of 15000 psi. There is a succession of small stainless
+steel beads secured to the fiber at 12mm intervals. The use of the fiber mechanism allows fuel
+droplets to be deployed onto, and thus tethered to, the beaded fiber at specific locations during
+experimental burn and observation. The beads act to constrain the position of the droplets on the
+fiber, which is especially necessary for the FLEX-2 droplet linear array experiments, where two
+droplets are burned simultaneously. When used, the fiber is rotated 68o into the deployment area
+using a rotary stepping gear motor. To deploy a linear array of droplets and to provide a clean
+portion of the fiber for successive burns, linear translation of the fiber through the deployment
+zone is achievable using a similar gear motor driving a pinion gear attached to a rack on the fiber
+mechanism assembly. This translation can also be used to provide a low velocity flow over a
+single burning droplet.
+
+
+3.4.1.2.4      Ignition System
+The ignition system uses the original MDCA configuration for single droplet ignition and for the
+array experiments, modified dual droplet igniter tips are employed. The original MDCA ignition
+system consists of two hot wire igniters opposed 180o, controlled by individual actuators. These
+ignition wires are 4mm diameter loops of Kanthal A-1 wire, 30 AWG. These loops are mounted
+into ceramic tubes and comprise the igniter tip assembly. This assembly has two pins that mate
+with sockets on the igniter-mounting interface. This interface is fixed to the igniter motors,
+which move the igniters into the deployment area linearly in precise steps and quickly retract the
+igniters after ignition. The MDCA igniter tips are designed to be crew replaceable and for the
+array experiments these will be replaced with the dual droplet igniter tips, which are based on the
+original MDCA design and comply with all MDCA requirements.
+
+
+
+                                                 7                FLEX-2 Engineering Requirements
+                                                                                        Document
+                                                                                   FLX-REQ-0001
+                                                                                 February 04, 2010
+
+
+3.4.1.2.5      Cooling Plate System
+A cooling plate is provided to conductively cool the IA. The tubing is a stainless steel 3/8-inch
+O.D. with .028-inch wall thickness. CIR compatible quick disconnect coupling fittings will
+connect the cold plate to the EMS endplate. A flexible conductive lined Teflon hose with
+stainless steel braiding will provide the coupling from the MDCA CIA to the CIR Interface
+Resource Ring (IRR). Mating Preece connectors will be used for this interface with CIR’s IRR.
+CIR’s color coding scheme will be maintained by MDCA for the inlet and outlet connectors.
+
+The cooling system will circulate ISS cooling water flow controlled by CIR to satisfy FLEX-2
+requirements. Prior to launch, the cooling system will be pre-filled to capacity with cooling
+water. A gaseous nitrogen charged accumulator bottle installed inline will provide automatic
+CIA protection from fluid over expansion in the system specifically during storage periods where
+ambient temperatures may significantly change.
+
+
+3.4.1.2.6      Radiometers
+The Radiometers will provide relative measure of flame radiation and emissions through the
+combustion event. The Radiometer Package consists of two Radiometers contained in a single
+housing, mounted on the CIA, providing a direct view of the combustion event. The Broad-Band
+Radiometer will measure total flame energy from combustion over a wavelength range covering
+0.6 μm – 5.0 μm, while the Narrow-Band Radiometer will provide spectrally filtered
+measurements for specific H20 emissions at 1.87 μm, using a narrow bandpass filter. Power to
+the Radiometer Package is provided by MDCA Avionics.
+
+
+3.4.2          MDCA Avionics
+The Avionics Package provides power conditioning and power distribution, system control, data
+acquisition, and operator interface for the MDCA. The Avionics Package will house the main
+electronics for the MDCA hardware and will be mounted on the CIR Optics Bench.
+
+
+3.4.2.1        Data and Control
+A processor is responsible for automating the sequencing of operational events along with
+acquiring, downlinking, and storing experiment data. Experiment control and sequencing will be
+automated by the MDCA software, which is resident on the main processor. The main processor
+communicates with the CIR Input/Output Processor (IOP). The interface to the CIR IOP is
+necessary for transferring commands, downlinked data, and images and to receive the ISS video
+and health and science (H&S) data.
+
+
+
+
+                                                8                FLEX-2 Engineering Requirements
+                                                                                       Document
+                                                                                  FLX-REQ-0001
+                                                                                February 04, 2010
+
+
+3.4.2.2       Power Control and Distribution
+MDCA receives its direct current, 28-Volt power from the CIR’s Electrical Power Control Unit
+(EPCU) through the Avionics Package. In the Avionics Package, the power is conditioned by
+filters and dc-dc converters for use by the processor, eight Axis Motor Controller, A/D and
+Signal Conditioning Boards, and CIA interface board.
+
+
+3.4.3         MDCA Diagnostics
+MDCA Diagnostics provide acquisition and storage of all optical information concerning droplet
+deployment and combustion.
+
+
+3.4.3.1       Color Camera Package
+The MDCA Color Camera Package will provide an overhead view of the combustion event. The
+Color Camera Package consists of a Sony FCB-EX470L CCD camera, which includes a built-in
+Zoom Lens with RS-232 controllable zoom and focus functions. The camera is completely
+enclosed in a housing container and mounted to the CIA upper structure, internal to the chamber.
+An aluminum broadband coated turning mirror is used to fold the view from the experiment to
+the color camera. The Color Camera Package analog video output is converted to twisted pair,
+via the Color Camera Interface Package, which then routes the output to the CIR Image
+Processing and Storage Unit (IPSU-A) for viewing and storage. Power to the Color Camera
+Package is supplied by MDCA Avionics.
+
+
+3.4.3.2       White Light Illumination
+The White Light Illumination Package supports the Color Camera Package prior to and
+following the experiment event, to provide direct overhead lighting of the droplet deployment
+area during dispensing, deployment and ignition for troubleshooting purposes. The White Light
+Illumination is powered off upon droplet ignition, as the experiment provides its own light. The
+package consists of two clusters of nine White Light LEDs mounted on the CIA upper structure.
+Power to the White Light Illumination is supplied by MDCA Avionics.
+
+
+
+
+                                               9                FLEX-2 Engineering Requirements
+                                                                                      Document
+                                                                                FLX-REQ-0001
+                                                                              February 04, 2010
+
+
+3.5             Interfaces
+
+3.5.1           External Interfaces
+
+3.5.1.1         Launch Configuration Interfaces
+FLEX-2 provided hardware is non-operational for launch. FLEX-2 hardware will be stowed in
+standard containers provided by FLEX-2 and will only have physical and structural interfaces
+with the containers.
+
+
+3.5.1.2         On-Orbit External Interfaces
+FLEX-2 has no direct external interfaces on-orbit. All interfaces with the FCF, US LAB, ISS
+and the ground are indirectly through CIR.
+
+
+3.5.2           Internal Interfaces
+The internal interfaces between MDCA and CIR are listed below and the requirements for these
+interfaces will be defined in FCF-ICD-CIR-MDCA, Multi-User Droplet Combustion Apparatus
+Interface Control Document.
+
+•     Structural/Mechanical and Stowage
+•     Electrical Power
+•     Command and Data Handling
+•     Payload and Diagnostics
+•     Thermal Control
+•     Exhaust Vent
+•     FOMA Gas Delivery
+•     Environmental
+
+
+
+
+                                              10               FLEX-2 Engineering Requirements
+                                                                                     Document
+                                                                                 FLX-REQ-0001
+                                                                               February 04, 2010
+
+
+4.0            REQUIREMENTS
+This section details all science and derived engineering requirements that have been levied upon
+FLEX-2. Verifications for these requirements are documented in the FLEX-2 SEVP (FLX-PLN-
+0002).
+
+
+4.1            Science Requirements
+This section is a flowdown of the science requirements from the FLEX-2 SRD dated December
+6, 2009. Upon being signed, this FLEX-2 ERD becomes the formal FLEX-2 project requirement
+document.
+
+
+4.1.1          Experimental Fuels - Alcohol
+FLEX-2 shall require the use of ethanol.
+
+
+4.1.2          Experimental Fuels – Hydrocarbon
+FLEX-2 shall require the use of decane.
+
+
+4.1.3          Experimental Fuels – Alcohol Mixture
+FLEX-2 shall require the use of a propanol/glycerol mixture.
+
+
+4.1.4          Experimental Fuels – Hydrocarbon Mixture 1
+FLEX-2 shall require the use of a heptane/hexadecane mixture.
+
+
+4.1.5          Experimental Fuels – Hydrocarbon Mixture 2
+FLEX-2 shall require the use of a heptane/octane mixture.
+
+
+4.1.6          Experimental Fuels – Other Mixture
+FLEX-2 shall require the use of a decane/propylbenzene mixture.
+
+
+4.1.7          Fuel Purity
+FLEX-2 shall use fuels of research grade with purity greater than 99.5% by volume.
+
+
+4.1.8          Fuel Quality
+FLEX-2 fuels shall be anhydrous prior to loading into fuel reservoirs.
+
+
+
+                                               11                FLEX-2 Engineering Requirements
+                                                                                       Document
+                                                                                      FLX-REQ-0001
+                                                                                    February 04, 2010
+
+4.1.9          Fuel Degassing
+FLEX-2 pure fuels shall be degassed prior to loading into fuel reservoirs.
+
+
+4.1.10         Fuel Quality Assurance
+Certification of test samples shall be provided prior to flight.
+
+
+4.1.11         Fuel Temperature
+The fuel temperature at the start of each test shall be in the range of 18 ºC – 27 ºC.
+
+
+4.1.12         Droplet Size Tolerance
+FLEX-2 shall dispense droplets with diameters of 1.5 – 5 mm with a tolerance ± 0.25 mm.
+
+
+4.1.13         Droplet Size Reproducibility
+FLEX-2 shall dispense droplets with diameters of 1.5 – 5 mm with a reproducibility of ± 5%.
+
+
+4.1.14         Fiber Size
+FLEX-2 shall provide a support fiber with a diameter < 100 µm.
+
+
+4.1.15         Fiber Material Thermal Diffusivity
+FLEX-2 shall provide a fiber material with a thermal diffusivity no greater than 2.3 cm2/s.
+
+
+4.1.16         Fiber Material Emissivity
+FLEX-2 shall provide a fiber material with an emissivity comparable to that of 80 micron.
+diameter Silicon Carbide.
+
+
+4.1.17         Droplet Anchoring Capability
+FLEX-2 shall provide a support fiber capable of anchoring a fuel droplet at a fixed location by
+use of bead structures.
+
+
+4.1.18         Droplet Arrays
+FLEX-2 shall provide the capability to create droplet arrays in a binary linear configuration with
+bead spacing of 12mm and 24mm.
+
+
+
+
+                                                  12                FLEX-2 Engineering Requirements
+                                                                                          Document
+                                                                                     FLX-REQ-0001
+                                                                                   February 04, 2010
+
+4.1.19         Bead Material
+FLEX-2 shall ensure that the beads are made of an impervious material.
+
+
+4.1.20         Bead Shape
+FLEX-2 shall ensure that the beads are of a shape that is as close to spherical as possible.
+
+
+4.1.21         Bead Size
+FLEX-2 shall ensure that the beads have a diameter that is as small as possible, but of sufficient
+size as to allow consistent droplet deployment and positioning for the full range of initial droplet
+diameters.
+
+4.1.22         Bead Surface
+FLEX-2 shall ensure that the surface of the beads and the fiber interface contain no pores or
+areas where gas can be trapped.
+
+
+4.1.23         Bead Spacing
+FLEX-2 shall provide the capability to create droplet arrays in a binary linear configuration with
+a bead spacing of 12mm.
+
+
+4.1.24         Ignite in Flow
+FLEX-2 shall provide the capability to ignite a droplet in a quiescent atmosphere and with gas
+flowing past.
+
+
+4.1.25         Igniter Material
+FLEX-2 shall provide hot wire igniters as the droplet ignition source.
+
+
+4.1.26         Igniter on Time
+FLEX-2 shall provide the capability to power on the igniters for between 1 to 5 second durations.
+
+
+4.1.27         Ignition Timing
+FLEX-2 shall wait 10 seconds after deployment of a droplet before initiating the ignition
+sequence to allow for droplet deployment induced oscillations to damp adequately.
+
+
+4.1.28         Ignition Disturbance
+FLEX-2 shall provide the command controllable ability to apply the minimum necessary energy
+input to the droplet during ignition.
+
+
+                                                 13                FLEX-2 Engineering Requirements
+                                                                                         Document
+                                                                                      FLX-REQ-0001
+                                                                                    February 04, 2010
+
+4.1.29         Igniter Position Control
+FLEX-2 shall provide capability to reposition the igniter tip between tests to 1 – 5 initial droplet
+diameters from the droplet surface, ± 0.5 mm.
+
+
+4.1.30         Igniter Retraction
+FLEX-2 shall provide the capability to retract the igniter tips from the field of view of the droplet
+view diagnostic after ignition of the droplet.
+
+
+4.1.31         Igniter Control
+FLEX-2 shall provide the capability to change the igniter position, power, and duration of
+operation by command.
+
+
+4.1.32         Hardware Exclusion
+FLEX-2 shall provide for removal of all objects (except the fiber) inside the spherical boundary
+of a radius of 10 initial droplet diameters from the deployment site after ignition during all tests.
+
+
+4.1.33         Non-Quiescent Test Point Timing
+When running a non-quiescent test point, the translation of the support fiber shall begin at the
+same time as igniter retraction.
+
+
+4.1.34         Chamber Atmosphere Pressure
+FLEX-2 shall provide ambient pressure ranges from 0.5 – 3 atm, with a tolerance of ± 0.05 atm.
+
+
+4.1.35         Chamber Atmosphere Pressure Rise
+FLEX-2 shall maintain the chamber pressure throughout any given test point to within ± 10% of
+the initial chamber pressure.
+
+
+4.1.36         Oxygen Mole Fractions
+FLEX-2 shall provide oxygen mole fractions ranging from 0.1 to 0.4 with a tolerance on the
+initial charge of ± 0.005 for O2.
+
+
+4.1.37         Chamber Atmosphere Temperature
+FLEX-2 shall provide ambient temperature within the range of 18 – 27 °C.
+
+
+
+
+                                                 14                 FLEX-2 Engineering Requirements
+                                                                                          Document
+                                                                                   FLX-REQ-0001
+                                                                                 February 04, 2010
+
+4.1.38         Atmospheric Mixing
+FLEX-2 shall provide well-mixed chamber gasses before ignition.
+
+
+4.1.39         Atmospheric Quiescence
+FLEX-2 shall provide quiescent gasses prior to ignition.
+
+
+4.1.40         Atmospheric Humidity
+Atmosphere shall have a Relative Humidity of < 10% for all tests.
+
+
+4.1.41         Chamber Atmosphere Test Set 1
+FLEX-2 shall provide gas mixtures of O2/N2.
+
+
+4.1.42         Chamber Atmosphere Test Set 2
+FLEX-2 shall provide gas mixtures of O2/He.
+
+
+4.1.43         Flow Field Production
+FLEX-2 shall provide relative motion between the drop and the ambient gas by translating the
+fiber.
+
+
+4.1.44         Flow Field Velocity Ranges
+FLEX-2 shall provide flow velocity ranges from 0.1 to 5cm/s with an accuracy of ±1%.
+
+
+4.1.45         Flow Field Control
+FLEX-2 shall provide for control of the acceleration and deceleration of the flow field.
+
+
+4.1.46         Test Point Initiation
+FLEX-2 shall wait at least two (2) minutes after a chamber atmospheric fill before beginning a
+test point to ensure the gas, temperature and pressure to stabilize.
+
+
+4.1.47         Display of Diagnostic Views
+FLEX-2 shall provide the capability to downlink the color camera view in near real time.
+
+
+4.1.48         Downlink of Chamber Temperature Data
+FLEX-2 shall provide near real time downlink of the chamber temperature data.
+
+                                                15                FLEX-2 Engineering Requirements
+                                                                                        Document
+                                                                                    FLX-REQ-0001
+                                                                                  February 04, 2010
+
+4.1.49         Downlink of Chamber Pressure Data
+FLEX-2 shall provide near real time downlink of the chamber pressure data.
+
+
+4.1.50         Atmospheric Fuel Vapor
+The test atmosphere prior to each test point shall have fuel vapor mole fraction of < 0.005.
+
+
+4.1.51         Atmospheric Purity
+The test atmosphere prior to each test shall consist of < 0.02 mole fraction (for each product
+species) CO, CO2, and any other by-products of combustion.
+
+
+4.1.52         G-Level
+FLEX-2 shall ensure acceleration levels are < 1 x 10-4 m/s2 on three (3) axes.
+
+
+4.1.53         Microgravity Measurement
+FLEX-2 shall provide capability to measure acceleration near the CIR with an accuracy of 1 x
+10-6 m/s2. Frequency range shall be 0.01 – 125 Hz. Sampling rate shall be 1 – 5 times the
+frequency.
+
+
+4.1.54         Diagnostics Imaging
+All MDCA diagnostics shall acquire images pre-ignition, during ignition, at droplet extinction
+and post-extinction.
+
+
+4.1.55         Droplet Imaging Orientation
+FLEX-2 shall provide a droplet view with the focal plane parallel to the support fiber and
+coplanar with the droplet.
+
+
+4.1.56         Droplet Imaging FOV
+FLEX-2 shall provide FOV of 3.0 cm diameter centered about the deployment site for the droplet
+view.
+
+
+4.1.57         Droplet Imaging Spatial Resolution
+FLEX-2 shall provide spatial resolution of 30 µm over the entire FOV for the droplet view.
+
+
+4.1.58         Droplet Imaging Temporal Resolution
+FLEX-2 shall provide a nominal minimum framing rate of 30 fps for the droplet view.
+
+
+                                                16                FLEX-2 Engineering Requirements
+                                                                                        Document
+                                                                                   FLX-REQ-0001
+                                                                                 February 04, 2010
+
+4.1.59         Droplet Imaging Temporal Resolution Additional Capability
+The FLEX-2 droplet view camera shall have the ability to use a framing rate of between 60 to
+100 fps at a resolution of 60 µm.
+
+
+4.1.60         Droplet Imaging DOF
+FLEX-2 shall provide a DOF ≥ 3.0 cm for the droplet view.
+
+
+4.1.61         Droplet Imaging Illumination
+FLEX-2 shall provide capability to back light the droplet with a uniform, collimated light source
+of sufficient intensity to allow the droplet’s edges to be clearly detected.
+
+
+4.1.62         OH Flame Imaging Orientation
+FLEX-2 shall provide a flame view with a focal plane parallel to the support fiber.
+
+
+4.1.63         OH Flame Imaging FOV
+FLEX-2 shall provide FOV ≥ 5.0 cm centered about the deployment site for the OH flame view.
+
+
+4.1.64         OH Flame Imaging Emission
+FLEX-2 shall provide color imaging detection with emission centered for wavelengths of 310
+nm (± 5 nm).
+
+
+4.1.65         OH Flame Imaging Spatial Resolution
+FLEX-2 shall provide a spatial resolution of 150μm over the entire FOV for the OH flame view.
+
+
+4.1.66         OH Flame Imaging Temporal Resolution
+FLEX-2 shall provide framing rate of 30 fps for the OH flame view.
+
+
+4.1.67         OH Flame Imaging DOF
+FLEX-2 shall provide a DOF no less than 5mm for the OH flame view.
+
+
+4.1.68         OH Flame Imaging Gain
+The gain on the OH flame imager shall be adjustable prior to each test point.
+
+
+
+
+                                               17                FLEX-2 Engineering Requirements
+                                                                                       Document
+                                                                                  FLX-REQ-0001
+                                                                                February 04, 2010
+
+4.1.69        Color Imaging Orientation
+FLEX-2 shall ensure the MDCA color camera provides a full view of the droplet and flame with
+the focal plane parallel to the fiber providing viewing of the droplet dispensing and deployment
+sequence.
+
+
+4.1.70        Color Imaging FOV
+FLEX-2 shall provide a FOV ≥ 5.0 cm diameter, positioned so the entire flame is imaged for the
+MDCA color camera.
+
+
+4.1.71        Color Imaging Spatial Resolution
+FLEX-2 shall provide a spatial resolution of 100μm for the MDCA color camera.
+
+
+4.1.72        Color Imaging Temporal Resolution
+FLEX-2 shall provide framing rate of 30 fps for the MDCA color camera.
+
+
+4.1.73        Color Imaging DOF
+FLEX-2 shall provide a DOF of no less than 5.0 mm for the MDCA color camera.
+
+
+4.1.74        Color Imaging Zoom
+FLEX-2 shall provide a zoom capability with the MDCA color camera, upon request of the PI, in
+order to adjust the FOV.
+
+
+4.1.75        Narrow Band Radiative Emission
+FLEX-2 shall provide a narrow band radiometer to measure radiant emissions in the luminous
+and non-luminous flames at a wavelength in the H2O band centered at 1.87 µm.
+
+
+4.1.76        Narrow and Broad Band Radiative Emission Sampling Rate
+FLEX-2 shall provide a narrowband and broadband radiometer sampling rate of 30 Hz.
+
+
+4.1.77        Narrow Band and Broad Band Radiative Emission Placement
+FLEX-2 shall place the narrowband and broadband radiometer at least 15 cm from the droplet.
+
+
+4.1.78        Narrow Band and Broad Band Radiometer Isolation
+FLEX-2 shall shield the narrowband and broadband radiometers from igniter wire radiation, both
+reflected and direct.
+
+
+                                               18               FLEX-2 Engineering Requirements
+                                                                                      Document
+                                                                                  FLX-REQ-0001
+                                                                                February 04, 2010
+
+4.1.79         Narrow Band and Broad Band Radiative Emission Accuracy
+The FLEX-2 narrow band and broad band radiative emission accuracy shall be 5% of full scale
+incident radiation.
+
+
+4.1.80         Narrow Band and Broad Band Radiative Emission Response Time
+The FLEX-2 narrow band and broad band radiative emission shall have a response time constant
+of less than 40 ms.
+
+
+4.1.81         Narrow Band and Broad Band Radiative Emission FOV
+FLEX-2 shall provide a narrowband and broadband radiometer FOV of 65 mm in diameter,
+centered about the deployment site.
+
+
+4.1.82         Broad Band Radiative Emission
+FLEX-2 shall employ a broad band radiometer to measure radiant emissions in the luminous and
+non-luminous flames in the wavelength range of 0.6-5.0 µm.
+
+
+4.1.83         Soot Volume Fraction Imaging Orientation
+FLEX-2 shall provide a full view of the droplet and flame with a preferred orientation such that
+the focal plane is parallel to the fiber and coplanar with the droplet.
+
+4.1.84         Soot Volume Fraction Backlight
+FLEX-2 shall provide a collimated backlit soot volume fraction diagnostic with the backlight at a
+wavelength of 660 nm and a Full Width Half Maximum of 5 nm.
+
+
+4.1.85         Soot Volume Fraction Temporal Resolution
+FLEX-2 shall provide a soot volume fraction diagnostic with a framing rate of ≥ 15 fps.
+
+
+4.1.86         Soot Volume Fraction Spatial Resolution
+FLEX-2 shall provide a soot volume fraction diagnostic with a resolution of 50 μm over the
+entire FOV.
+
+
+4.1.87         Soot Volume Fraction Field of View
+FLEX-2 shall provide a soot volume fraction diagnostic with a full view of the droplet and
+flame, having a FOV ≥ 5.0 cm centered on the droplet deployment site.
+
+
+
+
+                                               19                FLEX-2 Engineering Requirements
+                                                                                       Document
+                                                                                  FLX-REQ-0001
+                                                                                February 04, 2010
+
+4.1.88         Soot/Fiber Temperature Imaging Orientation
+FLEX-2 shall provide a full view of the droplet and flame with a preferred orientation such that
+the focal plane is parallel to the fiber and coplanar with and centered on the droplet.
+
+
+4.1.89         Soot/Fiber Temperature Field of View
+FLEX-2 shall provide a soot /fiber temperature diagnostic with a full view of the droplet and
+flame, having a FOV ≥ 5.0 cm centered on the droplet deployment site.
+
+
+4.1.90         Soot/Fiber Temperature Temporal Resolution of Liquid Crystal
+               Tunable Filter
+FLEX-2 shall provide the capability of alternating the two tuned wavelengths of the filter, 700
+nm and 800 nm, at a frequency that results in even numbered frames being exposed to one of the
+two wavelengths, and odd frames exposed to the other. This shall result in an effective frame
+rate of at least 7fps for each wavelength.
+
+
+4.1.91         Soot/Fiber Temperature Spatial Resolution
+FLEX-2 shall provide a soot /fiber temperature diagnostic with a resolution of 50 μm over the
+entire FOV.
+
+
+4.1.92         Flow Velocity Measurement
+FLEX-2 shall record all flow velocity measurements.
+
+
+4.1.93         Flow Field Sampling Rate
+FLEX-2 shall provide for the sampling of the translated motion of the FLEX-2 support fiber at a
+rate ≥ 30 Hz.
+
+
+4.1.94         Chamber Temperature Measurement Sampling Frequency
+FLEX-2 shall provide a sampling frequency of the chamber temperature of at least 10 Hz.
+
+
+4.1.95         Chamber Pressure Measurement Sampling Frequency
+FLEX-2 shall provide a sampling frequency of the chamber pressure of at least 10 Hz.
+
+
+4.1.96         Pressure Measurement Accuracy
+FLEX-2 shall provide pressure measurement accuracy to within ± 0.01 atm in the range of 0.5-
+3.0 atm.
+
+
+
+                                               20                FLEX-2 Engineering Requirements
+                                                                                       Document
+                                                                                    FLX-REQ-0001
+                                                                                  February 04, 2010
+
+4.1.97           Temperature Measurement Accuracy
+FLEX-2 shall provide ambient temperature measurement accuracy to within ±0.5 C in the range
+of 18-27º C.
+
+4.1.98           Synchronization of Measurements
+FLEX-2 shall reference time measurements to Greenwich Mean Time (GMT) and have all data
+time stamped and synchronized to within ± 0.03 sec.
+
+
+4.2              Derived Requirements
+This section specifies the additional derived requirements needed to support the training, testing,
+operations, design, and development of the FLEX-2 project within the MDCA and CIR carriers.
+
+
+4.2.1            Fuel Dispenser System
+The following requirements refer specifically to the MDCA/FLEX-2 fuel dispenser system.
+
+
+4.2.1.1          Fuel Mixture Ratio Accuracy
+FLEX-2 shall develop a procedure to ensure that accurate fuel mixtures are loaded into the fuel
+reservoirs. Mixture ratios shall be accurate to within ±0.5%.
+
+
+4.2.1.2          Fuel Material Compatibility
+The materials exposed to the fuels within the dispensing system shall be compatible with FLEX-
+2 identified fuels as follows:
+
+      1.   Ethanol
+      2.   Decane
+      3.   Heptane
+      4.   Hexadecane
+      5.   Octane
+      6.   Propylbenzene
+      7.   Glycerol
+      8.   Propanol
+
+4.2.1.3          Purity Degradation
+Purity degradation is in direct correlation to the fuels’ exposure to outside environments. Fuel
+purity degradation shall be ensured by sealing the fuel reservoir assembly to a maximum leak
+rate of 1 x 10-6 scc/sec of gaseous helium.
+
+
+4.2.2            Atmospheric Conditions
+The following requirements refer specifically to FLEX-2 chamber atmospheric conditions.
+
+
+                                                21                FLEX-2 Engineering Requirements
+                                                                                        Document
+                                                                                   FLX-REQ-0001
+                                                                                 February 04, 2010
+
+4.2.2.1        CO Removal
+FLEX-2 shall provide the means to remove CO from the chamber atmosphere to the acceptable
+levels detailed in the Science Requirements section, requirement 4.1.51.
+
+
+4.2.2.2        CO2 Removal
+FLEX-2 shall provide the means to remove CO2 from the chamber atmosphere to the acceptable
+levels detailed in the Science Requirements section, requirement 4.1.51.
+
+
+4.2.2.3        Water Vapor Removal
+FLEX-2 shall provide the means to remove water vapor from the chamber atmosphere to the
+acceptable levels detailed in the Science Requirements section, requirement 4.1.40.
+
+
+4.2.2.4        Fuel Vapor Removal
+FLEX-2 shall provide the means to remove fuel vapor from the chamber atmosphere to the
+acceptable levels detailed in the Science Requirements section, requirement 4.1.50.
+
+
+4.2.3          Internal Apparatus
+The following requirements refer specifically to the hardware components found on the MDCA
+Internal Apparatus.
+
+
+4.2.3.1        Oxygen Compatibility
+All components developed for FLEX-2 located in the CIR chamber shall be compatible with
+40% oxygen at 3 atm.
+
+
+4.2.3.2        Igniter Compatibility
+FLEX-2 shall provide igniter tips that comply with the existing MDCA igniter drive circuitry.
+The igniter shall be constructed of 26 AWG Kanthal type A1 wire 75.8 mm long with a total DC
+resistance of 1 Ω ± 0.250Ω at 20°C.
+
+
+4.2.3.3        Igniter Hoop Diameter
+The igniter hoop diameter shall be able to radiatively heat droplets spaced up to 24mm apart.
+
+
+4.2.3.4        Fiber Alignment with Needles
+The fiber shall be oriented orthogonal to the needle line of action within ± 5 degrees. This value
+shall be maintained for all replaceable units (when a component is replaced, it shall have the
+same alignment).
+
+
+                                                22                FLEX-2 Engineering Requirements
+                                                                                        Document
+                                                                                  FLX-REQ-0001
+                                                                                February 04, 2010
+
+4.2.3.5         Fiber Positioning
+The fiber shall be positioned within a spherical segment tolerance band located 0.5 mm above
+the theoretical center point of deployment, with a radius of 0.25 mm. This value shall be
+maintained for all replaceable units (when a component is replaced, it shall have the same
+alignment) and shall not consider bead shape for beaded fibers.
+
+
+4.2.3.6         Fiber Beads
+Fiber beads must not generate localized boiling in the droplet prior to flame contraction. Porous
+beads are known to generate such disturbances in burning droplets.
+
+
+4.2.4           Diagnostics
+The following requirements refer specifically to the MDCA/FLEX-2 diagnostic packages.
+
+
+4.2.4.1         Droplet View Filter
+FLEX-2 shall provide a HiBMS camera for the backlit droplet view fitted with a narrow band
+filter compensator with the following properties:
+
+   1. A center wavelength of 653 nm and a bandwidth of less than 12 nm.
+
+   2.     A peak transmission (%T) of at least 80%.
+
+   3. Out of Band Blocking of less than 1% over the range of 400nm-1100nm.
+
+
+4.2.5           Flight Unit Hardware
+The following requirements refer specifically to the MDCA Flight Unit Hardware.
+
+
+4.2.5.1         Flight Unit Packaging, Handling, and Transportation
+Packaging, Handling, and Transportation of all flight hardware developed by FLEX-2 shall be in
+accordance with NPR 6000.1.
+
+
+
+
+                                                23               FLEX-2 Engineering Requirements
+                                                                                       Document
+                                                                                  FLX-REQ-0001
+                                                                                February 04, 2010
+
+5.0            CARRIER CAPABILITIES
+Table I lists the capabilities of the CIR/MDCA carriers utilized by the FLEX-2 project in order to
+achieve its science objectives. These capabilities are documented in the MDCA/FLEX
+Engineering Requirements Document, MDC-REQ-0005A and have previously been verified by
+the MDCA/FLEX verification process.
+
+ TABLE I. Previously Verified MDCA/FLEX Requirements from MDC-REQ-0005A
+
+
+               Requirement #                    Requirement Title
+               4.3.1.2.1         Determine Change in Oxygen Concentration
+
+               4.3.1.2.6         Chamber Atmosphere Mixing
+
+               4.3.1.2.7         Chamber Atmosphere Quiescence
+
+               4.3.1.3.7         Alignment Verification
+
+               4.3.1.3.10        Needle Cover
+
+               4.3.1.3.11        Fiber Translation Accuracy
+
+               4.3.1.3.13        Fiber Arm Installation/Removal
+
+               4.3.1.3.14        Fiber Arm Positioning
+
+               4.3.1.3.15        Zone of Exclusion
+
+               4.3.1.3.22        Igniter Hoop Alignment
+
+               4.3.1.3.28        Needle Symmetry
+
+               4.3.1.3.24        Igniter Acceleration
+
+               4.3.1.3.26        Needle Positioning Accuracy
+
+               4.3.1.3.27        Needle Alignment
+
+               4.3.1.3.23        Igniter Positioning Accuracy
+
+               4.3.1.4.1         Diagnostics
+
+               4.3.1.4.2         MDCA Color Camera Imaging
+
+               4.3.1.4.3         MDCA Color Camera Spatial Resolution
+
+
+
+                                                24                FLEX-2 Engineering Requirements
+                                                                                        Document
+                                                              FLX-REQ-0001
+                                                            February 04, 2010
+
+4.3.1.4.4    MDCA Color Camera Temporal Resolution
+
+4.3.1.4.5    CIA Deployment Site Alignment
+
+4.3.1.4.6    CIA Rail Bearing Assembly Alignment
+
+4.3.1.4.7    Radiometer Calibration
+
+4.3.1.4.8    Chamber Illumination
+
+4.3.1.4.9    Diagnostics System Availability
+
+4.3.1.5.1    Flight Software
+
+4.3.1.5.2    Software Design Document
+
+4.3.1.5.3    Deployment Motor Synchronicity
+
+4.3.1.5.4    Igniter Motor Synchronicity
+
+4.3.1.5.5    Needle Position for Removal
+
+4.3.1.5.7    Experiment Calculated Data
+
+4.3.1.5.8    Commands and Data
+
+4.3.1.5.9    MDCA Embedded Code
+
+4.3.1.5.11   MDCA Main Computer Time Sync
+
+4.3.1.5.12   Fiber Insertion and Retraction
+
+4.3.1.5.13   Automated Sequence
+
+4.3.1.5.14   Automated Sequence Elements
+
+4.3.1.5.15   Automated Sequence Parameters
+
+4.3.1.5.16   Igniter Position
+
+4.3.1.5.17   Test Point Parameter Limits
+
+4.3.1.5.18   Diagnostic and Illumination Timing
+
+4.3.1.5.23   Health Monitoring Data
+
+4.3.1.5.25   Telemetry Sampling for 1 Hz
+
+
+                            25                FLEX-2 Engineering Requirements
+                                                                    Document
+                                                             FLX-REQ-0001
+                                                           February 04, 2010
+
+4.3.1.5.26   Motor Control
+
+4.3.1.5.27   Software Initialization
+
+4.3.1.5.28   Main Computer Modules
+
+4.3.1.5.29   Hardware Safing and Shutdown
+
+4.3.1.5.38   Needle Motor Drive Parameters
+
+4.3.1.5.31   Dispense Small Increment of Fuel
+
+4.3.1.5.32   MDCA Software Inhibit
+
+4.3.1.5.33   Disable Test Point Inhibit
+
+4.3.1.5.34   Modify the Needle Dispense Positions
+
+4.3.1.5.35   Test Condition Alert
+
+4.3.1.5.36   Message Log
+
+4.3.1.5.37   Droplet Diameter
+
+4.3.1.5.30   Main Computer Shutdown Sequence
+
+4.3.1.5.40   Test Sequence Timing
+
+4.3.1.5.39   Dispenser Motor Driver Parameters
+
+4.3.1.5.41   Main Computer to IOP Transactions
+
+4.3.1.5.42   Main Computer Downlink
+
+4.3.1.7.4    Igniter Power Symmetry
+
+4.3.1.7.6    Avionics System Availability
+
+4.3.1.8      CIA Assembly
+
+4.3.1.8.2    CIA System Availability
+
+4.3.1.10     CIA Volume
+
+4.3.1.11     Flight Unit Hardware Availability
+
+
+
+
+                             26              FLEX-2 Engineering Requirements
+                                                                   Document
+                                                                               FLX-REQ-0001
+                                                                             February 04, 2010
+
+
+APPENDIX A            ACRONYMS AND ABBREVIATIONS
+
+A.1           Scope
+This appendix lists the acronyms and abbreviations used in this document.
+
+
+A.2           List of Acronyms and Abbreviations
+ARIS..................Active Rack Isolation System
+AS .....................Automated Sequence
+AWG..................American Wire Gauge
+CIA ....................Chamber Insert Assembly
+CIL.....................Critical Items List
+CIR ....................Combustion Integration Rack
+CM.....................Configuration Management
+CPP...................Contractor Project Plan
+dc ......................Direct Current
+DCM ..................Diagnostic Control Module
+DOF...................Depth of Field
+EMI....................Electromagnetic Interference
+EMS ..................Experiment Mounting Structure
+EPCU ................Electrical Power Control Unit
+ERD...................Engineering Requirements Document
+FCF ...................Fluids and Combustion Facility
+FLEX .................Flame Extinguishment Experiment
+FLEX-2 ..............Flame Extinguishment Experiment 2
+FMEA ................Failure Modes and Effects Analysis
+FOMA................Fuel/Oxidizer Management Assembly
+FOV...................Field of View
+FPS ...................Frames per Second
+FWHM ...............Full Width-Half Maximum
+GMT ..................Greenwich Mean Time
+GRC ..................Glenn Research Center
+GSE...................Ground Support Equipment
+H&S...................Health and Science
+IA.......................Internal Apparatus
+ICD ....................Interface Control Document
+IFOV..................Instantaneous Field of View
+IOP ....................Input/Output Processor
+IRR ....................Interface Resource Ring
+ISPR..................International Standard Payload Rack
+ISS ....................International Space Station
+IVA ....................Intra-Vehicular Activity
+LED ...................Light Emitting Diode
+LOS ...................Loss of Signal
+MAPTIS.............Materials and Processes Technical Information Systems
+
+                                              27               FLEX-2 Engineering Requirements
+                                                                                     Document
+                                                                        FLX-REQ-0001
+                                                                      February 04, 2010
+
+MDCA................Multi-user Droplet Combustion Apparatus
+MDP ..................Maximum Design Pressure
+MPLM................Multi-Purpose Logistics Module
+MRDOC.............Microgravity Research Development and Operations Contract
+NASA ................National Aeronautics and Space Administration
+NSTS.................National Space Transportation System
+O.D....................Outer Diameter
+PFE ...................Portable Fire Extinguisher
+PI.......................Principal Investigator
+PL......................Payload
+PTFE .................Polytetraflouroethylene
+QD.....................Quick Disconnect
+RH .....................Relative Humidity
+SCC...................Stress Corrosion Cracking
+SEE ...................Single Event Effect
+SMAC................Spacecraft Maximum Allowable Concentrations
+SpaceDOC ........Space Flight Systems Development & Operations Contract
+SRD...................Science Requirements Document
+SSC...................Station Support Computer
+TBD ...................To Be Determined
+TSC ...................Telescience Support Center
+UML...................Universal Mounting Location
+USL ...................United States Laboratory
+UV .....................Ultra-Violet
+WBS…………….Work Breakdown Structure
+
+
+
+
+                                         28             FLEX-2 Engineering Requirements
+                                                                              Document
+                                                                                   FLX-REQ-0001
+                                                                                 February 04, 2010
+
+
+APPENDIX B             DEFINITIONS
+
+B.1            Scope
+This appendix defines special terminology used in this document.
+
+
+B.2            List of Definitions
+Chamber Insert Assembly (CIA) – Configured equipment placed inside the combustion
+chamber to perform an experiment. Usually consists of an experiment mounting structure and an
+internal apparatus.
+
+Critical Items List (CIL) – For critical failure modes, the CIL contains specific rationale, which
+justifies the retention of the critical item in the system.
+
+Experiment Mounting Structure (EMS) – Hardware that provides the structural interface from
+the combustion chamber to the internal apparatus.
+
+Failure Modes and Effects Analysis (FMEA) – Procedure by which each credible failure mode
+is analyzed (failure mode occurrence, methods of detection the failure, corrective action) to
+determine the effects on the system and to classify each potential failure mode in accordance
+with the severity of its effect.
+
+Internal Apparatus (IA) – The IA provides the primary mounting platform for all experiment
+specific hardware and functions such as droplet dispensing, deployment and ignition. The IA
+encompasses all motors used in MDCA, as well as a cooling plate, radiometers and some
+avionics hardware. The IA is also available for future add-on hardware for different PIs.
+
+Telescience Support Center (TSC) – The NASA ground facility that provides the capability to
+execute ground support operations of on-orbit ISS and Space Shuttle Payloads from the Glenn
+Reseach Center (GRC).
+
+
+
+
+                                               29                FLEX-2 Engineering Requirements
+                                                                                       Document
+

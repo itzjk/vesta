@@ -1,0 +1,140 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040161262,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "208b41ec04134f1f8ec6a831f6869d42",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040161262,
+  "ear": "NO",
+  "id": "d970013025874138929ba423143a14e7",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "Evaluation of CO2, N2 and He as Fire Suppression Agents in Microgravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:50:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040161262,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "874afe8fc68a4a3ea4040de867aa7a0a"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040161262,
+   "meta": {
+    "author": {
+     "name": "Hicks, Michael"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "56cb7fb6ae20480497d87d6fa26bfcf9"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040161262,
+   "meta": {
+    "author": {
+     "name": "Pettegrew, Richard"
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "eff40dede1aa4673a3f85f93b82ada85"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040161262,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:50:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The U.S. modules of the International Space Station use gaseous CO2 as the fire extinguishing agent. This was selected as a result of extensive experience with CO2 as a fire suppressant in terrestrial applications, trade studies on various suppressants, and experiments. The selection of fire suppressants and suppression strategies for NASA s Lunar and Martian exploration missions will be based on the same studies and normal-gravity data unless reduced gravity fire suppression data is obtained. In this study, the suppressant agent concentrations required to extinguish a flame in low velocity convective flows within the 20-sec of low gravity on the KC-135 aircraft were investigated. Suppressant gas mixtures of CO2, N2, and He with the balance being oxygen/nitrogen mixtures with either 21% or 25% O2 were used to suppress flames on a 19-mm diameter PMMA cylinder in reduced gravity. For each of the suppressant mixtures, limiting concentrations were established that would extinguish the flame at any velocity. Similarly, concentrations were established that would not extinguish the flame. The limiting concentrations were generally consistent with previous studies but did suggest that geometry had an effect on the limiting conditions. Between the extinction and non-extinction limits, the suppression characteristics depended on the extinguishing agent, flow velocity, and O2 concentration. The limiting velocity data from the CO2, He, and N2 suppressants were well correlated using an effective mixture enthalpy per mole of O2, indicating that all act via O2 displacement and cooling mechanisms. In reduced gravity, the agent concentration required to suppress the flames increased as the velocity increased, up to approximately 10 cm/s (the maximum velocity evaluated in this experiment). The effective enthalpy required to extinguish flames at velocities of 10 cm/s is approximately the same as the concentrations in normal gravity. A computational study is underway to further evaluate these findings.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040161262,
+   "id": "9d5587272a0f43c59b04a28115dca157",
+   "publicationName": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session, Volume 2",
+   "publicationDate": "2004-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040161262.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040161262/downloads/20040161262.pdf",
+    "pdf": "/api/citations/20040161262/downloads/20040161262.pdf",
+    "fulltext": "/api/citations/20040161262/downloads/20040161262.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,156 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20220015583,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "126b244e4d754a909efbfaeddc0113fa",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "flames",
+  "microgravity",
+  "non-premixed",
+  "laminar",
+  "gaseous fuel",
+  "soot"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20220015583,
+  "ear": "NO",
+  "id": "769b32341f0e4eb4bd43b636a7719a73",
+  "itar": "NO"
+ },
+ "distributionDate": "2023-03-23T04:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "619352.06.07.02.01",
+   "submissionId": 20220015583,
+   "id": "4be690d64b1942b8abb397450ff500a0",
+   "type": "WBS"
+  }
+ ],
+ "title": "ACME: Advanced Combustion via Microgravity Experiments",
+ "stiType": "POSTER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2022-10-17T19:38:22.6843720+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 0,
+   "submissionId": 20220015583,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Dennis P Stocker"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "0fc6fd0723874e96a73db5047b8924e1",
+   "userType": "CIVIL",
+   "userId": "30e20cc4ba7743b790a53ab2fb0b0443"
+  }
+ ],
+ "stiTypeDetails": "Poster",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20220015583,
+ "created": "2022-10-17T19:30:24.5670250+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "From Nov. 2017 to Feb. 2022, the ACME project’s six independent investigations of laminar, non-premixed flames of gaseous fuels were conducted on the International Space Station (ISS) in the Combustion Integrated Rack (CIR).  An exploration of flames at the extremes of high sooting and high dilution was conducted with a coaxial coflow burner, where the fuel and oxidizer velocities were typically matched.  An investigation of electric-field effects also used the same coflow burner as well as a simple gas-jet burner, with a circular electrode mesh downstream of the burner, at voltages of either polarity up to 10 kV.  A study focused on material flammability in a quiescent atmosphere emulated the burning of condensed-phased fuels using cylindrical burners with a flat perforated outlet instrumented to measure the heat flux to the burner, i.e., emulated fuel.  Three studies of soot processes, flame dynamics, and low-temperature combustion used porous spherical burners yielding a nominally one-dimensional flame structure.  The ACME research will be represented through images and text.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20220015583,
+  "id": "46e05fcba2204e2692225fa156962bbe"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20220015583,
+   "endDate": "2022-11-12T05:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "42ca85bbf3b75cad8841938b20f13730",
+     "meta": {
+      "organization": {
+       "name": "American Society for Gravitational and Space Research",
+       "location": "Springfield, Virginia, United States"
+      }
+     },
+     "meetingId": "0468a874d46e492d8b1601aa177bb578",
+     "id": "03ead7ba993240d79aaee25adccf5eb9"
+    }
+   ],
+   "name": "American Society for Gravitational and Space Research Annual Meeting 2022",
+   "location": "Houston, TX",
+   "id": "0468a874d46e492d8b1601aa177bb578",
+   "url": "https://asgsr.org/2022-meeting/",
+   "startDate": "2022-11-09T05:00:00.0000000+00:00"
+  },
+  {
+   "country": "US",
+   "submissionId": 20220015583,
+   "endDate": "2023-03-22T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "f52059f6037657c2b9489200502d5650",
+     "meta": {
+      "organization": {
+       "name": "Combustion Institute",
+       "location": "Pittsburgh, Pennsylvania, United States"
+      }
+     },
+     "meetingId": "7c08c901f54d43ba90e9a160569488ba",
+     "id": "568cdeeb81bc4bd5bb190d75d55b6a68"
+    }
+   ],
+   "name": "13th U.S. National Combustion Meeting",
+   "location": "College Station, TX",
+   "id": "7c08c901f54d43ba90e9a160569488ba",
+   "url": "https://turbolab.tamu.edu/uscnm2023/",
+   "startDate": "2023-03-19T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "redistributedDate": "2023-01-13T17:48:25.7830680",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "PS-03790 ACME poster 13thUSNCM 2023.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20220015583/downloads/PS-03790%20ACME%20poster%2013thUSNCM%202023.pdf",
+    "pdf": "/api/citations/20220015583/downloads/PS-03790%20ACME%20poster%2013thUSNCM%202023.pdf",
+    "fulltext": "/api/citations/20220015583/downloads/PS-03790%20ACME%20poster%2013thUSNCM%202023.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

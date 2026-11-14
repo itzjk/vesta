@@ -1,0 +1,131 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20070013692,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "ba3296ede1704807b104bd79345522b8",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Nonmetallic Materials"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20070013692,
+  "ear": "NO",
+  "id": "2ebe2836ebfa40cd9abbbd2355f3000f",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "title": "Microgravity Effects on Combustion of Polymers",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-23T22:32:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20070013692,
+   "meta": {
+    "author": {
+     "name": "Hirsch, David"
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "203af2c2fba34540a392f832c6016228"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20070013692,
+   "meta": {
+    "author": {
+     "name": "Williams, Jim"
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "e84ce03714b943f297ccf440b2447e8a"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20070013692,
+   "meta": {
+    "author": {
+     "name": "Beeson, Harold"
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "98bc849454584274a47ca83276fc2fc9"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20070013692,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-23T22:32:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A viewgraph presentation describing various microgravity effects on the combustion of polymers is shown. The topics include: 1) Major combustion processes and controlling mechanisms in normal and microgravity environments; 2) Review of some buoyancy effects on combustion: melting of thermoplastics; flame strength, geometry and temperature; smoldering combustion; 3) Video comparing polymeric rods burning in normal and microgravity environments; and 4) Relation to spacecraft fire safety of current knowledge of polymers microgravity combustion.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "Germany",
+   "submissionId": 20070013692,
+   "endDate": "2007-03-29T00:00:00.0000000+00:00",
+   "name": "Aerospace Testing Conference Expo 2007",
+   "location": "Munich",
+   "id": "a1a8f6c9a16e4afb9c2fc824802f25c6",
+   "startDate": "2007-03-27T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20070013692,
+   "id": "1ab94c6f657d4aa5bb1b293589129c36",
+   "publicationDate": "2007-03-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20070013692.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20070013692/downloads/20070013692.pdf",
+    "pdf": "/api/citations/20070013692/downloads/20070013692.pdf",
+    "fulltext": "/api/citations/20070013692/downloads/20070013692.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

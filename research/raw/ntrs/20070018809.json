@@ -1,0 +1,124 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20070018809,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "058acb6d64c74721935cb233950f8fc9",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20070018809,
+  "ear": "NO",
+  "id": "797156f0b43c4fa78b2007f75274b298",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "WBS 401769.06.01.01.01",
+   "submissionId": 20070018809,
+   "id": "fdc7dcad9931489eb8717063afa0f4ae",
+   "type": "WBS"
+  }
+ ],
+ "title": "International Space Station Atmosphere Control and Supply, Atmosphere Revitalization, and Water Recovery and Management Subsystem - Verification for Node 1",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-23T22:58:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20070018809,
+   "meta": {
+    "author": {
+     "name": "Williams, David E."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "780c6de4946e42c299200eab317c9eeb"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20070018809,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-23T22:58:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The International Space Station (ISS) Node 1 Environmental Control and Life Support (ECLS) System is comprised of five subsystems: Atmosphere Control and Supply (ACS), Atmosphere Revitalization (AR), Fire Detection and Suppression (FDS), Temperature and Humidity Control (THC), and Water Recovery and Management (WRM). This paper provides a summary of the nominal operation of the Node 1 ACS, AR, and WRM design and detailed Element Verification methodologies utilized during the Qualification phase for Node 1.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20070018809,
+   "endDate": "2007-07-12T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "2fb8633154d94728aec2c57afa709b46",
+     "meta": {
+      "organization": {
+       "name": "Society of Automotive Engineers, Inc.",
+       "location": "Warrendale, PA, United States"
+      }
+     },
+     "meetingId": "3ce33803a53b42bca2aab843e0a35db5",
+     "id": "0d6a7492d92144cfb2f314ce62955511"
+    }
+   ],
+   "name": "37th International Conference on Environmental Control and Life Support",
+   "location": "Chicago, IL",
+   "id": "3ce33803a53b42bca2aab843e0a35db5",
+   "startDate": "2007-07-09T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20070018809,
+   "id": "51319d5fd48b407db6c576632c665919",
+   "publicationDate": "2007-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20070018809.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20070018809/downloads/20070018809.pdf",
+    "pdf": "/api/citations/20070018809/downloads/20070018809.pdf",
+    "fulltext": "/api/citations/20070018809/downloads/20070018809.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,107 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20110015892,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "e3bd08792e45415aaa1079269f1f74f6",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Aerospace Medicine"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20110015892,
+  "ear": "NO",
+  "id": "02c191e758624aff8e1bad66ae4bc1ee",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-24278",
+  "Report Number: JSC-CN-24278"
+ ],
+ "title": "Two New Pieces of Emergency Response Equipment for use in Confined Space Environments",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T07:55:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20110015892,
+   "meta": {
+    "author": {
+     "name": "Graf, John"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "8534dcde1be843e0ae92b469d62e2a76"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20110015892,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T07:55:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "NASA is developing two new pieces of emergency response equipment that recognize and address the constraints of a confined space environment. One piece of equipment is a respirator designed for use in a post fire environment. Traditional first responders generally use supplied air respirators - they provide cool, dry, safe breathing air to the first responder, and because they are supplied at above ambient pressure, the system is tolerant to a loose-fitting mask. Supplied air respirators have a limited supply of air, but because the traditional first responder intends to address the emergency from outside and then retreat, this limited air supply does not pose a serious problem. NASA uses a supplied oxygen respirator for first response to an emergency affecting air quality on the International Space Station. The air supply is rated for 15 minutes - ISS program managers sponsored a hardware development activity to provide the astronauts up to 8 hours of breathing protection after the supplied air system is exhausted. Size and weight limitations prevent the use of a supplied air system for 8 hours for six crew members. A trade study resulted in the selection of a filtering respirator system over a re-breather system; due to design simplicity, operational simplicity, and likely threats to air quality on ISS. The respirator cartridge that filters smoke particles, adsorbs organics and acid gases, and catalytically converts carbon monoxide to carbon dioxide has been qualified for use on ISS, and was delivered on STS-135, the final mission of the Space Shuttle Program.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "Italy",
+   "submissionId": 20110015892,
+   "endDate": "2011-10-14T00:00:00.0000000+00:00",
+   "name": "Submarine Air Monitoring Air Purification International (SAMAP 2011)",
+   "location": "Taranto",
+   "id": "fd3353fca04f42dab6131a55064387ba",
+   "startDate": "2011-10-10T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20110015892,
+   "id": "052fd5cf42f14f54a66ba4b828b97cfc",
+   "publicationDate": "2011-10-10T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20110015892.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20110015892/downloads/20110015892.pdf",
+    "pdf": "/api/citations/20110015892/downloads/20110015892.pdf",
+    "fulltext": "/api/citations/20110015892/downloads/20110015892.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

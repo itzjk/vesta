@@ -1,0 +1,131 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": true,
+  "disclosedToPublic": false,
+  "thirdPartyLocationComments": "Plots & flame images on charts 5+7+8 were from NASA-funded cooperative agreements (where the investigators are acknowledged in the presentation, e.g., on those charts, and where including all of the researchers as co-authors of this overview seemed impractical)",
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20210022542,
+  "containsThirdPartyMaterial": true,
+  "belongsToPublisher": false,
+  "id": "6760ad1f8a8f4349a17e8bd8b4f505d8",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "Flame",
+  "microgravity",
+  "laminar",
+  "non-premixed",
+  "gaseous fuel",
+  "soot"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20210022542,
+  "ear": "NO",
+  "id": "79a23ea21b91432bb715393d20ef116c",
+  "itar": "NO"
+ },
+ "distributionDate": "2021-10-15T04:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "619352.01.02.03.01.01",
+   "submissionId": 20210022542,
+   "id": "34f6559cf4ed46d2ac8df8e8bcddc5ae",
+   "type": "WBS"
+  }
+ ],
+ "title": "Recent Research on Flames of Gaseous Fuel Aboard the International Space Station ",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2021-10-07T19:27:49.0457880+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 0,
+   "submissionId": 20210022542,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Dennis P Stocker"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "33a37c6997524d0cb304690b92a86e8c",
+   "userType": "CIVIL",
+   "userId": "30e20cc4ba7743b790a53ab2fb0b0443"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "NASA_PEER_COMMITTEE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20210022542,
+ "created": "2021-10-07T18:34:13.9360190+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Research for a set of six independent experiments with flames of gaseous fuels has been carried out on the International Space Station (ISS) since 2017 using the Combustion Integrated Rack (CIR) and a set of modular hardware.  While ISS testing has been completed for most of the studies in the Advanced Combustion via Microgravity Experiments (ACME) project, it is expected to continue into 2022.  The objectives and selected findings for each investigation are briefly discussed after a short review of the advantages of studying combustion in microgravity, previous research conducted in space, and the experimental hardware and its operation.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20210022542,
+  "id": "bda393968ea7436e93190c6aa8d4089f"
+ },
+ "meetings": [
+  {
+   "country": "JP",
+   "submissionId": 20210022542,
+   "endDate": "2021-10-13T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "Japan Society of Microgravity Application "
+      }
+     },
+     "meetingId": "d801916dc7d84a2b914ec29147f90e1e",
+     "id": "410fa9e9de0a4423905f9d96cae42b31"
+    }
+   ],
+   "name": "33rd Japanese Conference on Microgravity Science and Application",
+   "location": "Virtual",
+   "id": "d801916dc7d84a2b914ec29147f90e1e",
+   "url": "http://www.jasma.info/jasmac-33/",
+   "startDate": "2021-10-13T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "ACME JASMAC-33 20211007.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20210022542/downloads/ACME%20JASMAC-33%2020211007.pdf",
+    "pdf": "/api/citations/20210022542/downloads/ACME%20JASMAC-33%2020211007.pdf",
+    "fulltext": "/api/citations/20210022542/downloads/ACME%20JASMAC-33%2020211007.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

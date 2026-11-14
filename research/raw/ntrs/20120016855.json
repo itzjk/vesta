@@ -1,0 +1,185 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20120016855,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "8c9177615be4419ab888f2734b1ef2bc",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Propellants And Fuels"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20120016855,
+  "ear": "NO",
+  "id": "573d84b2c1734674a06a7474ade8e5cd",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN4830",
+  "E-18476",
+  "Report Number: GRC-E-DAA-TN4830",
+  "Report Number: E-18476"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNX09AM33A",
+   "submissionId": 20120016855,
+   "id": "26992f8a3bda4f2dbd3ed92e302a78a9",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 904211.04.02.30.07",
+   "submissionId": 20120016855,
+   "id": "865cdf4bb24e40d5ab7a89562f1cec60",
+   "type": "WBS"
+  },
+  {
+   "number": "NNC08BA05B",
+   "submissionId": 20120016855,
+   "id": "ea30936ffd834016a9070084025f7b02",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Methanol Droplet Extinction in Oxygen/Carbon-dioxide/Nitrogen Mixtures in Microgravity: Results from the International Space Station Experiments",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T22:39:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20120016855,
+   "meta": {
+    "author": {
+     "name": "Nayagam, Vedha"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "88a2f6cacc29429ca402c2e22845d44b"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20120016855,
+   "meta": {
+    "author": {
+     "name": "Dietrich, Daniel L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "294f1e60fa8a42b0bd6da0b1ad373554"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20120016855,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul V."
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "57d8339914734535954a3266dcd4e7e9"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20120016855,
+   "meta": {
+    "author": {
+     "name": "Hicks, Michael C."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "73e7b9cc09c842379464e36db56b8560"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20120016855,
+   "meta": {
+    "author": {
+     "name": "Williams, Forman A."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "ffd0a1cd739f4dcba6af8e4d823c80b2"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20120016855,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T22:39:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Motivated by the need to understand the flammability limits of condensed-phase fuels in microgravity, isolated single droplet combustion experiments were carried out in the Combustion Integrated Rack Facility onboard the International Space Station. Experimental observations of methanol droplet combustion and extinction in oxygen/carbon-dioxide/nitrogen mixtures at 0.7 and 1 atmospheric pressure in quiescent microgravity environment are reported for initial droplet diameters varying between 2 mm to 4 mm in this study.The ambient oxygen concentration was systematically lowered from test to test so as to approach the limiting oxygen index (LOI) at fixed ambient pressure. At one atmosphere pressure, ignition and some burning were observed for an oxygen concentration of 13% with the rest being nitrogen. In addition, measured droplet burning rates, flame stand-off ratios, and extinction diameters are presented for varying concentrations of oxygen and diluents. Simplified theoretical models are presented to explain the observed variations in extinction diameter and flame stand-off ratios.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20120016855,
+   "endDate": "2011-10-12T00:00:00.0000000+00:00",
+   "name": "Fall Technical Meeting of the Eastern States Section of the Combustion Institute",
+   "location": "storrs, CT",
+   "id": "9aa7bf3a6e0b4120b1c846011bc9c1d8",
+   "startDate": "2011-10-09T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20120016855,
+   "id": "5484ec23f4494323a708647b9f350806",
+   "publicationDate": "2012-10-09T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20120016855.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20120016855/downloads/20120016855.pdf",
+    "pdf": "/api/citations/20120016855/downloads/20120016855.pdf",
+    "fulltext": "/api/citations/20120016855/downloads/20120016855.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

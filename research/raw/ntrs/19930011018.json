@@ -1,0 +1,155 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19930011018,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "76570adf82404c4bae5cb4977feb0b53",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19930011018,
+  "ear": "NO",
+  "id": "0996012bd67249fd9d419d6d355579f9",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-29T00:00:00.0000000+00:00",
+ "title": "Combustion of solid fuel in very low speed oxygen streams",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T17:56:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19930011018,
+   "meta": {
+    "author": {
+     "name": "Tien, James S."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH., United States"
+    }
+   },
+   "id": "7bfbfbb848ba42ba8eac15f083081d18"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19930011018,
+   "meta": {
+    "author": {
+     "name": "Sacksteder, Kurt R."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "63b16226704b4c53985afe11c984524d"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19930011018,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul V."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH., United States"
+    }
+   },
+   "id": "4877e4fe413a4a288b5a1347d4665e53"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 19930011018,
+   "meta": {
+    "author": {
+     "name": "Grayson, Gary D."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH., United States"
+    }
+   },
+   "id": "f99c09acb7bf4af98b7bed9c69ec61e2"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19930011018,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "93N20207"
+ },
+ "created": "2013-09-06T17:56:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "In reduced gravity, the combustion of solid fuel in low-speed flow can be studied. The flame behavior in this low-speed regime will fill a void in our understanding of the flow effect on combustion. In addition, it is important for spacecraft fire safety considerations. In this work, modeling and experimental work on low-speed forced-concurrent-flow flame spread are carried out. In addition, experiments on reduced-gravity buoyant-flow flame spread are performed.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19930011018,
+   "id": "a342d82d54bb4722858ea8ec3202f308",
+   "publicationName": "The Second International Microgravity Combustion Workshop",
+   "publicationDate": "1993-02-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19930010989,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The Second International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19930010989,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The Second International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "accessionNumber": "N93-20179 through N93-20219",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19930011018.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19930011018/downloads/19930011018.pdf",
+    "pdf": "/api/citations/19930011018/downloads/19930011018.pdf",
+    "fulltext": "/api/citations/19930011018/downloads/19930011018.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

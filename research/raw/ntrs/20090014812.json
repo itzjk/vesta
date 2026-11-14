@@ -1,0 +1,152 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20090014812,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "6da905c589794e1a963dc87c60d64bb3",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Chemistry And Materials (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20090014812,
+  "ear": "NO",
+  "id": "cd7b676fb6874367982e361eed0500c6",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-10T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-17962-27",
+  "Report Number: JSC-17962-27"
+ ],
+ "title": "Multi-User Droplet Combustion Apparatus - Flame Extinguishment Experiment",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T17:38:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20090014812,
+   "meta": {
+    "author": {
+     "name": "Williams, Forman A."
+    },
+    "organization": {
+     "name": "California Univ., San Diego",
+     "location": "La Jolla, CA, United States"
+    }
+   },
+   "id": "60326a4d79ab4195b17fb74ccf499b9f"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20090014812,
+   "meta": {
+    "author": {
+     "name": "Nayagam, Vedha"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e613bca960f943c39aec903b90acdce3"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20090014812,
+   "meta": {
+    "author": {
+     "name": "Choi, Mun Y."
+    },
+    "organization": {
+     "name": "Drexel Univ.",
+     "location": "Philadelphia, PA, United States"
+    }
+   },
+   "id": "ca7175d4c40c469d94e6a4ea7a2dca54"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20090014812,
+   "meta": {
+    "author": {
+     "name": "Dryer, Frederick L."
+    },
+    "organization": {
+     "name": "Princeton Univ.",
+     "location": "Princeton, NJ, United States"
+    }
+   },
+   "id": "812c78f2c3c44ac6b71ba6190e16cbc1"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20090014812,
+   "meta": {
+    "author": {
+     "name": "Shaw, Benjamin D."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Davis, CA, United States"
+    }
+   },
+   "id": "142972b52c0b442da58e29e603c69539"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20090014812,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T17:38:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Multi-User Droplet Combustion Apparatus Flame Extinguishment Experiment (MDCA-FLEX) will assess the effectiveness of fire suppressants in microgravity and quantify the effect of different possible crew exploration atmospheres on fire suppression. The goal of this research is to provide definition and direction for large scale fire suppression tests and selection of the fire suppressant for next generation crew exploration vehicles.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20090014812,
+   "id": "9ed40b74a6054388a5f37ad31310bda4",
+   "publicationDate": "2009-02-23T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20090014812.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20090014812/downloads/20090014812.pdf",
+    "pdf": "/api/citations/20090014812/downloads/20090014812.pdf",
+    "fulltext": "/api/citations/20090014812/downloads/20090014812.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

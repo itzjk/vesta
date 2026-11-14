@@ -1,0 +1,132 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19990110713,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "c1e04b14206a46509435a489059f6670",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19990110713,
+  "ear": "NO",
+  "id": "c9b9c692a2004bd88a6b6b4cca72692e",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-27T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "CCER-99-06",
+  "Report Number: CCER-99-06"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NAG3-2220",
+   "submissionId": 19990110713,
+   "id": "26f43ff453a84819b21deee5365fb708",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Combustion of Metals in Reduced-Gravity and Extra Terrestrial Environments",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T23:06:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19990110713,
+   "meta": {
+    "author": {
+     "name": "Branch, M.C."
+    },
+    "organization": {
+     "name": "Colorado Univ.",
+     "location": "Boulder, CO United States"
+    }
+   },
+   "id": "4224adef21a64b1cbe70a1904215a557"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19990110713,
+   "meta": {
+    "author": {
+     "name": "Abbud-Madrid, A."
+    },
+    "organization": {
+     "name": "Colorado Univ.",
+     "location": "Boulder, CO United States"
+    }
+   },
+   "id": "257ca659f69c4d4b9d79896ef22a3c95"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19990110713,
+   "meta": {
+    "author": {
+     "name": "Daily, J. W."
+    },
+    "organization": {
+     "name": "Colorado Univ.",
+     "location": "Boulder, CO United States"
+    }
+   },
+   "id": "454270a7807f4cbba3fdc7d963b6cb3c"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19990110713,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-06T23:06:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The combustion of metals is a field with important practical applications in rocket propellants, high-temperature flames, and material synthesis. Also, the safe operation of metal containers in high-pressure oxygen systems and with cryogenic fuels and oxidizers remains an important concern in industry. The increasing use of metallic components in spacecraft and space structures has also raised concerns about their flammability properties and fire suppression mechanisms. In addition, recent efforts to embark on unmanned and manned planetary exploration, such as on Mars, have also renewed the interest in metal/carbon-dioxide combustion as an effective in situ resource utilization technology. In spite of these practical applications, the understanding of the combustion properties of metals remains far behind that of the most commonly used fuels such as hydrocarbons. The lack of understanding is due to the many problems unique to metal- oxidizer reactions such as: low-temperature surface oxidation prior to ignition, heterogeneous reactions, very high combustion temperatures, product condensation, high emissivity of products, and multi-phase interactions. Very few analytical models (all neglecting the influence of gravity) have been developed to predict the burning characteristics and the flame structure details. Several experimental studies attempting to validate these models have used small metal particles to recreate gravity-free conditions. The high emissivity of the flames, rapid reaction, and intermittent explosions experienced by these particles have made the gathering of any useful information on burning rates and flame structure very difficult. The use of a reduced gravity environment is needed to clarify some of the complex interactions among the phenomena described above. First, the elimination of the intrusive buoyant flows that plague all combustion phenomena is of paramount importance in metal reactions due to the much higher temperatures reached during combustion. Second, a low-gravity environment is absolutely essential to remove the destructive effect of gravity on the shape of a molten metal droplet in order to study a spherically symmetric condition with large bulk samples. The larger size of the spherical metal droplet and the longer burning times available in reduced gravity extend the spatial and temporal dimensions to permit careful probing of the flame structure and dynamics. Third, the influence of the radiative heat transfer from the solid oxides can be studied more carefully by generating a stagnant spherical shell of condensed products undisturbed by buoyancy.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19990110713,
+   "id": "8d5a8e0b84b6437aa4a06267257085a0",
+   "publicationDate": "1999-09-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19990110713.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19990110713/downloads/19990110713.pdf",
+    "pdf": "/api/citations/19990110713/downloads/19990110713.pdf",
+    "fulltext": "/api/citations/19990110713/downloads/19990110713.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

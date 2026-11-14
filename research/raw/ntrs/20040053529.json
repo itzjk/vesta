@@ -1,0 +1,152 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053529,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "864d46eead694fca93b9e80aa3397baa",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Propulsion And Power"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053529,
+  "ear": "NO",
+  "id": "5fd392c9a5344a33a69e0103f08e5433",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "Combustion Of Interacting Droplet Arrays In Microgravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:35:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053529,
+   "meta": {
+    "author": {
+     "name": "Dietrich, D. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "4e630ae8610c4e74b4a2aec4c80fd549"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053529,
+   "meta": {
+    "author": {
+     "name": "Struk, P. M."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e7c5f18f60924a458a5b3ab180e83953"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053529,
+   "meta": {
+    "author": {
+     "name": "Ikegami, M."
+    },
+    "organization": {
+     "name": "Agency of Industrial Science and Technology"
+    }
+   },
+   "id": "0e384d3f6bf9451387a2d66ac31f5a46"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040053529,
+   "meta": {
+    "author": {
+     "name": "Xu, G."
+    },
+    "organization": {
+     "name": "Agency of Industrial Science and Technology"
+    }
+   },
+   "id": "3dd1013000804025a541b2e18dfea0ba"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053529,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:35:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Theory and experiments involving single droplet combustion date back to 1953, with the first microgravity work appearing in 1956. The problem of a spherical droplet burning in an infinite, quiescent microgravity environment is a classical problem in combustion research with the classical solution appearing in nearly every textbook on combustion. The microgravity environment offered by ground-based facilities such as drop towers and space-based facilities is ideal for studying the problem experimentally. A recent review by Choi and Dryer shows significant advances in droplet combustion have been made by studying the problem experimentally in microgravity and comparing the results to one dimensional theoretical and numerical treatments of the problem. Studying small numbers of interacting droplets in a well-controlled geometry represents a logical step in extending single droplet investigations to more practical spray configurations. Studies of droplet interactions date back to Rex and co-workers, and were recently summarized by Annamalai and Ryan. All previous studies determined the change in the burning rate constant, k, or the flame characteristics as a result of interactions. There exists almost no information on how droplet interactions a effect extinction limits, and if the extinction limits change if the array is in the diffusive or the radiative extinction regime. Thus, this study examined experimentally the effect that droplet interactions have on the extinction process by investigating the simplest array configuration, a binary droplet array. The studies were both in normal gravity, reduced pressure ambients and microgravity facilities. The microgravity facilities were the 2.2 and 5.2 second drop towers at the NASA Glenn Research Center and the 10 second drop tower at the Japan Microgravity Center. The experimental apparatus and the data analysis techniques are discussed in detail elsewhere.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053529,
+   "id": "baf2fd455be34ca488e65cb3daa16a8d",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053529.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053529/downloads/20040053529.pdf",
+    "pdf": "/api/citations/20040053529/downloads/20040053529.pdf",
+    "fulltext": "/api/citations/20040053529/downloads/20040053529.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

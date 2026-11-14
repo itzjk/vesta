@@ -1,0 +1,131 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19940022933,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "9ff938755ac143e29d7f07cc31772663",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19940022933,
+  "ear": "NO",
+  "id": "8ae30c4c8d4143fcaf0b91ce577e437f",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NAS 1.15:106430",
+  "E-8272",
+  "NASA-TM-106430",
+  "Report Number: NAS 1.15:106430",
+  "Report Number: E-8272",
+  "Report Number: NASA-TM-106430"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 323-44-03",
+   "submissionId": 19940022933,
+   "id": "c4ddcef7cb11440da178e6a8c1a2bfc3",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Risks and issues in fire safety on the Space Station",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T19:08:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19940022933,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "35b0cefb5c674f4ca85eafe1232b5082"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19940022933,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "94N27436"
+ },
+ "created": "2013-09-06T19:08:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A fire in the inhabited portion of a spacecraft is a greatly feared hazard, but fire protection in space operations is complicated by two factors. First, the spacecraft cabin is an enclosed volume, which limits the resources for fire fighting and the options for crew escape. Second, an orbiting spacecraft experiences a balance of forces, creating a near-zero-gravity (microgravity) environment that profoundly affects the characteristics of fire initiation, spread, and suppression. The current Shuttle Orbiter is protected by a fire-detection and suppression system whose requirements are derived of necessity from accepted terrestrial and aircraft standards. While experience has shown that Shuttle fire safety is adequate, designers recognize that improved systems to respond specifically to microgravity fire characteristics are highly desirable. Innovative technology is particularly advisable for the Space Station, a forthcoming space community with a complex configuration and long-duration orbital missions, in which the effectiveness of current fire-protection systems is unpredictable. The development of risk assessments to evaluate the probabilities and consequences of fire incidents in spacecraft are briefly reviewed. It further discusses the important unresolved issues and needs for improved fire safety in the Space Station, including those of material selection, spacecraft atmospheres, fire detection, fire suppression, and post-fire restoration.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 19940022933,
+   "endDate": "1994-03-25T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "2918afeac2b857b7951cf5271aa77cd7",
+     "meta": {
+      "organization": {
+       "name": "Society for Risk Analysis"
+      }
+     },
+     "meetingId": "c4944678735f4b5b8e4a8be4c5a17d41",
+     "id": "0ef66f333ef34a8b8d67530dd0abd8a8"
+    }
+   ],
+   "name": "Probabilistic Safety and Management Conference",
+   "location": "San Diego, CA",
+   "id": "c4944678735f4b5b8e4a8be4c5a17d41",
+   "startDate": "1994-03-21T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19940022933,
+   "id": "1476c9bd721145b390443d47c7b63fb6",
+   "publicationDate": "1993-12-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19940022933.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19940022933/downloads/19940022933.pdf",
+    "pdf": "/api/citations/19940022933/downloads/19940022933.pdf",
+    "fulltext": "/api/citations/19940022933/downloads/19940022933.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

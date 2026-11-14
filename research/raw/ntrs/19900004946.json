@@ -1,0 +1,164 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19900004946,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "6a1afe581f6148f686d41aa25c0658f1",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Design, Testing And Performance"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19900004946,
+  "ear": "NO",
+  "id": "9a97ce5cbf1a4c19811c5355a612801b",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-24T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "UCLA-ENG-90-11",
+  "NASA-CR-183835",
+  "NAS 1.26:183835",
+  "Report Number: UCLA-ENG-90-11",
+  "Report Number: NASA-CR-183835",
+  "Report Number: NAS 1.26:183835"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NAS8-37750",
+   "submissionId": 19900004946,
+   "id": "d3dd4a4169f0419f9f99c2947de532d7",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Risk-Based Fire Safety Experiment Definition for Manned Spacecraft",
+ "stiType": "CONTRACTOR_REPORT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T15:01:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19900004946,
+   "meta": {
+    "author": {
+     "name": "Apostolakis, G. E."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Los Angeles., United States"
+    }
+   },
+   "id": "e82bb9961e4a4a329a33c85ccfd61441"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19900004946,
+   "meta": {
+    "author": {
+     "name": "Ho, V. S."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Los Angeles., United States"
+    }
+   },
+   "id": "6eae6a3c21864fd1af3125f1ce0962be"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19900004946,
+   "meta": {
+    "author": {
+     "name": "Marcus, E."
+    },
+    "organization": {
+     "name": "American Space Technology, Inc., Santa Monica",
+     "location": "CA., United States"
+    }
+   },
+   "id": "0fc5db4a2fbd4ca8b16bdb7f5eec1817"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 19900004946,
+   "meta": {
+    "author": {
+     "name": "Perry, A. T."
+    },
+    "organization": {
+     "name": "American Space Technology, Inc., Santa Monica",
+     "location": "CA., United States"
+    }
+   },
+   "id": "a9be95cbaeb340bdaa78082c586a72cf"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 19900004946,
+   "meta": {
+    "author": {
+     "name": "Thompson, S. L."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Los Angeles, CA, United States"
+    }
+   },
+   "id": "6cb21f7b829d4d6b9494ff8989b4393a"
+  }
+ ],
+ "stiTypeDetails": "Contractor Report (CR)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19900004946,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "90N14262"
+ },
+ "created": "2013-09-06T15:01:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Risk methodology is used to define experiments to be conducted in space which will help to construct and test the models required for accident sequence identification. The development of accident scenarios is based on the realization that whether damage occurs depends on the time competition of two processes: the ignition and creation of an adverse environment, and the detection and suppression activities. If the fire grows and causes damage faster than it is detected and suppressed, then an accident occurred. The proposed integrated experiments will provide information on individual models that apply to each of the above processes, as well as previously unidentified interactions and processes, if any. Initially, models that are used in terrestrial fire risk assessments are considered. These include heat and smoke release models, detection and suppression models, as well as damage models. In cases where the absence of gravity substantially invalidates a model, alternate models will be developed. Models that depend on buoyancy effects, such as the multizone compartment fire models, are included in these cases. The experiments will be performed in a variety of geometries simulating habitable areas, racks, and other spaces. These simulations will necessitate theoretical studies of scaling effects. Sensitivity studies will also be carried out including the effects of varying oxygen concentrations, pressures, fuel orientation and geometry, and air flow rates. The experimental apparatus described herein includes three major modules: the combustion, the fluids, and the command and power modules.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19900004946,
+   "id": "3e5615b91c4a4ba095f5651a74387e0c",
+   "publicationDate": "1989-10-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19900004946.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19900004946/downloads/19900004946.pdf",
+    "pdf": "/api/citations/19900004946/downloads/19900004946.pdf",
+    "fulltext": "/api/citations/19900004946/downloads/19900004946.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

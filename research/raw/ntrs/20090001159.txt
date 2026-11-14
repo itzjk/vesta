@@ -1,0 +1,3 @@
+International Space Station Environmental Control and Life Support System Acceptance Testing for Node 1 Atmosphere Control and Supply Subsystem
+
+The International Space Station (ISS) Node 1 Environmental Control and Life Support (ECLS) System is comprised of five subsystems: Atmosphere Control and Supply (ACS), Atmosphere Revitalization (AR), Fire Detection and Suppression (FDS), Temperature and Humidity Control (THC), and Water Recovery and Management (WRM). This paper provides a summary of the Node 1 ECLS ACS subsystem design and a detailed discussion of the ISS ECLS Acceptance Testing methodology utilized for that subsystem.

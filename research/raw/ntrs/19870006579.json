@@ -1,0 +1,124 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19870006579,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "7de8d1aae3c143ba8fdc8c4aff26950c",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19870006579,
+  "ear": "NO",
+  "id": "e13922784fe843ab98b7f4faa669c527",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-24T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA-TM-88933",
+  "NAS 1.15:88933",
+  "AIAA PAPER 87-0467",
+  "E-3349",
+  "Report Number: NASA-TM-88933",
+  "Report Number: NAS 1.15:88933",
+  "Report Number: AIAA PAPER 87-0467",
+  "Report Number: E-3349"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 506-49-3B",
+   "submissionId": 19870006579,
+   "id": "a125fcc4aef042e095217a0daaa931e9",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Science and technology issues in spacecraft fire safety",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-05T08:56:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19870006579,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "a6106e2cb58748058a5ff2cc5193ab4d"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19870006579,
+   "meta": {
+    "author": {
+     "name": "Sacksteder, Kurt R."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e6824e7a95104632b142e95c86dedb27"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19870006579,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "87N16012"
+ },
+ "created": "2013-09-05T08:56:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The space station, a permanently-inhabited orbiting laboratory, places new demands on spacecraft fire safety. Long-duration missions may call for more-constrained fire controls, but the accessibility of the space station to a variety of users may call for less-restrictive measures. This paper discusses fire safety issues through a review of the state of the art and a presentation of key findings from a recent NASA Lewis Research Center Workshop. The subjects covered are the fundamental science of low-gravity combustion and the technology advances in fire detection, extinguishment, materials assessment, and atmosphere selection. Key concerns are for the adoption of a fire-safe atmosphere and the substitution for the effective but toxic extinguishant, halon 1301. The fire safety studies and reviews provide several recommendations for further action. One is the expanded research in combustion, sensors, and materials in the low-gravity environment of space. Another is the development of generalized fire-safety standards for spacecraft through cooperative endeavors with aerospace and outside Government and industry sources.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19870006579,
+   "id": "e37e832289ca4bd4af51137dbf156542",
+   "publicationDate": "1987-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19870006579.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19870006579/downloads/19870006579.pdf",
+    "pdf": "/api/citations/19870006579/downloads/19870006579.pdf",
+    "fulltext": "/api/citations/19870006579/downloads/19870006579.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

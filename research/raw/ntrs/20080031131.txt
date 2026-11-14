@@ -1,0 +1,3 @@
+A History of Spacecraft Environmental Control and Life Support Systems
+
+A spacecraft's Environmental Control and Life Support (ECLS) system enables and maintains a habitable and sustaining environment for its crew. A typical ECLS system provides for atmosphere consumables and revitalization, environmental monitoring, pressure, temperature and humidity control, heat rejection (including equipment cooling), food and water supply and management, waste management, and fire detection and suppression. The following is a summary of ECLS systems used in United States (US) and Russian human spacecraft.

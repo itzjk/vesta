@@ -1,0 +1,113 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19930011015,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "53a55657b55947c299c784695459e2f1",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Design, Testing And Performance"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19930011015,
+  "ear": "NO",
+  "id": "595b7b4004ee452398fb924cc4d2f34e",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-29T00:00:00.0000000+00:00",
+ "title": "Fire safety practices in the Shuttle and the Space Station Freedom",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T17:56:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19930011015,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "d7414a0b13fa4715a0dfddf127bd9b2e"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19930011015,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "93N20204"
+ },
+ "created": "2013-09-06T17:56:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Shuttle reinforces its policy of fire-preventive measures with onboard smoke detectors and Halon 1301 fire extinguishers. The forthcoming Space Station Freedom will have expanded fire protection with photoelectric smoke detectors, radiation flame detectors, and both fixed and portable carbon dioxide fire extinguishers. Many design and operational issues remain to be resolved for Freedom. In particular, the fire-suppression designs must consider the problems of gas leakage in toxic concentrations, alternative systems for single-failure redundancy, and commonality with the corresponding systems of the Freedom international partners. While physical and engineering requirements remain the primary driving forces for spacecraft fire-safety technology, there are, nevertheless, needs and opportunities for the application of microgravity combustion knowledge to improve and optimize the fire-protective systems.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19930011015,
+   "id": "8c782f96a73a44ef92c93a92790c6614",
+   "publicationName": "The Second International Microgravity Combustion Workshop",
+   "publicationDate": "1993-02-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19930010989,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The Second International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19930010989,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The Second International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "accessionNumber": "N93-20179 through N93-20219",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19930011015.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19930011015/downloads/19930011015.pdf",
+    "pdf": "/api/citations/19930011015/downloads/19930011015.pdf",
+    "fulltext": "/api/citations/19930011015/downloads/19930011015.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

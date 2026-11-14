@@ -1,0 +1,533 @@
+Solid Fuel Ignition Testing for Lunar Applications, Theory
+and Experimental Results
+54th International Conference on Environmental Systems
+13-17 July 2025, Prague, Czech Republic
+
+Authors
+• David Urban, Sandra Olson, Daniel Dietrich, Dennis Stocker, Michael Johnston, Paul Ferkul (USRA
+Inc.), Gary A. Ruff(retired), Jennifer Zayac (intern), NASA Glenn Research Center, Cleveland, OH, USA
+• Susana Harper, Alfredo Juarez (Sierra Lobo Inc.),Steven Peralta, NASA JSC White Sands Test Facility,
+Las Cruces, NM
+• NASA JSC White Sands Test Facility, Las Cruces, NM
+• Carlos Fernandez-Pello, UC Berkeley, Berkeley, CA, USA
+• Maria Thomsen, Universidad Adolfo Ibáñez, Santiago, Chile
+• Ya-Ting T. Liao, Case Western Reserve University, Cleveland, OH, USA
+• Harold Beeson, WHA International Inc., Las Cruces, NM, 88007
+• Gregory Harrigan, NASA Kennedy Space Center, Merritt Island, FL, 32899
+
+Acknowledgements: NASA Engineering and Safety Center (NESC), Mars Campaign Office, Human Landing
+System, Extravehicular Activity and Human Surface Mobility
+2
+
+Background
+• NASA has historically based fire safety on prevention by limiting the materials in the pressurized
+volume to materials that pass the NASA flammability test (NASA-STD-6001 Test 1)
+• Planned lunar surface missions will be at higher oxygen concentrations in the crew cabin (56.5
+kPa (8.2 psia) and 34% oxygen)
+– This presents a substantially higher flammability risk which will be mitigated by materials controls
+• The uncertainty of the impact of lunar gravity on material flammability limits has been identified
+as a risk by the Human Landing System (HLS) program.
+– The root of this concern lies in data from low gravity testing which showed enhanced flammability
+for some materials at very low flow rates that exist in reduced gravity.
+• The NASA Engineering Safety Center (NESC) assembled a team comprised of people including
+the NESC, HLS, NASA GRC, NASA WSTF and academic collaborators.
+• This team developed a method to establish a correction factor that could be applied to NASA Test
+1 data.
+
+3
+
+Correction Factor Approach Rational
+• Despite concerns about applicability in reduced gravity, NASA Test 1 will remain the test method
+for material selection due to
+– Long historical pedigree
+– Impracticality of reduced gravity testing for material approval
+• To address the potential for gravitational effects, a method was sought to address the potential
+for enhanced flammability at low-gravity
+• Partial-g testing is currently limited to low-gravity aircraft (~25 s) and the NASA-GRC Zero-G drop
+tower centrifuge rig (5 s).
+• The drop tower facility is more available
+• A protocol was developed to conduct similar tests in partial–g (NASA-GRC centrifuge) and in 1-g
+at WSTF
+• Both tests were limited to 5 s to allow comparison
+• Both tests were upward/concurrent flammability tests
+
+4
+
+Origin of the U-Shaped Extinction Boundary
+
+Enhanced flammability is seen at
+low velocities below 1-g buoyant
+flow.
+
+Opposed flame spread over thin cellulosic fuel (Kimwipes) (Olson)
+Combines quiescent and low-speed tests with high-speed wind tunnel tests.
+
+5
+
+Concurrent Flame Spread Schematic
+
+6
+
+Flammability Diagram-Effect of external heating
+Flammability diagram for PMMA
+using a cone calorimeter for the
+ignition testing (right side) and a
+radiatively heated flame spread
+apparatus (left side)
+Heat flux impacts (reduces) ignition
+delay,
+Heat addition does not have to be
+simultaneous with the flame,
+preheating has the same effect
+
+7
+
+Theoretical Formulation
+𝑉𝑉𝑓𝑓 = 𝑙𝑙ℎ /(𝑡𝑡𝑝𝑝𝑝𝑝 + 𝑡𝑡𝑖𝑖𝑖𝑖 )
+
+Flame Spread derived from pyrolysis time and ignition time
+
+𝑡𝑡𝑝𝑝𝑝𝑝 =
+
+Pyrolysis time
+
+𝜌𝜌𝑠𝑠 𝑐𝑐𝑠𝑠 𝑑𝑑 𝑇𝑇𝑝𝑝 −𝑇𝑇𝑜𝑜
+
+′′ +−𝑞𝑞̇ ′′ +𝑞𝑞̇ ′′
+ℎ 𝑇𝑇𝑓𝑓 −𝑇𝑇𝑝𝑝 −𝑞𝑞̇ 𝑟𝑟𝑟𝑟
+𝑒𝑒𝑒𝑒𝑒𝑒
+𝑓𝑓𝑓𝑓
+
+𝐷𝐷𝐷𝐷
+
+Ignition time
+
+𝑡𝑡𝑖𝑖𝑖𝑖 = 𝐶𝐶2 𝑡𝑡𝑓𝑓𝑓𝑓 ln 1 − 𝐷𝐷𝐷𝐷𝐷𝐷𝑐𝑐𝑐𝑐
+𝑙𝑙
+
+𝐸𝐸
+
+𝑃𝑃
+𝑅𝑅𝑅𝑅
+
+𝑎𝑎
+𝐷𝐷𝐷𝐷 = 𝑢𝑢 𝑐𝑐 𝐴𝐴0 exp − 𝑅𝑅𝑅𝑅𝑎𝑎 𝑋𝑋𝑓𝑓𝑓𝑓𝑓𝑓𝑓𝑓
+𝑋𝑋𝑂𝑂𝑏𝑏2 ( )𝑎𝑎+𝑏𝑏
+∞
+
+𝑉𝑉𝑓𝑓 = 𝑙𝑙ℎ
+𝑉𝑉𝑓𝑓 =
+
+𝜌𝜌𝑠𝑠 𝑐𝑐𝑠𝑠 𝜏𝜏 𝑇𝑇𝑝𝑝 −𝑇𝑇𝑜𝑜
+
+′′ +𝑞𝑞̇ ′′ −𝑞𝑞̇ ′′ +𝑞𝑞̇ ′′
+𝑞𝑞̇ 𝑓𝑓𝑓𝑓
+𝑟𝑟𝑟𝑟
+𝑒𝑒𝑒𝑒𝑒𝑒
+𝑓𝑓𝑓𝑓
+
+using the Damköhler relationship of Niioka
+
+− 𝐶𝐶2 𝑡𝑡𝑓𝑓𝑓𝑓 ln 1 −
+
+′′
+′′
+′′ +𝑞𝑞̇ ′′
+𝑙𝑙ℎ 𝑞𝑞̇ 𝑓𝑓𝑓𝑓
++𝑞𝑞̇ 𝑓𝑓𝑓𝑓
+−𝑞𝑞̇ 𝑟𝑟𝑟𝑟
+𝑒𝑒𝑒𝑒𝑒𝑒
+𝐷𝐷𝐷𝐷
+
+𝐷𝐷𝐷𝐷𝑐𝑐𝑐𝑐
+𝐷𝐷𝐷𝐷𝑥𝑥
+
+−1
+
+′′ +𝑞𝑞̇ ′′ −𝑞𝑞̇ ′′ +𝑞𝑞̇ ′′ )
+𝜌𝜌𝑠𝑠 𝑐𝑐𝑠𝑠 𝜏𝜏 𝑇𝑇𝑝𝑝 −𝑇𝑇𝑜𝑜 −𝐶𝐶2 𝑡𝑡𝑓𝑓𝑓𝑓 ln 1− 𝐷𝐷𝐷𝐷𝑐𝑐𝑐𝑐 (𝑞𝑞̇ 𝑓𝑓𝑓𝑓
+𝑟𝑟𝑟𝑟
+𝑒𝑒𝑒𝑒𝑒𝑒
+𝑓𝑓𝑓𝑓
+𝑥𝑥
+
+8
+
+Finding the limit
+𝑉𝑉𝑓𝑓 =
+
+′′
+′′
+′′ +𝑞𝑞̇ ′′
+𝑙𝑙ℎ 𝑞𝑞̇ 𝑓𝑓𝑓𝑓
++𝑞𝑞̇ 𝑓𝑓𝑓𝑓
+−𝑞𝑞̇ 𝑟𝑟𝑟𝑟
+𝑒𝑒𝑒𝑒𝑒𝑒
+𝐷𝐷𝐷𝐷
+
+′′ +𝑞𝑞̇ ′′ −𝑞𝑞̇ ′′ +𝑞𝑞̇ ′′ )
+𝜌𝜌𝑠𝑠 𝑐𝑐𝑠𝑠 𝜏𝜏 𝑇𝑇𝑝𝑝 −𝑇𝑇𝑜𝑜 −𝐶𝐶2 𝑡𝑡𝑓𝑓𝑓𝑓 ln 1− 𝐷𝐷𝐷𝐷𝑐𝑐𝑐𝑐 (𝑞𝑞̇ 𝑓𝑓𝑓𝑓
+𝑟𝑟𝑟𝑟
+𝑒𝑒𝑒𝑒𝑒𝑒
+𝑓𝑓𝑓𝑓
+𝑥𝑥
+
+When Vf (flame spread rate) = 0
+
+the flame extinguishes
+
+This occurs when
+
+(Chemical Kinetic limit (blowoff))
+
+Dacr = Dax
+
+Or when numerator = 0 (occurs due to heat loss from the solid) (Heat transfer limit)
+
+9
+
+Calculated Limits
+
+10
+
+Test Campaigns
+• Both the WSTF and GRC test programs used the same ignitor
+• WSTF testing upward
+• GRC testing necessarily horizontal during ignition, becoming “upward” after the drop starts.
+• WSTF ignition was at a reduced velocity to enhance ignition and then switched to the test flow
+rate
+• GRC ignition was with slightly enhanced oxygen flow over ignition area which was switched off
+as the drop started
+• If the sample extinguished in 5 seconds it was a “pass”
+
+11
+
+WSTF Test Apparatus
+Flow Duct and flow conditioner at
+WSTF
+
+12
+
+GRC Centrifuge Apparatus
+Left: GRC Centrifuge rig in
+5.2 second drop tower
+bus. Right: samples
+installed vertically to
+minimize Coriolis effects.
+Samples ignited
+horizontally in 1-g with a
+combined lunar and 1-g
+flow and then transition to
+lunar –g for the drop
+
+13
+
+Test Data – Acrylic Samples
+
+0.22
+
+Ambient Oxygen Mole Fraction
+
+Ambient Oxygen Mole Fraction
+
+0.24
+
+0.20
+0.18
+0.16
+0.14
+
+0.22
+0.20
+0.18
+0.16
+0.14
+
+0.12
+
+0.12
+
+0.10
+
+0.10
+0
+
+20
+
+40
+
+60
+
+80
+100
+Forced Flow
+
+0.8 mm PMMA Sample, 8.2 psia.
+
+UHOI Test - Pass
+UHOI Test - Fail
+UHOI Limit Point
+Best Fit Line to UHOI Limit Points
+GRC Centrifuge Limit (reference)
+
+0.24
+
+UHOI Test - Pass
+UHOI Test - Fail
+UHOI Limit Point
+Best Fit Line to UHOI Limit Points
+GRC Centrifuge Limit (reference)
+
+120
+
+140
+
+160 cm/s
+
+0
+
+20
+
+40
+
+60
+
+80
+100
+Forced Flow
+
+120
+
+140
+
+160 cm/s
+
+P-213 Tape sample, 8.2 psia
+
+14
+
+Test Data: Cotton T-Shirt Flaming and Smoldering Limits
+0.20
+
+UHOI Test - Pass
+UHOI Test - Fail
+UHOI Limit Point
+Best Fit Line to UHOI Limit Points
+GRC Centrifuge Limit (reference)
+
+0.18
+
+Ambient Oxygen Mole Fraction
+
+0.18
+
+Ambient Oxygen Mole Fraction
+
+0.20
+
+UHOI Test - Pass
+UHOI Test - Fail
+UHOI Limit Point
+Best Fit Line to UHOI Limit Points
+GRC Centrifuge Limit (reference)
+
+0.16
+0.14
+0.12
+0.10
+0.08
+0.06
+
+0.16
+0.14
+0.12
+0.10
+0.08
+0.06
+
+0
+
+20
+
+40
+
+60
+
+80
+100
+Forced Flow
+
+120
+
+Cotton T-Shirt (Beefy-T), 8.2 psia
+Gas phase flame limit
+
+140
+
+160 cm/s
+
+0
+
+20
+
+40
+
+60
+
+80
+100
+Forced Flow
+
+120
+
+140
+
+160 cm/s
+
+Cotton T-Shirt (Beefy-T), 8.2 psia
+Smolder limit
+
+15
+
+Test Data: Polycarbonate and Nomex
+0.30
+
+0.26
+
+Ambient Oxygen Mole Fraction
+
+0.28
+
+Ambient Oxygen Mole Fraction
+
+0.26
+
+UHOI Test - Pass
+UHOI Test - Fail
+UHOI Limit Point
+Best Fit Line to UHOI Limit Points
+GRC Centrifuge Limit (reference)
+
+0.24
+0.22
+0.20
+0.18
+
+0.24
+
+0.22
+
+0.20
+
+UHOI Test - Pass
+UHOI Test - Fail
+UHOI Limit Point
+Best Fit Line to UHOI Limit Points
+GRC Centrifuge Limit (reference)
+
+0.16
+0.14
+
+0.18
+
+0
+
+20
+
+40
+
+60
+
+80
+100
+Forced Flow
+
+120
+
+Polycarbonate, 8.2 psia limits
+
+140
+
+160 cm/s
+
+0
+
+20
+
+40
+
+60
+
+80
+100
+Forced Flow
+
+120
+
+140
+
+160 cm/s
+
+Nomex Velcro, 8.2 psi limits
+
+16
+
+Nomex and Polycarbonate Data compared to Takahashi’s data
+
+Comparison of the Nomex and Polycarbonate data with the opposed flow PMMA data of
+Takahashi with PMMA and P213 Data from this work
+17
+
+Flammability Compensation Factors
+Extinction Limit Slope for Oxygen
+Concentration Versus Flow Rate
+Best Fit Slope
+95% Confidence
+∆O2% (at 35 cm/s) for
+(s/cm)
+Interval Slope (s/cm)
+95% Confidence
+Interval
+PMMA
+0.00022
+0.00056
+1.9
+Polycarbonate
+0.00040
+0.00065
+2.3
+Nomex Velcro
+0.000016
+0.000090
+0.32
+P 213
+0.00030
+0.00040
+1.4
+Beefy-T
+0.00017
+0.00023
+0.82
+(flaming)
+Beefy-T
+0.00034
+0.00050
+1.8
+(smolder)
+35 cm/s was identified as a surrogate for 1-g buoyant flow
+∆O2% between the limit extrapolated at 35 cm/s and at zero flow was assumed to be a
+conservative estimate of the potential flammability enhancement by reduced gravity.
+18
+
+Conclusions
+• Some materials (cellulose and pmma) show a clear increased flammability at reduced gravity
+• Higher temperature materials (Nomex and polycarbonate) may show decreased flammability at
+lunar gravity conditions
+• The flammability difference between 35 cm/s and no flow may be a conservative estimate of the
+impact of lunar gravity buoyancy on material flammability.
+• These observations should be tested for other materials and ideally in long duration lunar gravity
+testing
+
+19
+
+

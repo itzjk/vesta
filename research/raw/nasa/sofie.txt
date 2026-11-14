@@ -1,0 +1,89 @@
+https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/solid-fuel-ignition-and-extinction-sofie/
+TITLE: Solid Fuel Ignition and Extinction (SoFIE) - NASA
+FETCHED: 2026-11-14T10:52:04
+
+#
+Solid Fuel Ignition and Extinction (SoFIE)
+
+Fire can be a catastrophic hazard for manned spacecraft. NASA mitigates the risk of fire with the implementation of NASA-STD-6001, which establishes program requirements for evaluation, testing, and selection of materials to preclude unsafe conditions related to flammability, odor, offgassing, and fluid compatibility. NASA-STD-6001 impelements a 1-g flame propagation test for proposed space flight materials which some researchers believe is not conservative in low-g.
+
+In 2009, NASA selected 5 investigations that would help further our understanding of solid surface combustion and material flammability. Each investigation addresses different elements fo material flammability.
+
+### Residence Time Driven Flame Spread (RTDFS)
+
+Primary Investigator:
+Prof. Subrata Bhattacharjee, San Diego State Univ
+
+##### Description
+
+The RTDFS experiment will investigate steady and unsteady flame propagation over solid fuels in a microgravity environment. Theoretical modeling predicts that steady flame spread over solid fuels cannot be sustained, even in a high oxygen environment if the fuel exceeds a critical thickness. Flame spread rate over thin fuels in a quiescent microgravity environment decreases with fuel thickness not only because of increased thermal mass but also because the relative importance of radiative losses, as quantified by a non-dimensional radiation number, increases in direct proportion of fuel thickness.
+
+### Narrow Channel Apparatus (NCA)
+
+Primary Investigator:
+Prof. Fletcher Miller, San Diego State University
+
+##### Description
+
+The experimental approach is to measure flame spread across planar samples of PMMA in a forced opposed flow configuration. The atmosphere will be a mix of oxygen and nitrogen, with the oxygen percentage ranging from atmospheric up to 85%. The pressure will be varied accordingly to stay on or near the normoxic curve. Samples will be tested at variety of flow velocities to obtain spread rate and extinction limits.
+
+### Growth and Extinction Limit (GEL)
+
+Primary Investigator:
+Prof. James T’ien, CWRU
+
+##### Description
+
+This proposed experiment will concentrate on the flame growth, decay and extinction over the surface of a non-flat thick solid in microgravity. In particular, a solid sphere of substantial size (i.e. 4 to 5 cm diameter) is chosen as a representative of non-flat samples. In addition to the parameters influencing the flammability in thin solids, the degree of interior heat-up is an important parameter on the solid burning characteristics of thick specimen. In spherical samples, the degree of interior heating is always changing. The problem is therefore unsteady in nature. In addition, flow around a sphere is different from that around a flat surface. The existence of a forward stagnation point, shoulder and wake regions result in different local flow pattern, hence a different flame-solid interaction. These can affect the burning and extinction characteristics.
+
+### Material Ignition and Suppression Test (MIST)
+
+Primary Investigator:
+Prof. Carlos Fernandez-Pello, UC Berkeley
+
+##### Description
+
+The MIST experimental apparatus would consist of a small-scale combustion wind tunnel, a cylindrical fuel sample, radiant heaters, an igniter, and supporting instrumentation. The flow duct will provide a consistent and uniform flow of the oxidizer gas to the test section where the fuel sample will be located. The test section will have most of the area of its sidewalls available for optical access. Each cylindrical fuel sample will be supported in a holder and placed along the central axis of the flow duct, such that the oxidizer will flow smoothly over the sample surface. An electrical igniter consisting of coiled Kanthal wire will be located around the fuel sample on the downstream end. All tests will be conducted in an opposed-flow configuration.
+
+### Spacecraft Materials Microgravity Research on Flammability (SMuRF)
+
+Primary Investigator:
+Dr. Sandra Olson, GRC
+
+##### Description
+
+The SMµRF experiment will correlate normal gravity flammability test data with data under ventilated microgravity conditions. Rigorous correlations between ground test flammability data in ventilated spacecraft environment would allow selection of materials with increased fire resistance, and thus decrease the fire risk in space systems. The operational flexibility will also increase because the safety factors will be assessable.
+
+## Media
+
+10 Images
+
+## Latest Content
+
+Stay up-to-date with the latest content from NASA as we explore the universe and discover more about our home planet.
+
+SoFIE Stories
+
+1 min read
+
+Mission
+
+SoFIE
+
+1 min read
+
+SoFIE Solid Fuel Ignition and Extinction Active Mission SoFIE is a facility on the International Space Station (ISS) for studying…
+
+Mission
+
+Keep Exploring
+
+## Discover More Topics From NASA
+
+Missions
+
+Humans in Space
+
+Climate Change
+
+Solar System

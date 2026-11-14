@@ -1,0 +1,140 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20010074017,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "2f0cc31589014ba2a28ddbf2dcf875eb",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20010074017,
+  "ear": "NO",
+  "id": "c941154fa2eb40f6a7b91144357739cd",
+  "itar": "NO"
+ },
+ "distributionDate": "2016-06-06T00:00:00.0000000+00:00",
+ "title": "Low Stretch PMMA Burning in Microgravity: Status of the Ground-Based Program and New ISS Glovebox Experiment SALSA",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-20T11:23:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20010074017,
+   "meta": {
+    "author": {
+     "name": "Olson, S. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "b52186e798064fb887f6400589044ee0"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20010074017,
+   "meta": {
+    "author": {
+     "name": "T'ien, J. S."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "239c511764a54a8288c703b01a89e2fa"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20010074017,
+   "meta": {
+    "author": {
+     "name": "Armstrong, J. B."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "2c74a9a99642434db399ae66a1e67ab7"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20010074017,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-20T11:23:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The objective of this ground-based program is to study low stretch diffusion flames burning PMMA as the solid fuel to determine the relationship between buoyant low stretch burning in normal gravity and forced flow low stretch burning in microgravity. The low stretch is generated in normal gravity by using the buoyant convection induced by burning the bottom of a large radius of curvature sample. Low stretch is also generated using the Combustion Tunnel drop tower rig (2.2 and 5.2 second facilities), which provides a forced convective low velocity flow past smaller radius of curvature samples. Lastly, an ISS glovebox investigation is being developed to study low stretch burning of PMMA spheres to obtain long duration testing needed to accurately assess the flammability and burning characteristics of the material in microgravity. A comparison of microgravity experiment results with normal gravity test results allows us to establish a direct link between a material's burning characteristics in normal gravity (easily measured) with its burning characteristics in extraterrestrial environments, including microgravity forced convective environments. Theoretical predictions and recent experimental results indicate that it should be possible to understand a material's burning characteristics in the low stretch environment of spacecraft (non-buoyant air movement induced by fans and crew disturbances) by understanding its burning characteristics in an equivalent Earth-based low stretch environment (induced by normal gravity buoyancy). Similarly, Earth-based stretch environments can be made equivalent to those in Lunar- and Martian-surface stretch environments (which would induce partial-gravity buoyancy).",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20010074017,
+   "id": "80c23dbbec684968b3504b11159a3251",
+   "publicationName": "Sixth International Microgravity Combustion Workshop",
+   "publicationDate": "2001-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20010074017.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20010074017/downloads/20010074017.pdf",
+    "pdf": "/api/citations/20010074017/downloads/20010074017.pdf",
+    "fulltext": "/api/citations/20010074017/downloads/20010074017.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,92 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20080031131,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "73f712f816964f34baf0c9a8872b1112",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20080031131,
+  "ear": "NO",
+  "id": "fcf14025a8284acc98c58b0b1edaed6a",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-09T00:00:00.0000000+00:00",
+ "title": "A History of Spacecraft Environmental Control and Life Support Systems",
+ "stiType": "PREPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T06:36:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20080031131,
+   "meta": {
+    "author": {
+     "name": "Daues, Katherine R."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "4d2ecdfb65b747098f5c0331b984c248"
+  }
+ ],
+ "stiTypeDetails": "Preprint (Draft being sent to journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20080031131,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T06:36:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A spacecraft's Environmental Control and Life Support (ECLS) system enables and maintains a habitable and sustaining environment for its crew. A typical ECLS system provides for atmosphere consumables and revitalization, environmental monitoring, pressure, temperature and humidity control, heat rejection (including equipment cooling), food and water supply and management, waste management, and fire detection and suppression. The following is a summary of ECLS systems used in United States (US) and Russian human spacecraft.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20080031131,
+   "id": "e265e329df814f66872ebdc47daac09d",
+   "publicationDate": "2006-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20080031131.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20080031131/downloads/20080031131.pdf",
+    "pdf": "/api/citations/20080031131/downloads/20080031131.pdf",
+    "fulltext": "/api/citations/20080031131/downloads/20080031131.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

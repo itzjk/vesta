@@ -1,0 +1,209 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150008962,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "d0772cdb3f9a45ba8363a62cf2aa3b5e",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "concurrent",
+  "microgravity",
+  "flame spread"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150008962,
+  "ear": "NO",
+  "id": "a5485645a7344d78a8fe79aaf29054f5",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN21671",
+  "Report Number: GRC-E-DAA-TN21671"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNX10AD99A",
+   "submissionId": 20150008962,
+   "id": "753ccf5a17aa4acd85fd7fb4b09a3644",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 904211.04.02.20.09",
+   "submissionId": 20150008962,
+   "id": "b9234add53e843f2ba67c77d65aaa7b5",
+   "type": "WBS"
+  },
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20150008962,
+   "id": "85b7bcb7845543feb4097eaddddb0345",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Concurrent Flame Growth, Spread and Extinction over Composite Fabric Samples in Low Speed Purely Forced Flow in Microgravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-05-28T08:06:33.7600000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150008962,
+   "meta": {
+    "author": {
+     "name": "Zhao, Xiaoyang"
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "3ad265c7d61f439ca9cdf0f01fb828ed"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20150008962,
+   "meta": {
+    "author": {
+     "name": "T'ien, James S."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "0a8001a1f1c74f69a17b8a7188c22b25"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20150008962,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul V."
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "f7150f3cbf37416688dae97fff0b0e43"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20150008962,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "d42506af0cb14611b9ae63cdb9c34c4d"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150008962,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-05-28T08:06:33.7600000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "As a part of the NASA BASS and BASS-II experimental projects aboard the International Space Station, flame growth, spread and extinction over a composite cotton-fiberglass fabric blend (referred to as the SIBAL fabric) were studied in low-speed concurrent forced flows. The tests were conducted in a small flow duct within the Microgravity Science Glovebox. The fuel samples measured 1.2 and 2.2 cm wide and 10 cm long. Ambient oxygen was varied from 21% down to 16% and flow speed from 40 cm/s down to 1 cm/s. A small flame resulted at low flow, enabling us to observe the entire history of flame development including ignition, flame growth, steady spread (in some cases) and decay at the end of the sample. In addition, by decreasing flow velocity during some of the tests, low-speed flame quenching extinction limits were found as a function of oxygen percentage. The quenching speeds were found to be between 1 and 5 cm/s with higher speed in lower oxygen atmosphere. The shape of the quenching boundary supports the prediction by earlier theoretical models. These long duration microgravity experiments provide a rare opportunity for solid fuel combustion since microgravity time in ground-based facilities is generally not sufficient. This is the first time that a low-speed quenching boundary in concurrent spread is determined in a clean and unambiguous manner.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20150008962,
+   "endDate": "2015-05-20T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "1d89d3c6948442b594b711ab656ff702",
+     "meta": {
+      "organization": {
+       "name": "Combustion Inst.",
+       "location": "Pittsburgh, PA, United States"
+      }
+     },
+     "meetingId": "b08e15cfc9a94d4d9cad74bd163f83c9",
+     "id": "c0667bdc67674ca090fcd68ccb5cedd4"
+    },
+    {
+     "organizationId": "9b8b9dce88b647adb0010a8c9fab369e",
+     "meta": {
+      "organization": {
+       "name": "Cincinnati Univ.",
+       "location": "OH, United States"
+      }
+     },
+     "meetingId": "b08e15cfc9a94d4d9cad74bd163f83c9",
+     "id": "7d0da7219958405586a697d0163f675b"
+    },
+    {
+     "organizationId": "f2349a8a88174573846169d2b50a5cc0",
+     "meta": {
+      "organization": {
+       "name": "General Electric Aviation",
+       "location": "Cincinnati, OH, United States"
+      }
+     },
+     "meetingId": "b08e15cfc9a94d4d9cad74bd163f83c9",
+     "id": "d118aa4755e548aabb1f2ad53739ed36"
+    }
+   ],
+   "name": "U. S. National Combustion Meeting",
+   "location": "Cincinnati, OH",
+   "id": "b08e15cfc9a94d4d9cad74bd163f83c9",
+   "startDate": "2015-05-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20150008962,
+   "id": "1f0452959a7b49d5b3c0c22ddd9eeac0",
+   "publicationDate": "2015-05-17T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150008962.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150008962/downloads/20150008962.pdf",
+    "pdf": "/api/citations/20150008962/downloads/20150008962.pdf",
+    "fulltext": "/api/citations/20150008962/downloads/20150008962.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

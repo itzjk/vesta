@@ -1,0 +1,3 @@
+Experiments to ensure Space Station fire safety - A challenge
+
+Three experiments have been formulated in order to address prominent fire safety requirements aboard the NASA Space Shuttle; these experiments are to be conducted as part of a Space Station-based Technology Development Mission for the growth phase of Space Station construction and operation. The experiments are: (1) an investigation of the flame-spread rate and combustion-product evolution in the burning of typical spacecraft materials in low gravity; (2) an evaluation of the interaction of fires and candidate fire extinguishers in low gravity; and (3) an investigation of the persistence and propagation of smoldering and deep-seated combustion in low gravity.

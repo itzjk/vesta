@@ -1,0 +1,112 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040161244,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "29974059ad6f4c6596ea9c3fb716b593",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040161244,
+  "ear": "NO",
+  "id": "87833ed5c79f407785a2be44c247d696",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "Most Probable Fire Scenarios in Spacecraft and Extraterrestrial Habitats: Why NASA's Current Test 1 Might Not Always be Conservative",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:50:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040161244,
+   "meta": {
+    "author": {
+     "name": "Olson, S. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e890ccb0a36849c190b17e4eba0655da"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040161244,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:50:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "NASA's current method of material screening determines fire resistance under conditions representing a worst-case for normal gravity flammability - the Upward Flame Propagation Test (Test 1). Its simple pass-fail criteria eliminates materials that burn for more than 12 inches from a standardized ignition source. In addition, if a material drips burning pieces that ignite a flammable fabric below, it fails. The applicability of Test 1 to fires in microgravity and extraterrestrial environments, however, is uncertain because the relationship between this buoyancy-dominated test and actual extraterrestrial fire hazards is not understood. There is compelling evidence that the Test 1 may not be the worst case for spacecraft fires, and we don t have enough information to assess if it is adequate at Lunar or Martian gravity levels.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040161244,
+   "id": "39acd6082e154ca9afec41ad6e271b89",
+   "publicationName": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session, Volume 2",
+   "publicationDate": "2004-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040161244.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040161244/downloads/20040161244.pdf",
+    "pdf": "/api/citations/20040161244/downloads/20040161244.pdf",
+    "fulltext": "/api/citations/20040161244/downloads/20040161244.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

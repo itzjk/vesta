@@ -1,0 +1,140 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20010074096,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "d7306b91914d488fb39df8021a14c63b",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20010074096,
+  "ear": "NO",
+  "id": "35cdc6863a554a998e39ce09958e263c",
+  "itar": "NO"
+ },
+ "distributionDate": "2016-06-06T00:00:00.0000000+00:00",
+ "title": "An Earth-Based Equivalent Low Stretch Apparatus to Assess Material Flammability for Microgravity & Extraterrestrial Fire-Safety Applications",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-20T11:27:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20010074096,
+   "meta": {
+    "author": {
+     "name": "Olson, S. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "f36e8df9eb844440abee8efa962f545b"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20010074096,
+   "meta": {
+    "author": {
+     "name": "Beeson, H."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM United States"
+    }
+   },
+   "id": "7f890bf5aac043488e077cbc48975eda"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20010074096,
+   "meta": {
+    "author": {
+     "name": "Haas, J."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM United States"
+    }
+   },
+   "id": "5e374378ecd7453bbab790cae0adbf56"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20010074096,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-20T11:27:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "One of the performance goals for NASA's enterprise of Human Exploration and Development of Space (HEDS) is to develop methods, data bases, and validating tests for material flammability characterization, hazard reduction, and fire detection/suppression strategies for spacecraft and extraterrestrial habitats. This work addresses these needs by applying the fundamental knowledge gained from low stretch experiments to the development of a normal gravity low stretch material flammability test method. The concept of the apparatus being developed uses the low stretch geometry to simulate the conditions of the extraterrestrial environment through proper scaling of the sample dimensions to reduce the buoyant stretch in normal gravity. The apparatus uses controlled forced-air flow to augment the low stretch to levels which simulate Lunar or Martian gravity levels. In addition, the effect of imposed radiant heat flux on material flammability can be studied with the cone heater. After breadboard testing, the apparatus will be integrated into NASA's White Sands Test Facility's Atmosphere-Controlled Cone Calorimeter for evaluation as a new materials screening test method.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20010074096,
+   "id": "d8bb4637b436490e83acc463c44b89ee",
+   "publicationName": "Sixth International Microgravity Combustion Workshop",
+   "publicationDate": "2001-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20010073993,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Sixth International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20010074096.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20010074096/downloads/20010074096.pdf",
+    "pdf": "/api/citations/20010074096/downloads/20010074096.pdf",
+    "fulltext": "/api/citations/20010074096/downloads/20010074096.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

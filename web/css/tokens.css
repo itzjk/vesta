@@ -1,0 +1,27 @@
+/* VESTA tokens. The values are the film's own constants (film/src/mods/holo.js). DESIGN.md section 6.1. */
+@font-face{
+  font-family:"Space Grotesk";
+  src:url("../assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-weight:300 700; font-style:normal; font-display:swap;
+}
+:root{
+  --bg-0:#02040a; --bg-1:#060c1a; --bg-2:#0a1224;                     /* space black to navy */
+  --card-a:#0d1b33; --card-b:#16335c;                                 /* film hologram card gradient */
+  --ice:rgb(66,163,255); --ice-text:rgb(153,219,255); --white:rgb(235,245,255); --dim:rgba(153,219,255,.62);
+  --amber:rgb(255,128,31); --green:rgb(77,255,140); --red:rgb(255,36,20);
+  --ember:rgb(255,61,20); --ember-text:rgb(255,143,92); --gold:rgb(255,168,51); --cream:#f3e7cf;
+  --vesta-body:#f1ece2; --vesta-helmet:#f5411a; --vesta-orange:#ff7422; --vesta-gold:#e0a93a; --vesta-dark:#24262d; --vesta-eye:#0a0607;
+  --panel:rgba(66,163,255,.06); --panel-strong:rgba(66,163,255,.11); --line:rgba(66,163,255,.45); --line-strong:rgba(66,163,255,.9);
+  --glow:0 0 18px rgba(66,163,255,.35); --glow-strong:0 0 30px rgba(66,163,255,.55); --glow-amber:0 0 22px rgba(255,128,31,.5);
+  --r-panel:16px; --r-card:12px; --r-pill:999px; --bracket:14px;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px;
+  --font:"Space Grotesk",system-ui,sans-serif; --display:"Clash Display",var(--font);
+  --t-fast:200ms; --t-slow:400ms; --ease:cubic-bezier(.16,1,.3,1);
+
+  /* derived: the same hues at the strengths the components need */
+  --green-soft:rgba(77,255,140,.14); --amber-soft:rgba(255,128,31,.14); --red-soft:rgba(255,36,20,.16);
+  --ember-soft:rgba(255,61,20,.10); --ember-line:rgba(255,61,20,.55); --cream-soft:rgba(243,231,207,.10);
+  --white-line:rgba(235,245,255,.55); --line-faint:rgba(66,163,255,.2);
+  --glow-red:0 0 22px rgba(255,36,20,.45); --glow-green:0 0 16px rgba(77,255,140,.35);
+  --bar-h:64px; --foot-h:40px; --stage-w:1920px; --stage-h:1080px;
+}

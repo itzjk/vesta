@@ -1,0 +1,1748 @@
+{
+ "note": "Synthetic fixture for tests/core. Every id starts with FX- (preset ids excepted: they are the habitat ids of the hash grammar). Nothing here is NASA data and none of it may appear under web/. Generated once by hand-written tuples; the shapes follow build/notes-WP1.md (every file is an object).",
+ "meta": {
+  "schema": "vesta.meta/1",
+  "fixture": true
+ },
+ "investigations": {
+  "investigations": [
+   {
+    "psi_id": "FX-PSI-1",
+    "name": "FX solid duct"
+   },
+   {
+    "psi_id": "FX-PSI-2",
+    "name": "FX smoke test"
+   },
+   {
+    "psi_id": "FX-PSI-3",
+    "name": "FX droplets"
+   },
+   {
+    "psi_id": "FX-PSI-10",
+    "name": "FX ground study, no table"
+   }
+  ],
+  "excluded": [
+   {
+    "psi_id": "FX-PSI-99",
+    "why": "fixture"
+   }
+  ],
+  "related": []
+ },
+ "tests": {
+  "meta": {
+   "n_tests": 16
+  },
+  "tests": [
+   {
+    "id": "FX-PSI-1:1",
+    "psi_id": "FX-PSI-1",
+    "investigation": "FX solid duct",
+    "table_file": "FX-PSI-1_fixture table.csv",
+    "row": 1,
+    "row_kind": "test",
+    "fuel": "FX Alpha",
+    "o2_percent": 22,
+    "o2_basis": "ambient",
+    "pressure_kpa": null,
+    "gravity": "microgravity",
+    "outcomes": {
+     "burn_length_cm": {
+      "value": 12,
+      "unit": "cm",
+      "raw": "12"
+     },
+     "result": {
+      "value": null,
+      "unit": null,
+      "raw": "burned"
+     }
+    },
+    "n": {
+     "material_id": "fx-alpha",
+     "fuel_class": "solid",
+     "cabin": true,
+     "pillars": [
+      "prevention"
+     ],
+     "gclass": "micro",
+     "o2": 22,
+     "p": null,
+     "p_inferred": 101.3,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-1:2",
+    "psi_id": "FX-PSI-1",
+    "investigation": "FX solid duct",
+    "table_file": "FX-PSI-1_fixture table.csv",
+    "row": 2,
+    "row_kind": "test",
+    "fuel": "FX Alpha",
+    "o2_percent": 22.1,
+    "o2_basis": "ambient",
+    "pressure_kpa": null,
+    "gravity": "microgravity",
+    "outcomes": {
+     "burn_length_cm": {
+      "value": 14,
+      "unit": "cm",
+      "raw": "14"
+     }
+    },
+    "n": {
+     "material_id": "fx-alpha",
+     "fuel_class": "solid",
+     "cabin": true,
+     "pillars": [
+      "prevention"
+     ],
+     "gclass": "micro",
+     "o2": 22.1,
+     "p": null,
+     "p_inferred": 101.3,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-1:3",
+    "psi_id": "FX-PSI-1",
+    "investigation": "FX solid duct",
+    "table_file": "FX-PSI-1_fixture table.csv",
+    "row": 3,
+    "row_kind": "test",
+    "fuel": "FX Alpha",
+    "o2_percent": 20,
+    "o2_basis": "ambient",
+    "pressure_kpa": null,
+    "gravity": "microgravity",
+    "outcomes": {
+     "burn_length_cm": {
+      "value": 3,
+      "unit": "cm",
+      "raw": "3"
+     },
+     "result": {
+      "value": null,
+      "unit": null,
+      "raw": "self-extinguished"
+     }
+    },
+    "n": {
+     "material_id": "fx-alpha",
+     "fuel_class": "solid",
+     "cabin": true,
+     "pillars": [
+      "prevention"
+     ],
+     "gclass": "micro",
+     "o2": 20,
+     "p": null,
+     "p_inferred": 101.3,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-1:4",
+    "psi_id": "FX-PSI-1",
+    "investigation": "FX solid duct",
+    "table_file": "FX-PSI-1_fixture table.csv",
+    "row": 4,
+    "row_kind": "test",
+    "fuel": "FX Alpha",
+    "o2_percent": 19.9,
+    "o2_basis": "ambient",
+    "pressure_kpa": null,
+    "gravity": "microgravity",
+    "outcomes": {},
+    "n": {
+     "material_id": "fx-alpha",
+     "fuel_class": "solid",
+     "cabin": true,
+     "pillars": [
+      "prevention"
+     ],
+     "gclass": "micro",
+     "o2": 19.9,
+     "p": null,
+     "p_inferred": 101.3,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-1:5",
+    "psi_id": "FX-PSI-1",
+    "investigation": "FX solid duct",
+    "table_file": "FX-PSI-1_fixture table.csv",
+    "row": 5,
+    "row_kind": "test",
+    "fuel": "FX Beta",
+    "o2_percent": 21,
+    "o2_basis": "ambient",
+    "pressure_kpa": 101.3,
+    "gravity": "microgravity",
+    "outcomes": {},
+    "n": {
+     "material_id": "fx-beta",
+     "fuel_class": "solid",
+     "cabin": true,
+     "pillars": [
+      "prevention"
+     ],
+     "gclass": "micro",
+     "o2": 21,
+     "p": 101.3,
+     "p_inferred": null,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-1:6",
+    "psi_id": "FX-PSI-1",
+    "investigation": "FX solid duct",
+    "table_file": "FX-PSI-1_fixture table.csv",
+    "row": 6,
+    "row_kind": "test",
+    "fuel": "FX Beta",
+    "o2_percent": 21,
+    "o2_basis": "ambient",
+    "pressure_kpa": null,
+    "gravity": "microgravity",
+    "outcomes": {},
+    "n": {
+     "material_id": "fx-beta",
+     "fuel_class": "solid",
+     "cabin": true,
+     "pillars": [
+      "prevention"
+     ],
+     "gclass": "micro",
+     "o2": 21,
+     "p": null,
+     "p_inferred": 101.3,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-1:7",
+    "psi_id": "FX-PSI-1",
+    "investigation": "FX solid duct",
+    "table_file": "FX-PSI-1_fixture table.csv",
+    "row": 7,
+    "row_kind": "test_day",
+    "fuel": "FX Gamma",
+    "o2_percent": 21,
+    "o2_basis": "ambient",
+    "pressure_kpa": 101.3,
+    "gravity": "microgravity",
+    "outcomes": {},
+    "n": {
+     "material_id": "fx-gamma",
+     "fuel_class": "solid",
+     "cabin": true,
+     "pillars": [
+      "prevention"
+     ],
+     "gclass": "micro",
+     "o2": 21,
+     "p": 101.3,
+     "p_inferred": null,
+     "counts": false
+    }
+   },
+   {
+    "id": "FX-PSI-1:8",
+    "psi_id": "FX-PSI-1",
+    "investigation": "FX solid duct",
+    "table_file": "FX-PSI-1_fixture table.csv",
+    "row": 8,
+    "row_kind": "test",
+    "fuel": null,
+    "o2_percent": 21,
+    "o2_basis": "ambient",
+    "pressure_kpa": null,
+    "gravity": "microgravity",
+    "outcomes": {},
+    "n": {
+     "material_id": null,
+     "fuel_class": "solid",
+     "cabin": true,
+     "pillars": [
+      "prevention"
+     ],
+     "gclass": "micro",
+     "o2": 21,
+     "p": null,
+     "p_inferred": 101.3,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-1:9",
+    "psi_id": "FX-PSI-1",
+    "investigation": "FX solid duct",
+    "table_file": "FX-PSI-1_fixture table.csv",
+    "row": 9,
+    "row_kind": "test",
+    "fuel": "FX Delta",
+    "o2_percent": 21,
+    "o2_basis": "ambient",
+    "pressure_kpa": null,
+    "gravity": null,
+    "outcomes": {},
+    "n": {
+     "material_id": "fx-delta",
+     "fuel_class": "solid",
+     "cabin": true,
+     "pillars": [
+      "prevention"
+     ],
+     "gclass": null,
+     "o2": 21,
+     "p": null,
+     "p_inferred": 101.3,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-1:10",
+    "psi_id": "FX-PSI-1",
+    "investigation": "FX solid duct",
+    "table_file": "FX-PSI-1_fixture table.csv",
+    "row": 10,
+    "row_kind": "test",
+    "fuel": "FX Epsilon",
+    "o2_percent": 85,
+    "o2_basis": "burner_stream",
+    "pressure_kpa": null,
+    "gravity": "microgravity",
+    "outcomes": {},
+    "n": {
+     "material_id": "fx-epsilon",
+     "fuel_class": "solid",
+     "cabin": true,
+     "pillars": [
+      "prevention"
+     ],
+     "gclass": "micro",
+     "o2": null,
+     "p": null,
+     "p_inferred": 101.3,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-2:1",
+    "psi_id": "FX-PSI-2",
+    "investigation": "FX smoke test",
+    "table_file": "FX-PSI-2_fixture table.csv",
+    "row": 1,
+    "row_kind": "test",
+    "fuel": "FX Kappa",
+    "o2_percent": null,
+    "o2_basis": null,
+    "pressure_kpa": null,
+    "gravity": "microgravity",
+    "outcomes": {},
+    "n": {
+     "material_id": "fx-kappa",
+     "fuel_class": "smoke_source",
+     "cabin": true,
+     "pillars": [
+      "detection"
+     ],
+     "gclass": "micro",
+     "o2": null,
+     "p": null,
+     "p_inferred": null,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-2:2",
+    "psi_id": "FX-PSI-2",
+    "investigation": "FX smoke test",
+    "table_file": "FX-PSI-2_fixture table.csv",
+    "row": 2,
+    "row_kind": "test_group_reference",
+    "fuel": "FX Kappa",
+    "o2_percent": null,
+    "o2_basis": null,
+    "pressure_kpa": null,
+    "gravity": "microgravity",
+    "outcomes": {},
+    "n": {
+     "material_id": "fx-kappa",
+     "fuel_class": "smoke_source",
+     "cabin": true,
+     "pillars": [
+      "detection"
+     ],
+     "gclass": "micro",
+     "o2": null,
+     "p": null,
+     "p_inferred": null,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-3:1",
+    "psi_id": "FX-PSI-3",
+    "investigation": "FX droplets",
+    "table_file": "FX-PSI-3_fixture table.csv",
+    "row": 1,
+    "row_kind": "test",
+    "fuel": "FX Fuel",
+    "o2_percent": 30,
+    "o2_basis": "ambient",
+    "pressure_kpa": 70.3,
+    "gravity": "microgravity",
+    "outcomes": {},
+    "n": {
+     "material_id": "fx-fuel",
+     "fuel_class": "liquid_droplet",
+     "cabin": false,
+     "pillars": [
+      "suppression"
+     ],
+     "gclass": "micro",
+     "o2": 30,
+     "p": 70.3,
+     "p_inferred": null,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-3:2",
+    "psi_id": "FX-PSI-3",
+    "investigation": "FX droplets",
+    "table_file": "FX-PSI-3_fixture table.csv",
+    "row": 2,
+    "row_kind": "test",
+    "fuel": "FX Fuel",
+    "o2_percent": 30.9,
+    "o2_basis": "ambient",
+    "pressure_kpa": 66,
+    "gravity": "microgravity",
+    "outcomes": {},
+    "n": {
+     "material_id": "fx-fuel",
+     "fuel_class": "liquid_droplet",
+     "cabin": false,
+     "pillars": [
+      "suppression"
+     ],
+     "gclass": "micro",
+     "o2": 30.9,
+     "p": 66,
+     "p_inferred": null,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-3:3",
+    "psi_id": "FX-PSI-3",
+    "investigation": "FX droplets",
+    "table_file": "FX-PSI-3_fixture table.csv",
+    "row": 3,
+    "row_kind": "test",
+    "fuel": "FX Fuel",
+    "o2_percent": 21,
+    "o2_basis": "ambient",
+    "pressure_kpa": 101.3,
+    "gravity": "microgravity",
+    "outcomes": {},
+    "n": {
+     "material_id": "fx-fuel",
+     "fuel_class": "liquid_droplet",
+     "cabin": false,
+     "pillars": [
+      "suppression"
+     ],
+     "gclass": "micro",
+     "o2": 21,
+     "p": 101.3,
+     "p_inferred": null,
+     "counts": true
+    }
+   },
+   {
+    "id": "FX-PSI-3:4",
+    "psi_id": "FX-PSI-3",
+    "investigation": "FX droplets",
+    "table_file": "FX-PSI-3_fixture table.csv",
+    "row": 4,
+    "row_kind": "test",
+    "fuel": "FX Fuel",
+    "o2_percent": 34,
+    "o2_basis": "ambient",
+    "pressure_kpa": 101.3,
+    "gravity": "microgravity",
+    "outcomes": {},
+    "n": {
+     "material_id": "fx-fuel",
+     "fuel_class": "liquid_droplet",
+     "cabin": false,
+     "pillars": [
+      "suppression"
+     ],
+     "gclass": "micro",
+     "o2": 34,
+     "p": 101.3,
+     "p_inferred": null,
+     "counts": true
+    }
+   }
+  ],
+  "summaries": [
+   {
+    "psi_id": "FX-PSI-1",
+    "n_tests": 10,
+    "varied": [
+     {
+      "field": "o2_percent",
+      "distinct": 5
+     }
+    ],
+    "constant": [
+     {
+      "field": "gravity",
+      "value": "microgravity"
+     }
+    ]
+   }
+  ]
+ },
+ "tables": {
+  "tables": [
+   {
+    "psi_id": "FX-PSI-1",
+    "table_file": "FX-PSI-1_fixture table.csv",
+    "note": {
+     "cabin": true,
+     "fuel_class": "solid",
+     "pillars": [
+      "prevention"
+     ]
+    }
+   },
+   {
+    "psi_id": "FX-PSI-2",
+    "table_file": "FX-PSI-2_fixture table.csv",
+    "note": {
+     "cabin": true,
+     "fuel_class": "smoke_source",
+     "pillars": [
+      "detection"
+     ]
+    }
+   },
+   {
+    "psi_id": "FX-PSI-3",
+    "table_file": "FX-PSI-3_fixture table.csv",
+    "note": {
+     "cabin": false,
+     "fuel_class": "liquid_droplet",
+     "pillars": [
+      "suppression"
+     ]
+    }
+   }
+  ]
+ },
+ "findings": {
+  "findings": [
+   {
+    "id": "FX-A",
+    "kind": "quote",
+    "investigation": "FX solid duct",
+    "pillar": "prevention",
+    "topic": "flame_spread",
+    "claim": "Fixture claim of FX-A.",
+    "quote": "Fixture sentence of FX-A; it is not NASA text.",
+    "source": {
+     "kind": "fixture",
+     "id": "FX-A",
+     "title": "Fixture source",
+     "url": "https://example.invalid/FX-A",
+     "year": 2015,
+     "text_file": null
+    },
+    "verified": {
+     "quote": true,
+     "support": "direct"
+    },
+    "gate": {
+     "pass": true
+    },
+    "context": {
+     "before": "",
+     "after": ""
+    },
+    "n": {
+     "psi_id": "FX-PSI-1",
+     "work": "flight",
+     "read_in": "nasa_review",
+     "support": "direct",
+     "gclass": "micro",
+     "o2": 21,
+     "p": 101.3,
+     "material_ids": [],
+     "fuel_class": null,
+     "habitats": [
+      "station",
+      "spacecraft",
+      "lunar-base",
+      "rover",
+      "mars-base"
+     ],
+     "topic": "flame_spread",
+     "dropped": []
+    }
+   },
+   {
+    "id": "FX-S-VENT",
+    "kind": "quote",
+    "investigation": null,
+    "pillar": "prevention",
+    "topic": "ventilation_flow",
+    "claim": "Fixture claim of FX-S-VENT.",
+    "quote": "Fixture sentence of FX-S-VENT; it is not NASA text.",
+    "source": {
+     "kind": "fixture",
+     "id": "FX-S-VENT",
+     "title": "Fixture source",
+     "url": "https://example.invalid/FX-S-VENT",
+     "year": 2015,
+     "text_file": null
+    },
+    "verified": {
+     "quote": true,
+     "support": "direct"
+    },
+    "gate": {
+     "pass": true
+    },
+    "context": {
+     "before": "",
+     "after": ""
+    },
+    "n": {
+     "psi_id": null,
+     "work": "summary",
+     "read_in": "nasa_review",
+     "support": "direct",
+     "gclass": "micro",
+     "o2": null,
+     "p": null,
+     "material_ids": [],
+     "fuel_class": null,
+     "habitats": [
+      "station",
+      "spacecraft",
+      "lunar-base",
+      "rover",
+      "mars-base"
+     ],
+     "topic": "ventilation_flow",
+     "dropped": []
+    }
+   },
+   {
+    "id": "FX-B",
+    "kind": "quote",
+    "investigation": "FX solid duct",
+    "pillar": "prevention",
+    "topic": "flame_spread",
+    "claim": "Fixture claim of FX-B.",
+    "quote": "Fixture sentence of FX-B; it is not NASA text.",
+    "source": {
+     "kind": "fixture",
+     "id": "FX-B",
+     "title": "Fixture source",
+     "url": "https://example.invalid/FX-B",
+     "year": 2014,
+     "text_file": null
+    },
+    "verified": {
+     "quote": true,
+     "support": "partial"
+    },
+    "gate": {
+     "pass": true
+    },
+    "context": {
+     "before": "",
+     "after": ""
+    },
+    "n": {
+     "psi_id": "FX-PSI-1",
+     "work": "flight",
+     "read_in": "nasa_review",
+     "support": "partial",
+     "gclass": "micro",
+     "o2": 21,
+     "p": 101.3,
+     "material_ids": [],
+     "fuel_class": null,
+     "habitats": [
+      "station",
+      "spacecraft",
+      "lunar-base",
+      "rover",
+      "mars-base"
+     ],
+     "topic": "flame_spread",
+     "dropped": []
+    }
+   },
+   {
+    "id": "FX-C",
+    "kind": "quote",
+    "investigation": null,
+    "pillar": "prevention",
+    "topic": "flammability_limit",
+    "claim": "Fixture claim of FX-C.",
+    "quote": "Fixture sentence of FX-C; it is not NASA text.",
+    "source": {
+     "kind": "fixture",
+     "id": "FX-C",
+     "title": "Fixture source",
+     "url": "https://example.invalid/FX-C",
+     "year": 2024,
+     "text_file": null
+    },
+    "verified": {
+     "quote": true,
+     "support": "direct"
+    },
+    "gate": {
+     "pass": true
+    },
+    "context": {
+     "before": "",
+     "after": ""
+    },
+    "n": {
+     "psi_id": null,
+     "work": "model",
+     "read_in": "nasa_page",
+     "support": "direct",
+     "gclass": "partial",
+     "o2": [
+      30,
+      36
+     ],
+     "p": 56.5,
+     "material_ids": [
+      "fx-gamma"
+     ],
+     "fuel_class": "solid",
+     "habitats": [
+      "lunar-base"
+     ],
+     "topic": "flammability_limit",
+     "dropped": []
+    }
+   },
+   {
+    "id": "FX-D",
+    "kind": "quote",
+    "investigation": "FX droplets",
+    "pillar": "detection",
+    "topic": "no_visible_flame",
+    "claim": "Fixture claim of FX-D.",
+    "quote": "Fixture sentence of FX-D; it is not NASA text.",
+    "source": {
+     "kind": "fixture",
+     "id": "FX-D",
+     "title": "Fixture source",
+     "url": "https://example.invalid/FX-D",
+     "year": 2023,
+     "text_file": null
+    },
+    "verified": {
+     "quote": true,
+     "support": "direct"
+    },
+    "gate": {
+     "pass": true
+    },
+    "context": {
+     "before": "",
+     "after": ""
+    },
+    "n": {
+     "psi_id": "FX-PSI-3",
+     "work": "flight",
+     "read_in": "nasa_page",
+     "support": "direct",
+     "gclass": "micro",
+     "o2": null,
+     "p": null,
+     "material_ids": [],
+     "fuel_class": "liquid_droplet",
+     "habitats": [
+      "spacecraft"
+     ],
+     "topic": "no_visible_flame",
+     "dropped": []
+    }
+   },
+   {
+    "id": "FX-E",
+    "kind": "quote",
+    "investigation": "FX droplets",
+    "pillar": "detection",
+    "topic": "no_visible_flame",
+    "claim": "Fixture claim of FX-E.",
+    "quote": "Fixture sentence of FX-E; it is not NASA text.",
+    "source": {
+     "kind": "fixture",
+     "id": "FX-E",
+     "title": "Fixture source",
+     "url": "https://example.invalid/FX-E",
+     "year": 2020,
+     "text_file": null
+    },
+    "verified": {
+     "quote": true,
+     "support": "direct"
+    },
+    "gate": {
+     "pass": true
+    },
+    "context": {
+     "before": "",
+     "after": ""
+    },
+    "n": {
+     "psi_id": "FX-PSI-3",
+     "work": "summary",
+     "read_in": "nasa_page",
+     "support": "direct",
+     "gclass": "micro",
+     "o2": null,
+     "p": null,
+     "material_ids": [],
+     "fuel_class": "liquid_droplet",
+     "habitats": [
+      "spacecraft"
+     ],
+     "topic": "no_visible_flame",
+     "dropped": []
+    }
+   },
+   {
+    "id": "FX-F",
+    "kind": "quote",
+    "investigation": "FX solid duct",
+    "pillar": "suppression",
+    "topic": "suppressant_application",
+    "claim": "Fixture claim of FX-F.",
+    "quote": "Fixture sentence of FX-F; it is not NASA text.",
+    "source": {
+     "kind": "fixture",
+     "id": "FX-F",
+     "title": "Fixture source",
+     "url": "https://example.invalid/FX-F",
+     "year": 2015,
+     "text_file": null
+    },
+    "verified": {
+     "quote": true,
+     "support": "direct"
+    },
+    "gate": {
+     "pass": true
+    },
+    "context": {
+     "before": "",
+     "after": ""
+    },
+    "n": {
+     "psi_id": "FX-PSI-1",
+     "work": "flight",
+     "read_in": "nasa_review",
+     "support": "direct",
+     "gclass": "micro",
+     "o2": null,
+     "p": null,
+     "material_ids": [],
+     "fuel_class": "solid",
+     "habitats": [
+      "station",
+      "spacecraft",
+      "lunar-base",
+      "rover",
+      "mars-base"
+     ],
+     "topic": "suppressant_application",
+     "dropped": []
+    }
+   },
+   {
+    "id": "FX-EARTH",
+    "kind": "quote",
+    "investigation": "FX solid duct",
+    "pillar": "suppression",
+    "topic": "suppressant_application",
+    "claim": "Fixture claim of FX-EARTH.",
+    "quote": "Fixture sentence of FX-EARTH; it is not NASA text.",
+    "source": {
+     "kind": "fixture",
+     "id": "FX-EARTH",
+     "title": "Fixture source",
+     "url": "https://example.invalid/FX-EARTH",
+     "year": 2012,
+     "text_file": null
+    },
+    "verified": {
+     "quote": true,
+     "support": "direct"
+    },
+    "gate": {
+     "pass": true
+    },
+    "context": {
+     "before": "",
+     "after": ""
+    },
+    "n": {
+     "psi_id": "FX-PSI-1",
+     "work": "summary",
+     "read_in": "nasa_page",
+     "support": "direct",
+     "gclass": "normal",
+     "o2": null,
+     "p": null,
+     "material_ids": [],
+     "fuel_class": null,
+     "habitats": [],
+     "topic": "suppressant_application",
+     "dropped": []
+    }
+   },
+   {
+    "id": "FX-COMM-1",
+    "kind": "quote",
+    "investigation": null,
+    "pillar": "design",
+    "topic": "comm_delay",
+    "claim": "Fixture claim of FX-COMM-1.",
+    "quote": "Fixture sentence of FX-COMM-1; it is not NASA text.",
+    "source": {
+     "kind": "fixture",
+     "id": "FX-COMM-1",
+     "title": "Fixture source",
+     "url": "https://example.invalid/FX-COMM-1",
+     "year": 2023,
+     "text_file": null
+    },
+    "verified": {
+     "quote": true,
+     "support": "direct"
+    },
+    "gate": {
+     "pass": true
+    },
+    "context": {
+     "before": "",
+     "after": ""
+    },
+    "n": {
+     "psi_id": null,
+     "work": "summary",
+     "read_in": "nasa_page",
+     "support": "direct",
+     "gclass": null,
+     "o2": null,
+     "p": null,
+     "material_ids": [],
+     "fuel_class": null,
+     "habitats": [
+      "station",
+      "spacecraft",
+      "lunar-base",
+      "rover",
+      "mars-base"
+     ],
+     "topic": "comm_delay",
+     "dropped": []
+    }
+   },
+   {
+    "id": "FX-COMM-2",
+    "kind": "quote",
+    "investigation": null,
+    "pillar": "design",
+    "topic": "comm_delay",
+    "claim": "Fixture claim of FX-COMM-2.",
+    "quote": "Fixture sentence of FX-COMM-2; it is not NASA text.",
+    "source": {
+     "kind": "fixture",
+     "id": "FX-COMM-2",
+     "title": "Fixture source",
+     "url": "https://example.invalid/FX-COMM-2",
+     "year": 2013,
+     "text_file": null
+    },
+    "verified": {
+     "quote": true,
+     "support": "direct"
+    },
+    "gate": {
+     "pass": true
+    },
+    "context": {
+     "before": "",
+     "after": ""
+    },
+    "n": {
+     "psi_id": null,
+     "work": "summary",
+     "read_in": "nasa_report",
+     "support": "direct",
+     "gclass": null,
+     "o2": null,
+     "p": null,
+     "material_ids": [],
+     "fuel_class": null,
+     "habitats": [
+      "station",
+      "spacecraft",
+      "lunar-base",
+      "rover",
+      "mars-base"
+     ],
+     "topic": "comm_delay",
+     "dropped": []
+    }
+   },
+   {
+    "id": "FX-PROT-1",
+    "kind": "quote",
+    "investigation": null,
+    "pillar": "response",
+    "topic": "iss_procedure",
+    "claim": "Fixture claim of FX-PROT-1.",
+    "quote": "Fixture sentence of FX-PROT-1; it is not NASA text.",
+    "source": {
+     "kind": "fixture",
+     "id": "FX-PROT-1",
+     "title": "Fixture source",
+     "url": "https://example.invalid/FX-PROT-1",
+     "year": 2023,
+     "text_file": null
+    },
+    "verified": {
+     "quote": true,
+     "support": "direct"
+    },
+    "gate": {
+     "pass": true
+    },
+    "context": {
+     "before": "",
+     "after": ""
+    },
+    "n": {
+     "psi_id": null,
+     "work": "operations",
+     "read_in": "nasa_report",
+     "support": "direct",
+     "gclass": null,
+     "o2": null,
+     "p": null,
+     "material_ids": [],
+     "fuel_class": null,
+     "habitats": [],
+     "topic": "iss_procedure",
+     "dropped": []
+    }
+   },
+   {
+    "id": "FX-PROT-2",
+    "kind": "quote",
+    "investigation": null,
+    "pillar": "response",
+    "topic": "iss_procedure",
+    "claim": "Fixture claim of FX-PROT-2.",
+    "quote": "Fixture sentence of FX-PROT-2; it is not NASA text.",
+    "source": {
+     "kind": "fixture",
+     "id": "FX-PROT-2",
+     "title": "Fixture source",
+     "url": "https://example.invalid/FX-PROT-2",
+     "year": 2023,
+     "text_file": null
+    },
+    "verified": {
+     "quote": true,
+     "support": "direct"
+    },
+    "gate": {
+     "pass": true
+    },
+    "context": {
+     "before": "",
+     "after": ""
+    },
+    "n": {
+     "psi_id": null,
+     "work": "operations",
+     "read_in": "nasa_report",
+     "support": "direct",
+     "gclass": null,
+     "o2": null,
+     "p": null,
+     "material_ids": [],
+     "fuel_class": null,
+     "habitats": [],
+     "topic": "iss_procedure",
+     "dropped": []
+    }
+   }
+  ]
+ },
+ "rules": {
+  "rules": [
+   {
+    "id": "FX-R-VENT",
+    "pillar": "prevention",
+    "topic": "ventilation_flow",
+    "earth_instinct": "Fixture instinct of FX-R-VENT.",
+    "earth_instinct_finding_id": null,
+    "nasa_showed": "Fixture sentence for FX-R-VENT.",
+    "vesta_decides": "Fixture decision of FX-R-VENT.",
+    "finding_ids": [
+     "FX-S-VENT",
+     "FX-MISSING"
+    ],
+    "confidence": "fixture",
+    "limits": "Fixture limits of FX-R-VENT."
+   },
+   {
+    "id": "FX-R-POWER",
+    "pillar": "suppression",
+    "topic": "ignition_source",
+    "earth_instinct": "Fixture instinct of FX-R-POWER.",
+    "earth_instinct_finding_id": null,
+    "nasa_showed": "Fixture sentence for FX-R-POWER.",
+    "vesta_decides": "Fixture decision of FX-R-POWER.",
+    "finding_ids": [
+     "FX-PROT-2"
+    ],
+    "confidence": "fixture",
+    "limits": "Fixture limits of FX-R-POWER."
+   },
+   {
+    "id": "FX-R-AIM",
+    "pillar": "suppression",
+    "topic": "suppressant_application",
+    "earth_instinct": "Fixture instinct of FX-R-AIM.",
+    "earth_instinct_finding_id": "FX-EARTH",
+    "nasa_showed": "Fixture sentence for FX-R-AIM.",
+    "vesta_decides": "Fixture decision of FX-R-AIM.",
+    "finding_ids": [
+     "FX-F"
+    ],
+    "confidence": "fixture",
+    "limits": "Fixture limits of FX-R-AIM."
+   },
+   {
+    "id": "FX-R-NOFLAME",
+    "pillar": "detection",
+    "topic": "no_visible_flame",
+    "earth_instinct": "Fixture instinct of FX-R-NOFLAME.",
+    "earth_instinct_finding_id": "FX-NOT-VERIFIED",
+    "nasa_showed": "Fixture sentence for FX-R-NOFLAME.",
+    "vesta_decides": "Fixture decision of FX-R-NOFLAME.",
+    "finding_ids": [
+     "FX-E",
+     "FX-D"
+    ],
+    "confidence": "fixture",
+    "limits": "Fixture limits of FX-R-NOFLAME."
+   },
+   {
+    "id": "FX-R-DEAD",
+    "pillar": "prevention",
+    "topic": "restart",
+    "earth_instinct": "Fixture instinct of FX-R-DEAD.",
+    "earth_instinct_finding_id": null,
+    "nasa_showed": "Fixture sentence for FX-R-DEAD.",
+    "vesta_decides": "Fixture decision of FX-R-DEAD.",
+    "finding_ids": [
+     "FX-GONE"
+    ],
+    "confidence": "fixture",
+    "limits": "Fixture limits of FX-R-DEAD."
+   }
+  ]
+ },
+ "sources": {
+  "sources": [
+   {
+    "key": "FX-SRC",
+    "kind": "fixture",
+    "id": "FX-SRC",
+    "title": "Fixture source",
+    "url": "https://example.invalid/",
+    "finding_ids": [
+     "FX-A"
+    ]
+   }
+  ]
+ },
+ "presets": {
+  "presets": [
+   {
+    "id": "station",
+    "kind": "preset",
+    "label": "Fixture station",
+    "habitat": "station",
+    "o2": 21,
+    "p_kpa": 101.4,
+    "p_display": "14.7 psia",
+    "g": "0g",
+    "gclass": "micro",
+    "g_display": "0 g",
+    "scope": "Fixture.",
+    "sources": []
+   },
+   {
+    "id": "spacecraft",
+    "kind": "preset",
+    "label": "Fixture spacecraft",
+    "habitat": "spacecraft",
+    "o2": 34,
+    "p_kpa": 56.5,
+    "p_display": "8.2 psia",
+    "g": "0g",
+    "gclass": "micro",
+    "g_display": "0 g",
+    "scope": "Fixture.",
+    "sources": []
+   },
+   {
+    "id": "lunar-base",
+    "kind": "preset",
+    "label": "Fixture lunar-base",
+    "habitat": "lunar-base",
+    "o2": 34,
+    "p_kpa": 56.5,
+    "p_display": "8.2 psia",
+    "g": "moon",
+    "gclass": "partial",
+    "g_display": "1/6 g",
+    "scope": "Fixture.",
+    "sources": []
+   },
+   {
+    "id": "rover",
+    "kind": "preset",
+    "label": "Fixture rover",
+    "habitat": "rover",
+    "o2": 30,
+    "p_kpa": 70.3,
+    "p_display": "10.2 psi",
+    "g": "moon",
+    "gclass": "partial",
+    "g_display": "1/6 g",
+    "scope": "Fixture.",
+    "sources": []
+   },
+   {
+    "id": "mars-base",
+    "kind": "preset",
+    "label": "Fixture mars-base",
+    "habitat": "mars-base",
+    "o2": 34,
+    "p_kpa": 56.5,
+    "p_display": "8.2 psia",
+    "g": "mars",
+    "gclass": "partial",
+    "g_display": "3/8 g",
+    "scope": "Fixture.",
+    "sources": []
+   }
+  ],
+  "markers": [
+   {
+    "id": "FX-MARK",
+    "kind": "marker",
+    "label": "Fixture marker",
+    "o2": 100,
+    "p_kpa": 29.6,
+    "sources": []
+   }
+  ],
+  "bands": [
+   {
+    "id": "FX-BAND",
+    "kind": "band",
+    "o2_min": 30,
+    "p_max_kpa": 70.3,
+    "sources": []
+   }
+  ]
+ },
+ "protocol": {
+  "schema": "vesta.protocol/1",
+  "lines": [
+   {
+    "id": "FX-PROT-1",
+    "action": "Fixture protocol action one.",
+    "finding_id": "FX-PROT-1",
+    "limit": "Fixture limit line.",
+    "gate": {
+     "pass": true
+    }
+   },
+   {
+    "id": "FX-PROT-2",
+    "action": "Fixture protocol action two.",
+    "finding_id": "FX-PROT-2",
+    "limit": "Fixture limit line.",
+    "gate": {
+     "pass": true
+    }
+   },
+   {
+    "id": "FX-PROT-9",
+    "action": "Fixture protocol action nine (its quote failed the gate).",
+    "finding_id": "FX-PROT-9",
+    "limit": "Fixture limit line.",
+    "gate": {
+     "pass": false
+    }
+   }
+  ]
+ },
+ "playbook": {
+  "schema": "vesta.playbook/1",
+  "scenario": "FX-SCEN-1",
+  "steps": [
+   {
+    "id": "X1",
+    "label": "FX STEP X1",
+    "kind": "rule",
+    "after": [],
+    "when": [
+     [
+      "smoke_pct_alarm",
+      ">=",
+      100
+     ]
+    ],
+    "question": "Fixture question of X1?",
+    "pillar": "prevention",
+    "topic": "ventilation_flow",
+    "fuel_class": "solid",
+    "rule_ids": [
+     "FX-R-VENT"
+    ],
+    "finding_ids": [],
+    "fallback": "FX-PROT-1",
+    "say": "X1"
+   },
+   {
+    "id": "X2",
+    "label": "FX STEP X2",
+    "kind": "rule",
+    "after": [
+     "X1"
+    ],
+    "when": [
+     [
+      "fans_on",
+      "==",
+      false
+     ]
+    ],
+    "question": "Fixture question of X2?",
+    "pillar": "suppression",
+    "topic": "ignition_source",
+    "fuel_class": "solid",
+    "rule_ids": [
+     "FX-R-POWER"
+    ],
+    "finding_ids": [],
+    "fallback": "FX-PROT-2",
+    "say": "X2"
+   },
+   {
+    "id": "X3",
+    "label": "FX STEP X3",
+    "kind": "rule",
+    "after": [
+     "X2"
+    ],
+    "when": [
+     [
+      "flame_visible",
+      "==",
+      true
+     ]
+    ],
+    "question": "Fixture question of X3?",
+    "pillar": "suppression",
+    "topic": "suppressant_application",
+    "fuel_class": "solid",
+    "rule_ids": [
+     "FX-R-AIM"
+    ],
+    "finding_ids": [],
+    "fallback": "FX-PROT-1",
+    "say": "X3"
+   },
+   {
+    "id": "X4",
+    "label": "FX STEP X4",
+    "kind": "rule",
+    "after": [
+     "X3"
+    ],
+    "when": [
+     [
+      "co_ppm",
+      ">=",
+      50
+     ]
+    ],
+    "question": "Fixture question of X4?",
+    "pillar": "detection",
+    "topic": "no_visible_flame",
+    "fuel_class": "solid",
+    "rule_ids": [
+     "FX-R-NOFLAME"
+    ],
+    "finding_ids": [],
+    "fallback": "FX-PROT-1",
+    "say": "X4"
+   },
+   {
+    "id": "X5",
+    "label": "FX STEP X5",
+    "kind": "rule",
+    "after": [
+     "X4"
+    ],
+    "when": [
+     [
+      "t",
+      ">=",
+      100
+     ]
+    ],
+    "question": "Fixture question of X5?",
+    "pillar": "prevention",
+    "topic": "restart",
+    "fuel_class": "solid",
+    "rule_ids": [
+     "FX-R-DEAD"
+    ],
+    "finding_ids": [],
+    "fallback": "FX-PROT-1",
+    "say": "X5"
+   },
+   {
+    "id": "X6",
+    "label": "FX STEP X6",
+    "kind": "material",
+    "after": [
+     "X5"
+    ],
+    "when": [
+     [
+      "material_reported",
+      "!=",
+      null
+     ]
+    ],
+    "question": "Fixture question of X6?",
+    "pillar": "prevention",
+    "topic": "fixture",
+    "fuel_class": "solid",
+    "rule_ids": [],
+    "finding_ids": [],
+    "fallback": "FX-PROT-9",
+    "say": "X6",
+    "material_from": "material_reported",
+    "action_if_tested": "Fixture action for a tested material."
+   },
+   {
+    "id": "X7",
+    "label": "FX STEP X7",
+    "kind": "rule",
+    "after": [
+     "X6"
+    ],
+    "when": [
+     [
+      "t",
+      ">=",
+      140
+     ]
+    ],
+    "question": "Fixture question of X7?",
+    "pillar": "prevention",
+    "topic": "nothing_on_this",
+    "fuel_class": "solid",
+    "rule_ids": [],
+    "finding_ids": [],
+    "fallback": "FX-PROT-2",
+    "say": "X7"
+   },
+   {
+    "id": "X8",
+    "label": "FX STEP X8",
+    "kind": "material",
+    "after": [
+     "X7"
+    ],
+    "when": [
+     [
+      "material_reported",
+      "==",
+      "FX Alpha"
+     ]
+    ],
+    "question": "Fixture question of X8?",
+    "pillar": "prevention",
+    "topic": "fixture",
+    "fuel_class": "solid",
+    "rule_ids": [],
+    "finding_ids": [],
+    "fallback": "FX-PROT-1",
+    "say": "X8",
+    "material_from": "material_reported",
+    "action_if_tested": "Fixture action for a tested material.",
+    "limits": "Fixture limits of X8."
+   },
+   {
+    "id": "X9",
+    "label": "FX STEP X9",
+    "kind": "rule",
+    "after": [],
+    "when": [
+     [
+      "hatch_open",
+      "==",
+      true
+     ]
+    ],
+    "question": "Fixture question of X9?",
+    "pillar": "prevention",
+    "topic": "never_fires",
+    "fuel_class": "solid",
+    "rule_ids": [],
+    "finding_ids": [],
+    "fallback": "FX-PROT-1",
+    "say": "X9"
+   }
+  ]
+ },
+ "scenario": {
+  "meta": {
+   "schema": "vesta.scenario/1",
+   "id": "FX-SCEN-1",
+   "title": "Fixture scenario",
+   "simulated": true,
+   "preset": "spacecraft",
+   "habitat": "spacecraft",
+   "gclass": "micro",
+   "zone": "fx-bay",
+   "fuel_class": "solid",
+   "comm": {
+    "one_way_min": 20,
+    "one_way_finding": "FX-COMM-1",
+    "round_trip_min": 40,
+    "round_trip_finding": "FX-COMM-2",
+    "assumes": "the maximum delay"
+   },
+   "frames": "fixture.jsonl"
+  },
+  "frames": [
+   {
+    "schema": "vesta.telemetry/1",
+    "simulated": true,
+    "t": -10,
+    "zone": "fx-bay",
+    "smoke_pct_alarm": 10,
+    "co_ppm": 2,
+    "temp_c": 27,
+    "airflow_cm_s": 12,
+    "o2_percent": 34,
+    "pressure_kpa": 56.5,
+    "fans_on": true,
+    "zone_power_on": true,
+    "flame_visible": false,
+    "suppressant_discharged": false,
+    "material_reported": null
+   },
+   {
+    "schema": "vesta.telemetry/1",
+    "simulated": true,
+    "t": 0,
+    "zone": "fx-bay",
+    "smoke_pct_alarm": 105,
+    "co_ppm": 2,
+    "temp_c": 27,
+    "airflow_cm_s": 12,
+    "o2_percent": 34,
+    "pressure_kpa": 56.5,
+    "fans_on": true,
+    "zone_power_on": true,
+    "flame_visible": false,
+    "suppressant_discharged": false,
+    "material_reported": null
+   },
+   {
+    "schema": "vesta.telemetry/1",
+    "simulated": true,
+    "t": 10,
+    "zone": "fx-bay",
+    "smoke_pct_alarm": 120,
+    "co_ppm": 2,
+    "temp_c": 27,
+    "airflow_cm_s": 12,
+    "o2_percent": 34,
+    "pressure_kpa": 56.5,
+    "fans_on": false,
+    "zone_power_on": true,
+    "flame_visible": false,
+    "suppressant_discharged": false,
+    "material_reported": null
+   },
+   {
+    "schema": "vesta.telemetry/1",
+    "simulated": true,
+    "t": 20,
+    "zone": "fx-bay",
+    "smoke_pct_alarm": 130,
+    "co_ppm": 2,
+    "temp_c": 27,
+    "airflow_cm_s": 12,
+    "o2_percent": 34,
+    "pressure_kpa": 56.5,
+    "fans_on": false,
+    "zone_power_on": true,
+    "flame_visible": true,
+    "suppressant_discharged": false,
+    "material_reported": null
+   },
+   {
+    "schema": "vesta.telemetry/1",
+    "simulated": true,
+    "t": 30,
+    "zone": "fx-bay",
+    "smoke_pct_alarm": 130,
+    "co_ppm": 55,
+    "temp_c": 27,
+    "airflow_cm_s": 12,
+    "o2_percent": 34,
+    "pressure_kpa": 56.5,
+    "fans_on": false,
+    "zone_power_on": true,
+    "flame_visible": true,
+    "suppressant_discharged": false,
+    "material_reported": null
+   },
+   {
+    "schema": "vesta.telemetry/1",
+    "simulated": true,
+    "t": 100,
+    "zone": "fx-bay",
+    "smoke_pct_alarm": 10,
+    "co_ppm": 55,
+    "temp_c": 27,
+    "airflow_cm_s": 12,
+    "o2_percent": 34,
+    "pressure_kpa": 56.5,
+    "fans_on": false,
+    "zone_power_on": true,
+    "flame_visible": false,
+    "suppressant_discharged": false,
+    "material_reported": null
+   },
+   {
+    "schema": "vesta.telemetry/1",
+    "simulated": true,
+    "t": 120,
+    "zone": "fx-bay",
+    "smoke_pct_alarm": 10,
+    "co_ppm": 40,
+    "temp_c": 27,
+    "airflow_cm_s": 12,
+    "o2_percent": 34,
+    "pressure_kpa": 56.5,
+    "fans_on": false,
+    "zone_power_on": true,
+    "flame_visible": false,
+    "suppressant_discharged": false,
+    "material_reported": "FX Kappa"
+   },
+   {
+    "schema": "vesta.telemetry/1",
+    "simulated": true,
+    "t": 140,
+    "zone": "fx-bay",
+    "smoke_pct_alarm": 10,
+    "co_ppm": 30,
+    "temp_c": 27,
+    "airflow_cm_s": 12,
+    "o2_percent": 34,
+    "pressure_kpa": 56.5,
+    "fans_on": false,
+    "zone_power_on": true,
+    "flame_visible": false,
+    "suppressant_discharged": false,
+    "material_reported": "FX Kappa"
+   },
+   {
+    "schema": "vesta.telemetry/1",
+    "simulated": true,
+    "t": 150,
+    "zone": "fx-bay",
+    "smoke_pct_alarm": 10,
+    "co_ppm": 20,
+    "temp_c": 27,
+    "airflow_cm_s": 12,
+    "o2_percent": 34,
+    "pressure_kpa": 56.5,
+    "fans_on": false,
+    "zone_power_on": true,
+    "flame_visible": false,
+    "suppressant_discharged": false,
+    "material_reported": "FX Alpha"
+   },
+   {
+    "schema": "vesta.telemetry/1",
+    "simulated": true,
+    "t": 160,
+    "zone": "fx-bay",
+    "smoke_pct_alarm": 10,
+    "co_ppm": 10,
+    "temp_c": 27,
+    "airflow_cm_s": 12,
+    "o2_percent": 34,
+    "pressure_kpa": 56.5,
+    "fans_on": false,
+    "zone_power_on": true,
+    "flame_visible": false,
+    "suppressant_discharged": false,
+    "material_reported": "FX Alpha"
+   }
+  ]
+ },
+ "lines": {
+  "X1": "Fixture line."
+ },
+ "tour": null,
+ "engine": {}
+}

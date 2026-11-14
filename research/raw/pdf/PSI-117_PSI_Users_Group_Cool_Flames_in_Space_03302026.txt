@@ -1,0 +1,534 @@
+                Cool Flames in Space
+
+
+
+
+                     Tanvir Farouk*
+Department of Mechanical Engineering, University of South Carolina
+            *ONR Fellow , Naval Research Laboratory
+
+
+
+
+            NASA Physical Sciences Informatics (PSI) Seminar
+                           March 26, 2026
+Acknowledgements
+
+Students: Rajib Mahamud (Idaho State University), Fahd Alam (GE Vernova), Sheikh Ahmed
+(Honeywell), Ali Charchi (Mitsubishi), Sudipta Saha (Pratt and Whitney), Ejaz Ahmed (Virginia Tech
+Graduate School)
+
+Collaborators: Yiguang Ju (Princeton), Tom Avedesian (Cornell), Fred Dryer (Princeton), Forman
+Williams (UCSD), Sang Hee Won (USC), Daniel Dietrich (NASA), Michael Hicks (NASA), Vedha
+Nayagam (NASA)
+Introduction
+  Cool flame: A flame having a typical temperature of ~ 650 K, reaction is not vigorous and releases little heat,
+  light, or carbon dioxide (source: Wikipedia)
+
+
+
+
+                                                                            Gasoline Engine
+
+
+
+
+                          Sir Humphrey Davy                        Harry Julius Emeléus
+                      1817 Low temperature flame                     First to record their
+                   Hot platinum wire into a mixture of                emission spectra
+                       air and diethyl ether vapor                  1929 coined the term
+                   Formation of pale phosphorescent                   Cool /Cold flame
+                           light in the dark
+Introduction
+  Traditional view of cool flames prior to 2012-2014
+  • Cool flames associated with premixed combustion leading to ignition of hot fuel/air mixtures –
+       commonly encountered in car-engine knock
+                                                              Cool flames → Ignition
+  History of cool flame research – Professor Griffiths (2004)                        Ignition delay of n-heptane
+Pre-1900   First observation: Davy (1817), Perkin (1882)          Poincore theorems and
+                                                                Liapounov stability analysis                     Curran et al. Combustion & Flame (1998)
+1920
+           First flow tube experiments                                                                                                  HCCI Engine
+                         Lotka-Volterra isothermal oscillations
+1930
+           Pease C3H8 cool flame studies in a closed vessel
+           Extensive mapping of p-T ignition diagrams (Townsend et al.)
+1940                                                         Zeldovich chemical reactor        Gasoline Engine
+                                                                        theory
+                         Sal’nikov non-isothermal theory
+1950
+           RH + O2 product
+           analysis and
+1960       R + O2 = RO2
+                                  Gray and Yang unified                                                           Diesel Engine
+           mechanisms
+                                  chain-thermal theory
+1970       proposed
+                                                                 Chemical reactor stability
+                 Thermokinetic                                   and non-linear dynamics
+                 models               Stirred closed vessel
+1980                                                                (Aris, Uppal et al.)
+                                      and CSTR studies
+
+1990       Zero dimensional numerical simulation
+           and reduced/detailed kinetic model
+           development                                Technical development
+                                                      and applications
+2000       Reaction – diffusion
+           models                           Cool flames in space (µg)                                            Temperature
+First observation of multiphase cool flames – “Anomalous Combustion”
+                                                     High Temperature
+                                                        Combustion
+
+
+
+
+                                                     “Cool Flame”????
+Cool Flames – Model Predictions
+
+
+
+
+  Evolution of droplet diameter and burning rate (n-heptane, do = 4.00 mm, air, atmospheric pressure)
+
+
+
+
+                                       Classical “Cool Flames” (premixed
+                                       systems) ―“Cool Flame” to Hot
+                                       Ignition.
+Driving Mechanism
+
+
+
+                                                                          • Radiative heat loss pushes the
+                                                                            system to transition to the
+                                                                            second stage, cool flame burn.
+
+                                                                          • A dynamic balance between heat
+                                Heat loss
+                                                                            generation and heat loss
+                                                                            maintains the long-duration cool
+                            Heat generation                                 flame burn.
+
+
+
+
+ Evolution of heat generation and losses (n-heptane, do = 4.00 mm, air,
+                         atmospheric pressure)
+Sensitivity of Kinetic Parameters
+
+
+
+
+                                                           Uncertainty in droplet diameter and burning rate predictions, (n-
+                                                                 heptane, do = 4.00 mm, air, atmospheric pressure)
+
+
+
+
+                                                           In general increase in QOOHO2 → QOOH + O2
+                                                           rate decreased the burning rate and increased the
+                                                           extinction diameter.
+
+                                                           Vice versa QOOHO2→ Ketohydroperoxide + OH
+                                                           (Q = CnH2n)
+
+Sensitivity coefficients for burning rate and extinction
+                 diameter predictions.
+Cool Flames → Revised Kinetics
+
+
+
+
+                                                             Uncertainty in droplet diameter and burning rate predictions, (n-
+                                                                   heptane, do = 4.00 mm, air, atmospheric pressure)
+
+
+
+
+                                                             In general increase in QOOHO2 → QOOH + O2
+                                                             rate decreased the burning rate and increased the
+                                                             extinction diameter.
+
+                                                             Vice versa QOOHO2→ Ketohydroperoxide + OH
+                                                             (Q = CnH2n)
+
+Predicted droplet diameter and burning rate evolution with
+            revised chemical kinetics model.
+Multistage Oscillatory Cool Flames – Pressure Effects
+Oscillatory Cool Flames – Model Predictions
+
+
+
+
+              Evolution of droplet diameter and flame diameter (do = 4.08 mm, O2/CO2/N2 0.21/0.15/0.64, 3 atm)
+Oscillatory Cool Flames – Model Predictions
+            High
+        temperature
+          ignition-
+          radiative
+         extinction
+                Low temperature
+             reaction-auto-thermal
+                    heating
+
+                   High temperature re-
+                    initiation-radiative
+                         extinction
+                                         Hot Flame ???
+                     Low
+                                          Transient !!!
+                 temperature
+                 combustion
+
+
+
+
+    Evolution of maximum temperature and burning rate (do = 4.08 mm,
+                     O2/CO2/N2 0.21/0.15/0.64, 3 atm)
+High Pressure Helium Exchange – 3 atm
+
+                                                            Introduction of helium increases the burning
+                                                            rate, at higher helium concentration a third
+                                                            stage quasi-steady burn is observed
+
+
+
+                                                                      1st Stage
+                                                                  High Temperature
+                                                                        burn
+
+
+                                                                            2nd Stage            3rd Stage
+                                                                            Moderate         Low Temperature
+                                                                        Temperature burn            burn
+ Evolution of droplet diameter (n-heptane, do = 4.00 mm,                  Tflame ~ 950 K       Tflame ~ 770 K
+   XO2 = 21%, He exchange with balance N2, 3 atm).
+
+
+
+
+                                                            Evolution of peak temperature (n-heptane, do = 4.00
+                                                           mm, XO2 = 21%, He exchange with balance N2, 3 atm).
+High Pressure Helium Exchange – 3 atm
+                                                           • The second stage suppresses at a higher
+                                                             helium concentration
+
+                                                           • The droplet diameter regression does not
+                                                             show any significant changes
+
+
+
+                                                                              2nd Stage
+                                                                              Moderate
+                                                                          Temperature burn
+                                                                            Tflame ~ 950 K
+
+
+
+ Evolution of droplet diameter (n-heptane, do = 4.00 mm,                       3rd Stage
+   XO2 = 21%, He exchange with balance N2, 3 atm).                       Low Temperature burn
+                                                                             Tflame ~ 770 K
+
+
+
+
+                                                             Evolution of peak temperature (n-heptane, do = 4.00
+                                                            mm, XO2 = 21%, He exchange with balance N2, 3 atm).
+High Pressure Helium Exchange – 3 atm
+                                                             • A second contraction in the flame occurs as the system
+                                                               transitions to the third stage/low temperature burn.
+                                  3rd
+         1st
+         Stage
+                      2nd
+                     Stage
+                                        3rd
+                                        Stage
+                                                             • Despite the decrease in the maximum temperature, it is
+                                                               the flame contraction that makes the droplet diameter
+                                                               regression insensitive to the different burn stages.
+
+
+
+
+   Evolution of flame standoff ratio (n-heptane, do = 4.00
+   mm, XO2 = 21%, He exchange with balance N2, 3 atm).
+
+
+
+
+                                                                      Evolution of burning rate (n-heptane, do = 4.00 mm,
+                                                                       XO2 = 21%, He exchange with balance N2, 3 atm).
+High Pressure Helium Exchange – 3 atm
+                                                            •   A strong coupling between heat generation and losses in the
+                                                                system.
+                                                            •   The radiative and diffusive heat losses are comparable in the first
+                                                                and second stages.
+                                                            •   The diffusive losses become prominent in the third stage, “Cool
+                                                                flame” burn.
+
+
+
+
+    Evolution of radiative loss (n-heptane, do = 4.00 mm,
+     XO2 = 21%, He exchange with balance N2, 3 atm).
+
+
+
+
+                                                                        Evolution of diffusive loss (n-heptane, do = 4.00 mm,
+                                                                         XO2 = 21%, He exchange with balance N2, 3 atm).
+Pressure dependence
+
+
+
+
+            Ignition delay of n-heptane
+
+                                          Degenerate
+                                          Branching
+Spatiotemporal variation of species and temperature
+
+
+
+
+                                              CO
+
+
+
+
+      Temperature
+
+
+
+
+                                             CH2O
+Species Distribution – 3 atm, XHe = 40%
+
+
+
+
+                 Spatiotemporal distribution of species representative of three distinct stages
+Species Distribution – 3 atm, XHe = 40%
+
+
+
+
+      • Species representative of low temperature kinetics is prominent in the third stage
+      • Competition between O2 addition to QOOH and decomposition of QOOH (i.e., OH, HO2, olefin, carbonyl, QO)
+Experimental Observation of Three Stage Burn
+
+
+
+
+  n-dodecane, 2.75 atm, 21.6% O2, 50.2% N2, 28.2% He.
+
+
+
+       Qualitative agreement between
+       predictions and observations
+Can We Trigger “Cool Flame” Burn For
+          Smaller Droplets
+Ozone Assisted Cool Flames
+        Increasing
+        Ozone
+
+
+
+
+                     Amount of Ambient Ozone
+                        Dictating Factor !!!
+
+               Low                                    Sustained     combustion   of
+            Temperature                Hot Ignition   “Droplet” requires a minimum
+            Combustion                                Ozone Concentration
+Cool Flame under Near Limit Conditions
+     Blue: Oscillatory cool flame
+       Red: Stable cool flame
+
+
+
+
+                                                 XO2 = 10%
+
+
+                                                  XO3 = 5%
+
+                                                   XN2 =
+                                                  Balance
+                                                                                   Temperature
+                                                 P = 1 atm,
+                                                 T = 298 K
+
+                                                    Do =
+                                                    0.5
+                                                    mm
+
+                                                                                             80 x Ddrop
+
+
+                                     Flame expands radially  gradual
+                                      decrease in flame T  Contracts (t < 0.1
+                                      s)
+                                     Stable cool flame for brief period of time
+                                      (~0.12 s @ ~710 K)
+                                                                                   Ketohydroperoxides
+Terrestrial Cool Flame Experiments
+Counterflow Diffusion Flame
+
+
+
+
+      Cool diffusion flame, 1 g (Won et al.)
+                                                Excellent configuration for studying flame’s strength under the
+                                                 effect of stretch.
+                                                Useful platform for validating reaction kinetics and transport
+                                                 models.
+                                                Idealized condition, it can be treated as a 1D problem:
+
+                                                    Leads to the derivation of an analytical solution
+                                                    Makes numerical modeling tractable
+Limitations of the conventional numerical approach
+      The numerical effort to study counterflow flame configuration has been predominantly centered
+       upon OPPDIF module of CHEMKIN chemical kinetic package
+      This module implements a similarity transformation approach that reduces the flow field to a
+       one-dimensional/ plug flow problem with the following assumptions:
+
+         Radial component of velocity is linear in radius
+         Dependent variables become functions of the axial direction only
+
+
+
+
+                    What are the physical conditions that can be
+                         represented by this assumption?
+
+
+
+
+                                                                                         Cool flames
+
+ High Reynolds number flow configuration: High strain rate (a)
+ Thin flame sheet: Hot flame (high activation energy)                    Low Re: Low strain rate (a ~100 s-1)
+                                                                          Finite Flame Thickness: low activation energy)
+Effect of buoyancy
+                                                                                                        Buoyancy lifts the flame
+                                                                                                         upward.
+
+                                                                                                        Without buoyancy, 1D and
+                                                                                                         2D models predict the flame
+                                                                                                         at or near the stagnation
+                                                                                                         plane due to momentum-
+                                                                                                         balanced BC.
+a) Temperature distribution and streamlines, and b) heat release rate, for DME diffusion cool flame
+with and without buoyancy for identical conditions (XDME= 0.587, UF = 62.3 cm/s, UO = 50.9 cm/s, a ~
+90 s-1, P = 1 atm)                                                                                      The peak flame temperature
+                                                                                                         in 1D is slightly lower
+                                                                                                         compared to the 2D
+                                                                                                         prediction, but the peak HRR
+                                                                                                         shows the opposite trend.
+
+                                                                                                        Temperature gradient is
+                                                                                                         higher in 1D calculation.
+                                                                                                         More diffusive heat loss.
+Flow field analyses
+
+                                                                                                 The extended entrance channels
+                                                                                                  allow the velocity at the nozzle exits
+                                                                                                  to be perturbed by the flame.
+
+                                                                                                 2D model captures the perturbation
+                                                                                                  in a self-consistent manner.
+
+                                                                                                 2D model without buoyancy retains
+                                                                                                  the momentum-balanced condition
+                                       c                                               d          and forms the stagnation plane at the
+                                                                                                  axis midpoint, exhibiting identical
+                                                                                                  perturbation on either side
+
+                                                                                                 Axisymmetric dip in 2D simulation,
+                                                                                                  observed in experiments of Sarnecki
+                                                                                                  et al.
+
+
+
+Computed centerline distribution of a) axial velocity, b) axial velocity gradient
+Computed radial distribution of c) axial, and d) radial velocity at the fuel-side nozzle exit
+Effect of global strain rate
+
+                                                  g β (Thot − T∞ ) D
+                                           Ri =
+                                                         V2
+  Richardson number                           1  ∂∀    1 ∂  RT  1 R 1
+                                         β
+                                         =           
+                                                  =           =  =
+                                               ∀  ∂T  p ∀ ∂T  p  ∀ p T
+                                                  g β (Thot − T∞ ) D 3
+                                           Gr =
+                                                          V2
+                                                  Gr
+                                           Ri =
+                                                  Re 2
+                    Flow characteristics based in Richardson number
+
+         Ri < 0.1                    Natural convection is negligible
+
+       0.1< Ri <10           Both natural and forced convection are important
+
+         Ri > 10                      Forced convection is negligible
+
+
+ Flame is pushed away from the nozzle as the convective
+  effect becomes dominant with the increase of global strain
+  rate.
+
+ The flame location ceases to move further when the
+  buoyancy effect becomes negligible (i.e., low Ri).                            XCH2O contours of DME diffusion cool flame at different global strain
+                                                                                rates (XDME = 0.587, P = 1 atm)
+Summary
+
+  • Insights obtained from modeling on cool flame characteristics and
+    dynamics
+
+  • Models were developed for a number of scenarios
+
+  • Models were validated against the FLEX data and then utilized to
+    explore other scenarios
+
+  • Extensive amount of experimental data available for interpretation
+    and new insights
+The Resurgence of “Cool Flame” Research
+                               “Anomalous Combustion/Cool Flame?” of large n-heptane
+                                     droplet onboard ISS in 2011, NASA FLEX
+The Resurgence of “Cool Flame” Research
+Resurgence of “Cool Flame” Research
+                2012           2014
+References
+ •   Farouk, T., Dryer, F., “Isolated n-heptane droplet combustion in microgravity: “cool flames” – two stage combustion” Combustion and
+     Flame, 161, (2014), 565 - 581.
+
+ •   Farouk, T., Hicks, M., Dryer, F., “Multistage oscillatory “Cool Flame” behavior for isolated alkane droplet combustion in elevated
+     pressure microgravity conditions” Proceedings of the Combustion Institute, 35, (2015), 1701 – 1708.
+
+ •   Farouk, T., Dietrich, D., Alam, F., Dryer, D., “Isolated n-decane droplet combustion – dual stage and single stage transition to “cool
+     flame” droplet burning” Proceedings of the Combustion Institute, 36, (2017), 2523 - 2530.
+
+ •   Alam, F., Won, S. H., Farouk, T., “Ozone assisted cool flame combustion of sub-millimeter sized n-alkane droplets at atmospheric and
+     higher pressure” Combustion and Flame, 195, (2018), 220 - 231.
+
+ •   Alam, F., Aghdam, A., Dryer, F., Farouk, T., “Oscillatory cool flame combustion behavior of submillimeter sized n-alkane droplet under
+     near limit conditions” Proceedings of the Combustion Institute, 37, (2019), 3383 – 3391.
+
+ •   Farouk, T., Dietrich, D., Dryer, F., “Three stage cool flame droplet burning behavior of n-alkane droplets at elevated pressure
+     conditions” Proceedings of the Combustion Institute, 37, (2019), 3353 – 3361.
+
+ •   Farouk, T., Dryer, F., “Extinction characteristics of isolated n-alkane fuel droplets during low temperature cool flame burning in air”
+     Proceedings of the Combustion Institute 39, (2023), 2471 – 2481.
+
+ •   Saha., S., Farouk, T., “Effects of multidimensional transport and buoyancy on the cool flame dynamics in a counterflow burner”
+     International Journal of Heat and Mass Transfer 256, (2026), 127954.
+Thank You
+

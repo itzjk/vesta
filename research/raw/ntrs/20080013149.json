@@ -1,0 +1,153 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20080013149,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "287c704a35434a5480454fce15a92d02",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Lunar And Planetary Science And Exploration"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20080013149,
+  "ear": "NO",
+  "id": "685d71fbaa854917aa771ddffbdb6848",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "WBS 526282.01.03.02.02.01",
+   "submissionId": 20080013149,
+   "id": "cdd327c0840c49b5a36d2fc939835682",
+   "type": "WBS"
+  }
+ ],
+ "title": "Piloted Ignition Delay of PMMA in Space Exploration Atmospheres",
+ "stiType": "PREPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T05:11:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20080013149,
+   "meta": {
+    "author": {
+     "name": "McAllister, Sara"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "3fc6cc945fb74a87a2ebf8da5023b109"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20080013149,
+   "meta": {
+    "author": {
+     "name": "Fernandez-Pello, Carlos"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "2ff18a5adab5468d954e790c82440105"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20080013149,
+   "meta": {
+    "author": {
+     "name": "Urban, David"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "9a8f62ad76984809839934dadb520dc8"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20080013149,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "a3d77043e38941e98db62b9e36dff808"
+  }
+ ],
+ "stiTypeDetails": "Preprint (Draft being sent to journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20080013149,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T05:11:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "In order to reduce the risk of decompression sickness associated with extravehicular activity (EVA), NASA is designing the next generation of exploration vehicles and habitats with a different cabin environment than used previously. The proposed environment uses a total cabin pressure of 52.7 to 58.6 kPa with an oxygen concentration of 30 to 34% by volume and was chosen with material flammability in mind. Because materials may burn differently under these conditions and there is little information on how this new environment affects the flammability of the materials onboard, it is important to conduct material flammability experiments at the intended exploration atmosphere. One method to evaluate material flammability is by its ease of ignition. To this end, piloted ignition delay tests were conducted in the Forced Ignition and Spread Test (FIST) apparatus subject to this new environment. In these tests, polymethylmethacylate (PMMA) was exposed to a range of oxidizer flow velocities and externally applied heat fluxes. Tests were conducted for a baseline case of normal pressure and oxygen concentration, low pressure (58.6 kPa) with normal oxygen (21%), and low pressure with 32% oxygen concentration conditions to determine the individual effect of pressure and the combined effect of pressure and oxygen concentration on the ignition delay. It was found that reducing the pressure while keeping the oxygen concentration at 21% reduced the ignition time by 17% on average. Increasing the oxygen concentration at low pressures reduced the ignition time by an additional 10%. It was also noted that the critical heat flux for ignition decreases at exploration atmospheres. These results show that tests conducted in standard atmospheric conditions will underpredict the ignition of materials intended for use on spacecraft and that, at these conditions, materials are more susceptible to ignition than at current spacecraft atmospheres.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "Canada",
+   "submissionId": 20080013149,
+   "endDate": "2008-08-08T00:00:00.0000000+00:00",
+   "name": "Proceedings of the 32nd International Symposium on Combustion",
+   "location": "Montreal",
+   "id": "513160d3bcdb475584792ae9c61033d1",
+   "startDate": "2008-08-03T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20080013149,
+   "id": "2b95708d29b14dfebe842e2e681021c4",
+   "publicationDate": "2007-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20080013149.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20080013149/downloads/20080013149.pdf",
+    "pdf": "/api/citations/20080013149/downloads/20080013149.pdf",
+    "fulltext": "/api/citations/20080013149/downloads/20080013149.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

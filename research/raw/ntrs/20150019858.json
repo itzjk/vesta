@@ -1,0 +1,263 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150019858,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "761d3acd8f6b467c9626a53bb7ac15ae",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "combustion products",
+  "oxygen",
+  "International Space Station"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150019858,
+  "ear": "NO",
+  "id": "2a80e148428b445ab4b0bf32c7a5bc43",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2015-196",
+  "GRC-E-DAA-TN21471",
+  "Report Number: ICES-2015-196",
+  "Report Number: GRC-E-DAA-TN21471"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 904211.04.02.20.09",
+   "submissionId": 20150019858,
+   "id": "1d23160a42304a899172960e6690e80d",
+   "type": "WBS"
+  },
+  {
+   "number": "NNX10AE03G",
+   "submissionId": 20150019858,
+   "id": "da6c0f95fdc3443d9b0fcbbef3dd99c8",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NNX10AD99A",
+   "submissionId": 20150019858,
+   "id": "dc692bca3d564bf8b9d1b820db400d1d",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NNX14AC70A",
+   "submissionId": 20150019858,
+   "id": "c6471499a31c42c79bcd4fa2704cc524",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NNX13AL10A",
+   "submissionId": 20150019858,
+   "id": "59cf37fbc8ad4073ab884ee1ada5cc9d",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20150019858,
+   "id": "164b544ab85042dea8b93d3465cc88de",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Results from On-Board CSA-CP and CDM Sensor Readings During the Burning and Suppression of Solids II (BASS-II) Experiment in the Microgravity Science Glovebox (MSG)",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-10-29T16:21:33.4200000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150019858,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "323cac8699844b91997f0afcb4370bc3"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20150019858,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul V."
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e374490241124517bb7bc2cc84f7db7e"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20150019858,
+   "meta": {
+    "author": {
+     "name": "Bhattacharjee, Subrata"
+    },
+    "organization": {
+     "name": "San Diego State Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "6838452a1fbb481a8c9bc0576d75ce10"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20150019858,
+   "meta": {
+    "author": {
+     "name": "Miller, Fletcher J."
+    },
+    "organization": {
+     "name": "San Diego State Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "dff291a256314bcf9af8c4405f6b75b5"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20150019858,
+   "meta": {
+    "author": {
+     "name": "Fernandez-Pello, Carlos"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "4d8cf8492ee0497596b06412d4f43168"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20150019858,
+   "meta": {
+    "author": {
+     "name": "Link, Shmuel"
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "Berkeley, CA, United States"
+    }
+   },
+   "id": "ac1844903298439eb90826e1720c14f5"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20150019858,
+   "meta": {
+    "author": {
+     "name": "T'ien, James S."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "28f8189336d14721b57d1ed727b913c8"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20150019858,
+   "meta": {
+    "author": {
+     "name": "Wichman, Indrek"
+    },
+    "organization": {
+     "name": "Michigan State Univ.",
+     "location": "East Lansing, MI, United States"
+    }
+   },
+   "id": "19804c850e834efa95f57111de89900e"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150019858,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-10-29T16:21:33.4200000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "For the first time on ISS, BASS-II utilized MSG working volume dilution with gaseous nitrogen (N2). We developed a perfectly stirred reactor model to determine the N2 flow time and flow rate to obtain the desired reduced oxygen concentration in the working volume for each test. We calibrated the model with CSA-CP oxygen readings offset using the Mass Constituents Analyzer reading of the ISS ambient atmosphere data for that day. This worked out extremely well for operations, and added a new vital variable, ambient oxygen level, to our test matrices. The main variables tested in BASS-II were ambient oxygen concentration, ventilation flow velocity, and fuel type, thickness, and geometry. BASS-II also utilized the on-board CSA-CP for oxygen and carbon monoxide readings, and the CDM for carbon dioxide readings before and after each test. Readings from these sensors allow us to evaluate the completeness of the combustion. The oxygen and carbon dioxide readings before and after each test were analyzed and compared very well to stoichiometric ratios for a one step gas-phase reaction. The CO versus CO2 followed a linear trend for some datasets, but not for all the different geometries of fuel and flow tested. Lastly, we calculated the heat release rates during each test from the oxygen consumption and burn times, using the constant 13.1 kJ of heat released per gram of oxygen consumed. The results showed that the majority of the tests had heat release rates well below 100 Watts.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20150019858,
+   "endDate": "2015-07-16T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "9381b76034b1432b8f4124cf06b3d774",
+     "meta": {
+      "organization": {
+       "name": "Texas Tech Univ.",
+       "location": "Lubbock, TX, United States"
+      }
+     },
+     "meetingId": "dae5f79b582849d8a03b88fad582dcf7",
+     "id": "650f0ff0fab14cb38f21e46de78dceb6"
+    }
+   ],
+   "name": "International Conference on Environmental Systems",
+   "location": "Bellview, WA",
+   "id": "dae5f79b582849d8a03b88fad582dcf7",
+   "startDate": "2015-07-12T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20150019858,
+   "id": "f4deff2ebdbb4d38aecd8b92f07b8d8f",
+   "publicationDate": "2015-07-12T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150019858.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150019858/downloads/20150019858.pdf",
+    "pdf": "/api/citations/20150019858/downloads/20150019858.pdf",
+    "fulltext": "/api/citations/20150019858/downloads/20150019858.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,176 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053549,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "52f95abddfdc4ae7802d56e2866cd64c",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Chemistry And Materials (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053549,
+  "ear": "NO",
+  "id": "089f1d11b270483892578405a201d9a2",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-09T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NCC3-482",
+   "submissionId": 20040053549,
+   "id": "1df8efcec19a4858af55743ed078279c",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Radiant Extinction Of Gaseous Diffusion Flames",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:35:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053549,
+   "meta": {
+    "author": {
+     "name": "Berhan, S."
+    },
+    "organization": {
+     "name": "Michigan Univ.",
+     "location": "Ann Arbor, MI, United States"
+    }
+   },
+   "id": "ee864e7d26e64cd9a42495fd4b688193"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053549,
+   "meta": {
+    "author": {
+     "name": "Chernovsky, M."
+    },
+    "organization": {
+     "name": "Michigan Univ.",
+     "location": "Ann Arbor, MI, United States"
+    }
+   },
+   "id": "d24b279d26f6473bb659eaa62ea7770b"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053549,
+   "meta": {
+    "author": {
+     "name": "Atreya, A."
+    },
+    "organization": {
+     "name": "Michigan Univ.",
+     "location": "Ann Arbor, MI, United States"
+    }
+   },
+   "id": "1fd708d63e8140f584b0c1703962091b"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040053549,
+   "meta": {
+    "author": {
+     "name": "Baum, Howard R."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "4e4ea1a28b984f09a5da547574d7e1d3"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20040053549,
+   "meta": {
+    "author": {
+     "name": "Sacksteder, Kurt R."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "345bbf8ff07947c2bf3c2094a89a013b"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053549,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:35:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The absence of buoyancy-induced flows in microgravity (mu:g) and the resulting increase in the reactant residence time significantly alters the fundamentals of many combustion processes. Substantial differences between normal gravity (ng) and :g flames have been reported in experiments on candle flames [1, 2], flame spread over solids [3, 4], droplet combustion [5,6], and others. These differences are more basic than just in the visible flame shape. Longer residence times and higher concentration of combustion products in the flame zone create a thermochemical environment that changes the flame chemistry and the heat and mass transfer processes. Processes such as flame radiation, that are often ignored in ng, become very important and sometimes even controlling. Furthermore, microgravity conditions considerably enhance flame radiation by: (i) the build-up of combustion products in the high-temperature reaction zone which increases the gas radiation, and (ii) longer residence times make conditions appropriate for substantial amounts of soot to form which is also responsible for radiative heat loss. Thus, it is anticipated that radiative heat loss may eventually extinguish the Aweak@ (low burning rate per unit flame area) :g diffusion flame. Yet, space shuttle experiments on candle flames show that in an infinite ambient atmosphere, the hemispherical candle flame in :g will burn indefinitely [1]. This may be because of the coupling between the fuel production rate and the flame via the heat-feedback mechanism for candle flames, flames over solids and fuel droplet flames. Thus, to focus only on the gas-phase phenomena leading to radiative extinction, aerodynamically stabilized gaseous diffusion flames are examined. This enables independent control of the fuel flow rate to help identify conditions under which radiative extinction occurs. Also, spherical geometry is chosen for the :g experiments and modeling because: (i) It reduces the complexity by making the problem one-dimensional. (ii) The spherical diffusion flame completely encloses the soot which is formed on the fuel rich side of the reaction zone. This increases the importance of flame radiation because now both soot and gaseous combustion products co-exist inside the high temperature spherical diffusion flame. (iii) For small fuel injection velocities, as is usually the case for a pyrolyzing solid, the diffusion flame in :g around the solid naturally develops spherical symmetry. Thus, spherical diffusion flames are of interest to fires in :g and identifying conditions that lead to radiation-induced extinction is important for spacecraft fire safety.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053549,
+   "id": "5d6e7090da2e4d3085e3a6676f13acd3",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053549.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053549/downloads/20040053549.pdf",
+    "pdf": "/api/citations/20040053549/downloads/20040053549.pdf",
+    "fulltext": "/api/citations/20040053549/downloads/20040053549.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

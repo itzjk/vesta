@@ -1,0 +1,91 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19920033977,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "faa803b0e26945409cc13d567364641f",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19920033977,
+  "ear": "NO",
+  "id": "162c441591d64c729b3ce0d09701be89",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "title": "The Implications of Experimentally Controlled Gravitational Accelerations for Combustion Science",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-15T13:46:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19920033977,
+   "meta": {
+    "author": {
+     "name": "Sacksteder, Kurt R."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "b48a883e3b7343088d9b846041b6fd02"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19920033977,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "92A16601"
+ },
+ "created": "2013-08-15T13:46:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "An overview of basic combustion problems which have been investigated under the condition of reduced gravity is presented to identify promising research directions. Attention is given to the broad categories of gas-jet diffusion flames, droplet combustions, particle clouds, flame spreading over liquid pools, smoldering, and flame spreading over solid fuels. Fire safety in spacecraft is the primary application that is addressed by the studies of combustion under microgravity. The need for more complete testing of the issues discussed in orbiting spacecraft is identified in the light of limited earth-based testing. Attention is also directed toward the need for advanced diagnostic methods for in-flight and other combustion investigations.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "France",
+   "submissionId": 19920033977,
+   "endDate": "1990-07-27T00:00:00.0000000+00:00",
+   "name": "International Symposium on Combustion",
+   "location": "Orleans",
+   "id": "97f2d5a6e49e46a98f94a231b36c5cac",
+   "startDate": "1990-07-22T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19920033977,
+   "id": "eb73403b58a74524817f38f8a986c21c",
+   "publicationDate": "1991-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

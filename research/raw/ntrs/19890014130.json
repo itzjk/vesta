@@ -1,0 +1,128 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19890014130,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "c32b262763ea4ddb94b3aeda3bb67d64",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19890014130,
+  "ear": "NO",
+  "id": "cb93477e5f58472da40d7b9f25101cdf",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-24T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA-CR-182266",
+  "E-4812",
+  "NAS 1.26:182266",
+  "Report Number: NASA-CR-182266",
+  "Report Number: E-4812",
+  "Report Number: NAS 1.26:182266"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NASA ORDER C-32000-M",
+   "submissionId": 19890014130,
+   "id": "0145d2f25c1e4fed9377e35b9b1cebf7",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "RTOP 674-03-03",
+   "submissionId": 19890014130,
+   "id": "8d86be54ccc44637a9ccf97bcdaaa8af",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Expert systems applied to spacecraft fire safety",
+ "stiType": "CONTRACTOR_REPORT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-05T23:51:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19890014130,
+   "meta": {
+    "author": {
+     "name": "Smith, Richard L."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "db0d0b29b2d64676a1f45df4203f3cdb"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19890014130,
+   "meta": {
+    "author": {
+     "name": "Kashiwagi, Takashi"
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "fd728349ff304589b814541bf6e3d29b"
+  }
+ ],
+ "stiTypeDetails": "Contractor Report (CR)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19890014130,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "89N23501"
+ },
+ "created": "2013-09-05T23:51:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Expert systems are problem-solving programs that combine a knowledge base and a reasoning mechanism to simulate a human expert. The development of an expert system to manage fire safety in spacecraft, in particular the NASA Space Station Freedom, is difficult but clearly advantageous in the long-term. Some needs in low-gravity flammability characteristics, ventilating-flow effects, fire detection, fire extinguishment, and decision models, all necessary to establish the knowledge base for an expert system, are discussed.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19890014130,
+   "id": "6b420a69ac414260875239db27faafaf",
+   "publicationDate": "1989-06-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19890014130.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19890014130/downloads/19890014130.pdf",
+    "pdf": "/api/citations/19890014130/downloads/19890014130.pdf",
+    "fulltext": "/api/citations/19890014130/downloads/19890014130.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

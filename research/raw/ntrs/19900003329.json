@@ -1,0 +1,128 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19900003329,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "17d6a4e01d0847289affe497b9f4da8a",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Design, Testing And Performance"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19900003329,
+  "ear": "NO",
+  "id": "34aaccd38e644e6e83cbb84f3980b4c2",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-24T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NAS 1.26:185147",
+  "NASA-CR-185147",
+  "WYLE-60300-1",
+  "Report Number: NAS 1.26:185147",
+  "Report Number: NASA-CR-185147",
+  "Report Number: WYLE-60300-1"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 323-53-62",
+   "submissionId": 19900003329,
+   "id": "83d23c5c75484484b2d312c6915a4996",
+   "type": "PROJECT"
+  },
+  {
+   "number": "NAS3-25367",
+   "submissionId": 19900003329,
+   "id": "ca5afc23368e4cd0a13bbff8393e4257",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Advanced spacecraft fire safety: Proposed projects and program plan",
+ "stiType": "CONTRACTOR_REPORT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T14:56:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19900003329,
+   "meta": {
+    "author": {
+     "name": "Youngblood, Wallace W."
+    },
+    "organization": {
+     "name": "Wyle Labs., Inc.",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "b8d337b06b014f48940fdbb6837d7246"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19900003329,
+   "meta": {
+    "author": {
+     "name": "Vedha-Nayagam, M."
+    },
+    "organization": {
+     "name": "Wyle Labs., Inc.",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "870c2c7e6b4b4c9c8b683043a9ffc396"
+  }
+ ],
+ "stiTypeDetails": "Contractor Report (CR)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19900003329,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "90N12645"
+ },
+ "created": "2013-09-06T14:56:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "A detailed review identifies spacecraft fire safety issues and the efforts for their resolution, particularly for the threats posed by the increased on-orbit duration, size, and complexity of the Space Station Freedom. Suggestions provided by a survey of Wyle consultants and outside fire safety experts were combined into 30 research and engineering projects. The projects were then prioritized with respect to urgency to meet Freedom design goals, status of enabling technology, cost, and so on, to yield 14 highest priority projects, described in terms of background, work breakdown structure, and schedule. These highest priority projects can be grouped into the thematic areas of fire detection, fire extinguishment, risk assessment, toxicology and human effects, and ground based testing. Recommendations for overall program management stress the need for NASA Headquarters and field center coordination, with information exchange through spacecraft fire safety oversight committees.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19900003329,
+   "id": "ec8185cdf9e641e9a84cb4f65e1ed16f",
+   "publicationDate": "1989-10-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19900003329.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19900003329/downloads/19900003329.pdf",
+    "pdf": "/api/citations/19900003329/downloads/19900003329.pdf",
+    "fulltext": "/api/citations/19900003329/downloads/19900003329.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

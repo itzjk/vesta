@@ -1,0 +1,152 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20090022745,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "2be1772946c24931870c49447043a17b",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20090022745,
+  "ear": "NO",
+  "id": "a8a0fb6b7d774d4695eea66bdf828c11",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-18394",
+  "09ICES-0339",
+  "Report Number: JSC-CN-18394",
+  "Report Number: 09ICES-0339"
+ ],
+ "title": "Development of a Test Protocol for Spacecraft Post-Fire Atmospheric Cleanup and Monitoring",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T18:13:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20090022745,
+   "meta": {
+    "author": {
+     "name": "Zuniga, David"
+    },
+    "organization": {
+     "name": "Jacobs Technologies Engineering Science Contract Group",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "c375040435f743d897a8ae517754accd"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20090022745,
+   "meta": {
+    "author": {
+     "name": "Hornung, Steven D."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "4c999108e7c0472babc3c479296a8531"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20090022745,
+   "meta": {
+    "author": {
+     "name": "Haas, Jon P."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "6f6b1220cd224d19a1c303e30425809a"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20090022745,
+   "meta": {
+    "author": {
+     "name": "Graf, John C."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "0100eb7f9a7541b690e18bb6f0127397"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20090022745,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T18:13:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Detecting and extinguishing fires, along with post-fire atmospheric cleaning and monitoring, are vital components of a spacecraft fire response system. Preliminary efforts focused on the technology evaluation of these systems under realistic conditions are described in this paper. While the primary objective of testing is to determine a smoke mitigation filter s performance, supplemental evaluations measuring the smoke-filled chamber handheld commercial off-the-shelf (COTS) atmospheric monitoring devices (combustion product monitors) are also conducted. The test chamber consists of a 1.4 cubic meter (50 cu. ft.) volume containing a smoke generator. The fuel used to generate the smoke is a mixture of polymers in quantities representative of materials involved in a circuit board fire as a typical spacecraft fire. Two fire conditions were examined: no flame and flame. No flame events are produced by pyrolyzing the fuel mixture in a quartz tube furnace with forced ventilation to produce a white, lingering-type smoke. Flame events ignite the smoke at the outlet of the tube furnace producing combustion characterized by a less opaque smoke with black soot. Electrochemical sensor measurements showed carbon monoxide is a major indicator of each fire. Acid gas measurements were recorded, but cross interferents are currently uncharacterized. Electrochemical sensor measurements and sample acquisition techniques from photoacoustic sensors are being improved. Overall, this research shows fire characterization using traditional analytical chemistry techniques is required to verify measurements recorded using COTS atmospheric monitoring devices.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20090022745,
+   "endDate": "2009-07-16T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "2fb8633154d94728aec2c57afa709b46",
+     "meta": {
+      "organization": {
+       "name": "Society of Automotive Engineers, Inc.",
+       "location": "Warrendale, PA, United States"
+      }
+     },
+     "meetingId": "27d4b2691db444aea3a631915f786047",
+     "id": "5bb75478336f48e89d929ad58788e384"
+    }
+   ],
+   "name": "International Conference on Environmental Systems",
+   "location": "Savannah, GA",
+   "id": "27d4b2691db444aea3a631915f786047",
+   "startDate": "2009-07-12T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20090022745,
+   "id": "15e5813d6584447f8b18ddbe5a4b4d29",
+   "publicationDate": "2009-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

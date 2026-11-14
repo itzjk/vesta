@@ -1,0 +1,221 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20220015548,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "c1c179b1ddc94bc58e1173bec9f5259d",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support",
+  "Aerospace Medicine"
+ ],
+ "keywords": [
+  "Respirator",
+  "Fire",
+  "mask",
+  "Fit"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20220015548,
+  "ear": "NO",
+  "id": "a36269ab5c0142ec86c71dd200bf9227",
+  "itar": "NO"
+ },
+ "distributionDate": "2023-07-10T05:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "80JSC022DA035",
+   "submissionId": 20220015548,
+   "id": "bd27af480ec847968f8237169d14dbdc",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Characterizing Fit Factor of a One Size Fits-Most Emergency Mask using Subjects with Smaller Neck Circumferences",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2022-10-17T15:48:40.6302200+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "99fa64c96f0950678abfcdd84ba26bf5",
+   "sequence": 0,
+   "submissionId": 20220015548,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Frank Adam Korona"
+    },
+    "organization": {
+     "name": "Jacobs (United States)",
+     "location": "Dallas, Texas, United States"
+    }
+   },
+   "id": "ef8f9288b60b41df9e100450a0a99280",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "e9e270f5f12e4419bba7f69c09d4ed40"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 1,
+   "submissionId": 20220015548,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Emily Katherine Rabel"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "cfcc43df576e461c99af405054f85422",
+   "userType": "CIVIL",
+   "userId": "2ef671ea1f6a4f1d8b018a93bf58e670"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 2,
+   "submissionId": 20220015548,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Justine Loren Wiles"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, Texas, United States"
+    }
+   },
+   "id": "d58e2dc46c444471bc3c3e024cbe59c1",
+   "userType": "CIVIL",
+   "userId": "e09b282f9baf4b369d338de94984e3e1"
+  },
+  {
+   "organizationId": "99fa64c96f0950678abfcdd84ba26bf5",
+   "sequence": 3,
+   "submissionId": 20220015548,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Matthew Meyer"
+    },
+    "organization": {
+     "name": "Jacobs (United States)",
+     "location": "Dallas, Texas, United States"
+    }
+   },
+   "id": "455f31ebd50d4ee9b9dc13ee5600a80a",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "3d990cb4606842a09b3696697f3eb7ca"
+  },
+  {
+   "organizationId": "99fa64c96f0950678abfcdd84ba26bf5",
+   "sequence": 4,
+   "submissionId": 20220015548,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Alicia Elizabeth Ruiz"
+    },
+    "organization": {
+     "name": "Jacobs (United States)",
+     "location": "Dallas, Texas, United States"
+    }
+   },
+   "id": "46c3c87dd8894b4e82533ac2ac66f401",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "f8d8e418974f40e596201e66e8e7fd09"
+  },
+  {
+   "organizationId": "99fa64c96f0950678abfcdd84ba26bf5",
+   "sequence": 5,
+   "submissionId": 20220015548,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Jeffrey Thomas Hahn"
+    },
+    "organization": {
+     "name": "Jacobs (United States)",
+     "location": "Dallas, Texas, United States"
+    }
+   },
+   "id": "eed2b164183c43a6a0a1c9abc1769100",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "addeedc0d81b4ca9b310e27639f46f35"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "NASA_PEER_COMMITTEE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20220015548,
+ "created": "2022-10-17T15:34:54.2319410+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The Emergency Mask (EM) is an integral part of fire response on ISS, Orion and Gateway. The EM is a hood type protection respirator sealing around the subject’s neck, with an additional nose cup covering the subject’s oral nasal region.  When integrated with a pair of Fire Cartridges (FCs), this system can be used to provide safe breathing air in a post-fire environment. The initial EM was certified as a ‘one size fits most’, however a recent requirements scrub discovered that the neck circumferences of the smallest possible crew population were not included in the initial requirement set.  The test described in this paper uses the same slightly modified industry standard respirator test called a ‘Fit Factor’ used to certify the existing EM for larger subjects.  Tests were performed on eight test subjects with neck circumference smaller than the initial EM requirement to determine if the current EM provided adequate protection during post-fire scenarios.  The test included subjects donning an EM and then performing a number of head movements in a tent filled with approximately 50,000 particles/cm3 of smoke particulate. During these motions, particulate measurements were obtained from within the EM and compared with particulate measurements in the surrounding environment to determine the protection the EM provided in a simulated post-fire environment. This paper provides descriptions of the test hardware, methodology and results, which have provided rationale to design and build an EM to accommodate subjects with smaller necks.\n\n",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20220015548,
+  "id": "2837cc4ed642471aa4cc0b91211d74ab"
+ },
+ "meetings": [
+  {
+   "country": "CA",
+   "submissionId": 20220015548,
+   "endDate": "2023-07-20T05:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "a4c6a63ed02340b68240e18a1c0d30ce",
+     "meta": {
+      "organization": {
+       "name": "International Conference on Environmental Systems (ICES) ",
+       "location": ""
+      }
+     },
+     "meetingId": "17d948851f2c420e9521bdcfc3f2e888",
+     "id": "41e4ad7e8edb49a69eb5a35527b62d2a"
+    }
+   ],
+   "name": "52nd International Conference on Environmental Systems (ICES)",
+   "location": "Calgary",
+   "id": "17d948851f2c420e9521bdcfc3f2e888",
+   "url": "https://www.ices.space/",
+   "startDate": "2023-07-16T05:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": true,
+   "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+   "name": "EC3 EM Testing 2023 ICES Abstract first draft.docx",
+   "type": "ABSTRACT",
+   "links": {
+    "original": "/api/citations/20220015548/downloads/EC3%20EM%20Testing%202023%20ICES%20Abstract%20first%20draft.docx",
+    "pdf": "/api/citations/20220015548/downloads/EC3%20EM%20Testing%202023%20ICES%20Abstract%20first%20draft.docx.pdf",
+    "fulltext": "/api/citations/20220015548/downloads/EC3%20EM%20Testing%202023%20ICES%20Abstract%20first%20draft.docx.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

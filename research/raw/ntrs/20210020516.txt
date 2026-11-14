@@ -1,0 +1,7 @@
+Fire on the Moon: Solid Fuel Combustion Experiments
+
+As NASA plans to return people to the Moon for extended durations, we present an experiment concept to understand fire and material flammability there.  A small combustion chamber would be used to conduct the first-ever combustion tests on another world.  Multiple fuel samples are to be individually burned in Lunar gravity, with cameras and other sensors recording flame characteristics.
+
+The main hypothesis is that some materials burning in Lunar-g are more flammable than on Earth.  The reason is that buoyant flow has two counteracting effects on material flammability.  Increasing gravity level permits more fresh oxygen to be supplied to the flame, but if the buoyant speed is too high, combustion chemistry and increased cooling hinder combustion.  This has important implications for the current 1-g material screening method used by NASA.  
+
+Oxygen limits for upward and downward spread on the Moon will be compared to 1-g values.  Earth-based partial gravity facilities (drop towers, aircraft, and sounding rockets) will be used to refine the experiment and provide some limited-duration data.  Measured flame characteristics in 1-g and Lunar-g will be compared to a detailed model.  These will refine pressure-gravity scaling relations that will then be applied to other g-levels.  The work directly addresses knowledge gaps in flammability and crew safety as defined in several NASA strategic documents.

@@ -1,0 +1,208 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20205004657,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "476f51af636f4494b861e14bccd5d908",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Sciences (General)"
+ ],
+ "keywords": [
+  "Microgravity",
+  "Flame Spread",
+  "Confined Combustion",
+  "BASS"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20205004657,
+  "ear": "NO",
+  "id": "1205aa43da904a59871dd212aa14e1be",
+  "itar": "NO"
+ },
+ "distributionDate": "2021-07-24T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2020-407"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "CBET-1740478",
+   "submissionId": 20205004657,
+   "id": "85658c4bd80f4ebaad31e90afcf8f978",
+   "type": "OTHER"
+  },
+  {
+   "number": "769347.05.08.27.01.16",
+   "submissionId": 20205004657,
+   "id": "0da4aeee26d142b8a7eb6645f5650476",
+   "type": "WBS"
+  }
+ ],
+ "title": "Effects of Confinement on Flame Spread in Microgravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2020-07-17T21:18:32.6127700+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 0,
+   "submissionId": 20205004657,
+   "meta": {
+    "author": {
+     "name": "Yanjun Li"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "262678a649514d6e8db48c1901c0a21d",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 1,
+   "submissionId": 20205004657,
+   "meta": {
+    "author": {
+     "name": "Ya-Ting T Liao"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "9f5795fdc05a48feb812720c9cc67122",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 2,
+   "submissionId": 20205004657,
+   "meta": {
+    "author": {
+     "name": "Paul V Ferkul"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, Maryland, United States"
+    }
+   },
+   "id": "ac88d3e90c794af4be1b175032bf3dcc",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 3,
+   "submissionId": 20205004657,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Michael C Johnston"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, Maryland, United States"
+    }
+   },
+   "id": "9854d10c586445dc8772a06c8f066961",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "995f4be0e19649eca742e40fb9d52045"
+  },
+  {
+   "organizationId": "6bf0e2d39a7d57769464ffce03bec4a9",
+   "sequence": 4,
+   "submissionId": 20205004657,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Charles Bunnell"
+    },
+    "organization": {
+     "name": "ZIN Technologies ( United States)",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "91e895eedc9b4e4fb9d09469be543b08",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "fd3ffb42cadb4087ad400dc7d4569c3d"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20205004657,
+ "created": "2020-07-17T20:36:43.7998920+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Solid fuel combustion experiments aboard the ISS examine the effects of confinement on a concurrent, purely-forced-flow flame spread in microgravity environment. The results for a thin, cotton-fiberglass-blended textile fabric fuel are presented. Flat baffles of differing materials are used to alter the radiative boundary conditions with transparent polycarbonate, black anodized aluminum (reflectance ~ 0), and highly polished aluminum (reflectance ~ 1). The baffles are parallel to the fuel sheet and placed symmetrically on each side. The inter-baffle distance is varied to change the boundary conditions for the flow. In all tests, samples are ignited at the upstream leading edge and allowed to burn to completion. Results show that the flame reaches a steady length and spread rate at low flow speeds (< 15 cm/s) for all tested inter-baffle distances. As the distance decreases, the flame length and spread rate first increase then decrease showing an optimal inter-baffle distance. For all baffle types, the flame either fails to ignite or extinguishes before reaching the end of the sample when the inter-baffle distance is too small (~ 1 cm). This is attributed to the reduction of oxygen supply to the flame zone and heat loss to the baffles. The results also show at the same inter-baffle distance, flame length and spread rate are highest for polished aluminum baffles, and lowest for transparent polycarbonate baffles. The differences are most prominent at intermediate tested baffle distances. While the radiative heat feedback from the baffles is expected to increase when the baffle distance decreases, the combustion is limited by the reduced oxygen supply. Near this limit, flame lengths and spread rates are similar for all baffle types.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "PT",
+   "submissionId": 20205004657,
+   "endDate": "2021-07-16T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "71fb4af96d4a59b5a0a2084db7b4ce35",
+     "meta": {
+      "organization": {
+       "name": "American Institute of Aeronautics and Astronautics",
+       "location": "Reston, Virginia, United States"
+      }
+     },
+     "meetingId": "25315327273b4555ba2638065d31be66",
+     "id": "01fdad1efd504b468d4d72d4f687e850"
+    }
+   ],
+   "name": "50th International Conference on Environmental Systems",
+   "location": "Lisbon",
+   "id": "25315327273b4555ba2638065d31be66",
+   "url": "https://www.ices.space/ices-info/",
+   "startDate": "2021-07-12T04:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20205004657,
+   "publisher": "",
+   "id": "b4312e568c394ecd8caa1d9f98faf65c",
+   "publicationName": ""
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "ICES-2020-407-final.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20205004657/downloads/ICES-2020-407-final.pdf",
+    "pdf": "/api/citations/20205004657/downloads/ICES-2020-407-final.pdf",
+    "fulltext": "/api/citations/20205004657/downloads/ICES-2020-407-final.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,3644 @@
+https://ntrs.nasa.gov/citations/19990036744
+TITLE: Flammability, Odor, Offgassing, and Compatibility Requirements and Test Procedures for Materials in Environments that Support Combustion
+FETCHED: 2026-11-14T11:00:17
+NTRS-ID: 19990036744
+DATE: 1998-02-09
+AUTHORS: 
+REPORT: NAS 1.82:6001; NASA-STD-6001; Report Number: NAS 1.82:6001; Report Number: NASA-STD-6001
+PDF: https://ntrs.nasa.gov/api/citations/19990036744/downloads/19990036744.pdf
+
+# Flammability, Odor, Offgassing, and Compatibility Requirements and Test Procedures for Materials in Environments that Support Combustion
+
+## Abstract (NTRS record)
+
+This handbook establishes NASA program requirements for evaluation, testing, and selection of materials to preclude unsafe conditions related to flammability, odor, offgassing, and fluid compatibility. Materials intended for use in space vehicles, specified test facilities, and specified ground support equipment (GSE) must meet the requirements of this document. Additional materials performance requirements may be specified in other program or NASA center specific documentation. Responsible NASA centers materials organizations must include applicable requirements of this document in their materials control programs. Materials used in habitable areas of spacecraft, including the materials of the spacecraft, stowed equipment, and experiments, must be evaluated for flammability, odor, and offgassing characteristics. All materials used in other areas must be evaluated for flammability characteristics. In addition, materials that are exposed to liquid oxygen (LOX), gaseous oxygen (GOX), and other reactive fluids' must be evaluated for compatibility with the fluid in their use application. Materials exposed to pressurized breathing gases also must be evaluated for odor and offgassing characteristics. The worst-case anticipated use environment (most hazardous pressure, temperature, material thickness, and fluid exposure conditions) must be used in the evaluation process. Materials that have been shown to meet the criteria of the required tests are acceptable for further consideration in design. Whenever possible, materials should be selected that have already been shown to meet the test criteria in the use environment. Existing test data are compiled in the NASA Marshall Space Flight Center (MSFC) Materials and Processes Technical Information System (MAPTIS) and published periodically as the latest revision of a joint document with Johnson Space Center (JSC), MSFC-HDBK-527/JSC 09604. MAPTIS can be accessed by computer datalink. Systems containing materials that have not been tested or do not meet the criteria of the required tests must be verified to be acceptable in the use configuration by analysis or testing. This verification rationale must be documented and submitted to the responsible NASA center materials organization for approval.
+
+## Full text (pdftotext -layout)
+
+                                                        I    NOT   MEASUREMENT
+                                                                   SENSITIVE                                   I
+
+
+
+National   Aeronautics   and                                       NASA-STD-6001
+Space Administration                                         FEBRUARY                                9, 1998
+
+           PREVIOUSLY          PUBLISHED       AS NHB 8060.1C
+
+
+                                                                    "'_   _   7   7/'   .'   '   _
+
+
+
+
+  FLAMMABILITY,  ODOR, OFFGASSING,
+  AND COMPATIBILITY  REQUIREMENTS
+     AND TEST PROCEDURES    FOR
+  MATERIALS IN ENVIRONMENTS   THAT
+                    SUPP_OMBUSTION
+                               LIE!-_:_!_
+                                      :_.t_,_
+                                             81gm
+
+                                  .t',NGLE¥F_ESEARCH
+                                                   CEN[ER
+                                         LtSRARYNASA
+                                       HAF_PTON,
+                                               VIF<GI_'IIA
+
+
+
+
+      NASA TECHNICAL                             STANDARD
+                                                                                      NASA-STD-6001
+                                                                                      February9, 1998
+
+                                          FOREWORD
+
+
+This standard is approved for use by NASA Headquarters      and all Field Centers   and is intended
+to provide a common framework     for consistent practices across NASA programs.
+
+This document establishes requirements for evaluation, testing, and selection of materials that
+are intended for use in space vehicles, associated ground support equipment, and facilities
+used during assembly, test, and flight operations. Included are requirements, criteria, and test
+methods for evaluating the flammability, odor, offgassing, and compatibility of materials.
+Provisions of this standard will be included, as applicable, in all future contracts and programs
+involving space vehicles, payloads, and associated support equipment.     This document was
+previously published as NHB 8060.1.
+
+Questions concerning the application of this document to a particular program shall be referred
+to the procuring NASA Center or to the Materials and Processes Laboratory, Marshall Space
+Flight Center, Huntsville, AL 35812. Questions or comments concerning the provisions of this
+standard, or suggested changes for future revisions, should be directed to Project and
+Environmental Engineering Division, Materials and Processes Laboratory, Marshall Space
+Flight Center, Huntsville, AL 35812. Requests for additional copies of this standard should be
+sent to NASA Technical Standards, EL01, MSFC, AL, 35801 (telephone 205-544-2448).
+
+
+
+
+Daniel R. Mulville
+Chief Engineer
+NASA-STD-6001
+February 9, 1998
+
+
+
+
+                   This   Page   Left Blank   Intentionally
+                                                                                                                                                    NASA-STD-6001
+                                                                                                                                                    February 9, 1998
+
+
+                                                            TABLE          OF CONTENTS
+
+
+PARAGRAPH                                                                                                                                                   PAGE
+
+
+             FOREWORD             ........................................................................................................
+
+             TABLE      OF CONTENTS                  ........................................................................................                  iii
+
+             LIST OF FIGURES                AND TABLES                   ........................................................................              iv
+
+
+             APPENDICES            .......................................................................................................                     v
+
+1.           INTRODUCTION                AND SCOPE .............................................................................                                1
+
+
+ ,
+             APPLICABLE    MATERIAL TESTS .........................................................................                                            1
+             2.1   Habitable Environments .............................................................................                                        2
+             2.2   LOX and GOX Environments .....................................................................                                              4
+             2.3       Breathing Gases ........................................................................................                                4
+             2.4       Reactive Fluids ..........................................................................................                              5
+
+
+             SYSTEM        EVALUATIONS                   .....................................................................................                  5
+     .
+
+
+
+             3.1       System Flammability in Low-Pressure Air or Oxygen-Enriched
+                       Environments .............................................................................................                               5
+             3.2       Spacecraft Offgassing ...............................................................................                                    6
+             3.3       System Flammability    in LOX and GOX Environments ...............................                                                       6
+             3.4       Materials Compatibility in Systems Containing Reactive Fluids .................                                                          6
+
+         ,   TEST METHODS                 ..................................................................................................                    6
+             4.1       Upward Flame Propagation (Test 1) ..........................................................                                             8
+             4.2       Heat and Visible Smoke Release Rates (Test 2) .......................................                                                    13
+             4.3        Flash Point of Liquids (Test 3) ...................................................................                                     18
+             4.4        Electrical Wire Insulation Flammability         (Test 4) .........................................                                      20
+              4.5       Electrical Connector Potting and Conformal
+                        Coating Flammability Test (Test 5) ............................................................                                         27
+              4.6       Odor Assessment (Test 6) .........................................................................                                      27
+              4.7       Determination  of Offgassed Products (Test 7) ...........................................                                               32
+              4.8       Flammability Test for Materials in Vented or Sealed Containers
+                        (Test 8) ......................................................................................................                          36
+              4.9       Electrical Ovedoad for Sealed Containers (Test 9) ....................................                                                   38
+              4.10      Simulated Panel or Major Assembly Flammability (Test 10) ......................                                                          38
+              4.11      Guidelines for Simulated Crew Bay Configuration Flammability
+                        Verification Test (Test 11 ) ..........................................................................                                  41
+              4.12      Total Spacecraft Offgassing (Test 12) .......................................................                                            41
+              4.13      Mechanical Impact for Materials in Ambient Pressure LOX
+                        (Test 13A) and Mechanical Impact for Materials in
+                        Variable Pressure GOX and LOX (Test 13B) .............................................                                                   42
+
+
+
+
+                                                                                     iii
+  NASA-STD-6001
+  February9, 1998
+
+
+                                                TABLE OF CONTENTS                     (CONT'D)
+
+  PARAGRAPH
+                                                                                                                                       PAGE
+
+             4.14     Pressurized Gaseous Oxygen Pneumatic Impact for Nonmetals
+                      (Test 14) ....................................................................................................     45
+             4.15     Reactivity of Materials in Aerospace Fluids (Test 15) ................................                             46
+             4.16     Determination of Offgassed Products from Assembled Articles
+                      (Test 16) ....................................................................................................     51
+             4.17     Upward Flammability of Materials in GOX (Test 17) ..................................                               51
+             4.18     Arc Tracking (Test 18) ...............................................................................             55
+
+                                                                   FIGURES
+
+  FIGURE                                                                                                                               PAGE
+
+ 1           Typical Sample Holder for Test 1 .......................................................................                   11
+ 2           Needle-Rake Mount for Thin-Film Samples ........................................................                           12
+  3          Test System for Test 2 .......................................................................................             16
+  4          Conical Heater ...................................................................................................         17
+  5          Sample Holder for Test 2 ...................................................................................               17
+  6          Multiwire Sample for Test 4 ................................................................................               22
+  7          Typical Sample Holder for Test 4 .......................................................................                   24
+  8          Immersion Test System for Test 15 ....................................................................                     49
+  9          Typical Sample Holder for Test 17 .....................................................................                    53
+10           Test Sample and Promoter for Test 17 ...............................................................                       54
+11           Schematic Diagram of Test System and Typical Sample for Test 18 .................                                          57
+
+                                                                   TABLES
+ TABLE                                                                                                                                 PAGE
+
+             Required and Supplemental Tests for Each Material Use ..................................
+             Minimum Quantities of Materials Required for Testing for
+             Each Atmosphere or Fluid ..................................................................................                7
+      III    Data from Test 1 ................................................................................................          13
+      IV     Data from Test 2 on Kydex 100 [0.06-ino (0.15 cm) Thick] ..................................                                19
+      V      Data from Test 3 ................................................................................................          20
+      Vl     Recommended Electrical Parameters for Optional Wire Overload Test .............                                            25
+      VII    Data from Test 4 at 30 Percent Oxygen and 69 kPa (10.0 psi) ..........................                                     27
+      VIII   Seven Primary Standards for Detection of Odor .................................................                            30
+      IX     Data from Test 6 ................................................................................................          31
+      X      Standard Gas Mixtures and Recommended Concentrations
+             (As Gravimetric Standards) ................................................................................                35
+      XI     Data from Test 7 ................................................................................................          36
+      Xll    Data from Test 13A ............................................................................................            44
+      XIII   Data from Test 15 (Hydrazine) ...........................................................................                  50
+      XIV    Data from Test 15 (Dinitrogen Tetroxide) ...........................................................                       50
+      XV     Data from Test 17 ..............................................................................................           55
+
+
+
+
+                                                                        iv
+                                                                                                               NASA-STD-6001
+                                                                                                               February 9, 1998
+
+                                                     APPENDICES
+
+
+APPENDIX                                                                                                               PAGE
+
+
+A      CERTIFICATION OF TEST FACILITIES .........................................................                         59
+B      REFERENCE DOCUMENTS    ..........................................................................                  60
+C      STANDARD MATERIAL INFORMATION                ........................................................              61
+NASA-STD-6001
+February 9, 1998
+
+
+
+
+                   This Page Left Blank Intentionally
+
+
+
+
+                                 vi
+                                                                                              NASA-STD-6001
+                                                                                              February 9, 1998
+
+FLAMMABILITY,        ODOR, OFFGASSING,  AND COMPATIBILITY  REQUIREMENTS AND TEST
+  PROCEDURES          FOR MATERIALS IN ENVIRONMENTS    THAT SUPPORT COMBUSTION
+
+1.    INTRODUCTION         AND SCOPE
+
+This handbook establishes NASA program requirements for evaluation, testing, and selection of
+materials to preclude unsafe conditions related to flammability, odor, offgassing, and fluid
+compatibility.  Materials intended for use in space vehicles, specified test facilities, and
+specified ground support equipment (GSE) must meet the requirements of this document.
+Additional materials performance requirements may be specified in other program or NASA
+center specific documentation.    Responsible NASA centers materials organizations must
+include applicable requirements of this document in their materials control programs.
+
+Materials used in habitable areas of spacecraft, including the materials of the spacecraft,
+stowed equipment, and experiments, must be evaluated for flammability, odor, and offgassing
+characteristics. All materials used in other areas must be evaluated for flammability
+characteristics. In addition, materials that are exposed to liquid oxygen (LOX), gaseous oxygen
+(GOX), and other reactive fluids 1must be evaluated for compatibility with the fluid in their use
+application.  Materials exposed to pressurized breathing gases also must be evaluated for odor
+and offgassing characteristics.   The worst-case anticipated use environment (most hazardous
+pressure, temperature,   material thickness, and fluid exposure conditions) must be used in the
+evaluation process.
+
+Materials that have been shown to meet the criteria of the required tests are acceptable'for
+further consideration in design. Whenever possible, materials should be selected that have
+already been shown to meet the test criteria in the use environment. Existing test data are
+compiled in the NASA Marshall Space Flight Center (MSFC) Materials and Processes
+Technical Information System (MAPTIS) and published periodically as the latest revision of a
+joint document with Johnson Space Center (JSC), MSFC-HDBK-527/JSC                    09604.    MAPTIS     can
+be accessed by computer datalink.
+
+Systems containing materials that have not been tested or do not meet the criteria of the
+required tests must be verified to be acceptable in the use configuration by analysis or testing.
+This verification rationale must be documented and submitted to the responsible NASA center
+materials organization for approval.
+
+2.    APPLICABLE       MATERIAL      TESTS
+
+The applicable material test depends on the environment to which the material is exposed.
+Applicable environments are habitable environments, LOX and GOX systems, breathing gases,
+and reactive fluids. Table I shows required and supplemental tests for each material use.
+Required tests must be conducted on materials for applicable exposure conditions. Supplemental
+tests may be conducted to support the system hazard evaluation for materials that do not meet the
+criteria of the required tests; data based on other test methods also may be used to. support the
+evaluation. When specified by the responsible NASA center materials organization, materials must
+be batch/lot tested until the effect of composition and materials processing variations are
+demonstrated to be insignificant to the characteristics being evaluated.
+
+1Reactivefluidsare fluidsthatare theoreticallycapableof reactingwithmaterialsin such a way as to create a hazard.
+Fuelssuch as hydrazineand oxidizerssuchas nitrogentetroxideare examplesof reactiveaerospacefluids.
+ NASA-STD-6001
+ February   9, 1998
+
+
+        2.1    HABITABLE      ENVIRONMENTS
+
+
+       2.1.1 Habitable Flight Compartments. Materials used in habitable flight compartments
+ must meet the following criteria when tested in the thickness intended for use to be approved
+ for use:
+
+
+       a.      Flammability. The material must meet the criteria of Test 1. Materials with an
+ exposed area greater than 4 ft =(0.37 m2) per each use must be tested according to Test 2 for
+ ignitability, heat release, and smoke obscuration, and test data must be submitted to the
+responsible NASA center materials organization for evaluation. Test 2 also may be used to
+provide supplemental   data on the flammability of materials that fail to meet the requirements of
+Test 1. The flash point of liquids may be evaluated by Test 3. Insulation materials for electrical
+wiring must meet the criteria of Test 4.
+
+
+      b.    Odor.. The material must meet the criteria of Test 6 except as described      in Section
+2.1.3 for sealed containers.
+
+
+      c.    Offaassina   Materials must meet the criteria of Test 7 except as described      in
+Section 2.1.3 for sealed containers.
+
+
+     d.    Arc Trackinq.    Wire insulation must meet the criteria of Test 18. Materials that do
+not meet the criteria of the required tests and are to remain candidates for use must be verified
+to be acceptable in the use configuration by analysis or testing and specifically approved by the
+responsible NASA center materials organization.
+
+      2.1.2 Other Areas. Materials used in GSE or flight equipment located outside habitable
+areas of the spacecraft must meet the following criteria when tested in the thickness intended
+for use.
+
+
+      a.      Flammability.   The material must meet the criteria of Test 1. Materials with an
+exposed area greater than 4 ft=(0.37 m2) per each use must be tested according to Test 2 for
+ignitability, heat release, and smoke obscuration and test data must be submitted to the
+responsible NASA center materials organization for evaluation. Test supplemental data on the
+flammability of materials that fail to meet the requirements of Test 1. The flash point of liquids
+may be evaluated by Test 3. Insulation materials for electrical wiring must meet the criteria of
+Test 4.
+
+
+      b.      Arc Tracking.   Wire insulation   must meet the criteria in Test 18.
+
+Materials that do not meet the criteria of the required tests and are to remain candidates for use
+must be verified to be acceptable in the use configuration by analysis or testing and specifically
+approved by the responsible NASA center materials organization.
+                                                                                                    NASA-STD-6001
+                                                                                                    February 9, 1998
+
+
+
+                    TABLE     I. Required and Supplemental Tests for Each Material               Use
+
+                                    Test
+Environment                         Number            Type1             Title
+
+
+Habitable Flight                    1                 R                 Upward Flame Propagation
+Compartments                        2                 R2/S              Heat and Visible Smoke Release Rates
+                                    3                 S                 Flash Point of Liquids
+                                    4                 R                 Electrical Wire Insulation Flammability
+                                    6                 R3                Odor Assessment
+                                    7                 R3                Determination of Offgassed Products
+                                    8                 S                 Flammability Test for Materials in
+                                                                        Vented or Sealed Containers
+                                    10                S                 Simulated Panel or Major Assembly
+                                                                        Flammability
+                                    12                S                 Total Spacecraft Offgassing
+                                    18                R                 Arc-Tracking
+
+Other Areas5                                          R                 Upward Flame Propagation
+                                                      R2/S              Heat and Visible Smoke Release Rates
+                                                      S                 Flash Point of Liquids
+                                                      R                 Electrical Wire Insulation Flammability
+                                                      S                 Flammability Test for Materials in
+                                                                        Vented or Sealed Containers
+                                    18                R                 Arc-Tracking
+
+LOX and GOX                         6                 R3                 Odor Assessment
+Environments                        7                 R3                 Determination of Offgassed Products
+                                    13A               R                  Mechanical Impact For Materials in
+                                                                         Ambient Pressure LOX
+                                    13B               R                  Mechanical Impact for Materials in
+                                                                         Variable Pressure LOX and GOX
+                                    14                S                  Pressurized Gaseous Oxygen Pneumatic
+                                                                         Impact for Nonmetals
+                                    17                R4                 Upward Flammability of Materials in GOX
+
+Breathing Gases                     1                 R                  Upward Flame Propagation
+                                    6                 R                  Odor Assessment
+                                    7                 R                  Determination of Offgassed Products
+                                    13A               R                  Mechanical Impact for Materials in
+                                                                         Ambient Pressure LOX
+                                    13B               R                  Mechanical Impact for Materials in
+                                                                         Variable Pressure LOX and GOX
+
+Reactive Fluids                      15               R                  Reactivity of Materials in Aerospace Fluids
+
+
+1 R - Required Test; S-- Supplement Test
+2 Required Test only for surface areas greater than 4 tt2 (0.37 m 2 per each use.
+3 Not required for materials inside hermetically sealed containers (see Section 2,1,3).
+4 Not required for materials if they pass the criteria of Test I in that environment.
+5 Includes all areas outside the habitable flight compartment,
+
+
+
+
+                                                           3
+NASA-STD-6001
+February   9, 1998
+
+
+      2.1.3 Vented and Sealed Containers.       Materials in vented and sealed containers must be
+evaluated as follows:
+
+
+       a.   Flammability. Materials in containers must be self-extinguishing, unless the container
+is hermetically sealed (maximum leak rate less than 1 x 104 cc/sec) and contains an inert gas. If
+materials used in containers fail to meet the criteria of Test 1, then supplemental information on
+the flammability of the system should be obtained as established in the criteria of Test 8.
+
+      b.    Odor. Testing of materials in hermetically sealed containers for odor is not required.
+Materials in vented containers used in habitable flight compartments must meet the criteria of
+Test 6.
+
+
+      c.     Offaassina. Testing of materials in hermetically sealed containers for offgassing is
+not required. Materials in vented containers used in habitable flight compartments must meet
+the criteria of Test 7.
+
+
+Materials that do not meet the criteria of the required tests and are to remain candidates for use
+must be verified to be acceptable in the use configuration by analysis or testing and specifically
+approved by the responsible NASA center materials organization.
+
+     2.2  LOX AND GOX ENVIRONMENTS.                Materials used in LOX or GOX environments
+must be evaluated as follows:
+
+
+      a.   Flammability. Materials must meet the criteria of Test 1 [for nonmetallic materials,
+environments less than or equal to 50 psia (345 KPa)] or Test 17.
+
+      b.    Impact Sensitivity.   Materials must meet the criteria of Test 13A or Test 13B as
+applicable.
+
+Materials that do not meet the criteria of the required tests and are to remain candidates for use
+must be verified to be acceptable in the use configuration by analysis or testing and specifically
+approved by the responsible NASA canter materials organization.
+
+     2.3  BREATHING      GASES.      Materials used in breathing gas systems that contain oxygen
+must be evaluated as follows:
+
+      a.   Flammability. Materials must meet the criteria of Test 1 [for nonmetallic materials,
+environments less than or equal to 50 psia (345 KPa)] or Test 17.
+
+      b.    Impact Sensitivity.   Materials must meet the criteria of Test 13A or Test 13B as
+applicable.
+
+     c.   Odor. Nonmetallic materials exposed to breathing-oxygen        or breathing-air supplies
+must meet the criteria of Test 6 for objectionable odors.
+
+     d.    Offqassina. Materials exposed to breathing-oxygen      or breathing-air supplies must
+meet the criteria of Test 7 for offgassing of toxic products.
+
+Materials used in breathing gas systems that do not contain oxygen must meet the criteria for odor
+and offgassing by Tests 6 and 7, respectively.
+
+
+
+                                                  4
+                                                                                                             NASA-STD-6001
+                                                                                                             February   9, 1998
+
+
+Materials that do not meet the criteria of the required tests and are to remain candidates for use
+must be verified to be acceptable in the use configuration by analysis or testing and specifically
+approved by the responsible NASA center materials organization.
+
+      2.4       REACTIVE       FLUIDS.      Materials used in reactive fluids must be evaluated as follows:
+
+
+      Compatibility.       The material      must meet the criteria of Test 15.
+
+Materials that do not meet the criteria of the required test and are to remain candidates for use
+must be verified to be acceptable in the use configuration by analysis or testing and specifically
+approved by the responsible NASA center materials organization.
+
+3.    SYSTEM         EVALUATIONS
+
+
+System evaluations must demonstrate the acceptability of configurations resulting from the use of
+flammable, incompatible, or offgassing materials. Materials that can be exposed to reactive fluids
+as a result of a single barrier' failure must be documented. An engineering evaluation and
+analysis of test data must be provided to demonstrate the acceptability of any configuration for
+which single barrier failures are possible.
+
+       3.1      SYSTEM      FLAMMABILITY          IN LOW-PRESSURE              AIR OR OXYGEN-             ENRICHED
+ENVIRONMENTS.         A system flammability evaluation must be conducted if materials that fail to
+meet the criteria of Test 1 are proposed for use in manned spacecraft, specified test facilities, or
+specified GSE. This evaluation can be conducted by analysis or by testing. If the analytical
+approach is used, the following fire control guidelines should be addressed and the results
+documented and submitted to the NASA center materials organization for evaluation.
+
+       a.       The amount and arrangement                of flammable materials are controlled to prevent the
+spread of fire in the vehicle; any potential fire is isolated in well-defined areas, by firebreaks or
+other techniques, without propagation paths to other areas.
+
+       b.       The design ensures that ignition sources are eliminated or controlled.
+
+      c.    The effects of an isolated fire on personnel in spacecraft crew-habitable                          modules are
+considered.
+
+     d.    The rate and magnitude of pressure and temperature                         increase in any potential fire
+must not cause structural damage to the vehicle.
+
+If the test approach is used, materials that do not meet the criteda of Test 1 must be evaluated
+by a configuration test such as Test 8. The test must evaluate the worst possible failure modes
+in the worst-case operating conditions.
+
+
+
+2Single barrier failures are defined as leaks through a barrier within a component that permit the fluid to contact the
+materials directly behind the barrier. Single barriers include mechanlcal joints (e.g., B-nuts); 0-dngs, gaskets, and
+bladders;    and metallic and nonmetallic   diaphragms.    Structural parts, such as pressure lines and tanks, welded     or
+brazed joints, and redundant seals in series that have been pressure-tested        individually   pdor to use are not
+considered to be single barriers.
+ NASA-STD-6001
+ February 9, 1998
+
+
+ If the results of the evaluation are inconclusive and a major assembly flammability test (such as
+ a crew module test) is required, the system design organization must submit a test plan to the
+ responsible NASA center materials organization for approval prior to test.
+
+        3.2   SPACECRAFT     OFFGASSING.       The responsible NASA toxicology organization must
+ certify (through evaluation of test data obtained from offgassing tests on materials, assembled
+articles, and spacecraft) that the materials application will not introduce any toxicity hazards that
+may jeopardize the crew of the spacecraft. Both new spacecraft and previously flown spacecraft
+that have undergone extensive modification, as determined by the applicable materials
+organization/project office, must be certified. If this certification is not obtained, Test 12 must be
+conducted. Toxic contamination levels must meet the requirements given in JSC 20584,
+"Spacecraft    Maximum Allowable    Concentrations for Airborne   Contaminants,"    (see Appendix   B).
+
+      3.3 SYSTEM FLAMMABILITY         IN LOX AND GOX ENVIRONMENTS.               A system
+evaluation must be conducted if materials that fail to meet the criteria of the required tests are
+proposed for use. The purpose of this analysis is to demonstrate that no hazard exists. This
+evaluation can be conducted by analysis or by testing. If the analytical approach is used, all
+possible ignition sources must be addressed. Possible ignition sources include rapid
+pressurization, frictional heating, particle impact, sources of electrical energy, single barrier
+failures, and others. The results of the evaluation must be documented and submitted to the
+responsible    NASA center materials organization to decide if a configuration test is required.
+
+Guidelines    for configuration tests to evaluate potential ignition sources in LOX and GOX
+systems can be obtained from the responsible NASA center materials organization.
+
+     3.4   MATERIALS COMPATIBILITY       IN SYSTEMS CONTAINING            REACTIVE FLUIDS. A
+system evaluation must be conducted if materials fail to meet the criteria of Test 15 for the fluid
+ to which they are exposed (either directly or as a result of single barrier failures). This
+ evaluation can be conducted by analysis or by testing. If the analytical approach is used, all
+ possible sources of runaway exothermic reactions must be addressed, control methods
+developed, and the results documented.      Possible initiation sources for runaway reaction
+include mechanical impact, rapid pressurization, sources of electrical energy, and other sources
+of heat. The rationale for use of materials that fail to meet the criteria of Test 15 must be
+documented and submitted to the responsible NASA center materials organization for approval.
+If the material causes excessive fluid decomposition in Test 15 and potential initiation sources
+for runaway reactions are present, tests must be conducted to verify that no hazard exists in the
+use configuration   at use conditions. Guidelines for configuration tests to evaluate runaway
+reactions in reactive fluid systems can be obtained from the responsible NASA center materials
+organization.
+
+4.    TEST METHODS
+
+
+Test methods for flammability, odor, offgassing, and compatibility are presented in this section.
+These tests must be performed by certified test facilities (Appendix A).
+
+The responsible NASA center or contractor hardware supplier should provide properly identified
+material for testing. Alternatively, certified test facilities can be authorized by the test requester to
+procure the appropriate materials. The minimum quantities of material required to properly
+perform each test are summarized in Table I1. Materials also must be accompanied by the
+
+
+                                                  6
+                                                                                                                  NASA-STD-6001
+                                                                                                                  February 9, 1998
+
+
+vendor-supplied           Material    Safety    Data   Sheet   to comply with materials-handling            requirements
+defined      by the Occupational         Safety    and Health      Administration.      Materials   and configured       system
+characteristics       can be significantly        compromised        by sources      of contamination,      such as exposure
+to solvents,      cleaning     agents,    abnormal      temperatures,      variations    in humidity,    environmental
+pollutants, particulate,   and handling.   It is important     that exposure                of the material  to these      and
+other contamination      sources be sufficiently    controlled     to minimize              variation in test results.
+
+
+                    TABLE       II.   Minimum     Quantities     of Materials    Required     for Testing   for
+                                      Each Atmosphere          or Fluid
+
+Material Test
+ Form I              Number               Minimum Quantities
+
+
+Sheets               1                    6 samples, 12 x 2.5 in. (30 x 6.4 cm) x required thickness
+                                          [thin films --12 x 3.0 in. (30 x 7.5 cm) x required thickness2]
+                     2                    18 samples, 4 x 4 in. (10 x 10 cm) x required thickness
+                     6                    2000 em2 total area
+                     7                    2000 em2 total area or 40 g
+                     13                   2000 cm2 total area 0.35 cm max. thickness
+                     14                   200 cm2 total area 0.35 cm max. thickness
+                     15                   2000 cm2 total area or 50 g
+
+Coatings1                                 Sufficient to cover [paints, 6 samples, 12 x 2.5 in. (30 x 6.4 cm) x
+(Paints,                                  required thickness]
+Inks, and            2                    18 samples, 4 x 4 in. (10 x 10 cm) x required thickness
+Adhesives)           3                    500 cm3
+                     6                    2000 cm2 total area or 500 em3
+                     7                    2000 cm2 total area or 500 cm3
+                     13                   120 em 3
+                     14                   120 cm 3
+                     15                   500 cm3
+
+Foams                1                    6 samples, 12 x 2.5 in. (30 x 6.4 cm) x required thickness
+                     2                    18 samples, 4 x 4 in. x required thickness
+                     6                    500 cm2 total area
+                     7                    500 cm2 total area
+                     13                   2000 cm2 total area (0.35 cm max. thickness)
+                     14                   200 cm2 total area (0.35 cm max. thickness)
+                     15                   2000 cm2 total area
+
+Insulated            1                    2 m in length
+Wires                4                    10 m in length
+                     6                    40 g
+                     7                    40 g
+                     13                   50 cm in length
+                     15                   2 m in length
+                     18                   20 m in length
+
+Special              17                   6 samples, 12-in. (30 cm) rods, 0.125-in. (0.32 mm) diameter
+Requirement
+
+
+
+
+1Actual test configurations and material quantities for material forms other than those listed (e.g., 0-dngs and seals)
+must be established and approved by the responsible NASA center materials organization.
+
+2When influence of test frame on results is of concern, optional large thin films of 12 x 8 in. (30 x 20 cm) x required
+thickness may be used subject to the approval of the NASA center materials organization.
+ NASA-STD-6001
+ February        9, 1998
+
+
+
+As a minimum, all fluids used for testing must meet or exceed user specifications.                Military
+Standards for appropriate fluids are listed in Appendix B.
+
+           4.1       UPWARD       FLAME PROPAGATION          (TEST 1)
+
+      4.1.1 Purpose.   The purpose of this test is to determine if a material, when exposed to a
+standard ignition source, will self-extinguish and not transfer burning debris, which can ignite
+adjacent materials.
+
+       4.1.2 Test Criteria. To determine if a material will self-extinguish using this test method,
+the burn lengths for at least three standard-sized samples must be less than 6 in. (15 cm). In
+addition, the ignited samples must not propagate a flame by the transfer of burning debris.
+Failure of any one sample constitutes failure of the material. These tests must be conducted on
+samples at worst-case thickness and in the worst-case environment.
+
+       4.1.3         Definitions.    Definitions of relevant terms used in the description of this test method are:
+
+Burn length.               The distance   from the bottom of the sample to the furthest point over which the
+sample has been consumed (not including portions of the sample that may have been merely
+damaged from the heat of the flame).
+
+Bum propagation    time. The time that elapses from ignition of the sample until the vertical
+flame propagation stops.
+
+Serf-extinguish.  A material is considered t6 self-extinguish if it has a burn length less than 6
+in. (15 cm) when exposed to an ignition source.
+
+Thin film samples.    Samples, excluding fabrics or coatings applied to a substrate, with a total
+thickness of less than 0.010 in. (0.025 cm).
+
+Transfer of burning debris. The potential spreading of flames by movement of burning
+particles from a burning sample to adjacent materials.
+
+
+     4.1.4 Test Conditions. Test conditions (total pressure, temperature, oxygen
+concentration, and thickness) must simulate the worst-case environment in which ignition and
+combustion of the material are most likely to occur.
+
+      4.1.5          Sample Preparation.       Preparation of samples for testing involves the following tasks:
+
+      a.            Receiving and visually inspecting the material.
+      b.            Preparing samples to the proper dimensions.
+      C.            Cleaning the samples.
+      d.            Inspecting the samples. (Samples should be prepared exclusively for use in this test.)
+
+When received, the test material must be accompanied by proper identification, including
+Material Safety Data Sheets. The material must be inspected to assure that it is at the
+specified worst-case thickness and flaws must be noted.
+                                                                                    NASA-STD-6001
+                                                                                    February 9, 1998
+
+
+Samples     should be prepared   as follows:
+
+     a.    Sheet, bulk-form, or irregularly shaped samples must be cut to 12 x 2.5 in. (30 x 6.4
+cm) and the worst-case thickness.
+
+     b.    Materials that require a cure must be prepared in the worst-case thickness, as
+requested. Any requested cures should be performed. The samples must be cut to 12 x 2.5 in.
+(30 x 6.4 cm).
+
+      c.    Coatings or any viscous materials that cannot be mounted for testing without a
+substrate should be applied to the end-use substrate material in the worst-case thickness.
+Aluminum foil substrates, approximately 0.003-in. (0.08 mm) thick, can be used if the end-use
+substrate is not known or appropriate. Any requested cures should be performed. The samples
+must be 12 x 2.5 in. (30 x 6.4 cm).
+
+      d.    Thin film samples must be cut to 12 x 3.0 in. (30 x 7.5 cm). Optional large thin films
+of 12 x 8 in. (30 x 20 cm) may be used subject to the approval of the NASA center materials
+organization.
+
+       e.   Liquid samples that cannot be applied to or will not adhere to the end-use or
+fiberglass fabric substrate may be tested using Flash Point of Liquids (Test 3).
+
+Samples should be cleaned and dried to the end-use specifications. Contamination on the
+surfaces of solid, nonporous samples should be removed by washing with deionized water and
+mild detergent, rinsing with deionized water, and drying with filtered, gaseous nitrogen.
+Particulate on the surfaces of solid, porous samples should be removed with filtered, gaseous
+nitrogen.
+
+The sample must be inspected to assure that it is at the specified worst-case thickness. Flaws
+and any residual contamination must be noted. (If the flaws result from sample preparation at
+the test facility, new samples should be prepared.) Samples must be weighed and individually
+identified.
+
+    4.1.6 Test System. The test system must comprise the following major components: test
+chamber, 3 test gases, measuring devices, ignition source, and sample holder.
+
+      a.    The test chamber must be large enough so that complete combustion of the sample
+can occur with no more than a 5 percent relative depletion of oxygen concentration. In addition,
+the test chamber must not interfere chemically or physically with the test.
+
+     b.   The test gases must be premixed before exposure to the sample and verified to
+meet the applied specification (including accuracy) for oxygen concentration to within + 1/-0
+percent tolerance.
+
+3Testingcan be conductedin a fume hoodiftest conditions can be met.
+NASA-STD-6001
+February 9, 1998
+
+
+      C.    Measuring devices (such as pressure gauges and oxygen-measuring        devices) must
+be in current calibration.
+
+
+      d.   The chemical ignition source used for the test must meet energy, temperature,
+burning duration, and maximum visible flame height specifications of 750 + 50 cal, 2000 +_160
+°F (1100 + 90 °C), 25 _+5 sec, and 2.5 + 0.25 in. (6.4 +_0.64 cm), respectively. To initiate the
+igniter, a voltage source capable of providing 15 amps root mean square (RMS) should be
+connected to a No. 20 gauge, bare nickel chromium wire. The wire should have a nominal
+resistivity of 0.7 ohms-per-ff (2.3 ohms-per-m) and should have sufficient length to wrap three,
+equally spaced turns around the chemical igniter.
+
+      e.    A suitable sample holder (Figure 1) must support the sample in a vertical position.
+The sample holder must allow 2 in. (5 cm), or 6 in. (15 cm) minimum for the larger thin film
+samples when approved for use by the NASA center materials organization, of the width of the
+sample to be exposed and must extend along the full length of the sample. The bottom of the
+sample holder must be located at least 10 in. (25 cm) from the chamber base. The sample
+holder should have a scale attached to one side for measurement of the burn length. An 8.5 x
+11 in. (21.6 x 28 cm) sheet of K-10 paper must be mounted horizontally 8 in. (20 cm) below the
+sample holder, but 2 in. (5 cm) above the chamber bottom to assess if burning debris
+transferred from the sample will cause ignition of adjacent materials.
+
+Thin film samples can be tested using either of two sample holders. The first sample holder is
+similar to that shown in Figure 1, except that it employs three wing-nut clamps instead of one
+long clamp. The other sample holder (Figure 2) employs needle rakes to hold the sample.
+Both of these sample holders must allow at least 2 in. (5 cm) of the width of the sample to be
+exposed.
+
+       4.1.7 Pretest Procedure. Before testing, all pertinent information (including pressure,
+sample identification, pretest weight, and size) must be recorded; all unusual samples must be
+photographed. The system must be visibly clean, and all measuring devices must be in current
+calibration. The exposed center section of standard-sized samples must be 2-in. (5 cm) wide.
+Samples must not be overly stretched or tightened, which would cause lines of horizontal
+stress; thin films must be mounted with 0.5 in. (1 cm) of slack in the width to allow for
+shrinkage.
+
+The igniter must be placed parallel to the lower edge of the sample and centered along the
+plane of the front surface of the sample. The igniter must be placed 0.25 +0.1 in. (0.6 +0.3 cm)
+below the lower edge of the sample. Finally, the K-10 paper must be mounted horizontally 8 in.
+(20 cm) and centered directly below the sample.
+
+      4.1.8 Test Procedure. The sample must be exposed to the proper test atmosphere.
+(Exposure of the sample to a vacuum must be less than 3 minutes.) The percent oxygen and
+total pressure must be analyzed, verified, and recorded. The igniter and timing device used to
+measure burn propagation time must be activated. Immediately upon ignition of the chemical
+igniter, the power to the initiator must be turned off.
+
+
+
+
+                                                10
+                                                                                  NASA-STD_001
+                                                                                  February   9, 1998
+
+
+
+
+                                                        I
+
+                                                        I
+
+
+
+
+                         FIGURE    1. Typical Sample Holder for Test 1
+
+
+Dudng the test, the vertical surfaces of the sample must be observed. Observations made
+during the test, such as transfer of burning debris causing ignition of the K-10 paper, must be
+recorded. If the sample burns more than 6 in. (15 cm), the time of bum propagation also must
+be recorded.
+
+After the test, the final oxygen concentration, length of burn, and post-test weight must be
+recorded. Post-test photographs must be taken, as required, to document any abnormal
+occurrences. All tests should be videotaped. At least three replicate samples must be tested.
+
+
+
+
+                                               11
+NASA-STD--6001
+February 9, 1998
+
+
+
+
+                                                         _l'Elllt     8AIm='LE
+
+                   _3AUE7     '_
+                                                                    ..
+                        i
+                                   i                          .
+                   Ii
+                   i"
+                        i
+                        m
+                        m
+                        m
+
+                        I
+                                                                                          ml_J
+                   !    =
+
+                        u
+                        m
+                        m
+
+                        q
+
+                        m
+                        m
+                        m
+                        a
+
+                        m
+                        I
+                        q
+                        m
+
+
+
+
+    \
+            ItJ,"  i
+                                       !.
+
+
+                                       i
+                                                  .I
+
+
+                                              i. i _i_
+                                                              " .
+
+
+                                                                                      /
+
+
+
+
+                            FIGURE         2. Needle-Rake            Mount for Thin-Film    Samples
+
+      4.1 .g ReDortin.cl. The test report must include sample identification, configuration, test
+conditions, and observations from the test. Proper reporting of the test observations, such as
+length of burn, time of bum propagation, ignition of the K-10 test paper, and other observations
+(especially of unusual behavior), are critical. The test report (in an acceptable format) must be
+submitted to the NASA Materials and Processes Technical Information System (MAPTIS).
+
+When there is a deviation          from standard test parameters,                such as nonstandard sample
+preparation, sample dimensions, sample orientation, or ignition source, the test must be
+identified as nonstandard.
+
+
+
+
+                                                                     12
+                                                                                                 NASA-STD-6001
+                                                                                                 February9, 1998
+
+       4.1.10     Precision.    Measurements     must be made to the following      precision:
+
+
+       a.       Absolute pressure, + 1 percent of reading.
+       b.       Oxygen concentration, _+0.5 percent of reading.
+       c.       Sample dimensions, +_5 percent of measurement.
+       d.       Sample weight, + 0.1 percent of reading.
+       e.       Time, +_1 second.
+       f.       Burn length, + 0.5 in. (1.3 cm).
+
+       4.1.11     Good Laboratory Practices.       At least every 2 years, the test facility must
+successfully demonstrate the ability to obtain accurate and repeatable data when testing a
+selected material (Table III).
+
+                                         TABLE III. Data from Test 1
+
+
+Material                                       Atmosphere             Average Bum Standard
+Identification                                    (% 02)                Lenath            Deviation
+                                                                        in.  cm           in.     cm
+
+Kydex 100, 0.06-in.                                 25.9               2.7    6.9                0.3    0.8
+(0.15 cm) thickness                                 20.9               1.7    4.3                0.1    0.25
+
+NOTES:       Pressureswere 14.3 psi (98.7 kPa) for 25.9 percentoxygenand 14.7 psi (101.3 kPa) for 20.9 percent
+             oxygen.
+             Data are from 10 replicatetests.
+             Detailed informationon matedalidentityis providedin AppendixC.
+
+       4.2      HEAT AND VISIBLE        SMOKE      RELEASE       RATES (TEST 2)
+
+
+      4.2.1 Purpose. The purpose of this test is to provide supplemental information on the
+flammability of materials that fail to meet the criteria of Test 1. In addition, this test is required
+for nonmetals where greater than 4 ft2 (0.37 m 2) is exposed to habitable environments.
+
+       4.2.2     Test Criteria. The following     must be determined using a minimum of three samples
+for each applied heat flux (25, 50, and 75 kW/m2):
+
+       a,       IgnitabUity.
+       b.       Maximum and average rate of heat released during the first minute, the first 3
+                minutes, and the first 5 minutes after ignition.
+       C.       Total heat released.
+       d.       Amount of smoke obscuration.
+
+The tests must be conducted on samples at worst-case thickness and in the worst-case
+conditions.
+
+       4.2.3     Definitions.   Definitions of relevant terms used in the description of this test method
+are:
+
+Extinction       coefficient.    A measure of the reduction of light transmission through a medium.
+
+
+
+
+                                                            13
+ NASA-STD-6001
+February   9, 1998
+
+
+Ignitability. The propensity of a material to ignite as measured by the time to ignition at a
+specified heating flux.
+
+
+Rate of heat release. The measured heat release divided by the mass loss for a specified time
+period and the surface area of the sample.
+
+
+Smoke obscuration.     The reduction of light transmission by smoke, as measured       by light
+attenuation and reported as the extinction coefficient.
+
+
+Total heat release.     The rate of heat release integrated as a function of time.
+
+      4.2.4 Test Conditions. Test conditions (temperature, oxygen concentration, and
+thickness) must simulate the worst-case conditions in which ignition and combustion of the
+material are most likely to occur.
+
+
+      4.2.5    Sample Preparation.   Preparation of samples for testing involves the following tasks:
+
+      a.      Receiving and visually inspecting the material.
+      b.      Preparing samples to the proper dimensions.
+      C.      Cleaning the samples.
+      d.      Inspecting the samples. (Samples must be prepared exclusively for use in this test.)
+
+When received, the test material must be accompanied by proper identification, including
+Material Safety Data Sheets. The material must be inspected to assure that it is at the
+specified worst-case thickness. Flaws and any residual contamination must be noted.
+
+Samples should be prepared as follows:
+
+
+      a.  Sheet, bulk-form, or irregularly shaped samples must be cut to 4 x 4 in. (10 x 10 cm)
+and the worst-case thickness.
+
+
+      b.   Materials that require a cure must be prepared in the worst-case thickness, as
+requested. Any requested cures should be performed.     The samples must be cut to 4 x 4 in.
+(10 x 10 cm).
+
+
+      c.   Coatings or any viscous materials that cannot be mounted for testing without a
+substrate should be applied to the end-use substrate material in the worst-case thickness.
+Aluminum foil substrates, approximately 0.003-in. (0.08 mm) thick, can be used if the end-use
+substrate is not known or appropriate. Any requested cures should be performed. The
+samples must be 4 x 4 in. (10 x 10 cm).
+
+      d.      Thin film samples must be cut to 4 x 4 in. (10 x 10 cm).
+
+Samples should be cleaned and dried to the end-use specifications. Contamination on the
+surfaces of solid, nonporous samples should be removed by washing with deionized water and
+mild detergent, rinsing with deionized water, and drying with filtered, gaseous nitrogen.
+Particulate on the surfaces of solid, porous samples should be removed with filtered, gaseous
+nitrogen.
+
+
+
+
+                                                  14
+                                                                                      NASA-STD-6001
+                                                                                      February9, 1998
+
+        4.2.6 Test System. The test system must comprise the following major components:
+test chamber, test gases and gas flow system, heater, external ignition source, sample holder,
+and measuring devices (Figure 3).
+
+The test chamber should be large enough to contain the following major components: a conical
+heater, a sample installed in the holder, and a load cell. The test chamber must not interfere
+chemically or physically with the test.
+
+       a.   The test gases must be premixed before exposure to the sample and verified to
+meet the applied specification (including accuracy) for oxygen concentration to within + 1/-0
+percent tolerance. The gas flow system should be capable of producing gas flows up to 1.24
+ft3/sec (35 l/sec).
+
+     b.    The active element of the conical heater should be an electrical heater rod. The
+heater must be rated at 5000 W at 240 V and must be tightly wound into the shape of the
+truncated cone (Figure 4). The heater should produce heat fluxes up to 100 kW/m 2 at the surface
+of the sample. A temperature controller should be used to maintain a constant heat flux.
+
+      c.   An external ignition source should be used to supplement ignition if the heat flux
+from the conical heater does not ignite the sample. A spark plug that is powered by a 10-kV
+transformer can be used. The spark gap must be centered 0.5 in. (1.3 cm) above the sample.
+
+     d.   A suitable sample holder (Figure 5) must support the sample in a horizontal position.
+The bottom of the holder should be lined with at least a 0.5-in. (1.3-cm) thick layer of a low-density
+refractory fiber blanket. The blanket should have a nominal density of 4.1 Ib/fta (65 kg/mS). The
+distance between the bottom surface of the cone heater and the top of the sample should be 1.0 in.
+(2.5 cm). The conical heater should be centered above the sample.
+
+     e.    The smoke obscuration measuring system should comprise a helium-neon            laser,
+silicon photodiodes (main beam and reference detectors), and appropriate electronics. As a
+minimum, the gas sampling system must comprise a paramagnetic oxygen analyzer; additional
+combustion products analyzers also can be used. The oxygen analyzer must be calibrated each
+day. All other measuring devices (such as pressure gauges, load cell, and thermocouples) must
+be in current calibration.
+
+      4.2.7 Pretest Procedures. The temperature controller should be set to the required heat
+flux. The oxygen analyzer delay time should be determined. The heat release rate calibration
+should be performed daily using methane of at least 99 percent purity.
+
+The smoke meter should be calibrated     daily with two different neutral density filters and at 100
+percent transmission. The zero value of extinction coefficient (100 percent transmission)
+should be verified before each test.
+
+
+The sample should be placed in a single layer of clean aluminum foil so that the sides and bottom
+of the sample are covered. The covered sample should be mounted in the sample holder.
+(Composite samples should be covered and then mounted in a retainer frame; samples that
+distort when heated should be covered and then mounted in a wire grid with a retainer frame.)
+
+
+
+
+                                                 15
+NASA-STD-6001
+February   9, 1998
+
+
+
+
+                     FIGURE   3. Test System for Test 2
+
+
+
+
+                                    16
+                                         NASA-STD-6001
+                                         February
+                                               9,1998
+
+
+
+
+        1.6 cm
+
+
+
+
+                 CERAMIC FIBER PACKING
+
+    FIGURE 4. Conical Heater
+
+
+
+
+._ _....I
+
+
+
+FIGURE 5. Sample Holder for Test 2
+
+
+
+
+                  17
+ NASA-STD-6001
+ February
+       9, 1998
+
+
+           4.2.8    Test Procedure.   The sample must be placed on the load cell in the test chamber
+and exposed to the proper test atmosphere by allowing the test gases to flow through the test
+chamber. The initial oxygen concentration must be measured.
+
+
+The power to the conical heater must be activated, and the sample must be exposed to the
+required heat flux. (The three required heat fluxes are 25, 50, and 75 kW/m2.) Time to ignition
+must be measured.
+
+
+Data must be collected until combustion ceases or until 10 minutes have elapsed after
+combustion.           Physical changes to the sample such as melting, swelling, and cracking must be
+recorded.
+
+
+If an external ignition source is used, the spark plug should be moved into place and activated
+immediately after power to the conical heater is activated. If ignition occurs, the spark plug
+should be deactivated and removed.
+
+
+After the test, the exhaust gas oxygen concentration, gas flow rate, exhaust gas temperature,
+heat flux, time to ignition, sample mass loss, and smoke obscuration must be recorded.
+
+
+      4.2.9 ReDortina. The test report must include sample identification, configuration, test
+conditions, applied heat flux, time to ignition, maximum and average rate of heat released
+during the first minute, the first 3 minutes, and the first 5 minutes after ignition, total heat
+released by the sample, sample mass loss, smoke obscuration (extinction coefficient), and
+other observations from the test. Proper reporting of the test observations is critical. The test
+report (in an acceptable format) must be submitted to the NASA MAPTIS.
+
+When there is a deviation from standard test parameters, the test must be identified as
+nonstandard.
+
+
+      4.2.10         Precision.   Measurements   must be made to the following precision:
+
+      a.
+                   Absolute pressure, _+1 percent of reading.
+      b.           Oxygen concentration, _+0.5 percent of reading.
+      C.           Sample dimensions, _+5 percent of measurement.
+      d.           Sample weight, + 0.1 percent of reading.
+      e.           Time, +1 second.
+      f.           Temperature, _+5 °F (3 ° C).
+
+
+      4.2.11 Good Laboratory Practices. At least every 2 years, the test facility must
+successfully demonstrate the ability to obtain accurate and repeatable data when testing a
+selected material (Table IV).
+
+      4.3          FLASH POINT OF LIQUIDS        (TEST 3)
+
+      4.3.1 Purpose.          The purpose of this test is to provide supplemental information on the
+flash point of liquids.
+
+
+
+
+                                                       18
+                                                                                                        NASA-STD-6001
+                                                                                                        February 9, 1998
+
+
+
+                   TABLE         IV. Data from Test 2 on Kydex 100 [0.06-in.         (0.15 cm) Thick]
+
+
+       Heat                 Time to                    Rate of Heat              Total                  Specific
+       Flux                 Ignition                   Released                  Heat                   Extinction
+       (kW/m 2)             (s)                        First Min.                 Released              Coefficient
+                                                       (kW/m 2)                   (kJ)                  (m2/g)
+
+                                                   25.9 Percent Oxy,qen
+
+        25                       70                          100                     130                    0.7
+        50                       20                          180                     180                    0.8
+        75                       10                          200                     170                    0.9
+
+                                                   30.0 Percent Oxygen
+
+        25                       70                          140                     180                    0.6
+        50                       20                          200                     190                    0.8
+        75                       10                          230                     180                    0.8
+
+NOTES:        Pressures were 14.7 psi (101.3 kPa).
+              Data are fromfive replicatetests.
+              Detailedinformationon materialidentityis providedinAppendixC.
+
+        4.3.2    Test Criteria. This test is used to determine             the flash point of liquids; therefore, any
+test criteria are dependent             upon the intended     use of the material.
+
+        4.3.3     Definitions.        Definitions of relevant terms used in the description     of this test method
+are:
+
+Closed-cup  flash point.  The lowest temperature where vapor from a sample flashes when
+exposed to a flame. This flash occurs in a test system where the atmosphere above the
+sample is contained at 14.7 psi (101.3 kPa).
+
+Flash. The sample is deemed to have flashed when the ignited vapor results in a flame and
+the flame instantly propagates over the surface of the sample. Occasionally, a blue halo or an
+enlarged flame will appear; these are not considered a flash.
+
+         4.3.4    Test Conditions.         The test conditions must be identical to those described in Flash
+Point by Pensky-Martens                Closed Tester, ASTM Method D 93 - 85.
+
+       4.3.5 Sample Preparation. In general, no sample preparation is required; however, the
+liquid, when received, must be accompanied by proper identification including Material Safety
+Data Sheets.
+
+     4.3.6 Test Systems.                 The test systems must be identical to those described in ASTM
+Method D 93 - 85.
+
+    4.3.7 Pretest Procedures.                  The pretest    procedures    must be identical to those described      in
+ASTM Method D 93 - 85.
+
+
+
+                                                               19
+ NASA-STD-6001
+ February 9, 1998
+
+
+      4.3.8    Test Procedures.   The test procedures must be identical to those described in
+ ASTM Method D 93 - 85. Generally,       on the first sample the temperature         should be raised
+ rapidly and the flash point should be approximated. Then, the procedure should be repeated             by
+ slowly raising the temperature, starting near the flash point, so that the flash point can be
+ determined.
+
+
+      4.3.9 Reportinq. The test report must include sample identification, the method used, test
+conditions, flash point of the liquid (corrected to 14.7 psi), and observations from the test. The
+test report (in an acceptable format) must be submitted to the NASA MAPTIS.
+
+
+When there is a deviation from standard test parameters, such as nonstandard               sample
+preparation or heating rate, the test must be identified as nonstandard.
+
+
+      4.3.10 Precision.      Measurements   should meet the ASTM Method D 93 - 85 precision
+requirements.
+
+
+      4.3.11 Good Laboratory Practices. At least every 2 years, the test facility must
+successfully demonstrate the accurate and repeatable data when testing selected materials
+(Table V).
+
+                                     TABLE V. Data from Test 3
+
+
+        Material Identification                             Flash Point
+                                                          (°F)            (°C)
+        p-Xylene    (99+%)                             81 +2              27+    1
+
+        Brayco 883                                     405 + 4            207 + 2
+
+
+NOTE: Detailedinformationon materialidentityis providedin AppendixCo
+
+     4.4      ELECTRICAL     WIRE INSULATION      FLAMMABILITY         (TEST 4)
+
+     4.4.1 Purpose. The purpose of this test is to determine if a wire insulation system, when
+exposed to an external ignition source, will self-extinguish and not transfer burning debris,
+which can ignite adjacent materials. Information on the flammability of wire insulation systems
+from an electrical overload ignition source also can be obtained using a variation of this test.
+
+     4.4.2 Test Criteria. To determine if a wire insulation system, at an internal wire
+temperature of 257 o F (125 ° C) or the maximum operating temperature of the wire, will self-
+extinguish, the bum lengths for at least three standard-sized single samples (20-gauge wire)
+must be less than 6 in. (15 cm). For samples that marginally meet this criterion, the
+configuration (for example, wire bundles) or the use of another wire gauge can cause a
+variation in the test results and must be addressed.
+
+
+In addition, the samples must not propagate a flame by the transfer of burning debris. Failure
+of any one sample constitutes failure of the material. These tests must be conducted on
+samples of use insulation thickness and in the worst-case environment.
+
+
+
+                                                  20
+                                                                                                NASA-STD-6001
+                                                                                                February   9, 1998
+
+
+       4.4.3    Definitions.   Definitions    of relevant terms used in the description   of this test method
+are:
+
+Burn length. The furthest distance over which the insulation has been visibly consumed by the
+flame (not including portions of the sample that may have been damaged from the heat of the
+flame).
+
+Electrical     overload.    A condition that arises when an excessive amount of electrical          current
+flows through a wire causing the wire to overheat or fuse.
+
+Self.extinguish.    A wire insulation system is considered to self-extinguish if it has a bum length
+less than 6 in. (15 cm) when exposed to an ignition source.
+
+Transfer       of burning   debris.   The potential spreading of flames by movement of burning
+particles from an ignited sample to adjacent materials.
+
+       4.4.4    Test Conditions.      Test conditions (total pressure, wire temperature,     and oxygen
+concentration) must simulate the worst-case environment in which ignition and combustion of
+the insulation material are most likely to occur.
+
+       4.4.5     Sample Preparation.         Preparation of samples for testing involves the following tasks:
+
+       a.       Receiving and visually inspecting the material.
+       b.       Preparing samples to the proper dimensions.
+       c.       Cleaning the samples.
+       d.       Inspecting the samples.
+
+When received, the test wire must be accompanied by proper identification, including Material
+Safety Data Sheets. The material must be inspected to assure that its surfaces are uniform, free
+from flaws, nicks, or crimps. Any of these conditions must be noted.
+
+To prepare a single conductor, a 4-ft (1.2-m) length must be cut, 0.5 in. (1 cm) of insulation must
+be removed from each end of the wire using an appropriate wire stripper, and an appropriate
+noninsulated crimp spade lug must be attached to the ends of the wire.
+
+To prepare a multiwire sample, six additional wires must be cut into 17-in. (0.43-m) lengths.
+The active conductor must be placed on the perimeter of the multiwire configuration. The active
+conductor and the six additional wires must be laced tightly together using Bentley Harris
+STFE-30B lacing tape or equivalent or using appropriate wire ties 3 in. (8 cm) apart (Figure 6).
+
+Samples should be cleaned and dried to the end-use specifications. Visible contamination should
+be removed with distilled water and a lint-free cloth. Subsequently, the samples must be dried
+using filtered, gaseous nitrogen.
+
+The sample must be inspected to assure that its surfaces are uniform and free from flaws,
+nicks, crimps, or surface contamination. Any of the above conditions must be noted. (If these
+conditions result from sample preparation at the test facility, new samples should be prepared.)
+Samples must be weighed and individually identified.
+
+
+
+
+                                                          21
+ NASA-STD-6001
+ February 9, 1998
+
+
+
+
+                                                                       WIRE BUNDLE
+
+
+
+
+(NOTE:    ALL DIMENSIONS       ARE IN CENTIMETERS)
+
+                               FIGURE 6. Multiwire Sample for Test 4
+
+For the optional wire overload test, a test bundle of seven insulated wires, six of which are 12
+in. (31 cm) in length and the seventh wire 13 in. (33 cm) in length, shall be tightly bound
+together, using Bentley-Harris STFE-30 lacing tape or equivalent or the appropriate bundle ties
+to be tested, in five places approximately 3 in. (8 cm) apart. The 13 in. (33 cm) length wire shall
+be positioned on the interior of the bundle in intimate contact with adjacent wires and shall be
+stripped of 1/2 in. (1 cm) of insulation on each end. A crimp spade lug terminal shall be used at
+each end to terminate the overload wire and provide a heat sink. The wires shall be laid up
+parallel to each other and one end of the bundle shall be twisted 180 ° relative to the other.
+Electrical harnesses and accessories as used in actual applications, including connectors, may
+be used in lieu of the above configuration. The mating connector with electrical wiring to power
+electrode must be either ceramic insulated wire or bare copper wire of lower gage number than
+that used in the test bundle.
+
+
+      4.4.6   Test System.   The test system must comprise the following major components: test
+chamber, test gases, measuring     devices, ignition source, sample holder, and power supply.
+
+      a.    The test chamber must be large enough so that complete combustion of the sample
+can occur with no more than a 5 percent relative depletion of oxygen concentration. In addition,
+the test chamber must not interfere chemically or physically with the test. The free space
+above and below the test fixture must be at least 8 in. (20 cm).
+
+      b.   The test gases must be premixed before exposure to the sample and verified to meet
+the applied specification (including accuracy) for oxygen concentration to within + 1/-0 percent
+tolerance.
+
+
+      c.   Measuring devices (such as pressure gauges, thermocouples, oxygen-measuring
+devices, and current and voltage meters) must be used and must be in current calibration.
+
+
+
+                                                22
+                                                                                    NASA-STD-6001
+                                                                                    February 9, 1998
+
+       d.    The chemical ignition source used for the test must meet energy, temperature,
+burning duration, and maximum visible flame height specifications of 750 _+50 cal, 2000 + 160
+°F (1100 + 90 °C), 25 + 5 sec, and 2.5 _+0.25 in. (6.4 + 0.64 cm), respectively. To initiate the
+igniter, a voltage source capable of providing 15 amps RMS should be connected to a No. 20
+gauge, bare nickel chromium wire. The wire should have a nominal resistivity of 0.7 ohms-per-
+ft (2.3 ohms-per-m) and should have sufficient length to wrap three, equally spaced turns
+around the chemical igniter.
+
+      e.    A sample holder should suspend the center third of the wire or wire bundle from one
+top corner of the fixture to the opposite bottom corner of the fixture, at a 15 _+2-degree angle
+from vertical (Figure 7). The sample holder should have a scale attached to one side for
+measurement of the burn length. An 8.5 x 11 in. (21.6 x 28 cm) sheet of K-10 paper must be
+mounted 8 in. (20 cm) directly below the sample holder to assess if burning debris transferred
+from the sample will cause ignition of adjacent materials. For the optional wire overload test,
+the sample holder shall consist of two horizontally mounted electrical connections, i.e., knurled
+bolts, spaced 13 in. (33 cm) apart. Three nonflammable center supports shall be provided to
+support the center and end of the sample wire bundle. The electrical terminals shall be
+connected to the ignition power source.
+
+      f.    The power supply must be capable of providing a regulated DC current (150 amps
+maximum) to the conductor of the test sample at the current required to reach the specified
+internal wire temperature.
+
+      g.   For the optional wire overload test, the power supply must be capable of providing a
+regulated DC current to at least 10 percent greater than the nominal fusion current for the wire
+gauge being tested, as indicated in Table Vl.
+
+       4.4.7 Pretest Procedure.    All pertinent information (including pressure, sample
+identification, insulation thickness, pretest weight, wire gauge, and configuration) must be
+recorded; all unusual samples must be photographed.
+
+The amount of current required to obtain the internal wire temperature specified for the test must
+be determined. This current is determined by mounting the sample diagonally in the test fixture
+with the power supply attached to the conductor. The test fixture must be in a draft-free
+environment at ambient temperature. Hypodermic microthermocouple probes (33-gauge) must be
+inserted so that the microthermocouples are in contact with the active conductor. The wire
+temperature measurements should be performed in at least three locations: in the middle of the
+wire and at approximately 1.25 in. (3 cm) from center in both directions. The electrical current
+should be raised until the test temperature of the wire is attained (as measured at the three
+locations). That temperature should be maintained until stable to within + 5 °F (3 °C) for 5
+minutes. The test temperature of the wire must not be exceeded. The voltage drop and current
+that produce the required temperature of the wire must be recorded. This determination must be
+made only once for each wire of the same manufacturer, gauge, and insulation material and
+thickness.
+
+
+
+
+                                                23
+NASA-STD-6001
+February   9, 1998
+
+
+
+
+                 n   m'll_P       _lne
+                      igelrAm.)
+
+
+
+
+                            FIGURE       7.   Typical   Sample   Holder   for Test   4
+
+
+
+
+                                                         24
+                                                                                          NASA-STD-6001
+                                                                                          February9, 1998
+
+       TABLE    Vl.   Recommended      Electrical Parameters for Optional Wire Ovedoad Test
+
+
+   Wire Gauge           Initial Test            Increment Current                Nominal Fusion
+       No.              Current (Amps)          per Minute (Amps)                Current (Amps)
+
+
+         28                     5                       1                                15
+         26                     10                      2                                20
+         24                     15                      3                                30
+         22                     30                      4                                40
+         20                     40                      5                                60
+         18                     60                      8                                80
+         16                     80                      10                               120
+         14                     120                     15                               160
+         12                     160                     25                               225
+         10                     220                     30                               300
+         8                      350                     45                               475
+         6                      500                     65                               675
+         4                      725                     95                               950
+         2                      1000                    135                              1350
+         0                      1400                    200                              1900
+
+
+NOTES:    Values shownare for copper. For otherconductormaterials,the numbersmustbe changedaccordingly.
+          In addition,the initialtest currentand incrementsmay be varied,as required;however,any requested
+          deviationsmustbe reported.
+
+After the wire current has been determined,     the excess length of wire must be arranged to be
+clear of any flames exuded from the sample holder area. The igniter must be placed 0.3 +_0.1
+in. (0.8 + 0.3 cm) below the diagonally mounted test sample and 0.1 _+0.1 in. (0.3 + 0.1 cm) to
+the right of the lower attached corner of the test sample, as shown in Figure 7. The igniter must
+be placed perpendicular to and centered in the plane of the sample (Figure 7). The test fixture
+must be placed into the test chamber. The ends of the conductor must be connected to the
+power supply and the voltage meter. Finally, the K-10 paper must be mounted horizontally 8 in.
+(20 cm) and centered directly below the sample.
+
+For the optional wire overload test, the pretest procedure is identical to the above procedure,
+except that the current determination to obtain wire temperature is omitted. In addition, no
+external igniter is used and grounding of the additional wires in the bundle is optional.
+
+     4.4.8    Test Procedure.    The sample should be exposed to the proper test atmosphere.
+(Exposure of the sample to a vacuum must be less than 3 minutes.) The percent oxygen and
+total pressure must be verified and recorded. The previously determined current must be
+applied to the conductor with the DC power supply to obtain the temperature of 257 °F (125 °C)
+or the maximum operating temperature of the wire. Upon maintaining the steady-state
+temperature for a minimum of 5 minutes (as indicated by less than a 5 percent change in the
+voltage drop across the sample), the external igniter should be activated. Immediately upon
+ignition of the chemical igniter, the power to the initiator must be turned off.
+
+
+
+
+                                                   25
+NASA-STD-6001
+February   9, 1998
+
+
+During the test, the sample must be observed. Observations made during the test, such as
+transfer of burning debris causing ignition of the K-10 paper, must be recorded.
+
+After all combustion has ceased, the current applied to the wire should be removed. The final
+oxygen concentration, length of bum, and post-test weight must be recorded. Post-test
+photographs must be taken, as required, to document any abnormal occurrences. All tests
+should be videotaped. At least three replicate samples must be tested in the single-wire
+configuration. If the single-wire samples meet the test criteria, three replicate samples in the
+wire bundle configuration must be tested.
+
+
+For the optional wire overload test, the following test procedure must be performed. The sample
+should be exposed to the proper test atmosphere. (Exposure of the sample to a vacuum must be
+less than 3 minutes.) The percent oxygen and total pressure must be analyzed, verified, and
+recorded. The initial current should then be applied to the wire (proper current for specific
+gauges of wire and increments are given in Table VI). If no ignition is obtained within 1 minute,
+the current should be increased in increments, as given in Table VI, until either the wire insulation
+ignites or until the wire fuses and the conductor fails. If the wire ignites, the power supply should
+be turned off, and the sample must be observed to see if the sample self-extinguishes.
+
+During the optional wire overload test, the sample must be observed          Observations   made
+during the test, such as transfer of burning debris causing ignition of the K-10 paper, must be
+recorded. The test must be recorded on videotape.
+
+      4.4.9 Reportin,q. The test report must include sample identification, configuration, test
+conditions, wire current (or final wire current for the optional wire overload test), length of bum,
+and ignition of the K-10 test paper. In addition, any unusual behavior, such as wire fusion that
+may be indicated by loss of current, must be included. The test report (in an acceptable format)
+must be submitted to the NASA MAPTIS.
+
+
+When there is a deviation from standard test parameters, such as nonstandard sample
+preparation, sample dimensions, sample orientation, or ignition source, the test must be
+identified as nonstandard.
+
+
+      4.4.10     Precision.   Measurements     should be made to the following precision:
+
+      a,       Temperature,   + 2 °F (1 °C).
+      b.       Absolute pressure _.+1 percent of reading.
+      C.       Oxygen concentration, + 0.5 percent of reading.
+      d.       Sample weight, + 0.1 percent of reading.
+      e.       Time + 1 second.
+      f.       Current, _+0.5 Amps.
+      g.       Voltage, _+0.05 Volts.
+      h.       Length _+05 in. (1.3 cm).
+
+      4.4.11 Good Laboratory Practices. At least every 2 years, the test facility must
+successfully demonstrate the ability to obtain accurate and repeatable data when testing
+selected standard insulated wires (Table VII).
+
+
+
+
+                                                     26
+                                                                                                                                    NASA-STD-6001
+                                                                                                                                    February 9, 1998
+
+
+               TABLE        VII.    Data from Test           4 at 30 Percent           Oxygen         and 69 kPa          (10.0    psi)
+
+
+Wire Insulation Identification                                                             Average Burn                            Standard
+                                                                                                 Len,qth                           Deviation
+                                                                                             in.        cm                         in.       cm
+
+
+TFE Teflon (0.014-in.        thick) (0.036-cm)          20 gauge wire                           2.6        6.6                     0.1         0.25
+
+
+Fluorocarbon/polyamide             (medium       weight)    20 gauge wire                       2.0        5.1                     0.1         0.25
+
+
+Crosslinked     ETFE (light weight)            20 gauge wire                                          Complete      Combustion
+
+
+Crosslinked     ETFE (light weight)            24 gauge wire                                    5.7        14.5                    1.9         4.8
+
+
+NOTES:         Data are from 5 replicate tests (except for the 24 gauge ETFE, which are from 10 replicate tests).
+               Detailed information on material identity is provided in Appendix C.
+               TFE      = tetrafluoroethylene
+               ETFE     = ethylenetetrafluoroethylene
+
+       4.5      ELECTRICAL               CONNECTOR             POTTING           AND    CONFORMAL                 COATING
+FLAMMABILITY              TEST      (TEST       5).    This test was deleted.
+
+
+       4.6     ODOR         ASSESSMENT                 (TEST6).
+
+
+       4.6.1    Purpose.           The   purpose        of this test is to determine             if the odor from            a material        or
+assembled       article     is objectionable           or revolting.     This test is optional            for materials           or assembled
+articles    that meet      the criteria        for Test 7 for quantities          of at least 100 pounds                  (45.4     kg).
+
+
+       4.6.2    Test Criteria.           The    odor from a material             or assembled           article    is objectionable            or
+revolting if an average             rating of 2.5 or higher (on an odor-characteristic                            scale     of 4) is assigned
+from the test.
+
+
+       4.6.3    Definitions.         Definitions        of relevant     terms     used in the description                 of this test method
+are:
+
+
+Assembled        article.        An assembled              article could be any component                  or assembly             of components
+that is not a single material.
+
+
+Objectionable          odor.       An odor that is disagreeable.
+
+
+Offgassed       product.           An organic         or inorganic     compound          evolved       as a gas from              a material        or
+assembled       article.
+
+
+Offgassing.       The evolution           of gaseous          products        from a liquid or solid material                into an
+atmosphere.
+
+
+Revolting      odor.       An odor that is extremely                 offensive    and causes           discomfort.
+
+
+
+
+                                                                         27
+ NASA-STD-6001
+ February   9, 1998
+
+
+
+      4.6.4 Test Conditions. The test atmosphere must be at least 20.9 percent oxygen with
+the balance nitrogen or argon, and the pressure when the sample is loaded should be + 0.5 psi
+(3.5 kPa) of the ambient pressure of the test facility. The maximum limits (in parts-per-million
+by volume) for impurities in the test atmosphere are Carbon Monoxide (0.5), Carbon Dioxide
+(3.0), Total Hydrocarbons,     as Methane   (0.1), Halogenated Compounds (0.5), Water (7.0), and
+Nitrogen Dioxide (0.005).
+
+
+The sample must be subjected to a thermal exposure for 72 _+1 hour at a temperature of 120 _+
+5 °F (49 _+3 °C). Samples tested at one oxygen concentration do not have to be retested at a
+different oxygen concentration.
+
+
+       4.6.5     Sample Preparation.   Test samples must be prepared from either materials or
+assembled articles.      Preparation of samples for testing involves the following tasks:
+
+       a.
+               Receiving and visually inspecting the material.
+       b.      Preparing samples to the proper dimensions, if required.
+       C.      Cleaning the samples.
+       d.      Inspecting the samples.
+
+
+When received, the test material must be accompanied by proper identification, including
+Material Safety Data Sheets. Samples prepared from materials must be prepared by either
+surface area, volume, or weight specifications.
+
+
+       a.    If samples are prepared by surface area, a ratio of 300 +_15 cm =sample surface area
+per liter of sample container volume is required. Materials, such as films, coatings, primers, inks,
+paints, adhesives, and tapes, must be applied to clean substrates. Any requested cures should
+be performed. The material should be applied to both sides of enough substrates to provide the
+required 300 _+15 cm 2 sample surface area per liter of sample container volume. If the required
+ratio cannot be met, the maximum practical sample surface area must be prepared. The actual
+sample surface area and net sample weight must be recorded.
+
+
+      b.     Materials, such as foams or insulation materials, must be prepared by surface area.
+Any requested cures should be performed. The samples must be cut to a thickness of 0.5 +_
+0.04 in. (1.3 + 0.1 cm). The total sample surface area per liter of sample container volume
+must be 50 + 5 cm 2. The actual sample surface area and net sample weight must be recorded.
+
+      c.   If materials have a definite volume but do not have a large surface area (such as
+potting and molding compounds, cast or formed objects, thick plastics, and liquids), they must
+be prepared at 5.0 _+0.25 grams per liter of container. Any requested cures should be
+performed.   Liquids must be placed in suitable dishes with a diameter of 2.3 + 0.2 in. (5.7 + 0.5
+cm). The ratio of liquid open surface area to volume of the liquid should be consistent from
+sample to sample.
+
+      d.   If a sample is an assembled article, it must be inspected for parts that are not
+designated for flight, such as dust covers, tape, or test leads. These items must be removed
+before testing. The absence of such items as batteries or photographic film, which will be
+included during flight but are not included with the sample, must be recorded. The ratio of
+sample volume to sample container volume should be approximately 1:3.
+
+
+
+
+                                                   28
+                                                                                   NASA-STD-6001
+                                                                                   February 9, 1998
+
+Samples that do not meet the above classifications must be tested in a manner that is
+designated by the responsible NASA center materials organization.
+
+Samples should be cleaned and dried to the end-use specifications. As a minimum, particulate
+on sample surfaces should be removed with filtered, gaseous nitrogen.
+
+The sample must be inspected and any flaws must be noted. (If the flaws result from sample
+preparation at the test facility, new samples should be prepared.) Samples must be weighed
+and individually identified.
+
+      4.6.6 Test System. The test system must comprise the following major components:
+sample container, test chamber with controlled temperature, and equipment for sample
+transfer.
+
+
+The sample container should be easy to clean and constructed so that gas samples may be
+easily collected. The sample container, including soft goods, must not measurably affect the
+products and odors offgassed from the samples.
+
+The test chamber must have the capability to maintain the test temperature to + 5 °F (3 °C).
+The test chamber instrumentation must have the capability to continuously record the
+temperature.
+
+Glass syringes (30 cm 3capacity) must be used for measuring and administering the odor
+sample. When administering the sample, a nonobtrusive mask covering the nose and mouth
+also must be used. Both the syringes and the masks must not measurably affect the results of
+the tests.
+
+
+     4.6.7 Pretest Procedure. A NASA or NASA contractor volunteer must sign a consent
+form (as required in NMI 7100.8, "Protection of Human Research Subjects"), must be medically
+examined and qualified, and must be odor qualified by distinguishing the seven primary
+standards in Table VIII from three odorless standards.
+
+
+An odor panel must test each new compressed gas that is used for test atmospheres      before
+use. The gas must be judged as being odorless.
+
+The sample containers should be cleaned by washing with a dilute soap solution and rinsing
+with deionized water, allowed to dry, and then purged with air or nitrogen. Before use, each
+container must be certified to be free of odor.
+
+
+Before odor testing, materials or assembled articles must be tested for offgassed products
+(Test 7, Section 4.7). This analysis ensures that odor panel members will not be exposed to
+unacceptable levels of toxic components. If the gas from the sample container has been
+determined to be unsafe to test based on the offgassing analysis, the calculated toxic level and
+reasons for not performing the test must be recorded.
+
+Duplicate samples of materials should be offgassed: one sample for offgassing analysis and the
+other for odor assessment.   If the sample cannot be provided in duplicate, the sample must be
+used in both offgassing analysis and odor assessment.
+
+
+
+
+                                               29
+ NASA-STD-6001
+ February
+       9,1998
+
+                   TableVIII. Seven Primary Standards for Detection of Odor
+
+Odor                       Standard Compound                         Dilution in Water
+
+
+Ether                      Diethyl ether                             90 _1 in 333 ml
+
+Camphor                    1, 8-Cineole                              5 pJ in 500 ml
+
+Musk                      15-Hydroxypentadecanoic                    1 mg in 1000 ml
+                          acid lactone
+
+Floral                    1'Methyl-l-ethyl-2-                        75 I_1 in 500 ml
+                          phenyl propanol-1
+
+Mint                      Menthone (dl)                              2 p.I in 333 ml
+
+Pungent                   Acetic acid                                2.0 ml in 333 ml
+
+Putrid                    Methyl disulfide                           1 !_1in 10 L
+
+
+
+Before each test, members of the odor panel must receive a nose and throat examination      (for
+nasal irritation or other abnormal conditions) by a medical staff member. Results of this
+examination must be recorded.
+
+
+Each odor panel member must identify an odorless solution from two of the seven primary
+standards. Members of the odor panel must not be allowed to participate if their sense of smell
+has been affected in any manner, such as by recent smoking, ingestion of highly flavored foods,
+or exposure to pungent vapors.
+
+
+      4.6.8 Test Procedure. The sample must be weighed and placed in the sample container.
+The sample container should be evacuated. (Exposure of the sample to a vacuum must be
+less than 3 minutes.) The sample container must then be pressurized to 0.5 psi (3.5 kPa) less
+than the ambient pressure of the test facility.
+
+Some samples, however, cannot withstand the evacuation procedure. The containers for these
+samples must be purged then pressurized to assure that the test atmosphere is established.
+
+The sample in the sample container must be heated to the test temperature and held at that
+temperature for 72 + 1 hours. Once the container has been cooled, the pressure must be
+recorded, and then the sample container must be pressurized to ambient pressure with the
+compressed gas.
+
+
+The odor panel must be convened, and at least five qualified members administered with at
+least 30 cm 3 of the gas from the sample container. Each odor panel member must assign an
+
+
+
+
+                                                30
+                                                                                                NASA-STD-6001
+                                                                                                February
+                                                                                                      9, 1998
+
+odor characteristic to the gas from the sample container that will be assigned a number using
+the following scale:
+
+
+                  Undetectable:               0 rating
+                  Barely Detectable:          1 rating
+                  Easily Detectable:          2 rating
+                  Objectionable:              3 rating
+                  Revolting:                  4 rating
+
+Between 2 and 4 hours after the test, the panel members must be medically examined for nasal
+irritation or other abnormal conditions. The results of this examination must be recorded.
+
+Each odor panel member must be exposed to only one odor sample every 48 hours.
+
+      4.6.9 Reoortinq. The test report must include sample identification, configuration, test
+conditions, and the average rating from the odor panel members. Any significant results from
+the medical examination also must be recorded. If the material was determined to be unsafe
+for testing (based on the offgassing analysis from Test 7), the reasons for the determination not
+to odor test the sample must be included. The test report (in an acceptable format) must be
+submitted to the NASA MAPTIS.
+
+
+When there is a deviation from standard test parameters, such as nonstandard sample
+preparation or test conditions, the test must be identified as nonstandard.
+
+     4.6.10     Precision.   Measurements      must be made to the following       precision:
+
+     a°
+              Absolute pressure + 1 percent of reading.
+     b.       Temperature, + 5 °F (3 °C).
+     c.       Oxygen concentration, + 0.5 percent of reading.
+     d.       Weight, + 0.01 percent.
+
+        4.6.11 Good Laboratory Practices. Each odor panel member must be requalified at least
+every 4 months, using the procedure described in Section 4.6.7. At least every 2 years, the test
+facility must successfully demonstrate the ability to obtain accurate and repeatable data when
+testing a selected material. Included in Table IX are the expected test results and standard
+deviations observed in testing selected materials using odor panels of five people.
+
+                                          TABLE IX. Data from Test 6
+
+                                                         Odor Rating
+                                                              Standard
+Materials                                           Mean      Deviation
+
+
+390 tape                                                 1.3         0.5
+
+Eccobond    24 adhesive                                  1.6         0.2
+
+R425-N neoprene rubber                                   1.3         0.3
+
+NOTES:        Data are fromfour replicatetests. Detailedinformationon materialidentityis providedin Appendix C.
+
+
+                                                         31
+NASA-STD-6001
+February
+      9, 1998
+
+
+        4.7    DETERMINATION            OF OFFGASSED            PRODUCTS     (TEST 7)
+
+
+       4.7.1 Purpose. The purpose of this test is to determine the identity and quantity of
+volatile offgassed products from materials and assembled articles.
+
+
+      4.7.2 Test Criteria. For a component or a material, the total Toxic Hazard Index (T)
+values for all volatile offgassed products must be less than 0.5.
+
+
+       4.7.3    Definitions.     Definitions    of relevant terms used in the description of this test method
+are:
+
+
+Assembled     article. An assembled article could be any component or assembly of components
+that is not a single material.
+
+Offgassedproduct.              An organic or inorganic compound evolved as a gas from a material or
+assembled article.
+
+
+Offgassing.       The evolution of gaseous products from a liquid or solid material into an
+atmosphere.
+
+Spacecraft      maximum         allowable      concentration    (SMAC).    The maximum concentration of an
+offgassed product that is allowed in the habitable area of the spacecraft for a specified flight
+duration. SMAC values for manned spacecraft are listed in MAPTIS.
+
+Toxic Hazard Index (T). The T value is determined by calculating the ratio of the projected
+concentration of each offgassed product to its SMAC value and summing the ratios for all
+offgassed products without separation into toxicological categories.
+
+       4.7.4 Test Conditions. The test atmosphere should be at least 20.9 percent oxygen with
+the balance nitrogen or argon, and the test pressure should be + 0.5 psi (3.5 kPa) of the
+ambient pressure of the test facility. The maximum concentration limits (in parts-per-million by
+volume) for impurities in the compressed gases are Carbon Monoxide (0.5), Carbon Dioxide
+(3.0), Total Hydrocarbons, as Methane (0.1), Halogenated Compounds (0.5), Water (7.0), and
+Nitrogen Dioxide (0.005).
+
+The sample must be subjected to a thermal exposure for 72 + 1 hours at 120 _+5 °F (49 _+3 °C).
+Samples tested at one oxygen concentration do not have to be retested at a different oxygen
+concentration.
+
+
+     4.7.5     Sample Preparation. Test samples must be prepared from either materials or
+assembled      articles. Preparation of samples for testing involves the following tasks:
+
+       a.      Receiving and inspecting the material.
+       b.      Preparing samples to the proper dimensions, if required.
+       c.      Cleaning the samples.
+       d.      Inspecting the samples.
+
+
+
+
+                                                           32
+                                                                                   NASA-STD-6001
+                                                                                   February   9, 1998
+
+
+When received, the test material must be accompanied by proper identification, including
+Material Safety Data Sheets. The material must be inspected to assure that it is at the
+specified worst-case thickness. Flaws and any residual contamination must be noted.
+
+All materials should meet the requirement of 5.0 + 0.25 grams sample weight per liter of sample
+container volume, and the approximate total sample surface area must be recorded. If the
+required sample weight cannot be met, the maximum practical quantity of sample must be
+tested with the actual sample weight and approximate total sample surface area recorded.
+
+Materials, such as films, coatings, primers, inks, paints, adhesives, tapes, and thin-film
+substrates, must be applied to clean aluminum substrates. Any requested cures should be
+performed. The material should be applied to both sides of the substrate. Materials that do not
+need to be applied to substrates must be cut to convenient test dimensions. Materials, such as
+foams, insulation, padding, potting and molding compounds, cast or formed objects, thick
+plastics, and liquids, must be tested as near to use configuration as possible. Any requested
+cures should be performed. Liquids must be placed in suitable petri dishes with a diameter of 2.3
++ 0.2 in. (5.7 + 0.5 cm). The ratio of liquid open surface area to volume of the liquid must be
+consistent from sample to sample.
+
+If a sample is an assembled article, it must be inspected for parts that are not designated for
+flight, such as dust covers, tape, or test leads. These items must be removed before testing.
+The absence of such items as batteries or photographic film, which will be included during flight
+but are not included with the sample, must be recorded. The ratio of sample volume to sample
+container volume should be approximately 1:3.
+
+Samples that do not meet the above classifications must be tested in a manner that is
+designated by the responsible NASA center materials organization.
+
+Samples must be cleaned and dried to the end-use specifications. As a minimum, particulate
+on sample surfaces should be removed with filtered, gaseous nitrogen.
+
+The sample must be inspected and any flaws must be noted. (If the flaws result from sample
+preparation at the test facility, new samples should be prepared.) Samples must be weighed
+and individually identified.
+
+     4.7.6 Test System. The test system must comprise the following major components:
+sample container, test chamber with controlled temperature, and analytical instrumentation.
+
+      a.    The sample container should be easy to clean and constructed so that gas samples
+can be collected easily. The sample container, including soft goods, must not significantly
+affect the concentration of products offgassed from the samples. Sample containers with a
+volume greater than 100 liters must have the capability of forced convection inside the
+container during offgassing and analysis.
+
+     b.    The test chamber must have the capability to maintain the test temperature     to + 5 °F
+(3 °C). The test chamber instrumentation must have the capability   to continuously record the
+temperature.
+
+
+
+
+                                               33
+ NASA-STD-6001
+ February9, 1998
+
+
+      C.   The analytical instrumentation is not specified; however, the instrumentation should
+allow separation, quantification, and identification of all offgassed products at or below their
+SMAC concentrations when tested at 5 grams of sample per liter of container volume. If the
+instrumentation cannot achieve this sensitivity, the minimum reportable concentration for those
+offgassed products must be reported. The recommended analytical instruments include a gas
+chromatograph using primarily a flame ionization detector, gas chromatograph/mass
+spectrometer, and infrared spectrophotometer.
+
+
+       4.7.7 Pretest Procedure. The pretest procedure includes cleaning of sample containers,
+certification of container cleanliness, and calibration of the quantitative analytical instruments.
+
+The sample containers must be cleaned by heating to drive off residual container contamination
+and then purged with clean air or nitrogen before each use. Solvent cleaning should be avoided.
+Before loading the sample into the container, the container must be filled with the test
+atmosphere or nitrogen and then conditioned for at least 72 hours at 120 °F (49 °C).
+Alternatively, the sample container can be conditioned for at least 24 hours at 155 °F (69 °C).
+The sample container atmosphere must be analyzed for residual contamination. The sample
+container can be certified as clean for use if the concentrations of residual gases are sufficiently
+low that they will not interfere with interpretation of results of the offgas analysis.
+
+The methods of quantitative analysis must be traceable to a primary gas standard. Any
+standards used to quantify specific compounds must be traceable to the National Institute of
+Standards and Technology.
+
+
+      4.7.8 Test Procedure. The sample must be weighed and placed in the sample container.
+The room atmosphere in the sample container must be replaced with the test atmosphere;
+however, exposure of the sample to a vacuum must be less than 3 minutes. The sample
+container must then be pressurized to a pressure that will be the requested test pressure when
+the test temperature is achieved. Some samples, however, cannot withstand the evacuation
+procedure. These samples must be purged with the test atmosphere, then brought to the
+pressure as required. The organization requesting the offgassing test should indicate if the
+sample can or cannot withstand a vacuum. Then the sample in the sample container must be
+heated to the test temperature and held at that temperature for 72 _+1 hours. The sample
+container must then be cooled to 72 F (22 °C), the container pressure recorded, and the
+offgassed products sampled and analyzed. The sampling and analysis of the offgassed products
+must be initiated within 24 hours from the time the container cools to 72 °F (22 °C). The identity
+and quantity of each analyzable offgassed product must be determined and recorded.
+
+
+      4.7.9 Reoortina. The test report must include sample identification, configuration, test
+conditions, and observations from the test. For each offgassed product, the quantities must be
+reported as mg/g of material or mg/100 cm=of material or mglassembled article. The test report
+(in an acceptable format) must be submitted to the NASA MAPTIS.
+
+
+When there is a deviation from standard test parameters, such as nonstandard sample
+preparation or test conditions, the test must be identified as nonstandard.
+
+
+
+
+                                                 34
+                                                                                            NASA-STD-6001
+                                                                                            February9, 1998
+
+
+     4.7.10     Precision.   Measurements    must be made to the following     precision:
+
+     a.       Absolute pressure + 1 percent of reading.
+     b.       Temperature, + 5 °F (3 °C).
+     c.       Oxygen concentration, + 0.5 percent of reading.
+     d.       Weight, + 0.01 percent.
+
+      4.7.11 Good Laboratory Practices. The quantitative analytical instrumentation must be
+calibrated each day they are used as discussed in Section 4.7.7, and replicate samples should
+be analyzed. The following standard gas mixtures (Table X) must be analyzed at least every 3
+months, and the measured concentrations must be within 10 percent of the specified
+concentrations.
+
+
+For actual samples, the expected test results and average percent relative standard deviations
+for the quantities of offgassed products are near 50 percent. Listed in Table XI are the relative
+standard deviations observed from testing standard samples.
+
+               TABLE X. Standard Gas Mixtures and Recommended            Concentrations
+                             (As Gravimetric Standards)
+
+          Components                                            Concentration
+                                                                (ppm by volume)
+                                      Mixture A
+
+          Acetonitrile                                                 5.0
+          Benzene                                                      1.0
+          1-Butene                                                     10.0
+          Dichloroethylene                                             1.0
+          Ethyl Alcohol                                                10.0
+          Isopropyl Alcohol                                            10.0
+          Methyl Alcohol                                               10.0
+          Tetrachioroethylene                                          10.0
+          Tetrachloroethane                                            5.0
+          Toluene                                                      10.0
+          Trichloroethylene                                            1.0
+          Vinyl Chloride                                               1.0
+
+                                      Mixture B
+
+          Acetaldehyd                                                   5.0
+          Acetone                                                       5.0
+          Acrotein                                                      1.0
+          Acrylonitrile                                                 5.0
+          1,4-Dioxane                                                   5.0
+          Furan                                                         1.0
+          Furfural                                                      5.0
+          Methyl Ethyl Ketone                                           10.0
+          Methyl Isobutyl Ketone                                        10.0
+          Propionalclehyde                                              5.0
+
+
+
+
+                                                    35
+ NASA-STD-6001
+ February 9, 1998
+
+                                          TABLE Xl.   Data from Test 7
+
+                   Material                              Average Percent Relative
+               Identification                               Standard Deviation
+
+         ZZR765 Silicone Rubber                                    36
+
+         B61270 Butyl Rubber                                      47
+
+         R'iV 162 Silicone Rubber                                 50
+
+         Epoxy-Patch Kit                                          30
+
+         3M Data Cartridge                                        50
+
+
+NOTES:         PercentRelativeStandardDeviationwas calculatedfromthe averagerelativestandarddeviationsobtained
+               from the quantitationof each componentfor fourreplicatesofeach material.Detailedinformationon
+               materialidentityis providedin AppendixC.
+
+     4.8       FLAMMABILITY        TEST FOR MATERIALS         IN VENTED    OR SEALED CONTAINERS
+(TEST 8).
+
+       4.8.1   Purpose.       The purpose of this test is to provide information on whether a vented or
+sealed container can withstand the effects of a fire (either internal or external to the container).
+Before this test can be conducted, a test plan must be submitted to the responsible NASA
+center materials organization for approval.
+
+
+       4.8.2 Test Criteria. Vented and sealed containers should not rupture or emit flame,
+burning particles, or debris when exposed to intemal or external ignition sources. Vented
+containers should not emit sufficient gases to cause a pressure increase of a magnitude
+sufficient to cause structural problems with a spacecraft module or system.
+
+
+       4.8.3   Definitions.     Definitions of relevant terms used in the description of this test method
+are:
+
+
+Sealed container.  A container that is hermetically sealed and does not permit atmosphere
+exchange (leak rate less than 1 x 104 standard cm3-per-second Helium).
+
+Vented container.         A container that is unsealed and permits atmosphere exchange.
+
+      4.8.4 Test Conditions. Materials should be configured in the container in the same
+manner as the actual flight item. The configuration in which ignition and combustion of
+materials is most likely to occur should be determined and used in the test. The test pressure,
+gas concentrations, and ignition source should be selected by the responsible NASA center
+materials organization.
+
+
+
+
+                                                       36
+                                                                                        NASA-STD-6001
+                                                                                        February
+                                                                                              9,1998
+
+      4.8.5   Sample Preparation.    Preparation of samples for testing involves the following
+tasks:
+
+      a.      Receiving and inspecting   the container and equipment.
+      b.      Cleaning the samples.
+      Co      Inspecting the samples.
+
+When received, the container and equipment should be accompanied           by proper identification,
+including Material Safety Data Sheets. The container should be the same size, geometry, and
+material as the flight container. The nonmetallic materials in the test configuration should be
+the same as those in the flight equipment. Electronic parts and similar expensive metallic or
+ceramic entities may be simulated. The equipment should be packaged and positioned in the
+container in the same manner as in the flight article.
+
+Samples should be cleaned and dried to the end-use specifications. As a minimum, particulate
+on sample surfaces should be removed with filtered, gaseous nitrogen. The sample should be
+inspected and flaws should be noted.
+
+      4.8.6 Test System. The test system should comprise the following major components:
+test chamber, test gases, ignition sources, temperature monitoring, and pressure monitoring.
+
+      a.      The post-test atmosphere in the test chamber should reflect no more than a 5
+percent relative depletion of oxygen concentration.     In addition, the test chamber should not
+interfere chemically or physically with the test.
+
+     b.    The test gases must be premixed before exposure to the sample and verified to
+meet the applied specification (including accuracy) for oxygen concentration to within +1/-0
+percent tolerance.
+
+      c.     Ignition should be accomplished by using either a chemical igniter or by electrically
+overloading a wire in the test system configuration. The power supply used to overload a wire
+in the test system configuration should be capable of fusing the wire. If a chemical igniter is
+used, it should be suitable for the test and meet energy, temperature, burning duration, and
+maximum flame height specifications of 750 +_50 cal, 2000 + 160 °F (1100 + 90 °C), 25 + 5 sec,
+and 2.5 + 0.25 in. (6.4 + 0.64 cm), respectively.
+
+      d.   To initiate the igniter, a regulated voltage source capable of providing 10 amps
+should be connected to a No. 20 gauge, bare nickel chromium wire. The wire should have a
+nominal resistivity of 0.7 ohms-per-ft (2.3 ohms-per-m) and should have sufficient length to
+wrap three, equally spaced turns around the chemical igniter. The ignition source should be
+placed closest to the most combustible material in the test configuration (either outside or inside
+the container), as identified by the responsible NASA center materials organization. The igniter
+should be left in contact with the container until the igniter burns out. Analyses should be
+furnished to support the selection and location of the ignition source.
+
+      e.      The temperature   of the test article with respect to time should be recorded.
+
+
+
+
+                                                   37
+ NASA-STD-6001
+ February   9, 1998
+
+
+
+      f.    A pressure monitoring device capable of recording operating pressures, with respect
+to time, should be used to monitor test chamber pressure. In addition, an oxygen analyzer
+should be used to measure any change in oxygen concentration in the test chamber.
+
+
+     g.  All tests must be videotaped.          Post-test photographs should be taken, as required, to
+document any abnormal occurrences.
+
+
+      4.8.7 Pretest Procedure. Before testing, all pertinent information (including test pressure,
+oxygen concentration, sample identification, weight, and size) should be recorded. The system
+should be clean, and all measuring devices should be in current calibration. The samples
+should be firmly and properly mounted. Thermocouple penetrations should be adequately
+sealed. Finally, the igniter should be placed in the proper position for the test and be electrically
+insulated from the test article.
+
+
+     4.8.8 Test Procedure. Tests can be conducted either in a chamber or a fume hood;
+however, if a fume hood is used, precautions should be taken to eliminate drafts from the test
+area. The container should be placed in the proper test atmosphere (chamber evacuation
+should be limited to a maximum of 3 minutes), and the percent oxygen and total pressure
+should be recorded. The ignition source should be activated and data recorded. (In the case of
+an internal igniter, if an indication of ignition is not observed, the current should be increased in
+5-amp steps each minute until either ignition occurs or the wire fails.)
+
+
+During the test, the sample should be observed from as many angles as necessary, and, if the
+test is conducted in a test chamber, the pressure rise in the chamber should be recorded. The
+test should be terminated if the container ruptures (vented and sealed containers) or if
+obviously excessive quantities of fire and smoke are emitted from the vents (vented container).
+
+The maximum and final pressures in the chamber and the post-test oxygen concentration
+should be measured. The container should be removed from the chamber, weighed and
+examined (including contents), and observations recorded.
+
+
+      4.8.9 Reportin,cl. The test report should include sample identification, configuration, test
+conditions, and observations from the test.
+
+
+       4.8.10     Precision.   Measurements   should be made to the following   precision:
+
+       a.
+                Absolute pressure, _+1 percent of reading.
+       b.       Temperature, + 5 °F (3 °C).
+       C.       Oxygen concentration, _+0.5 percent of reading.
+       d.       Sample weight, _+0.1 percent of reading.
+       e.       Time, _+1 second.
+
+
+    4.9 ELECTRICAL             OVERLOAD    FOR SEALED CONTAINERS          (TEST 9) This test was
+combined with Test 8.
+
+
+      4.10      SIMULATED      PANEL OR MAJOR ASSEMBLY          FLAMMABILITY       (TEST 10).
+
+     4.10.1 Purpose. The purpose of this test is to provide supplemental information on
+whether particular assemblies, such as a functional assembly, subsystem, system, or crew
+
+
+                                                    38
+                                                                                             NASA-STD-6001
+                                                                                             February   9, 1998
+
+
+module, propagate a fire when exposed to ignition sources. Before this test can be conducted,
+a test plan must be submitted to the responsible NASA center materials organization for
+approval.
+
+      4.10.2 Test Criteria. To fulfill the requirements of the test, there should be no indication
+of the ability to propagate a fire (by radiation, conduction, or mass transfer) from the test article
+to adjacent equipment.
+
+     4.10.3 Definitions.     Definitions    of relevant terms used in the description   of this test
+method are:
+
+
+Configuration    analysis.  Determination, based on configuration, of the portion of the article
+that is most vulnerable to ignition and fire propagation.
+
+Fire hazard analysis.    Determination of the scenario that best describes the area that is most
+vulnerable to a potential fire and also most likely to propagate a fire from the test article to
+adjacent equipment. This analysis should include a materials inventory, configuration analysis,
+and thermal analysis.
+
+Thermal analysis.      Determination, based on heat transfer calculations, of the portion of the
+article that is most vulnerable to ignition and fire propagation.
+
+     4.10.4 Test Conditions. In general, test conditions (total pressure, temperature, and
+oxygen concentration) should simulate the worst-case environment in which ignition and
+combustion of the flight article and propagation of fire to adjacent areas are most likely to occur.
+
+     4.10.5     Sample Preparation.        Preparation of samples for testing involves the following tasks:
+
+     a.       Receiving and inspecting the test article.
+     b.       Cleaning the test article.
+     C.       Inspecting the test article.
+
+When received, the test article should be accompanied by proper identification, including
+Material Safety Data Sheets. The configuration and materials of the test article should be a
+duplicate (or a high-fidelity reproduction) of the flight article. For assemblies containing
+substitute materials or new designs, the test article need not be operational unless
+economically feasible. The materials should be configured in the same manner as the flight
+article. Expensive components may be simulated, but the basic materials, mass, and simulated
+geometry of the components should be the same as in the flight article. All thermal interfaces
+should be simulated, including cold plates and structures.
+
+The test article should be cleaned and dried to the end-use specifications. As a minimum,
+particulate on test article surfaces should be removed with filtered, gaseous nitrogen.
+
+The test article should be inspected and flaws should be noted.
+
+      4.10.6 Test System. The test system should comprise the following major components:
+test chamber, test gases, measuring devices, and ignition sources.
+
+
+
+
+                                                       39
+NASA-STD-6001
+February9, 1998
+
+       a.    The post-test atmosphere should reflect no more than a 5 percent relative depletion
+of oxygen concentration. The test chamber should not contribute any chemical or physical
+interference to testing. The test chamber should be large enough to accommodate the largest
+test article with adequate space around the article to allow observations, such as the extent of
+projection of burning pieces caused by sputtering and expansion of gases internal to the
+burning mass. The convection caused by the system fans and by radiation should be
+simulated.
+
+
+      b.    The test gases must be premixed before exposure to the sample and verified to
+meet the applied specification (including accuracy) for oxygen concentration to within + 1/-0
+percent tolerance.
+
+
+      c.    Measuring devices (such as pressure gauges and oxygen-measuring devices) to be
+used for each test will be determined on a case-by-case basis. These devices should be in
+current calibration. The temperature of the test article with respect to time should be recorded.
+
+       d.    Two types of ignition sources should be considered, internal and external sources.
+The internal or external ignition source should be suitable for the test. If an external ignition
+source is used, it should meet energy, temperature, burning duration, and maximum flame
+height specifications of 750 _+50 cal, 2000 + 160 °F (1100 + 90 °C), 25 + 5 sec, and 2.5 _+0.25
+in. (6.4 + 0.64 cm), respectively. To initiate the igniter, a regulated energy source, capable of a
+nominal 15-amps RMS, should be connected to a No. 20 gauge, bare nickel chromium wire.
+The wire should have a nominal resistivity of 0.7 ohms-per-if (2.3 ohms-per-m) and should have
+sufficient length to wrap three, equally spaced turns around the chemical igniter.
+
+     4.10.7 Pretest Procedure. The test article should be a portion of the spacecraft or
+assembled article that has been defined as being vulnerable to a potential fire. Suitable
+simulations for the ignition source should be chosen. Once this has been completed, the
+flammability test should be based on the fire hazard analysis.
+
+      4.10.8 Test Procedure. The test article should be placed in the test chamber; the ignition
+source(s) should be placed at appropriate sites (determined by the fire hazard analysis); the
+test article should be placed in the proper test atmosphere (chamber evacuation should be
+limited to a maximum of 3 minutes); and the percent oxygen and total pressure should be
+recorded. The igniter(s) should be activated in a sequence from the most severe to the least
+severe condition, and data should be recorded.
+
+During the test, the sample should be observed from as many angles as necessary.
+Observations made during the test, such as sparking, sputtering, dripping, and approximate
+quantity of flame jets, are critical and should be recorded.
+
+After each igniter has been activated and after the test, the oxygen concentration should be
+measured. Pretest and post-test photographs of affected areas should be taken. All tests must
+be videotaped.
+
+      4.10.9 Reportina. The test report should include sample identification, configuration, test
+conditions, and observations from the test.
+
+
+
+
+                                                40
+                                                                                          NASA-STD-6001
+                                                                                         February   9, 1998
+
+
+     4.10.10     Precision.   Measurements    should be made to the following precision:
+
+     a.       Absolute pressure, + percent of reading.
+      b.      Temperature, + 5°F (3 °C).
+     C.       Sample weight, + 0.1 percent of reading.
+     d.       Oxygen concentration + 0.5 percent of reading.
+     e.       Time, +_1 second.
+
+     4.11     GUIDELINES      FOR SIMULATED      CREW BAY CONFIGURATION             FLAMMABILITY
+VERIFICATION       TEST (TEST 11). This test was deleted.
+
+     4.12 TOTAL       SPACECRAFT       OFFGASSING        (TEST 12)
+
+
+     4.12.1 Purpose. The purpose of this test is to determine the identities and quantities of
+contaminant gases offgassed in areas of spacecraft where the crew will breathe the
+atmosphere. The results of this test will be used in the toxicological assessment of the
+spacecraft. This test should be performed for all new or extensively refurbished spacecraft.
+
+      4.12.2 Test Criteria. The results of this test, along with the offgassing results of items not
+on board for the test, will be evaluated by the responsible NASA toxicology organization. The
+safety of the spacecraft atmosphere will be established with respect to the measured
+contaminants. Toxic contamination levels must meet requirements given in JSC 20584,
+"Spacecraft  Maximum Allowable Concentration for Airborne Contaminants."
+
+     4.12.3 Definitions.      Definitions of relevant terms used in the description of this test
+method are:
+
+
+Offgassed     product.   An organic or inorganic compound evolved as a gas from a material or
+assembled     article.
+
+
+Offgassing.     The evolution of gaseous products from a liquid or solid material     into an
+atmosphere.
+
+      4.12.4 Test Conditions. A test period must be established for a given spacecraft based
+upon the designated space mission duration and the limits of detection for the analytical
+instrumentation  used to analyze gaseous samples obtained during the test.
+
+Sample sets must be obtained at intervals sufficient to establish a plot of the offgassing trend.
+At least five samples of the atmosphere must be collected.
+
+The spacecraft hatch must be closed during the test to prevent any exchange          of the cabin
+atmosphere with outside air.
+
+All standard flight hardware should be onboard the spacecraft and should be powered up during
+the test. All standard flight hardware not available at this time must be tested individually for
+offgassing (Test 7).
+
+     4.12.5    Sample Preparation. All flight hardware must be handled using the appropriate
+procedures.    Any abnormal preparations or circumstances must be documented.
+
+
+
+                                                    41
+NASA-STD-6001
+February 9, 1998
+
+
+      4.12.6 Test System. The test system must comprise sampling containers that are leak-
+free, which must be attached to the spacecraft. The leak rate for the sampling containers must
+be no greater than 1.31 x 10 "° standard cm3-per-second for Helium. The gas sampling pump
+must be capable of producing pressures of at least 120 psi (830 kPa).
+
+      4.12.7    Pretest Procedure.      All sampling equipment must be cleaned and tested to assure
+that no interference will result from wall effects (e.g., contamination) for acceptability for trace
+gas analysis. Before testing, the description of the spacecraft preparation, configuration of the
+flight articles within the spacecraft, and test plan must be documented and submitted to the
+testing agency and responsible NASA toxicology organization for concurrence.
+
+     4.12.8     Test Procedure.      Testing is divided into two parts, as described as follows:
+
+
+The sampling pump must be located outside the spacecraft. A gas sampling line must extend
+from the pump to the spacecraft habitable area. Samples of the habitable areas must be taken
+in sets of two and must be taken at predesignated times.
+
+The gas sampling containers must be returned to the appropriate laboratory for analyses. The
+analyses, using the equipment and methods similar to those described in Test 7, Section 4.7,
+should be completed within 3 days.
+
+      4.12.9 ReDortina. The test report must include sample locations and times, spacecraft
+configuration, test conditions, and test observations. For each offgassed product, the quantities
+must be reported as mg/m 3 of spacecraft habitable volume. These analytical data must be
+reported to the responsible NASA toxicology organization.
+
+     4.12.10       Precision.   Measurements    must be made to the following    precision:
+
+     a,       Temperature, + 5 °F (3 °C).
+     b.       Time +_15 minutes.
+
+       4.12.11 Good Laboratory Practices. The quantitative analytical instrumentation must be
+calibrated each day they are used, and replicate samples should be analyzed. The standard
+gas mixtures, as listed in Table X, must be analyzed within 3 months of conducting the test and
+the measured concentrations must be within 10 percent of the specified concentrations.
+
+     4.13 MECHANICAL            IMPACT FOR MATERIALS           IN AMBIENT PRESSURE            LOX (TEST
+13A) AND MECHANICAL             IMPACT FOR MATERIALS          IN VARIABLE PRESSURE             GOX AND
+LOX ('rEST 13B)
+
+      4.13.1 Purpose. The purpose of Test 13 is to determine if materials in oxygen
+environments react when mechanically impacted.
+
+     4.13.2 Test Criteria. Twenty samples must not react when impacted at 72 ft-lbs (98 J). If
+one sample out of 20 reacts, 40 additional samples must be tested without any reactions.
+
+     4.13.3 Definitions.        Definitions of relevant terms used in the description of this test
+method are:
+
+
+
+
+                                                      42
+                                                                                            NASA-STD-6001
+                                                                                            February9, 1998
+
+GOX.        Gaseous   oxygen.
+
+LOX.        Liquid oxygen.
+
+Mechanical        impact. A blow delivered by a plummet that has been dropped         from a pre-
+established      height onto a striker pin in contact with a sample.
+
+Reaction. A chemical change or transformation in the sample caused by a mechanical impact.
+A reaction from mechanical impact can be determined by an audible report, an electronically or
+visually detected flash, or obvious charring of the sample, sample cup, or striker pin.
+
+       4.13.4 Test Conditions.    The thickness of the sample must be the worst-case thickness.
+For Test 13A, test conditions (pressure and temperature) are the ambient pressure of the test
+facility and the boiling point of LOX at that pressure. For Test 13B, test conditions (pressure
+and temperature) must be determined for each test.
+
+       4.13.5     Sample Preparation.    Preparation   of samples for testing involves the following   tasks:
+
+       a,       Receiving and visually inspecting the material.
+       b.       Preparing samples to the proper dimensions.
+       c.       Cleaning the samples.
+       d.       Inspecting the samples.
+
+When received, the test material must be accompanied by proper identification, including
+Material Safety Data Sheets. The material must be inspected to assure that it is at the
+specified worst-case thickness, and flaws must be noted.
+
+For Test 13A, samples must be prepared as stated in Compatibility of Materials with Liquid
+Oxygen (Impact Sensitivity Threshold and Pass-Fail Techniques), ASTM Method D 2512 - 82. For
+Test 13B, samples must be prepared as stated in Determining Impact Sensitivity of Materials to
+Mechanical Impact in Pressurized Oxygen Environments, ASTM Method 0 86 - 84. The test
+material dimensions specified in the referenced ASTM methods will be used unless otherwise
+specified by the responsible NASA center materials organization. As a minimum, unless otherwise
+specified or approved by the NASA center materials organization, contamination on the surfaces
+of solid, nonporous samples should be removed by washing with deionized water and mild
+detergent, rinsing with deionized water, and drying with filtered, gaseous nitrogen. Particulates on
+the surfaces of solid, porous samples should be removed with filtered, gaseous nitrogen.
+
+The sample must be inspected to assure that it is at the specified worst-case thickness, and
+flaws must be noted. (If the flaws result from sample preparation at the test facility, new
+samples should be prepared.)
+
+When testing materials to determine relative ranking, sample preparation (including cleaning)
+and condition (e.g., thickness and surface finish) must be identical.
+
+      4.13.6 Test System. For Test 13A, the test system should be identical to that described
+in ASTM Method D 2512 - 82. For Test 13B, the test system should be identical to that
+
+
+
+
+                                                       43
+NASA-STD-6001
+February   9, 1998
+
+
+described in ASTM Method G 86 - 84. Test systems other than those noted in the ASTM
+method must produce results comparable to the ASTM test system described.
+
+      4.13.7 Pretest Procedure.    For Test 13A, the pretest procedure, including calibration of the
+test system, must be identical to that described in ASTM Method D 2512 - 82. For Test 13B, the
+pretest procedure, including calibration of the test system, must be identical to that described in.
+ASTM Method G 86 - 84.
+
+
+      4.13.8 Test Procedure. For Test 13A, the test procedure must be identical to that
+described in ASTM Method D 2512 - 82. For Test 13B, the test procedure must be identical to
+that described in ASTM Method G 86 - 84, except that testing will be performed at the
+requester-specified pressure and temperature.
+
+      4.13.9 Reportin,q. The test report must include sample identification, configuration, test
+conditions, number of reactions, and observations from the test. Proper reporting of the test
+observations, especially of unusual behavior, is critical. The test report (in an acceptable
+format) must be submitted to the NASA MAPTIS.
+
+
+When there is a deviation from standard test parameters, such as nonstandard                           sample
+preparation, the test must be identified as nonstandard.
+
+      4.13.10 Precision. Precision of measurements, such as sample dimensions, drop height,
+and time, must be identical to those described in ASTM Method D 2512 - 82 for Test 13A and
+ASTM Method G 86 - 84 for Test 13B.
+
+
+      4.13.11 Good Laboratory Practices. At least every 2 years, the test facility must
+successfully demonstrate the ability to obtain accurate and repeatable data when testing
+selected materials in Ambient Pressure LOX (Table XII).
+
+Scatter in data from the pressurized GOX Mechanical Impact Test (Test 13B) indicates that
+data analysis needs to be tailored to each specific requirement.
+
+                                         TABLE Xll.      Data from Test 13A
+
+                                                                                               Standard
+Material                            Impact Energy                 Average No.                  Deviation
+Identification                      ft-lbs Joules                 of Reactions                 of Reactions
+
+Unfilled Polytetra-                 72           98                      0                            ---
+fluoroethylene                      55           75                      0                            ---
+                                    40           54                      0                            --
+                                    25           34                      0                            --
+                                    10           14                      0                            --
+
+Nylon 616                           72           98                      9                            3.2
+                                    55           75                      7                            3.3
+                                    40           54                      2                            1.5
+                                    25           34                      0
+                                    10           14                      0                            --
+NOTES:       Data are from 6 replicate   tests (20 samples per test). Detailed information   on material    identity is
+             provided in Appendix C.
+
+
+
+
+                                                           44
+                                                                                           NASA-STD-6001
+                                                                                           February    9, 1998
+
+
+       4.14    PRESSURIZED      GASEOUS      OXYGEN       PNEUMATIC    IMPACT     FOR NONMETALS
+(TEST 14)
+
+       4.14.1 Purpose. The purpose of this test is to provide supplemental information on the
+reaction sensitivity of nonmetals to adiabatic compression heating when pneumatically
+impacted in a pressurized GOX system.
+
+     4.14.2 Test Criteria. This test is used to evaluate the reaction sensitivity of nonmetals
+when pneumatically impacted in a pressurized GOX system; therefore, the test criteria are
+dependent on the application. Normally, a reaction threshold is determined at a use pressure.
+A minimum of 60 samples is recommended and up to 120 samples per threshold may be
+required to obtain sufficient confidence in the data. However, evaluation of the significance of
+the data is left to the requester.
+
+     4.14.3 Definitions.      Definitions of relevant terms used in the description of this test
+method are:
+
+
+GOX.    Gaseous     oxygen.
+
+Pneumatic impact. Energy delivered to a sample by rapid pressurization with gaseous
+oxygen. The principal source of this energy is adiabatic compression heating of gaseous
+oxygen in contact with the sample.
+
+     4.14.4 Test Conditions. Test conditions (pressure range and worst-case thickness) must
+simulate the use environment that would enhance reaction of the material. Normally, tests are
+conducted at 68 + 18 °F (20 + 10 °C); however, testing at elevated sample temperatures can be
+conducted.
+
+
+      4.14.5     Sample Preparation.     Preparation of samples for testing involves the following
+tasks:
+
+       a.      Receiving and visually inspecting the material.
+       b.      Preparing samples to the proper dimensions.
+       c.      Cleaning the samples.
+       d.      Inspecting the samples.
+
+When received,      the test material should be accompanied      by proper identification, including
+Material Safety Data Sheets. The matedal should be inspected to assure that it is at the
+specified worst-case thickness. Flaws and any residual contamination should be noted.
+
+Samples should be prepared as stated in Ignition Sensitivity       of Materials   to Gaseous   Fluid
+/mpact, ASTM Method G 74 - 87.
+
+The samples should be cleaned as stated in ASTM Method G 74 - 87.
+
+The sample should be inspected to assure that it is at the specified worst-case thickness.
+Flaws and any residual contamination should be noted. (If the flaws result from sample
+preparation at the test facility, new samples should be prepared.)
+
+
+
+
+                                                     45
+NASA-STD-6001
+February9, 1998
+
+
+     4.14.6 Test System.       The test system should be similar to that described in ASTM
+Method G 74 - 87.
+
+
+    4.14.7 Pretest Procedure.       The pretest procedure should be similar to that described in
+ASTM Method G 74 - 87.
+
+
+     4.14.8 Test Procedure.      The test procedure should be similar to that described   in ASTM
+Method G 74 - 87.
+
+
+      4.14.9 Reportin.q. The test report should include sample identification, configuration, test
+conditions, number of reactions, and observations from the test. Proper reporting of the test
+observations, especially of unusual behavior, is critical. The test report (in an acceptable
+format) should be submitted to the NASA MAPTIS.
+
+
+      4.14.10   Precision.   Measurements   should be made to the following precision:
+
+      a,
+            Absolute pressure + 1 percent of reading.
+      b.    Temperature, _+5 °F (3 °C).
+     c.     Sample dimensions, + 5 percent of measurement.
+     d.     Weight, + 0.01 percent.
+
+     4.15   REACTIVITY       OF MATERIALS    IN AEROSPACE      FLUIDS (TEST 15)
+
+     4.15.1 Purpose. The purpose of this test is to identify changes resulting from exposure of
+a material to an aerospace fluid that render either the material or fluid unusable or cause the
+pressure in a system to rise. Supplemental information on reactivity of materials with
+aerospace fluids may be obtained using test systems such as Accelerated Rate Calorimeters.
+
+
+     4.15.2 Test Criteria. First, exposure of the material (Screening Test) to the fluid at
+ambient temperature for 2 hours must not visibly change either the material or fluid.
+
+Second, exposure of the material (Immersion Test) to the fluid for 48 hours at the maximum
+system temperature or 160 °F (71 °C), whichever is higher, must not cause a pressure rate
+increase that is 1.5 times the pressure rate increase that is caused by 304 stainless steel when
+exposed to the identical fluid at those conditions. For fluids that do not decompose into
+gaseous products at the test temperature (for example, nitrogen tetroxide), a pressure increase
+greater than the vapor pressure of the fluid must not occur.
+
+
+Third, after the sample has been decontaminated and dried, no visible change (Post-test Analysis)
+in color or texture of the material and test fluid must be apparent after exposure. In addition, the
+weight of the sample must not change greater than 2 percent.
+
+The following changes in the fluid must also not occur: (1) the mass of impurities in the fluid
+after exposure to the material must not be greater than twice the mass of impurities in the
+identical fluid after exposure to polytetrafluoroethylene (for nonmetals) or 304 stainless steel
+(metals), and (2) halide (F, CI, Br) concentrations in the fluid after exposure to the material
+must not exceed the appropriate military specification for fluid purity.
+
+
+
+
+                                                 46
+                                                                                              NASA-STD-6001
+                                                                                              February   9, 1998
+
+
+     4.15.3 Definitions.         Definitions of relevant terms used in the description   of this test
+method are:
+
+
+Aerospace fluids. Fluids that are theoretically capable of reacting with materials in such a way
+as to create a hazard. Fuels, such as hydrazine, and oxidizers, such as nitrogen tetroxide, are
+examples of reactive aerospace fluids.
+
+Degradation.          An adverse physical or chemical change in a substance.
+
+Immersion          Test   A test in which the fluid covers the entire sample for the duration of the test.
+
+Reaction. A chemical change in which a substance decomposes,                 combines with other
+substances, or interchanges constituents with other substances.
+
+     4.15.4 Test Conditions. The test conditions for the Screening            Test should be the ambient
+temperature and pressure of the test facility.
+
+The test conditions (total pressure, test temperature) must simulate the worst-case use
+environment that would enhance pressure-producing reactions or degradation of the material or
+fluid. The minimum temperature must be 160 °F (71 °C). The test pressure must be equal to
+the vapor pressure of the fluid at the test temperature plus the initial pressure in the test
+system. The test duration must be at least 48 hours (unless testing is halted because of
+significant pressure rise).
+
+         4.15.5     Sample Preparation.    Preparation of samples for testing involves the following
+tasks:
+
+         a.       Receiving and visually inspecting the material.
+         b.       Preparing samples to the proper dimensions.
+         C.       Cleaning the samples.
+         d.       Inspecting the samples.
+
+When received, the test material must be accompanied by proper identification, including
+Material Safety Data Sheets. The sample should be tested in the intended use form (such as
+foams and sheets) and in the as-received thickness. Samples for the Screening Test should
+weigh 0.25 grams. Samples for the Immersion Test should have a surface area of 25 _+5 cm 2.
+
+Samples should be cleaned and dried to the end-use specifications. Contamination on the
+surfaces of solid, nonporous samples should be removed by washing with deionized water and
+mild detergent, rinsing with deionized water, and drying with filtered, gaseous nitrogen.
+Particulate on the surfaces of solid, porous samples should be removed with filtered, gaseous
+nitrogen.
+
+The sample or item must be inspected to assure that it is at the specified worst-case thickness.
+Flaws and any residual contamination must be noted. (If the flaws result from sample preparation
+at the test facility, new samples should be prepared.) Samples with flaws that inordinately
+increase surface area to bulk mass ratios should not be tested. Samples must be weighed and
+individually identified.
+
+
+
+
+                                                        47
+ NASA-STD-6001
+ February 9, 1998
+
+
+      4.15.6 Test System. The test system for the Screening Test should consist of a glass
+ beaker. The test system for the Immersion Test (Figure 8) must consist of one reference and
+one sample chamber and temperature and pressure monitoring devices. Differential pressure
+transducers must be used for fluids, such as N2H4 or MMH, that decompose into gases at the
+test temperature. Absolute pressure transducers (on the sample and reference sides of the test
+system) should be used for those fluids that do not decompose into gases or undergo wide
+pressure fluctuations.
+
+
+Recommended analytical instruments for the Post-test Analysis include a differential scanning
+calorimeter, gas chromatograph, ion chromatograph, and high-performance liquid chromatograph.
+
+      4.15.7 Pretest Procedure. The fluid to be used in testing must be analyzed and verified
+to meet the required use specifications before being exposed to the samples. All pertinent
+information for the test (such as sample identification and pretest information about the sample
+and fluid) must be recorded; all unusual samples must be photographed. The test system must
+be clean, and all measuring devices must be in current calibration.
+
+      4.15.8   Test Procedure.   For the Screening Test, 1 cm 3of the fluid must be applied one
+drop at a time to 0.25 grams of the material at ambient temperature and pressure. After waiting
+2 hours, the material and the fluid must be examined visually for obvious changes caused by
+the exposure.
+
+For the Immersion Test, the sample should be placed in the sample chamber and sufficient fluid
+(approximately 10 ml) must be added to completely cover the sample for the duration of the
+test. The sample chamber must be sealed onto the sample side of the test apparatus.
+Sufficient fluid must be added to the reference chamber to obtain the same ullage as in the
+sample chamber. The reference chamber must be sealed to the reference side of the test
+apparatus. The pressure and temperature monitoring devices must be activated. Both
+chambers must be heated at a rate less than 3 °F (1.7 °(3) per minute until the required test
+temperature is reached. The test should be continued for 48 hours or until the differential
+pressure has exceeded the vapor pressure of the fluid plus 20 psi (140 kPa).      The conditions in
+the chamber should be lowered to ambient.
+
+Post-test analyses of the material and fluid should be performed to determine the extent of
+changes in their chemical and physical characteristics. A comparison of the thermal properties
+of the material by differential scanning calorimetry for nonmetals should be performed, and
+measurements of changes in weight, dimension, texture, and color. Changes in the purity of
+fluid or residue in the fluid should be determined by liquid chromatographic and ion
+chromatographic analyses. Finally, the post-test fluid analysis should be compared to the
+appropriate fluid specification.
+
+       4.15.9 Reportinq. The test report must include sample identification, configuration, fluid
+identity, test conditions, and observations from the test. In addition, any relevant analytical
+results for both the material and fluid should be included. Post-test photographs must be taken,
+as required, to document any abnormal occurrences. The test report (in an acceptable format)
+must be submitted to the NASA MAPTIS.
+
+
+When there is a deviation from standard test parameters, such as nonstandard sample
+preparation, fluid composition, or test conditions, the test must be identified as nonstandard.
+
+
+
+                                                 48
+                                                                                  NASA-STD-6001
+                                                                                  February
+                                                                                        9, 1998
+
+
+
+
+                                    VENT TO HOOD
+
+
+
+
+                                                                              GN2
+                                                                              SOURCE
+
+
+
+I                                                                                    I
+I                                                                                    I
+I                                                                                    I
+I                                                                                    I
+!                                                                                    I
+I                                                                                    !
+I                                 HEATED   VOLUME   -_
+
+
+
+
+                       FIGURE 8. Immersion Test System for Test 15
+
+4.15.10   Precision.    Measurements   must be made to the following precision:
+
+a,
+      Absolute pressure _+1 percent of reading.
+b.    Temperature, + 5 F (3 °C).
+C.    Sample Dimensions +_5 percent of the measurement.
+d.    Time + 5 minutes.
+
+
+
+
+                                            49
+ NASA-STD-6001
+ February 9, 1998
+
+
+        4.15.1   1 Good        Laboratory       Practices.   At least every    2 years,    the test facility    must
+successfully   demonstrate   the ability to obtain              accurate    and repeatable         data when testing
+selected   materials (Tables XIII and XIV).
+
+
+                                     TABLE        XIII.   Data from Test    15 (Hydrazine)
+
+
+                                                                                                    Post-test Material
+     Screeninq      Test                     Immersion Test                                         and Fluid Analysis
+                                       Press Rate*      Visible                                                    Mass of
+                                       (Pa/                   Changes                  Weight         Halide       Impurities
+  Material          Visible            (cm 2                  to Material              Change         Ion Conc.   (Sample/
+     ID             Reaction           • hr))                 or Fluid                 (percent)      (ppm)       Reference)
+
+SS 304                No                 37                   Neither                    ND              ND              1.0
+Rene 41               No                 81                   Neither                    ND              ND              0.8
+PTFE                  No                 <10                  Neither                   < 0.1                            1.4
+Nylon 616             No                 10                   Material                  + 1.5            0.8
+Kynar 460             No                 11                   Fluid                     + 1.7            2400            1.0
+KeI-F 81              No                 <10                  Both                      --               213             0.8
+Rulon J               Yes                29                   Both                      - 14.4           4.1             5,5
+NOTES:       *Pressure rate determined with 25 _+5 cm2 of material, 11 ml fluid with -2 ml of ullage on the sample and
+             reference sides.
+             ND = Not Determined.
+             Detailed information on material identity is provided in Appendix C.
+
+
+
+
+                               TABLE    XIV.     Data from    Test   15 (Dinitro,qen    Tetroxide)
+
+                                                                                                 Post-test Material
+Screeninq    Test                      Immersion Test                                          and Fluid Analyses
+                                                                  Visible                                  Mass of
+                                         Final                    Changes to                 Weight        Impurities
+Material         Visible                 Pressure*                Material                   Change        (Sample/
+   ID            Reaction                  (kPa)                  or Fluid                   (percent)     Reference)
+
+SS 304                 No                   786                   Neither                        < 0.1             1.4
+Rene 41                No                   772                   Neither                        < 0.1             ND
+PTFE                   No                   800                   Neither                        + 1.9             ND
+Kynar 460              No                   772                   Both                           + 5.4             6.1
+Flamesafe              No                   1120                  Both                           -19.7           > 100
+
+NOTES        *The nominal vapor pressure of Dinitrogen Tetroxide at 71°C is 800 kPa. However, propellant grade
+             oxides of nitrogen also contains a small amount of nitric oxide, which will cause the vapor pressure to
+             vary slightly.
+             ND - Not Determined.
+             Detailed information on material identity is provided in Appendix C.
+
+
+
+
+                                                                50
+                                                                                                     NASA-STD-6001
+                                                                                                     February9, 1998
+
+     4.16         DETERMINATION             OF OFFGASSED          PRODUCTS      FROM ASSEMBLED           ARTICLES
+(TEST 16). This test was combined with Test 7.
+
+     4.17         UPWARD         FLAMMABILITY          OF MATERIALS       IN GOX (TEST 17)
+
+     4.17.1 Purpose. The purpose of this test is to determine flammability of materials in GOX
+at ambient temperature. This test also can be used to provide supplemental information by
+testing at pressures other than the intended use pressure.
+
+     4.17.2         Test Criteria.      A material is considered flammable       at the maximum use pressure if
+at least one sample burns more than 6 in. (15 cm). At least five samples must be tested.
+(Nonmetals that fail to meet the criteria of Test 1 in 100 percent oxygen at 50 psia (350 kPa)
+need not be tested at the maximum use pressure.)
+
+     4.17.3 Definitions.              Definitions    of relevant terms used in the description of this test
+method are:
+
+
+Burn length. The burn length is considered to be the length of the sample that has been
+consumed by combustion. The burn length is determined by subtracting the post-test sample
+length from the pretest sample length.
+
+Flammable           material.     A material is considered to be flammable if it burns more than 6 in.
+(15.2 cm).
+
+         4.17.4     Test Conditions.        Tests will be conducted at ambient temperature,        in gaseous
+oxygen, and at the maximum use pressure. To obtain supplemental information, samples
+should be tested at the appropriate pressures from the following list:
+
+              psi               kPa                     psi          kP_.__aa          _           kPa
+
+              15                100                    250           1,700             3,000       21,000
+              25                170                    500           3,500             5,000       35,000
+              50                350                    1,000         6,900             7,500       52,000
+              100               690                    2,000         14,000            10,000      69,000
+
+         4.17.5     Sample Preparation.             Sample preparation for testing will involve the following
+tasks:
+
+         a.       Receiving and visually inspecting the material.
+         b.       Preparing the samples to the proper dimensions.
+         c.       Cleaning the samples.
+         d.       Inspecting the samples. Samples must be prepared exclusively for use in the test.
+
+When received, the test material must be accompanied                      by proper identification, including
+Material Safety Data Sheets. Samples must be prepared as cylindrical rods, 1/8-in. (0.32 cm)
+diameter and a minimum of 12 in. (30 cm) in length. If a material cannot be obtained or
+prepared in the cylindrical form, then a nonstandard sample should be prepared.
+
+The nonstandard sample should have 1/8-in. (0.32 cm) sides and be a minimum of 12 in. (30
+cm) in length.
+
+
+                                                                51
+NASA-STD-6001
+February 9, 1998
+
+
+Samples should be cleaned and dried to the end-use specifications. The samples must be
+inspected, and flaws must be noted. (If the flaws result from sample preparation at the test
+facility, new samples should be prepared.)
+
+
+      4.17.6 Test System. The test system must comprise the following major components:
+test chamber, sample holder, ignition source, and measuring devices.
+
+
+The test chamber must have a volume so that no more than 5 percent of the available oxygen
+can be consumed during the test. The test chamber must not contribute any chemical
+interference to testing.
+
+
+The sample holder must secure the sample at the top and support it in a vertical position
+(Figure 9).
+
+
+The ignition source must comprise a promoter (Figure 10), an igniter wire, and a power supply.
+The promoter must consist of a sufficient quantity of aluminum or magnesium to release at least
+3.0 kJ. An electrically isolated power supply, capable of providing 40 amps RMS at 50 VDC,
+must be used to supply current to an aluminum-palladium or nickel-chromium igniter wire.
+
+Measuring devices (such as pressure gauges and oxygen-measuring          devices) must be in
+current calibration.
+
+
+       4.17.7 Pretest Procedure. All pertinent information (including initial test pressure, sample
+identification, and pretest length) must be recorded. The system must be clean, and all
+measuring devices must be in current calibration.
+
+
+The promoter must be placed onto the test sample, and the igniter wire must be wrapped
+around the promoter. The test sample must be firmly mounted to the sample holder, and the
+igniter wire must be connected to the power supply.
+
+      4.17.8 Test Procedure. The sample must be placed in the test chamber, and the proper
+test atmosphere must be established. The initial pressure must be recorded. The ignition
+source must be activated. Once the promoter is ignited, the power supply must be immediately
+turned off. After the test, the final pressure and the bum length of the sample must be
+recorded.
+
+
+     4.17.9 Reoortina. The test report must include sample identification, test conditions, and
+sample bum length. The test report (in an acceptable format) must be submitted to the NASA
+MAPTIS.
+
+
+When there is a deviation from the standard test parameters, such as nonstandard sample
+preparation, orientation, or configuration, ignition source, or test pressure, the test must be
+identified as nonstandard.
+
+
+
+
+                                                 52
+                                                               NASA-STD-6001
+                                                               February
+                                                                     9,1998
+
+
+
+
+  TESTSAMPLE
+  HOLDER
+                                                         TESTSAMPLE
+
+
+
+                                                         IGNITER
+
+                                                               WIRE
+
+
+
+                                                         TERMINAL
+                                                         AI_EMliLY
+
+
+RETAINING
+                                                                   CUP
+
+
+
+
+TESTCHAMBER
+BASEPLATE
+
+
+
+
+            FIGURE9. Typical Sample Holder for Test 17
+
+
+
+
+                                53
+NASA-STD-6001
+February 9, 1998
+
+
+
+
+                         ,m
+
+
+
+                          iJ,1_
+                          ;'%
+
+
+
+
+           1:!.50
+                                           =                 ..:'.::1__I--
+                                           =                           //     I
+                                                         •        _               f±:=
+
+                                                                  RBOIIOTER
+                                                             II
+
+
+
+             'r
+
+                                   .128 DIA.
+
+
+
+
+                    TEST 8AIIPLE
+
+
+
+
+                          FIGURE   10. Test Sample and Promoter for Test 17
+
+
+
+
+                                                 54
+                                                                                                  NASA-STD-6001
+                                                                                                  February
+                                                                                                        9,1998
+
+      4.17.10 Precision.           Measurements      must be made to the following   precision:
+
+        a.     Absolute pressure _+1 percent of reading.
+        b.     Sample dimensions, + 5 percent of measurement.
+        c.     Burn length, +_0.5 in. (1.3 cm).
+
+      4.17.11 Good Laboratory Practices. At least every 2 years, the test facility must
+successfully demonstrate the ability to obtain repeatable data when testing a selected material
+(Table XV).
+
+                                             TABLE XV.    Data from Test 17
+
+
+                                Pressure                 No. of Samples With Bum Lengths
+Material                  (psia)       (kPa)             < 6 in. (<15 cm)     > 6 in. (> 15 cm)
+
+
+316 Stainless             250          1700                     10                    0
+   Steel                  500          3500                     10                    2
+                          1000         6900                     0                     15
+
+NOTE:        Detailedinformationon matedalidentityis providedin Appendix C.
+
+      4.18     ARC TRACKING           (TEST 18)
+
+      4.18.1 Purpose.   The purpose of this test is to determine the ability of wire insulation
+materials and constructions to resist arc tracking and to assess the damage caused by initial
+arcing and restrike events. Use of other test methods (when they become available) must be
+approved by the responsible NASA center materials organization.
+
+      4.18.2 Test Criteria. To determine the arc tracking resistance of the wire configuration, at
+least three seven-wire bundles must be tested. Arc propagation on either initial application of
+power, or on reapplication of power, is considered a test failure. These tests must be
+conducted on samples of worst-case use insulation thickness and wire gauge, and in the worst-
+case environment.
+
+      4.18.3     Definitions.      Definitions of relevant terms used in the description of this method are:
+
+Arc. A continuous, luminous            discharge of electric current crossing a gap between two
+conducting surfaces.
+
+Arc tracking.    That phenomena whereby an arc between two or more wires, once initiated, will
+sustain itself through a conductive path provided by degradation of the insulation for a
+measurable length.
+
+Restrike.      Resurgence        of the arc tracking after interruption and reapplication of power.
+
+      4.18.4     Test Conditions.          Test conditions must simulate the worst-case environment in
+which arc propagation is most likely to occur.
+
+
+
+
+                                                           55
+NASA-STD-6001
+February      9, 1998
+
+
+
+         4.18.5     Sample Preparation.    Preparation of samples for testing will involve the following
+tasks:
+
+
+         a°       Receiving and visually inspecting the material.
+         b.       Cleaning the samples.
+         C.       Preparing samples to the proper dimensions.
+         d.       Inspecting the samples. (Samples must be prepared exclusively for use in this test.)
+
+When received, the test wire must be accompanied by proper identification, including Material
+Safety Data Sheets. The material must be inspected to assure that its surfaces are uniform,
+free from flaws, nicks, or crimps. Any of these conditions must be noted.
+
+Before preparing samples as wire bundles, individual wires should be cleaned and dried to the
+end-use specifications. Visible contamination should be removed with distilled water and a lint-
+free cloth. Subsequently,        the samples must be dried using filtered, gaseous nitrogen.
+
+To prepare a wire bundle, seven 18-in. (46-cm) lengths of the wire must be cut and 0.5 in.
+(1 cm) of insulation must be removed from one end of each wire using an appropriate wire
+stripper. All seven wires, with the flush cut ends together, must be assembled into a bundle.
+The bundle must be secured using Bentley Harris STFE-30B lacing tape (or equivalent) or by
+using appropriate wire ties every 2 in. (5 cm) beginning 0.25 in. (0.6 cm) from the end of the
+insulation. Six tie cords must secure the bundle and each wire must be labeled, as shown in
+Figure 11. Enough of the flush-cut ends of the bundle must be cut so that all the wires are
+squarely cut and exactly the same length.
+
+The sample must be inspected to assure that its surfaces are uniform and free from surface
+contamination, flaws, nicks, or crimps. Any of these conditions must be noted. (If these
+conditions result from sample preparation at the test facility, new samples should be prepared.)
+Samples must be weighed and individually identified.
+
+      4.18.6 Test System. The test system must comprise the following major components:
+test chamber, test gases, power supply, measuring devices, and sample holder.
+
+The test chamber must be large enough so that complete combustion of the sample can occur
+with no more than a 5 percent relative depletion of oxygen concentration. In addition, the test
+chamber must not interfere chemically or physically with the test. The free space above and
+below the test fixture must be at least 6 in. (15 cm).
+
+The test gases must be premixed before exposure to the sample and verified to meet the
+applied specification (including accuracy) for oxygen concentration to within + 1/-0 percent
+tolerance.
+
+
+A 3-phase power supply rated at 400 Hz (5 kVV) and capable of producing 200 volts RMS and
+50 amps RMS is required. A suitable means to switch the source also is required.
+
+
+
+
+                                                      56
+                                                                                                                       NASA-STD-6001
+                                                                                                                       February 9, 1998
+
+
+
+
+                28 Vdc          N A                           S kWo400 Itz, 3 PHASF, 200 VOLT
+                                                              ROTARY POWER SOURCE
+
+                                                              SAFETY DISCONNECT
+   TIMER
+                                                              50 AMPERE SLOW-BLOW FUSE
+
+                                                 -4-----      1.5 Ohm RESISTOR
+
+                                                              TO RECORDER
+                                             "1
+                                               I ..4----      POWER CONTACTOR
+                                             J
+
+
+
+
+                                                                        1                        A
+                                                                        2                        B
+                                                                        3                        C
+                                                                        4                        A'
+                                                                        S                        Er
+                                                                        6                        c'
+                                                                        7                      NEUTRAL
+
+
+
+
+          FIGURE         11.    Schematic       Diagram       of Test System        and typical      Sample     for Test   18
+
+
+Measuring       devices        (such as pressure           gauges,   thermocouples,        oxygen-measuring            devices,
+oscilloscope,     and RMS          current    and RMS         voltage      meters   attached      to strip chart recorders)       must
+be in current     calibration.
+
+
+A split-insulating       collar of polytetrafluoroethylene                 must be used to support         the test sample.        A
+sample holder        should suspend the collar allowing                     the bundle to be held vertically.  In addition,            a
+tray containing       graphite powder must be attached                       to the base of the sample holder.
+
+
+       4.18.7     Pretest       Procedure.       All pertinent       information     (including     pressure,   sample
+identification, pretest weight,          size,     and configuration)          must be recorded;         all unusual    samples
+must be photographed.
+
+
+
+
+                                                                      57
+NASA-STD-6001
+February9, 1998
+
+
+A tie wrap must be placed on the sample 12 in. (30 cm) from the end of the wire. The split
+insulating collar must be placed around the sample immediately below the tie wrap and the
+collar (holding the sample) inserted into the sample holder. After ensuring that the power
+contactor is open, each of the power wires at the stripped ends must be attached to the
+appropriate connections as shown in the wiring diagram (Figure 11). At the power end, the 1st
+and 4th outer wires are connected to Phase A; the 2nd and 5th outer wires are connected to
+Phase B; the 3rd and 6th outer wires are connected to Phase C; and the center wire of the
+harness is connected to neutral. In addition, the power wires should be spread apart to ensure
+that any arcing that reaches the cellar does not propagate further. Sufficient graphite powder
+must be used to cover the bottom of the powder tray at a depth of 0.032 to 0.0634 in. (0.08 to
+0.16 cm). The bundle should be lowered so that all the ends in the bundle contact the graphite
+powder to form the short circuit. Special care must be taken to ensure that only the conducting
+tips of the samples contact the graphite powder. The bundle must then be withdrawn from the
+graphite powder.
+
+      4.18.8 Test Procedure. The sample must be exposed to the proper test atmosphere.
+(Exposure of the sample to a vacuum must be less than 3 minutes.) The percent oxygen and
+total pressure must be analyzed, verified, and recorded. The contactor must be closed, all test
+recording devices must be activated, and the power to the test sample must be activated for a
+minimum of 5 seconds to initiate the arc and then deactivated. If an arc does not initiate, the
+test should be discontinued. After waiting 10 seconds, the power to the test sample must be
+activated for another 30 seconds to test for arc tracking potential and damage (caused by any
+restrike), and then the power must be deactivated. Finally, the contactor must be opened.
+
+During the test, the sample must be observed. Observations made during the test must be
+recorded. Arc current on each leg should be recorded. Post-test photographs must be taken,
+as required, to document any abnormal occurrences. All tests must be video taped. At least
+three replicate samples must be tested.
+
+       4.18.9 ReDortina. The test report must include sample identification, test conditions, arc
+current, number of replicates that sustained initial arcing, number of replicates that sustained
+arc tracking, and average burn length. The test report (in an acceptable format) must be
+submitted to the NASA MAPTIS.
+
+When there is a deviation from standard test parameters, such as nonstandard       sample
+preparation or sample orientation, the test must be identified as nonstandard.
+
+     4.18.10   Precision.   Measurements   should be made to the following   precision:
+
+     a.    Absolute pressure, _+1 percent of reading.
+     b.    Oxygen concentration, +_0.5 percent of reading.
+     c.    Time, _+0.1 second..
+     d.    Current +_.1 Amp.
+     e.    Voltage, + 10 Volts.
+     f.    Length _+Os in. (1.3 cm).
+
+      4.18.11 Good Laboratory Practices. At least every 2 years, the test facility must
+successfully demonstrate the ability to obtain accurate and repeatable data when testing
+selected wire bundles.
+
+
+
+
+                                                58
+                                                                                       NASA-STD-6001
+                                                                                       February9, 1998
+
+                                            APPENDIX    A
+
+                              CERTIFICATION      OF TEST FACILITIES
+
+
+Certification of test facilities must be obtained for the performance of any of the required tests
+included in this document. Certification is necessary because data from these tests will be
+presented for materials selection approval. An application for certification must be submitted
+according to the following requirements.
+
+Certification is the responsibility of a panel appointed by the NASA Headquarters Office of
+Safety and Mission Quality. The panel will consist of NASA center materials organization
+representatives    supported by specialists in appropriate disciplines to evaluate specific test
+methods.
+
+The test facility, applying for certification, must prepare and submit detailed written procedures to
+perform all aspects of the subject test methods to the certification panel for review. The
+procedures must include provisions for instrument calibration, sample preparation, test chamber
+certification, test atmosphere analysis or verification, data analysis, report preparation, quality
+control provisions, recording and archiving of test data, materials control, and control of flight
+articles. The test facility must also include in this procedure the definition of the minimum
+acceptable personnel qualification, training requirements, and personnel certification procedures.
+The test facility also must supply documentation demonstrating that operations performed in the
+subject test methods present no hazards to personnel or flight hardware.
+
+The certification panel will perform an on-site inspection of the test facility. The panel will
+ensure that the test facility can perform the methods from receipt of a material to issuance of a
+final report.
+
+The certification panel will recommend certification of the test facility on the basis of compliance
+with this document. NASA certification of a test facility is maintained by meeting the following
+requirements:
+
+      a.   For required tests, the test facility must have performed the test methods and
+reported the data to the NASA MAPTIS at least once within the last 18 months.
+
+      b.    The test facility must have participated with other NASA-certified test facilities in the
+last round-robin testing of standard materials defined for each test method. Round-robin tests
+must be conducted at least every 2 years. The test data must have been reviewed and
+approved by the certification panel or the panel's designees.
+
+        c.   The test facility must provide a copy of updated operating procedure changes within
+1 month of implementation to MAPTIS. Copies of all procedural updates must be distributed by
+MPATIS to all test facilities certified by NASA for the subject test method. All certified test
+facilities must review changes in procedure. Those changes that indicate noncompliance with
+the criteria in this handbook must be forwarded to the current certification panel.
+
+
+
+
+                                                  59
+NASA-STD-6001
+February 9, 1998
+
+                                             APPENDIX     B
+
+                                     REFERENCE      DOCUMENTS
+
+
+This publication    references the following documents:
+
+                                        Agency Documents
+
+JSC-09604/                       Materials Selection List for Space Hardware
+MSFC-HDBK-527                    Systems
+
+JSC 20584                        Spacecraft Maximum Allowable Concentrations for
+                                 Airborne Contaminants
+
+
+NMI 7100.8                       Protection of Human Research Subjects
+
+SSP-30233                        Space Station Requirements    for Materials and Processes
+
+                   American Society for Testing Materials (ASTM)    Documents
+
+ASTM D 93-85                     Flash Point by Pensky-Martens     Closed Tester
+
+ASTM D 2512-82                   Compatibility of Materials with Liquid Oxygen (Impact
+                                 Sensitivity Threshold and Pass-Fail Techniques)
+
+ASTM G 74-87                     Ignition Sensitivity of Materials to Gaseous Fluid Impact
+
+ASTM G 86-84                     Determining Impact Sensitivity of Materials to Mechanical
+                                 Impact in Pressurized Oxygen Environments
+
+
+
+NOTE:        This handbook references     the latest revisions of these documents available at the
+             time of publication. Any use of a different version must be specified or approved by
+             the responsible NASA center materials organization.
+
+
+
+
+                                                   60
+                                                                                    February 9, 1998
+
+                                            APPENDIX    C
+
+                              STANDARD      MATERIAL    INFORMATION
+
+     .
+          Kydex 100; Rohm and Haas; 0.060-in. thick; sheet; no cure.
+
+2.       p-Xylene; Manufacturer   not specified.
+
+3.       Brayco Oil 883; Castrol Oil Company, Bray Products Division;
+
+4.       Stranded silver-plated copper wire, extruded TFE Teflon insulated; 0.014-inch
+         insulation thickness, white, 20 AWG; Manhattan Wire; MIL-W-16878/4-20-9.
+
+ ,
+         Stranded tinned copper wire, fluorocarbon/polyamide insulated, 600 Volt,
+         medium weight, natural amber color, 20 AWG; A. B. Petsche Company; MIL-W-8
+         1381/21-20-N.
+
+ .
+         Stranded tinned copper wire, crosslinked modified ethylenetetrafluoroethylene insulated,
+         600 Volt, light weight, white, 20 AWG; A. B. Petsche Company; MIL-W-22759/32-20-9.
+
+ ,
+         Stranded tinned copper wire, crosslinked modified ethylenetetrafluoroethylene insulated,
+         600-Volt, light weight, white, 24 AWG, A. B. Petsche Company; MIL-W-22759/32-24-9.
+
+ ,       Tape 390; 3M Company; 0.01 in. thick; tape; no cure.
+
+9.       Eccobond 24 Epoxy Adhesive; Emerson and Cuming; Part A, Batch#30712731;         Part B,
+         Batch #30702231; Blended and Cured per Manufacturer's Instructions.
+
+10.      R-425-N Neoprene Rubber Sponge; Rubatex Corporation; 0.25-in. thick; sheet; Lot #B-
+         1213-5; no cure.
+
+11.      ZZR765 Silicone Rubber Class 2A; CHR Industries; 0.060 in. thick; sheet; Batch #77,
+         Lot #82; no cure.
+
+12.      B612-70   Butyl Rubber; Parker Seal Company; 0.060 in. thick; sheet; Batch #280736;    no
+         cure.
+
+13.      R'IV 162 Silicone Rubber; General Electric Company; Lot #GF798;    Blended and Cured
+         per Manufacturer's Instructions.
+
+14.      Epoxy-patch Kit 1C white; Hysol Aerospace & Industrial Products, Dexter Corporation;
+         Parts A and B; Batch #702541, Lot #7025; Blended and Cured per Manufacturer's
+         Instructions.
+
+         DC 3OOXL    Data Cartridge; 3M Corporation; Batch #6A802-4.
+ \
+     \
+
+
+
+
+                                                   61
+• ...//         .Jary9, 1998
+
+                                                  APPENDIX    C (CONT'D)
+
+          16.      Viton A; Applied Rubber Technology; 0.068-in. thick; sheet; Batch #6, Lot #4-292-386;
+                   no cure Stainless Steel 304; Unknown Manufacturer; 0.16-in. diameter X 1 in. long
+                   milled rod.
+
+
+                    Rene 41 Nickel; Teledyne-Alvac;    0.16-in. diameter x 1-in. long milled rod.
+
+                   PTFE; Chemplast West, Inc.; 0.063-in. thick; sheet; Batch/lot #960974-G          83;
+                   no cure.
+
+          19.      Nylon 6/6; Moldex, Inc.; 0.075-in. thick; sheet; MIL-M-20693;    no cure.
+
+          20.      Kynar 460; Pennwalt Corporation; no cure.
+
+          21.      KeI-F 81 6061; The Fluorocarbon Company; 0.063-in. thick; sheet; no cure.
+
+          22.      Rulon J Tape; Dixon Industries; 0.015-in. thick; sheet; no cure.
+
+          23.      AFT-30      Flamesafe Wrap; Thomas and Betts; 0.056-in. thick; sheet; no cure.
+
+          24.      Stainless Steel 316; AI Tech Specialty Steel Corporation; 0.125-in. diameter x 12-in.
+                   long rod.
+
+          25.      K-10 Paper; Federal Stock Numbers 9310-01-074-9408       and 9310-01-074-9409;         JCP K-
+                   10 white Cellulose Fiber Index Paper; Federal Specification UU-P-258.
+
+
+
+
+                                                             62
+

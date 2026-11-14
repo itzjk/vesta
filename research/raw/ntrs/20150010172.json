@@ -1,0 +1,245 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150010172,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "f51125967f4c4b96916669969300ccac",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150010172,
+  "ear": "NO",
+  "id": "82cb603ac42b4b92ae0078de04c5dba9",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "E-661241",
+  "Report Number: E-661241"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 825080.04.02.30.19",
+   "submissionId": 20150010172,
+   "id": "e37422aed248436285cfe98a93e4f93d",
+   "type": "WBS"
+  }
+ ],
+ "title": "Particle Morphology Results from the Smoke Aerosol Measurement Experiment-Reflight",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-06-08T15:27:29.1870000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150010172,
+   "meta": {
+    "author": {
+     "name": "Urban, David"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "df0ad1f40bf346e487343600a2131a87"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20150010172,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c2967454c5cb4b7680488d39ac4fdeb6"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20150010172,
+   "meta": {
+    "author": {
+     "name": "Greenberg, Paul"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e3e4ebb3460c4a9f8f8537232b03413a"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20150010172,
+   "meta": {
+    "author": {
+     "name": "Meyer, Marit"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "affa1fd2e240457da98b0aae0aee0da0"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20150010172,
+   "meta": {
+    "author": {
+     "name": "Cleary, Thomas "
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "a2fef314c82441fabf3c1b9f9d40130d"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20150010172,
+   "meta": {
+    "author": {
+     "name": "Yang, Jiann"
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "d2537354bedc41ed964ccf411a82e175"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20150010172,
+   "meta": {
+    "author": {
+     "name": "Mulholland, George"
+    },
+    "organization": {
+     "name": "Maryland Univ.",
+     "location": "College Park, MD, United States"
+    }
+   },
+   "id": "bb6c3be7136a4ca191da7bcef2490eaf"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20150010172,
+   "meta": {
+    "author": {
+     "name": "Yuan, Zeng-guang"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "5c26e9604f9d4618b86ed7bd1175f316"
+  },
+  {
+   "sequence": 8,
+   "submissionId": 20150010172,
+   "meta": {
+    "author": {
+     "name": "Bryg, Victoria"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "5430e7036f5647cb82168d3907f8cb0b"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150010172,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-06-08T15:27:29.1870000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "No abstract available",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20150010172,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "1095eccce5664e17a03628e5a1c9f578"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20150010172,
+   "endDate": "2012-01-12T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "f36834dd5e294f56becabeeddcf589ef",
+     "id": "a83a6d34ad0742948c53a39af26a762d"
+    }
+   ],
+   "name": "AIAA Aerospace Sciences Meeting",
+   "location": "Nashville, TN",
+   "id": "f36834dd5e294f56becabeeddcf589ef",
+   "startDate": "2012-01-09T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20150010172,
+   "id": "0c507ba9f9f047238580e259c967612d",
+   "publicationDate": "2012-01-12T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150010172.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150010172/downloads/20150010172.pdf",
+    "pdf": "/api/citations/20150010172/downloads/20150010172.pdf",
+    "fulltext": "/api/citations/20150010172/downloads/20150010172.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,3 @@
+International Space Station Temperature and Humidity Control Subsystem Verification for Node 1
+
+The International Space Station (ISS) Node 1 Environmental Control and Life Support (ECLS) System is comprised of five subsystems: Atmosphere Control and Supply (ACS), Atmosphere Revitalization (AR), Fire Detection and Suppression (FDS), Temperature and Humidity Control (THC), and Water Recovery and Management (WRM). This paper provides a summary of the nominal operation of the Node 1 THC subsystem design. The paper will also provide a discussion of the detailed Element Verification methodologies for nominal operation of the Node 1 THC subsystem operations utilized during the Qualification phase.

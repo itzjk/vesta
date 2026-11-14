@@ -1,0 +1,159 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20230013826,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "200082db8aee4c2aa1cea9292af870ff",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Lunar and Planetary Science and Exploration"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20230013826,
+  "ear": "NO",
+  "id": "e442c252f70b495ba94f22adba6e84ab",
+  "itar": "NO"
+ },
+ "distributionDate": "2023-10-31T04:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "089407.02.04.22",
+   "submissionId": 20230013826,
+   "id": "7bbc601123524f11a7b44b1c7be9a056",
+   "type": "WBS"
+  }
+ ],
+ "title": "The Influence of Smoke Particle Properties and Cabin Characteristics on Smoke Detection in Lunar Gravity",
+ "stiType": "POSTER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2023-09-25T18:29:23.4016650+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 0,
+   "submissionId": 20230013826,
+   "meta": {
+    "author": {
+     "name": "Claire Fortenberry"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, Maryland, United States"
+    }
+   },
+   "id": "2fa55af3889a49f0a71d292d232d0c0c",
+   "userType": "CIVIL",
+   "userId": "b9cd289657ad4b388c09d1692901b134"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 1,
+   "submissionId": 20230013826,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Ramaswamy Balasubramaniam"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "7a5bee7ee6dc4bf89ce82cdcaf7c8663",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "ebbe0da160ad4d19996d65d3a7e96e13"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 2,
+   "submissionId": 20230013826,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "David Urban"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "2103a2c00b8a4baaac5cb8740c6b91af",
+   "userType": "CIVIL",
+   "userId": "e6ad9f3a70a94fc1a0a4a56bb211746a"
+  }
+ ],
+ "stiTypeDetails": "Poster",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20230013826,
+ "created": "2023-09-25T03:12:41.6779780+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Spacecraft fires pose a threat to the success of future Lunar, Martian, and deep space exploration missions. As NASA plans to return humans to the Moon in the next decade, novel mission requirements will present new fire safety challenges. For example, materials that are fire resistant on Earth are expected to burn under planned habitat conditions (elevated oxygen concentrations and reduced cabin pressure) and partial gravity (0.16g). Optimal smoke detector placement will depend on a combination of buoyant plume velocities, induced by partial gravity, and Environmental Control and Life Support Systems (ECLSS) parameters, including particle filtration rates, supply and return placement within the cabin, and forced air velocities. These ECLSS parameters must also address the need for rapid Lunar dust removal, as Lunar dust exposure poses a risk to crew health and hardware functionality.\n\nHere, we present progress toward a computational fluid dynamics model to evaluate smoke transport in a Lunar habitat. Recent work has demonstrated that if air supplies are placed on ceilings and returns on the floor, a buoyant smoke layer at the ceiling may disperse over the order of minutes even under low forced flow conditions. We expand upon these results to examine the influence of different supply and return configurations on smoke plume development. Additionally, we also address differences in the transport of smoke particles and Lunar dust by varying particle parameters like size, density, and shape factor. Finally, we discuss ongoing and future experimental efforts to measure smoke particle properties and transport under partial gravity, elevated oxygen, and reduced pressure conditions.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20230013826,
+  "id": "1a5c6fbc41b84d19a3d0a16cd58d3a28"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20230013826,
+   "endDate": "2023-10-06T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "497c8a33c13c549fac158b25ce5dee10",
+     "meta": {
+      "organization": {
+       "name": "American Association for Aerosol Research",
+       "location": "Reston, Virginia, United States"
+      }
+     },
+     "meetingId": "1520362645774d1caafc4bece1201dff",
+     "id": "a3d644128c6242f6bf7c61d1f440fb56"
+    }
+   ],
+   "name": "American Association for Aerosol Research 41st Annual Conference",
+   "location": "Portland, OR",
+   "id": "1520362645774d1caafc4bece1201dff",
+   "url": "https://www.aaar.org/2023/",
+   "startDate": "2023-10-02T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "AAAR 2023 v1.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20230013826/downloads/AAAR%202023%20v1.pdf",
+    "pdf": "/api/citations/20230013826/downloads/AAAR%202023%20v1.pdf",
+    "fulltext": "/api/citations/20230013826/downloads/AAAR%202023%20v1.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

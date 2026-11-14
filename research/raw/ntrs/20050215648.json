@@ -1,0 +1,112 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050215648,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "eb92f08b6af141b0813c999b35650807",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050215648,
+  "ear": "NO",
+  "id": "2e43c1f16db045739d934c0665f15b11",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-01T00:00:00.0000000+00:00",
+ "title": "Fundamental Research Applied To Enable Hardware Performance in Microgravity",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T10:48:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050215648,
+   "meta": {
+    "author": {
+     "name": "Sheredy, William A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "bf6095cc161b4ca19eba752617e9f4fe"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050215648,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T10:48:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "NASA sponsors microgravity research to generate knowledge in physical sciences. In some cases, that knowledge must be applied to enable future research. This article describes one such example. The Dust and Aerosol measurement Feasibility Test (DAFT) is a risk-mitigation experiment developed at the NASA Glenn Research Center by NASA and ZIN Technologies, Inc., in support of the Smoke Aerosol Measurement Experiment (SAME). SAME is an investigation that is being designed for operation in the Microgravity Science Glovebox aboard the International Space Station (ISS). The purpose of DAFT is to evaluate the performance of P-Trak (TSI Incorporated, Shoreview, MN)--a commercially available condensation nuclei counter and a key SAME diagnostic- -in long-duration microgravity because of concerns about its ability to operate properly in that environment. If its microgravity performance is proven, this device will advance the state of the art in particle measurement capabilities for space vehicles and facilities, such as aboard the ISS. The P-Trak, a hand-held instrument, can count individual particles as small as 20 nm in diameter in an aerosol stream. Particles are drawn into the device by a built-in suction pump. Upon entering the instrument, these particles pass through a saturator tube where they mix with an alcohol vapor (see the following figure). This mixture then flows through a cooled condenser tube where some of the alcohol condenses onto the sample particles, and the droplets grow in a controlled fashion until they are large enough to be counted. These larger droplets pass through an internal nozzle and past a focused laser beam, producing flashes of light that are sensed by a photodetector and then counted to determine particle number concentration. The operation of the instrument depends on the proper internal flow and recycling of isopropyl alcohol in both the vapor and liquid phases.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20050215648,
+   "id": "af137e0896714e13bd350d0e9f298e61",
+   "publicationName": "Research and Technology 2004",
+   "publicationDate": "2005-06-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20050228985,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Research and Technology 2004",
+   "stiType": "TECHNICAL_MEMORANDUM",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20050228985,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Research and Technology 2004",
+   "stiType": "TECHNICAL_MEMORANDUM",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20050215648.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20050215648/downloads/20050215648.pdf",
+    "pdf": "/api/citations/20050215648/downloads/20050215648.pdf",
+    "fulltext": "/api/citations/20050215648/downloads/20050215648.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

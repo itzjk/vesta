@@ -1,0 +1,163 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20170002628,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "78fcd724425245c98d525bea4be1c40e",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Engineering (General)",
+  "Space Transportation And Safety"
+ ],
+ "keywords": [
+  "Fire Safety",
+  "microgravity",
+  "Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20170002628,
+  "ear": "NO",
+  "id": "12a99d5a523b44589c7419936f16a491",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN33730",
+  "Report Number: GRC-E-DAA-TN33730"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 067463.01.01.03",
+   "submissionId": 20170002628,
+   "id": "86c3995e66294cf4a5a705be58f8c20d",
+   "type": "WBS"
+  }
+ ],
+ "title": "Operation and Development Status of the Spacecraft Fire Experiment (Saffire)",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2017-03-29T13:13:06.9700000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20170002628,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "d92c6a5cc9cd42018361008dec85e872"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20170002628,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "122369e410cc47c2b248c1043019d1fe"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20170002628,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2017-03-29T13:13:06.9700000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "No abstract available",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20170002628,
+   "name": "International Conference On Environmental Systems, Inc.",
+   "location": "Stafford Springs, CT, United States",
+   "id": "0b29f04e3c6f4233834d93fcf5ddb6a1"
+  },
+  {
+   "country": "Austria",
+   "submissionId": 20170002628,
+   "endDate": "2016-07-14T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "International Conference On Environmental Systems, Inc.",
+       "location": "Stafford Springs, CT, United States"
+      }
+     },
+     "meetingId": "12404aad837c49c9b9b3adf865b3dc10",
+     "id": "d1bc9e90f00c4c35802a6aa3a0e2e0a5"
+    }
+   ],
+   "name": "International Conference on Environmental Systems",
+   "location": "Vienna",
+   "id": "12404aad837c49c9b9b3adf865b3dc10",
+   "startDate": "2016-07-10T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20170002628,
+   "id": "9e00318948704551b96dc9e12d0a4805",
+   "publicationDate": "2016-07-13T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20170000230,
+   "type": "SEE_ALSO",
+   "title": "Operation and Development Status of the Spacecraft Fire Experiments (Saffire)",
+   "stiType": "CONFERENCE_PAPER",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20170002628.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20170002628/downloads/20170002628.pdf",
+    "pdf": "/api/citations/20170002628/downloads/20170002628.pdf",
+    "fulltext": "/api/citations/20170002628/downloads/20170002628.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

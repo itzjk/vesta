@@ -1,0 +1,136 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20080034883,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "3c3850cefcbf4a6ea358b8c0c3e5d76e",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Nonmetallic Materials"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20080034883,
+  "ear": "NO",
+  "id": "bc82237e93e244e6ab5ed3303a183bb1",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-10T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA/TM-2008-215260",
+  "Rept-2008-01-2055",
+  "E-16527",
+  "Report Number: NASA/TM-2008-215260",
+  "Report Number: Rept-2008-01-2055",
+  "Report Number: E-16527"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 344397.04.01.03",
+   "submissionId": 20080034883,
+   "id": "26eb090b12994e89ac3bdc774d74736f",
+   "type": "WBS"
+  }
+ ],
+ "title": "Microgravity Flame Spread in Exploration Atmospheres: Pressure, Oxygen, and Velocity Effects on Opposed and Concurrent Flame Spread",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-24T06:50:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20080034883,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "b8d3b0fb05594c4385f370766d3dd708"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20080034883,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c43be1d175524e9992393f73ba504cc5"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20080034883,
+   "meta": {
+    "author": {
+     "name": "Fletcher, J. Miller"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "7b8e99f480204d889a72ade21be60a88"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20080034883,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-24T06:50:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Microgravity tests of flammability and flame spread were performed in a low-speed flow tunnel to simulate spacecraft ventilation flows. Three thin fuels were tested for flammability (Ultem 1000 (General Electric Company), 10 mil film, Nomex (Dupont) HT90-40, and Mylar G (Dupont) and one fuel for flame spread testing (Kimwipes (Kimberly-Clark Worldwide, Inc.). The 1g Upward Limiting Oxygen Index (ULOI) and 1g Maximum Oxygen Concentration (MOC) are found to be greater than those in 0g, by up to 4% oxygen mole fraction, meaning that the fuels burned in 0g at lower oxygen concentrations than they did using the NASA Standard 6001 Test 1 protocol. Flame spread tests with Kimwipes were used to develop correlations that capture the effects of flow velocity, oxygen concentration, and pressure on flame spread rate. These correlations were used to determine that over virtually the entire range of spacecraft atmospheres and flow conditions, the opposed spread is faster, especially for normoxic atmospheres. The correlations were also compared with 1g MOC for various materials as a function of pressure and oxygen. The lines of constant opposed flow agreed best with the 1g MOC trends, which indicates that Test 1 limits are essentially dictated by the critical heat flux for ignition. Further evaluation of these and other materials is continuing to better understand the 0g flammability of materials and its effect on the oxygen margin of safety.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20080034883,
+   "id": "b21d90144fd74b3282250e2b666c0f25",
+   "publicationDate": "2008-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20080034883.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20080034883/downloads/20080034883.pdf",
+    "pdf": "/api/citations/20080034883/downloads/20080034883.pdf",
+    "fulltext": "/api/citations/20080034883/downloads/20080034883.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

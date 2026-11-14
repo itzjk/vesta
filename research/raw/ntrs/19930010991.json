@@ -1,0 +1,113 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19930010991,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "7feb211ce5e94848a0fc64d3d0efabfc",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Materials Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19930010991,
+  "ear": "NO",
+  "id": "70979b3ee3fd46949f67d714a30a5c54",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-29T00:00:00.0000000+00:00",
+ "title": "Overview of NASA's microgravity combustion science and fire safety program",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T17:55:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19930010991,
+   "meta": {
+    "author": {
+     "name": "Ross, Howard D."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "0db7e83d839441428067307c641fe7c8"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19930010991,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "93N20180"
+ },
+ "created": "2013-09-06T17:55:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The study of fundamental combustion processes in a microgravity environment is a relatively new scientific endeavor. A few simple, precursor experiments were conducted in the early 1970's. Today the advent of the U.S. space shuttle and the anticipation of the Space Station Freedom provide for scientists and engineers a special opportunity -- in the form of long duration microgravity laboratories -- and need -- in the form of spacecraft fire safety and a variety of terrestrial applications -- to pursue fresh insight into the basic physics of combustion. Through microgravity, a new range of experiments can be performed since: (1) Buoyancy-induced flows are nearly eliminated; (2) Normally obscured forces and flows may be isolated; (3) Gravitational settling or sedimentation is nearly eliminated; and (4) Larger time or length scales in experiments become permissible.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19930010991,
+   "id": "a165e445cd9c41359f5917bd3b33267c",
+   "publicationName": "The Second International Microgravity Combustion Workshop",
+   "publicationDate": "1993-02-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19930010989,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The Second International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19930010989,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "The Second International Microgravity Combustion Workshop",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "accessionNumber": "N93-20179 through N93-20219",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19930010991.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19930010991/downloads/19930010991.pdf",
+    "pdf": "/api/citations/19930010991/downloads/19930010991.pdf",
+    "fulltext": "/api/citations/19930010991/downloads/19930010991.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

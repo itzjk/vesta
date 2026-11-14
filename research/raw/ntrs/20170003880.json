@@ -1,0 +1,187 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20170003880,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "f38a3ed10e9a4759bb6cd0fe79168015",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "flammability",
+  "blowoff",
+  "microgravity"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20170003880,
+  "ear": "NO",
+  "id": "a5ccacf1ca91452484cdac15a043b13b",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN39559",
+  "Report Number: GRC-E-DAA-TN39559"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 904211.04.02.20.16",
+   "submissionId": 20170003880,
+   "id": "34eacdbebcff469ea7c3fe47d500850f",
+   "type": "WBS"
+  },
+  {
+   "number": "NNC15BA02B",
+   "submissionId": 20170003880,
+   "id": "57e4074d758646748549f005804b4ae3",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20170003880,
+   "id": "04b1a246b5414ed687c11861aefd5742",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Low Pressure Flame Blowoff from the Forward Stagnation Region of a Blunt-Nosed Cast PMMA Cylinder in Axial Mixed Convective Flow",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2017-04-25T12:35:26.2300000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20170003880,
+   "meta": {
+    "author": {
+     "name": "Marcum, J. W."
+    },
+    "organization": {
+     "name": "Purdue Univ.",
+     "location": "West Lafayette, IN, United States"
+    }
+   },
+   "id": "c50090cd7ef346d0992410dd9d990260"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20170003880,
+   "meta": {
+    "author": {
+     "name": "Rachow, P."
+    },
+    "organization": {
+     "name": "HX5 Sierra, LLC",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "cd1a1686f7614f659c0f7feb42b5752b"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20170003880,
+   "meta": {
+    "author": {
+     "name": "Ferkul, P. V."
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e3a508c921f64b26a6e329982af7c671"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20170003880,
+   "meta": {
+    "author": {
+     "name": "Olson, S. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "fe4c216cabe64cd49854c4b6b8c5aa6a"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20170003880,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2017-04-25T12:35:26.2300000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Low-pressure blowoff experiments were conducted with a stagnation flame stabilized on the forward tip of cast PMMA rods in a vertical wind tunnel. Pressure, forced flow velocity, gravity, and ambient oxygen concentration were varied. Stagnation flame blowoff is determined from a time-stamped video recording of the test. The blowoff pressure is determined from test section pressure transducer data that is synchronized with the time stamp. The forced flow velocity is also determined from the choked flow orifice pressure. Most of the tests were performed in normal gravity, but a handful of microgravity tests were also conducted to determine the influence of buoyant flow velocity on the blowoff limits. The blowoff limits are found to have a linear dependence between the partial pressure of oxygen and the total pressure, regardless of forced flow velocity and gravity level. The flow velocity (forced and/or buoyant) affects the blowoff pressure through the critical Damkohler number residence time, which dictates the partial pressure of oxygen at blowoff. This is because the critical stretch rate increases linearly with increasing pressure at low pressure (sub-atmospheric pressures) since a second-order overall reaction rate with two-body reactions dominates in this pressure range.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20170003880,
+   "endDate": "2017-04-26T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "9b8b9dce88b647adb0010a8c9fab369e",
+     "meta": {
+      "organization": {
+       "name": "Combustion Inst.",
+       "location": "Pittsburgh, PA, United States"
+      }
+     },
+     "meetingId": "cc2d5f80edf04f8aa986c45102ef30c7",
+     "id": "dd467ab78c16426f98fdc809c9edc39c"
+    }
+   ],
+   "name": "U.S. National Combustion Meeting",
+   "location": "College Park, MD",
+   "id": "cc2d5f80edf04f8aa986c45102ef30c7",
+   "startDate": "2017-04-23T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20170003880,
+   "id": "75d5f204e31f4d7a8ab183689294a555",
+   "publicationDate": "2017-04-23T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20170003880.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20170003880/downloads/20170003880.pdf",
+    "pdf": "/api/citations/20170003880/downloads/20170003880.pdf",
+    "fulltext": "/api/citations/20170003880/downloads/20170003880.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

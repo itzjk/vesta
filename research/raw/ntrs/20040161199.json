@@ -1,0 +1,162 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040161199,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "4afbf567e5aa443d8a5a263cd5f6675b",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Spacecraft Design, Testing And Performance"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040161199,
+  "ear": "NO",
+  "id": "c98d1adacb4246adbd63347cfd876b32",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-09T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NAG3-2568",
+   "submissionId": 20040161199,
+   "id": "28a37657d4674aab87cbcbc105acef2b",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Understanding Material Property Impacts on Co-Current Flame Spread: Improving Understanding Crucial for Fire Safety",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:50:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040161199,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "08cbf42800e24eb5adf09c56b40433fd"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040161199,
+   "meta": {
+    "author": {
+     "name": "Rangwala, Ali S."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "a178adb522ec45ce8254fb0b9bb367bb"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040161199,
+   "meta": {
+    "author": {
+     "name": "Buckley, Steven G."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "6701bf140ae3488486f281d78d059621"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040161199,
+   "meta": {
+    "author": {
+     "name": "Torero, Jose L."
+    },
+    "organization": {
+     "name": "Edinburgh Univ.",
+     "location": "United Kingdom"
+    }
+   },
+   "id": "221433e6d9b94f20b5ef1ddb0c2b8a5c"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040161199,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:50:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The prospect of long-term manned space flight brings fresh urgency to the development of an integrated and fundamental approach to the study of material flammability. Currently, NASA uses two tests, the upward flame propagation test and heat and visible smoke release rate test, to assess the flammability properties of materials to be used in space under microgravity conditions. The upward flame propagation test can be considered in the context of the 2-D analysis of Emmons. This solution incorporates material properties by a \"mass transfer number\", B in the boundary conditions.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040161199,
+   "id": "ee8110f36bdc49d498d318eb4eac0d7f",
+   "publicationName": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session, Volume 2",
+   "publicationDate": "2004-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040161199.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040161199/downloads/20040161199.pdf",
+    "pdf": "/api/citations/20040161199/downloads/20040161199.pdf",
+    "fulltext": "/api/citations/20040161199/downloads/20040161199.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

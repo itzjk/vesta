@@ -1,0 +1,128 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19990020833,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "4219be830e3a4c96a0273ea293912439",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19990020833,
+  "ear": "NO",
+  "id": "0bdcb1fa4f8e453f9b6361c5f3685c2d",
+  "itar": "NO"
+ },
+ "distributionDate": "2011-09-08T00:00:00.0000000+00:00",
+ "title": "Comparative Soot Diagnostics: 1 Year Report",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-19T01:18:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19990020833,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "1cfd6e7d2b454c8daaddfa680b6f5c81"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19990020833,
+   "meta": {
+    "author": {
+     "name": "Griffin, DeVon W."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "71350e0012e447ada5991e07c4613688"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 19990020833,
+   "meta": {
+    "author": {
+     "name": "Gard, Melissa Y."
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL United States"
+    }
+   },
+   "id": "a6ab93bb4bb34e9fb9f99307702ca471"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19990020833,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-19T01:18:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The motivation for the Comparative Soot Diagnostics (CSD) experiment lies in the broad practical importance of understanding combustion generated particulate. Depending upon the circumstances, particulate matter can affect the durability and performance of combustion equipment, can be a pollutant, can be used to detect fires and, in the form of soot, can be the dominant source of radiant energy from flames. Bright sooty fires are desirable for efficient energy extraction in furnaces and power equipment. In contrast, soot-enhanced radiation is undesirable in many propulsion systems (e.g. jet engines). The non-buoyant structure of most flames of practical interest (turbulent) makes understanding of soot processes in low gravity flames important to our ability to predict fire behavior on earth. These studies also have direct applications to fire safety in human-crew spacecraft, since smoke is the indicator used for automated detection in current spacecraft. In addition, recent tests conducted on MIR showed that a candle in a truly quiescent spacecraft environment can burn for tens of minutes. Consequently, this test and many earlier tests have demonstrated that fires in spacecraft can be considered a credible risk. In anticipation of this risk, NASA has included fire detectors on Skylab, smoke detectors on the Space Shuttle (STS), and smoke detectors in the design for the International Space Station (ISS). In the CSD experiment, these smoke detectors were tested using, quasi-steady, low-gravity, particulate generating materials. Samples of the particulate were also obtained from these low-gravity sources. This experiment provides the first such measurements aimed toward understanding of soot processes here on earth and for the testing and design of advanced spacecraft smoke detection systems. This paper describes the operation and preliminary results of the CSD experiment which was was conducted in the Middeck Glovebox Facility (MGBX) on USMP-3. The objectives of CSD are to examine the particulate emission from a variety of pyrolyzing and combusting sources and to quantify the performance of several particulate-sensing diagnostic techniques. This paper presents the results of the microgravity portion of the CSD experiment. The results include the temporal response of the detectors and average sizes of the primary and aggregate particles captured on the thermophoretic probes. Complete assessment of the microgravity data and its combination with the normal-gravity data are still in process.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "publications": [
+  {
+   "submissionId": 19990020833,
+   "id": "399a7892fbe84989a1fb28e1d08087bc",
+   "publicationName": "Third United States Microgravity Payload: One Year Report",
+   "publicationDate": "1998-11-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19990020826,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Third United States Microgravity Payload: One Year Report",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19990020826,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Third United States Microgravity Payload: One Year Report",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

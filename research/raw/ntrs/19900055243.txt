@@ -1,0 +1,3 @@
+The possibility of a reversal of material flammability ranking from normal gravity to microgravity
+
+The purpose of the discussion is to show, by a theoretical model, that one of the material flammability indices, the flammability limit, can be reversed in proper circumstances. A stagnation-point diffusion flame adjacent to a spherical solid-fuel surface is considered. It is shown that a reversal of the limiting oxygen indices from normal gravity and microgravity is possible. Although the example is based on a particular theoretical model with a particular flame configuration and specifically for an oxygen limit, the flammability-limit reversal phenomenon is believed to be more general.

@@ -1,0 +1,197 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "MAY_INCLUDE_COPYRIGHT_MATERIAL",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20210010621,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "f3d463b05ad1419b9492aa02edcad326",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "keywords": [
+  "modeling",
+  "kinetics",
+  "fire safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20210010621,
+  "ear": "NO",
+  "id": "e80a2a8ab9ea4a03b132ec7bd8d9017c",
+  "itar": "NO"
+ },
+ "distributionDate": "2021-07-16T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2021-271"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "089407.02.04.22",
+   "submissionId": 20210010621,
+   "id": "5a1d5db447754891bcec125f2b2d869f",
+   "type": "WBS"
+  }
+ ],
+ "title": "Modeling the Uptake of Hydrogen Chloride onto Interior Spacecraft Materials",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2021-02-25T15:32:26.5427540+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 0,
+   "submissionId": 20210010621,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Justin E Niehaus"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "a1bff64b1ebe49c7848331d28fc28dcb",
+   "userType": "CIVIL",
+   "userId": "873b729bd4544ad3a2d05c274bcad04b"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 1,
+   "submissionId": 20210010621,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Suleyman A Gokoglu"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "34f9a88387f04dd784b3a81df76d8af9",
+   "userType": "CIVIL",
+   "userId": "9268afdbf017476d80c65454331b287a"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 2,
+   "submissionId": 20210010621,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Gordon Berger"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, Maryland, United States"
+    }
+   },
+   "id": "6a7979ed36d045269a971750e77ab7db",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "693850a66a124a308a32ad528c31595c"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 3,
+   "submissionId": 20210010621,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "John Easton"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "56418d87ebfd49c9b8864aba12b39c71",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "238872ad78464960888b70cf679121e2"
+  },
+  {
+   "organizationId": "c6e1c0800d3b530db3a3f04c3264dff1",
+   "sequence": 4,
+   "submissionId": 20210010621,
+   "meta": {
+    "author": {
+     "name": "Sandip Mazumder"
+    },
+    "organization": {
+     "name": "The Ohio State University at Lima",
+     "location": "Lima, Ohio, United States"
+    }
+   },
+   "id": "8fc6c7b2ac4b4c82a6a6467d4aaad914",
+   "userType": "OTHER"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "NASA_PEER_COMMITTEE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20210010621,
+ "created": "2021-02-25T15:17:49.5535690+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Hydrogen chloride (HCl) is a major combustion product from the pyrolysis of polyvinyl chloride (PVC) insulated electrical wires, a common spacecraft fire safety concern. Models at two different scales were developed to predict HCl uptake on anodized, chromate conversion coated (Iridite), and bare aluminum surfaces, as well as on Nomex fabric: a macroscopic one-step global surface reaction model where all the active sites are on the exterior surface, and a pore model where the interior active sites deeper into the oxide layer can also be accessed by HCl. Experiments were performed to calibrate kinetic and diffusion constants in the models. A cast acrylic test cell was used to measure the differences between the inlet and outlet concentration of HCl after inserting a sample rod of the test material. For the materials with a thin (< 200 µm) or no oxide layer, the macroscopic surface reaction model adequately predicts the experimental measurements. For the anodized aluminum with a thicker oxide layer, the pore model provided a better match to experimental results. The results will be discussed with respect to the spacecraft fire safety project (Saffire).",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20210010621,
+   "endDate": "2021-07-14T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "a4c6a63ed02340b68240e18a1c0d30ce",
+     "meta": {
+      "organization": {
+       "name": "International Conference on Environmental Systems (ICES) ",
+       "location": ""
+      }
+     },
+     "meetingId": "edd5ec68d5cd4b2e914e7a391adcf9e7",
+     "id": "639357301316444c822f3025682d074a"
+    }
+   ],
+   "name": "50th International Conference on Environmental Systems",
+   "location": "Online",
+   "id": "edd5ec68d5cd4b2e914e7a391adcf9e7",
+   "url": "https://www.ices.space/",
+   "startDate": "2021-07-12T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "Modeling the Uptake of Hydrogen Chloride onto Interior Spacecraft Materials.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20210010621/downloads/Modeling%20the%20Uptake%20of%20Hydrogen%20Chloride%20onto%20Interior%20Spacecraft%20Materials.pdf",
+    "pdf": "/api/citations/20210010621/downloads/Modeling%20the%20Uptake%20of%20Hydrogen%20Chloride%20onto%20Interior%20Spacecraft%20Materials.pdf",
+    "fulltext": "/api/citations/20210010621/downloads/Modeling%20the%20Uptake%20of%20Hydrogen%20Chloride%20onto%20Interior%20Spacecraft%20Materials.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,153 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20140011433,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "8d0720c4817b4d2c977a4df371fe029f",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety",
+  "Mechanical Engineering"
+ ],
+ "keywords": [
+  "Combustion",
+  "Life Support",
+  "Fire Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20140011433,
+  "ear": "NO",
+  "id": "4c26c4f839d148668415b06ecba080db",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN11681",
+  "Report Number: GRC-E-DAA-TN11681"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 067463.01.01.03",
+   "submissionId": 20140011433,
+   "id": "16ddabf40599400dbafdb4c534ee3807",
+   "type": "WBS"
+  }
+ ],
+ "title": "Large-Scale Spacecraft Fire Safety Experiments in ISS Resupply Vehicles",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2014-09-08T11:13:49.8230000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20140011433,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "a4c9a3eadc084876bff3f9fe81da9737"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20140011433,
+   "meta": {
+    "author": {
+     "name": "Urban, David"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "e558eddf5a414dd2a05d21f4744decfe"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20140011433,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2014-09-08T11:13:49.8230000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Our understanding of the fire safety risk in manned spacecraft has been limited by the small scale of the testing we have been able to conduct in low-gravity. Fire growth and spread cannot be expected to scale linearly with sample size so we cannot make accurate predictions of the behavior of realistic scale fires in spacecraft based on the limited low-g testing to date. As a result, spacecraft fire safety protocols are necessarily very conservative and costly. Future crewed missions are expected to be longer in duration than previous exploration missions outside of low-earth orbit and accordingly, more complex in terms of operations, logistics, and safety. This will increase the challenge of ensuring a fire-safe environment for the crew throughout the mission. Based on our fundamental uncertainty of the behavior of fires in low-gravity, the need for realistic scale testing at reduced gravity has been demonstrated. To address this concern, a spacecraft fire safety research project is underway to reduce the uncertainty and risk in the design of spacecraft fire safety systems by testing at nearly full scale in low-gravity. This project is supported by the NASA Advanced Exploration Systems Program Office in the Human Exploration and Operations Mission Directorate. The activity of this project is supported by an international topical team of fire experts from other space agencies to maximize the utility of the data and to ensure the widest possible scrutiny of the concept. The large-scale space flight experiment will be conducted on three missions; each in an Orbital Sciences Corporation Cygnus vehicle after it has deberthed from the ISS. Although the experiment will need to meet rigorous safety requirements to ensure the carrier vehicle does not sustain damage, the absence of a crew allows the fire products to be released into the cabin. The tests will be fully automated with the data downlinked at the conclusion of the test before the Cygnus vehicle reenters the atmosphere. The international topical team is collaborating with the NASA team in the definition of the experiment requirements and performing supporting analysis, experimentation and technology development.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20140011433,
+   "name": "American Society for Gravitational and Space Research",
+   "location": "Bristow, VA, United States",
+   "id": "f541328dc18e4c9dbb901c05e5e9526e"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20140011433,
+   "endDate": "2013-11-08T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Society for Gravitational and Space Research",
+       "location": "Bristow, VA, United States"
+      }
+     },
+     "meetingId": "a900ebbc673549908182d4d9331c0540",
+     "id": "b55fe1e4a3f849a38b2f6c8643af0f71"
+    }
+   ],
+   "name": "Annual Meeting for American Society for Gravitational and Space Research",
+   "location": "Orlando, FL",
+   "id": "a900ebbc673549908182d4d9331c0540",
+   "startDate": "2013-11-03T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20140011433,
+   "id": "a1699aa869164c0faabad6fe8d301473",
+   "publicationDate": "2013-11-07T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20140011433.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20140011433/downloads/20140011433.pdf",
+    "pdf": "/api/citations/20140011433/downloads/20140011433.pdf",
+    "fulltext": "/api/citations/20140011433/downloads/20140011433.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

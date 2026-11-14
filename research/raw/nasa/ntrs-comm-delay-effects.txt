@@ -1,0 +1,460 @@
+https://ntrs.nasa.gov/citations/20230002268
+TITLE: Effects of Communication Delay on Human Spaceflight Missions
+FETCHED: 2026-11-14T11:00:25
+NTRS-ID: 20230002268
+DATE: 2023-07-20
+AUTHORS: Megan Parisi; Tina Panontin; Shu-chieh Wu; Kaitlin Mctigue; Alonso Vera
+REPORT: 
+PDF: https://ntrs.nasa.gov/api/citations/20230002268/downloads/AHFE%202023%20-%20no%20logo.pdf
+
+# Effects of Communication Delay on Human Spaceflight Missions
+
+## Abstract (NTRS record)
+
+Missions onboard the International Space Station rely on the real-time availability of a large ground team of system experts to command the vehicle, solve safety-critical problems, and guide the crew during complex operations. Also, in Low Earth Orbit (LEO), supplies can be sent and crews evacuated quite quickly if needed. Future missions Beyond Low Earth Orbit (BLEO) will not have this 24/7, real-time safety net as communication latency increases, resupply difficulty increases, and evacuation opportunities diminish.
+
+There are few, if any,  terrestrial analogs for human spaceflight missions BLEO that reflect the conditions—including extreme environments, long mission durations, and small crew sizes – that make these missions so high risk. Studies on specific conditions, such as communication delays and asynchronous interactions, have been performed in NASA Earth-based analog missions and have found that communication delays can disrupt ground-crew interactions and adversely impact team performance. However, there are gaps and limitations in studies conducted to date, notably on human spacecraft system failure response and recovery, the impacts of shorter lunar-relevant communication delays on complex operations, and the effectiveness of countermeasures. 
+
+The work presented here breaks down real anomalies that occurred on ISS and Apollo missions and creates example scenarios fort Lunar Surface and Mars missions to explore the impact of communication delays of varying length on onboard operations and mission outcomes. Our analyses indicate that short communication delays (e.g., seconds to a minute) adversely impact the ability for ground to provide real-time oversight and guidance and to catch quickly emerging problems in time. Longer communication delays (e.g., up to 40 minutes on Mars missions) call for a shift of responsibility for tactical operations from ground to crew; crew must make time-critical decisions independently and respond to time-critical vehicle anomalies to prevent consequences.
+
+## Full text (pdftotext -layout)
+
+Effects of Communication Delay on
+Human Spaceflight Missions
+Megan Parisi1, Tina Panontin2, Shu-Chieh Wu2, Kaitlin McTigue1,
+Alonso Vera1
+1
+NASA Ames Research Center, Moffett Field, CA 94043, USA
+2
+    San José State University, San José, CA 95192, USA
+
+
+
+ABSTRACT
+Missions onboard the International Space Station rely on the real-time availability of a large
+ground team of system experts to command the vehicle, solve safety-critical problems, and
+guide the crew during complex operations. Also, in Low Earth Orbit (LEO), supplies can be
+sent and crews evacuated quite quickly if needed. Future missions Beyond Low Earth Orbit
+(BLEO) will not have this 24/7, real-time safety net as communication latency increases,
+resupply difficulty increases, and evacuation opportunities diminish.
+
+There are few, if any, terrestrial analogs for human spaceflight missions BLEO that reflect
+the conditions—including extreme environments, long mission durations, and small crew
+sizes – that make these missions so high risk. Studies on specific conditions, such as
+communication delays and asynchronous interactions, have been performed in NASA
+Earth-based analog missions and have found that communication delays can disrupt
+ground-crew interactions and adversely impact team performance. However, there are gaps
+and limitations in studies conducted to date, notably on human spacecraft system failure
+response and recovery, the impacts of shorter lunar-relevant communication delays on
+complex operations, and the effectiveness of countermeasures.
+
+The work presented here breaks down real anomalies that occurred on ISS and Apollo
+missions and creates example scenarios fort Lunar Surface and Mars missions to explore
+the impact of communication delays of varying length on onboard operations and mission
+outcomes. Our analyses indicate that short communication delays (e.g., seconds to a
+minute) adversely impact the ability for ground to provide real-time oversight and guidance
+and to catch quickly emerging problems in time. Longer communication delays (e.g., up to
+40 minutes on Mars missions) call for a shift of responsibility for tactical operations from
+ground to crew; crew must make time-critical decisions independently and respond to time-
+critical vehicle anomalies to prevent consequences.
+
+
+Keywords: Human-System Integration Architecture, Spaceflight. Long-duration Exploration Missions
+
+
+
+INTRODUCTION TO THE HSIA RISK
+One can think of the whole system inherent to spaceflight — including the crew,
+the engineered systems supporting the mission, human experts on the ground, data
+systems, user interfaces, communication devices, and physical spaces—as being a
+human-systems integration architecture (HSIA) that enables execution of complex
+operations and resolution of safety-critical issues with the vehicle. An HSIA is the
+instantiation of communication, coordination, and collaboration between humans
+2                                                                         Parisi et al.
+
+
+
+
+and systems. (Panontin et al., 2021; Buckland et al., 2022). The HSIA currently in
+place for human spaceflight is one of near-complete real-time dependence on a
+team of ground experts who manage the combined state of the mission, vehicle,
+and crew. At any given moment during a spaceflight mission, 80+ system experts
+on the ground are monitoring data, detecting anomalous events, devising plans of
+action, and overseeing crew procedure execution. These tasks are made possible
+through the availability of real-time telemetry and onboard video feeds, as well as
+the ability to communicate near instantaneously with the crew. Access to frequent
+resupply and the availability of evacuation opportunities provide additional
+support to missions in Low-Earth orbit (LEO).
+   As missions move beyond LEO, first to the Moon and eventually to Mars, the
+safety net provided by near real-time access to resources on the ground begins to
+degrade. Communication latencies, increasing resupply difficulties, and
+diminished evacuation opportunities will necessitate an HSIA paradigm change, as
+the HSIA currently in place will no longer be safe to use (Valinia et al., 2022).
+NASA has successfully travelled to the Moon before, but the extended surface
+operations planned for Artemis missions present novel challenges. Lunar missions
+are expected to experience round-trip communication delays around 5 to 14
+seconds, as compared to the 3 second speed of light latency experienced on Apollo,
+due to increased delays in the Deep Space Network. The Apollo missions had
+relatively short durations with no need for resupply, but NASA’s plans to establish
+a sustainable lunar basecamp during later Artemis missions will necessitate more
+maintainable systems and a steady resupply cadence. Crews will likely spend
+significant time executing complex procedures to construct, start, and maintain
+these systems (Lynch et al., 2022). These procedures will often need to be
+completed with reduced visibility, as the planned South Pole landing sites for
+Artemis present illumination conditions much harsher than those of Apollo (Petro
+et al., 2020).
+   On a mission to Mars, the crew will experience roundtrip communication delays
+up to 40 minutes and minimal to no resupply and evacuation opportunities. A small
+crew of around four to six astronauts will need to independently respond to time-
+critical anomalies that have historically been handled by a ground team 20 times
+their size (Valinia et al., 2022). The risk that the crew will be unable to resolve
+safety-critical anomalies and execute complex procedures given this reduced
+ground support is captured under the NASA Human Research Program’s Risk of
+Adverse Outcomes due to Inadequate HSIA (i.e., the HSIA risk). Historical
+anomaly rates from ISS and Apollo suggest that the likelihood of encountering a
+safety-critical anomaly that requires urgent response is greater than 10% even for
+short-duration missions (Panontin et al., 2021; Buckland et al., 2022). As ground
+support reduces, the probability that these anomalies may result in Loss of Crew
+and Loss of Mission outcomes increases. Given this evidence, the HSIA risk is
+characterized as red (high) for lunar surface and Mars missions (Buckland et al.,
+2022).
+
+REDUCED GROUND SUPPORT KNOWLEDGE BASE
+As stated above, there are very few analogs on Earth for safe exploration beyond
+LEO that can help characterize what is needed for a small group of humans to
+perform independently as part of a complex technological system for extended
+3                                                                           Parisi et al.
+
+
+
+
+periods of time in difficult environments (Panontin et al., 2021). Figure 1 groups
+analogous experience from a variety of domains. In the green grouping are
+missions with little to no communication delays, small onboard crews, and short
+mission durations (e.g., Apollo missions, Shuttle missions, and commercial
+aircraft experience). On these missions, equipment is either single use or
+maintained on the ground with large, well-supplied, expert teams. In the yellow
+grouping are missions with longer durations but real-time communications (e.g.,
+Everest expeditions, oil rigs, and ISS). Here, vehicles and equipment cannot be
+returned for troubleshooting or repair, but resupply and evacuation are still on the
+order of hours to days, meaning needed equipment can be delivered relatively
+quickly. Longer expeditions with communication and resupply delays (e.g.,
+submarine missions, aircraft carriers, and Antarctic missions in the blue
+grouping) tend to have large crews with extensive experience and access to
+spares and supplies onboard the vehicle. Also shown in this mapping are future
+extended Artemis missions to the lunar surface and Mars missions. These fall
+outside the experience base, within or outside NASA, for how small groups of
+humans on extended expeditions dependent on the proper functioning of
+equipment can survive without real-time operational and engineering support.
+
+
+
+
+Figure 1: Human expedition missions by communication delay, mission duration,
+and evacuation delay. The closest examples of analogs for missions in similarly
+isolated environments benefit from mitigations that are not available beyond LEO.
+
+   NASA has partially remedied this lack of data through the use of Earth-based
+experimental analogs and analysis of Apollo mission operations. The effects of
+communication delays and asynchronous interactions in complex operations have
+been studied over a range of tasks with varying levels of communication delays
+(e.g., Rader et al., 2013; Kintz, 2016; Fischer & Mosier, 2014).
+   Several studies have demonstrated that as the transmission delay increases,
+crew-ground communications degrade (Marquez et al., 2019; Fischer, Mosier &
+Orasanu, 2013; Rader et al., 2013). Across all analog studies, a key lesson learned
+4                                                                          Parisi et al.
+
+
+
+
+is that “situational awareness and actions/responses by crew and mission control
+when separated by a time delayed communications link can and will diverge
+rapidly in dynamic situations (i.e., emergencies, quick changing circumstances…)”
+(Rader et al., 2013).
+   However, few studies used communication delays in the range expected on
+lunar missions (i.e., 5 to 14 seconds), or incorporated anomaly resolution scenarios
+of complexity and urgency similar to those that have occurred on actual missions
+with the maximum communication delays expected on a Maris mission (40
+minutes). As noted in one study, "The reported impacts of communication delays
+in low fidelity environments may be underestimated, particularly for tasks
+involving highly complex, dangerous, and/or off-nominal situations" (Kintz et al,
+2016). Increased task fidelity is needed across analogs to accurately characterize
+the risks posed by expected lunar surface and Mars transmission delays. Simulating
+these expected delays with time-critical and complex tasks is critical to mitigating
+the HSIA risk.
+
+SHIFTING CRITICAL CAPABILITIES ONBOARD THE VEHICLE
+The work presented here adds to this existing knowledge base through the analysis
+of real Apollo and ISS anomalies. The team utilized past research, as well as
+mission documentation including transcripts and meeting artifacts, to identify
+events that required time-critical action or direction by the ground for successful
+anomaly resolution (Apollo Flight Journal, 2019; Apollo Lunar Surface Journal,
+2018; Dempsey, 2018; JSC SM&A Flight Safety Office 2014; Panontin et al.,
+2021). These events were then analyzed through the lens of various communication
+delays, with particular emphasis paid to round-trip communication delays expected
+on lunar surface and Mars missions (i.e., 5 to 14 seconds and 40 minutes (max)
+respectively). These analyses, supplemented by past research in Earth-based
+experimental analogs, point to the safety-critical capabilities currently performed
+by the ground that will likely need to move onboard the vehicle for a given
+communication delay (see Figure 2).
+
+
+
+
+Figure 2: Ground-to-onboard shift of safety-critical operations with increasing
+round-trip communication delays. Time delays are notional.
+5                                                                            Parisi et al.
+
+
+
+
+   With a communication delay near zero seconds (i.e., the ISS paradigm), the
+ground maintains near-full command of the vehicle; controllers send vehicle
+commands, oversee crew activity via video feeds, voice communications, and real-
+time telemetry, and can intervene immediately in an anomalous situation.
+Approaching a delay of 3 seconds (i.e., the Apollo paradigm), tasks that require
+direct haptic control, like piloting, are assigned to the crew, as demonstrated by the
+piloting of the Lunar Module by crewmembers during the Apollo mission.
+   The impacts of delays greater than three seconds are currently notional. No
+actual mission data exist for analysis, but impacts can be partially assessed through
+analysis of time-critical ISS and Apollo events within the context of
+communication delays. Certain incidents analyzed by the team contained moments
+where the ground would lose the capability to effectively oversee crew activities
+given a delay of 5 to 10 seconds. At a delay of one to five minutes, the crew will
+likely need to make a subset of time-critical decisions independently. With longer
+round-trip delays (around 10 minutes), the ground’s ability to continuously manage
+the state of the vehicle and respond immediately to unanticipated anomalies breaks
+down; tactical activities will likely need to shift completely from the ground to the
+crew.
+   In the next section, we break down specific incidents that would likely require
+increased crew capability for expected lunar surface and Mars communication
+delays. These scenarios are intended to help inform the design of mission analog
+tasks that will help characterize the HSIA risk and contribute to countermeasure
+development.
+
+Lunar Surface Delay
+Analysis of Apollo space-to-ground transcripts revealed several incidents where a
+round-trip communication delay of 5 to 14 seconds may prevent the ground from
+effectively intervening to prevent an issue during crew task execution. During
+closeout of the first EVA on Apollo 16, the ground identified loose straps on a
+crew member’s tool harness, which could cause damage to the equipment if
+caught. The Capsule Communicator (CapCom) instructed the other surface crew
+member to, “get those [the loose straps] down; otherwise, he’ll snag them”
+(Apollo Lunar Surface Journal, 2018). Later during the same closeout, the
+CapCom stops the crew from performing an activity that will increase the amount
+of dust in the cabin (see Figure 3) (Apollo Lunar Surface Journal, 2018):
+6                                                                        Parisi et al.
+
+
+
+
+Figure 3: Apollo 16 EVA space-to-ground dialog as it unfolded and reimagined
+with a 6 second one-way delay.
+
+   In both instances, the ground is utilizing communication loops and video feeds
+to correct crew action in essentially real time. These ground interventions
+contributed to keeping equipment viable and usable while on the lunar surface.
+While these events may seem inconsequential in isolation, an accumulation of
+undesirable events over time could significantly impact mission outcomes,
+though further research is needed to characterize exactly what the consequences
+may be.
+   More importantly, the lunar delay will likely constrain the ground’s ability to
+oversee complex, time-critical, and highly interactive procedures. During the
+Apollo 13 anomaly, crewmembers needed to use the lunar module (LM) as a
+“lifeboat” to return to Earth. When preparing the LM, the ground believed they
+only had 18 minutes of power left in fuel cell 2 in the Command and Service
+Module (CSM); the crew needed to start up the LM and preserve navigation data
+in the Command Module Computer within that time period. However, the normal
+data transfer procedures typically took around 20 minutes. The ground quickly
+began modifying the procedures on the fly and walking the crew through the
+necessary steps to reduce the amount of time needed to complete these tasks. This
+process was highly interactive; the crew was constantly confirming information,
+asking questions, and verifying completion of crucial steps. The CapCom
+responded to crew inquiries while passing along additional tasks for the crew to
+complete. A portion of the conversation is reproduced below (Apollo Flight
+Journal, 2019):
+
+CapCom: I have an activation procedure. I'd like you to copy it down.
+
+Crew Member 1: How long is it, Jack?
+
+CapCom: It's just four lines. Go to Activation 1, do step 3. Go to Activation 11,
+omit step 1. Do Activation 12, and then go to Activation 13 and do step 1. Do you
+copy?
+
+Crew Member 2: Okay. Is that Activation 1? Do step 3. Is that correct?
+7                                                                          Parisi et al.
+
+
+
+
+CapCom: That's affirmative, Jim.
+
+Crew Member 2: Activation 11, omit step 1, do the rest. Is that correct?
+
+CapCom: That's affirmative.
+
+Crew Member 2: Do Activation 12 and Activation 13, step 1.
+
+CapCom: That's all correct.
+
+Crew Member 3: Okay, Jack. Pressure in tank 1 is approaching 100 psi. What's
+going to be the symptoms of this fuel cell starting to drop off?
+
+CapCom: Stand by, Jack. We'll get the word on that.
+
+Crew Member 3: Okay.
+
+CapCom: And, Jim, when you get to the end of that procedure, we'd also like to
+have you put the Demand Regs to Cabin.
+
+Crew Member 2: Demand Regs to Cabin. Roger.
+
+Here, the CapCom is managing time-critical conversations with three crew
+members who are each completing critical tasks. Increasing the delay on each
+voice communication could cause difficulties in this communication
+management. With even a 5 to 14 second round-trip delay, this scenario may
+breakdown due to the highly interactive nature of these communications coupled
+with the time criticality of the events.
+   Although the technologies used to provide guidance and oversight to the crew
+have improved since the Apollo missions, similar scenarios continue to arise for
+Shuttle and ISS, and these events should also be mined to identify exemplar
+scenarios for use in simulations. These scenarios offer a starting point for
+creating experimental protocols with 5 to 14 second communication delays.
+Systematic research in analogs and simulations is needed to characterize the risk
+posed by lunar surface communication delays and to begin investigating potential
+countermeasures.
+
+Mars Delay
+The team also identified anomalies that would require increased crew capability
+for successful resolution during a Mars mission. The ISS Cooling Loop anomaly
+of 2013 highlights those capabilities that will need to move onboard the vehicle
+when faced with an unanticipated, time-critical anomaly on the way to Mars.
+   The event began when the pump that circulates fluid through Cooling Loop A
+on the ISS automatically shut down due to an under temperature warning
+(Dempsey, 2018). Because the other cooling loop on the vehicle does not provide
+full redundancy, critical systems were in danger of overheating if Cooling Loop
+A remained off. A flight controller in Mission Control immediately began a time-
+critical procedure to restart the cooling loop while crew members were directed
+to maintain nominal operations. Across Mission Control, other flight controllers
+8                                                                         Parisi et al.
+
+
+
+
+began determining which systems could be safely powered down and which
+should move to contingency cooling. Half an hour into the incident, the ground
+teams realized the loop was still colder than expected, despite restarting the loop
+and commanding the flow control valve to fully bypass cooling. The team began
+manually troubleshooting the valve, as engineers on the ground from the Mission
+Evaluation Room (MER) started reviewing historical and manufacturing data
+available only on the ground. As the crew wrapped up their nominal activities for
+the day, they began assisting the ground in powering down systems. After 12
+days of 24/7 investigation and resolution activities with 4 shifts of operators and
+engineers, the incident eventually required an EVA to remove and replace the
+pump module.
+   Figure 4 reimagines the first two hours of this same anomaly with a 20 minute
+one way communication delay, as is expected during a Mars mission. If this
+anomaly occurred during Mars transit, the four crewmembers onboard the vehicle
+would be responsible for the majority of the immediate response. Crewmembers
+would need to parse the around 30 alarms that sounded when the loop shut down
+and immediately start the pump restart procedure. This procedure would require
+two crewmembers: one crewmember to complete the procedure with a second
+crewmember acting as an overseer and co-pilot, as is done in Mission Control.
+Simultaneously, the other two crewmembers would need to begin triaging the
+systems, deciding which systems to shut down or move to contingency cooling as
+the ground did during the actual event. When the loop continues to get colder
+despite the restart, the crew would need to manually test the flow control valve.
+The ground would not risk sending commands “in the blind” to the vehicle
+without knowing its current state. During the entirety of the incident, the crew
+would also need to continue communications with the ground, managing
+knowledge sharing asynchronously. While the crew takes over the tactical role in
+this scenario, the ground team would remain an important resource for planning
+and analysis, activities that do not require real-time communications.
+9                                                                               Parisi et al.
+
+
+
+
+Figure 4: Mars transit projection of the ISS Cooling Loop A anomaly
+
+   Ultimately, this anomaly would present an overwhelming amount of work for
+a small crew and would require increased expertise and data onboard the vehicle.
+This anomaly is the exact kind of scenario that needs to be simulated with a
+Mars-like communication delay to begin developing countermeasures for future
+missions beyond LEO. Unanticipated, time-critical anomalies of unknown origin
+pose a high risk to missions beyond LEO because they require a small crew to
+respond rapidly and accurately to prevent an adverse outcome. These events
+require troubleshooting and diagnosis to understand causal relationships within a
+complex system. They will not be resolved by one set procedure, and instead
+require creativity and systems thinking to generate and evaluate intervention
+options.
+
+CONCLUSION
+As future missions move beyond LEO, first to the Moon and eventually to Mars,
+NASA needs to develop a new HSIA that increases the crew’s capability to
+execute time-critical procedures and respond to safety-critical events without
+immediate support from the ground. Simulations are needed to verify the
+capabilities that need to move onboard the vehicle given varying communication
+delays and lay the foundation for research to develop countermeasures that
+mitigate the HSIA risk. However, these simulations need to incorporate high
+fidelity scenarios that replicate the expected difficulties the crew will face on
+lunar surface and Mars missions.
+
+ACKNOWLEDGMENT
+This research was funded by the Human Factors and Behavioral Performance
+Element of NASA’s Human Research Program and the NASA Engineering and
+Safety Center.
+
+REFERENCES
+“Apollo Lunar Surface Journal,” (E. M. Jones and K. Glover, Eds.). Last revised June 5,
+   2018. URL: https://www.hq.nasa.gov/alsj/, last accessed on February 13, 2022.
+“Apollo Flight Journal,” (W. D. Woods, Ed.). Last revised November 11, 2019. URL:
+   https://history.nasa.gov/afj/, last accessed on February 13, 2022.
+Buckland, D.M., Parisi, M.E., McTigue, K.R., Wu, S., Panontin, T.L., Vos, G., Petersen,
+   D., & Vera, A.H. (2022). “NASA’s Identified Risk of Adverse Outcomes due to
+   Inadequate Human-System Integration Architecture,” Human Centered Aerospace
+   Systems        and      Sustainability       Applications.     AHFE     International,
+   2022. https://doi.org/10.54941/ahfe1001427.
+Dempsey, R. (Ed.), (2018). “The International Space Station: Operating an Outpost in the
+   New Frontier,” URL: https://www.nasa.gov/connect/ebooks/the-international-
+   spacestation-operating-an-outpost
+Fischer, U. and Mosier, K. (2014). “The Impact of Communication Delay and Medium
+   on Team Performance and Communication in Distributed Teams,” Proceedings of the
+   Human Factors and Ergonomics Society Annual Meeting 58: 115-119.
+   10.1177/1541931214581025
+10                                                                            Parisi et al.
+
+
+
+
+Fischer, U., Mosier, K., and Orasanu, J. (2013) “The Impact of Transmission Delays on
+   Mission Control-Space Crew Communication,” Proceedings of the Human Factors
+   and Ergonomics Society Annual Meeting 57:1372-1376. 10.1177/1541931213571303
+Johnson Space Center (JSC) Safety & Mission Assurance (S&MA) Flight Safety Office
+   (2014) “Internal Thermal Control System Heat Exchanger Close Call Study,” JSC-
+   2014-025.
+Kintz, et. al., (2016). “Impact of communication delays to and from the International
+   Space Station on self-reported individual and team behavior and performance: A
+   mixed-methods study.” Acta Astronautica 129 193–200
+Lynch, C., Stromgren, C., Cirillo, W., Owens, A.C., Drake, B.G., & Beaton, K.H. (2022).
+   “Early Assessments of Crew Timelines for Lunar Surface Habitat,” AIAA ASCEND,
+   Las Vegas, NV. https://doi.org/10.2514/6.2022-4236
+Marquez, J., et al., (2019). "Enabling Communication Between Astronauts and Ground
+   Teams for Space Exploration Missions," 2019 IEEE Aerospace Conference, 2019, pp.
+   1-10, doi: 10.1109/AERO.2019.8741593.
+Panontin, T. L., Wu, S., Parisi, M. E., McTigue, K. R., and Vera, A. H. (2021). “Human-
+   Systems Integration Architecture Needs Analysis: On-board Anomaly Resolution
+   During Autonomous Operations,” Human Research Program Technical Report.
+Petro, N.E., Mazarico, E.M., Kendall, J.D., Wright, E.T., Schmitt, H.H., Feist, B.F., &
+   Eppler, D.B. (2020). “Blinded by the Light: Illumination Considerations for Artemis
+   Site Selection, Traverse Planning, and Instrument Operations,” Lunar Surface Science
+   Workshop.
+Rader, S. N., Reagan, M. L., Barbara Janoiko, & Johnson, J. E. (2013). Human-in-the-
+   Loop Operations over Time Delay: Lessons Learned. Proceedings of the 43rd
+   International Conference on Environmental Systems (ICES). The 43rd International
+   Conference on Environmental Systems (ICES), Vail, CO.
+   https://doi.org/10.2514/6.2013-3520
+Valinia, et. al., (2022). Safe Human Expeditions Beyond Low Earth Orbit (LEO),
+   NASA/TM−20220002905.
+

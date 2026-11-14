@@ -1,0 +1,243 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20140017780,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "d4cff5eaad5b477b80ad10dfd3582d07",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "keywords": [
+  "microgravity",
+  "flames",
+  "soot"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20140017780,
+  "ear": "NO",
+  "id": "f105def74f3241ed855993da73352812",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN12793",
+  "Report Number: GRC-E-DAA-TN12793"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC08BA08B",
+   "submissionId": 20140017780,
+   "id": "441f4eb4cd174c64b6d65271fd7b33be",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 904211.04.02.30.03.03",
+   "submissionId": 20140017780,
+   "id": "be3a161ac001498681d5f5caa48fffe6",
+   "type": "WBS"
+  },
+  {
+   "number": "NNX11AP43A",
+   "submissionId": 20140017780,
+   "id": "4b4daaa97d434409996f62aee0c705b9",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "An Experimental and Computational Study on Soot Formation in a Coflow Jet Flame Under Microgravity and Normal Gravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2014-12-30T10:31:10.3130000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20140017780,
+   "meta": {
+    "author": {
+     "name": "Ma, Bin"
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "d846cae20efd446f95b7827b0cf3906c"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20140017780,
+   "meta": {
+    "author": {
+     "name": "Cao, Su"
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "feddba6702b44e7eb8fbf905b8fa97ef"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20140017780,
+   "meta": {
+    "author": {
+     "name": "Giassi, Davide"
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "4d5b37486638492f9c28737ff80471a6"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20140017780,
+   "meta": {
+    "author": {
+     "name": "Stocker, Dennis P."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "a9c0042dc7444f5791351a49661f1d0b"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20140017780,
+   "meta": {
+    "author": {
+     "name": "Takahashi, Fumiaki"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "c73d0a58b2b9475d8e8eec67be7af936"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20140017780,
+   "meta": {
+    "author": {
+     "name": "Bennett, Beth Anne V."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "c8ad52173f5c4fbc95aa52c44904a55a"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20140017780,
+   "meta": {
+    "author": {
+     "name": "Smooke, Mitchell D. "
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "f27b025c5d954fc8888cd8281cc287f9"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20140017780,
+   "meta": {
+    "author": {
+     "name": "Long, Marshall B."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "f331ea84d6994e0998165762d6c0bbc6"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20140017780,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2014-12-30T10:31:10.3130000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Upon the completion of the Structure and Liftoff in Combustion Experiment (SLICE) in March 2012, a comprehensive and unique set of microgravity coflow diffusion flame data was obtained. This data covers a range of conditions from weak flames near extinction to strong, highly sooting flames, and enabled the study of gravitational effects on phenomena such as liftoff, blowout and soot formation. The microgravity experiment was carried out in the Microgravity Science Glovebox (MSG) on board the International Space Station (ISS), while the normal gravity experiment was performed at Yale utilizing a copy of the flight hardware. Computational simulations of microgravity and normal gravity flames were also carried out to facilitate understanding of the experimental observations. This paper focuses on the different sooting behaviors of CH4 coflow jet flames in microgravity and normal gravity. The unique set of data serves as an excellent test case for developing more accurate computational models.Experimentally, the flame shape and size, lift-off height, and soot temperature were determined from line-of-sight flame emission images taken with a color digital camera. Soot volume fraction was determined by performing an absolute light calibration using the incandescence from a flame-heated thermocouple. Computationally, the MC-Smooth vorticity-velocity formulation was employed to describe the chemically reacting flow, and the soot evolution was modeled by the sectional aerosol equations. The governing equations and boundary conditions were discretized on an axisymmetric computational domain by finite differences, and the resulting system of fully coupled, highly nonlinear equations was solved by a damped, modified Newtons method. The microgravity sooting flames were found to have lower soot temperatures and higher volume fraction than their normal gravity counterparts. The soot distribution tends to shift from the centerline of the flame to the wings from normal gravity to microgravity.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20140017780,
+   "endDate": "2014-08-08T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "9b8b9dce88b647adb0010a8c9fab369e",
+     "meta": {
+      "organization": {
+       "name": "Combustion Inst.",
+       "location": "Pittsburgh, PA, United States"
+      }
+     },
+     "meetingId": "0a374bf5d4ef4d1881db91a55f0fac1a",
+     "id": "c36b50d923a14e0993d4d6e7525e1563"
+    }
+   ],
+   "name": "International Symposium on Combustion",
+   "location": "San Francisco, CA",
+   "id": "0a374bf5d4ef4d1881db91a55f0fac1a",
+   "startDate": "2014-08-03T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20140017780,
+   "id": "c61bd2b7b1b048b8ac0b606e1ceeecfe",
+   "publicationDate": "2014-08-03T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20140017780.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20140017780/downloads/20140017780.pdf",
+    "pdf": "/api/citations/20140017780/downloads/20140017780.pdf",
+    "fulltext": "/api/citations/20140017780/downloads/20140017780.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

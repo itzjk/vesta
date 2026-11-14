@@ -1,0 +1,172 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20240002119,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "a97a43a0f76245c58b7fa105ebf4609e",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Sciences (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20240002119,
+  "ear": "NO",
+  "id": "294f0d6f3e09423cba29c320ff262896",
+  "itar": "NO"
+ },
+ "distributionDate": "2024-02-26T06:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2024-128"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "401769.06.06.01.02.95",
+   "submissionId": 20240002119,
+   "id": "75fe574f4e994463a0cecc0e4894ed7e",
+   "type": "WBS"
+  }
+ ],
+ "title": "Creating the Environment for Exploration Habitats",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2024-02-16T12:51:06.6061450+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 0,
+   "submissionId": 20240002119,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Cristina A Anchondo"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, United States"
+    }
+   },
+   "id": "30f93e5e2efb4b57b907503a7cdee471",
+   "userType": "CIVIL",
+   "userId": "a1f26e5a298b4acaab884341c7fe7691"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 1,
+   "submissionId": 20240002119,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Peter A Masi"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, United States"
+    }
+   },
+   "id": "dec3fc8309bb469bb656acbb54b5ff26",
+   "userType": "CIVIL",
+   "userId": "221a907b2b8f4a19a5f7970c2827a434"
+  },
+  {
+   "organizationId": "99fa64c96f0950678abfcdd84ba26bf5",
+   "sequence": 2,
+   "submissionId": 20240002119,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Christopher P G Briggs"
+    },
+    "organization": {
+     "name": "Jacobs (United States)",
+     "location": "Dallas, Texas, United States"
+    }
+   },
+   "id": "8893252b82ac41958da4808bb177f0e5",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "192a9cc2d3d544a8bcbab6e6946695b9"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20240002119,
+ "created": "2024-02-16T12:29:24.4082540+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Crew and Thermal Systems Division’s (CTSD) 20 Foot Chamber has undergone significant modifications to support NASA’s future human exploration missions to the Moon, Mars, and beyond.  Existing chamber systems such as Vacuum/Repress, Heating Ventilation and Air Conditioning (HVAC), and Fire Suppression System (FSS), were upgraded, while new systems such as Air Revitalization and Gas Distribution were added.  In addition, the chamber was outfitted with crew quarters, hygiene areas, storage, and workspaces.  Teams across the Johnson Space Center (JSC) worked together to overcome the logistical and operational challenges of the planned test parameters.  The ultimate goal was to create an analog testbed in which a maximum of 8 human test subjects could safely live and work for at least 11 days in the same conditions (reduced pressures, Oxygen concentrations, etc.) as those expected inside a base spacecraft.  This would allow researchers to study the effects of such environments on humans and to validate proposed Prebreathe Protocols to enable the safe performance of surface extravehicular activities (EVAs).   Over the last eighteen months, the CTSD Systems Test Branch has performed six tests of varying lengths and atmospheres for both NASA and commercial partners.  To date, researchers now have collected data on 48 test subjects in the course of 42 days and over 130 simulated EVAs.  This paper will discuss the history of the 20 Foot Chamber, its long road to becoming an analog testbed for human exploration, and the capabilities that make it a unique, world class facility for NASA and commercial human exploration missions.  It will provide an overview of past and future testing, and the lessons learned along the way.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20240002119,
+  "id": "8e2f0b24efef4100821c729ff25168e3"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20240002119,
+   "endDate": "2024-07-25T05:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "40e292dade5754e3979554f9c3646d0e",
+     "meta": {
+      "organization": {
+       "name": "Leidos (United States)",
+       "location": "Reston, United States"
+      }
+     },
+     "meetingId": "e85ddb9128804248841829ad437a815e",
+     "id": "0745fe68bebe4ad6b12796ff40f4bf77"
+    }
+   ],
+   "name": "53rd International Conference on Environmental Systems (ICES)",
+   "location": "Louisville, KY",
+   "id": "e85ddb9128804248841829ad437a815e",
+   "startDate": "2024-07-21T05:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "METADATA_ONLY",
+   "id": 20230015465,
+   "type": "SEE_ALSO",
+   "title": "Creating the Environment for Exploration Habitats",
+   "stiType": "CONFERENCE_PAPER",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "ICES-2024-128-Draft.pdf",
+   "notes": "false positive",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20240002119/downloads/ICES-2024-128-Draft.pdf",
+    "pdf": "/api/citations/20240002119/downloads/ICES-2024-128-Draft.pdf",
+    "fulltext": "/api/citations/20240002119/downloads/ICES-2024-128-Draft.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

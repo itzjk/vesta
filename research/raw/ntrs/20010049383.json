@@ -1,0 +1,207 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20010049383,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "7444542d39b04965a62314bfbeb2d22e",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Sciences (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20010049383,
+  "ear": "NO",
+  "id": "94e8a6cd5cfc491ebe016ebd1b52a319",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "E-12322",
+  "NAS 1.15:210202",
+  "NASA/TM-2001-210202",
+  "Report Number: E-12322",
+  "Report Number: NAS 1.15:210202",
+  "Report Number: NASA/TM-2001-210202"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 398-20-0C",
+   "submissionId": 20010049383,
+   "id": "a6c270ecf35d4a66a6ea179ebfde6a3e",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Microgravity Combustion Science and Fluid Physics Experiments and Facilities for the ISS",
+ "stiType": "PREPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T12:29:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20010049383,
+   "meta": {
+    "author": {
+     "name": "Lauver, Richard W."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "3eec99cc6455437fbf8519b9e7f3f0b1"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20010049383,
+   "meta": {
+    "author": {
+     "name": "Kohl, Fred J."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "f2717df0f9714f7888adc92a066616fe"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20010049383,
+   "meta": {
+    "author": {
+     "name": "Weiland, Karen J."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "e19c4a8245e049cd8b3b852fde3cb94c"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20010049383,
+   "meta": {
+    "author": {
+     "name": "Zurawski, Robert L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "a23c61f628a9485d8620fe28360a72dc"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20010049383,
+   "meta": {
+    "author": {
+     "name": "Hill, Myron E."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "550e0fa87d8c413681e742246894174c"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20010049383,
+   "meta": {
+    "author": {
+     "name": "Corban, Robert R."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "62e755967fe746cf80c03b0b00e8b649"
+  }
+ ],
+ "stiTypeDetails": "Preprint (Draft being sent to journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20010049383,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T12:29:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "At the NASA Glenn Research Center, the Microgravity Science Program supports both ground-based and flight experiment research in the disciplines of Combustion Science and Fluid Physics. Combustion Science research includes the areas of gas jet diffusion flames, laminar flames, burning of droplets and misting fuels, solids and materials flammability, fire and fire suppressants, turbulent combustion, reaction kinetics, materials synthesis, and other combustion systems. The Fluid Physics discipline includes the areas of complex fluids (colloids, gels, foams, magneto-rheological fluids, non-Newtonian fluids, suspensions, granular materials), dynamics and instabilities (bubble and drop dynamics, magneto/electrohydrodynamics, electrochemical transport, geophysical flows), interfacial phenomena (wetting, capillarity, contact line hydrodynamics), and multiphase flows and phase changes (boiling and condensation, heat transfer, flow instabilities). A specialized International Space Station (ISS) facility that provides sophisticated research capabilities for these disciplines is the Fluids and Combustion Facility (FCF). The FCF consists of the Combustion Integrated Rack (CIR), the Fluids Integrated Rack (FIR) and the Shared Accommodations Rack and is designed to accomplish a large number of science investigations over the life of the ISS. The modular, multiuser facility is designed to optimize the science return within the available resources of on-orbit power, uplink/downlink capacity, crew time, upmass/downmass, volume, etc. A suite of diagnostics capabilities, with emphasis on optical techniques, will be provided to complement the capabilities of the subsystem multiuser or principal investigator-specific experiment modules. The paper will discuss the systems concept, technical capabilities, functionality, and the initial science investigations in each discipline.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20010049383,
+   "name": "Canadian Space Agency",
+   "location": "Canada",
+   "id": "af4cf029bfa64bf288be09c31a881401"
+  },
+  {
+   "country": "Canada",
+   "submissionId": 20010049383,
+   "endDate": "2000-05-18T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "Canadian Space Agency",
+       "location": "Canada"
+      }
+     },
+     "meetingId": "6701f64d08b74b9fb458a774698a961f",
+     "id": "a060cc4acf694d21886cae19b0b813a7"
+    }
+   ],
+   "name": "Spacebound 2000",
+   "location": "Vancouver, British Columbia",
+   "id": "6701f64d08b74b9fb458a774698a961f",
+   "startDate": "2000-05-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20010049383,
+   "id": "1b287210eb27468a965ee94cc021ae25",
+   "publicationDate": "2001-02-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20010049383.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20010049383/downloads/20010049383.pdf",
+    "pdf": "/api/citations/20010049383/downloads/20010049383.pdf",
+    "fulltext": "/api/citations/20010049383/downloads/20010049383.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

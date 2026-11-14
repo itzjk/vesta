@@ -1,0 +1,13 @@
+https://ntrs.nasa.gov/citations/20080014094
+TITLE: Lessons Learned from the Node 1 Fire Detection and Suppression Subsystem Design
+FETCHED: 2026-11-14T10:59:54
+NTRS-ID: 20080014094
+DATE: 2008-01-01
+AUTHORS: Williams, David E.
+REPORT: 08ICES-0232; Report Number: 08ICES-0232
+
+# Lessons Learned from the Node 1 Fire Detection and Suppression Subsystem Design
+
+## Abstract (NTRS record)
+
+This paper will provide an overview of the International Space Station (ISS) Environmental Control and Life Support (ECLS) design of the Node 1 Fire Detection and Suppression (FDS) subsystem and it will document some of the lessons that have been learned to date for this subsystem.

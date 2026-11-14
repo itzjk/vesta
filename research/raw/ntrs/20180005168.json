@@ -1,0 +1,199 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20180005168,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "3b2678a1bfd14c8398fb859a75b5c6b0",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "General"
+ ],
+ "keywords": [
+  "microgravity"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "eccnNumber": "",
+  "submissionId": 20180005168,
+  "ear": "NO",
+  "id": "3c36293433ee4cb2b71ead6c0476b45d",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN48184",
+  "Report Number: GRC-E-DAA-TN48184"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20180005168,
+   "id": "84f4673ac27e4551be36372922ae64e8",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 089407.02.04.22",
+   "submissionId": 20180005168,
+   "id": "564adada976c4bb6a02a0e24fa19ba57",
+   "type": "WBS"
+  }
+ ],
+ "title": "Saffire: A Novel Approach to Study of Spacecraft Fire Safety Using Un-Manned Spacecraft",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2018-09-10T13:09:27.5970000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20180005168,
+   "meta": {
+    "author": {
+     "name": "Urban, David L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "5454d2a9de7f4d2985ff303bab8f0cc0"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20180005168,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul"
+    },
+    "organization": {
+     "name": "Universities Space Research Association (USRA)",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "f34a52f0fe2f4dd2a913b90b220ed815"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20180005168,
+   "meta": {
+    "author": {
+     "name": "Olson, Sandra"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "e0e922d8cf4043b193a7226b9a250a4e"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20180005168,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "4b0ac61dfab74c6aa36cb1d5303c4ed0"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20180005168,
+   "meta": {
+    "author": {
+     "name": "Easton, John"
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "0bb2ae0d72b142008919a565a478a231"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20180005168,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2018-09-10T13:09:27.5970000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Saffire Experiment represents the first test of spacecraft fires at a scale relevant to real spacecraft. Although large-scale fire tests on Earth are conducted for every type of habitable structure (buildings, planes, trains, automobiles, ships and mines) they had never been attempted in a space experiment for obvious reasons of practicality and safety. This is despite the fact that fire is a catastrophic hazard for spaceflight where the crew has very limited or no escape options. The spread and growth of a fire, combined with its interactions with the vehicle cannot be expected to scale linearly from small-scale test data, and so there is a substantial gap in our ability to predict the behavior of spacecraft fire and also its impact on the spacecraft habitability and operability. The experiments were performed aboard the Cygnus vehicle, a large unmanned resupply spacecraft to the International Space Station (ISS). The experiment was installed in the Cygnus vehicle, and remained dormant during docked operations. Once the vehicle was reloaded with ISS trash, it unberthed and moved to a separate orbit. The Saffire experiment was initiated by ground command and downlinked the data before the vehicle re-entered into the earth's atmosphere. The downloaded test data show resolved the question of whether flame growth will achieve a steady size and demonstrated that the size of the enclosure surrounding the sample has more impact on the flame spread than anticipated.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20180005168,
+   "name": "American Society for Gravitational and Space Research",
+   "location": "Bristow, VA, United States",
+   "id": "a5cf9e656c9e4bd6a9845b6c745b6bd1"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20180005168,
+   "endDate": "2017-10-28T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Society for Gravitational and Space Research",
+       "location": "Bristow, VA, United States"
+      }
+     },
+     "meetingId": "18243a2bad684d2f92e05eb4bfc2451f",
+     "id": "16dda576368c435bbc482bc964652bf6"
+    }
+   ],
+   "name": "American Society for Gravitational and Space Research Conference",
+   "location": "Seattle, WA",
+   "id": "18243a2bad684d2f92e05eb4bfc2451f",
+   "startDate": "2017-10-25T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20180005168,
+   "id": "aee8fba71f4c459cb18791d444ae25ec",
+   "publicationDate": "2017-10-25T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20180005168.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20180005168/downloads/20180005168.pdf",
+    "pdf": "/api/citations/20180005168/downloads/20180005168.pdf",
+    "fulltext": "/api/citations/20180005168/downloads/20180005168.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,165 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20240007817,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "4c40b33a08a34461a3c2412c7b478003",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Ground Support Systems and Facilities (Space)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20240007817,
+  "ear": "NO",
+  "id": "e348a3d40cb143058bc1b1f1abc9c473",
+  "itar": "NO"
+ },
+ "distributionDate": "2024-07-21T05:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "401769.06.06.01.02.95",
+   "submissionId": 20240007817,
+   "id": "5476a9f598c5444b9c29e4ee38c19ac9",
+   "type": "WBS"
+  },
+  {
+   "number": "80JSC022DA035",
+   "submissionId": 20240007817,
+   "id": "473700cbb9934772b97dc82ccb29aa8a",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Creating the Test Environment for Exploration Habitats",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2024-06-19T07:52:27.1625610+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "99fa64c96f0950678abfcdd84ba26bf5",
+   "sequence": 0,
+   "submissionId": 20240007817,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Chris Briggs"
+    },
+    "organization": {
+     "name": "Jacobs (United States)",
+     "location": "Dallas, Texas, United States"
+    }
+   },
+   "id": "71833e1500c147e985267857a66f1aa8",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "192a9cc2d3d544a8bcbab6e6946695b9"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 1,
+   "submissionId": 20240007817,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Cristina A Anchondo"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, United States"
+    }
+   },
+   "id": "6b158b3d5e5d464d8e8deb2fa5ac0800",
+   "userType": "CIVIL",
+   "userId": "a1f26e5a298b4acaab884341c7fe7691"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 2,
+   "submissionId": 20240007817,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Peter A Masi"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, United States"
+    }
+   },
+   "id": "7904f119a45e4c658a330f14638c6376",
+   "userType": "CIVIL",
+   "userId": "221a907b2b8f4a19a5f7970c2827a434"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "NASA_TECHNICAL_MANAGEMENT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20240007817,
+ "created": "2024-06-19T07:34:51.1534180+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Crew and Thermal Systems Division’s (CTSD) 20 Foot Chamber has undergone significant modifications to support NASA’s future human exploration missions to the Moon, Mars, and beyond. Existing chamber systems such as Vacuum/Repress, Heating Ventilation and Air Conditioning (HVAC), and Fire Suppression System (FSS), were upgraded, while new systems such as Air Revitalization and Gas Distribution were added. In addition, the chamber was outfitted with crew quarters, hygiene areas, storage, and workspaces. Teams across the Johnson Space Center (JSC) worked together to overcome the logistical and operational challenges of the planned test parameters. The ultimate goal was to create an analog testbed in which a maximum of eight human test subjects could safely live and work for at least 11 days in the same conditions (e.g., reduced pressures, oxygen concentrations, and so on) as those expected inside a base spacecraft. This would allow researchers to study the effects of such environments on humans and to validate proposed Prebreathe Protocols to enable the safe performance of surface extravehicular activities (EVAs). Over the last 18 months, the CTSD Systems Test Branch has performed six tests of varying lengths and atmospheres for both NASA and commercial partners. To date, researchers now have collected data on 48 test subjects in the course of 42 days and over 130 simulated EVAs. This paper will discuss the history of the 20 Foot Chamber, its long road to becoming an analog testbed for human exploration, and the capabilities that make it a unique, world class facility for NASA and commercial human exploration missions. It will provide an overview of past and future testing and the lessons learned along the way.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20240007817,
+  "id": "cd2b0e3b788e4d02a2e19951046a5696"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20240007817,
+   "endDate": "2024-07-25T05:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "8a4c6bb4d92d4b57b245023ae13c7536",
+     "meta": {
+      "organization": {
+       "name": "International Conference on Environmental Systems",
+       "location": "Emmaus, Pennsylvania, United States"
+      }
+     },
+     "meetingId": "5e5e9442e355454a9ef8cf266463f0e0",
+     "id": "d3d7828b9ef44bfe823d78a45e4f3532"
+    }
+   ],
+   "name": "53rd International Conference on Environmental Systems (ICES)",
+   "location": "Louisville, KY",
+   "id": "5e5e9442e355454a9ef8cf266463f0e0",
+   "startDate": "2024-07-21T05:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "ICES-2024-128-Final Presentation.pdf",
+   "notes": "Proprietary mentioned in general context.",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20240007817/downloads/ICES-2024-128-Final%20Presentation.pdf",
+    "pdf": "/api/citations/20240007817/downloads/ICES-2024-128-Final%20Presentation.pdf",
+    "fulltext": "/api/citations/20240007817/downloads/ICES-2024-128-Final%20Presentation.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

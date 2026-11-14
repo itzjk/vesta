@@ -1,0 +1,124 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20070018272,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "a849f48a4b22471391c33243845053f5",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20070018272,
+  "ear": "NO",
+  "id": "b63797c4a4804325b313e3b720e3d709",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "WBS 401769.06.01.01.01",
+   "submissionId": 20070018272,
+   "id": "e1d4584093c949d2987ba136554ecbb1",
+   "type": "WBS"
+  }
+ ],
+ "title": "International Space Station Temperature and Humidity Control Subsystem Verification for Node 1",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-23T22:55:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20070018272,
+   "meta": {
+    "author": {
+     "name": "Williams, David E."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "bc1af20117c14b049154b3229603ea17"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20070018272,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-23T22:55:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The International Space Station (ISS) Node 1 Environmental Control and Life Support (ECLS) System is comprised of five subsystems: Atmosphere Control and Supply (ACS), Atmosphere Revitalization (AR), Fire Detection and Suppression (FDS), Temperature and Humidity Control (THC), and Water Recovery and Management (WRM). This paper provides a summary of the nominal operation of the Node 1 THC subsystem design. The paper will also provide a discussion of the detailed Element Verification methodologies for nominal operation of the Node 1 THC subsystem operations utilized during the Qualification phase.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20070018272,
+   "endDate": "2007-07-12T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "2fb8633154d94728aec2c57afa709b46",
+     "meta": {
+      "organization": {
+       "name": "Society of Automotive Engineers, Inc.",
+       "location": "Warrendale, PA, United States"
+      }
+     },
+     "meetingId": "5e4b8b846daf4d9098a32a3749d063b9",
+     "id": "0628def1855946a3863d032b1de07f6f"
+    }
+   ],
+   "name": "37th International Conference on Environmental Systems",
+   "location": "Chicago, IL",
+   "id": "5e4b8b846daf4d9098a32a3749d063b9",
+   "startDate": "2007-07-09T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20070018272,
+   "id": "6c9be0e9dd4d43eba757672da1d0e280",
+   "publicationDate": "2007-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20070018272.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20070018272/downloads/20070018272.pdf",
+    "pdf": "/api/citations/20070018272/downloads/20070018272.pdf",
+    "fulltext": "/api/citations/20070018272/downloads/20070018272.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

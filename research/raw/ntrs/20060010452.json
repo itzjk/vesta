@@ -1,0 +1,122 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20060010452,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "2ecb50faacf64ee0b050837d85edcd24",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20060010452,
+  "ear": "NO",
+  "id": "533b4c733404454294e6b927fb614382",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "SAE-2004-01-0054",
+  "Report Number: SAE-2004-01-0054"
+ ],
+ "title": "International Space Station Integration of Automated Safing Responses",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-23T16:35:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20060010452,
+   "meta": {
+    "author": {
+     "name": "Curry, Kim"
+    },
+    "organization": {
+     "name": "Boeing Space and Communications",
+     "location": "Houston TX, United States"
+    }
+   },
+   "id": "d3383eaf09544ff39cbdb94f732d4a02"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20060010452,
+   "meta": {
+    "author": {
+     "name": "Prokhorov, Kimberlee"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "e1829c7830ff4dfb9b6803ac3f64fa3b"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20060010452,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-23T16:35:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Environmental Control and Life Support (ECLS) functionality aboard the International Space Station (ISS) includes responding to various emergency conditions. The ISS requirements define three types of emergencies: fire, rapid depressurization, and hazardous or toxic atmosphere. The ISS has automatic integrated vehicle responses to each of these emergencies. These responses are designed to aid the crew in their response actions to the emergencies. This paper focuses on the integration of ISS responses to these three emergencies. It includes the ISS automatic integrated vehicle response and the initial crew response. Philosophies regarding the generic response to an on-orbit emergency are described. Software responses are defined for modules on orbit up to the addition of the Docking Compartment (DC1) in the assembly sequence. Possible future improvements are also described.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20060010452,
+   "endDate": "2004-07-22T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "3dd6798b3d91459f92023fb28513e5f9",
+     "meta": {
+      "organization": {
+       "name": "Society of Automotive Engineers, Inc.",
+       "location": "United States"
+      }
+     },
+     "meetingId": "19d5bb0826304d1d932aabcb4341f9ec",
+     "id": "3704b5dd92354f18a4e73a4ec8c95cc1"
+    }
+   ],
+   "name": "34th International Conference on Environmental Systems (ICES)",
+   "location": "Colorado Springs, CO",
+   "id": "19d5bb0826304d1d932aabcb4341f9ec",
+   "startDate": "2004-07-19T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20060010452,
+   "id": "f6458569d0e041e2a15ef539c9c0b701",
+   "publicationDate": "2006-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

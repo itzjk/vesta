@@ -1,0 +1,25 @@
+https://www.nasa.gov/wp-json/wp/v2/migration/97069
+TITLE: Microgravity Science Glovebox
+FETCHED: 2026-11-14T10:57:55
+PUBLIC-LINK: https://www.nasa.gov/?migration=converted-node-409365
+DATE: 2017-09-11T20:31:27
+
+# Microgravity Science Glovebox
+
+Expedition 47 Commander Tim Kopra configures the station’s Microgravity Science Glovebox for upcoming research operations, 2016. Credits: NASA
+
+JSC2014-E-042123 (8 May 2014) — At the Gagarin Cosmonaut Training Center in Star City, Russia, Expedition 40/41 backup crew member Samantha Cristoforetti of the European Space Agency (right) signs a ceremonial book at the Gagarin Museum May 8 as her Soyuz Commander, Anton Shkaplerov of the Russian Federal Space Agency (Roscosmos) looks on. Cristoforetti, Shkaplerov and Terry Virts of NASA are the backups to prime crew members Maxim Suraev of Roscosmos, Reid Wiseman of NASA and Alexander Gerst of the European Space Agency, who are preparing for launch May 29, Kazakh time, in the Soyuz TMA-13M spacecraft from the Baikonur Cosmodrome in Kazakhstan for a 5 ½ month mission on the International Space Station. Photo credit: NASA
+
+The Microgravity Science Glovebox (MSG) is a sealed facility that provides an enclosed space for investigations conducted in a low-gravity, or microgravity, environment created on the International Space Station (ISS). The Glovebox accommodates small and medium-sized investigations from disciplines including biotechnology, combustion science, fluid physics, fundamental physics, and materials science. The MSG can provide the experiment with power, data acquisition, computer communications, vacuum, nitrogen, and specialized tools. It is designed to more closely simulate working laboratory conditions on the ground.
+
+The Glovebox provides a safe environment for Space Station crew to conduct research with liquids, flames, and particles used as a part of everyday research on Earth. Built-in gloves attached directly to the facility doors allow crew to safely manipulate samples inside the sealed facility, and side ports on the Glovebox permit crew to set up and manipulate investigation equipment inside. As experiments are conducted within the Glovebox by crew in space, the results can be monitored by scientists and investigators on the ground.
+
+The development of the MSG on the ISS builds on successes with the Middeck Glovebox and Spacelab Glovebox, both used aboard several Space Shuttle missions and on the Russian Mir Space Station. The MSG supports larger, more sophisticated investigations than its predecessors, expanding research capabilities. It was developed by the European Space Agency (ESA) and is managed by NASA’s Marshall Space Flight Center. The Glovebox was launched to the Space Station in June 2002 on Space Shuttle Endeavor STS-111 and is located in the ESA’s Columbus laboratory module. Peggy Whitson installed the MSG during Expedition 5. Its first full operation experiment was the Solidification Using a Baffle in a Sealed Ampoule (SUBSA).
+
+Resources
+
+https://msglovebox.msfc.nasa.gov/home
+
+https://www.nasa.gov/centers/marshall/news/background/facts/MSG.html
+
+https://www.nasa.gov/mission_pages/station/research/experiments/350.html

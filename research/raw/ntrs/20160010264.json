@@ -1,0 +1,234 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20160010264,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "b1ff488c9d8140f5bd64c8d9aaed8335",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Processing"
+ ],
+ "keywords": [
+  "chemiluminescence",
+  "microgravity",
+  "diffusion flames"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20160010264,
+  "ear": "NO",
+  "id": "b43c8f94ce6049dc910402cc536a5270",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-11T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN28553",
+  "Report Number: GRC-E-DAA-TN28553"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20160010264,
+   "id": "310cea33fede45d5a46ae640c76e9e2d",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 904211.04.02.30.14",
+   "submissionId": 20160010264,
+   "id": "a1b449811c75446a986ab6a58f73f5d5",
+   "type": "WBS"
+  },
+  {
+   "number": "NNX11AP43A",
+   "submissionId": 20160010264,
+   "id": "fe777f49b8f14b3e81be799ad2cf9f7a",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Quantitative Measurements of Electronically Excited CH Concentration in Normal Gravity and Microgravity Coflow Laminar Diffusion Flames",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2016-08-12T10:49:12.5900000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20160010264,
+   "meta": {
+    "author": {
+     "name": "Giassi, D."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "90fd0c09ce5a4dcf942670d6acc4f9fa"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20160010264,
+   "meta": {
+    "author": {
+     "name": "Cao, S. "
+    },
+    "organization": {
+     "name": "GE Global Research Center",
+     "location": "Irvine, CA, United States"
+    }
+   },
+   "id": "98e7b5cefc504381b18170ff9f81c8f3"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20160010264,
+   "meta": {
+    "author": {
+     "name": "Stocker, D. P."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "8d414d658bcc409aaa77d44f62328a93"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20160010264,
+   "meta": {
+    "author": {
+     "name": "Takahashi, F."
+    },
+    "organization": {
+     "name": "Case Western Reserve Univ.",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "74fb6bdfad76461ca2750f70617b2c1c"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20160010264,
+   "meta": {
+    "author": {
+     "name": "Bennett, B. A. V."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "eec90c4534fa48de953cbb537f1790a3"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20160010264,
+   "meta": {
+    "author": {
+     "name": "Smooke, M. D. "
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "3bbdf4a1cfee4faa88a115062738f309"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20160010264,
+   "meta": {
+    "author": {
+     "name": "Long, M. B. "
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "39c420fb71c64268a8c8d2894031467f"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20160010264,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2016-08-12T10:49:12.5900000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "With the conclusion of the SLICE campaign aboard the ISS in 2012, a large amount of data was made available for the analysis of the effect of microgravity on laminar coflow diffusion flames. Previous work focused on the study of sooty flames in microgravity as well as the ability of numerical models to predict its formation in a simplified buoyancy-free environment. The current work shifts the investigation to soot-free flames, putting an emphasis on the chemiluminescence emission from electronically excited CH (CH*). This radical species is of significant interest in combustion studies: it has been shown that the electronically excited CH spatial distribution is indicative of the flame front position and, given the relatively simple diagnostic involved with its measurement, several works have been done trying to understand the ability of electronically excited CH chemiluminescence to predict the total and local flame heat release rate. In this work, a subset of the SLICE nitrogen-diluted methane flames has been considered, and the effect of fuel and coflow velocity on electronically excited CH concentration is discussed and compared with both normal gravity results and numerical simulations. Experimentally, the spectral characterization of the DSLR color camera used to acquire the flame images allowed the signal collected by the blue channel to be considered representative of the electronically excited CH emission centered around 431 nm. Due to the axisymmetric flame structure, an Abel deconvolution of the line-of-sight chemiluminescence was used to obtain the radial intensity profile and, thanks to an absolute light intensity calibration, a quantification of the electronically excited CH concentration was possible. Results show that, in microgravity, the maximum flame electronically excited CH concentration increases with the coflow velocity, but it is weakly dependent on the fuel velocity; normal gravity flames, if not lifted, tend to follow the same trend, albeit with different peak concentrations. Comparisons with numerical simulations display reasonably good agreement between measured and computed flame lengths and radii, and it is shown that the integrated electronically excited CH emission scales proportionally to the computed total heat release rate; the two-dimensional electronically excited CH spatial distribution, however, does not appear to be a good marker for the local heat release rate.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20160010264,
+   "name": "American Society for Gravitational and Space Biology",
+   "location": "Arlington, VA, United States",
+   "id": "3ab965badc9a4b209d07ff733f766149"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20160010264,
+   "endDate": "2015-11-14T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Society for Gravitational and Space Biology",
+       "location": "Arlington, VA, United States"
+      }
+     },
+     "meetingId": "b795f41973b14e50876d66d5c9937c55",
+     "id": "9359b18c6ebc4849bc33e462c5138399"
+    }
+   ],
+   "name": "2015 Meeting of the American Society for Gravitational and Space Research (ASGSR)",
+   "location": "Alexandria, VA",
+   "id": "b795f41973b14e50876d66d5c9937c55",
+   "startDate": "2015-11-11T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20160010264,
+   "id": "4f484d79655a4f8eaa49bc1b5bd04868",
+   "publicationDate": "2015-11-11T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20160010264.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20160010264/downloads/20160010264.pdf",
+    "pdf": "/api/citations/20160010264/downloads/20160010264.pdf",
+    "fulltext": "/api/citations/20160010264/downloads/20160010264.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

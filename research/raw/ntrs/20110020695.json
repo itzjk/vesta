@@ -1,0 +1,138 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20110020695,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "8a816570963f485bac07bc98312ccf0c",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Chemistry And Materials (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20110020695,
+  "ear": "NO",
+  "id": "7339bfc0e07c4b47a68fa593527a8e08",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-11T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "E-17975",
+  "ISSN: 0010-2180",
+  "Report Number: E-17975"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 904211.04.02.30.07",
+   "submissionId": 20110020695,
+   "id": "e692669414604d8c9a8502aa556c0867",
+   "type": "WBS"
+  }
+ ],
+ "title": "Methanol Droplet Extinction in Carbon-Dioxide-Enriched Environments in Microgravity",
+ "stiType": "REPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T08:12:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20110020695,
+   "meta": {
+    "author": {
+     "name": "Hicks, Michael C."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "cf73dbc29ab94719807a066c52dcc398"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20110020695,
+   "meta": {
+    "author": {
+     "name": "Nayagam, Vedha"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "4f411a4ef0254cca9b51c8b81e72f547"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20110020695,
+   "meta": {
+    "author": {
+     "name": "Williams, Forman A."
+    },
+    "organization": {
+     "name": "California Univ., San Diego",
+     "location": "La Jolla, CA, United States"
+    }
+   },
+   "id": "4449c7699ebe43268474e673a8a76d1b"
+  }
+ ],
+ "stiTypeDetails": "Reprint (Version printed in journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20110020695,
+ "sourceIdentifiers": [
+  {
+   "number": "doi:10.1016/j.combustflame.2010.05.007",
+   "submissionId": 20110020695,
+   "id": "b763b3b2d42149f3834f097254536567",
+   "type": "DOI"
+  },
+  {
+   "submissionId": 20110020695,
+   "id": "858b68dd651a4f90bb5c1d2530c46382",
+   "descriptor": "doi:10.1016/j.combustflame.2010.05.007"
+  }
+ ],
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T08:12:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Diffusive extinction of methanol droplets with initial diameters between 1.25 mm and 1.72 mm, burning in a quiescent microgravity environment at one atmosphere pressure, was obtained experimentally for varying levels of ambient carbon-dioxide concentrations with a fixed oxygen concentration of 21% and a balance of nitrogen. These experiments serve as precursors to those which are beginning to be performed on the International Space Station and are motivated by the need to understand the effectiveness of carbon-dioxide as a fire suppressant in low-gravity environments. In these experiments, the flame standoff distance, droplet diameter, and flame radiation are measured as functions of time. The results show that the droplet extinction diameter depends on both the initial droplet diameter and the ambient concentration of carbon dioxide. Increasing the initial droplet diameter leads to an increased extinction diameter, while increasing the carbon-dioxide concentration leads to a slight decrease in the extinction diameter. These results are interpreted using a critical Damk hler number for extinction as predicted by an earlier theory, which is extended here to be applicable in the presence of effects of heat conduction along the droplet support fibers and of the volume occupied by the support beads",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "publications": [
+  {
+   "volume": "157",
+   "submissionId": 20110020695,
+   "issn": "0010-2180",
+   "publisher": "Elsevier, Inc.",
+   "id": "e6ed9c2afddc4a209a0547d8f1d583d0",
+   "publicationName": "Combustion and Flame",
+   "publicationDate": "2010-06-04T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

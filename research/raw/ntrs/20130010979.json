@@ -1,0 +1,184 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20130010979,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "b214b5b3423646d9abfee1d48ceff2ca",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic, Organic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20130010979,
+  "ear": "NO",
+  "id": "ad0ec13c036645e8a874a4e73e7ec1de",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN7148",
+  "E-18608",
+  "Report Number: GRC-E-DAA-TN7148",
+  "Report Number: E-18608"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC08BA05B",
+   "submissionId": 20130010979,
+   "id": "0e14fb4c34664300a1eef76b68cf33f3",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NNX09AM33A",
+   "submissionId": 20130010979,
+   "id": "a7a930ae61b94285b3082beea2aae75a",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 904211.04.02.30.07",
+   "submissionId": 20130010979,
+   "id": "bfc6c266666f449cad2ba952fb329c87",
+   "type": "WBS"
+  }
+ ],
+ "title": "Dynamics of Water Absorption and Evaporation During Methanol Droplet Combustion in Microgravity",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-27T10:20:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20130010979,
+   "meta": {
+    "author": {
+     "name": "Hicks, Michael C."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "23d225cd8cb241bfb918c40473318322"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20130010979,
+   "meta": {
+    "author": {
+     "name": "Dietrich, Daniel L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "b5fd1c87c7724c308f4d6546271b3089"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20130010979,
+   "meta": {
+    "author": {
+     "name": "Nayagam, Vedha"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "4d97d7bc9767479c9b584dbb4e9307d5"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20130010979,
+   "meta": {
+    "author": {
+     "name": "Williams, Forman A."
+    },
+    "organization": {
+     "name": "California Univ.",
+     "location": "San Diego, CA, United States"
+    }
+   },
+   "id": "0a8c6fd2056b494393a8ca60016c2309"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20130010979,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-27T10:20:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The combustion of methanol droplets is profoundly influenced by the absorption and evaporation of water, generated in the gas phase as a part of the combustion products. Initially there is a water-absorption period of combustion during which the latent heat of condensation of water vapor, released into the droplet, enhances its burning rate, whereas later there is a water-evaporation period, during which the water vapor reduces the flame temperature suffciently to extinguish the flame. Recent methanol droplet-combustion experiments in ambient environments diluted with carbon dioxide, conducted in the Combustion Integrated Rack on the International Space Station (ISS), as a part of the FLEX project, provided a method to delineate the water-absorption period from the water-evaporation period using video images of flame intensity. These were obtained using an ultra-violet camera that captures the OH* radical emission at 310 nm wavelength and a color camera that captures visible flame emission. These results are compared with results of ground-based tests in the Zero Gravity Facility at the NASA Glenn Research Center which employed smaller droplets in argon-diluted environments. A simplified theoretical model developed earlier correlates the transition time at which water absorption ends and evaporation starts. The model results are shown to agree reasonably well with experiment.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20130010979,
+   "endDate": "2012-12-02T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "639036c537d844ddb9b86105fb345592",
+     "meta": {
+      "organization": {
+       "name": "American Society of Space and Gravitational Research",
+       "location": "Bristow, VA, United States"
+      }
+     },
+     "meetingId": "9eec4c6e22fe4c7bb613d9d2846ddda3",
+     "id": "d9e935d9b9ef4bb19f6e668e37a49d22"
+    }
+   ],
+   "name": "28th Annual Meeting of the American Society for Space and Gravitational Research",
+   "location": "New Orleans, LA",
+   "id": "9eec4c6e22fe4c7bb613d9d2846ddda3",
+   "startDate": "2012-11-28T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20130010979,
+   "id": "7efcb3bf6b2f4dbe9427e42721a33c0c",
+   "publicationDate": "2012-11-28T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20130010979.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20130010979/downloads/20130010979.pdf",
+    "pdf": "/api/citations/20130010979/downloads/20130010979.pdf",
+    "fulltext": "/api/citations/20130010979/downloads/20130010979.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

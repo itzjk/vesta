@@ -1,0 +1,96 @@
+{
+ "schema": "vesta.rules-seed/1",
+ "note": "The seed rules of DESIGN.md section 11. earth_instinct, vesta_decides and limits are VESTA's interpretation and are labelled so on screen. nasa_showed and confidence are not typed: the build fills nasa_showed with the quote of the rule's first verified finding and confidence with the kind of work of its best finding. A rule ships only when at least one of its finding_ids is verified.",
+ "rules": [
+  {
+   "id": "R-ALARM",
+   "pillar": "detection",
+   "topic": "detector_response",
+   "earth_instinct": "Probably dust or a bad sensor. Wait and see.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Treat the alarm as an early-phase fire. Warn, gather, send the alert.",
+   "finding_ids": [
+    "S-DET-01"
+   ],
+   "limits": "A design statement from the SAME fact sheet about what detection must target; it did not test this vehicle's detector."
+  },
+  {
+   "id": "R-VENT",
+   "pillar": "prevention",
+   "topic": "ventilation_flow",
+   "earth_instinct": "Fresh air clears the smoke.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Stop forced airflow to the module.",
+   "finding_ids": [
+    "S-VENT-01",
+    "S-FLOW-01"
+   ],
+   "limits": "Review statements about microgravity experiments in general; no oxygen level is stated and this cabin is at 34 %."
+  },
+  {
+   "id": "R-SHAPE",
+   "pillar": "detection",
+   "topic": "flame_shape",
+   "earth_instinct": "Flames climb. Look above it.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Search all around the source, not above it; sample behind the panel.",
+   "finding_ids": [
+    "S-SHAPE-01"
+   ],
+   "limits": "Describes low-momentum flames on the station; a jet or a pressurised leak behaves differently."
+  },
+  {
+   "id": "R-POWER",
+   "pillar": "suppression",
+   "topic": "ignition_source",
+   "earth_instinct": "Grab the extinguisher first.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Remove power from the zone before discharging anything.",
+   "finding_ids": [
+    "PROT-06",
+    "PROT-04"
+   ],
+   "limits": "ISS practice, not an experiment."
+  },
+  {
+   "id": "R-AIM",
+   "pillar": "suppression",
+   "topic": "suppressant_application",
+   "earth_instinct": "Aim at the base of the flame.",
+   "earth_instinct_finding_id": "S-AIM-00",
+   "vesta_decides": "Do not rely on a close jet aimed at the flame. Discharge into the enclosed volume and confirm with the sensors.",
+   "finding_ids": [
+    "S-AIM-02",
+    "S-AIM-01",
+    "S-AIM-03"
+   ],
+   "limits": "BASS burned small solid samples in a flow duct. The quotes show that a local jet can fail; they do not show that flooding works. No oxygen level is stated."
+  },
+  {
+   "id": "R-NOFLAME",
+   "pillar": "detection",
+   "topic": "no_visible_flame",
+   "earth_instinct": "No visible flame, no fire.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Masks stay on. Keep sampling combustion products until the readings are clear.",
+   "finding_ids": [
+    "S-COOL-01",
+    "S-COOL-02"
+   ],
+   "limits": "Cool flames were seen on liquid fuel droplets (FLEX). This fire is solid or electrical: a different fuel class."
+  },
+  {
+   "id": "R-EARTHTEST",
+   "pillar": "prevention",
+   "topic": "flammability_limit",
+   "earth_instinct": "If it passed the flammability test on Earth, it is fine in space.",
+   "earth_instinct_finding_id": null,
+   "vesta_decides": "Treat Earth test margins as unproven for this cabin: check the material on the Design map.",
+   "finding_ids": [
+    "S-LIMIT-01",
+    "S-LIMIT-02"
+   ],
+   "limits": "The sentences state no oxygen level; the cabin's oxygen may lie outside every solid test in the base."
+  }
+ ]
+}

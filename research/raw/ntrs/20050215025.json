@@ -1,0 +1,93 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050215025,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "0f40c4f74af14de0b6c48e12e84b1172",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050215025,
+  "ear": "NO",
+  "id": "49ecaea872e64660be5441681962b3f3",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-04T00:00:00.0000000+00:00",
+ "title": "New Technologies Being Developed for the Thermophoretic Sampling of Smoke Particulates in Microgravity",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T11:04:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050215025,
+   "meta": {
+    "author": {
+     "name": "Sheredy, William A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "68ef9316cdeb491a98a0fd0316285af4"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050215025,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T11:04:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Characterization of Smoke Particulate for Spacecraft Fire Detection, or Smoke, microgravity experiment is planned to be performed in the Microgravity Science Glovebox Facility on the International Space Station (ISS). This investigation, which is being developed by the NASA Glenn Research Center, ZIN Technologies, and the National Institute of Standards and Technologies (NIST), is based on the results and experience gained from the successful Comparative Soot Diagnostics experiment, which was flown as part of the USMP-3 (United States Microgravity Payload 3) mission on space shuttle flight STS-75. The Smoke experiment is designed to determine the particle size distributions of the smokes generated from a variety of overheated spacecraft materials and from microgravity fires. The objective is to provide the data that spacecraft designers need to properly design and implement fire detection in spacecraft. This investigation will also evaluate the performance of the smoke detectors currently in use aboard the space shuttle and ISS for the test materials in a microgravity environment.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20050215025,
+   "id": "aebb9ff637d049d190f7627762ed186d",
+   "publicationName": "Research and Technology 2002",
+   "publicationDate": "2003-03-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20050215025.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20050215025/downloads/20050215025.pdf",
+    "pdf": "/api/citations/20050215025/downloads/20050215025.pdf",
+    "fulltext": "/api/citations/20050215025/downloads/20050215025.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

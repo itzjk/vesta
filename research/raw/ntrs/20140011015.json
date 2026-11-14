@@ -1,0 +1,281 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20140011015,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "29f2a6fa5da946a6b2245885f685517c",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Chemistry And Materials (General)"
+ ],
+ "keywords": [
+  "Combustion",
+  "Smoke",
+  "Fire safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20140011015,
+  "ear": "NO",
+  "id": "5cb5a4bff65b4286b2b9706425503c6b",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN10266",
+  "Report Number: GRC-E-DAA-TN10266"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC08BA08B",
+   "submissionId": 20140011015,
+   "id": "4e3e5757f3724ae3aadd08124cd45c27",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 067463.04.04.03",
+   "submissionId": 20140011015,
+   "id": "06a4cc996554421d8b81a024157180bb",
+   "type": "WBS"
+  },
+  {
+   "number": "NNJ11HA02C",
+   "submissionId": 20140011015,
+   "id": "ef09d74e18914b67bd54981eb6ab3194",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Materials Combustion Testing and Combustion Product Sensor Evaluations in FY12",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2014-08-26T08:44:42.9630000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20140011015,
+   "meta": {
+    "author": {
+     "name": "Meyer, Marit E."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "a37997bd791b43ee8758b821f24588d9"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20140011015,
+   "meta": {
+    "author": {
+     "name": "Hunter, Gary"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "01de9ea04e084900bc19505925ebe205"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20140011015,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "b6ed224e817e46178a8223a8ea1f84a6"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20140011015,
+   "meta": {
+    "author": {
+     "name": "Mudgett, Paul D."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "739dcbb144b341d8839d99604db7ae91"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20140011015,
+   "meta": {
+    "author": {
+     "name": "Hornung, Steven D."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "97504f684c4e4364aa082273ea5f80ea"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20140011015,
+   "meta": {
+    "author": {
+     "name": "McClure, Mark B."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "026991e75b954f5994082a9be7301856"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20140011015,
+   "meta": {
+    "author": {
+     "name": "Pilgrim, Jeffrey S."
+    },
+    "organization": {
+     "name": "Vista Photonics, Inc.",
+     "location": "Santa Fe, NM, United States"
+    }
+   },
+   "id": "6387e25e80994adb8436dc3e85bb448c"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20140011015,
+   "meta": {
+    "author": {
+     "name": "Bryg, Victoria"
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "1ef61b95d9c2417986484b2d34666a49"
+  },
+  {
+   "sequence": 8,
+   "submissionId": 20140011015,
+   "meta": {
+    "author": {
+     "name": "Makel, Darby"
+    },
+    "organization": {
+     "name": "Makel Engineering, Inc.",
+     "location": "Chico, CA, United States"
+    }
+   },
+   "id": "28e498eb9691442088ea5bdf8550f51f"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20140011015,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2014-08-26T08:44:42.9630000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "NASA Centers continue to collaborate to characterize the chemical species and smoke particles generated by the combustion of current space-rated non-metallic materials including fluoropolymers. This paper describes the results of tests conducted February through September 2012 to identify optimal chemical markers both for augmenting particle-based fire detection methods and for monitoring the post-fire cleanup phase in human spacecraft. These studies follow up on testing conducted in August 2010 and reported at ICES 2011. The tests were conducted at the NASA White Sands Test Facility in a custom glove box designed for burning fractional gram quantities of materials under varying heating profiles. The 623 L chamber was heavily instrumented to quantify organics (gas chromatography/mass spectrometry), inorganics by water extraction followed by ion chromatography, and select species by various individual commercially-available sensors. Evaluating new technologies for measuring carbon monoxide, hydrogen cyanide, hydrogen fluoride, hydrogen chloride and other species of interest was a key objective of the test. Some of these sensors were located inside the glovebox near the fire source to avoid losses through the sampling lines; the rest were located just outside the glovebox. Instruments for smoke particle characterization included a Tapered Element Oscillating Microbalance Personal Dust Monitor (TEOM PDM) and a TSI Dust Trak DRX to measure particle mass concentration, a TSI PTrak for number concentration and a thermal precipitator for collection of particles for microscopic analysis. Materials studied included Nomex(R), M22759 wire insulation, granulated circuit board, polyvinyl chloride (PVC), Polytetrafluoroethylene (PTFE), Kapton(R), and mixtures of PTFE and Kapton(R). Furnace temperatures ranged from 340 to 640 C, focusing on the smoldering regime. Of particular interest in these tests was confirming burn repeatability and production of acid gases with different fuel mixture compositions, as well as the dependence of aerosol concentrations on temperature.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20140011015,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "a1eda19d829340e79eda936a25bb8d63"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20140011015,
+   "endDate": "2013-07-18T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "0966f2bd95b347bca40001867e9ace1b",
+     "id": "0598a8eb82d04549ad607c322ff9b0e1"
+    }
+   ],
+   "name": "International Conference on Environmental Systems",
+   "location": "Vail, CO",
+   "id": "0966f2bd95b347bca40001867e9ace1b",
+   "startDate": "2013-07-14T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20140011015,
+   "id": "87303abf362d4972a6ff02942c79e20f",
+   "publicationDate": "2013-07-14T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20140002231,
+   "type": "SEE_ALSO",
+   "title": "Materials Combustion Testing and Combustion Product Sensor Evaluations in FY12",
+   "stiType": "CONFERENCE_PAPER",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20140002231,
+   "type": "SEE_ALSO",
+   "title": "Materials Combustion Testing and Combustion Product Sensor Evaluations in FY12",
+   "stiType": "CONFERENCE_PAPER",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20140011015.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20140011015/downloads/20140011015.pdf",
+    "pdf": "/api/citations/20140011015/downloads/20140011015.pdf",
+    "fulltext": "/api/citations/20140011015/downloads/20140011015.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

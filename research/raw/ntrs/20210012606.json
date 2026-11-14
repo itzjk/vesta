@@ -1,0 +1,126 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20210012606,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "fb4d8e04734c43809fad48d8eea2f5fc",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Systems Analysis And Operations Research"
+ ],
+ "keywords": [
+  "Saffire",
+  "Fire",
+  "Demonstration"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20210012606,
+  "ear": "NO",
+  "id": "38b9abc7981548078215e913f7ba8942",
+  "itar": "NO"
+ },
+ "distributionDate": "2021-04-07T04:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "089407.02.01.22",
+   "submissionId": 20210012606,
+   "id": "3d44466df315432bb079dfcfdab95474",
+   "type": "WBS"
+  },
+  {
+   "number": "80GRC020D0003",
+   "submissionId": 20210012606,
+   "id": "bab025de936046c691bb7319acc87f61",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Desko Inferno - Overcoming COVID Hurdles to Light Our Fire",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2021-03-26T14:20:30.4291100+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20210012606,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Danelle Fogle"
+    },
+    "organization": {
+     "name": "Peraton Inc."
+    }
+   },
+   "id": "83eaa318389841abbf7f4152cbb9fe16",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "31aae049ae874c319bf4205ccce4b49a"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20210012606,
+ "created": "2021-03-26T12:20:17.1020100+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "",
+ "isLessonsLearned": true,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20210012606,
+   "sponsors": [
+    {
+     "organizationId": "e53641f275f15469a1b19a8980e09171",
+     "meta": {
+      "organization": {
+       "name": "National Aeronautics and Space Administration",
+       "location": "Washington D.C., District of Columbia, United States"
+      }
+     },
+     "meetingId": "69169f0ec2ea41a4ae1c074c9d2198cd",
+     "id": "208608bc46414dffaeb75ee5d7101f6e"
+    }
+   ],
+   "name": "2021 NASA Cost & Schedule Symposium",
+   "location": "Virtual",
+   "id": "69169f0ec2ea41a4ae1c074c9d2198cd",
+   "startDate": "2021-04-07T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+   "name": "Desko Inferno - Overcoming COVID hurdles to light our fire v1.pptx",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20210012606/downloads/Desko%20Inferno%20-%20Overcoming%20COVID%20hurdles%20to%20light%20our%20fire%20v1.pptx",
+    "pdf": "/api/citations/20210012606/downloads/Desko%20Inferno%20-%20Overcoming%20COVID%20hurdles%20to%20light%20our%20fire%20v1.pptx.pdf",
+    "fulltext": "/api/citations/20210012606/downloads/Desko%20Inferno%20-%20Overcoming%20COVID%20hurdles%20to%20light%20our%20fire%20v1.pptx.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

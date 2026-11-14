@@ -1,0 +1,164 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19980209743,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "49e64b96488f4294a21e07be6271e9f4",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19980209743,
+  "ear": "NO",
+  "id": "130542c0675a4d86952a6891df34f732",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NAS 1.15:207417",
+  "NASA/TM-1998-207417",
+  "E-11171",
+  "Report Number: NAS 1.15:207417",
+  "Report Number: NASA/TM-1998-207417",
+  "Report Number: E-11171"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 962-22-00",
+   "submissionId": 19980209743,
+   "id": "927a60be80444ef785c160896b8998e3",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Fire Safety in Extraterrestrial Environments",
+ "stiType": "REPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T22:45:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19980209743,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "01ba0996412d4f1996887d7d05c18f01"
+  }
+ ],
+ "stiTypeDetails": "Reprint (Version printed in journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19980209743,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-06T22:45:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Despite rigorous fire-safety policies and practices, fire incidents are possible during lunar and Martian missions. Fire behavior and hence preventive and responsive safety actions in the missions are strongly influenced by the low-gravity environments in flight and on the planetary surfaces. This paper reviews the understanding and key issues of fire safety in the missions, stressing flame spread, fire detection, suppression, and combustion performance of propellants produced from Martian resources.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 19980209743,
+   "name": "American Society of Civil Engineers",
+   "location": "New York, NY United States",
+   "id": "22b90172e56d4fa4a23f4a4fac894fc4"
+  },
+  {
+   "submissionId": 19980209743,
+   "name": "American Astronomical Society",
+   "location": "Washington, DC United States",
+   "id": "b15789963298407490af847980b4ca61"
+  },
+  {
+   "country": "United States",
+   "submissionId": 19980209743,
+   "endDate": "1998-04-30T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "9b10abef59a94b718c3d64f452bbe606",
+     "meta": {
+      "organization": {
+       "name": "American Society of Civil Engineers",
+       "location": "New York, NY United States"
+      }
+     },
+     "meetingId": "32a778664e004de8b1197a8a2862be9c",
+     "id": "ba0fec01fac94380819b67b1c2b806f1"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "American Astronomical Society",
+       "location": "Washington, DC United States"
+      }
+     },
+     "meetingId": "32a778664e004de8b1197a8a2862be9c",
+     "id": "7a90333610a54c7caf9f945ee303c76f"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "NASA Lewis Research Center",
+       "location": "Cleveland, OH United States"
+      }
+     },
+     "meetingId": "32a778664e004de8b1197a8a2862be9c",
+     "id": "6858a5331f61450e81cf0f0726c3fb13"
+    }
+   ],
+   "name": "Exposition on Engineering, Construction, and Operations in Space",
+   "location": "Albuquerque, NM",
+   "id": "32a778664e004de8b1197a8a2862be9c",
+   "startDate": "1998-04-26T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19980209743,
+   "id": "b4fba92161774885916fce60cb4e3d39",
+   "publicationDate": "1998-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19980209743.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19980209743/downloads/19980209743.pdf",
+    "pdf": "/api/citations/19980209743/downloads/19980209743.pdf",
+    "fulltext": "/api/citations/19980209743/downloads/19980209743.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

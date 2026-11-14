@@ -1,0 +1,92 @@
+                                                                                2014-APRIL-28
+Structure & Liftoff In Combustion Experiment (SLICE)
+SLICE Impacts, Benefits, and Products
+       Compiled by Dennis Stocker, SLICE Project Scientist and Co-Investigator
+             216-433-2166, dennis.p.stocker@nasa.gov
+
+
+Structure & Liftoff In Combustion Experiment (SLICE) is a precursor to the Coflow Laminar
+Diffusion Flame (CLD Flame) experiment, where the SLICE results will be used to maximize the
+scientific return of that upcoming space station experiment. CLD Flame is one of five
+experiments in the Advanced Combustion via Microgravity Experiments (ACME) project that are
+currently in development for conduct in ISS’ Combustion Integrated Rack (CIR). It is currently
+expected that the ACME experiments will be conducted from 2016 to 2019, whereas SLICE was
+conducted in early 2012 in the Microgravity Science Glovebox (MSG). A common goal of SLICE
+and CLD Flame is to improve computational techniques such that a broader range of flame
+conditions can be effectively modeled than had been possible.
+
+The twin purposes for the SLICE research are increased fuel efficiency and reduced pollutant
+emission in practical combustion devices on Earth. More explicitly, the experiment was
+conducted to advance combustion modeling capability, which “allows system designers to
+improve efficiency and reduce harmful pollutants in ways never before possible” (as stated by
+an external reviewer of the SLICE experiment). In other words, the SLICE research was
+conducted to advance energy technology and improve our global environment. It is also
+plausible that SLICE results could benefit one or more space exploration technologies, e.g.,
+waste processing or spacecraft fire safety, but that was not the intent of the research.
+
+SLICE has provided a unique set of data to validate coflow diffusion flame numerical models,
+such as that of SLICE Co-Investigator Mitchell Smooke et al., described for example in SLICE
+papers [1-2]. From [1], “… the MC-Smooth vorticity-velocity formulation was employed to
+describe the reactive gaseous mixture, and soot evolution was modeled by sectional aerosol
+equations. The governing equations and boundary conditions were discretized on a two-
+dimensional computational domain by finite differences, and the resulting set of fully coupled,
+strongly nonlinear equations was solved simultaneously at all points using a damped, modified
+Newton's method.”
+
+By comparing numerical predictions with corresponding experimental measurements, the
+numerical model and submodels (e.g., thermal radiation, soot formation, chemical mechanisms)
+can be evaluated and validated over a much broader range of flame conditions than would be
+available under normal-gravity conditions. Validated by SLICE measurements, the numerical
+model provides information that was not measured experimentally, e.g., the velocity field, heat
+release rate, mixture fraction, and consumption rate of the individual species. This information
+can help improve our understanding of the complicated effects of buoyancy on flame structure
+and the interactions between the flow field and chemical reactions. The novel SLICE data also
+serves as a benchmark to optimize the computations. While simulating CH4 flames, the SLICE
+researchers have improved the predictive capability of the numerical model through optimization
+of its boundary conditions and evaluation of the performance of several kinetic reaction
+mechanisms. Furthermore, in conjunction with the SLICE data, the numerical model is being
+tested over a large set of parameter ranges, where this effort is expected to help generate more
+
+
+                                               1
+reliable predictions for ACME’s CLD Flame experiment. This improved capability can help
+researchers optimize the CLD Flame test matrix and thus maximize its scientific return.
+
+While soot pyrometry was successfully accomplished in the SLICE experiment, the experiment
+led to refined pyrometry requirements for the five ACME experiments. More specifically, SLICE
+led to a new specification for the BG-7 filter transmission, where that filter will be important for
+equalizing the intensity in all three channels (i.e., red, blue, and green) of the Gigabit Ethernet
+(GigE) camera, which will prevent data loss (from saturation) and improve the data quality (e.g.,
+signal to noise ratio). This is important for both soot pyrometry and Thin Filament Pyrometry
+(TFP), where those are ACME’s primary techniques to measure the temperature field.
+
+In addition, the results of the SLICE experiment will help enable optimization of the camera
+settings for the ACME experiments. SLICE provided preliminary results on the soot volume
+fraction, which (along with the flame intensity) is often much greater in microgravity than normal
+gravity. Those results combined with a quantitative comparison of the sensitivities of the SLICE
+and ACME cameras (accounting for the associated optics and optical layouts) will guide the
+selection of appropriate ACME camera settings.
+
+The CLD Flame test matrix is also being reviewed in light of the SLICE results, where that
+process could lead to refinement of the test matrix so as to optimize CLD Flame’s scientific
+return.
+
+
+References
+
+   [1] S. Cao, B. Ma, B.A.V. Bennett, D. Giassi, D.P. Stocker, F. Takahashi, M.B. Long, and
+       M.D. Smooke, A computational and experimental study of coflow laminar methane/air
+       diffusion flames: Effects of fuel dilution, inlet velocity, and gravity,” 35th International
+       Symposium on Combustion, San Francisco, CA, 3-8 August, 2014. Accepted.
+
+   [2] Bin Ma, Su Cao, Davide Giassi, Dennis P. Stocker, Fumiaki Takahashi, Beth Anne V.
+       Bennett, Mitchell D. Smooke, and Marshall B. Long, “An experimental and computational
+       study on soot formation in a coflow jet flame under microgravity and normal gravity,” 35 th
+       International Symposium on Combustion, San Francisco, CA, 3-8 August, 2014.
+       Accepted.
+
+
+
+
+                                                 2
+

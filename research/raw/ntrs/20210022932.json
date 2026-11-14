@@ -1,0 +1,168 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "licenseType": "NO",
+  "submissionId": 20210022932,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "d67721817e0e4af8bfcf0fac9a0ef74b",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20210022932,
+  "ear": "NO",
+  "id": "c2eef1dcf5904623b7997f1956dad8bd",
+  "itar": "NO"
+ },
+ "distributionDate": "2021-11-06T04:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "904211.04.02.20.16",
+   "submissionId": 20210022932,
+   "id": "b58d377fdbbe427686ad82a3be780a59",
+   "type": "WBS"
+  },
+  {
+   "number": "80GRC020D0003",
+   "submissionId": 20210022932,
+   "id": "cf83781c4a5b4fd9964bc18e212f66b4",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NNX16AE84A",
+   "submissionId": 20210022932,
+   "id": "b4362f5dc85247f3ac48d9b9d8b3d5c6",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Extinction of the Stagnation Point Diffusion Flame: Effect of Conductive Heat Loss into Solid Interior ",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2021-10-16T16:49:39.0769560+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 0,
+   "submissionId": 20210022932,
+   "meta": {
+    "author": {
+     "name": "Chengyao Li"
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "121a08a3467c4ac697c423d34a4cf563",
+   "userType": "OTHER"
+  },
+  {
+   "organizationId": "0be91b7a68665cf882c2ccee8ad03aff",
+   "sequence": 1,
+   "submissionId": 20210022932,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Michael Johnston"
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Columbia, Maryland, United States"
+    }
+   },
+   "id": "d90ff99b36124555b191dc2e22f2ca48",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "995f4be0e19649eca742e40fb9d52045"
+  },
+  {
+   "organizationId": "ef57c2628ac159568c05f9b33526619e",
+   "sequence": 2,
+   "submissionId": 20210022932,
+   "meta": {
+    "author": {
+     "name": "James Tien "
+    },
+    "organization": {
+     "name": "Case Western Reserve University",
+     "location": "Cleveland, Ohio, United States"
+    }
+   },
+   "id": "242421f446734bfdb22c4150d797e668",
+   "userType": "OTHER"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "NASA_TECHNICAL_MANAGEMENT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20210022932,
+ "created": "2021-10-16T16:39:47.4694360+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The planned microgravity experiment Growth and Extinction Limit (GEL) is designed to study the material flammability and extinction of thermally thick solid with an emphasis to quantify the effect of conductive heat loss into the solid interior by measuring the in-depth temperature profile. To obtain a more detailed understanding of the extinction phenomena, a previously developed one-dimensional axisymmetric stagnation-point diffusion flame model is expanded to account for the excessive heat loss into the solid beyond the steady burning state. This is important because for thick solids, this is important because the burning period can have a long and slow solid transient with a quasi-steady gas -phase. A non-dimensional excessive conductive heat loss parameter Ψ is defined in the paper and extensive numerical computations have been performed to determine the extinction boundary and the characteristics of near-limit flames. The classical U-shaped flammability boundary in the oxygen vs. stretch rate plot now becomes a series of U-shaped boundaries as a function of Ψ.  For a given oxygen ambient, extinction boundary is a function of Ψ. The boundary consists of a blowoff branch and a radiative quenching branch. This is similar to the steady burning flammability boundary (Ψ =0) in the oxygen vs stretch rate plot. Extensive computed data including flame and pyrolysis temperatures, burning rate, flame standoff distance, and reaction rate are presented along the extinction boundaries. In particular, we note that the non-dimensional gas reaction rate is the ratio of diffusion reaction time to the reaction diffusion time, so it has the classical Damhkoler number character. By examining the maximum non-dimensional reaction rates, we observe that along the extinction boundaries, they are approximate constant across the entire range of stretch rates (from quenching to blow-off). These critical values are of the order unity but may vary in different oxygen ambient. The implication will be discussed in the presentation together with the near-limit flame structures. ",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20210022932,
+  "id": "cb4ac56a3b2b4fc48acc02feb38bbc07"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20210022932,
+   "endDate": "2021-11-06T04:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "42ca85bbf3b75cad8841938b20f13730",
+     "meta": {
+      "organization": {
+       "name": "American Society for Gravitational and Space Research",
+       "location": "Springfield, Virginia, United States"
+      }
+     },
+     "meetingId": "0afd54d205a244d2bda674ddd0af8e8c",
+     "id": "ca1c76e29e8e44569dd5c19b7655040e"
+    }
+   ],
+   "name": "Annual Meeting of the American Society of Gravitational and Space Research",
+   "location": "Baltimore, MD",
+   "id": "0afd54d205a244d2bda674ddd0af8e8c",
+   "url": "https://asgsr.org/2021-meeting/",
+   "startDate": "2021-11-03T04:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "ASGSR2021-Li.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20210022932/downloads/ASGSR2021-Li.pdf",
+    "pdf": "/api/citations/20210022932/downloads/ASGSR2021-Li.pdf",
+    "fulltext": "/api/citations/20210022932/downloads/ASGSR2021-Li.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

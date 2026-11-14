@@ -1,0 +1,134 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20140011886,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "447ed10dc9334cbca7e7e22b8538a843",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20140011886,
+  "ear": "NO",
+  "id": "236a85724aec4904a3663eec1951b549",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-30607",
+  "Report Number: JSC-CN-30607"
+ ],
+ "title": "Quantitative Risk Modeling of Fire on the International Space Station",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2014-09-18T05:17:59.3000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20140011886,
+   "meta": {
+    "author": {
+     "name": "Castillo, Theresa"
+    },
+    "organization": {
+     "name": "Barrios Technology, Inc.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "30ce3d2c5c8e430aa0799f24f78aa917"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20140011886,
+   "meta": {
+    "author": {
+     "name": "Haught, Megan"
+    },
+    "organization": {
+     "name": "Barrios Technology, Inc.",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "6ad0a54f18ac483580d8a6687cf4956a"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20140011886,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2014-09-18T05:17:59.3000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The International Space Station (ISS) Program has worked to prevent fire events and to mitigate their impacts should they occur. Hardware is designed to reduce sources of ignition, oxygen systems are designed to control leaking, flammable materials are prevented from flying to ISS whenever possible, the crew is trained in fire response, and fire response equipment improvements are sought out and funded. Fire prevention and mitigation are a top ISS Program priority - however, programmatic resources are limited; thus, risk trades are made to ensure an adequate level of safety is maintained onboard the ISS. In support of these risk trades, the ISS Probabilistic Risk Assessment (PRA) team has modeled the likelihood of fire occurring in the ISS pressurized cabin, a phenomenological event that has never before been probabilistically modeled in a microgravity environment. This paper will discuss the genesis of the ISS PRA fire model, its enhancement in collaboration with fire experts, and the results which have informed ISS programmatic decisions and will continue to be used throughout the life of the program.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20140011886,
+   "endDate": "2014-06-27T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "cffc4da6863a4b5aa1439ab77e6c29ac",
+     "meta": {
+      "organization": {
+       "name": "International Association for PSAM",
+       "location": "IA, United States"
+      }
+     },
+     "meetingId": "978744ae3d644d05b7bfdf20cf55e2f4",
+     "id": "ca50e0caed5640eabcbca4aa88fdff48"
+    }
+   ],
+   "name": "Probabilistic Safety Assessment & Management",
+   "location": "Honolulu, HI",
+   "id": "978744ae3d644d05b7bfdf20cf55e2f4",
+   "startDate": "2014-06-22T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20140011886,
+   "id": "28e0c8ce3c3144ff83ac04a274dc5b2e",
+   "publicationDate": "2014-06-22T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20140011886.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20140011886/downloads/20140011886.pdf",
+    "pdf": "/api/citations/20140011886/downloads/20140011886.pdf",
+    "fulltext": "/api/citations/20140011886/downloads/20140011886.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

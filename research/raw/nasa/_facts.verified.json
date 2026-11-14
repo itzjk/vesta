@@ -1,0 +1,2734 @@
+{
+ "findings": [
+  {
+   "id": "NP001",
+   "investigation": "BASS",
+   "field": "objective",
+   "fact": "Examines burning and extinction of many solid fuel samples in microgravity.",
+   "quote": "The Burning and Suppression of Solids (BASS) investigation examines the burning and extinction characteristics of a wide variety of fuel samples in microgravity.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP002",
+   "investigation": "BASS",
+   "field": "objective",
+   "fact": "Hypothesis: with adequate ventilation, materials burn as well or better in microgravity than in normal gravity.",
+   "quote": "Burning and Suppression of Solids (BASS) tests the hypothesis that materials in microgravity, with adequate ventilation, burn as well if not better than the same material in normal gravity with other conditions being identical (pressure, oxygen concentration, temperature, etc.).",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP003",
+   "investigation": "BASS",
+   "field": "hardware",
+   "fact": "Modified SPICE hardware inside the Microgravity Science Glovebox (MSG) on the ISS.",
+   "quote": "Burning and Suppression of Solids (BASS) utilizes slightly modified Smoke Point In Co-flow Experiment (SPICE) hardware within the Microgravity Science Glovebox (MSG) for observations of burning solid materials on board the ISS.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP004",
+   "investigation": "BASS",
+   "field": "hardware",
+   "fact": "Small flow duct with igniter, nitrogen nozzle and exchangeable samples.",
+   "quote": "The BASS hardware consists of a small flow duct with an igniter and a small nozzle along with exchangeable fuel samples.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP005",
+   "investigation": "BASS",
+   "field": "fuel",
+   "fact": "41 samples in three shapes: flat, solid spheres, candles in tubes.",
+   "quote": "BASS consists of 41 fuel samples. There are three categories of samples: flat, solid spheres, and candles within tubes.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP006",
+   "investigation": "BASS",
+   "field": "fuel",
+   "fact": "Thin flat samples are 12 cm long by 1 and 2 cm wide.",
+   "quote": "Thin flat samples (12 cm long by 1 and 2 cm wide) yield concurrent-flow spread rate and limiting flame length.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP007",
+   "investigation": "BASS",
+   "field": "fuel",
+   "fact": "Main thin fuel is SIBAL cotton-fiberglass fabric; Nomex and Ultem also burned.",
+   "quote": "Other thin materials are burned including Nomex and Ultem.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP008",
+   "investigation": "BASS",
+   "field": "fuel",
+   "fact": "PMMA spheres of 1 and 2 cm diameter.",
+   "quote": "Solid spheres of PMMA (1 and 2 cm in diameter) have the advantage of an axisymmetric geometry and permit multiple tests as the flame is extinguished and reignited.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP009",
+   "investigation": "BASS",
+   "field": "conditions",
+   "fact": "Airflow set by the crew from 5 to 50 cm/s.",
+   "quote": "The crewmember adjusts the airflow from 5 to 50 cm/s.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP010",
+   "investigation": "BASS",
+   "field": "conditions",
+   "fact": "Nitrogen suppressant flow from 0 to 500 cc/min.",
+   "quote": "A nitrogen suppressant is then supplied via a mass flow controller, from 0 to 500 cc/min.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP011",
+   "investigation": "BASS",
+   "field": "conditions",
+   "fact": "41 samples, 89 test points.",
+   "quote": "Forty-one test samples will be burned in a variety of flow conditions for a total of 89 test points.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP012",
+   "investigation": "BASS",
+   "field": "measurements",
+   "fact": "Radiometer for flame output; anemometer for flow; video and still cameras.",
+   "quote": "A radiometer measures flame output.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP013",
+   "investigation": "BASS",
+   "field": "measurements",
+   "fact": "Observed: flame shape, spread rate, flame dynamics, time to extinction.",
+   "quote": "With respect to extinction, the critical observations and data are the time to extinction as a function of fuel geometry, the nitrogen flow rate, and the flame distance from the nozzle.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP014",
+   "investigation": "BASS",
+   "field": "fire-safety insight",
+   "fact": "A suppressant jet aimed wrongly can make a microgravity flame worse by entraining oxygen.",
+   "quote": "it is possible that the suppressant stream will be ineffective or might actually make the flame worse through the entrainment of oxygen.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP015",
+   "investigation": "BASS",
+   "field": "fire-safety insight",
+   "fact": "On Earth the extinguisher attacks the flame base; in microgravity the best point is not obvious.",
+   "quote": "For a fire burning in microgravity, the best point of application of suppressant may not be immediately apparent, especially for a partially obstructed flame or a wake-stabilized flame.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP016",
+   "investigation": "BASS",
+   "field": "dates",
+   "fact": "No flight dates on the fact sheet.",
+   "quote": "BASS testing session must be conducted during periods when no major reboost or docking procedures are underway on the International Space Station (ISS).",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP017",
+   "investigation": "BASS-II",
+   "field": "objective",
+   "fact": "Find the worst case for material flammability in spacecraft and compare it with the 1-g upward burning screening test.",
+   "quote": "One objective of the BASS-II tests is to identify what is the worst case for material flammability in spacecraft environments, and how does that compare to the terrestrial upward burning used to screen the materials for safe use aboard spacecraft.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP018",
+   "investigation": "BASS-II",
+   "field": "fuel",
+   "fact": "100 samples: flat samples, rods, a section of a large sphere.",
+   "quote": "BASS-II consists of 100 fuel samples and associated igniter wires. There are three categories of samples: flat samples, rod samples, and a section of a large solid sphere.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP019",
+   "investigation": "BASS-II",
+   "field": "fuel",
+   "fact": "Flat samples: acrylic films/sheets of several thicknesses and SIBAL fabric; rods of black or clear acrylic.",
+   "quote": "The rod samples are made of black or clear acrylic and will provide solid fuel regression rates and extinction limits for both opposed and concurrent flow.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP020",
+   "investigation": "BASS-II",
+   "field": "variables",
+   "fact": "Variables: ambient oxygen concentration, ventilation flow velocity, fuel type, thickness and geometry.",
+   "quote": "The main variables to be tested are the effects of ambient oxygen concentration, ventilation flow velocity, and fuel type, thickness, and geometry.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP021",
+   "investigation": "BASS-II",
+   "field": "variables",
+   "fact": "Many tests search for the minimum oxygen or flow at which a material burns in space.",
+   "quote": "Many of the tests will focus on finding a minimum oxygen concentration or flow velocity where a material will burn in space, to compare with Earth-based limits.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP022",
+   "investigation": "BASS-II",
+   "field": "conditions",
+   "fact": "Oxygen lowered by nitrogen vitiation of the MSG working volume, up to 500 cc/min GN2; airflow 5 to 50 cm/s.",
+   "quote": "Nitrogen vitiation of the working volume is then initiated using station GN2 at a flow rate of up to 500 cc/min for a prescribed time.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP023",
+   "investigation": "BASS-II",
+   "field": "hardware",
+   "fact": "Same modified SPICE duct in the MSG.",
+   "quote": "The BASS-II hardware consists of a small flow duct with an igniter and a small nozzle along with exchangeable fuel samples.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP024",
+   "investigation": "BASS-II",
+   "field": "results",
+   "fact": "Thin and thick fuel spread rates measured; models over-predict spread rate.",
+   "quote": "Models predict higher spread rates than observed, so need improvement.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP025",
+   "investigation": "BASS-II",
+   "field": "results",
+   "fact": "Data gave combustion completeness, heat release rates and global equivalence ratios.",
+   "quote": "Data also allowed calculation of combustion completeness, heat release rates, and fuel-to-oxygen global equivalence ratios and supported theoretical models for quenching boundaries.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP026",
+   "investigation": "BASS-M",
+   "field": "objective",
+   "fact": "Tests flame-retardant cotton textiles: does each self-extinguish in microgravity as on Earth?",
+   "quote": "Each textile\u2019s ability to self-extinguish is evaluated and compared against normal terrestrial behavior.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP027",
+   "investigation": "BASS-M",
+   "field": "fuel",
+   "fact": "44 textile samples, eleven textile types, four of each, with integrated igniter wires.",
+   "quote": "BASS-M consists of 44 textile samples with integrated igniter wires.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP028",
+   "investigation": "BASS-M",
+   "field": "fuel",
+   "fact": "Cotton textiles treated with flame retardants.",
+   "quote": "This investigation conducts space-based burning and flame extinguishment tests on cotton textiles that have been treated with flame retardants.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP029",
+   "investigation": "BASS-M",
+   "field": "conditions",
+   "fact": "44 test points; airflow 5 to 50 cm/s.",
+   "quote": "Forty-four test samples are burned in a variety of flow conditions for a total of 44 test points.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP030",
+   "investigation": "BASS-M",
+   "field": "hardware",
+   "fact": "SPICE and BASS hardware in the MSG.",
+   "quote": "The crew member installs the SPICE and BASS hardware in the MSG work volume.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP031",
+   "investigation": "FLEX",
+   "field": "objective",
+   "fact": "Quantify inert-gas suppressants in microgravity and find a conservative limiting oxygen index.",
+   "quote": "The Flame Extinguishment Experiment (FLEX) experiment was designed to assess and quantify the effectiveness of inert-gas suppressants in microgravity and obtain the most conservative estimate of the limiting oxygen index for steady combustion.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP032",
+   "investigation": "FLEX",
+   "field": "objective",
+   "fact": "Map flammability boundaries of liquid fuel over candidate cabin pressures and oxygen levels.",
+   "quote": "Flame Extinguishment Experiment (FLEX) will map the flammability boundaries for liquid fuel combustion in reduced gravity to quantify the suppressant efficacy of various gaseous suppressants over the range of candidate atmospheric pressures and oxygen concentrations.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP033",
+   "investigation": "FLEX",
+   "field": "fuel",
+   "fact": "Liquid droplets of methanol and heptane.",
+   "quote": "The study will use two typical hydrocarbon fuels, an alcohol, methanol (CH3OH) and an alkane, heptane (C7H16).",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP034",
+   "investigation": "FLEX",
+   "field": "fuel",
+   "fact": "Initial droplet diameter 2 to 5 mm.",
+   "quote": "The initial droplet size in the proposed study will vary between 2 and 5 mm.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP035",
+   "investigation": "FLEX",
+   "field": "conditions",
+   "fact": "Oxygen mole fraction 0.10 to 0.50.",
+   "quote": "The oxygen mole fractions in the present study will vary from 0.10 to 0.50.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP036",
+   "investigation": "FLEX",
+   "field": "conditions",
+   "fact": "Suppressants: carbon dioxide and helium, from 0 up to about 0.70 mole fraction.",
+   "quote": "The suppressants are carbon dioxide and helium.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP037",
+   "investigation": "FLEX",
+   "field": "conditions",
+   "fact": "Pressure 0.5 to 1.0 atm.",
+   "quote": "The pressure for the tests will range from 0.5 to 1.0 atm (standard atmosphere).",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP038",
+   "investigation": "FLEX",
+   "field": "conditions",
+   "fact": "Diluent mainly nitrogen, a few tests with helium.",
+   "quote": "The diluent gas for these studies will be primarily nitrogen since that is the typical diluent on Earth and expected in space.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP039",
+   "investigation": "FLEX",
+   "field": "measurements",
+   "fact": "Droplet burning rate, flame extinction, flame radiation, soot concentration, soot temperature.",
+   "quote": "detailed spatially and temporally resolved measurements of droplet burning rate, flame extinction, flame radiation, soot concentration, soot temperature, etc.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP040",
+   "investigation": "FLEX",
+   "field": "hardware",
+   "fact": "Runs in the Multi-user Droplet Combustion Apparatus (MDCA) inside the Combustion Integrated Rack (CIR).",
+   "quote": "Different chamber inserts that enable a variety of investigations include the Multi-user Droplet Combustion Apparatus, which supported FLame Extinguishment Experiments (FLEX)",
+   "source": {
+    "kind": "nasa-page",
+    "id": "iss-combustion-fire-safety",
+    "url": "https://www.nasa.gov/missions/station/iss-research/studying-combustion-and-fire-safety/",
+    "text_file": "raw/nasa/iss-combustion-fire-safety.txt"
+   }
+  },
+  {
+   "id": "NP041",
+   "investigation": "FLEX",
+   "field": "fire-safety insight",
+   "fact": "Low-pressure data matter because venting a cabin to space is one extinguishing strategy.",
+   "quote": "one strategy for extinguishing a fire is to isolate the habitat where it exists and vent the cabin to space.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP042",
+   "investigation": "FLEX",
+   "field": "results",
+   "fact": "Cool flames were discovered during FLEX in 2012.",
+   "quote": "Non-premixed cool flames, created when fuel and oxidizer are not mixed before reacting, were discovered in 2012 aboard the space station during the Flame Extinguishment (FLEX) studies, helping spawn a rapidly growing research field into the nature of cool flames.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "cool-flames-first",
+    "url": "https://www.nasa.gov/missions/station/cool-flames-created-during-a-first-for-international-space-station-research/",
+    "text_file": "raw/nasa/cool-flames-first.txt"
+   }
+  },
+  {
+   "id": "NP043",
+   "investigation": "FLEX-2",
+   "field": "objective",
+   "fact": "Second FLEX series: fuels and conditions that mimic real combustors; flow effects, droplet pairs, bi-component and surrogate fuels.",
+   "quote": "the FLEX-2 investigation uses fuels and environmental conditions that mimic real combustor conditions.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP044",
+   "investigation": "FLEX-2",
+   "field": "fuel",
+   "fact": "Droplets from 2 mm to 4 mm.",
+   "quote": "In the absence of gravity, small droplets of fuel (i.e., from 2 mm to 4 mm in diameter) burn",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP045",
+   "investigation": "FLEX-2",
+   "field": "variables",
+   "fact": "Four groups: pure fuel, fuel mixture, convective flow, binary droplet array; 30 to 60 tests each.",
+   "quote": "The experiments in FLEX-2 can easily be categorized into four separate groupings; these being, the pure fuel experiments, the fuel mixture experiments, the convective flow experiments, and the binary droplet array experiments.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP046",
+   "investigation": "FLEX-2J",
+   "field": "objective",
+   "fact": "NASA-JAXA: flame spread along a one-dimensional droplet array.",
+   "quote": "FLEX-2J will observe and measure fuel droplet motions during flame spreading along a one-dimensional droplet array.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP047",
+   "investigation": "FLEX-2J",
+   "field": "measurements",
+   "fact": "Burning rate, burning time, flame spread and droplet motion vs droplet spacing, pressure and gas composition.",
+   "quote": "the experiment will measure burning rate, burning time, flame spread and droplet motion as a function of inter-droplet spacing, ambient pressure and gas composition.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP048",
+   "investigation": "FLEX-ICE-GA",
+   "field": "objective",
+   "fact": "Italian Space Agency surrogate biofuels in the CIR in the FLEX-2 configuration.",
+   "quote": "The FLEX-Italian Combustion Experiment for Green Air will test surrogate fuels as defined by the Italian Space Agency (ASI) within the CIR in the FLEX-2 configuration.",
+   "source": {
+    "kind": "pdf",
+    "id": "flex",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/flame-extinguishment-experiment-flex.pdf",
+    "text_file": "raw/nasa/flex.txt"
+   }
+  },
+  {
+   "id": "NP049",
+   "investigation": "MDCA (hardware)",
+   "field": "hardware",
+   "fact": "Multi-user droplet facility that runs inside the CIR.",
+   "quote": "The MDCA will conduct experiments using the Combustion Integrated Rack (CIR) of the NASA Glenn Research Center\u2019s Fluids and Combustion Facility (FCF).",
+   "source": {
+    "kind": "nasa-page",
+    "id": "combustion-science",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/",
+    "text_file": "raw/nasa/combustion-science.txt"
+   }
+  },
+  {
+   "id": "NP050",
+   "investigation": "CIR (hardware)",
+   "field": "hardware",
+   "fact": "CIR: 100-liter combustion chamber in Destiny, the only ISS rack dedicated to combustion.",
+   "quote": "The CIR\u2019s main feature is a 100-liter combustion chamber to provide the necessary safety features necessary for the various combustion investigations and is the only rack on ISS dedicated to combustion experimentation.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "combustion-science",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/",
+    "text_file": "raw/nasa/combustion-science.txt"
+   }
+  },
+  {
+   "id": "NP051",
+   "investigation": "CIR (hardware)",
+   "field": "dates",
+   "fact": "CIR launched November 2008 on STS-126.",
+   "quote": "Developed by NASA\u2019s Glenn Research Center, the CIR was launched to the International Space Station (ISS) in November 2008 by the Space Shuttle (STS-126).",
+   "source": {
+    "kind": "nasa-page",
+    "id": "combustion-science",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/",
+    "text_file": "raw/nasa/combustion-science.txt"
+   }
+  },
+  {
+   "id": "NP052",
+   "investigation": "Saffire",
+   "field": "objective",
+   "fact": "Large-scale flame growth and material flammability limits in space.",
+   "quote": "established to investigate large-scale flame growth and material flammability limits in space.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP053",
+   "investigation": "Saffire",
+   "field": "hardware",
+   "fact": "Burns inside an uncrewed Cygnus cargo vehicle after it leaves the ISS, before reentry.",
+   "quote": "The experiments are ignited in a Cygnus cargo vehicle after it has completed its primary International Space Station supply mission, departed the station, and before its planned destructive reentry to Earth.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP054",
+   "investigation": "Saffire",
+   "field": "hardware",
+   "fact": "The flow unit is a wind tunnel; a thin wire with current ignites the samples.",
+   "quote": "\u201cThe Saffire flow unit is a wind tunnel. We\u2019re pushing air through it,\u201d Ruff said.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "saffire-flame-burns-out",
+    "url": "https://www.nasa.gov/centers-and-facilities/glenn/flame-burns-out-on-nasas-long-running-spacecraft-fire-experiment/",
+    "text_file": "raw/nasa/saffire-flame-burns-out.txt"
+   }
+  },
+  {
+   "id": "NP055",
+   "investigation": "Saffire",
+   "field": "objective",
+   "fact": "Series of six experiments on how fires grow and spread, for Moon and Mars spacecraft.",
+   "quote": "Saffire, NASA\u2019s Spacecraft Fire Safety Demonstration Project, is a series of six experiments that investigate how fires grow and spread in space, especially aboard future spacecraft bound for the Moon and Mars.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP056",
+   "investigation": "Saffire-I",
+   "field": "fuel",
+   "fact": "One cotton-fiberglass sample 0.4 m wide by 1 m long, hot-wire ignition.",
+   "quote": "Inside the flow duct, the cotton-fiberglass blend burn sample measured 0.4 m wide by 1 meter long.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP057",
+   "investigation": "Saffire-I",
+   "field": "hardware",
+   "fact": "Enclosure about 0.5 m by 1 m by 1.3 m with flow duct and avionics bay.",
+   "quote": "The Saffire-I experiment enclosure was approximately half a meter wide by 1 meter deep by 1.3 meter long and consisted of a flow duct and avionics bay.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP058",
+   "investigation": "Saffire-I",
+   "field": "dates",
+   "fact": "Cygnus left the ISS on June 14, 2016 and the experiment ran then (fact sheet says \"Mission Completed July 2016\").",
+   "quote": "successfully conducted the first remote Spacecraft Fire Experiment, or Saffire I, carried inside an Orbital ATK Cygnus cargo vehicle that departed the International Space Station on Tuesday, June 14.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "saffire-largest-fire",
+    "url": "https://www.nasa.gov/news-release/nasa-glenn-successfully-ignites-largest-fire-experiment-in-space/",
+    "text_file": "raw/nasa/saffire-largest-fire.txt"
+   }
+  },
+  {
+   "id": "NP059",
+   "investigation": "Saffire-I",
+   "field": "fire-safety insight",
+   "fact": "Before Saffire the largest fire experiment in space was index-card size.",
+   "quote": "Previous to this experiment, the largest fire experiment that had been conducted in space is about the size of an index card.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP060",
+   "investigation": "Saffire-II",
+   "field": "fuel",
+   "fact": "Nine samples including cotton-fiberglass, Nomex and acrylic window material.",
+   "quote": "The nine samples in the experiment kit include a cotton-fiberglass blend, Nomex, and the same acrylic glass that is used for spacecraft windows.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP061",
+   "investigation": "Saffire-II",
+   "field": "fuel",
+   "fact": "Samples 2 inches wide and 12 inches long, to assess oxygen flammability limits.",
+   "quote": "Saffire-II, which will assess oxygen flammability limits using samples that are 2 inches wide and 12 inches long",
+   "source": {
+    "kind": "nasa-page",
+    "id": "saffire-largest-fire",
+    "url": "https://www.nasa.gov/news-release/nasa-glenn-successfully-ignites-largest-fire-experiment-in-space/",
+    "text_file": "raw/nasa/saffire-largest-fire.txt"
+   }
+  },
+  {
+   "id": "NP062",
+   "investigation": "Saffire-II",
+   "field": "dates",
+   "fact": "Launched October 2016; mission completed Nov. 27, 2016.",
+   "quote": "Saffire-II launched inside Orbital ATK\u2019s Cygnus spacecraft during its sixth contracted cargo resupply mission with NASA to the International Space Station in October 2016.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP063",
+   "investigation": "Saffire-III",
+   "field": "variables",
+   "fact": "Same cotton-fiberglass sample as Saffire-I at a higher flow velocity.",
+   "quote": "Saffire-III will test the same cotton-fiberglass blend that was burned in Saffire-I, but at a higher flow velocity.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP064",
+   "investigation": "Saffire-III",
+   "field": "dates",
+   "fact": "Launched April 18, 2017; ignited after Cygnus departure in early June 2017.",
+   "quote": "Launched April 18, 2017 aboard Orbital ATK\u2019s seventh contracted commercial resupply services mission for NASA.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP065",
+   "investigation": "Saffire-IV",
+   "field": "dates",
+   "fact": "Launched February 15, 2020 on NG CRS-15 (as written on the sheet); ignited May 11, 2020.",
+   "quote": "Saffire-IV was ignited May 11, 2020, when Cygnus departed the International Space Station",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP066",
+   "investigation": "Saffire-IV",
+   "field": "variables",
+   "fact": "Saffire-II materials at different pressures and oxygen levels.",
+   "quote": "burned the same materials were burned in Saffire II, but at different pressures and oxygen saturation for comparison.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP067",
+   "investigation": "Saffire-IV",
+   "field": "fuel",
+   "fact": "SIBAL cloth: 75% cotton, 25% fiberglass.",
+   "quote": "During the Saffire IV experiment, researchers burned a sample of SIBAL cloth, a composite of 75% cotton and 25% fiberglass.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP068",
+   "investigation": "Saffire-V",
+   "field": "objective",
+   "fact": "Fire growth at the pressures and oxygen concentrations expected in exploration spacecraft.",
+   "quote": "Saffire-V examines fire growth in the range of pressures and oxygen concentrations expected in future exploration spacecraft.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP069",
+   "investigation": "Saffire-VI",
+   "field": "objective",
+   "fact": "Flammability at different oxygen levels plus fire detection, combustion product monitoring and post-fire cleanup.",
+   "quote": "to test flammability at different oxygen levels and to demonstrate fire detection, combustion product monitoring, and post-fire cleanup capabilities.",
+   "source": {
+    "kind": "pdf",
+    "id": "saffire",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/spacecraft-fire-safety-demonstration-saffire.pdf",
+    "text_file": "raw/nasa/saffire.txt"
+   }
+  },
+  {
+   "id": "NP070",
+   "investigation": "Saffire-VI",
+   "field": "dates",
+   "fact": "Launched August 2023; ended Jan. 9 (2024) with Cygnus reentry.",
+   "quote": "The final experiment, Saffire-VI, launched to the International Space Station in August 2023 and concluded its mission on Jan. 9, when the Northrop Grumman Cygnus spacecraft it was flying on safely burned up during planned re-entry into Earth\u2019s atmosphere.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "saffire-flame-burns-out",
+    "url": "https://www.nasa.gov/centers-and-facilities/glenn/flame-burns-out-on-nasas-long-running-spacecraft-fire-experiment/",
+    "text_file": "raw/nasa/saffire-flame-burns-out.txt"
+   }
+  },
+  {
+   "id": "NP071",
+   "investigation": "Saffire-VI",
+   "field": "conditions",
+   "fact": "Higher oxygen and lower pressure in the test unit, to simulate crewed exploration spacecraft; 19 runs.",
+   "quote": "this final iteration of the experiment was unique because of the higher oxygen concentration and lower pressure generated in the test unit to simulate the conditions within crewed spacecraft.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "saffire-flame-burns-out",
+    "url": "https://www.nasa.gov/centers-and-facilities/glenn/flame-burns-out-on-nasas-long-running-spacecraft-fire-experiment/",
+    "text_file": "raw/nasa/saffire-flame-burns-out.txt"
+   }
+  },
+  {
+   "id": "NP072",
+   "investigation": "Saffire-VI",
+   "field": "fuel",
+   "fact": "Plexiglass, cotton, Nomex and SIBAL fabric.",
+   "quote": "They then ignited a flame on materials such as plexiglass, cotton, Nomex, and Solid Inflammability Boundary at Low-Speed fabrics.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "saffire-flame-burns-out",
+    "url": "https://www.nasa.gov/centers-and-facilities/glenn/flame-burns-out-on-nasas-long-running-spacecraft-fire-experiment/",
+    "text_file": "raw/nasa/saffire-flame-burns-out.txt"
+   }
+  },
+  {
+   "id": "NP073",
+   "investigation": "ACME",
+   "field": "objective",
+   "fact": "Primary goal: efficiency and lower pollutants on Earth. Secondary: fire prevention, especially for spacecraft.",
+   "quote": "A secondary objective is fire prevention, especially for spacecraft.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP074",
+   "investigation": "ACME",
+   "field": "objective",
+   "fact": "Spacecraft goal: understand material flammability and assess existing flammability test methods.",
+   "quote": "to assess the relevance of existing flammability test methods for the screening and selection of materials for spacecraft.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP075",
+   "investigation": "ACME",
+   "field": "fuel",
+   "fact": "Laminar, gaseous, non-premixed flames.",
+   "quote": "independent experiments investigating laminar gaseous non-premixed flames.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP076",
+   "investigation": "ACME",
+   "field": "hardware",
+   "fact": "One modular hardware set in the Combustion Integrated Rack (CIR).",
+   "quote": "The ACME experiments will be conducted with a single modular set of hardware (see ACME Implementation) in the Combustion Integrated Rack (CIR) on the International Space Station (ISS).",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP077",
+   "investigation": "ACME",
+   "field": "dates",
+   "fact": "On-orbit testing expected to begin in 2017 (sheet written before flight).",
+   "quote": "On-orbit testing is expected to begin in 2017 and continue for a few years.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP078",
+   "investigation": "ACME",
+   "field": "note",
+   "fact": "The sheet says \"five independent experiments\" in the intro and \"six\" in the list; it then describes BRE, CLD Flame, E-FIELD Flames, Flame Design, s-Flame and CFI-G.",
+   "quote": "The Advanced Combustion via Microgravity Experiments (ACME) project includes six independent experiments investigating laminar gaseous non-premixed flames.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP079",
+   "investigation": "ACME / BRE",
+   "field": "objective",
+   "fact": "BRE is the ACME experiment focused on fire prevention: ignition and extinction, and whether flammability tests hold in low and partial gravity.",
+   "quote": "BRE\u2019s objective is to improve our fundamental understanding of materials flammability, such as ignition and extinction behavior, and assess the relevance of existing flammability test methods for low and partial-gravity environments.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP080",
+   "investigation": "ACME / BRE",
+   "field": "hardware",
+   "fact": "Flat porous burner fed with gas emulates burning solids and liquids.",
+   "quote": "The burning of solid and liquid fuels will be simulated by using a flat porous burner fed with gaseous fuel.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP081",
+   "investigation": "ACME / BRE",
+   "field": "fuel",
+   "fact": "Gaseous fuels chosen to mimic paper, plastic and alcohol.",
+   "quote": "A small number of gaseous fuels will be used to simulate the burning of fuels such as paper, plastic, and alcohol by matching properties such as the surface temperature and smoke production.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP082",
+   "investigation": "ACME / BRE",
+   "field": "measurements",
+   "fact": "Fuel flow controlled from measured burner heat flux and surface temperature.",
+   "quote": "The fuel flow rate will be controlled based on the measured heat flux (at the burner) and surface temperature, mimicking the dependence of condensed-phase fuel vaporization on thermal feedback.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP083",
+   "investigation": "ACME / CLD Flame",
+   "field": "fuel",
+   "fact": "Diluted methane and ethylene flames in an air coflow.",
+   "quote": "Measurements will be made of the structure of diluted methane and ethylene flames in an air coflow.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP084",
+   "investigation": "ACME / CLD Flame",
+   "field": "results",
+   "fact": "Microgravity flames hold five to eight times more soot than normal-gravity ones.",
+   "quote": "Soot volume fraction measurements indicate that microgravity flames contain five to eight times more soot than the equivalent normal gravity flames.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP085",
+   "investigation": "ACME / CLD Flame",
+   "field": "results",
+   "fact": "Sooty flames are taller, wider, cooler and far sootier in microgravity.",
+   "quote": "Flames are taller, wider, cooler, and far sootier in microgravity as compared to normal gravity.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP086",
+   "investigation": "ACME / CLD Flame",
+   "field": "results",
+   "fact": "Highly diluted weak flames are more stable in microgravity than in normal gravity.",
+   "quote": "The data has shown that for highly diluted weak flames, microgravity flames are more stable than their normal gravity counterparts.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP087",
+   "investigation": "ACME / E-FIELD Flames",
+   "field": "hardware",
+   "fact": "Up to 10 kV between the burner and a mesh above it.",
+   "quote": "An electric field will be generated by creating a high voltage (up to 10 kV) differential between the burner and a flat circular mesh suspended above (i.e., downstream of) the burner.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP088",
+   "investigation": "ACME / E-FIELD Flames",
+   "field": "measurements",
+   "fact": "Ion current through the flame and response time to electric forcing.",
+   "quote": "will be made of the ion current through the flame and the flame\u2019s response time to electric forcing.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP089",
+   "investigation": "ACME / Flame Design",
+   "field": "objective",
+   "fact": "Soot inception and extinction limits of spherical flames.",
+   "quote": "Flame Design will investigate the soot inception and extinction limits of spherical microgravity flames, created in the same manner as for the s-Flame experiment.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP090",
+   "investigation": "ACME / Flame Design",
+   "field": "fuel",
+   "fact": "Ethylene or methane into an oxygen-enriched atmosphere.",
+   "quote": "with various concentrations of both the injected fuel (i.e., ethylene or methane) and the oxygen",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP091",
+   "investigation": "ACME / s-Flame",
+   "field": "hardware",
+   "fact": "Porous spherical burner issuing fuel/inert gas into the CIR chamber.",
+   "quote": "will be created through use of a porous spherical burner from which a fuel/inert gas mixture will issue into the CIR chamber.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP092",
+   "investigation": "ACME / s-Flame",
+   "field": "fuel",
+   "fact": "Hydrogen and methane (soot-free), ethylene (sooty).",
+   "quote": "The fuel gases include hydrogen and methane for soot-free flames, and ethylene for sooty flames.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP093",
+   "investigation": "ACME / s-Flame",
+   "field": "objective",
+   "fact": "Extinction limits for radiative and convective extinction.",
+   "quote": "One experiment objective is to identify the extinction limits for both radiative and convective extinction",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP094",
+   "investigation": "ACME / CFI-G",
+   "field": "objective",
+   "fact": "Steady spherical cool diffusion flames on a porous spherical burner with gaseous fuel.",
+   "quote": "The tests, performed with gaseous fuel and a porous spherical burner, cannot be performed in normal gravity or in ground-based microgravity facilities.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP095",
+   "investigation": "ACME",
+   "field": "fire-safety insight",
+   "fact": "Microgravity flames are far more sensitive to their atmosphere than normal-gravity flames.",
+   "quote": "Microgravity flames tend to have a much stronger sensitivity to their atmosphere and exhibit a much broader range of characteristics than normal-gravity flames because of the near absence of buoyant entrainment.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP096",
+   "investigation": "SAME",
+   "field": "objective",
+   "fact": "Measure smoke particle size from spacecraft materials and test the Shuttle (ionization) and ISS (photoelectric) smoke detectors.",
+   "quote": "evaluate the performance of the photoelectric smoke detectors (used on the ISS) and collect data for which a numerical formula can be developed and used to predict smoke droplet growth",
+   "source": {
+    "kind": "pdf",
+    "id": "same",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-aerosol-measurement-experiment-same.pdf",
+    "text_file": "raw/nasa/same.txt"
+   }
+  },
+  {
+   "id": "NP097",
+   "investigation": "SAME",
+   "field": "fuel",
+   "fact": "Teflon, Kapton, cellulose and silicone rubber (overheated, not flaming).",
+   "quote": "material found on spacecraft such as, Teflon, Kapton, cellulose and silicone rubber.",
+   "source": {
+    "kind": "pdf",
+    "id": "same",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-aerosol-measurement-experiment-same.pdf",
+    "text_file": "raw/nasa/same.txt"
+   }
+  },
+  {
+   "id": "NP098",
+   "investigation": "SAME",
+   "field": "variables",
+   "fact": "Sample temperature, air flow and smoke residence time.",
+   "quote": "Testing will also examine the effects of sample temperature, air flow and smoke residence time (near the source) on the particle size distribution of the smoke.",
+   "source": {
+    "kind": "pdf",
+    "id": "same",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-aerosol-measurement-experiment-same.pdf",
+    "text_file": "raw/nasa/same.txt"
+   }
+  },
+  {
+   "id": "NP099",
+   "investigation": "SAME",
+   "field": "hardware",
+   "fact": "Ran in the Microgravity Science Glovebox.",
+   "quote": "works with the Smoke Aerosol Measurement Experiment (SAME) in the Microgravity Sciences Glovebox (MSG) located in the Columbus laboratory of the International Space Station.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "same-smoke-particles",
+    "url": "https://www.nasa.gov/wp-json/wp/v2/migration/309159",
+    "text_file": "raw/nasa/same-smoke-particles.txt"
+   }
+  },
+  {
+   "id": "NP100",
+   "investigation": "SAME",
+   "field": "dates",
+   "fact": "NASA feature: first run 2007, second run 2011 (the fact sheet dates the reflight to Expedition 24, July-September 2010).",
+   "quote": "This experiment was originally conducted in 2007 and ran a second time in 2011.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "same-smoke-particles",
+    "url": "https://www.nasa.gov/wp-json/wp/v2/migration/309159",
+    "text_file": "raw/nasa/same-smoke-particles.txt"
+   }
+  },
+  {
+   "id": "NP101",
+   "investigation": "SAME",
+   "field": "fire-safety insight",
+   "fact": "Detection targets the early, pre-flaming phase: pyrolysis products, not soot.",
+   "quote": "the primary target for detection is pyrolysis products rather than soot.",
+   "source": {
+    "kind": "pdf",
+    "id": "same",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-aerosol-measurement-experiment-same.pdf",
+    "text_file": "raw/nasa/same.txt"
+   }
+  },
+  {
+   "id": "NP102",
+   "investigation": "SAME",
+   "field": "fire-safety insight",
+   "fact": "ISS detectors use near-IR forward scattering, most sensitive above 1 micrometer; Shuttle detectors used ionization.",
+   "quote": "The International Space Station (ISS) smoke detectors use near-IR forward scattering, rendering them most sensitive to particles larger than 1 \u00b5m, outside of the range of sensitivity of the shuttle detector.",
+   "source": {
+    "kind": "pdf",
+    "id": "same",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-aerosol-measurement-experiment-same.pdf",
+    "text_file": "raw/nasa/same.txt"
+   }
+  },
+  {
+   "id": "NP103",
+   "investigation": "SAME-R",
+   "field": "dates",
+   "fact": "Reflight during Expedition 24, July-September 2010.",
+   "quote": "was conducted during Expedition 24 (July \u2013 September 2010) and flight",
+   "source": {
+    "kind": "pdf",
+    "id": "same",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-aerosol-measurement-experiment-same.pdf",
+    "text_file": "raw/nasa/same.txt"
+   }
+  },
+  {
+   "id": "NP104",
+   "investigation": "SAME-R",
+   "field": "fuel",
+   "fact": "Teflon, Kapton, cotton, silicone rubber and Pyrell.",
+   "quote": "SAME-2 materials (Teflon, Kapton, cotton, silicone rubber and Pyrell ).",
+   "source": {
+    "kind": "pdf",
+    "id": "same",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-aerosol-measurement-experiment-same.pdf",
+    "text_file": "raw/nasa/same.txt"
+   }
+  },
+  {
+   "id": "NP105",
+   "investigation": "SAME-R",
+   "field": "measurements",
+   "fact": "Moments of the size distribution: number, diameter and mass concentration; TEM samples from a thermal precipitator.",
+   "quote": "particle number concentration (zeroth moment), the diameter concentration (first moment), and the mass concentration (third moment).",
+   "source": {
+    "kind": "pdf",
+    "id": "same",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-aerosol-measurement-experiment-same.pdf",
+    "text_file": "raw/nasa/same.txt"
+   }
+  },
+  {
+   "id": "NP106",
+   "investigation": "DAFT",
+   "field": "objective",
+   "fact": "Check that the P-Trak particle counter works in microgravity before SAME, and characterize ISS cabin particles.",
+   "quote": "DAFT is intended to assess and characterize the distribution of particles in the air inside ISS to allow assessment of the suitability of current shuttle and ISS smoke detectors.",
+   "source": {
+    "kind": "pdf",
+    "id": "daft",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/dust-and-aerosol-measurement-feasibility-test-daft.pdf",
+    "text_file": "raw/nasa/daft.txt"
+   }
+  },
+  {
+   "id": "NP107",
+   "investigation": "DAFT",
+   "field": "hardware",
+   "fact": "P-Trak Ultrafine Particle Counter (condensation of isopropyl alcohol on particles).",
+   "quote": "DAFT is designed to test the effectiveness of the PTrak Ultrafine Particle Counter, a device that counts ultra-fine dust particles in a microgravity environment.",
+   "source": {
+    "kind": "pdf",
+    "id": "daft",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/dust-and-aerosol-measurement-feasibility-test-daft.pdf",
+    "text_file": "raw/nasa/daft.txt"
+   }
+  },
+  {
+   "id": "NP108",
+   "investigation": "DAFT",
+   "field": "dates",
+   "fact": "Begun on Expedition 10, completion planned in Expedition 13.",
+   "quote": "This experiment was begun on Expedition 10 and is planned for completion during Expedition 13.",
+   "source": {
+    "kind": "pdf",
+    "id": "daft",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/dust-and-aerosol-measurement-feasibility-test-daft.pdf",
+    "text_file": "raw/nasa/daft.txt"
+   }
+  },
+  {
+   "id": "NP109",
+   "investigation": "DAFT",
+   "field": "results",
+   "fact": "Average particle sizes are larger on orbit than on Earth.",
+   "quote": "Results show average particle sizes are larger on orbit than on Earth, perhaps due to inefficiency of the spacecraft\u2019s filter.",
+   "source": {
+    "kind": "pdf",
+    "id": "daft",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/dust-and-aerosol-measurement-feasibility-test-daft.pdf",
+    "text_file": "raw/nasa/daft.txt"
+   }
+  },
+  {
+   "id": "NP110",
+   "investigation": "DAFT",
+   "field": "fire-safety insight",
+   "fact": "Smoke particles formed in microgravity can be larger than on Earth, which matters for detector tuning.",
+   "quote": "smoke particles that form in microgravity can be larger than those formed on Earth.",
+   "source": {
+    "kind": "pdf",
+    "id": "daft",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/dust-and-aerosol-measurement-feasibility-test-daft.pdf",
+    "text_file": "raw/nasa/daft.txt"
+   }
+  },
+  {
+   "id": "NP111",
+   "investigation": "SLICE",
+   "field": "objective",
+   "fact": "Structure and lift-off of coflow laminar diffusion flames; precursor to CLD Flame.",
+   "quote": "SLICE is a precursor to the CLD Flame experiment.",
+   "source": {
+    "kind": "pdf",
+    "id": "slice",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/structure-liftoff-in-combustion-experiment-slice.pdf",
+    "text_file": "raw/nasa/slice.txt"
+   }
+  },
+  {
+   "id": "NP112",
+   "investigation": "SLICE",
+   "field": "fuel",
+   "fact": "Methane, ethylene and nitrogen dilutions of each, in a coflow of air.",
+   "quote": "For diffusion flames of methane, ethylene, and selected nitrogen dilutions of each fuel burning in a coflow of air:",
+   "source": {
+    "kind": "pdf",
+    "id": "slice",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/structure-liftoff-in-combustion-experiment-slice.pdf",
+    "text_file": "raw/nasa/slice.txt"
+   }
+  },
+  {
+   "id": "NP113",
+   "investigation": "SLICE",
+   "field": "variables",
+   "fact": "Fuel, burner diameter and flow conditions; air velocity raised until the flame lifts off.",
+   "quote": "SLICE will include testing where the fuel flow is fixed, and the air velocity is incrementally increased until the diffusion flame detaches and lifts off from the nozzle.",
+   "source": {
+    "kind": "pdf",
+    "id": "slice",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/structure-liftoff-in-combustion-experiment-slice.pdf",
+    "text_file": "raw/nasa/slice.txt"
+   }
+  },
+  {
+   "id": "NP114",
+   "investigation": "SLICE",
+   "field": "hardware",
+   "fact": "SPICE hardware in the MSG, unmodified.",
+   "quote": "The SLICE experiment uses SPICE hardware which was based directly on the earlier ELF hardware.",
+   "source": {
+    "kind": "pdf",
+    "id": "slice",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/structure-liftoff-in-combustion-experiment-slice.pdf",
+    "text_file": "raw/nasa/slice.txt"
+   }
+  },
+  {
+   "id": "NP115",
+   "investigation": "SLICE",
+   "field": "dates",
+   "fact": "Conducted in the MSG in early 2012.",
+   "quote": "was conducted in the ISS\u2019 Microgravity Science Glovebox (MSG) in early 2012.",
+   "source": {
+    "kind": "pdf",
+    "id": "acme",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/advanced-combustion-via-microgravity-experiments-acme.pdf",
+    "text_file": "raw/nasa/acme.txt"
+   }
+  },
+  {
+   "id": "NP116",
+   "investigation": "SLICE",
+   "field": "fire-safety insight",
+   "fact": "Flame attachment to a burner or fuel surface matters for fire safety.",
+   "quote": "detachment from) a burner or condensed-fuel surface is of essential importance in both combustion systems and fire safety.",
+   "source": {
+    "kind": "pdf",
+    "id": "slice",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/structure-liftoff-in-combustion-experiment-slice.pdf",
+    "text_file": "raw/nasa/slice.txt"
+   }
+  },
+  {
+   "id": "NP117",
+   "investigation": "SPICE",
+   "field": "objective",
+   "fact": "Find the smoke point (onset of soot emission) of non-buoyant gas-jet flames.",
+   "quote": "The Smoke Point In Co-flow Experiment (SPICE) determines the point at which gas-jet flames (similar to a butane-lighter flame) begin to emit soot (dark carbonaceous particulate formed inside the flame) in microgravity.",
+   "source": {
+    "kind": "pdf",
+    "id": "spice",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-point-in-co-flow-experiment-spice.pdf",
+    "text_file": "raw/nasa/spice.txt"
+   }
+  },
+  {
+   "id": "NP118",
+   "investigation": "SPICE",
+   "field": "fuel",
+   "fact": "Gas jets: propylene, propane and ethylene mixtures.",
+   "quote": "This investigation completed 250 combustion tests with various fuel mixtures, including propylene, propane, and ethylene, in microgravity.",
+   "source": {
+    "kind": "pdf",
+    "id": "spice",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-point-in-co-flow-experiment-spice.pdf",
+    "text_file": "raw/nasa/spice.txt"
+   }
+  },
+  {
+   "id": "NP119",
+   "investigation": "SPICE",
+   "field": "variables",
+   "fact": "Several fuels, nozzle diameters and co-flow velocities.",
+   "quote": "for several fuels under different nozzle diameter/co-flow velocity configurations.",
+   "source": {
+    "kind": "pdf",
+    "id": "spice",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-point-in-co-flow-experiment-spice.pdf",
+    "text_file": "raw/nasa/spice.txt"
+   }
+  },
+  {
+   "id": "NP120",
+   "investigation": "SPICE",
+   "field": "results",
+   "fact": "250 tests, more than 70 smoke points.",
+   "quote": "Researchers identified more than 70 smoke points, which yielded estimates of soot-forming conditions and flame dimensions.",
+   "source": {
+    "kind": "pdf",
+    "id": "spice",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-point-in-co-flow-experiment-spice.pdf",
+    "text_file": "raw/nasa/spice.txt"
+   }
+  },
+  {
+   "id": "NP121",
+   "investigation": "SPICE",
+   "field": "hardware",
+   "fact": "Flow duct in the MSG, later reused by BASS, BASS-II, BASS-M and SLICE.",
+   "quote": "The experimental hardware for the Smoke Points In Co-flow Experiment (SPICE), of David L. Urban (NASA Glenn) and Peter B. Sunderland (U. Maryland), which is currently onboard the International Space Station, was built to allow studies of coflow laminar diffusion flames.",
+   "source": {
+    "kind": "pdf",
+    "id": "slice",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/structure-liftoff-in-combustion-experiment-slice.pdf",
+    "text_file": "raw/nasa/slice.txt"
+   }
+  },
+  {
+   "id": "NP122",
+   "investigation": "SPICE",
+   "field": "fire-safety insight",
+   "fact": "Soot dominates heat emitted by fires; NASA material selection uses a 1-g test without real microgravity consideration.",
+   "quote": "Current NASA spacecraft materials selection is based upon a simplified test method that segregates material based upon behavior on Earth without real consideration of microgravity effects.",
+   "source": {
+    "kind": "pdf",
+    "id": "spice",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/smoke-point-in-co-flow-experiment-spice.pdf",
+    "text_file": "raw/nasa/spice.txt"
+   }
+  },
+  {
+   "id": "NP123",
+   "investigation": "SoFIE",
+   "field": "objective",
+   "fact": "Facility for solid fuel ignition and extinction in reduced gravity, for Moon and Mars fire safety.",
+   "quote": "SoFIE is a facility on the International Space Station (ISS) for studying how fire can behave differently and unexpectedly in reduced gravity, to improve fire safety for future long-term missions to the Moon and eventually Mars or other planets.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "sofie-mission",
+    "url": "https://science.nasa.gov/mission/sofie/",
+    "text_file": "raw/nasa/sofie-mission.txt"
+   }
+  },
+  {
+   "id": "NP124",
+   "investigation": "SoFIE",
+   "field": "objective",
+   "fact": "Five investigations selected in 2009 on solid surface combustion and material flammability.",
+   "quote": "In 2009, NASA selected 5 investigations that would help further our understanding of solid surface combustion and material flammability.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "sofie",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/solid-fuel-ignition-and-extinction-sofie/",
+    "text_file": "raw/nasa/sofie.txt"
+   }
+  },
+  {
+   "id": "NP125",
+   "investigation": "SoFIE",
+   "field": "hardware",
+   "fact": "Runs in the Combustion Integrated Rack.",
+   "quote": "SoFIE will run in the station\u2019s Combustion Integrated Rack, which features a chamber where experiments can burn safely.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "fighting-fire-with-fire",
+    "url": "https://www.nasa.gov/humans-in-space/fighting-fire-with-fire-new-space-station-experiments-study-flames-in-space/",
+    "text_file": "raw/nasa/fighting-fire-with-fire.txt"
+   }
+  },
+  {
+   "id": "NP126",
+   "investigation": "SoFIE",
+   "field": "dates",
+   "fact": "Launched on Northrop Grumman\u2019s 17th cargo mission (article dated Feb 16, 2022). The science.nasa.gov mission card says \"Launch July 5, 2022\"; the two NASA pages disagree.",
+   "quote": "a set of experiments launching aboard Northrop Grumman\u2019s 17th cargo resupply mission to the International Space Station",
+   "source": {
+    "kind": "nasa-page",
+    "id": "fighting-fire-with-fire",
+    "url": "https://www.nasa.gov/humans-in-space/fighting-fire-with-fire-new-space-station-experiments-study-flames-in-space/",
+    "text_file": "raw/nasa/fighting-fire-with-fire.txt"
+   }
+  },
+  {
+   "id": "NP127",
+   "investigation": "SoFIE",
+   "field": "dates",
+   "fact": "Mission card date.",
+   "quote": "Launch July 5, 2022 Location International Space Station",
+   "source": {
+    "kind": "nasa-page",
+    "id": "sofie-mission",
+    "url": "https://science.nasa.gov/mission/sofie/",
+    "text_file": "raw/nasa/sofie-mission.txt"
+   }
+  },
+  {
+   "id": "NP128",
+   "investigation": "SoFIE",
+   "field": "fire-safety insight",
+   "fact": "The NASA-STD-6001 1-g flame propagation test may not be conservative in low gravity.",
+   "quote": "NASA-STD-6001 impelements a 1-g flame propagation test for proposed space flight materials which some researchers believe is not conservative in low-g.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "sofie",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/solid-fuel-ignition-and-extinction-sofie/",
+    "text_file": "raw/nasa/sofie.txt"
+   }
+  },
+  {
+   "id": "NP129",
+   "investigation": "SoFIE / RTDFS",
+   "field": "objective",
+   "fact": "Steady and unsteady flame spread over solid fuels; effect of fuel thickness.",
+   "quote": "The RTDFS experiment will investigate steady and unsteady flame propagation over solid fuels in a microgravity environment.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "sofie",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/solid-fuel-ignition-and-extinction-sofie/",
+    "text_file": "raw/nasa/sofie.txt"
+   }
+  },
+  {
+   "id": "NP130",
+   "investigation": "SoFIE / NCA",
+   "field": "fuel",
+   "fact": "Planar PMMA samples, forced opposed flow.",
+   "quote": "The experimental approach is to measure flame spread across planar samples of PMMA in a forced opposed flow configuration.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "sofie",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/solid-fuel-ignition-and-extinction-sofie/",
+    "text_file": "raw/nasa/sofie.txt"
+   }
+  },
+  {
+   "id": "NP131",
+   "investigation": "SoFIE / NCA",
+   "field": "conditions",
+   "fact": "Oxygen from atmospheric up to 85%, pressure varied to stay near the normoxic curve.",
+   "quote": "The atmosphere will be a mix of oxygen and nitrogen, with the oxygen percentage ranging from atmospheric up to 85%.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "sofie",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/solid-fuel-ignition-and-extinction-sofie/",
+    "text_file": "raw/nasa/sofie.txt"
+   }
+  },
+  {
+   "id": "NP132",
+   "investigation": "SoFIE / GEL",
+   "field": "fuel",
+   "fact": "Solid sphere of 4 to 5 cm diameter (thick, non-flat fuel).",
+   "quote": "a solid sphere of substantial size (i.e. 4 to 5 cm diameter) is chosen as a representative of non-flat samples.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "sofie",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/solid-fuel-ignition-and-extinction-sofie/",
+    "text_file": "raw/nasa/sofie.txt"
+   }
+  },
+  {
+   "id": "NP133",
+   "investigation": "SoFIE / MIST",
+   "field": "hardware",
+   "fact": "Small combustion wind tunnel, cylindrical fuel sample, radiant heaters, igniter; opposed flow.",
+   "quote": "The MIST experimental apparatus would consist of a small-scale combustion wind tunnel, a cylindrical fuel sample, radiant heaters, an igniter, and supporting instrumentation.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "sofie",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/solid-fuel-ignition-and-extinction-sofie/",
+    "text_file": "raw/nasa/sofie.txt"
+   }
+  },
+  {
+   "id": "NP134",
+   "investigation": "SoFIE / SMuRF",
+   "field": "objective",
+   "fact": "Correlate normal-gravity flammability test data with ventilated microgravity data.",
+   "quote": "experiment will correlate normal gravity flammability test data with data under ventilated microgravity conditions.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "sofie",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/solid-fuel-ignition-and-extinction-sofie/",
+    "text_file": "raw/nasa/sofie.txt"
+   }
+  },
+  {
+   "id": "NP135",
+   "investigation": "FM2",
+   "field": "objective",
+   "fact": "First combustion experiment on another planetary body: burning materials at lunar 1/6 g.",
+   "quote": "FM2 is the first-ever combustion experiment to be performed on another planetary body.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "fm2",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-of-materials-on-the-moon-fm2/",
+    "text_file": "raw/nasa/fm2.txt"
+   }
+  },
+  {
+   "id": "NP136",
+   "investigation": "FM2",
+   "field": "objective",
+   "fact": "Check whether some materials are more flammable in partial gravity than in 1 g.",
+   "quote": "Verify whether some materials burning in partial-gravity environments may be more flammable compared to 1g.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "fm2",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-of-materials-on-the-moon-fm2/",
+    "text_file": "raw/nasa/fm2.txt"
+   }
+  },
+  {
+   "id": "NP137",
+   "investigation": "FM2",
+   "field": "fire-safety insight",
+   "fact": "Materials may burn at lower oxygen in lunar gravity than on Earth.",
+   "quote": "suggest that materials may burn at lower oxygen concentrations in lunar gravity compared to Earth.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "fm2",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-of-materials-on-the-moon-fm2/",
+    "text_file": "raw/nasa/fm2.txt"
+   }
+  },
+  {
+   "id": "NP138",
+   "investigation": "FM2",
+   "field": "fuel",
+   "fact": "Four fuel samples burned one at a time: SIBAL fabric in air and PMMA rods in elevated oxygen, each upward and downward.",
+   "quote": "will burn four samples; SIBAL fabric will be exposed to normal air while the PMMA rods will be exposed to the normoxic Space Exploration Atmospheres (SEA) with elevated oxygen in a small atmospheric chamber.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-fm2-moon",
+    "url": "https://ntrs.nasa.gov/citations/20240008623",
+    "text_file": "raw/nasa/ntrs-fm2-moon.txt"
+   }
+  },
+  {
+   "id": "NP139",
+   "investigation": "FM2",
+   "field": "conditions",
+   "fact": "Atmospheres planned for lunar habitats or vehicles.",
+   "quote": "The experiment burns four fuel samples individually in atmospheric conditions planned for future lunar habitats or vehicles.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "fm2",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-of-materials-on-the-moon-fm2/",
+    "text_file": "raw/nasa/fm2.txt"
+   }
+  },
+  {
+   "id": "NP140",
+   "investigation": "FM2",
+   "field": "hardware",
+   "fact": "Sealed autonomous chamber, 28.5 by 28.5 by 38.5 cm, 25 kg.",
+   "quote": "Images of FM2 engineering hardware that is 28.5 by 28.5 by 38.5 cm tall. Weight is 25 kg.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "fm2",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-of-materials-on-the-moon-fm2/",
+    "text_file": "raw/nasa/fm2.txt"
+   }
+  },
+  {
+   "id": "NP141",
+   "investigation": "FM2",
+   "field": "measurements",
+   "fact": "Cameras for flame size, intensity, color, spread rate; sensors for flame and fuel temperature, oxygen and carbon dioxide.",
+   "quote": "Onboard sensors measure flame and fuel temperatures, oxygen concentration, and carbon-dioxide concentrations.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "fm2",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-of-materials-on-the-moon-fm2/",
+    "text_file": "raw/nasa/fm2.txt"
+   }
+  },
+  {
+   "id": "NP142",
+   "investigation": "FM2",
+   "field": "dates",
+   "fact": "No flight date on the page (not flown at the time the page was written).",
+   "quote": "FM2 investigates burning materials on the Moon at its 1/6 reduced gravity level.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "fm2",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-of-materials-on-the-moon-fm2/",
+    "text_file": "raw/nasa/fm2.txt"
+   }
+  },
+  {
+   "id": "NP143",
+   "investigation": "FLARE",
+   "field": "objective",
+   "fact": "Correlate flammability limits in normal gravity and microgravity so ground data can predict microgravity limits.",
+   "quote": "To develop a methodology to correlate material flammability limits in normal gravity and microgravity, which allows quantitative estimation of material flammability limit in microgravity based on the flammability data obtained on the ground.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "flare",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-limits-at-reduced-g-experiment-flare/",
+    "text_file": "raw/nasa/flare.txt"
+   }
+  },
+  {
+   "id": "NP144",
+   "investigation": "FLARE",
+   "field": "hardware",
+   "fact": "JAXA-led; flight tests in ISS/Kibo with the hardware of JAXA \"Solid Combustion\".",
+   "quote": "Experiment uses same hardware as JAXA\u2019s \u201cSolid Combustion\u201d",
+   "source": {
+    "kind": "nasa-page",
+    "id": "flare",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-limits-at-reduced-g-experiment-flare/",
+    "text_file": "raw/nasa/flare.txt"
+   }
+  },
+  {
+   "id": "NP145",
+   "investigation": "FLARE",
+   "field": "dates",
+   "fact": "Flight experiments expected in 2017 or later (as written on the page).",
+   "quote": "flight experiments on orbit are expected in 2017 or later.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "flare",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-limits-at-reduced-g-experiment-flare/",
+    "text_file": "raw/nasa/flare.txt"
+   }
+  },
+  {
+   "id": "NP146",
+   "investigation": "FLARE",
+   "field": "fire-safety insight",
+   "fact": "Aims at a new screening test that fixes shortcomings of NASA STD 6001B.",
+   "quote": "standard test method such as NASA STD 6001B.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "flare",
+    "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/flammability-limits-at-reduced-g-experiment-flare/",
+    "text_file": "raw/nasa/flare.txt"
+   }
+  },
+  {
+   "id": "NP147",
+   "investigation": "Apollo 1",
+   "field": "incident",
+   "fact": "Jan. 27, 1967 ground test, cabin at 100% oxygen, flash fire.",
+   "quote": "The astronauts would be wearing spacesuits with the spacecraft\u2019s hatches closed and the cabin pressurized with 100% oxygen.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "apollo-1",
+    "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-1",
+    "text_file": "raw/nasa/apollo-1.txt"
+   }
+  },
+  {
+   "id": "NP148",
+   "investigation": "Apollo 1",
+   "field": "incident",
+   "fact": "Cause of death: asphyxia from carbon monoxide and toxic gases.",
+   "quote": "U.S. Air Force pathologists concluded the astronauts perished from asphyxia from carbon monoxide and other toxic gases resulting from the fire.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "apollo-1",
+    "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-1",
+    "text_file": "raw/nasa/apollo-1.txt"
+   }
+  },
+  {
+   "id": "NP149",
+   "investigation": "Apollo 1",
+   "field": "lesson",
+   "fact": "NASA restricted combustible material in the cabin afterwards.",
+   "quote": "Additionally, NASA restricted and controlled the amount and location of combustible material within the spacecraft.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "apollo-1",
+    "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-1",
+    "text_file": "raw/nasa/apollo-1.txt"
+   }
+  },
+  {
+   "id": "NP150",
+   "investigation": "Apollo 1",
+   "field": "lesson",
+   "fact": "Pure oxygen made the fire spread quickly.",
+   "quote": "Because of the pure oxygen atmosphere, the fire spread quickly, causing a rapid rise in temperature and pressure that led to the rupture of the Command Module pressure vessel.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "apollo-1",
+    "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-1",
+    "text_file": "raw/nasa/apollo-1.txt"
+   }
+  },
+  {
+   "id": "NP151",
+   "investigation": "Apollo 13",
+   "field": "incident",
+   "fact": "Overheated oxygen tank heaters degraded Teflon insulation before flight.",
+   "quote": "During the final test on the launch pad, the heaters were left on for an extended period and reached temperatures around 1000 degrees Fahrenheit, degrading the Teflon insulation.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "apollo-13",
+    "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-13",
+    "text_file": "raw/nasa/apollo-13.txt"
+   }
+  },
+  {
+   "id": "NP152",
+   "investigation": "Apollo 13",
+   "field": "incident",
+   "fact": "Explosion in oxygen tank two also damaged tank one.",
+   "quote": "The crew then discovered that the explosion in tank number two also damaged tank number one",
+   "source": {
+    "kind": "nasa-page",
+    "id": "apollo-13",
+    "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-13",
+    "text_file": "raw/nasa/apollo-13.txt"
+   }
+  },
+  {
+   "id": "NP153",
+   "investigation": "Mir fire",
+   "field": "incident",
+   "fact": "Feb. 24, 1997: fire in an oxygen generating system, six crew aboard.",
+   "quote": "On Feb. 24, 1997, the six crew members aboard the Russian space station Mir faced significant danger when a fire ignited in an oxygen generating system.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "mir-fire",
+    "url": "https://www.nasa.gov/history/25-years-ago-fire-aboard-space-station-mir/",
+    "text_file": "raw/nasa/mir-fire.txt"
+   }
+  },
+  {
+   "id": "NP154",
+   "investigation": "Mir fire",
+   "field": "incident",
+   "fact": "Solid-fuel oxygen generator canister ignited; three-foot flame, dense smoke.",
+   "quote": "the canister ignited, shooting a three-foot flame with sparks and bits of molten metal across the module and generating a large quantity of dense smoke.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "mir-fire",
+    "url": "https://www.nasa.gov/history/25-years-ago-fire-aboard-space-station-mir/",
+    "text_file": "raw/nasa/mir-fire.txt"
+   }
+  },
+  {
+   "id": "NP155",
+   "investigation": "Mir fire",
+   "field": "incident",
+   "fact": "The flame blocked the route to one Soyuz escape vehicle.",
+   "quote": "The flame blocked the evacuation route to the Soyuz spacecraft docked at the aft end of Kvant-1",
+   "source": {
+    "kind": "nasa-page",
+    "id": "mir-fire",
+    "url": "https://www.nasa.gov/history/25-years-ago-fire-aboard-space-station-mir/",
+    "text_file": "raw/nasa/mir-fire.txt"
+   }
+  },
+  {
+   "id": "NP156",
+   "investigation": "Mir fire",
+   "field": "lesson",
+   "fact": "Likely cause: latex glove material inside the canister.",
+   "quote": "They identified the most likely culprit as latex working glove material inadvertently introduced into the canister.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "mir-fire",
+    "url": "https://www.nasa.gov/history/25-years-ago-fire-aboard-space-station-mir/",
+    "text_file": "raw/nasa/mir-fire.txt"
+   }
+  },
+  {
+   "id": "NP157",
+   "investigation": "Spinoff: Fireman's Air Tanks",
+   "field": "earth application",
+   "fact": "Lighter firefighter breathing system from NASA Johnson work: 20 pounds for 30 minutes of air.",
+   "quote": "New backpack system weighs only 20 pounds for 30 minute air supply, 13 pounds less than conventional firefighting tanks.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "spinoff-firemans-air-tanks",
+    "url": "https://spinoff.nasa.gov/node/9582",
+    "text_file": "raw/nasa/spinoff-firemans-air-tanks.txt"
+   }
+  },
+  {
+   "id": "NP158",
+   "investigation": "Spinoff: Fire Detector",
+   "field": "earth application",
+   "fact": "Shuttle-orbiter incipient fire detector tells combustion particles from dust.",
+   "quote": "the Brunswick Incipient Fire Detector, originally used in space shuttle orbiters, can discriminate between combustion particles and extraneous matters such as dust.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "spinoff-fire-detector",
+    "url": "https://spinoff.nasa.gov/node/9407",
+    "text_file": "raw/nasa/spinoff-fire-detector.txt"
+   }
+  },
+  {
+   "id": "NP159",
+   "investigation": "Spinoff: Fire Attire",
+   "field": "earth application",
+   "fact": "Project FIRES: firefighter gear from Apollo-derived fire-resistant materials.",
+   "quote": "A major focus of the effort involves application to the FIRES ensemble of lightweight, fire-resistant, heat-protective materials originally developed for use in astronauts' space suits or in spacecraft components which require thermal protection.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "spinoff-fire-attire",
+    "url": "https://spinoff.nasa.gov/node/9918",
+    "text_file": "raw/nasa/spinoff-fire-attire.txt"
+   }
+  },
+  {
+   "id": "NP160",
+   "investigation": "Topic: Mars-Earth communication delay",
+   "field": "fact",
+   "fact": "NASA Human Research Program: up to 20 minutes one way.",
+   "quote": "Facing a communication delay of up to 20 minutes one way, the possibility of equipment failures or medical emergencies, and a critical need to ration food and supplies, astronauts must be capable of confronting an array of situations with minimal support from teams on Earth.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "hrp-distance-from-earth",
+    "url": "https://www.nasa.gov/hrp/hazard-distance-from-earth/",
+    "text_file": "raw/nasa/hrp-distance-from-earth.txt"
+   }
+  },
+  {
+   "id": "NP161",
+   "investigation": "Topic: Mars-Earth communication delay",
+   "field": "fact",
+   "fact": "NASA Goddard: about 4 minutes at closest approach, around 24 minutes at greatest distance, one way.",
+   "quote": "At Mars\u2019 closest approach \u2014 about 35 million miles away \u2014 the delay is about four minutes. When the planets are at their greatest distance \u2014 about 250 million miles away \u2014 the delay is around 24 minutes.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "comm-7-things",
+    "url": "https://www.nasa.gov/centers-and-facilities/goddard/space-communications-7-things-you-need-to-know/",
+    "text_file": "raw/nasa/comm-7-things.txt"
+   }
+  },
+  {
+   "id": "NP162",
+   "investigation": "Topic: Mars-Earth communication delay",
+   "field": "fact",
+   "fact": "Round trip: 4 to 24 minutes out and another 4 to 24 back.",
+   "quote": "This means that astronauts would need to wait between four and 24 minutes for their messages to reach mission control, and another four to 24 minutes to receive a response.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "comm-7-things",
+    "url": "https://www.nasa.gov/centers-and-facilities/goddard/space-communications-7-things-you-need-to-know/",
+    "text_file": "raw/nasa/comm-7-things.txt"
+   }
+  },
+  {
+   "id": "NP163",
+   "investigation": "Topic: Mars-Earth communication delay",
+   "field": "fact",
+   "fact": "CHAPEA Mars analog uses 22-minute communication delays (the page does not say \"one way\").",
+   "quote": "prolonged isolation, 22-minute communication delays, and equipment failures.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "chapea-mission-2",
+    "url": "https://www.nasa.gov/humans-in-space/chapea/chapea-mission-2/",
+    "text_file": "raw/nasa/chapea-mission-2.txt"
+   }
+  },
+  {
+   "id": "NP164",
+   "investigation": "Topic: Mars-Earth communication delay",
+   "field": "fact",
+   "fact": "NTRS paper: a 20 minute one-way delay is expected during a Mars mission.",
+   "quote": "20 minute one way communication delay, as is expected during a Mars mission.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-comm-delay-effects",
+    "url": "https://ntrs.nasa.gov/citations/20230002268",
+    "text_file": "raw/nasa/ntrs-comm-delay-effects.txt"
+   }
+  },
+  {
+   "id": "NP165",
+   "investigation": "Topic: ISS fire detection",
+   "field": "fact",
+   "fact": "ISS smoke detectors: photo-electric and ionization, in the open cabin, in air ducts and inside racks.",
+   "quote": "Throughout the ISS there are a number of smoke detectors. These consist of a variety of photo-electric and ionization detectors.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP166",
+   "investigation": "Topic: ISS fire detection",
+   "field": "fact",
+   "fact": "The crew can also raise the alarm manually.",
+   "quote": "The crew may also initiate the alarm if they see or smell evidence of a combustion event.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP167",
+   "investigation": "Topic: ISS fire response",
+   "field": "fact",
+   "fact": "Automatic response to a fire alarm: fans off, gas introduction stopped, oxygen generation off (ventilation shutdown).",
+   "quote": "Intramodular and intermodular fans are deactivated, gas introduction is terminated, oxygen generation systems are deactivated, and location specific fans are deactivated, all performed in order to stop flowing",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP168",
+   "investigation": "Topic: ISS fire response",
+   "field": "fact",
+   "fact": "Without airflow the fire uses up local oxygen and self-extinguishes.",
+   "quote": "This should eliminate local airflow, removing the Oxygen leg of the fire triangle as the event consumes the local oxygen nearby, thereby self extinguishing",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP169",
+   "investigation": "Topic: ISS fire response",
+   "field": "fact",
+   "fact": "A rack-specific alarm removes power in that rack.",
+   "quote": "If a location specific fire alarm is triggered, then power in that area is removed.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP170",
+   "investigation": "Topic: ISS fire response",
+   "field": "fact",
+   "fact": "Response philosophy attacks oxygen and ignition source, not fuel.",
+   "quote": "response philosophy is designed to attack two of the three fire triangle items, namely Oxygen and Ignition Source (Heat).",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP171",
+   "investigation": "Topic: ISS fire response",
+   "field": "fact",
+   "fact": "Crew steps: warn and gather, monitor air with combustion product analyzers, locate the source, don masks.",
+   "quote": "After performing their Warn & Gather steps and verifying all crew are safe, the crew move into the Work phase.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP172",
+   "investigation": "Topic: ISS fire response",
+   "field": "fact",
+   "fact": "Crew steps: unpower the equipment first; extinguisher only if that fails.",
+   "quote": "crew will proceed to unpower the equipment behind the panel, thus attacking the Ignition Source (Heat) leg of the fire triangle. If that does not extinguish the fire, they will utilize a fire extinguisher (section 3.2.6).",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP173",
+   "investigation": "Topic: ISS fire response",
+   "field": "fact",
+   "fact": "Last resort: partial then full powerdown and evacuation of the module.",
+   "quote": "proceed to a partial powerdown of the entire module they are located in, followed by a full powerdown and evacuation of the module.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP174",
+   "investigation": "Topic: ISS fire response",
+   "field": "fact",
+   "fact": "Crew may isolate the module and stand down at any point.",
+   "quote": "it is their prerogative to isolate the module and stand down on any further fire response steps.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP175",
+   "investigation": "Topic: ISS fire extinguishers",
+   "field": "fact",
+   "fact": "CO2 extinguisher holds about 2.7 kg of CO2; it starves the fire of oxygen.",
+   "quote": "The CO2 extinguishers consisted of approximately 2.7kg of CO2 in a pressurized container.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP176",
+   "investigation": "Topic: ISS fire extinguishers",
+   "field": "fact",
+   "fact": "Crew must wear a positive-pressure oxygen mask (PBA) to discharge a CO2 extinguisher.",
+   "quote": "this led to an operational constraint that requires crew to be on a PBA when discharging a CO2 extinguisher.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP177",
+   "investigation": "Topic: ISS fire extinguishers",
+   "field": "fact",
+   "fact": "Water mist removes heat; it is the one that works on lithium-ion battery thermal runaway.",
+   "quote": "A water mist extinguisher uses the fire\u2019s energy to evaporate the water and very quickly reduces the temperature at the source of the fire, removing the Ignition Source (Heat) leg of the triangle.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP178",
+   "investigation": "Topic: ISS fire extinguishers",
+   "field": "fact",
+   "fact": "Water mist only for open-cabin fires; CO2 only for fires inside racks.",
+   "quote": "ISS crews only use water mist extinguishers for fires in the cabin; if a fire were to occur within a system or payload rack, the ISS crew use only CO2 extinguishers.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-emergency-response-evolution",
+    "url": "https://ntrs.nasa.gov/citations/20220019247",
+    "text_file": "raw/nasa/ntrs-iss-emergency-response-evolution.txt"
+   }
+  },
+  {
+   "id": "NP179",
+   "investigation": "Topic: ISS fire extinguishers",
+   "field": "fact",
+   "fact": "US segment uses carbon dioxide, Russian segment a water foam extinguisher (2013 paper).",
+   "quote": "The ISS presently uses two different types of fire extinguishers: a water foam extinguisher in the Russian Segments, and a carbon dioxide extinguisher in the United States Orbital Segments, which include Columbus and Kibo pressurized elements.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-iss-fine-water-mist-pfe",
+    "url": "https://ntrs.nasa.gov/citations/20130011664",
+    "text_file": "raw/nasa/ntrs-iss-fine-water-mist-pfe.txt"
+   }
+  },
+  {
+   "id": "NP180",
+   "investigation": "Topic: ISS fire extinguishers",
+   "field": "fact",
+   "fact": "First two of nine water-mist extinguishers went to the ISS in December 2015.",
+   "quote": "extinguishers were sent to the ISS in December 2015 to replace CO2 units that are currently onboard.",
+   "source": {
+    "kind": "pdf",
+    "id": "researchers-guide-combustion",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   }
+  },
+  {
+   "id": "NP181",
+   "investigation": "Topic: exploration atmosphere",
+   "field": "fact",
+   "fact": "Exploration atmosphere recommendation: 8.2 psia and 34% oxygen (revised from 8 psia, 32%).",
+   "quote": "Current plans for M2M habitats on the Lunar surface require EVA, thus EA recommendation became 8 psia and 32% O",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-m2m-exploration-atmosphere",
+    "url": "https://ntrs.nasa.gov/citations/20240003211",
+    "text_file": "raw/nasa/ntrs-m2m-exploration-atmosphere.txt"
+   }
+  },
+  {
+   "id": "NP182",
+   "investigation": "Topic: exploration atmosphere",
+   "field": "fact",
+   "fact": "Second half of the same sentence: revised to 8.2 psia and 34% oxygen to reduce hypoxia.",
+   "quote": "but was revised to 8.2 psia and 34% O",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-m2m-exploration-atmosphere",
+    "url": "https://ntrs.nasa.gov/citations/20240003211",
+    "text_file": "raw/nasa/ntrs-m2m-exploration-atmosphere.txt"
+   }
+  },
+  {
+   "id": "NP183",
+   "investigation": "Topic: exploration atmosphere",
+   "field": "fact",
+   "fact": "ISS and Shuttle: 14.7 psia, 21% oxygen.",
+   "quote": "rather than the sea level atmosphere of 14.7 psia, 21% oxygen",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-m2m-exploration-atmosphere",
+    "url": "https://ntrs.nasa.gov/citations/20240003211",
+    "text_file": "raw/nasa/ntrs-m2m-exploration-atmosphere.txt"
+   }
+  },
+  {
+   "id": "NP184",
+   "investigation": "Topic: exploration atmosphere",
+   "field": "fact",
+   "fact": "Mercury through Apollo: 5 psia, 100% oxygen. Skylab: 5 psia, 70-74% oxygen.",
+   "quote": "Early space vehicles (Mercury through Apollo Programs) used a 5 psia, 100% O",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-m2m-exploration-atmosphere",
+    "url": "https://ntrs.nasa.gov/citations/20240003211",
+    "text_file": "raw/nasa/ntrs-m2m-exploration-atmosphere.txt"
+   }
+  },
+  {
+   "id": "NP185",
+   "investigation": "Topic: exploration atmosphere",
+   "field": "fact",
+   "fact": "Shuttle was also certified at 10.2 psia, 26.5% oxygen for shorter prebreathe.",
+   "quote": "the Shuttle was retroactively certified to operate using 10.2 psia, 26.5% O",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-m2m-exploration-atmosphere",
+    "url": "https://ntrs.nasa.gov/citations/20240003211",
+    "text_file": "raw/nasa/ntrs-m2m-exploration-atmosphere.txt"
+   }
+  },
+  {
+   "id": "NP186",
+   "investigation": "Topic: exploration atmosphere",
+   "field": "fact",
+   "fact": "NASA states the fire management challenge of the higher-oxygen atmosphere.",
+   "quote": "Unfortunately, the benefits of EA in support of safe and efficient EVAs comes with the challenge of fire management in a higher-than-normal O",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-m2m-exploration-atmosphere",
+    "url": "https://ntrs.nasa.gov/citations/20240003211",
+    "text_file": "raw/nasa/ntrs-m2m-exploration-atmosphere.txt"
+   }
+  },
+  {
+   "id": "NP187",
+   "investigation": "Topic: exploration atmosphere",
+   "field": "fact",
+   "fact": "NESC 2026: candidate cabin atmospheres are 10.2 psia/26.5% O2 and 8.2 psia/34% O2; up to 40% considered for flammability.",
+   "quote": "the potential atmosphere conditions that are being considered are 10.2 psia/26.5% O2 and 8.2",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-reduced-pressure-eclss",
+    "url": "https://ntrs.nasa.gov/citations/20260003925",
+    "text_file": "raw/nasa/ntrs-reduced-pressure-eclss.txt"
+   }
+  },
+  {
+   "id": "NP188",
+   "investigation": "Topic: exploration atmosphere",
+   "field": "fact",
+   "fact": "NESC 2026: many common ISS materials are flammable above 30% oxygen.",
+   "quote": "flammable above 30% O2. This results in a required change of materials in 21% of the assessed",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-reduced-pressure-eclss",
+    "url": "https://ntrs.nasa.gov/citations/20260003925",
+    "text_file": "raw/nasa/ntrs-reduced-pressure-eclss.txt"
+   }
+  },
+  {
+   "id": "NP189",
+   "investigation": "Topic: exploration atmosphere",
+   "field": "fact",
+   "fact": "NESC 2026: flammability of materials rises with oxygen concentration.",
+   "quote": "environment is that the flammability of materials increases with increasing O2 concentration.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-reduced-pressure-eclss",
+    "url": "https://ntrs.nasa.gov/citations/20260003925",
+    "text_file": "raw/nasa/ntrs-reduced-pressure-eclss.txt"
+   }
+  },
+  {
+   "id": "NP190",
+   "investigation": "Topic: exploration atmosphere",
+   "field": "fact",
+   "fact": "NESC bulletin: materials are being evaluated at 37% oxygen and 8.2 psia for Moon and Mars missions.",
+   "quote": "An elevated oxygen environment is planned for future crewed missions to the Moon and Mars to reduce the prebreathe time before extravehicular activities. In this study, materials are being evaluated for use at 37% oxygen and 8.2 psia.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "nesc-webbings-elevated-oxygen",
+    "url": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-05-webbings-for-use-in-elevated-oxygen-environments/",
+    "text_file": "raw/nasa/nesc-webbings-elevated-oxygen.txt"
+   }
+  },
+  {
+   "id": "NP191",
+   "investigation": "Topic: exploration atmosphere",
+   "field": "fact",
+   "fact": "FM2 poster: test atmospheres 21% oxygen at 14.7 psia and 34% oxygen at 8.2 psia.",
+   "quote": "expected atmospheres, specifically 21% oxygen at 14.7 psia, and 34% oxygen at 8.2 psia, which are of",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-fm2-moon",
+    "url": "https://ntrs.nasa.gov/citations/20240008623",
+    "text_file": "raw/nasa/ntrs-fm2-moon.txt"
+   }
+  },
+  {
+   "id": "NP192",
+   "investigation": "Topic: NASA-STD-6001 flammability test",
+   "field": "fact",
+   "fact": "Test 1 is Upward Flame Propagation.",
+   "quote": "Upward Flame Propagation (NASA Test 1)",
+   "source": {
+    "kind": "nasa-page",
+    "id": "wstf-flammability",
+    "url": "https://www.nasa.gov/centers-and-facilities/white-sands/flammability/",
+    "text_file": "raw/nasa/wstf-flammability.txt"
+   }
+  },
+  {
+   "id": "NP193",
+   "investigation": "Topic: NASA-STD-6001 flammability test",
+   "field": "fact",
+   "fact": "Purpose of Test 1: does the material self-extinguish and not drop burning debris.",
+   "quote": "The purpose of this test is to determine if a material, when exposed to a standard ignition source, will self-extinguish and not transfer burning debris, which can ignite adjacent materials.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-nasa-std-6001-1998",
+    "url": "https://ntrs.nasa.gov/citations/19990036744",
+    "text_file": "raw/nasa/ntrs-nasa-std-6001-1998.txt"
+   }
+  },
+  {
+   "id": "NP194",
+   "investigation": "Topic: NASA-STD-6001 flammability test",
+   "field": "fact",
+   "fact": "Pass criterion (1998 edition): burn length under 6 in. (15 cm) on at least three samples.",
+   "quote": "the burn lengths for at least three standard-sized samples must be less than 6 in. (15 cm).",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-nasa-std-6001-1998",
+    "url": "https://ntrs.nasa.gov/citations/19990036744",
+    "text_file": "raw/nasa/ntrs-nasa-std-6001-1998.txt"
+   }
+  },
+  {
+   "id": "NP195",
+   "investigation": "Topic: NASA-STD-6001 flammability test",
+   "field": "fact",
+   "fact": "Tested at worst-case thickness and worst-case environment.",
+   "quote": "These tests must be conducted on samples at worst-case thickness and in the worst-case environment.",
+   "source": {
+    "kind": "ntrs",
+    "id": "ntrs-nasa-std-6001-1998",
+    "url": "https://ntrs.nasa.gov/citations/19990036744",
+    "text_file": "raw/nasa/ntrs-nasa-std-6001-1998.txt"
+   }
+  },
+  {
+   "id": "NP196",
+   "investigation": "Topic: NASA-STD-6001 flammability test",
+   "field": "fact",
+   "fact": "Scope of the standard (current standards page).",
+   "quote": "Included are requirements, criteria, and test methods for evaluating the flammability, offgassing, and compatibility of materials.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "nasa-std-6001-standards-page",
+    "url": "https://standards.nasa.gov/standard/NASA/NASA-STD-6001",
+    "text_file": "raw/nasa/nasa-std-6001-standards-page.txt"
+   }
+  },
+  {
+   "id": "NP197",
+   "investigation": "Topic: NASA-STD-6001 flammability test",
+   "field": "fact",
+   "fact": "NASA says the upward burning test is taken as the worst case on Earth.",
+   "quote": "NASA tests materials for flammability using an upward burning test, which is considered to be the worst-case geometry for flammability of the material on Earth.",
+   "source": {
+    "kind": "pdf",
+    "id": "bass",
+    "url": "https://www.nasa.gov/wp-content/uploads/2025/07/burning-and-suppression-of-solids-bass.pdf",
+    "text_file": "raw/nasa/bass.txt"
+   }
+  },
+  {
+   "id": "NP198",
+   "investigation": "Topic: NASA-STD-6001 flammability test",
+   "field": "fact",
+   "fact": "Researcher's Guide: in low flow, some materials are flammable at lower oxygen than in normal gravity.",
+   "quote": "gravity, some materials are flammable at lower oxygen concentrations than in",
+   "source": {
+    "kind": "pdf",
+    "id": "researchers-guide-combustion",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+    "text_file": "raw/nasa/researchers-guide-combustion.txt"
+   }
+  },
+  {
+   "id": "NP199",
+   "investigation": "Topic: NASA-STD-6001 flammability test",
+   "field": "fact",
+   "fact": "Flammability rises with pressure, temperature and oxygen concentration.",
+   "quote": "With few exceptions, as pressure, temperature, and the concentration of oxygen levels increase, materials such as metals, plastics, elastomers, lubricants, and contaminants become more flammable.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "wstf-ignition-flammability",
+    "url": "https://www.nasa.gov/centers-and-facilities/white-sands/ignition-susceptibility-and-flammability/",
+    "text_file": "raw/nasa/wstf-ignition-flammability.txt"
+   }
+  },
+  {
+   "id": "NP200",
+   "investigation": "Saffire-V",
+   "field": "conditions",
+   "fact": "First Saffire with lowered pressure and added oxygen, after Cygnus left the ISS on Jan. 6 (article dated Jan 19, 2021).",
+   "quote": "lowered the pressure inside the spacecraft and backfilled it with oxygen to replicate potential atmospheric conditions that would likely be experienced inside future human spacecraft.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "saffire-new-discoveries",
+    "url": "https://www.nasa.gov/humans-in-space/saffire-ignites-new-discoveries-in-space/",
+    "text_file": "raw/nasa/saffire-new-discoveries.txt"
+   }
+  },
+  {
+   "id": "NP201",
+   "investigation": "Saffire-V",
+   "field": "results",
+   "fact": "Elevated oxygen gave more energetic flames.",
+   "quote": "\u201cThe elevated oxygen levels show more energetic flames, which would have a larger impact on the vehicle,\u201d says Gary A. Ruff, Saffire project manager at NASA\u2019s Glenn Research Center in Cleveland.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "saffire-new-discoveries",
+    "url": "https://www.nasa.gov/humans-in-space/saffire-ignites-new-discoveries-in-space/",
+    "text_file": "raw/nasa/saffire-new-discoveries.txt"
+   }
+  },
+  {
+   "id": "NP202",
+   "investigation": "Saffire-V",
+   "field": "results",
+   "fact": "Fires grow and burn faster on thinner ribs and materials than on thick samples.",
+   "quote": "Researchers discovered that fires in microgravity typically grow and burn faster on the thinner ribs and materials as opposed to thicker samples on the right.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "saffire-new-discoveries",
+    "url": "https://www.nasa.gov/humans-in-space/saffire-ignites-new-discoveries-in-space/",
+    "text_file": "raw/nasa/saffire-new-discoveries.txt"
+   }
+  },
+  {
+   "id": "NP203",
+   "investigation": "Saffire-V",
+   "field": "measurements",
+   "fact": "Cameras and sensors: flame growth, temperature variations, oxygen changes.",
+   "quote": "After ignition, cameras and sensors monitored flame growth, temperature variations, and oxygen changes, which were translated into data.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "saffire-new-discoveries",
+    "url": "https://www.nasa.gov/humans-in-space/saffire-ignites-new-discoveries-in-space/",
+    "text_file": "raw/nasa/saffire-new-discoveries.txt"
+   }
+  },
+  {
+   "id": "NP204",
+   "investigation": "Saffire",
+   "field": "results",
+   "fact": "Reducing pressure slows flame spread; results set the heat release rate of a spacecraft fire.",
+   "quote": "Results on flame spread in microgravity can be used to establish the rate of heat release in a spacecraft4 and show that reducing pressure slows down that spread.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "iss-combustion-fire-safety",
+    "url": "https://www.nasa.gov/missions/station/iss-research/studying-combustion-and-fire-safety/",
+    "text_file": "raw/nasa/iss-combustion-fire-safety.txt"
+   }
+  },
+  {
+   "id": "NP205",
+   "investigation": "MDCA (hardware)",
+   "field": "dates",
+   "fact": "Installed 2009, removed after more than eight years; supported more than five investigations.",
+   "quote": "Since its installation in 2009 the apparatus enabled droplet combustion experiments as part of more than five investigations.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "cir-eight-years",
+    "url": "https://www.nasa.gov/wp-json/wp/v2/migration/265462",
+    "text_file": "raw/nasa/cir-eight-years.txt"
+   }
+  },
+  {
+   "id": "NP206",
+   "investigation": "FLEX",
+   "field": "results",
+   "fact": "Summary: minimum suppressant concentrations and conditions that prevent combustion.",
+   "quote": "FLEX studied the effectiveness of fire suppressants in microgravity, focusing on minimum concentrations for putting out a fire and conditions for preventing combustion in different environments.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "cir-eight-years",
+    "url": "https://www.nasa.gov/wp-json/wp/v2/migration/265462",
+    "text_file": "raw/nasa/cir-eight-years.txt"
+   }
+  },
+  {
+   "id": "NP207",
+   "investigation": "SoFIE / GEL",
+   "field": "results",
+   "fact": "First SoFIE investigation flown; burned solid spheres; observations agree with model trends.",
+   "quote": "SoFIE-GEL analyzes how the temperature of a fuel affects material flammability. Researchers report that experiment observations agree with trends predicted by the models. This investigation, the first in a series, burned solid spherical samples.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "iss-combustion-fire-safety",
+    "url": "https://www.nasa.gov/missions/station/iss-research/studying-combustion-and-fire-safety/",
+    "text_file": "raw/nasa/iss-combustion-fire-safety.txt"
+   }
+  },
+  {
+   "id": "NP208",
+   "investigation": "BASS",
+   "field": "fire-safety insight",
+   "fact": "NASA summary: ground extinguishing methods could be ineffective or make the flame worse in space.",
+   "quote": "Putting out fires in space must consider flame geometry, characteristics of the materials, and methods used to extinguish it, because methods used on the ground could be ineffective or even make the flame worse.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "iss-combustion-fire-safety",
+    "url": "https://www.nasa.gov/missions/station/iss-research/studying-combustion-and-fire-safety/",
+    "text_file": "raw/nasa/iss-combustion-fire-safety.txt"
+   }
+  },
+  {
+   "id": "NP209",
+   "investigation": "MSG (hardware)",
+   "field": "hardware",
+   "fact": "Sealed glovebox facility on the ISS used for small flame experiments.",
+   "quote": "The Microgravity Science Glovebox (MSG) is a sealed facility that provides an enclosed space for investigations conducted in a low-gravity, or microgravity, environment created on the International Space Station (ISS).",
+   "source": {
+    "kind": "nasa-page",
+    "id": "msg-facility",
+    "url": "https://www.nasa.gov/wp-json/wp/v2/migration/97069",
+    "text_file": "raw/nasa/msg-facility.txt"
+   }
+  },
+  {
+   "id": "NP210",
+   "investigation": "ACME / BRE",
+   "field": "objective",
+   "fact": "Original proposal: emulate burning rate of solid and liquid fuels as a function of gravity level.",
+   "quote": "This apparatus is capable of assessing ignitability, steady burning rate, and extinction characteristics of \u201cvirtual\u201d solid and liquid fuels as a function of gravity level, flow characteristics, and orientation.",
+   "source": {
+    "kind": "nasa-page",
+    "id": "bre-fire-safety",
+    "url": "https://www.nasa.gov/wp-json/wp/v2/migration/61102",
+    "text_file": "raw/nasa/bre-fire-safety.txt"
+   }
+  }
+ ]
+}

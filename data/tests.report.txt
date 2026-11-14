@@ -1,0 +1,397 @@
+VESTA unified test table - build report
+source tables: research/raw/psi/tables/   PSI records: research/psi-investigations.json
+script: pipeline/build_tests.py   Python 3.9
+gravity: PSI record field project_type ('Microgravity Investigation' -> microgravity, anything else -> null)
+platform: PSI record field platform (PSI flightProgram); hardware: PSI record field hardware
+cell counts: converted = clean number (approx = written with '~' or under an 'approx' header); list/range = several values in one cell (single value null, values kept); stayed raw = text kept, value null
+
+TABLE PSI-10_Experimental table_Flame Design_Normal Flame.csv  (PSI-10, ACME/Flame Design)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 207   rows kept: 207   rows skipped: 0
+  fuel from 'Fuel' (pct_species): named 207, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Flame Type'                                   -> condition.flame_type                   text 207, left raw 0, empty 0
+    'Day'                                          -> condition.test_day_index               [day index, no conversion] converted 207 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Xfuel'                                        -> condition.xfuel                        [mole fraction, no conversion] converted 147 (of them approx 0), list/range 0, stayed raw 60, empty 0
+    'mfuel (mg/s)'                                 -> condition.mfuel_mg_s                   [mg/s, no conversion] converted 147 (of them approx 0), list/range 0, stayed raw 60, empty 0
+    'mN2 (mg/s)'                                   -> condition.mn2_mg_s                     [mg/s, no conversion] converted 147 (of them approx 0), list/range 0, stayed raw 60, empty 0
+    'mtot (mg/s)'                                  -> condition.mtot_mg_s                    [mg/s, no conversion] converted 147 (of them approx 0), list/range 0, stayed raw 60, empty 0
+    'XO2 (init)'                                   -> o2_percent                             [mole fraction, x 100] converted 207 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'XO2 (final)'                                  -> outcome.o2_final_percent               [mole fraction, x 100] converted 187 (of them approx 0), list/range 0, stayed raw 0, empty 20
+    'pinit (atm)'                                  -> pressure_kpa                           [atm, x 101.325] converted 207 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'pfinal (atm)'                                 -> outcome.pressure_final_kpa             [atm, x 101.325] converted 187 (of them approx 0), list/range 0, stayed raw 0, empty 20
+    'pmean (atm)'                                  -> condition.pressure_mean_kpa            [atm, x 101.325] converted 187 (of them approx 0), list/range 0, stayed raw 0, empty 20
+    'mean Zst'                                     -> condition.zst_mean                     [dimensionless, no conversion] converted 147 (of them approx 0), list/range 0, stayed raw 60, empty 0
+    'Tad (K)'                                      -> condition.tad_k                        [K, no conversion] converted 147 (of them approx 0), list/range 0, stayed raw 60, empty 0
+
+TABLE PSI-10_Experimental table_Flame Design_Inverse Flame.csv  (PSI-10, ACME/Flame Design)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 120   rows kept: 120   rows skipped: 0
+  fuel from the column header: Ethylene in every row
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Flame Type'                                   -> condition.flame_type                   text 120, left raw 0, empty 0
+    'Day'                                          -> condition.test_day_index               [day index, no conversion] converted 120 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'XO2'                                          -> o2_percent                             [mole fraction, x 100] converted 109 (of them approx 0), list/range 0, stayed raw 11, empty 0
+    'mO2 (mg/s)'                                   -> condition.mo2_mg_s                     [mg/s, no conversion] converted 112 (of them approx 0), list/range 0, stayed raw 8, empty 0
+    'mN2 (mg/s)'                                   -> condition.mn2_mg_s                     [mg/s, no conversion] converted 109 (of them approx 0), list/range 0, stayed raw 11, empty 0
+    'mtot (mg/s)'                                  -> condition.mtot_mg_s                    [mg/s, no conversion] converted 109 (of them approx 0), list/range 0, stayed raw 11, empty 0
+    'XC2H4 initial'                                -> condition.xc2h4_initial                [mole fraction, no conversion] converted 120 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'XC2H4 final'                                  -> outcome.xc2h4_final                    [mole fraction, no conversion] converted 120 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'pinit (atm)'                                  -> pressure_kpa                           [atm, x 101.325] converted 120 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'pfinal (atm)'                                 -> outcome.pressure_final_kpa             [atm, x 101.325] converted 120 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'pmean (atm)'                                  -> condition.pressure_mean_kpa            [atm, x 101.325] converted 120 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'mean Zst'                                     -> condition.zst_mean                     [dimensionless, no conversion] converted 109 (of them approx 0), list/range 0, stayed raw 11, empty 0
+    'Tad (K)'                                      -> condition.tad_k                        [K, no conversion] converted 109 (of them approx 0), list/range 0, stayed raw 11, empty 0
+
+TABLE PSI-20_Experimental table_ACME BRE.csv  (PSI-20, ACME BRE)
+  encoding utf-8, header at record 0, one row = test_day
+  rows read: 18   rows kept: 18   rows skipped: 0
+  fuel from 'Fuel Bottle' (pct_species): named 18, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Burner Size (mm)'                             -> condition.burner_size_mm               [mm, no conversion] converted 18 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Oxygen Conc (percent)'                        -> o2_percent                             [percent, no conversion] converted 0 (of them approx 0), list/range 16, stayed raw 2, empty 0  (of the raw ones, 2 failed the sanity gate)
+    'Flames Ignited'                               -> outcome.flames_ignited                 [count, no conversion] converted 18 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Notes'                                        -> table_notes                            text 2, left raw 0, empty 16
+
+TABLE PSI-21_Experimental table_CLD Flame.csv  (PSI-21, ACME CLD Flame)
+  encoding utf-8, header at record 0, one row = test_day
+  rows read: 32   rows kept: 32   rows skipped: 0
+  fuel from 'Fuel Bottle' (cld): named 30, left null with raw text 2, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Test Type'                                    -> condition.test_type                    text 32, left raw 0, empty 0
+    'Fuel MFC'                                     -> condition.fuel_mfc_max_slpm            [slpm, nitrogen basis (table note), no conversion] converted 32 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'N2 MFC'                                       -> condition.n2_mfc_max_slpm              [slpm, nitrogen basis (table note), no conversion] converted 32 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Fuel conc. Range'                             -> condition.fuel_conc_percent            [percent, no conversion] converted 6 (of them approx 0), list/range 26, stayed raw 0, empty 0
+    'Flames ignited'                               -> outcome.flames_ignited                 [count, no conversion] converted 32 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Notes'                                        -> table_notes                            text 1, left raw 0, empty 31
+
+TABLE PSI-22_Experimental table_ACME E-FIELD Flames.csv  (PSI-22, ACME E-FIELD Flames)
+  encoding utf-8, header at record 0, one row = test_day
+  rows read: 32   rows kept: 21   rows skipped: 11
+    skipped   11  continuation row (only Fuel Conc filled): folded into the test day above
+    kept rows identical to an earlier row (duplicate_of): 1
+  fuel from 'Fuel Bottle' (pct_species): named 21, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Test Type'                                    -> condition.test_type                    text 21, left raw 0, empty 0
+    'Mesh Polarity'                                -> condition.mesh_polarity                text 21, left raw 0, empty 0
+    'Fuel Conc'                                    -> condition.fuel_conc_percent            [percent, no conversion] converted 21 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Flames Ignited'                               -> outcome.flames_ignited                 [count, no conversion] converted 21 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Notes'                                        -> table_notes                            text 3, left raw 0, empty 18
+
+TABLE PSI-23_Experimental table_ACME s-Flame.csv  (PSI-23, ACME s-Flame)
+  encoding utf-8, header at record 0, one row = test_day
+  rows read: 18   rows kept: 18   rows skipped: 0
+  fuel from 'Fuel Bottle' (sflame): named 18, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Test Type'                                    -> condition.test_type                    text 18, left raw 0, empty 0
+    'Atmosphere*'                                  -> o2_percent                             [percent in the cell, no conversion] converted 13 (of them approx 13), list/range 5, stayed raw 0, empty 0
+    'Flames Ignited*'                              -> outcome.flames_ignited                 [count, no conversion] converted 18 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Notes'                                        -> table_notes                            text 3, left raw 0, empty 15
+
+TABLE PSI-159_Experimental table_CFI-G_Normal Flames.csv  (PSI-159, ACME CFI-G)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 179   rows kept: 179   rows skipped: 0
+  fuel from 'Fuel' (pct_species): named 179, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Flame Type'                                   -> condition.flame_type                   text 179, left raw 0, empty 0
+    'Day'                                          -> condition.test_day_index               [day index, no conversion] converted 179 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Cool flame?'                                  -> outcome.cool_flame                     text 8, left raw 0, empty 171
+    'XO2 before test'                              -> o2_percent                             [mole fraction, x 100] converted 179 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'XO2  after test'                              -> outcome.o2_final_percent               [mole fraction, x 100] converted 179 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'approx p (bar)'                               -> pressure_kpa                           [bar, x 100] converted 179 (of them approx 179), list/range 0, stayed raw 0, empty 0
+    'Xf'                                           -> condition.xf                           [mole fraction, no conversion] converted 179 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'mHC (mg/s)'                                   -> condition.mhc_mg_s                     [mg/s, no conversion] converted 179 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'TFP'                                          -> condition.tfp                          text 179, left raw 0, empty 0
+    'Tad (K)'                                      -> condition.tad_k                        [K, no conversion] converted 177 (of them approx 0), list/range 0, stayed raw 2, empty 0
+    'Zst'                                          -> condition.zst                          [dimensionless, no conversion] converted 177 (of them approx 0), list/range 0, stayed raw 2, empty 0
+    'Hot ignition'                                 -> outcome.hot_ignition                   text 179, left raw 0, empty 0
+    'burn time (sec)'                              -> outcome.burn_time_s                    [s, no conversion] converted 175 (of them approx 0), list/range 0, stayed raw 0, empty 4
+    'Self-ext or flow term'                        -> outcome.self_ext_or_flow_term          text 133, left raw 46, empty 0
+    'Peak burner T (C )'                           -> outcome.peak_burner_temp_c             [C, no conversion] converted 133 (of them approx 0), list/range 0, stayed raw 46, empty 0
+    'Comments'                                     -> outcome.comment                        text 44, left raw 0, empty 135
+
+TABLE PSI-159_Experimental table_CFI-G_Inverse Flames.csv  (PSI-159, ACME CFI-G)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 1015   rows kept: 154   rows skipped: 861
+    skipped  861  blank row
+  fuel from 'Fuel' (pct_species): named 154, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Flame Type'                                   -> condition.flame_type                   text 154, left raw 0, empty 0
+    'Day'                                          -> condition.test_day_index               [day index, no conversion] converted 154 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Xf  before test'                              -> condition.xf_before_test               [mole fraction, no conversion] converted 154 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Xf  after test'                               -> outcome.xf_after_test                  [mole fraction, no conversion] converted 154 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'approx p (bar)'                               -> pressure_kpa                           [bar, x 100] converted 154 (of them approx 154), list/range 0, stayed raw 0, empty 0
+    'XO2'                                          -> o2_percent                             [mole fraction, x 100] converted 154 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'HC burnrate (mg/s)'                           -> condition.hc_burnrate_mg_s             [mg/s, no conversion] converted 154 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'O2 flow rate (mg/s)'                          -> condition.o2_flow_rate_mg_s            [mg/s, no conversion] converted 154 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'TFP'                                          -> condition.tfp                          text 154, left raw 0, empty 0
+    'Tad (K)'                                      -> condition.tad_k                        [K, no conversion] converted 154 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Zst'                                          -> condition.zst                          [dimensionless, no conversion] converted 154 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Hot ignition'                                 -> outcome.hot_ignition                   text 154, left raw 0, empty 0
+    'burn time (sec)'                              -> outcome.burn_time_s                    [s, no conversion] converted 154 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Self -ext or flow term'                       -> outcome.self_ext_or_flow_term          text 139, left raw 15, empty 0
+    'Peak burner Temp (C)'                         -> outcome.peak_burner_temp_c             [C, no conversion] converted 151 (of them approx 0), list/range 0, stayed raw 2, empty 1
+    'Peak burner temp (K)'                         -> outcome.peak_burner_temp_k             [K, no conversion] converted 151 (of them approx 0), list/range 0, stayed raw 3, empty 0
+    'Color'                                        -> outcome.flame_color                    text 120, left raw 24, empty 10
+    'Comments'                                     -> outcome.comment                        text 39, left raw 0, empty 115
+
+TABLE PSI-25_Experimental table_BASS-II.csv  (PSI-25, BASS-II)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 129   rows kept: 129   rows skipped: 0
+  fuel from 'Fuel Sample Material' (bass_keywords): named 72, left null with raw text 57, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Sample #'                                     -> condition.sample_number                text 129, left raw 0, empty 0
+    'Flow restrictor'                              -> condition.flow_restrictor              [setting (no unit in the table), no conversion] converted 129 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Fan display'                                  -> condition.fan_display                  [display reading (no unit in the table), no conversion] converted 19 (of them approx 0), list/range 0, stayed raw 97, empty 13
+    'Air display'                                  -> condition.air_display                  [display reading (no unit in the table), no conversion] converted 25 (of them approx 0), list/range 0, stayed raw 100, empty 4
+    'Radiometer gain   (1000   250   50   10)'     -> condition.radiometer_gain              [gain setting, no conversion] converted 110 (of them approx 0), list/range 0, stayed raw 19, empty 0
+    'Calibrated  initial O2 % by vol'              -> o2_percent                             [percent by volume, no conversion] converted 129 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Calibrated final O2 % by vol'                 -> outcome.o2_final_percent               [percent by volume, no conversion] converted 127 (of them approx 0), list/range 0, stayed raw 2, empty 0
+    'Initial CO2 % by vol'                         -> condition.co2_initial_percent          [percent by volume, no conversion] converted 127 (of them approx 0), list/range 0, stayed raw 2, empty 0
+    'Final CO2 % by vol'                           -> outcome.co2_final_percent              [percent by volume, no conversion] converted 123 (of them approx 0), list/range 0, stayed raw 5, empty 1
+    'Initial CO (ppm)'                             -> condition.co_initial_ppm               [ppm, no conversion] converted 126 (of them approx 0), list/range 0, stayed raw 3, empty 0
+    'Final CO (ppm)'                               -> outcome.co_final_ppm                   [ppm, no conversion] converted 120 (of them approx 0), list/range 0, stayed raw 8, empty 1
+  columns left uninterpreted (in raw only): 'PI'; 'GMT'; 'Total Frames Shot'
+
+TABLE PSI-26_Experimental table_BASS.csv  (PSI-26, BASS)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 122   rows kept: 121   rows skipped: 1
+    skipped    1  maintenance row ('SOOT Cleaning'), not a test
+  fuel from 'Fuel Sample Material' (bass_keywords): named 88, left null with raw text 33, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'As Run Test #'                                -> condition.as_run_test_number           text 121, left raw 0, empty 0
+    'Sample #'                                     -> condition.sample_number                text 121, left raw 0, empty 0
+  columns left uninterpreted (in raw only): 'GMT'
+
+TABLE PSI-106_Experimental table_Slice.csv  (PSI-106, SLICE)
+  encoding utf-8, header at record 0, one row = test_day
+  rows read: 12   rows kept: 12   rows skipped: 0
+  fuel from 'Fuel Type' (pct_species): named 12, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+
+TABLE PSI-107_Experimental table_Spice.csv  (PSI-107, SPICE)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 469   rows kept: 469   rows skipped: 0
+    kept rows identical to an earlier row (duplicate_of): 34
+  fuel from 'Fuel' (pct_species): named 469, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Nozzle (mm)'                                  -> condition.nozzle_mm                    [mm, no conversion] converted 469 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Fuel Rate (sccm)'                             -> condition.fuel_rate_sccm               [sccm, no conversion] converted 457 (of them approx 0), list/range 0, stayed raw 0, empty 12
+    'Fuel Rate (mg/s)'                             -> condition.fuel_rate_mg_s               [mg/s, no conversion] converted 457 (of them approx 0), list/range 0, stayed raw 0, empty 12
+    'HC Fuel Rate (mg/s)'                          -> condition.hc_fuel_rate_mg_s            [mg/s, no conversion] converted 469 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Air Rate (cm/s)'                              -> flow_cm_s                              [cm/s, no conversion] converted 444 (of them approx 0), list/range 0, stayed raw 0, empty 25
+    'GMT  Flame Off'                               -> condition.gmt_flame_off                text 458, left raw 0, empty 11
+
+TABLE PSI-39_Experimental table_CFI.csv  (PSI-39, CFI)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 87   rows kept: 87   rows skipped: 0
+    kept rows identical to an earlier row (duplicate_of): 8
+  fuel from 'Fuel' (alias): named 87, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Pressure'                                     -> pressure_kpa                           [atm (written in the cell), x 101.325] converted 87 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Oxygen'                                       -> o2_percent                             [fraction of 1 (unit not written), x 100] converted 87 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Nitrogen'                                     -> composition.n2                         [fraction of 1 (unit not written), no conversion] converted 87 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Helium'                                       -> composition.he                         [fraction of 1 (unit not written), no conversion] converted 87 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Fiber'                                        -> condition.fiber                        text 78, left raw 0, empty 9
+    'CIR'                                          -> condition.cir_run_id                   text 87, left raw 0, empty 0
+  columns left uninterpreted (in raw only): 'Local Time'
+
+TABLE PSI-68_Experimental table_Flex2.csv  (PSI-68, FLEX-2)
+  encoding utf-8, header at record 0, one row = test_series
+  rows read: 8   rows kept: 8   rows skipped: 0
+  fuel from 'Sample (Fuel Type)' (alias): named 8, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Initial Droplet Diameter (mm)'                -> condition.droplet_diameter_mm          [mm, no conversion] converted 0 (of them approx 0), list/range 8, stayed raw 0, empty 0
+    'Ambient Gas Mixture'                          -> diluent                                text 8, left raw 0, empty 0
+    'Oxygen Mole Fraction'                         -> o2_percent                             [mole fraction, x 100] converted 0 (of them approx 0), list/range 8, stayed raw 0, empty 0
+    'Ambient Pressure (atm)'                       -> pressure_kpa                           [atm, x 101.325] converted 0 (of them approx 0), list/range 8, stayed raw 0, empty 0
+    'Ambient Temperature (C)'                      -> condition.ambient_temperature_c        [C, no conversion] converted 8 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Flow Velocity (cm/s)'                         -> flow_cm_s                              [cm/s, no conversion] converted 0 (of them approx 0), list/range 8, stayed raw 0, empty 0
+
+TABLE PSI-69_Experimental table_FLEX.csv  (PSI-69, FLEX)
+  encoding windows-1252, header at record 0, one row = test
+  rows read: 274   rows kept: 274   rows skipped: 0
+  fuel from 'Fuel' (pct_species): named 274, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'FLEX Identifier'                              -> condition.flex_identifier              text 274, left raw 0, empty 0
+    'Ambient pressure; mmHg'                       -> pressure_kpa                           [mmHg, x 0.133322] converted 273 (of them approx 0), list/range 0, stayed raw 1, empty 0  (of the raw ones, 1 failed the sanity gate)
+    'O initial ambient composition; mole fraction' -> o2_percent                             [mole fraction, x 100] converted 274 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'N initial ambient composition; mole fraction' -> composition.n2                         [mole fraction, no conversion] converted 274 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'CO initial ambient composition; mole fraction' -> composition.co2                        [mole fraction, no conversion] converted 274 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'He initial ambient composition; mole fraction' -> composition.he                         [mole fraction, no conversion] converted 274 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Droplet initial diameter; mm'                 -> condition.droplet_diameter_mm          [mm, no conversion] converted 262 (of them approx 0), list/range 0, stayed raw 6, empty 6
+    'Visible flame extinction diameter; mm'        -> outcome.flame_extinction_diameter_mm   [mm, no conversion] converted 197 (of them approx 0), list/range 0, stayed raw 28, empty 49
+    'Burning rate; mm'                             -> outcome.burning_rate                   [mm (as the header writes it), no conversion] converted 258 (of them approx 0), list/range 0, stayed raw 0, empty 16
+    'Burn time; s'                                 -> outcome.burn_time_s                    [s, no conversion] converted 268 (of them approx 2), list/range 0, stayed raw 0, empty 6
+    'Test end'                                     -> outcome.test_end                       text 274, left raw 0, empty 0
+  columns left uninterpreted (in raw only): 'Test GMT'
+
+TABLE PSI-98_Experimental table_SAFFIRE-1.csv  (PSI-98, SAFFIRE-I)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 4   rows kept: 2   rows skipped: 2
+    skipped    2  flow visualization data row, not a burn sample
+  fuel from 'Material' (alias): named 2, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Air Flow (cm/s)'                              -> flow_cm_s                              [cm/s, no conversion] converted 2 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Percent O2'                                   -> o2_percent                             [percent, no conversion] converted 1 (of them approx 1), list/range 1, stayed raw 0, empty 0
+    'Ignition Power (W)'                           -> condition.ignition_power_w             [W, no conversion] converted 2 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Ignition Time (s)'                            -> condition.ignition_time_s              [s, no conversion] converted 2 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Burn Time (s)'                                -> outcome.burn_time_s                    [s, no conversion] converted 2 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Flow Direction'                               -> flow_direction                         text 2, left raw 0, empty 0
+  columns left uninterpreted (in raw only): 'Camera 1'; 'Camera 2'
+
+TABLE PSI-99_Experimental table_SAFFIRE-2.csv  (PSI-99, SAFFIRE-II)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 15   rows kept: 9   rows skipped: 6
+    skipped    2  flow visualization data row, not a burn sample
+    skipped    4  table note row (kept under the table's notes)
+  fuel from 'Material' (alias): named 7, left null with raw text 0, empty cell 2
+  gravity: 'microgravity'  platform: 'Cygnus Spacecraft'
+  mapped columns (cells of kept rows):
+    'Air Flow (cm/s)'                              -> flow_cm_s                              [cm/s, no conversion] converted 9 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Percent O2 (Note 1)'                          -> o2_percent                             [percent, no conversion] converted 7 (of them approx 7), list/range 2, stayed raw 0, empty 0
+    'Ignition Power (W)'                           -> condition.ignition_power_w             [W, no conversion] converted 9 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Ignition Time (s)'                            -> condition.ignition_time_s              [s, no conversion] converted 9 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Burn Time (s)'                                -> outcome.burn_time_s                    [s, no conversion] converted 5 (of them approx 0), list/range 0, stayed raw 4, empty 0
+    'Flow Direction'                               -> flow_direction                         text 9, left raw 0, empty 0
+    '?-g Burn Length'                              -> outcome.microgravity_burn_length_cm    [cm (written in the cell), no conversion] converted 8 (of them approx 6), list/range 0, stayed raw 1, empty 0
+    '?-g Spread Length'                            -> outcome.microgravity_spread_rate_cm_s  [mm/s (written in the cell), x 0.1] converted 2 (of them approx 0), list/range 0, stayed raw 7, empty 0
+    '1-g Burn Length'                              -> outcome.normal_gravity_burn_length_cm  [cm (written in the cell), no conversion] converted 2 (of them approx 1), list/range 0, stayed raw 7, empty 0
+    '1-g Spread Rate'                              -> outcome.normal_gravity_spread_rate_cm_s [mm/s (written in the cell), x 0.1] converted 2 (of them approx 0), list/range 0, stayed raw 7, empty 0
+  columns left uninterpreted (in raw only): 'Camera 1'; 'Camera 2'
+
+TABLE PSI-100_Experimental table_SAFFIRE-3.csv  (PSI-100, SAFFIRE-III)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 2   rows kept: 2   rows skipped: 0
+  fuel from 'Material' (alias): named 2, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Air Flow'                                     -> flow_cm_s                              [cm/s (written in the cell), no conversion] converted 2 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Direction'                                    -> flow_direction                         text 2, left raw 0, empty 0
+  columns left uninterpreted (in raw only): 'Camera 1'; 'Camera 2'
+
+TABLE PSI-101_Experimental table_SAME-R.csv  (PSI-101, SAME-R)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 109   rows kept: 109   rows skipped: 0
+  fuel from 'Sample Type' (alias): named 109, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Description'                                  -> condition.description                  text 109, left raw 0, empty 0
+    'Inlet velocity (cm/s)'                        -> flow_cm_s                              [cm/s, no conversion] converted 109 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Rt/R0'                                        -> condition.rt_r0                        [ratio, no conversion] converted 109 (of them approx 0), list/range 0, stayed raw 0, empty 0
+    'Duration (sec)'                               -> condition.duration_s                   [s, no conversion] converted 68 (of them approx 0), list/range 0, stayed raw 0, empty 41
+    'Primary aging time (sec)'                     -> condition.primary_aging_time_s         [s, no conversion] converted 67 (of them approx 0), list/range 0, stayed raw 0, empty 42
+    'Primary mixing time (sec)'                    -> condition.primary_mixing_time_s        [s, no conversion] converted 67 (of them approx 0), list/range 0, stayed raw 0, empty 42
+    'Net aging time (sec)'                         -> condition.net_aging_time_s             [s, no conversion] converted 104 (of them approx 0), list/range 0, stayed raw 5, empty 0
+
+TABLE PSI-102_Experimental table_SAME.csv  (PSI-102, SAME)
+  encoding utf-8, header at record 0, one row = test
+  rows read: 8   rows kept: 8   rows skipped: 0
+  fuel from 'Sample Material' (alias): named 8, left null with raw text 0, empty cell 0
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Air Flow (cm/s)'                              -> flow_cm_s                              [cm/s, no conversion] converted 4 (of them approx 0), list/range 0, stayed raw 0, empty 4
+    'Weight loss rate (mg/min)'                    -> outcome.weight_loss_rate_mg_min        [mg/min, no conversion] converted 4 (of them approx 0), list/range 0, stayed raw 0, empty 4
+    'Aging Duration (minutes)'                     -> condition.aging_duration_min           [min, no conversion] converted 4 (of them approx 0), list/range 0, stayed raw 0, empty 4
+
+TABLE PSI-47_Experimental table_DAFT.csv  (PSI-47, DAFT / DAFT-2)
+  encoding utf-8, header at record 0, one row = session
+  rows read: 2   rows kept: 2   rows skipped: 0
+  fuel: the table has no fuel column, fuel is null
+  gravity: 'microgravity'  platform: 'International Space Station (ISS)'
+  mapped columns (cells of kept rows):
+    'Hardware Description'                         -> condition.hardware_description         text 2, left raw 0, empty 0
+    'Sample Material'                              -> condition.sample_material              text 2, left raw 0, empty 0
+    'Sampled Location'                             -> condition.sampled_location             text 2, left raw 0, empty 0
+
+TABLE PSI-142_Experimental table_Data Summary Table.csv  (PSI-142, Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames)
+  encoding utf-8, header at record 0, one row = dataset_index
+  rows read: 8   rows kept: 8   rows skipped: 0
+  fuel: the table has no fuel column, fuel is null
+  gravity: None  platform: None
+  mapped columns (cells of kept rows):
+    'Data Description'                             -> condition.data_description             text 8, left raw 0, empty 0
+    'Reference Publication Link'                   -> condition.reference_publication_link   text 8, left raw 0, empty 0
+    'Figure ID in Reference'                       -> condition.figure_id_in_reference       text 8, left raw 0, empty 0
+
+EXCLUDED (not read)
+  PSI-108 STDCE-1: Surface Tension Driven Convection Experiment (PSI research area: Fluid Physics). Not combustion; it only matched the search word.  Tables: PSI-108_Experimental table_STDCE-1(1).csv; PSI-108_Experimental table_STDCE-1.csv
+  PSI-181 Structure and Properties of Pb-Sn and Pb-free Sn-Ag-Cu Solders Produced in Terrestrial vs. Microgravity Environments under Extremes of Elevated and Cryo Temperatures: Pb-Sn and Sn-Ag-Cu solders (PSI research area: Materials Science). Not combustion; it only matched the search word.  Tables: PSI-181_Experimental table_Experimental Table_PSI_181.csv
+
+PSI RECORDS WITHOUT AN EXPERIMENTAL TABLE: PSI-60, PSI-62, PSI-115, PSI-117
+
+PER INVESTIGATION
+  PSI-10   ACME/Flame Design      rows kept  327  (327 test)
+           varied   o2_percent    19.804819 .. 84.997793  (246 distinct, 316 of 327 rows)
+                    of them ambient       19.804819 .. 40  (207 rows)
+                    of them burner_stream 21.201718 .. 84.997793  (109 rows)
+           varied   pressure_kpa  43.023308 .. 304.748434  (129 distinct, 327 of 327 rows)
+  PSI-20   ACME BRE               rows kept   18  (18 test_day)
+           lists / ranges in o2_percent    21 .. 40  (16 cells)
+  PSI-21   ACME CLD Flame         rows kept   32  (32 test_day)
+  PSI-22   ACME E-FIELD Flames    rows kept   21  (21 test_day)
+  PSI-23   ACME s-Flame           rows kept   18  (18 test_day)
+           varied   o2_percent    21 .. 30  (2 distinct, 13 of 18 rows)
+           lists / ranges in o2_percent    21 .. 30  (5 cells)
+  PSI-159  ACME CFI-G             rows kept  333  (333 test)
+           varied   o2_percent    12 .. 85  (150 distinct, 333 of 333 rows)
+                    of them ambient       17.968567 .. 39.97  (179 rows)
+                    of them burner_stream 12 .. 85  (154 rows)
+           varied   pressure_kpa  49.53817 .. 330.99  (11 distinct, 333 of 333 rows)
+  PSI-25   BASS-II                rows kept  129  (129 test)
+           varied   o2_percent    13.6 .. 22.2  (50 distinct, 129 of 129 rows)
+  PSI-26   BASS                   rows kept  121  (121 test)
+  PSI-106  SLICE                  rows kept   12  (12 test_day)
+  PSI-107  SPICE                  rows kept  469  (469 test)
+           varied   flow_cm_s     -5.92 .. 85.28  (62 distinct, 444 of 469 rows)
+  PSI-39   CFI                    rows kept   87  (87 test)
+           varied   o2_percent    17 .. 21  (2 distinct, 87 of 87 rows)
+           varied   pressure_kpa  50.6625 .. 506.625  (7 distinct, 87 of 87 rows)
+  PSI-68   FLEX-2                 rows kept    8  (8 test_series)
+           lists / ranges in o2_percent    17 .. 30  (8 cells)
+           lists / ranges in pressure_kpa  50.6625 .. 303.975  (8 cells)
+           lists / ranges in flow_cm_s     0.1 .. 5  (8 cells)
+  PSI-69   FLEX                   rows kept  274  (274 test)
+           varied   o2_percent    12 .. 34  (15 distinct, 274 of 274 rows)
+           varied   pressure_kpa  70.167369 .. 309.293708  (182 distinct, 273 of 274 rows)
+  PSI-98   SAFFIRE-I              rows kept    2  (2 test)
+           constant o2_percent    21.5  (1 of 2 rows)
+           constant flow_cm_s     20  (2 of 2 rows)
+           lists / ranges in o2_percent    21.5 .. 21.7  (1 cells)
+  PSI-99   SAFFIRE-II             rows kept    9  (9 test)
+           varied   o2_percent    21.5 .. 22.1  (2 distinct, 7 of 9 rows)
+           constant flow_cm_s     20  (9 of 9 rows)
+           lists / ranges in o2_percent    21.9 .. 22.1  (2 cells)
+  PSI-100  SAFFIRE-III            rows kept    2  (2 test)
+           constant flow_cm_s     30  (2 of 2 rows)
+  PSI-101  SAME-R                 rows kept  109  (109 test)
+           varied   flow_cm_s     0 .. 8.1  (5 distinct, 109 of 109 rows)
+  PSI-102  SAME                   rows kept    8  (4 test, 4 test_group_reference)
+           varied   flow_cm_s     5 .. 10  (2 distinct, 4 of 8 rows)
+  PSI-47   DAFT / DAFT-2          rows kept    2  (2 session)
+  PSI-142  Quantitative Studies o rows kept    8  (8 dataset_index)
+
+TOTALS
+  tables read: 22   rows read: 2870   rows kept (tests in tests.json): 1989
+  with a fuel name: 1885   with o2_percent: 1160   with pressure_kpa: 1020   with flow_cm_s: 570
+  o2_percent by basis: ambient 897, burner_stream 263
+  gravity: microgravity 1981, None 8
+  rows identical to an earlier row (kept, flagged): 43
+  tests.json: 1989 tests, 3210358 bytes   tests.csv: 1989 data rows, 116 columns
+  checks passed: ids unique; id, psi_id, table_file, row, raw present in every test; tests per table = rows kept; rows read = kept + skipped; tests.csv rows = tests.json tests

@@ -1,0 +1,85 @@
+https://science.nasa.gov/biological-physical/focus-areas/combustion-science/
+TITLE: Combustion Science - NASA Science
+FETCHED: 2026-11-14T10:52:40
+
+# Combustion Science
+
+#### Spacecraft Fire Safety | Droplets | Gaseous – Premixed and Non-Premixed | Solid Fuels | Supercritical Reacting Fluids
+
+In the United States, combustion processes contribute to about 85% of delivered energy and are an integral part in many industrial fabrication processes. Combustion produces greenhouse gases and soot, which contributes to global warming and causes significant health concerns. The Combustion Science Discipline conducts idealized experiments on the International Space Station where the removal of gravity enables researchers to study details of the combustion processes that cannot be readily studied on the ground. The Space Station environment also provides an important test-bed for studying spacecraft fire risk.
+
+Learn more about combustion science research at Glenn Research Center
+
+#### Publications
+
+Check out the recent publications from participating NASA scientists, Principal Investigators, and contributors from universities and labs around the world:
+
+Farouk T, Won S, Dryer F. "Sub-millimeter sized multi-component jet fuel surrogate droplet combustion: Physicochemical preferential vaporization effects." Proceedings of the Combustion Institute. In Press, Corrected Proof. https://doi.org/10.1016/j.proci.2020.06.200, Sep
+
+­Xu Y, Farouk Tl, Hicks MC, Avedisian CT. "Initial diameter effects on combustion of unsupported equi-volume n-heptane/iso-octane mixture droplets: Experimental observations and detailed numerical modeling." Combustion and Flame. 2020 Oct;220:82
+
+Zhou M, Yehia OR, Reuter CB, Burger CM, Murakami Y, Zhao H, Ju Y. "Kinetic effects of NO addition on n-dodecane cool and warm diffusion flames." Proceedings of the Combustion Institute. 2021 ;38(2):2351-60. https://doi.org/10.1016/j.proci.2020.06.002, Jan-2021
+
+Ju Y. "Understanding cool flames and warm flames." Proceedings of the Combustion Institute. 2021;38(1):83-119. https://doi.org/10.1016/j.proci.2020.09.019, Jan-2021
+
+Murakami Y, Reuter CB, Yehia OR, Ju Y. "Studies of autoignition-assisted nonpremixed cool flames." Proceedings of the Combustion Institute. 2021 ;38(2):2333-40. https://doi.org/10.1016/j.proci.2020.06.379 , Jan-2021
+
+Zhou M, Yehia OR, Xu W, Reuter CB, Wang Z, Yan C, Jiang B, Ju Y. "The radical index and the effect of oxygen concentration on non­premixed cool flame extinction of large n-alkanes." Combustion and Flame. 2021 Sep;231:111471. Available online 5 May
+
+Ju Y. (Yiguang Ju) "Plenary Lecturer, 38th International Symposium on Combustion, Adelaide, Australia, January 24-29, 2021. (Online)" Jan 2021
+
+Ju Y. (Yiguang Ju) "2021 AIM Propellants and Combustion Award, June 2021." Jun-2021
+
+Souza OT. "Effects of Inert Gases and Flow Velocities on the Structure and Stability of Coflow Diffusion Flames." M.S. Thesis, Department of Mechanical Engineering, Case Western Reserve University, May 2021 . , May-2021
+
+P. Dehghani, J.L. De Ris, J.G. Quintiere, Burning emulations of solids and liquids in microgravity, Proc. Combust. Inst. (accepted)
+
+Minhyeng Kim, Kendyl A. Waddell, Peter B. Sunderland, Vedha Nayagam, Dennis P. Stocker, Daniel L. Dietrich, Yiguang Ju, Forman A. Williams, Phillip Irace, and Richard L. Axelbaum, The First Observations of Spherical Gas-Fueled Cool Diffusion Flames, Proc. Combust. Inst. (accepted)
+
+Richard R. Dobbins, Jesse Tinajero, Joseph Squeo, Xinyu Zhao, Robert J. Hall, Meredith B. Colket, Marshall B. Long & Mitchell D. Smooke (2022) “A Combined Experimental and Computational Study of Soot Formation in Normal and Microgravity Conditions,” Combustion Science and Technology. (published) https://doi.org/10.1080/00102202.2022.2041621
+
+D. Escofet-Martin, Y.-C. Chien, D. Dunn-Rankin, “PLIF and Chemiluminescence in a Small Laminar Coflow Methane-Air Diffusion Flame at Elevated Pressures,” Combustion and Flame (2022): 112067. (in press) https://doi.org/10.1016/j.combustflame.2022.112067
+
+P.H. Irace, A. Gopan, R.L. Axelbaum, An investigation of thermal radiation from laminar diffusion flames in a tri-coflow burner with central oxygen, Combust. Flame 242 (2022) 112158. (published) https://doi.org/10.1016/j.combustflame.2022.112158
+
+P.H. Irace, K. Waddell, D. Constales, P.B. Sunderland, R.L. Axelbaum, Critical temperature and reactant mass flux for radiative extinction of ethylene microgravity spherical diffusion flames at 1 bar, Proc. Combust. Inst. (2022). (accepted)
+
+P.H. Irace, K Waddell, D. Constales, G. Yablonsky, M. Kim, P.B. Sunderland, R.L. Axelbaum, On the existence of steady state gaseous microgravity spherical diffusion flames in the presence of radiation heat loss, Proc. Combust. Inst. (2022). (accepted)
+
+C. Li, J. T’ien, M. Johnston, S. Olson and P. Ferkul, “Ignition of Bulk PMMA Samples Using a Heated Wire” submitted (under review) to Fire Safety Journal ​
+
+“Dynamic response and induced quenching of solid sphere diffusion flame in normal-to zero gravity transition: effect of sample subsurface preheating”, Michael Johnston, James T’ien, Sheng-Yen Hsu, Ching-Wei Wu, Sandra Olson and Paul Ferkul, under review.​
+
+Bhattacharjee, S., Delichatsios, M., Competition Between Pyrolysis Kinetics and Surface Radiation in Opposed-Flow Flame Spread in a Microgravity Environment, ICES 2022
+
+C. Liveretou, C. Scudiere, M. Thomsen, C. Fernandez-Pello, M. Gollner, S. Olson, P. Ferkul, Downward Flame Spread Rate Over PMMA Cylinders Under External Radiant Heating and Subatmospheric Pressure, ICES 2022
+
+M. Thomsen, L. Carmignani, A. Rodriguez, C. Scudiere, C. Liveretou, C. Fernandez-Pello, M. Gollner, S. Olson, P. Ferkul, Downward Flame Spread Rate over PMMA Rods under External Radiant Heating , ICES 2022
+
+S. Hossain, I. Wichman, F. Miller and S. Olson, “Surface Regression in Opposed Flow Flame Spread: Transitions, Correlations and Partition Factors,” International Symposium on Combustion 2022
+
+M Mikami, K Matsumoto, Y Chikami, M Kikuchi and D Dietrich (2022) ”Appearance of Cool Flame in Flame Spread Over Fuel Droplets in Microgravity”, Proc. Comb. Inst. 39 (accepted)
+
+Keep Exploring
+
+## Discover More Topics From NASA
+
+###
+James Webb Space Telescope
+
+Webb is the premier observatory of the next decade, serving thousands of astronomers worldwide. It studies every phase in the…
+
+###
+Perseverance Rover
+
+This rover and its aerial sidekick were assigned to study the geology of Mars and seek signs of ancient microbial…
+
+###
+Parker Solar Probe
+
+On a mission to “touch the Sun,” NASA's Parker Solar Probe became the first spacecraft to fly through the corona…
+
+###
+Juno
+
+NASA’s Juno spacecraft entered orbit around Jupiter in 2016, the first explorer to peer below the planet's dense clouds to…

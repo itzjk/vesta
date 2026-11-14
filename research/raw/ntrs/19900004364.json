@@ -1,0 +1,147 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19900004364,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "4317d024ac204157af5c62f070965855",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Materials Processing"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19900004364,
+  "ear": "NO",
+  "id": "b65b4cc566c1420ca03c651167a1f897",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NAS 1.15:102425",
+  "E-8363",
+  "E-5190",
+  "NASA-TM-102425",
+  "Report Number: NAS 1.15:102425",
+  "Report Number: E-8363",
+  "Report Number: E-5190",
+  "Report Number: NASA-TM-102425"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 674-22-05",
+   "submissionId": 19900004364,
+   "id": "7429d7265c884fc780f6587a3762d68e",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "An Investigation of Flame Spread over Shallow Liquid Pools in Microgravity and Nonair Environments",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T14:59:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19900004364,
+   "meta": {
+    "author": {
+     "name": "Ross, Howard D."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "003947b8eca94ba390898d033294f917"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19900004364,
+   "meta": {
+    "author": {
+     "name": "Sotos, Raymond G."
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "dad3f04e26a8443e883434f0073cb253"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19900004364,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "90N13680"
+ },
+ "created": "2013-09-06T14:59:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Experiments of interest to combustion fundamentals and spacecraft fire safety investigated flame spread of alcohol fuels over shallow, 15 cm diameter pools in a 5.2 sec free-fall, microgravity facility. Results showed that, independent O2 concentration, alcohol fuel, and diluent types, microgravity flame spread rates were nearly identical to those corresponding normal-gravity flames for conditions where the normal gravity flames spread uniformly. This similarity indicated buoyancy-related convection in either phase does not affect flame spread, at least for the physical scale of the experiments. However, microgravity extinction coincided with the onset conditions for pulsating spread in normal gravity, implicating gas phase, buoyant flow as a requirement for pulsating spread. When the atmospheric nitrogen was replaced with argon, the conditions for the onset of normal-gravity pulsating flame spread and microgravity flame extinction were changed, in agreement with the expected lowering of the flash point through the thermal properties of the diluent. Helium-diluted flames, however, showed unexpected results with a shift to apparently higher flash-point temperatures and high normal gravity pulsation amplitudes.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "France",
+   "submissionId": 19900004364,
+   "endDate": "1990-07-27T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "20a0b9482bb74d3ca4edf4050d9653f3",
+     "meta": {
+      "organization": {
+       "name": "Orleans Univ."
+      }
+     },
+     "meetingId": "1643af67ab1d43248f1fa0a671102526",
+     "id": "6b37989e9880409aa5f3f5deb7744802"
+    }
+   ],
+   "name": "International Symposium on Combustion",
+   "location": "Orleans",
+   "id": "1643af67ab1d43248f1fa0a671102526",
+   "startDate": "1990-07-22T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19900004364,
+   "id": "eb796de1e81a437d9237b4d234f07dab",
+   "publicationDate": "1989-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19900004364.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19900004364/downloads/19900004364.pdf",
+    "pdf": "/api/citations/19900004364/downloads/19900004364.pdf",
+    "fulltext": "/api/citations/19900004364/downloads/19900004364.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

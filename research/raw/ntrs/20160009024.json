@@ -1,0 +1,180 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20160009024,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "4c765c7e977d429eb1fe153f5ed428c5",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Metals And Metallic Materials",
+  "Chemistry And Materials (General)"
+ ],
+ "keywords": [
+  "Preventative Compounds",
+  "Environmentally",
+  "Friendly Corrosion"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20160009024,
+  "ear": "NO",
+  "id": "e70e883ae01046bdb98830cf35a6e092",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-11T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "KSC-E-DAA-TN32857",
+  "Report Number: KSC-E-DAA-TN32857"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNK11EA08C",
+   "submissionId": 20160009024,
+   "id": "046d8ff6d5e9409291b82b8c058b456f",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Environmentally Friendly Corrosion Preventative Compounds",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2016-07-14T08:19:29.3670000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20160009024,
+   "meta": {
+    "author": {
+     "name": "Calle, Luz Marina"
+    },
+    "organization": {
+     "name": "NASA Kennedy Space Center",
+     "location": "Cocoa Beach, FL United States"
+    }
+   },
+   "id": "e065aa560ee8412f9a746c6a9e1e8f91"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20160009024,
+   "meta": {
+    "author": {
+     "name": "Montgomery, Eliza"
+    },
+    "organization": {
+     "name": "Ascentech Enterprises, Inc.",
+     "location": "Kennedy Space Center, FL, United States"
+    }
+   },
+   "id": "1f60fb7999564cc193fde6d9648fb80c"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20160009024,
+   "meta": {
+    "author": {
+     "name": "Kolody, Mark "
+    },
+    "organization": {
+     "name": "Ascentech Enterprises, Inc.",
+     "location": "Kennedy Space Center, FL, United States"
+    }
+   },
+   "id": "58a876b055d74e54b80666c67e5b034b"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20160009024,
+   "meta": {
+    "author": {
+     "name": "Curran, Jerry"
+    },
+    "organization": {
+     "name": "Ascentech Enterprises, Inc.",
+     "location": "Kennedy Space Center, FL, United States"
+    }
+   },
+   "id": "a4a9ad2619c54f2ba6ec9b308d541f2a"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20160009024,
+   "meta": {
+    "author": {
+     "name": "Back, Teddy"
+    },
+    "organization": {
+     "name": "Ascentech Enterprises, Inc.",
+     "location": "Kennedy Space Center, FL, United States"
+    }
+   },
+   "id": "5bc73985fb374c55afed3a06863988f6"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20160009024,
+   "meta": {
+    "author": {
+     "name": "Balles, Angela"
+    },
+    "organization": {
+     "name": "NASA Kennedy Space Center",
+     "location": "Cocoa Beach, FL United States"
+    }
+   },
+   "id": "869ce5421f354bebad16cebc17cc4ff1"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20160009024,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2016-07-14T08:19:29.3670000+00:00",
+ "center": {
+  "code": "KSC",
+  "name": "Kennedy Space Center",
+  "id": "a74d241e0e974719b03cb45cbace6b20"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The objective of the Ground Systems Development and Operations Program Environmentally Friendly Corrosion Protective Coatings and Corrosion Preventive Compounds (CPCs) project is to identify, test, and develop qualification criteria for the use of environmentally friendly corrosion protective coatings and CPCs for flight hardware and ground support equipment. This document is the Final Report for Phase I evaluations, which included physical property, corrosion resistance, and NASA spaceport environment compatibility testing and analysis of fifteen CPC types. The CPCs consisted of ten different oily film CPCs and five different wax or grease CPC types. Physical property testing encompassed measuring various properties of the bulk CPCs, while corrosion resistance testing directly measured the ability of each CPC material to protect various metals against corrosion. The NASA spaceport environment compatibility testing included common tests required by NASA-STD-6001, \"Flammability, Odor, Offgassing, and Compatibility Requirements and Test Procedures for Materials in Environments that Support Combustion\". At the end of Phase I, CPC materials were down-selected for inclusion in the next test phases. This final report includes all data and analysis of results obtained by following the experimental test plan that was developed as part of the project. Highlights of the results are summarized by test criteria type.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20160009024,
+   "id": "f60c4c3470254d3fa8cf9134426cbe70",
+   "publicationDate": "2012-11-30T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20160009024.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20160009024/downloads/20160009024.pdf",
+    "pdf": "/api/citations/20160009024/downloads/20160009024.pdf",
+    "fulltext": "/api/citations/20160009024/downloads/20160009024.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

@@ -1,0 +1,224 @@
+{
+ "copyright": {
+  "disclosedInvention": false,
+  "submissionId": 20250006173,
+  "containsThirdPartyMaterial": false,
+  "containsIndication": false,
+  "belongsToPublisher": false,
+  "id": "a7b3102b439e4dbf8829b91a6b622402",
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology and Life Support"
+ ],
+ "keywords": [
+  "CDFF",
+  "CLDP",
+  "ISS"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20250006173,
+  "ear": "NO",
+  "id": "6245e80e6d8d413cad6d3373b9c9162b",
+  "itar": "NO"
+ },
+ "distributionDate": "2025-07-11T05:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2025-126"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "80GSFC19D0011",
+   "submissionId": 20250006173,
+   "id": "f2f61e8f8370476caf619c4e6a5b9c5f",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "80JSC022DA035",
+   "submissionId": 20250006173,
+   "id": "f6dc9b35320e4674bb24c11986bf19c7",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "80JSC023FA181",
+   "submissionId": 20250006173,
+   "id": "6b940e1606054debb5482bca9d833d27",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Enhancing Future Commercial Space Stations: Applying ISS Insights to Environmental Control and Life Support Systems (ECLSS) Development on Emergency Response",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2025-06-16T23:37:58.4951160+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20250006173,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Stephanie Walker"
+    },
+    "organization": {
+     "name": "Space Walkers-42 LLC "
+    }
+   },
+   "id": "5afa9bfc737d45c9ad9f37e440f2df0b",
+   "userType": "CIVIL",
+   "userId": "0355947a11504289adc7e3c236f5d859"
+  },
+  {
+   "organizationId": "e7f624d3f75b4e569a348f509cb0d35f",
+   "sequence": 1,
+   "submissionId": 20250006173,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Cynthia Reuland"
+    },
+    "organization": {
+     "name": "Aerodyne Industries",
+     "location": "Cape Canaveral, Florida, United States"
+    }
+   },
+   "id": "dfd254dbd6414eb297fd9307fbc09541",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "211c0e9a9dac46d19d0f8e45c07d4fff"
+  },
+  {
+   "organizationId": "02643c9e9b525162877c70e4c186571b",
+   "sequence": 2,
+   "submissionId": 20250006173,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Leon Chen"
+    },
+    "organization": {
+     "name": "The Aerospace Corporation",
+     "location": "El Segundo, California, United States"
+    }
+   },
+   "id": "38be36a15edb4932a5403bbd6d97634a",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "6b8aca67d4434d9f899f3dec64fb0be8"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 3,
+   "submissionId": 20250006173,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "David Williams"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, United States"
+    }
+   },
+   "id": "c63373ea4c624505bc083d56d4adfb71",
+   "userType": "CIVIL",
+   "userId": "2b3748f72715444691f3833c54d94c9d"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20250006173,
+ "created": "2025-06-12T19:55:12.8504170+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The expansion of space exploration to commercial space stations represents a significant shift from traditional government-led endeavors to a new, competitive era driven by private companies and innovative forces. This transition, while promising, brings its own set of challenges, particularly in the intricate development of Environmental Control and Life Support Systems (ECLSS). Establishing effective ECLSS within commercial space stations is critical, as it ensures the safety and sustainability of long-term human presence in space. By applying the lessons learned from the International Space Station (ISS), particularly during the initial conceptual design phase, there is an opportunity to mitigate early-stage issues and optimize the development process for these commercial habitats.\n\nOne aspect that has not been discussed often, and with limited literature on the subject, is emergency operations aboard the ISS. Emergency operations requires a multidisciplinary approach, which is essential for completing its primary objective. Due to the nature of this, the main three categories of emergency operations can be classified as fire hazards, toxic spills, and rapid depress. This paper focuses on the specifics of ECLSS based emergency operations, with an in-depth focus on emergency hardware and operations within the specified categories. By drawing on operational experiences from the ISS, this paper aims to provide valuable insight for the considerations, design, and operational readiness of future commercial space station, ensuring enhanced safety protocols and preparedness for emergency scenarios. ",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20250006173,
+  "id": "85d5813734454a0db6d1d033460cbebf"
+ },
+ "meetings": [
+  {
+   "country": "CZ",
+   "submissionId": 20250006173,
+   "endDate": "2025-07-17T05:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "66b67eba2c4d5e26a027207aa676a051",
+     "meta": {
+      "organization": {
+       "name": "Collins Aerospace (United States)",
+       "location": "Charlotte, United States"
+      }
+     },
+     "meetingId": "94764efba94148df9df1538fd6e2a4d2",
+     "id": "b1f62fc2c80047e98339f2a4690b2def"
+    },
+    {
+     "organizationId": "67dbda733070575ea6950811bfc33efb",
+     "meta": {
+      "organization": {
+       "name": "Jacobs (Canada)",
+       "location": "North York, Ontario, Canada"
+      }
+     },
+     "meetingId": "94764efba94148df9df1538fd6e2a4d2",
+     "id": "67b80a203f834456852f4107bad68410"
+    },
+    {
+     "organizationId": "8094e2525ac4474fa5430d8c1c594057",
+     "meta": {
+      "organization": {
+       "name": "Boeing Co.",
+       "location": "Houston, TX, United States"
+      }
+     },
+     "meetingId": "94764efba94148df9df1538fd6e2a4d2",
+     "id": "9570c75f4f6a4c6d96aecafb9ae9f822"
+    },
+    {
+     "organizationId": "b33fb9deb73a56bb83b721d0515d45ea",
+     "meta": {
+      "organization": {
+       "name": "Honeywell (Canada)",
+       "location": "Mississauga, Ontario, Canada"
+      }
+     },
+     "meetingId": "94764efba94148df9df1538fd6e2a4d2",
+     "id": "ed5d1c52c0924ec1bacdfcbb162fc521"
+    }
+   ],
+   "name": "54th International Conference on Environmental Systems (ICES) ",
+   "location": "Prague",
+   "id": "94764efba94148df9df1538fd6e2a4d2",
+   "url": "https://www.ices.space/",
+   "startDate": "2025-07-13T05:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+   "name": "ICES_2025_126_RevB.pptx",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20250006173/downloads/ICES_2025_126_RevB.pptx",
+    "fulltext": "/api/citations/20250006173/downloads/ICES_2025_126_RevB.pptx.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

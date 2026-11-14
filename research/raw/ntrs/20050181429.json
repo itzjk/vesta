@@ -1,0 +1,164 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050181429,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "9b73d086ce644256a4277e54d44c3790",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Structural Mechanics"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050181429,
+  "ear": "NO",
+  "id": "959b67a6f7844b4fb1972ed183adc87a",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-10T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA/TM-2005-213795",
+  "E-15153",
+  "GRC-DDV-FCF-2005-001",
+  "Report Number: NASA/TM-2005-213795",
+  "Report Number: E-15153",
+  "Report Number: GRC-DDV-FCF-2005-001"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "WBS 22-770-00-12",
+   "submissionId": 20050181429,
+   "id": "5fdce388a50c4f7b8debb95a165fff8b",
+   "type": "WBS"
+  }
+ ],
+ "title": "Fluids and Combustion Facility: Combustion Integrated Rack Modal Model Correlation",
+ "stiType": "TECHNICAL_MEMORANDUM",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T12:05:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050181429,
+   "meta": {
+    "author": {
+     "name": "McNelis, Mark E."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "5491278763e1484482064382359af05e"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20050181429,
+   "meta": {
+    "author": {
+     "name": "Suarez, Vicente J."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "bef44f4414db40bdbc26fbcfa4f6f990"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20050181429,
+   "meta": {
+    "author": {
+     "name": "Sullivan, Timothy L."
+    },
+    "organization": {
+     "name": "Analex Corp.",
+     "location": "Brook Park, OH, United States"
+    }
+   },
+   "id": "19dee3297c094dedabf941a402cb25b3"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20050181429,
+   "meta": {
+    "author": {
+     "name": "Otten, Kim D."
+    },
+    "organization": {
+     "name": "Analex Corp.",
+     "location": "Brook Park, OH, United States"
+    }
+   },
+   "id": "a27aa0057b014c349ef5c82df8b8e053"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20050181429,
+   "meta": {
+    "author": {
+     "name": "Akers, James C."
+    },
+    "organization": {
+     "name": "Analex Corp.",
+     "location": "Brook Park, OH, United States"
+    }
+   },
+   "id": "3dd92fff8f8d41e9baab8bb3876740c1"
+  }
+ ],
+ "stiTypeDetails": "Technical Memorandum (TM)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050181429,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T12:05:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The Fluids and Combustion Facility (FCF) is a modular, multi-user, two-rack facility dedicated to combustion and fluids science in the US Laboratory Destiny on the International Space Station. FCF is a permanent facility that is capable of accommodating up to ten combustion and fluid science investigations per year. FCF research in combustion and fluid science supports NASA's Exploration of Space Initiative for on-orbit fire suppression, fire safety, and space system fluids management. The Combustion Integrated Rack (CIR) is one of two racks in the FCF. The CIR major structural elements include the International Standard Payload Rack (ISPR), Experiment Assembly (optics bench and combustion chamber), Air Thermal Control Unit (ATCU), Rack Door, and Lower Structure Assembly (Input/Output Processor and Electrical Power Control Unit). The load path through the rack structure is outlined. The CIR modal survey was conducted to validate the load path predicted by the CIR finite element model (FEM). The modal survey is done by experimentally measuring the CIR frequencies and mode shapes. The CIR model was test correlated by updating the model to represent the test mode shapes. The correlated CIR model delivery is required by NASA JSC at Launch-10.5 months. The test correlated CIR flight FEM is analytically integrated into the Shuttle for a coupled loads analysis of the launch configuration. The analysis frequency range of interest is 0-50 Hz. A coupled loads analysis is the analytical integration of the Shuttle with its cargo element, the Mini Payload Logistics Module (MPLM), in the Shuttle cargo bay. For each Shuttle launch configuration, a verification coupled loads analysis is performed to determine the loads in the cargo bay as part of the structural certification process.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20050181429,
+   "id": "368fa937099647b19c0826b5ebd6c9fb",
+   "publicationDate": "2005-05-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20050181429.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20050181429/downloads/20050181429.pdf",
+    "pdf": "/api/citations/20050181429/downloads/20050181429.pdf",
+    "fulltext": "/api/citations/20050181429/downloads/20050181429.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

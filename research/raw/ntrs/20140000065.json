@@ -1,0 +1,163 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20140000065,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "3f22352c3212428fb815d79c2a1d9522",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Chemistry And Materials (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20140000065,
+  "ear": "NO",
+  "id": "4acbc7805cb84f2cb3fbc683ff1b9f5b",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "title": "Development of a Standard Test Scenario to Evaluate the Effectiveness of Portable Fire Extinguishers on Lithium-ion Battery Fires",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2014-01-08T07:53:50.2100000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20140000065,
+   "meta": {
+    "author": {
+     "name": "Juarez, Alfredo"
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "e453c212107e46c3901ffc361a2ebc20"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20140000065,
+   "meta": {
+    "author": {
+     "name": "Harper, Susan A."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "d220e4939fa24b21bf6cd29a81c39da0"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20140000065,
+   "meta": {
+    "author": {
+     "name": "Hirsch, David B."
+    },
+    "organization": {
+     "name": "NASA White Sands Test Facility",
+     "location": "NM, United States"
+    }
+   },
+   "id": "15af9c4824c34da4a86f41a945b3b4fc"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20140000065,
+   "meta": {
+    "author": {
+     "name": "Carriere, Thierry"
+    },
+    "organization": {
+     "name": "ADA Technologies, Inc.",
+     "location": "Littleton, CO, United States"
+    }
+   },
+   "id": "4b27fc30096444acadcd700599aa9c8d"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20140000065,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2014-01-08T07:53:50.2100000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Many sources of fuel are present aboard current spacecraft, with one especially hazardous source of stored energy: lithium ion batteries. Lithium ion batteries are a very hazardous form of fuel due to their self-sustaining combustion once ignited, for example, by an external heat source. Batteries can become extremely energetic fire sources due to their high density electrochemical energy content that may, under duress, be violently converted to thermal energy and fire in the form of a thermal runaway. Currently, lithium ion batteries are the preferred types of batteries aboard international spacecraft and therefore are routinely installed, collectively forming a potentially devastating fire threat to a spacecraft and its crew. Currently NASA is developing a fine water mist portable fire extinguisher for future use on international spacecraft. As its development ensues, a need for the standard evaluation of various types of fire extinguishers against this potential threat is required to provide an unbiased means of comparing between fire extinguisher technologies and ranking them based on performance.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20140000065,
+   "name": "American Inst. of Aeronautics and Astronautics",
+   "location": "Reston, VA, United States",
+   "id": "8cbc74de97444578847c6d66a62eccf4"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20140000065,
+   "endDate": "2013-07-18T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "American Inst. of Aeronautics and Astronautics",
+       "location": "Reston, VA, United States"
+      }
+     },
+     "meetingId": "dfe3b9f8573a4b68ad337ae9b07c6107",
+     "id": "a61ce9dc0c8b4d3e8fcc42bb2446748f"
+    }
+   ],
+   "name": "International Conference on Environmental Systems (ICES)",
+   "location": "Vail, CO",
+   "id": "dfe3b9f8573a4b68ad337ae9b07c6107",
+   "startDate": "2013-07-14T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20140000065,
+   "id": "72e7213403b948cbb5788bec6ba36223",
+   "publicationDate": "2013-07-14T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20140000065.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20140000065/downloads/20140000065.pdf",
+    "pdf": "/api/citations/20140000065/downloads/20140000065.pdf",
+    "fulltext": "/api/citations/20140000065/downloads/20140000065.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

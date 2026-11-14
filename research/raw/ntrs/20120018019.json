@@ -1,0 +1,149 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20120018019,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "3d2a0ea8b636477299b9a99393edb117",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20120018019,
+  "ear": "NO",
+  "id": "74ad390c3e164f7c913dcf44fe3238ac",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-17T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "JSC-CN-27257",
+  "Report Number: JSC-CN-27257"
+ ],
+ "title": "Development of the International Space Station (ISS) Fine Water Mist (FWM) Portable Fire Extinguisher",
+ "stiType": "ABSTRACT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-25T22:44:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20120018019,
+   "meta": {
+    "author": {
+     "name": "Rodriquez, Branelle"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "be36ab973fb040dd83db614c63bca996"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20120018019,
+   "meta": {
+    "author": {
+     "name": "Graf, John"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "938e655a9fe74168867175eba99b485c"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20120018019,
+   "meta": {
+    "author": {
+     "name": "Carlile, Christie"
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "0b50871c7c9345ee86744bb26c8b0839"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20120018019,
+   "meta": {
+    "author": {
+     "name": "Young, GIna"
+    },
+    "organization": {
+     "name": "Wyle Integrated Science and Engineering Group",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "78473c8210ec4acc9f2ef5b7a6f1d127"
+  }
+ ],
+ "stiTypeDetails": "Abstract",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20120018019,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-25T22:44:00.0000000+00:00",
+ "center": {
+  "code": "JSC",
+  "name": "Johnson Space Center",
+  "id": "dd46994b91a94cb2a2722617cbbadc55"
+ },
+ "onlyAbstract": true,
+ "sensitiveInformation": 2,
+ "abstract": "The National Aeronautics and Space Administration (NASA) is developing a Fine Water Mist (FWM) Portable Fire Extinguisher (PFE) for use on the International Space Station (ISS). The ISS presently uses two different types of fire extinguishers: a water foam extinguisher in the Russian Segment, and a carbon dioxide extinguisher in the United States Orbital Segments, which include Columbus and Kibo pressurized elements. Currently, there are operational concerns with the emergency breathing equipment and the carbon dioxide extinguisher. The toxicity of the carbon dioxide requires the crew members to have an oxygen supply present during a fire event, therefore inherently creating an unsafe environment. The FWM PFE extinguishes a fire without creating a hazardous breathing environment for crew members. The following paper will discuss the unique functional and performance requirements that have been levied on the FWM PFE, identify unique microgravity design considerations for liquid and gas systems, as well as discuss the NASA ISS specific fire standards that were developed to establish an acceptable portable fire extinguisher s performance.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20120018019,
+   "endDate": "2013-07-18T00:00:00.0000000+00:00",
+   "name": "International Conference on Envinromental Systems",
+   "location": "Vail, CO",
+   "id": "8d5a50ab30a1419fbaf242abc6bb83e8",
+   "startDate": "2013-07-14T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20120018019,
+   "id": "eb2ceac5fe8146279cfb18f3991fb8c7",
+   "publicationDate": "2012-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20120018019.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20120018019/downloads/20120018019.pdf",
+    "pdf": "/api/citations/20120018019/downloads/20120018019.pdf",
+    "fulltext": "/api/citations/20120018019/downloads/20120018019.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

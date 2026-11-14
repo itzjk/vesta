@@ -1,0 +1,108 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "OTHER",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19990063325,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "98783cd7e3c84c9b860ebed69d79b5db",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19990063325,
+  "ear": "NO",
+  "id": "69bfbb231add48eb939aa2fd4066bb30",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "Rept-1999-01-2146",
+  "Report Number: Rept-1999-01-2146"
+ ],
+ "title": "ECLSS Design for the International Space Station Nodes 2 and 3",
+ "stiType": "REPRINT",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-19T03:58:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19990063325,
+   "meta": {
+    "author": {
+     "name": "Carrasquillo, Robyn L."
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL United States"
+    }
+   },
+   "id": "0148310a790e4050b657a89c2243540b"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 19990063325,
+   "meta": {
+    "author": {
+     "name": "Bertotto, Dario"
+    },
+    "organization": {
+     "name": "Alenia Spazio S.p.A.",
+     "location": "Rome,  Italy"
+    }
+   },
+   "id": "8879ab54038c461c8521943cfd3d97fc"
+  }
+ ],
+ "stiTypeDetails": "Reprint (Version printed in journal)",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19990063325,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-19T03:58:00.0000000+00:00",
+ "center": {
+  "code": "MSFC",
+  "name": "Marshall Space Flight Center",
+  "id": "a589fc1e68af409f9d2214bb08863d11"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The International Space Station (ISS) modules Nodes 2 and 3 are currently under development by Alenia Spazio and the Marshall Space Flight Center (MSFC). The design of the Environmental Control and Life Support Systems (ECLSS) for these two modules have some similarities but many differences. The Node 2 ECLSS provides inter- and intramodule ventilation, temperature and humidity control, fire detection and suppression, and distribution of atmosphere samples, low pressure and recharge oxygen and nitrogen, fuel cell water and wastewater. Design Review 1 was held in March 1998. Fabrication of the ducting, tubing, and support structure is ongoing with Design Review 2 planned for December 1999. In addition to providing the same functions as Node 2, the ECLSS for Node 3 includes carbon dioxide removal, trace contaminant control, atmosphere monitoring, atmosphere pressure control, oxygen generation, urine and potable water processing, waste management, and potable water distribution to support the habitability functions relocated from the U.S. Hab module. Scarring for future incorporation of carbon dioxide reduction is also included. Design Review 1 is planned for July 1999. An overview of each Node's system design as well as issues and challenges are discussed.",
+ "isLessonsLearned": false,
+ "disseminated": "METADATA_ONLY",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 19990063325,
+   "name": "Environmental Systems conference",
+   "location": "Denver, CO",
+   "id": "92dfe4c9efc7447c934f8b5e50a8e8ff",
+   "startDate": "1999-07-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 19990063325,
+   "id": "d0162db71c4c4a1e8ce039e4daf36faa",
+   "publicationDate": "1999-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [],
+ "downloadsAvailable": false,
+ "index": "submissions-2026-11-12-06-24"
+}

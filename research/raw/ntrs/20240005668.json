@@ -1,0 +1,419 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "MAY_INCLUDE_COPYRIGHT_MATERIAL",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20240005668,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "319303e583504411b8537b9e84f7832a",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Quality Assurance and Reliability"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20240005668,
+  "ear": "NO",
+  "id": "5419660678324fe890f4cd5cf04fa7f1",
+  "itar": "NO"
+ },
+ "distributionDate": "2024-08-02T04:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "ICES-2024-461"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "869021.01.23.01.01",
+   "submissionId": 20240005668,
+   "id": "7a45dfda7ec345618622a65dee3a7764",
+   "type": "WBS"
+  },
+  {
+   "number": "80LARC23DA003",
+   "submissionId": 20240005668,
+   "id": "985899925c4a4f8eb917aae21069de29",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Predicting the Microgravity Performance of Terrestrial Portable Fire Extinguishers",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2024-05-06T11:35:48.6951670+00:00",
+ "authorAffiliations": [
+  {
+   "organizationId": "68603dff261e5d2d9de5a550aa9e6b30",
+   "sequence": 0,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Morgan B Abney"
+    },
+    "organization": {
+     "name": "Langley Research Center",
+     "location": "Hampton, United States"
+    }
+   },
+   "id": "3f1476c365c740cb89c72fd57766bea1",
+   "userType": "CIVIL",
+   "userId": "41b67c9b141246d0a4aa8e9727c3a5bf"
+  },
+  {
+   "organizationId": "a25cc56567355a4ea518b280a66764ae",
+   "sequence": 1,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Patrick Simpkins"
+    },
+    "organization": {
+     "name": "Analytical Mechanics Associates (United States)",
+     "location": "Hampton, Virginia, United States"
+    }
+   },
+   "id": "22ea118c5f234958a7fe574a5a5763fc",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "80ddca36946b4ceb80681fe05f90234e"
+  },
+  {
+   "organizationId": "5c929cce29b0585fb37efe77c6e9d156",
+   "sequence": 2,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Tim Provin"
+    },
+    "organization": {
+     "name": "Kennedy Space Center",
+     "location": "Merritt Island, Florida, United States"
+    }
+   },
+   "id": "2c00f0b1fdde4a55a989286158a691ca",
+   "userType": "CIVIL",
+   "userId": "484567cf52ab496bb7d361315070f7fb"
+  },
+  {
+   "organizationId": "5c929cce29b0585fb37efe77c6e9d156",
+   "sequence": 3,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Doug Willard"
+    },
+    "organization": {
+     "name": "Kennedy Space Center",
+     "location": "Merritt Island, Florida, United States"
+    }
+   },
+   "id": "73bbd5a898a44caaba6cff102e60d100",
+   "userType": "CIVIL",
+   "userId": "0c2dbe5d49654d27937cf95f4920b42d"
+  },
+  {
+   "organizationId": "5c929cce29b0585fb37efe77c6e9d156",
+   "sequence": 4,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Rudy Santamaria"
+    },
+    "organization": {
+     "name": "Kennedy Space Center",
+     "location": "Merritt Island, Florida, United States"
+    }
+   },
+   "id": "0d425ec7c4d848759a094020dbf347ee",
+   "userType": "CIVIL",
+   "userId": "cb1545f0100c41318b0eeaeb368c8c64"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "name": "Yongkang Chen"
+    },
+    "organization": {
+     "name": "IRPI LLC"
+    }
+   },
+   "id": "a256c7845a3a4c92bf1b779a039dad32",
+   "userType": "OTHER"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Mark M Weislogel"
+    },
+    "organization": {
+     "name": "IRPI LLC",
+     "location": "Portland, Oregon, United States"
+    }
+   },
+   "id": "3b98601b9a3b489ca0be987047ab29d4",
+   "userType": "OTHER",
+   "userId": "2baad623d6804c67894c1a9fe439c18a"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 7,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Daniel Dietrich"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "5578c1929fb34c019f40ca6d9a85f1a7",
+   "userType": "CIVIL",
+   "userId": "addb6443628246ef86b6e9dabd8e81dd"
+  },
+  {
+   "organizationId": "fdea3daf3b5156699f511edf3e9b9ec4",
+   "sequence": 8,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "David Urban"
+    },
+    "organization": {
+     "name": "Glenn Research Center",
+     "location": "Cleveland, United States"
+    }
+   },
+   "id": "55693f59fe7a473f85d210ce2b1faa13",
+   "userType": "CIVIL",
+   "userId": "e6ad9f3a70a94fc1a0a4a56bb211746a"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 9,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Dave Williams"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, United States"
+    }
+   },
+   "id": "9522a6e70fd3414ab5c0928f4f21fa63",
+   "userType": "CIVIL",
+   "userId": "2b3748f72715444691f3833c54d94c9d"
+  },
+  {
+   "organizationId": "4c6a2b878d76521da887cdcb2564bf90",
+   "sequence": 10,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Chris Goetter"
+    },
+    "organization": {
+     "name": "Johnson Space Center",
+     "location": "Houston, United States"
+    }
+   },
+   "id": "f6dc4748d08944d09b3515c2a53b6f36",
+   "userType": "CIVIL",
+   "userId": "9cb1db59a1264188a60ad52d34605436"
+  },
+  {
+   "organizationId": "793f6cfca230477c9fa1d3c7e2eaae5b",
+   "sequence": 11,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Susana Harper"
+    },
+    "organization": {
+     "name": "White Sands Test Facility",
+     "location": "Las Cruces, NM"
+    }
+   },
+   "id": "e9ef571a095f4670abf0101274c1c706",
+   "userType": "CIVIL",
+   "userId": "02261ce526d9488e859b763c3e7aa949"
+  },
+  {
+   "organizationId": "49d5185d6d735ca7863b63184bc72700",
+   "sequence": 12,
+   "submissionId": 20240005668,
+   "meta": {
+    "author": {
+     "orcidId": "",
+     "name": "Alfredo Juarez"
+    },
+    "organization": {
+     "name": "Sierra Lobo (United States)",
+     "location": "Fremont, Ohio, United States"
+    }
+   },
+   "id": "962be769d9b54b388861de95bc6912fd",
+   "userType": "CONTRACTOR_GRANTEE",
+   "userId": "fdd013bf5a784c8886df3c29540d3709"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "SINGLE_EXPERT",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20240005668,
+ "created": "2024-05-06T11:24:22.9165910+00:00",
+ "center": {
+  "code": "LaRC",
+  "name": "Langley Research Center",
+  "id": "1e229fe5b7284965a153b0f761643383"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Portable fire extinguishers (PFEs) are a key component of spacecraft emergency response systems. The International Space Station uses custom PFEs to meet the  unique microgravity and enclosed space requirements of the vehicle. For future crewed missions to Low Earth Orbit and Deep Space destinations, terrestrial commercial off-the-shelf (COTS) PFEs may offer more economical solutions for the destination as well as the visiting vehicle. However, depending on the design of both the spacecraft and the PFE, the reduced gravity environment is likely to impact PFE performance, especially when multiphase microgravity liquid transport processes are present. Additionally, many terrestrial PFEs now use halocarbons as the suppressant. While studies show these are effective in certain terrestrial fires, some data suggest that low concentrations may actually exacerbate a fire, a phenomenon that would prove particularly concerning in spacecraft. To better characterize the potential of employing COTS hardware, two terrestrial PFEs, one charged with HFC-227ea and Nitrogen pressurant and one charged with carbon dioxide, were modeled to predict performance in both 1-g and microgravity environments. Testing was conducted in 1-g to validate the model. Testing was also conducted to evaluate the effect of sub-extinguishment HFC-227ea concentrations on burn rate in controlled samples. Here we provide a detailed description of the model, report the methods and results of PFE testing, discuss the predicted effects of microgravity on PFE performance, and report the results of material burn rates at sub-extinguishment levels of HFC-227ea.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "cui": {
+  "isCui": false,
+  "submissionId": 20240005668,
+  "id": "502073e374174c26a5ea76efd2ff4bd0"
+ },
+ "meetings": [
+  {
+   "country": "US",
+   "submissionId": 20240005668,
+   "endDate": "2024-07-25T05:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "5848f6aa95065acc8293f9097251ec21",
+     "meta": {
+      "organization": {
+       "name": "ILC Dover (United States)",
+       "location": "Dover, Delaware, United States"
+      }
+     },
+     "meetingId": "c756b1d76dbe4172b1aaf012bd2766ec",
+     "id": "f5eb44915ed04fbc9fc7ba26f8162375"
+    },
+    {
+     "organizationId": "66b67eba2c4d5e26a027207aa676a051",
+     "meta": {
+      "organization": {
+       "name": "Collins Aerospace (United States)",
+       "location": "Charlotte, United States"
+      }
+     },
+     "meetingId": "c756b1d76dbe4172b1aaf012bd2766ec",
+     "id": "0963a56d33a1458fb74bd1cfe41af4be"
+    },
+    {
+     "organizationId": "d9746b6157e85e279e653fa4710cc840",
+     "meta": {
+      "organization": {
+       "name": "Paragon Space Development Corporation (United States)",
+       "location": "Tucson, Arizona, United States"
+      }
+     },
+     "meetingId": "c756b1d76dbe4172b1aaf012bd2766ec",
+     "id": "a16755ac654046ccb67fbbcb808c58d8"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "Honeywell"
+      }
+     },
+     "meetingId": "c756b1d76dbe4172b1aaf012bd2766ec",
+     "id": "c76bf190cee244d9aaa77bd9859be9d4"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "Oceaneering"
+      }
+     },
+     "meetingId": "c756b1d76dbe4172b1aaf012bd2766ec",
+     "id": "67e4afe7de6a43709770cbcabacd8e88"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "Boeing"
+      }
+     },
+     "meetingId": "c756b1d76dbe4172b1aaf012bd2766ec",
+     "id": "8f9219c3779c40a1b27e72f83e50857d"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "Jacobs"
+      }
+     },
+     "meetingId": "c756b1d76dbe4172b1aaf012bd2766ec",
+     "id": "1fc0ab4735c946d69ad1bb8a019a58ab"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "Vertex Aerospace"
+      }
+     },
+     "meetingId": "c756b1d76dbe4172b1aaf012bd2766ec",
+     "id": "b7b55aeb5bbf4d3d97a7ebffad31972f"
+    },
+    {
+     "meta": {
+      "organization": {
+       "name": "Vast"
+      }
+     },
+     "meetingId": "c756b1d76dbe4172b1aaf012bd2766ec",
+     "id": "d575e145553941f18a9f1a2770dcd765"
+    }
+   ],
+   "name": "53rd International Conference on Environmental Systems",
+   "location": "Louisville, KY ",
+   "id": "c756b1d76dbe4172b1aaf012bd2766ec",
+   "url": "https://ices.space/",
+   "startDate": "2024-07-21T05:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "461_ICES 2024 PFE Analysis_FINAL2.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20240005668/downloads/461_ICES%202024%20PFE%20Analysis_FINAL2.pdf",
+    "pdf": "/api/citations/20240005668/downloads/461_ICES%202024%20PFE%20Analysis_FINAL2.pdf",
+    "fulltext": "/api/citations/20240005668/downloads/461_ICES%202024%20PFE%20Analysis_FINAL2.pdf.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

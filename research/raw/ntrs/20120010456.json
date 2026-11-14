@@ -1,0 +1,199 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20120010456,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "df91342c52984101ad478a3bfbdc9408",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Man/System Technology And Life Support"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20120010456,
+  "ear": "NO",
+  "id": "9911982ba7ab49b3aad82ddc6d432854",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-11T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NPO-47640",
+  "Report Number: NPO-47640"
+ ],
+ "title": "Detection of Carbon Monoxide Using Polymer-Composite Films with a Porphyrin-Functionalized Polypyrrole",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-26T01:52:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20120010456,
+   "meta": {
+    "author": {
+     "name": "Homer, Margie L."
+    },
+    "organization": {
+     "name": "California Inst. of Tech.",
+     "location": "Pasadena, CA, United States"
+    }
+   },
+   "id": "ed621ef919e646798d8782aed7e66af9"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20120010456,
+   "meta": {
+    "author": {
+     "name": "Ryan, Margaret A."
+    },
+    "organization": {
+     "name": "California Inst. of Tech.",
+     "location": "Pasadena, CA, United States"
+    }
+   },
+   "id": "66826b72be3d424cb7f6d03112241e61"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20120010456,
+   "meta": {
+    "author": {
+     "name": "Yen, Shiao-Ping S."
+    },
+    "organization": {
+     "name": "California Inst. of Tech.",
+     "location": "Pasadena, CA, United States"
+    }
+   },
+   "id": "7970f3bdec7f4bbd8c04fe2ef0828c7d"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20120010456,
+   "meta": {
+    "author": {
+     "name": "Lara, Liana M."
+    },
+    "organization": {
+     "name": "California Inst. of Tech.",
+     "location": "Pasadena, CA, United States"
+    }
+   },
+   "id": "097136224d9d4830ac157d857709a77d"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20120010456,
+   "meta": {
+    "author": {
+     "name": "Shevade, Abhijit V."
+    },
+    "organization": {
+     "name": "California Inst. of Tech.",
+     "location": "Pasadena, CA, United States"
+    }
+   },
+   "id": "288b131b0dcb4a008d4231344f38010c"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20120010456,
+   "meta": {
+    "author": {
+     "name": "Kisor, Adam"
+    },
+    "organization": {
+     "name": "California Inst. of Tech.",
+     "location": "Pasadena, CA, United States"
+    }
+   },
+   "id": "0f3fee651be741b4aeb588efc98bbf28"
+  }
+ ],
+ "stiTypeDetails": "Other - NASA Tech Brief",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20120010456,
+ "sourceIdentifiers": [
+  {
+   "number": "http://www.techbriefs.com/component/content/article/13887",
+   "submissionId": 20120010456,
+   "id": "607527ebd0fb4e879794b2f23ec91774",
+   "type": "URL"
+  },
+  {
+   "submissionId": 20120010456,
+   "id": "d25c2cb5c701409384a44903041cd8f8",
+   "descriptor": "http://www.techbriefs.com/component/content/article/13887"
+  }
+ ],
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-26T01:52:00.0000000+00:00",
+ "center": {
+  "code": "JPL",
+  "name": "Jet Propulsion Laboratory",
+  "id": "efbc9c123a0f47caafa95d99b7d2e1a1"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Post-fire air constituents that are of interest to NASA include CO and some acid gases (HCl and HCN). CO is an important analyte to be able to sense in human habitats since it is a marker for both prefire detection and post-fire cleanup. The need exists for a sensor that can be incorporated into an existing sensing array architecture. The CO sensor needs to be a low-power chemiresistor that operates at room temperature; the sensor fabrication techniques must be compatible with ceramic substrates. Early work on the JPL ElectronicNose indicated that some of the existing polymer-carbon black sensors might be suitable. In addition, the CO sensor based on polypyrrole functionalized with iron porphyrin was demonstrated to be a promising sensor that could meet the requirements. First, pyrrole was polymerized in a ferric chloride/iron porphyrin solution in methanol. The iron porphyrin is 5, 10, 15, 20-tetraphenyl-21H, 23Hporphine iron (III) chloride. This creates a polypyrrole that is functionalized with the porphyrin. After synthesis, the polymer is dried in an oven. Sensors were made from the functionalized polypyrrole by binding it with a small amount of polyethylene oxide (600 MW). This composite made films that were too resistive to be measured in the device. Subsequently, carbon black was added to the composite to bring the sensing film resistivity within a measurable range. A suspension was created in methanol using the functionalized polypyrrole (90% by weight), polyethylene oxide (600,000 MW, 5% by weight), and carbon black (5% by weight). The sensing films were then deposited, like the polymer-carbon black sensors. After deposition, the substrates were dried in a vacuum oven for four hours at 60 C. These sensors showed good response to CO at concentrations over 100 ppm. While the sensor is based on a functionalized pyrrole, the actual composite is more robust and flexible. A polymer binder was added to help keep the sensor material from delaminating from the electrodes, and carbon was added to improve the conductivity of the material.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20120010456,
+   "id": "5432e96aa60548e09e6a80e64a12798c",
+   "publicationName": "NASA Tech Briefs, June 2012",
+   "publicationDate": "2012-06-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20120010415,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "NASA Tech Briefs, June 2012",
+   "stiType": "OTHER",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20120010415,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "NASA Tech Briefs, June 2012",
+   "stiType": "OTHER",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20120010456.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20120010456/downloads/20120010456.pdf",
+    "pdf": "/api/citations/20120010456/downloads/20120010456.pdf",
+    "fulltext": "/api/citations/20120010456/downloads/20120010456.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

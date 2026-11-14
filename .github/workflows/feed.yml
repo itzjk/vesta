@@ -1,0 +1,40 @@
+# Refreshes web/feed/ntrs.json from the NTRS citations API and commits it when it changed.
+# Manual only until the scheduled refresh is approved: to turn the six-hour refresh on, uncomment
+# the two "schedule" lines below. The committed snapshot keeps working without this workflow.
+name: ntrs-feed
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '17 */6 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ntrs-feed
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Fetch the newest NTRS records
+        run: node tools/ntrs-feed.mjs
+      - name: Validate the file
+        run: node tools/ntrs-feed.mjs --check
+      - name: Commit when the snapshot changed
+        run: |
+          if git diff --quiet -- web/feed/ntrs.json; then
+            echo "no change"
+            exit 0
+          fi
+          git config user.name "Team Zerack"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add web/feed/ntrs.json
+          git commit -m "NTRS feed snapshot"
+          git push

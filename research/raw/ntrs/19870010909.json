@@ -1,0 +1,108 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19870010909,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "3c9e35a38ffd42a59fe713d619d36c83",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19870010909,
+  "ear": "NO",
+  "id": "608ad26d7ea34b84a87ac7b6e59e2de8",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-06-24T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "NASA-TM-89848",
+  "NAS 1.15:89848",
+  "E-3511",
+  "Report Number: NASA-TM-89848",
+  "Report Number: NAS 1.15:89848",
+  "Report Number: E-3511"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "RTOP 506-49-3B",
+   "submissionId": 19870010909,
+   "id": "13f4d19a04734dbfae1dfe138c8812af",
+   "type": "PROJECT"
+  }
+ ],
+ "title": "Fire safety concerns in space operations",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-05T09:18:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19870010909,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "7fceef6bd48c46a3bf6ece1ca8b46266"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19870010909,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "87N20342"
+ },
+ "created": "2013-09-05T09:18:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "This paper reviews the state-of-the-art in fire control techniques and identifies important issues for continuing research, technology, and standards. For the future permanent orbiting facility, the space station, fire prevention and control calls for not only more stringent fire safety due to the long-term and complex missions, but also for simplified and flexible safety rules to accommodate the variety of users. Future research must address a better understanding of the microgravity space environment as it influences fire propagation and extinction and the application of the technology of fire detection, extinguishment, and material assessment. Spacecraft fire safety should also consider the adaptation of methods and concepts derived from aircraft and undersea experience.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19870010909,
+   "id": "a7b0bc7a8c094a4b8ce4e0fc754120d5",
+   "publicationDate": "1987-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19870010909.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19870010909/downloads/19870010909.pdf",
+    "pdf": "/api/citations/19870010909/downloads/19870010909.pdf",
+    "fulltext": "/api/citations/19870010909/downloads/19870010909.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

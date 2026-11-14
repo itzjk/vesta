@@ -1,0 +1,140 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040161246,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "9b66c72a28a24b108e48e3ad5d5e181d",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040161246,
+  "ear": "NO",
+  "id": "3a109619f29c4cf6b3276b0fdf55774f",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-08-14T15:22:35.0630000+00:00",
+ "title": "Fire Suppression in Low Gravity Using a Cup Burner",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-22T04:53:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040161246,
+   "meta": {
+    "author": {
+     "name": "Takahashi, Fumiaki"
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "2507947f82f34d58a7a7ed6629a5cb2c"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040161246,
+   "meta": {
+    "author": {
+     "name": "Linteris, Gregory T."
+    },
+    "organization": {
+     "name": "National Inst. of Standards and Technology",
+     "location": "Gaithersburg, MD, United States"
+    }
+   },
+   "id": "3fc384e0a56243ed90a85a6479256a18"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040161246,
+   "meta": {
+    "author": {
+     "name": "Katta, Viswanath R."
+    },
+    "organization": {
+     "name": "Innovative Scientific Solutions, Inc.",
+     "location": "Dayton, OH, United States"
+    }
+   },
+   "id": "27e3d8d1ff5c4c0dab5893cd38873b20"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040161246,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-22T04:53:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Longer duration missions to the moon, to Mars, and on the International Space Station increase the likelihood of accidental fires. The goal of the present investigation is to: (1) understand the physical and chemical processes of fire suppression in various gravity and O2 levels simulating spacecraft, Mars, and moon missions; (2) provide rigorous testing of numerical models, which include detailed combustion suppression chemistry and radiation sub-models; and (3) provide basic research results useful for advances in space fire safety technology, including new fire-extinguishing agents and approaches. The structure and extinguishment of enclosed, laminar, methane-air co-flow diffusion flames formed on a cup burner have been studied experimentally and numerically using various fire-extinguishing agents (CO2, N2, He, Ar, CF3H, and Fe(CO)5). The experiments involve both 1g laboratory testing and low-g testing (in drop towers and the KC-135 aircraft). The computation uses a direct numerical simulation with detailed chemistry and radiative heat-loss models. An agent was introduced into a low-speed coflowing oxidizing stream until extinguishment occurred under a fixed minimal fuel velocity, and thus, the extinguishing agent concentrations were determined. The extinguishment of cup-burner flames, which resemble real fires, occurred via a blowoff process (in which the flame base drifted downstream) rather than the global extinction phenomenon typical of counterflow diffusion flames. The computation revealed that the peak reactivity spot (the reaction kernel) formed in the flame base was responsible for attachment and blowoff of the trailing diffusion flame. Furthermore, the buoyancy-induced flame flickering in 1g and thermal and transport properties of the agents affected the flame extinguishment limits.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040161246,
+   "id": "ac72d1467038418899200e3a32c275b3",
+   "publicationName": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session, Volume 2",
+   "publicationDate": "2004-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040161185,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Strategic Research to Enable NASA's Exploration Missions Conference and Workshop: Poster Session",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040161246.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040161246/downloads/20040161246.pdf",
+    "pdf": "/api/citations/20040161246/downloads/20040161246.pdf",
+    "fulltext": "/api/citations/20040161246/downloads/20040161246.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

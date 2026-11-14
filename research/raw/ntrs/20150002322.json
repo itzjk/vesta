@@ -1,0 +1,268 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150002322,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "dde9d9b2c3b84e3e904053f2200f72c6",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Fluid Mechanics And Thermodynamics",
+  "Chemistry And Materials (General)"
+ ],
+ "keywords": [
+  "flames",
+  "soot",
+  "dilution"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150002322,
+  "ear": "NO",
+  "id": "7a31a35724324cfeb64bb0ae282f61b3",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN12794",
+  "Report Number: GRC-E-DAA-TN12794"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC08BA08B",
+   "submissionId": 20150002322,
+   "id": "76faa88be0664d12bc1957920a06e492",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "CTS-0328296",
+   "submissionId": 20150002322,
+   "id": "f4a8bc99c8274a3692176f3460a69b14",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "DE-FG02-88ER13966",
+   "submissionId": 20150002322,
+   "id": "37a306eac3c641ae87b3546d7ed0f752",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NNX11AP43A",
+   "submissionId": 20150002322,
+   "id": "150fe425a70b4dd7837d732b8de14792",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "FA9550-09-1-0571",
+   "submissionId": 20150002322,
+   "id": "6d0f7595a3bf4399b03fe22316153f63",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "FA9550-06-1-0164",
+   "submissionId": 20150002322,
+   "id": "7a5b295fa0054d48a0f91bd581c64e48",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 904211.04.02.30.03.03",
+   "submissionId": 20150002322,
+   "id": "08305ddd5d0c473e8d25177045632ea7",
+   "type": "WBS"
+  }
+ ],
+ "title": "A Computational and Experimental Study of Coflow Laminar Methane/Air Diffusion Flames: Effects of Fuel Dilution, Inlet Velocity, and Gravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-03-03T16:40:57.6070000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150002322,
+   "meta": {
+    "author": {
+     "name": "Cao, S."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "a589468559654748910978d05b80c9ba"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20150002322,
+   "meta": {
+    "author": {
+     "name": "Ma, B."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "bd0db61ef3a745e39a69e335f2527425"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20150002322,
+   "meta": {
+    "author": {
+     "name": "Bennett, B. A. V."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "4eaa2478dd744d4087c7c83664cac970"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20150002322,
+   "meta": {
+    "author": {
+     "name": "Giassi, D."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "333868051e8646a782cf3e56d40d0ca2"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20150002322,
+   "meta": {
+    "author": {
+     "name": "Stocker, D. P."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "79ef41f09fb54b47abf930b94ebdd09d"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20150002322,
+   "meta": {
+    "author": {
+     "name": "Takahashi, F."
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "0d67a8949df74e5b8032f77123bed8ee"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20150002322,
+   "meta": {
+    "author": {
+     "name": "Long, M. B."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "ffa2f4f3d3194a0ab55f2600e9b78dd3"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20150002322,
+   "meta": {
+    "author": {
+     "name": "Smooke, M. D."
+    },
+    "organization": {
+     "name": "Yale Univ.",
+     "location": "New Haven, CT, United States"
+    }
+   },
+   "id": "17fade724c6d4a6ca6848153f39b5882"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150002322,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-03-03T16:40:57.6070000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "The influences of fuel dilution, inlet velocity, and gravity on the shape and structure of laminar coflow CH4-air diffusion flames were investigated computationally and experimentally. A series of nitrogen-diluted flames measured in the Structure and Liftoff in Combustion Experiment (SLICE) on board the International Space Station was assessed numerically under microgravity (mu g) and normal gravity (1g) conditions with CH4 mole fraction ranging from 0.4 to 1.0 and average inlet velocity ranging from 23 to 90 cm/s. Computationally, the MC-Smooth vorticity-velocity formulation was employed to describe the reactive gaseous mixture, and soot evolution was modeled by sectional aerosol equations. The governing equations and boundary conditions were discretized on a two-dimensional computational domain by finite differences, and the resulting set of fully coupled, strongly nonlinear equations was solved simultaneously at all points using a damped, modified Newton's method. Experimentally, flame shape and soot temperature were determined by flame emission images recorded by a digital color camera. Very good agreement between computation and measurement was obtained, and the conclusions were as follows. (1) Buoyant and nonbuoyant luminous flame lengths are proportional to the mass flow rate of the fuel mixture; computed and measured nonbuoyant flames are noticeably longer than their 1g counterparts; the effect of fuel dilution on flame shape (i.e., flame length and flame radius) is negligible when the flame shape is normalized by the methane flow rate. (2) Buoyancy-induced reduction of the flame radius through radially inward convection near the flame front is demonstrated. (3) Buoyant and nonbuoyant flame structure is mainly controlled by the fuel mass flow rate, and the effects from fuel dilution and inlet velocity are secondary.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20150002322,
+   "endDate": "2014-08-08T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "organizationId": "9b8b9dce88b647adb0010a8c9fab369e",
+     "meta": {
+      "organization": {
+       "name": "Combustion Inst.",
+       "location": "Pittsburgh, PA, United States"
+      }
+     },
+     "meetingId": "e2a434c1285d4851a70f0099ba33c652",
+     "id": "00ced9a2aabc4351875b5df84ea4c928"
+    }
+   ],
+   "name": "International Symposium on Combustion",
+   "location": "San Francisco, CA",
+   "id": "e2a434c1285d4851a70f0099ba33c652",
+   "startDate": "2014-08-03T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20150002322,
+   "id": "c98c2aa1ecd04f38802358726f796a90",
+   "publicationDate": "2014-08-03T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150002322.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150002322/downloads/20150002322.pdf",
+    "pdf": "/api/citations/20150002322/downloads/20150002322.pdf",
+    "fulltext": "/api/citations/20150002322/downloads/20150002322.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

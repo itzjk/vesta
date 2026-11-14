@@ -1,0 +1,209 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20130010973,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "01df5d31b55f4879972e9068059b7fef",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Transportation And Safety"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20130010973,
+  "ear": "NO",
+  "id": "07cfedf458a74f4492b2a52de9ac2c97",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "WBS WS 904211.04.02.30.07",
+   "submissionId": 20130010973,
+   "id": "21a6e688eb244e2fb9045f512db0c87b",
+   "type": "WBS"
+  }
+ ],
+ "title": "Determination of Survivable Fires",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-27T10:20:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20130010973,
+   "meta": {
+    "author": {
+     "name": "Dietrich, D. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "cd98626d63904206afdd059d5140f4b6"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20130010973,
+   "meta": {
+    "author": {
+     "name": "Niehaus, J. E."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "1dd0ddf661a5410f8d96c9a531254b68"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20130010973,
+   "meta": {
+    "author": {
+     "name": "Ruff, G. A."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "65e315c1a7f242508872f0802b367ab6"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20130010973,
+   "meta": {
+    "author": {
+     "name": "Urban, D. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "2e1e1d38af0441b7ad8beb350a20d3f1"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20130010973,
+   "meta": {
+    "author": {
+     "name": "Takahashi, F."
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "19f350680d0b443c9f5776a9f63cc1e3"
+  },
+  {
+   "sequence": 5,
+   "submissionId": 20130010973,
+   "meta": {
+    "author": {
+     "name": "Easton, J. W."
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "57b36b83bba64f27916b724e9551a21a"
+  },
+  {
+   "sequence": 6,
+   "submissionId": 20130010973,
+   "meta": {
+    "author": {
+     "name": "Abbott, A. A."
+    },
+    "organization": {
+     "name": "National Center for Space Exploration Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "4c5dc427956b4ba7ba07b2fc29652ac2"
+  },
+  {
+   "sequence": 7,
+   "submissionId": 20130010973,
+   "meta": {
+    "author": {
+     "name": "Graf, J. C."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "875caf1adbde4551a79c20b0b3a4157b"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20130010973,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-27T10:20:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "At NASA, there exists no standardized design or testing protocol for spacecraft fire suppression systems (either handheld or total flooding designs). An extinguisher's efficacy in safely suppressing any reasonable or conceivable fire is the primary benchmark. That concept, however, leads to the question of what a reasonable or conceivable fire is. While there exists the temptation to over-size' the fire extinguisher, weight and volume considerations on spacecraft will always (justifiably) push for the minimum size extinguisher required. This paper attempts to address the question of extinguisher size by examining how large a fire a crew member could successfully survive and extinguish in the confines of a spacecraft. The hazards to the crew and equipment during an accidental fire include excessive pressure rise resulting in a catastrophic rupture of the vehicle skin, excessive temperatures that burn or incapacitate the crew (due to hyperthermia), carbon dioxide build-up or other accumulation of other combustion products (e.g. carbon monoxide). Estimates of these quantities are determined as a function of fire size and mass of material burned. This then becomes the basis for determining the maximum size of a target fire for future fire extinguisher testing.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "country": "United States",
+   "submissionId": 20130010973,
+   "endDate": "2012-07-19T00:00:00.0000000+00:00",
+   "name": "42nd International Conference on Environmental Systems (ICES)",
+   "location": "San Diego, CA",
+   "id": "32b49aa871654870a05bece48ba9b550",
+   "startDate": "2012-07-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20130010973,
+   "id": "ec59944c6a864b8f9fb9ae945789f388",
+   "publicationDate": "2012-07-15T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20130010973.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20130010973/downloads/20130010973.pdf",
+    "pdf": "/api/citations/20130010973/downloads/20130010973.pdf",
+    "fulltext": "/api/citations/20130010973/downloads/20130010973.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

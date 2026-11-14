@@ -1,0 +1,128 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20050245285,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "4876e6cb6abf4f0b9e0217ac0f984756",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Metals And Metallic Materials"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20050245285,
+  "ear": "NO",
+  "id": "c619ab111b9d44e8ba1c2b63c722332a",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-10T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NAS8-01050",
+   "submissionId": 20050245285,
+   "id": "7a46abda66c64384818af43bb6d5717c",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Promoted Metals Combustion at Ambient and Elevated Temperatures",
+ "stiType": "OTHER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-07T10:52:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20050245285,
+   "meta": {
+    "author": {
+     "name": "Engel, Carl D."
+    },
+    "organization": {
+     "name": "Qualis Corp.",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "dc73914700604f05ab9466f223b2ff50"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20050245285,
+   "meta": {
+    "author": {
+     "name": "Herald, Stephen D."
+    },
+    "organization": {
+     "name": "Integrated Concepts and Research Corp.",
+     "location": "United States"
+    }
+   },
+   "id": "6e52f7494a574c0290925d3a990f6b8e"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20050245285,
+   "meta": {
+    "author": {
+     "name": "Davis, S. Eddie"
+    },
+    "organization": {
+     "name": "NASA Marshall Space Flight Center",
+     "location": "Huntsville, AL, United States"
+    }
+   },
+   "id": "e44d7fa1afd44113824486309e05442d"
+  }
+ ],
+ "stiTypeDetails": "Other",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20050245285,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-09-07T10:52:00.0000000+00:00",
+ "center": {
+  "code": "MSFC",
+  "name": "Marshall Space Flight Center",
+  "id": "a589fc1e68af409f9d2214bb08863d11"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Promoted combustion testing of materials, Test 17 of NASA STD-6001, has been used to assess metal propensity to burn in oxygen rich environments. An igniter is used at the bottom end of a rod to promote ignition, and if combustion is sustained, the burning progresses from the bottom to the top of the rod. The physical mechanisms are very similar to the upward flammability test, Test 1 of NASA STD-6001. The differences are in the normal environmental range of pressures, oxygen content, and sample geometry. Upward flammability testing of organic materials can exhibit a significant transitional region between no burning to complete quasi-state burning. In this transitional region, the burn process exhibits a probabilistic nature. This transitional region has been identified for metals using the promoted combustion testing method at ambient initial temperatures. The work given here is focused on examining the transitional region and the quasi-steady burning region both at conventional ambient testing conditions and at elevated temperatures. A new heated promoted combustion facility and equipment at Marshall Space Flight Center have just been completed to provide the basic data regarding the metals operating temperature limits in contact with oxygen rich atmospheres at high pressures. Initial data have been obtained for Stainless Steel 304L, Stainless Steel 321, Haynes 214, and Inconel 718 at elevated temperatures in 100-percent oxygen atmospheres. These data along with an extended data set at ambient initial temperature test conditions are examined. The pressure boundaries of acceptable, non-burning usage is found to be lowered at elevated temperature.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20050245285,
+   "id": "17317b1c57f345e096f2c7e4e3b5577a",
+   "publicationDate": "2005-01-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20050245285.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20050245285/downloads/20050245285.pdf",
+    "pdf": "/api/citations/20050245285/downloads/20050245285.pdf",
+    "fulltext": "/api/citations/20050245285/downloads/20050245285.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

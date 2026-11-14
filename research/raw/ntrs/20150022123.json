@@ -1,0 +1,194 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20150022123,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "6824ffaf33c74f58b96c45ce3c320b16",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Space Sciences (General)"
+ ],
+ "keywords": [
+  "Flammability"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20150022123,
+  "ear": "NO",
+  "id": "cd963fdc609242228ef971d0d901e675",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-12T00:00:00.0000000+00:00",
+ "otherReportNumbers": [
+  "GRC-E-DAA-TN25001",
+  "Report Number: GRC-E-DAA-TN25001"
+ ],
+ "fundingNumbers": [
+  {
+   "number": "NNC13BA10B",
+   "submissionId": 20150022123,
+   "id": "333355ebf4fb4e6b877cf9d49632949f",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "WBS 067463.04.03.03",
+   "submissionId": 20150022123,
+   "id": "0d61c2b2265a4cdf820fe765fbd31733",
+   "type": "WBS"
+  }
+ ],
+ "title": "Buoyant Effects on the Flammability of Silicone Samples Planned for the Spacecraft Fire Experiment (Saffire)",
+ "stiType": "PRESENTATION",
+ "distribution": "PUBLIC",
+ "submittedDate": "2015-12-01T14:34:15.6200000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20150022123,
+   "meta": {
+    "author": {
+     "name": "Niehaus, Justin "
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "b71a9a4b9c634c2684f4c4504c1a70fa"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20150022123,
+   "meta": {
+    "author": {
+     "name": "Ferkul, Paul V."
+    },
+    "organization": {
+     "name": "Universities Space Research Association",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "eaf16af9b775457193e02b8f727940e9"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20150022123,
+   "meta": {
+    "author": {
+     "name": "Gokoglu, Suleyman"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "e19495e041374dfd801c3484b6a44a6e"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20150022123,
+   "meta": {
+    "author": {
+     "name": "Ruff, Gary"
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH United States"
+    }
+   },
+   "id": "de6b3263eee6402ab098c8d65b58fe93"
+  }
+ ],
+ "stiTypeDetails": "Presentation",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20150022123,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2015-12-01T14:34:15.6200000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Flammability experiments on silicone samples were conducted in anticipation of the Spacecraft Fire Experiment (Saffire). The sample geometry was chosen to match the NASA 6001 Test 1 specification, namely 5 cm wide by 30 cm tall. Four thicknesses of silicone (0.25, 0.36, 0.61 and 1.00 mm) were examined. Tests included traditional upward buoyant flame spread using Test 1 procedures, downward opposed flow flame spread, horizontal and angled flame spread, forced flow upward and downward flame spread. In addition to these configurations, upward and downward tests were also conducted in a chamber with varying oxygen concentrations. In the upward buoyant flame spread tests, the flame generally did not burn the entire sample. As thickness was increased, the flame spread distance decreased before flame extinguishment. For the thickest sample, ignition could not be achieved. In the downward tests, the two thinnest samples permitted the flame to burn the entire sample, but the spread rate was lower compared to the corresponding upward values. The other two thicknesses could not be ignited in the downward configuration. The increased flammability for downward spreading flames relative to upward ones is uncommon. The two thinnest samples also burned completely in the horizontal configuration, as well as at angles up to 75 degrees from the horizontal. The upward and downward flammability behavior was compared in atmospheres of varying oxygen concentration to determine a maximum oxygen concentration for each configuration. Upward tests in air with an added forced flow were more flammable. Complementary analyses using SEM and TGA techniques suggest the importance of the silica layer formed on the burned sample surface.\n\n\nAs silicone burns upward, silica deposits downstream\n•If the silicone is ignited in the downward configuration, it burns the entire length of the sample\n•Burning upward at an angle increases the burn length in some cases possibly due to less silica deposition\n•Forced flow in the upward burning case increases flammability, likely due to an increase in convective flow preventing silica from depositing\n•Samples in upward configuration burning under forced flow self extinguish after forced flow is removed",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "meetings": [
+  {
+   "submissionId": 20150022123,
+   "name": "International Conference On Environmental Systems, Inc. (ICES)",
+   "location": "Stafford Springs, CT, United States",
+   "id": "17a766f5fd71422aa9a2009f864b1044"
+  },
+  {
+   "country": "United States",
+   "submissionId": 20150022123,
+   "endDate": "2015-07-16T00:00:00.0000000+00:00",
+   "sponsors": [
+    {
+     "meta": {
+      "organization": {
+       "name": "International Conference On Environmental Systems, Inc. (ICES)",
+       "location": "Stafford Springs, CT, United States"
+      }
+     },
+     "meetingId": "d9f11f5cf33741ef80e5fa74d968bc91",
+     "id": "c7eecf4091974896a14e4ca390fbb9a8"
+    }
+   ],
+   "name": "International Conference on Environmental Systems",
+   "location": "Bellevue, WA",
+   "id": "d9f11f5cf33741ef80e5fa74d968bc91",
+   "startDate": "2015-07-12T00:00:00.0000000+00:00"
+  }
+ ],
+ "publications": [
+  {
+   "submissionId": 20150022123,
+   "id": "41ce4a3d9d8744ff98d1e71642b9ca1d",
+   "publicationDate": "2015-07-14T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20150022421,
+   "type": "SEE_ALSO",
+   "title": "Buoyant Effects on the Flammability of Silicone Samples Planned for the Spacecraft Fire Experiment (Saffire)",
+   "stiType": "CONFERENCE_PAPER",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20150022123.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20150022123/downloads/20150022123.pdf",
+    "pdf": "/api/citations/20150022123/downloads/20150022123.pdf",
+    "fulltext": "/api/citations/20150022123/downloads/20150022123.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

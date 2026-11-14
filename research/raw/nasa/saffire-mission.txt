@@ -1,0 +1,57 @@
+https://www.nasa.gov/wp-json/wp/v2/migration/309559
+TITLE: Spacecraft Fire Safety (Saffire)
+FETCHED: 2026-11-14T10:57:35
+PUBLIC-LINK: https://www.nasa.gov/?migration=converted-node-394182
+DATE: 2016-11-17T21:59:12
+
+# Spacecraft Fire Safety (Saffire)
+
+Creating a safe environment for astronauts is the number one priority for all crew missions. Aboard the space station, astronauts have been able to conduct small-scale fire experiments, most recently during the BASS-M experiment.
+
+NASA established a series of Spacecraft Fire Safety Experiments (Saffire) was established to investigate large-scale flame growth and material flammability limits in space. The experiments are ignited in Cygnus cargo spacecraft after they complete their primary International Space Station supply missions, departe the station, and before their planned destructive reentries through Earth’s atmosphere.
+
+Understanding how fire behaves in microgravity, and how different materials propagate flames in space is immensely important for the development of future crew spacecraft. It also will help inform operational protocols for dealing with fire emergencies, particularly when astronauts do not have the ability to exit a spacecraft or quickly return to Earth.
+
+​Saffire-I: Mission Completed July 2016
+
+The Saffire-I experiment enclosure was approximately half a meter wide by 1 meter deep by 1.3 meter long and consisted of a flow duct and avionics bay. Inside the flow duct, the cotton-fiberglass blend burn sample measured 0.4 m wide by 1 meter long. When commanded by Orbital ATK and Saffire ground controllers operating from Dulles, Virginia, it was ignited by a hot wire. Previous to this experiment, the largest fire experiment that had been conducted in space is about the size of an index card.
+
+- See images, video and read the mission timeline here: NASA Ignites Fire Experiment Aboard Space Cargo Ship
+
+- March 2016: NASA Pursues Burning Desire to Study Fire Safety in Space
+
+- March 2016: Fire in the Hole: Studying How Flames Grow in Space
+
+- Saffire-I Space Station Research Page
+
+​Saffire-II: Mission completed Nov. 27, 2016
+
+Saffire-II launched inside Orbital ATK’s Cygnus spacecraft during its sixth contracted cargo resupply mission with NASA to the International Space Station in October 2016. This second experiment in the Spacecraft Fire Safety series builds on the data captured during Saffire-I and expands the test portfolio with new materials. The nine samples in the experiment kit include a cotton-fiberglass blend, Nomex, and the same acrylic glass that is used for spacecraft windows. After Cygnus departs the station, and before its destructive reentry to Earth, mission controllers on the ground will remotely ignite the samples.
+
+- See images, video and read the mission timeline here: NASA Sets Space Fire in Second Round of Fire Safety Experiments
+
+- Saffire-II Space Station Research Page
+
+Saffire-III: Mission completed June 10, 2017
+
+The third in the Saffire series, Saffire-III tested the same cotton-fiberglass blend that was burned in Saffire-I, but at a higher flow velocity.
+
+- Read more: Fanning the Flame a Little Faster in Space
+
+- Saffire-III Space Station Research Page
+
+Saffire-IV: Mission completed May 28, 2020
+
+Saffire-IV was ignited May 11, 2020, when Cygnus CRS-15 spacecraft departed the International Space Station, before its destructive re-entry through Earth’s atmosphere. This large-scale fire experiment was remotely activated by Northrop Grumman operators and NASA/GRC Saffire staff helped monitor the experiment as it burned in four installments. Data returns will continued through May 28. Saffire IV burned the same materials were burned in Saffire II, but at different pressures and oxygen saturation for comparison.
+
+- Read More: The Flame of Discovery Grows as Saffire Sets New Fires in Space
+
+- Saffire-IV Space Station Research Page
+
+Saffire-V: Mission Completed Jan. 13, 2021
+
+The Saffire-V investigation was launched on Northrop Grumman’s CRS-14 cargo ship on October 3, 2020. The sample materials were similar to Saffire-IV, with a few additional materials to burn. In addition, the samples were burned at 8.2 psia and 34% oxygen levels to simulate atmosphere conditions for deep space exploration vehicles. Data obtained from Saffire-V will be used in the validation modeling of spacecraft fire response scenarios, and increases our confidence in fire safety equipment and strategies for future spacecraft.
+
+- Read More: Saffire Ignites New Discoveries in Space
+
+- Saffire-V Experiment Page

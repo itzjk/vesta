@@ -1,0 +1,112 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20030053427,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "fa8a6dc0e1534d069723b076981f1f99",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Engineering (General)"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20030053427,
+  "ear": "NO",
+  "id": "3e6fe36f5f014ac2b40e9c3d673d70ca",
+  "itar": "NO"
+ },
+ "distributionDate": "2018-06-05T00:00:00.0000000+00:00",
+ "title": "Spacecraft Fire Safety: A Human Space Flight Program Perspective",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-21T03:58:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20030053427,
+   "meta": {
+    "author": {
+     "name": "Pedley, Michael D."
+    },
+    "organization": {
+     "name": "NASA Johnson Space Center",
+     "location": "Houston, TX, United States"
+    }
+   },
+   "id": "d7fada7b35d14db39551ccfbaa827cb0"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20030053427,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-21T03:58:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "This paper presents viewgraphs on the International Space Station's fire safety program from a human space flight perspective. The topics include: 1) Typical Manned Spacecraft Materials; 2) Typical Flammable Hardware Protection; 3) Materials Flammability; 4) Fire Retardants; 5) Nonflammable Foam Cushion Material; 6) Electrical Wire and Cable; 7) Russian Solid-Fuel Oxygen Generator (SFOG); 8) GOX Ignition Mechanisms; 9) Fire Detection; and 10) Fire Suppression.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20030053427,
+   "id": "f998304caec5455eac391081054a40c1",
+   "publicationName": "Research Needs in Fire Safety for the Human Exploration and Utilization of Space: Proceedings and Research Plan",
+   "publicationDate": "2003-04-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20030053425,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Research Needs in Fire Safety for the Human Exploration and Utilization of Space: Proceedings and Research Plan",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20030053425,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Research Needs in Fire Safety for the Human Exploration and Utilization of Space: Proceedings and Research Plan",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20030053427.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20030053427/downloads/20030053427.pdf",
+    "pdf": "/api/citations/20030053427/downloads/20030053427.pdf",
+    "fulltext": "/api/citations/20030053427/downloads/20030053427.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

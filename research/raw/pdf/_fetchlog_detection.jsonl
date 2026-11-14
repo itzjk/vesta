@@ -1,0 +1,6 @@
+{"file": "PSI-102_SAME_Final_Science_Report.pdf", "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-102/download?file=683d9d4df91ab4427dbf43f8", "http": 200, "bytes": 3712845, "text": "pdftotext -layout"}
+{"file": "PSI-101_SAME-R_Final_Report.pdf", "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-101/download?file=683dc530b8656d2315bf508c", "http": 200, "bytes": 4578437, "text": "pdftotext -layout"}
+{"file": "PSI-47_DAFT_30Day_PostFlightReport.pdf", "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-47/download?file=683dbb3df91ab4427dbf4563", "http": 200, "bytes": 185648, "text": "pdftotext -layout"}
+{"file": "PSI-47_DAFT_FactSheet.pdf", "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-47/download?file=683dbb40f91ab4427dbf457e", "http": 200, "bytes": 762700, "text": "pdftotext (no -layout; two-column sheet)"}
+{"file": "PSI-115_NNX17AF08A_FinalReport.pdf", "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-115/download?file=683da39ef91ab4427dbf4511", "http": 200, "bytes": 10617514, "text": "pdftotext -layout"}
+{"note": "NTRS search q='Evaluation of spacecraft smoke detector performance in the low-gravity environment' returned 0 records; q='\"smoke detector performance\" low-gravity' returned 0; no NTRS PDF was downloaded for this family."}

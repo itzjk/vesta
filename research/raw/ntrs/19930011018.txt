@@ -1,0 +1,3 @@
+Combustion of solid fuel in very low speed oxygen streams
+
+In reduced gravity, the combustion of solid fuel in low-speed flow can be studied. The flame behavior in this low-speed regime will fill a void in our understanding of the flow effect on combustion. In addition, it is important for spacecraft fire safety considerations. In this work, modeling and experimental work on low-speed forced-concurrent-flow flame spread are carried out. In addition, experiments on reduced-gravity buoyant-flow flame spread are performed.

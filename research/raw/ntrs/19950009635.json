@@ -1,0 +1,113 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 19950009635,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "6d0d9bcbd80b4ab9be127f519fec058d",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Inorganic And Physical Chemistry"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 19950009635,
+  "ear": "NO",
+  "id": "cc11607c4c89401399fd815c9b1a64cd",
+  "itar": "NO"
+ },
+ "distributionDate": "2013-08-29T00:00:00.0000000+00:00",
+ "title": "Combustion and fires in low gravity",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-09-06T23:11:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 19950009635,
+   "meta": {
+    "author": {
+     "name": "Friedman, Robert"
+    },
+    "organization": {
+     "name": "NASA Lewis Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "1cdb837553ac4fe0b977fae26dde15f5"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 19950009635,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": "95N16050"
+ },
+ "created": "2013-09-06T23:11:00.0000000+00:00",
+ "center": {
+  "code": "CDMS",
+  "name": "Legacy CDMS",
+  "id": "092d6e0881874968859b972d39a888dc"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Fire safety always receives priority attention in NASA mission designs and operations, with emphasis on fire prevention and material acceptance standards. Recently, interest in spacecraft fire-safety research and development has increased because improved understanding of the significant differences between low-gravity and normal-gravity combustion suggests that present fire-safety techniques may be inadequate or, at best, non-optimal; and the complex and permanent orbital operations in Space Station Freedom demand a higher level of safety standards and practices. This presentation outlines current practices and problems in fire prevention and detection for spacecraft, specifically the Space Station Freedom's fire protection. Also addressed are current practices and problems in fire extinguishment for spacecraft.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 19950009635,
+   "id": "4b8271b475094332bfde7d2639af6d28",
+   "publicationName": "First NASA Workshop on Wiring for Space Applications",
+   "publicationDate": "1994-09-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19950009557,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "ISMCR 1994: Topical Workshop on Virtual Reality. Proceedings of the Fourth International Symposium on Measurement and Control in Robotics",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "accessionNumber": "N95-15973 through N95-15992",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 19950009557,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "ISMCR 1994: Topical Workshop on Virtual Reality. Proceedings of the Fourth International Symposium on Measurement and Control in Robotics",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "19950009635.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/19950009635/downloads/19950009635.pdf",
+    "pdf": "/api/citations/19950009635/downloads/19950009635.pdf",
+    "fulltext": "/api/citations/19950009635/downloads/19950009635.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}

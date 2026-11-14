@@ -1,0 +1,220 @@
+https://www.nasa.gov/wp-content/uploads/2025/07/smoke-aerosol-measurement-experiment-same.pdf
+TITLE: 
+FETCHED: 2026-11-14T10:52:32
+
+Smoke Aerosol Measurement Experiment (SAME)
+Spacecraft smoke detectors must detect different types of smoke. For
+example, hydrocarbon fuels typically produce soot, and plastics
+produce droplets of recondensed polymer fragments. While paper and
+silicone rubber produce smoke comprised of liquid droplets of
+recondensed pyrolysis products. Each of these materials produces a
+different type of smoke, with particles of various sizes and properties.
+
+Smoke and Aerosol Measurement Experiment (SAME) will assess the
+size and distribution of smoke particles produced by different types of
+material found on spacecraft such as, Teﬂon, Kapton, cellulose and silicone rubber. SAME will
+evaluate the performance of the ionization smoke detectors (used on Space Shuttles), evaluate the
+performance of the photoelectric smoke detectors (used on the ISS) and collect data for which a
+numerical formula can be developed and used to predict smoke droplet growth and to evaluate
+alternative smoke detection devices on future spacecraft.
+
+The experimental design and practical application of the data will be complemented by the
+development of a numerical code to predict the smoke droplet growth as a function of the fuel
+pyrolysis rate, the thermodynamic properties of pyrolysis vapor, and the ﬂow environment. SAME
+also has the capability to evaluate other ﬁre detection/particulate sensing devices for the test
+materials. The results will provide statistics of the smoke particulate size distribution for a range of
+smoke generation conditions and measurement of a readily modeled reference for validation of
+smoke growth models.
+
+Research Overview
+
+    •   Fire is commonly detected by measuring changes in the amount of airborne microscopic
+        particles (one of the components of smoke).
+
+    •   Smoke detectors currently in use on ISS and Space Shuttle are based on detectors used on
+        Earth that detect different sizes of smoke particles.
+
+    •   SAME will measure the distribution of particle sizes in smoke from on-orbit combustion of
+        several materials found in the spacecraft. Testing will also examine the effects of sample
+        temperature, air ﬂow and smoke residence time (near the source) on the particle size
+        distribution of the smoke.
+
+    •   Results will allow an evaluation of the performance in microgravity of the two existing U.S.
+        spacecraft smoke detector designs, in use on the Shuttle and ISS, and evaluate other ﬁre
+        detection devices.
+
+    •   Information from this experiment will improve the design requirements for and reliability of
+        smoke detectors on future spacecraft.
+
+Space Applications
+
+The SAME experiment will provide technology for an advanced ﬁre detector for future spacecraft
+that will be used for long duration missions. SAME will provide quantitative data on the sensitivity of
+these detectors to reduced gravity smokes that will allow evaluation of the adequacy of these
+existing technologies using relevant data. The current Fire Prevention, Detection, and Suppression
+(FPDS) program plan allows for the re-evaluation of future sensor technology, to allow new
+technology and capability to be utilized. The results from SAME are needed to provide the reduced
+gravity baseline data against which future detection technology developments can be evaluated.
+
+Earth Applications
+
+The smoke detectors developed from the results of SAME can also be useful in other extreme
+environments on Earth, such as submarines or underwater laboratories. Accurate detection of
+smoke in these environments can save lives.
+
+Publications
+
+The Smoke and Aerosol Measurement Experiment (SAME) was conducted in the Microgravity
+Science Glovebox (MSG) on the International Space Station (ISS) during Expedition 15. Overall, 30
+samples were tested comprising of six samples each of ﬁve different materials: TeﬂonTM, KaptonTM,
+silicone rubber, cellulose, and dibutyl-phthalate (a chemical used to make ﬂexible plastic)
+deposited on a porous wick. These were tested at different airﬂow rates, heating temperatures, and
+smoke aging durations.
+
+Smoke properties from different materials were determined using detectors to measure different
+particulate sizes and their relative abundances to describe the overall smoke distribution. A
+substantial portion of the aerosol mass is in particles that are larger than 1 micron. Teﬂon smoke
+comprised primarily of particles having diameters less than 1 um. The effect of aging is consistent
+with particle coagulation with limited wall loss, the overall number count decreases substantially
+while the mass concentrations remain relatively steady. This is reasonable given the broader size
+distribution for silicone smoke containing signiﬁcant numbers of both large and small particles.
+Although the arithmetic mean diameters are all in the 100 to 200 nanometer (nm) range,
+interpreting particle sizes by only one statistic can be deceptive due to the nature of the particle
+size distribution. In general, since the mass increases with the cube of the diameter, the larger
+particles do not affect the arithmetic mean diameter (AMD) as much as they affect the light
+scattering signal which corresponds with the particle mass. Consequently, although the AMD for
+silicone rubber is 227 nm, almost half the particle mass is larger than 1000 nm. The lamp wick
+showed similar behavior in the experiment.
+
+All samples produced signiﬁcant numbers of sub-micron particulate that are better detected using
+an ionization smoke detector, however a light scattering detector would perform very well for most
+of the cases. Depending on the conditions, results suggest broader smoke particulate size
+distributions can be produced from preﬁre overheat events, thus detection methods which can
+measure a wider spectrum of particulate size may show more successful and reliable detection.
+Spacecraft and associated missions outside of low Earth orbit will require increased reliability of
+ﬁre detection systems in addition to robust false alarm resistance. Given the constrained space on
+any spacecraft, the target for the ﬁre detection system is necessarily the early phase and not
+established ﬂaming ﬁres; consequently, the primary target for detection is the pre-ﬁre heating
+products and not the soot and ash. This research will help to improve design of future detectors
+(Urban et al. 2009).
+Results Publications
+
+   •   Meyer ME, Mulholland G, Bryg V, Urban DL, Yuan Z, Ruff GA, Cleary T, Yang J. Smoke
+       characterization and feasibility of the moment method for spacecraft ﬁre detection. Aerosol
+       Science and Technology. 2015 May 4; 49(5): 299-309.
+       DOI: 10.1080/02786826.2015.1025124. DOI: 10.1080/02786826.2015.1025124
+
+   •   Urban DL, Ruff GA, Brooker JE, Cleary T, Yang J, Mulholland G, Yuan Z. Spacecraft Fire
+       Detection: Smoke Properties and Transport in Low-Gravity. 46th Aerospace Sciences
+       Meeting and Exhibit, Reno, NV. 2008 AIAA 2008-806
+
+   •   Urban DL, Ruff GA, Sheredy WA, Cleary T, Yang J, Mulholland G, Yuan Z. Properties of Smoke
+       from Overheated Spacecraft Materials in Low-Gravity. 47th Aerospace Sciences Meeting
+       and Exhibit, Orlando, FL. 2009 January 5-8; AIAA-2009-0956
+
+   •   Mulholland G, Meyer ME, Urban DL, Ruff GA, Yuan Z, Bryg V, Cleary T, Yang J. Pyrolysis
+       smoke generated under low-gravity conditions. Aerosol Science and Technology. 2015
+       March 6; 49(5): 310-321.
+       DOI: 10.1080/02786826.2015.1025125. DOI: 10.1080/02786826.2015.1025125
+
+   •   Urban DL, Ruff GA, Mulholland G, Cleary T, Yang J, Yuan Z. Measurement of Smoke Particle
+       Size under Low-Gravity Conditions. SAE International Journal of Aerospace. 2008 June 29;
+       1(1): 317-324. DOI: 10.4271/2008-01-2089.report number 2008-01-2089.
+       DOI: 10.4271/2008-01-2089
+
+   •   Meyer ME, Urban DL, Mulholland G, Bryg V, Yuan Z, Ruff GA, Cleary T, Yang J. Evaluation of
+       spacecraft smoke detector performance in the low-gravity environment. Fire Safety Journal.
+       2018 June 1; 9874-81.
+       DOI: 10.1016/j.ﬁresaf.2018.04.004. DOI: 10.1016/j.ﬁresaf.2018.04.004
+
+
+
+
+                                      Contact Information
+
+                                    Principal Investigator(s)
+
+          David L Urban, Ph.D., Glenn Research Center, Cleveland, Ohio, United States
+
+                               Co-Investigator(s)/Collaborator(s)
+
+            Zeng-guang Yuan, Glenn Research Center, Cleveland, Ohio, United States
+
+Jiann Yang, National Institute for Standards and Technology, Gaithersburg, Maryland, United States
+
+ Thomas Cleary, National Institute of Standards and Technology, Gaithersburg, Maryland, United
+                                             States
+
+        George Mulholland, University of Maryland, College Park, Maryland, United States
+Smoke Aerosol Measurement Experiment-Reﬂight (SAME-R)
+The Re-ﬂight of the Smoke Aerosol Measurement Experiment (SAME-2)
+was conducted during Expedition 24 (July – September 2010) and ﬂight
+experiment results have been analyzed with respect to comparable
+ground-based experiment results. The ground tests included a reference
+instrument for measuring particle size distributions of the smoke from
+SAME-2 materials (Teﬂon, Kapton, cotton, silicone rubber and Pyrell ).
+Repeatable sample surface temperatures were obtained with SAME
+engineering hardware and measurements were taken with returned ﬂight
+diagnostic equipment consisting of a thermal precipitator for collecting
+smoke particles for Transmission Electron Microscopy (TEM), several aerosol instruments, and a
+commercial smoke detector. These ﬂight units measured moments of the particle size distribution:
+particle number concentration (zeroth moment), the diameter concentration (ﬁrst moment), and
+the mass concentration (third moment). The count mean diameter of the smoke particles and the
+diameter of average mass can be calculated from moment averages. Furthermore, the geometric
+mean diameter and geometric standard deviations can be calculated if the particle size distribution
+is assumed to be lognormal. The ﬂight system also included International Space Station and Space
+Shuttle smoke detectors and the results from these devices are presented. A Scanning Mobility
+Particle Sizer Spectrometer (SMPS) is too large and complex to include in a ﬂight experiment, but its
+use in ground-based testing determined whether the lognormal assumptions were valid and
+provided high-resolution particle size distributions of the smoke from each material. SMPS particle
+size distributions from ground experiments were compared to particle statistics generated by
+moment calculations and particle size distributions from microscopic analysis of TEM images of
+particles from both ground and ﬂight experiment results for both un-aged and aged smoke.
+
+Background/Overview
+
+Smoke is a general term that encompasses aerosol materials produced by several processes. It can
+include unburned, re-condensed, original polymer or pyrolysis products that can be either liquid or
+solid, hydrocarbon soot, condensed water vapor, and ash particles. Soot particles dominate the
+smoke particulate in established ﬂaming ﬁres while unburned pyrolysis products and re-
+condensed polymer fragments are produced by smoldering and pyrolysis in the early stage of ﬁre
+growth. Given the constrained space on any spacecraft, the target for the ﬁre detection system is
+necessarily the early phase and not established ﬂaming ﬁres; consequently, the primary target for
+detection is pyrolysis products rather than soot.
+
+Prior spacecraft systems are summarized in more detail in papers by Friedman and Urban. In the
+Mercury, Gemini and Apollo missions, the crew quarters were limited, and mission durations were
+short; consequently, it was considered reasonable that the astronauts would rapidly detect any ﬁre.
+The Skylab module, however, included approximately 30 UV-sensing ﬁre detectors. These devices
+were limited to line-of-sight and were reported to have difficulties with false alarms. The Space
+Shuttle Detectors were based upon ionization ﬁre detector technology, the most advanced
+technology available at the time and used an inertial separator designed to eliminate particles
+larger than 1-2 µm. The International Space Station (ISS) smoke detectors use near-IR forward
+scattering, rendering them most sensitive to particles larger than 1 µm, outside of the range of
+sensitivity of the shuttle detector. As described by Friedman, there have been six component
+failures by overheating or other causes in the NASA Orbiter ﬂeet in addition to several similar
+incidents that have occurred on the ISS. None of these events spread into a real ﬁre but as mission
+durations increase, the likelihood of failures increases. The experience on Mir in 1997 has shown
+that failure of oxygen generation systems can have signiﬁcant consequences. As a result, improved
+understanding of spacecraft ﬁre detection is critically needed.
+
+
+
+
+                                       Contact Information
+
+                                     Principal Investigator(s)
+
+           David L Urban, Ph.D., Glenn Research Center, Cleveland, Ohio, United States
+
+                               Co-Investigator(s)/Collaborator(s)
+
+             Zeng-guang Yuan, Glenn Research Center, Cleveland, Ohio, United States
+
+Jiann Yang, National Institute for Standards and Technology, Gaithersburg, Maryland, United States
+
+ Thomas Cleary, National Institute of Standards and Technology, Gaithersburg, Maryland, United
+                                             States
+
+        George Mulholland, University of Maryland, College Park, Maryland, United States
+

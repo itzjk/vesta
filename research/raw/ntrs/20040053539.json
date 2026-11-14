@@ -1,0 +1,194 @@
+{
+ "copyright": {
+  "thirdPartyPermissionsProduced": false,
+  "disclosedToPublic": false,
+  "containsIndication": false,
+  "publisherPermissionOrRightsToDistribute": false,
+  "belongsToUsGov": false,
+  "determinationType": "GOV_PUBLIC_USE_PERMITTED",
+  "thirdPartyContentCondition": "NOT_SET",
+  "belongsToContractor": false,
+  "disclosedInvention": false,
+  "submissionId": 20040053539,
+  "containsThirdPartyMaterial": false,
+  "belongsToPublisher": false,
+  "id": "162d3d2b08aa442cbc591bd03f67f1c2",
+  "belongsToAuthors": false
+ },
+ "subjectCategories": [
+  "Aircraft Propulsion And Power"
+ ],
+ "exportControl": {
+  "isExportControl": "NO",
+  "submissionId": 20040053539,
+  "ear": "NO",
+  "id": "50ed81e87fe245f6ac568ca0989e037d",
+  "itar": "NO"
+ },
+ "distributionDate": "2019-07-09T00:00:00.0000000+00:00",
+ "fundingNumbers": [
+  {
+   "number": "NCC3-696",
+   "submissionId": 20040053539,
+   "id": "e2d7dc2fb13e4e8a85fb359b3e1b667f",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NAG3-1912",
+   "submissionId": 20040053539,
+   "id": "90995dd3114c4a8488556fe6d7102a4f",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NAG3-1910",
+   "submissionId": 20040053539,
+   "id": "0629a018e6084b76a94f5e939021e468",
+   "type": "CONTRACT_GRANT"
+  },
+  {
+   "number": "NCC3-697",
+   "submissionId": 20040053539,
+   "id": "e4c72a5617ba4791854f24a02a75df2e",
+   "type": "CONTRACT_GRANT"
+  }
+ ],
+ "title": "Sooting Limits Of Diffusion Flames With Oxygen-Enriched Air And Diluted Fuel",
+ "stiType": "CONFERENCE_PAPER",
+ "distribution": "PUBLIC",
+ "submittedDate": "2013-08-21T17:34:00.0000000+00:00",
+ "authorAffiliations": [
+  {
+   "sequence": 0,
+   "submissionId": 20040053539,
+   "meta": {
+    "author": {
+     "name": "Sunderland, P. B."
+    },
+    "organization": {
+     "name": "National Center for Microgravity Research on Fluids and Combustion",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "35e9cfb13a0f4570a6a8bac435b76fff"
+  },
+  {
+   "sequence": 1,
+   "submissionId": 20040053539,
+   "meta": {
+    "author": {
+     "name": "Urban, D. L."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "1ded1382ac044265ba08c57e143c5a5a"
+  },
+  {
+   "sequence": 2,
+   "submissionId": 20040053539,
+   "meta": {
+    "author": {
+     "name": "Stocker, D. P."
+    },
+    "organization": {
+     "name": "NASA Glenn Research Center",
+     "location": "Cleveland, OH, United States"
+    }
+   },
+   "id": "46991a9e842545c7998943f395711c3f"
+  },
+  {
+   "sequence": 3,
+   "submissionId": 20040053539,
+   "meta": {
+    "author": {
+     "name": "Chao, B. H."
+    },
+    "organization": {
+     "name": "Hawaii Univ.",
+     "location": "Honolulu, HI, United States"
+    }
+   },
+   "id": "640aa70c60614692b6b22adaeffd9859"
+  },
+  {
+   "sequence": 4,
+   "submissionId": 20040053539,
+   "meta": {
+    "author": {
+     "name": "Axelbaum, R. L."
+    },
+    "organization": {
+     "name": "Washington Univ.",
+     "location": "Saint Louis, MO, United States"
+    }
+   },
+   "id": "01753968ead54cc0ae7b1aedb54acb40"
+  }
+ ],
+ "stiTypeDetails": "Conference Paper",
+ "technicalReviewType": "TECHNICAL_REVIEW_TYPE_NONE",
+ "modified": "2025-08-31T18:39:21.7150190+00:00",
+ "id": 20040053539,
+ "legacyMeta": {
+  "__type": "LegacyMetaIndex, StrivesApi.ServiceModel",
+  "accessionNumber": ""
+ },
+ "created": "2013-08-21T17:34:00.0000000+00:00",
+ "center": {
+  "code": "GRC",
+  "name": "Glenn Research Center",
+  "id": "19eeb25fa404421d9eaa5f876e853e3c"
+ },
+ "onlyAbstract": false,
+ "sensitiveInformation": 2,
+ "abstract": "Oxygen-enhanced combustion permits certain benefits and flexibility that are not otherwise available in the design of practical combustors, as discussed by Baukal. The cost of pure and enriched oxygen has declined to the point that oxygen-enhanced combustion is preferable to combustion in air for many applications. Carbon sequestration is greatly facilitated by oxygen enrichment because nitrogen can be eliminated from the product stream. For example, when natural gas (or natural gas diluted with CO2) is burned in pure oxygen, the only significant products are water and CO2. Oxygen-enhanced combustion also has important implications for soot formation, as explored in this work. We propose that soot inception in nonpremixed flames requires a region where C/O ratio, temperature, and residence time are above certain critical values. Soot does not form at low temperatures, with the threshold in nonpremixed flames ranging from about 1250-1650 K, a temperature referred to here as the critical temperature for soot inception, Tc. Soot inception also can be suppressed when residence time is short (equivalently, when the strain rate in counterflow flames is high). Soot induction times of 0.8-15 ms were reported by Tesner and Shurupov for acetylene/nitrogen mixtures at 1473 K. Burner stabilized spherical microgravity flames are employed in this work for two main reasons. First, this configuration offers unrestricted control over convection direction. Second, in steady state these flames are strain-free and thus can yield intrinsic sooting limits in diffusion flames, similar to the way past work in premixed flames has provided intrinsic values of C/O ratio associated with soot inception limits.",
+ "isLessonsLearned": false,
+ "disseminated": "DOCUMENT_AND_METADATA",
+ "publications": [
+  {
+   "submissionId": 20040053539,
+   "id": "03a036a532984a14bfde3865adcd36f5",
+   "publicationName": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "publicationDate": "2003-08-01T00:00:00.0000000+00:00"
+  }
+ ],
+ "status": "CURATED",
+ "related": [
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  },
+  {
+   "disseminated": "DOCUMENT_AND_METADATA",
+   "id": 20040053504,
+   "type": "ANALYTIC_PRIMARY",
+   "title": "Seventh International Workshop on Microgravity Combustion and Chemically Reacting Systems",
+   "stiType": "CONFERENCE_PROCEEDINGS",
+   "distribution": "PUBLIC",
+   "status": "CURATED"
+  }
+ ],
+ "downloads": [
+  {
+   "draft": false,
+   "mimetype": "application/pdf",
+   "name": "20040053539.pdf",
+   "type": "STI",
+   "links": {
+    "original": "/api/citations/20040053539/downloads/20040053539.pdf",
+    "pdf": "/api/citations/20040053539/downloads/20040053539.pdf",
+    "fulltext": "/api/citations/20040053539/downloads/20040053539.txt"
+   }
+  }
+ ],
+ "downloadsAvailable": true,
+ "index": "submissions-2026-11-12-06-24"
+}
