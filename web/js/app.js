@@ -13,6 +13,7 @@ import { empty } from './ui/empty.js';
 import { download, downloadJson, downloadCsv, downloadText } from './ui/download.js';
 import { vesta, vestaMark } from './ui/vesta.js';
 import { ROUTES, SHARED, GLOBAL, parseHash, buildHash, readQ as readQLocal, patchQ, withSticky, write } from './router.js';
+import { createWorld } from './world/world.js';
 import { loadDb, getDb, getCore, setOpener, openSource, closeSource, lookup } from './store.js';
 
 export const ui = { el, svg, css, clear, fmt, button, still, answer, panel, chip, reason, tag, statusLine, legend, cite, citeLabel, drawer, openSource, closeSource, triad, scorebar, rangebar, spark, empty,
@@ -26,6 +27,7 @@ const demo = document.body.hasAttribute('data-ui-demo');
 if (capture) document.documentElement.setAttribute('data-capture', '');
 
 let db = null, core = {};
+let worldHandle = null, worldPending = null, worldContext = null, worldSerial = 0, worldAbort;
 let mounted = { route: null, sig: null, handle: null, ctx: null, token: 0 };
 function buildChrome() {
   document.getElementById('brand-mark').append(vestaMark(40));
@@ -37,7 +39,7 @@ function buildChrome() {
 }
 function modeSwitch() {
   return el('div.view-switch', { role: 'group', 'aria-label': 'Information level' }, ...['simple', 'details'].map(mode =>
-    el('button', { type: 'button', data: { viewMode: mode }, onclick: () => setParams({ view: mode }) }, mode === 'simple' ? 'Simple' : 'Details')));
+    el('button', { type: 'button', data: { viewMode: mode }, onclick: () => setParams({ view: mode }) }, mode === 'simple' ? 'World' : 'Instrument')));
 }
 function paintChrome(route, params) {
   const mode = demo || params.view === 'details' ? 'details' : 'simple';
@@ -78,6 +80,7 @@ function commit(route, params, opts = {}) {
   write(hash, { replace: opts.replace || opts.render === false });
   if (opts.render === false) {
     const split = splitParams(params);
+    if (worldHandle && worldContext) { worldContext = { ...worldContext, q: readQ(params), params, route }; worldHandle.update(worldContext); }
     if (mounted.ctx && mounted.route === route) { mounted.ctx.q = readQ(params); mounted.ctx.params = split.own; mounted.sig = split.sig; }
     paintChrome(route, params);
   } else render();
@@ -134,6 +137,29 @@ function render() {
     }
     if (params.src) drawer.show(params.src); else drawer.hide();
     return;
+  }
+  const wantsWorld = params.view !== 'details' && params.still !== '1' && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (wantsWorld) {
+    worldContext = { db, q, params, route, setQ, setParams, go, openSource, closeSource, ui, core, capture };
+    if (worldHandle) worldHandle.update(worldContext);
+    else if (!worldPending) {
+      unmount();
+      const serial = ++worldSerial;
+      worldAbort = new AbortController();
+      worldPending = createWorld(view, { ...worldContext, signal: worldAbort.signal }).then(handle => {
+        if (serial !== worldSerial) { handle?.unmount(); return; }
+        worldHandle = handle; worldPending = null;
+        if (worldHandle && worldContext) worldHandle.update(worldContext);
+      }).catch(error => { worldAbort?.abort(); worldPending = null; console.warn('VESTA world unavailable:', error.message); setParams({ view: 'details' }, { replace: true }); });
+    }
+    if (params.src) drawer.show(params.src); else drawer.hide();
+    return;
+  }
+  if (worldHandle || worldPending) {
+    worldSerial++; worldAbort?.abort(); worldHandle?.unmount(); worldHandle = null; worldPending = null;
+    delete document.documentElement.dataset.world;
+    worldContext = null; mounted.route = null; mounted.sig = null;
+    unmount();
   }
   if (mounted.route !== route || mounted.sig !== split.sig) {
     const h = mounted.handle, same = mounted.route === route && mounted.ctx && mounted.ctx.view === (params.view === 'details' ? 'details' : 'simple');
@@ -236,6 +262,7 @@ async function start() {
   stage.dataset.state = 'ready';
   paintBuilt();
   render();
+  if (capture && worldPending) await worldPending;
   if (!demo && !start.tourLoaded) { start.tourLoaded = true; loadTour(); }
 }
 
@@ -244,7 +271,7 @@ paintChrome(first.route, first.params);
 initStage(stage);
 drawer.mount(stage);
 addEventListener('hashchange', render);
-window.vesta = { ui, go, setQ, setParams, get db() { return getDb(); }, get core() { return getCore(); }, get ctx() { return mounted.ctx; } };
+window.vesta = { ui, go, setQ, setParams, get db() { return getDb(); }, get core() { return getCore(); }, get ctx() { return worldContext || mounted.ctx; }, get world() { return worldHandle; } };
 
 const ready = () => document.documentElement.setAttribute('data-ready', '');
 if (capture) Promise.all([start(), fontsReady()]).then(ready, ready);

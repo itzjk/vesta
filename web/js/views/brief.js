@@ -1,3 +1,5 @@
+import { cite } from '../world/cite.js';
+
 function heroWorld(ctx, compact = false) {
   const { ui, db } = ctx, el = ui.el;
   const finding = db.findingById['S-SHAPE-01'];
@@ -14,9 +16,7 @@ function heroWorld(ctx, compact = false) {
   const description = el('p.bfh-description', 'VESTA floats beside a flame in a cabin with Mars in the window. The control changes a yellow teardrop illustration into a rounded blue flame.');
   const evidence = el('div.bfh-evidence', { data: { claim: finding?.id } },
     el('p.bfh-evidence-label', 'NASA observed'),
-    finding ? el('blockquote', el('span.quote', finding.quote)) : el('p', 'The source observation is unavailable.'),
-    finding ? el('div.bfh-sources', ui.cite(finding.id, { label: 'NASA source' }),
-      el('a.bfh-original', { href: finding.source.url, target: '_blank', rel: 'noopener' }, 'Read at NASA ↗')) : null,
+    finding ? el('blockquote', el('span.quote', cite(finding.quote, finding.id))) : el('p', 'The source observation is unavailable.'),
     el('p.bfh-scope', 'The observation concerns low-momentum flames, not every fire in space. Shape and colour do not establish safety.'));
   const picture = el('div.bfh-world', host, el('span.bfh-world-label', 'VESTA / Cabin illustration'), controls);
   const node = el(compact ? 'section.bfh.bfh-details' : 'div.bfh', picture, note, description);
@@ -89,7 +89,8 @@ const dig = (obj, path) => path.split('.').reduce((o, k) => (o == null ? o : o[k
 
 function mountDetails(root, ctx) {
   const { ui, db } = ctx, el = ui.el, fmt = ui.fmt;
-  ui.css('css/views/brief.css?v=12');
+  ui.css('css/views/brief.css?v=13');
+  ui.css('css/world.css');
   const core = ctx.core || {}, rankMod = core.rank, statusMod = core.status, text = core.text;
   const nInv = db.investigations.length;
   const base = `in VESTA’s evidence base (${nInv} PSI investigations)`;
@@ -101,7 +102,7 @@ function mountDetails(root, ctx) {
   const say = (fn, ...a) => { try { const s = text && typeof text[fn] === 'function' ? text[fn](...a) : null; return typeof s === 'string' && s ? s : null; } catch { return null; } };
   const pressure = kpa => say('pressure', kpa) || (isNum(kpa) ? `${fmt.short(kpa / 6.89476)} psia (${fmt.short(kpa)} kPa)` : 'not stated');
   const level = f => say('level', f) || words(f.n.work);
-  const dataset = (path, label = 'source data') => el('a.cite.cite-small', { href: path, target: '_blank', rel: 'noopener', data: { cite: path } }, label);
+  const dataset = (path, label = 'source data') => el('a.world-cite', { href: path, target: '_blank', rel: 'noopener', data: { cite: path } }, label);
   const count = (key, value) => {
     const v = value === undefined ? dig(db.engine, key) : value;
     return el('b.bf-n.num', { data: { count: key } }, isNum(v) ? fmt.n(v) : 'not reported');
@@ -110,8 +111,8 @@ function mountDetails(root, ctx) {
   const delay = (comm && db.findingById[comm.one_way_finding]) || db.findings.find(f => f.n.topic === 'comm_delay' && /one way/i.test(f.quote || '')) || null;
   const why = db.findings.find(f => f.n.read_in === 'challenge_page' && /hard to find/i.test(f.quote || '')) || null;
   const sub = el('p.bf-sub');
-  if (delay) sub.append(el('span.bf-sub-claim', { data: { claim: delay.id } }, 'Mars: ', el('span.quote', delay.quote), ' ', ui.cite(delay.id, { small: true })));
-  if (why) sub.append(' ', el('span.bf-sub-claim', { data: { claim: why.id } }, 'NASA’s combustion data: ', el('span.quote', why.quote), ' ', ui.cite(why.id, { small: true })));
+  if (delay) sub.append(el('span.bf-sub-claim', { data: { claim: delay.id } }, 'Mars: ', el('span.quote', cite(delay.quote, delay.id))));
+  if (why) sub.append(' ', el('span.bf-sub-claim', { data: { claim: why.id } }, 'NASA’s combustion data: ', el('span.quote', cite(why.quote, why.id))));
   const hero = el('header.bf-hero',
     el('div.bf-hero-text',
       el('h1.bf-tagline', 'The fire officer that doesn’t wait for Houston'),
@@ -144,7 +145,7 @@ function mountDetails(root, ctx) {
           el('span.bf-fam-track', el('span.bf-fam-bar', { style: { width: (100 * f.n / max) + '%' } })))))),
       excluded.length ? el('p.bf-note', `${excluded.length} more PSI records matched the search and are excluded: ${excluded.map(x => x.psi_id).join(', ')}.`) : null,
       el('div.bf-foot', dataset('api/v1/investigations.json', 'PSI records'), ui.button('Browse + compare', { icon: '›', onClick: () => ctx.go('#/investigations') })));
-    return ui.panel('1 Summarize', body, { class: 'bf-p1', data: { panel: 'summarize' } });
+    return ui.panel('Summarize', body, { class: 'bf-p1', data: { panel: 'summarize' } });
   }
   const rules = (db.rules || []).filter(r => (r.finding_ids || []).some(id => db.findingById[id]));
   const bestOf = (rule, point) => {
@@ -168,24 +169,35 @@ function mountDetails(root, ctx) {
     ruleCount.textContent = `rule ${ruleIdx + 1} of ${rules.length}`;
     wipe(ruleBody);
     const tri = ui.triad(rule, db, { strikeAfter: ctx.capture ? 0 : STRIKE_MS });
+    for (const col of tri.querySelectorAll('[data-claim]')) {
+      const id = col.dataset.claim, finding = db.findingById[id];
+      const quote = col.querySelector('.triad-quote,.triad-strike');
+      if (quote && finding) quote.replaceChildren(cite(quote.textContent, id));
+      const cells = col.querySelectorAll('.triad-cells li');
+      cells.forEach((cell, index) => {
+        const record = finding?.cells?.[index];
+        if (record?.row_id) cell.replaceChildren(cite(cell.textContent, record.row_id));
+      });
+    }
+    tri.querySelectorAll('.triad-foot .cite').forEach(node => node.remove());
     ruleBody.append(
       el('div.bf-triad', { data: { claim: rule.id, rule: rule.id } }, tri),
       el('div.bf-rule-meta',
-        f ? el('p.bf-rule-src', { data: { claim: f.id } }, ui.cite(f.id, { small: true }), el('span.bf-rule-level', level(f)),
+        f ? el('p.bf-rule-src', { data: { claim: f.id } }, el('span.bf-rule-level', cite(level(f), f.id)),
               f.gate && f.gate.pass ? el('span.bf-ok', { title: 'The quote stands verbatim in the cached NASA text (research/tools/quotecheck.py)' }, '✓ quote verified') : null) : null,
-        rule.limits ? el('p.bf-rule-limits', { data: { claim: rule.id } }, el('span.bf-k', 'Limits'), rule.limits, f ? ui.cite(f.id, { small: true }) : null) : null),
+        rule.limits ? el('p.bf-rule-limits', { data: { claim: rule.id } }, el('span.bf-k', 'Limits'), f ? cite(rule.limits, f.id) : rule.limits) : null),
       el('div.bf-rule-all', el('span.bf-k', 'All rules'), rules.map((r, k) => el('button.bf-rule-pill', { type: 'button', data: { rule: r.id }, 'aria-pressed': k === ruleIdx ? 'true' : 'false', title: r.id,
         onclick: () => { touched = true; showRule(k); } }, words(r.topic)))));
   }
   function interpretPanel() {
     if (!rules.length) {
-      return ui.panel('3 Interpret', ui.empty('none', 'No verified rule yet. Rules appear when their quotes pass the gate.', { label: 'Open Engine', onClick: () => ctx.go('#/engine') }),
+      return ui.panel('Interpret', ui.empty('none', 'No verified rule yet. Rules appear when their quotes pass the gate.', { label: 'Open Engine', onClick: () => ctx.go('#/engine') }),
         { strong: true, class: 'bf-p3', data: { panel: 'interpret' } });
     }
     const nav = el('div.bf-rule-nav', ruleCount,
       el('button.bf-arrow', { type: 'button', 'aria-label': 'Previous rule', data: { ruleNav: 'prev' }, onclick: () => { touched = true; showRule(ruleIdx - 1); } }, '‹'),
       el('button.bf-arrow', { type: 'button', 'aria-label': 'Next rule', data: { ruleNav: 'next' }, onclick: () => { touched = true; showRule(ruleIdx + 1); } }, '›'));
-    const p = ui.panel('3 Interpret', ruleBody, { strong: true, actions: [nav], class: 'bf-p3', data: { panel: 'interpret' } });
+    const p = ui.panel('Interpret', ruleBody, { strong: true, actions: [nav], class: 'bf-p3', data: { panel: 'interpret' } });
     p.addEventListener('pointerdown', () => { touched = true; });
     p.addEventListener('keydown', () => { touched = true; });
     showRule(ruleIdx);
@@ -211,7 +223,7 @@ function mountDetails(root, ctx) {
     const cabin = usable
       ? `${fmt.short(q.o2)} % O2 · ${pressure(q.p)} · ${q.g_label || 'gravity not set'}` + (q.material ? ` · ${(db.materials[q.material] && db.materials[q.material].label) || q.material}` : '')
       : 'This cabin has no verified source sentence, so nothing is ranked for it.';
-    rankBody.append(el('div.bf-for', el('span.bf-k', 'for'), presetSel, concernSel), el('p.bf-cabin', { data: { claim: 'cabin' } }, cabin, ' ', dataset('data/presets.json', 'preset source')));
+    rankBody.append(el('div.bf-for', el('span.bf-k', 'for'), presetSel, concernSel), el('p.bf-cabin', { data: { claim: 'cabin' } }, db.presetById[q.preset] ? cite(cabin, q.preset) : cabin));
 
     const onPillar = db.findings.filter(f => f.pillar === q.concern);
     if (usable && !onPillar.length) rankBody.append(ui.empty('none', `No verified finding for ${q.concern} ${base}.`));
@@ -223,8 +235,8 @@ function mountDetails(root, ctx) {
         return el('li.bf-top-row', { data: { claim: r.f.id, rank: i + 1 } },
           el('span.bf-top-i.num', String(i + 1)),
           el('span.bf-top-score.num', { title: 'Score out of 100: pillar 30, atmosphere 25, gravity 15, level 15, material 10, habitat 5' }, String(r.total)),
-          el('span.bf-top-topic', { title: words(r.f.n.topic || r.f.topic) }, findingTitle(r.f)), ui.chip(st.status, { small: true }),
-          el('span.bf-top-level', level(r.f)), ui.cite(r.f.id, { small: true }));
+          el('span.bf-top-topic', { title: words(r.f.n.topic || r.f.topic) }, cite(findingTitle(r.f), r.f.id)), ui.chip(st.status, { small: true }),
+          el('span.bf-top-level', level(r.f)));
       })));
     }
     if (usable) {
@@ -241,7 +253,7 @@ function mountDetails(root, ctx) {
       el('p.bf-legend', (text && text.STATUS_LINE) || 'STATUS = EVIDENCE COVERAGE, NOT A SAFETY CERTIFICATION'),
       ui.button('Open Design mode', { icon: '›', onClick: () => ctx.go('#/design') })));
   }
-  function rankPanel() { renderRank(); return ui.panel('2 Rank', rankBody, { class: 'bf-p2', data: { panel: 'rank' } }); }
+  function rankPanel() { renderRank(); return ui.panel('Rank', rankBody, { class: 'bf-p2', data: { panel: 'rank' } }); }
   function strips() {
     const e = db.engine || {};
     const scen = (db.scenario && db.scenario.meta && db.scenario.meta.id) || Object.keys(e.officer || {}).find(k => e.officer[k] && typeof e.officer[k] === 'object');
@@ -269,7 +281,7 @@ function mountDetails(root, ctx) {
   }
   const world = heroWorld(ctx, true);
   world.node.append(world.evidence);
-  const page = el('div.bf', { data: { screen: 'brief' } }, hero, world.node, el('div.bf-panels', summarizePanel(), rankPanel(), interpretPanel()), strips());
+  const page = el('div.bf', { data: { screen: 'brief' } }, hero, world.node, strips());
   root.replaceChildren(page);
   world.start();
   const tagline = hero.querySelector('.bf-tagline');
@@ -285,7 +297,8 @@ const details = ctx => (ctx.view || ctx.params?.view) === 'details';
 
 function mountSimple(root, ctx) {
   const { ui, db } = ctx, el = ui.el;
-  ui.css('css/views/brief.css?v=12');
+  ui.css('css/views/brief.css?v=13');
+  ui.css('css/world.css');
   const investigations = db.engine.extractor.psi_kept;
   const rows = db.engine.extractor.test_rows;
   const goLink = (label, href, className) => el('a', {
@@ -301,8 +314,7 @@ function mountSimple(root, ctx) {
         ui.button('Explore the evidence', { primary: true, icon: '›', onClick: () => ctx.go('#/investigations') }),
         goLink('Run the fire drill', '#/incident', 'bfs-secondary')),
       el('p.bfs-counts', { data: { claim: 'brief-counts' } },
-        `${ui.fmt.n(investigations)} investigations · ${ui.fmt.n(rows)} source-table rows`,
-        el('a.cite', { href: 'api/v1/index.json', target: '_blank', rel: 'noopener' }, 'source'))),
+        el('a.world-cite', { href: 'api/v1/index.json', target: '_blank', rel: 'noopener' }, `${ui.fmt.n(investigations)} investigations · ${ui.fmt.n(rows)} source-table rows`))),
     world.node);
 
   const path = el('div.bfs-path', { 'aria-hidden': 'true' });
@@ -321,8 +333,7 @@ function mountSimple(root, ctx) {
     const summary = rule.vesta_decides.replace(/low-momentum/g, 'slow-moving').replace(/microgravity/g, 'near-weightlessness');
     lesson.append(el('summary', 'One lesson: flames need not point up', el('span', 'Read the evidence +')),
       el('div.bfs-lesson-body', { data: { claim: rule.id } },
-        el('span.bfs-summary-label', 'Summary'), el('p', summary),
-        finding ? ui.cite(finding, { label: 'Read the NASA source' }) : null,
+        el('span.bfs-summary-label', 'Summary'), el('p', finding ? cite(summary, finding) : summary),
         el('p.bfs-limit', rule.limits)));
   }
   const footer = el('footer.bfs-footer',

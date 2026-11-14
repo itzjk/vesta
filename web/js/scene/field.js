@@ -17,7 +17,8 @@ export function nearestSolid(db, q) {
 }
 export async function build(ctx) {
   const { THREE: T, camera, renderer } = ctx, group = new T.Group(), host = renderer.domElement.parentElement;
-  const phone = ctx.mode === 'low' && innerWidth < 760;
+  const integrated = ctx.world === true;
+  const phone = !integrated && ctx.mode === 'low' && innerWidth < 760;
   if(phone)group.scale.set(.5,1,.7);
   const overlay = document.createElement('div'); overlay.className = 'field-labels'; host.append(overlay);
   const labels = [], disposers = [], projection = new T.Vector3();
@@ -39,13 +40,13 @@ export async function build(ctx) {
   const cabinLabel = label('Your cabin', [0,0,0], 'field-cabin-label');
   const deltaLabel = label('', [0,0,0], 'field-delta-label');
   const hoverLabel = label('', [0,0,0], 'field-hover-label'); hoverLabel.el.hidden = true;
-  let shown = ['solid','droplet','gas'], nearest, data = [], cloud, priorDb, lastKey, from = new T.Vector3(), target = new T.Vector3(), changeT = 0, hovered = null;
+  let shown = ['solid','droplet','gas'], nearest, data = [], cloud, priorDb, lastKey, from = new T.Vector3(), target = new T.Vector3(), changeT = 0, hovered = null, selected = null;
   let yaw = .76, pitch = .1, distance = phone ? 17 : 17.4, drag = null, interacted = false, introStart = null;
   let oMax = 42, pMin = 2, pMax = 80, axisKey;
   const animateEntry = !entered; entered = true;
   const pointers = new Map(); let pinch;
   const canvas = renderer.domElement;
-  const listen = (name, fn, options, surface = canvas) => { surface.addEventListener(name, fn, options); disposers.push(() => surface.removeEventListener(name, fn, options)); };
+  const listen = (name, fn, options, surface = canvas) => { if(integrated)return; surface.addEventListener(name, fn, options); disposers.push(() => surface.removeEventListener(name, fn, options)); };
   const clearHover = () => { hovered = null; hoverLabel.el.hidden = true; if(cloud)cloud.material.uniforms.uHover.value.set(999,999,999); };
   listen('pointerdown', e => { interacted = true; clearHover(); pointers.set(e.pointerId,[e.clientX,e.clientY]); drag = [e.clientX,e.clientY]; canvas.setPointerCapture(e.pointerId); });
   listen('pointermove', e => {
@@ -78,13 +79,14 @@ export async function build(ctx) {
       sizes.push(Math.min(16,(p.layer === 'solid' ? 6.5 : 4.5)+Math.log2(multiplicity.get(markKey(p)))*1.8));
     }
     geometry.setAttribute('layer',new T.Float32BufferAttribute(layers,1));
+    geometry.setAttribute('selected',new T.Float32BufferAttribute(data.map(p=>!selected || p.row.psi_id===selected ? 1 : 0),1));
     geometry.setAttribute('position',new T.Float32BufferAttribute(positions,3)); geometry.setAttribute('color',new T.Float32BufferAttribute(colors,3)); geometry.setAttribute('inferred',new T.Float32BufferAttribute(flags,1)); geometry.setAttribute('pointSize',new T.Float32BufferAttribute(sizes,1));
-    const material = new T.ShaderMaterial({ vertexColors:true, transparent:true, depthWrite:false, uniforms:{uLayers:{value:new T.Vector3(1,1,1)},uDpr:{value:1},uHover:{value:new T.Vector3(999,999,999)}},
-      vertexShader:'attribute float layer; attribute float inferred; attribute float pointSize; uniform float uDpr; uniform vec3 uHover; varying float vLayer; varying vec3 vColor; varying float vRing; void main(){vLayer=layer;vColor=color;vRing=inferred;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);gl_PointSize=(pointSize+(distance(position,uHover)<.001?5.0:0.0))*uDpr;}',
-      fragmentShader:'uniform vec3 uLayers; varying float vLayer; varying vec3 vColor; varying float vRing; void main(){if((vLayer<.5 && uLayers.x<.5)||(vLayer>.5 && vLayer<1.5 && uLayers.y<.5)||(vLayer>1.5 && uLayers.z<.5))discard;float d=length(gl_PointCoord-.5);if(d>.5 || (vRing>.5 && d<.28))discard;gl_FragColor=vec4(vColor,1.0);\n#include <colorspace_fragment>\n}' });
+    const material = new T.ShaderMaterial({ vertexColors:true, transparent:true, depthWrite:false, uniforms:{uLayers:{value:new T.Vector3(1,1,1)},uDpr:{value:1},uHover:{value:new T.Vector3(999,999,999)},uTime:{value:0},uSelected:{value:0}},
+      vertexShader:'attribute float layer; attribute float inferred; attribute float pointSize; attribute float selected; uniform float uDpr; uniform vec3 uHover; uniform float uTime; uniform float uSelected; varying float vLayer; varying vec3 vColor; varying float vRing; varying float vAlpha; void main(){vLayer=layer;vColor=color;vRing=inferred;vAlpha=mix(.09,1.,selected);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);float shimmer=1.+.045*sin(uTime*1.5+position.x*2.+position.y);gl_PointSize=(pointSize*shimmer+uSelected*selected*2.+(distance(position,uHover)<.001?5.0:0.0))*uDpr;}',
+      fragmentShader:'uniform vec3 uLayers; varying float vLayer; varying vec3 vColor; varying float vRing; varying float vAlpha; void main(){if((vLayer<.5 && uLayers.x<.5)||(vLayer>.5 && vLayer<1.5 && uLayers.y<.5)||(vLayer>1.5 && vLayer<2.5 && uLayers.z<.5))discard;float d=length(gl_PointCoord-.5);if(d>.5 || (vRing>.5 && d<.28))discard;gl_FragColor=vec4(vColor,vAlpha);\n#include <colorspace_fragment>\n}' });
     if(cloud){group.remove(cloud);cloud.geometry.dispose();cloud.material.dispose();}
     cloud = new T.Points(geometry,material); group.add(cloud);
-    planes.forEach((p,i) => { const n = data.filter(d=>d.plane===p.key).length; planeLabels[i].el.replaceChildren(document.createTextNode(p.label),Object.assign(document.createElement('small'),{textContent:n ? `${n} test rows` : 'no test row in the evidence base'})); });
+    planes.forEach((p,i) => { const n = data.filter(d=>d.plane===p.key).length; planeLabels[i].el.replaceChildren(document.createTextNode(p.label),Object.assign(document.createElement('small'),{textContent:integrated && innerWidth < 760 ? `${n} plotted rows` : n ? `${n} test rows` : integrated ? 'no plotted row in the evidence base' : 'no test row in the evidence base'})); });
   }
   return { group, still,
     update(t,state) {
@@ -95,10 +97,17 @@ export async function build(ctx) {
       if(axisKey!==nextAxis){[oMax,pMin,pMax]=domain;axisKey=nextAxis;oxygenTicks.forEach((l,i)=>l.position.y=y([10,20,30,40][i]));pressureTicks.forEach((l,i)=>l.position.x=x([2,5,10,20,40,80][i]));populate(state.db);lastKey=null;}
       else if (priorDb !== state.db) populate(state.db);
       shown=state.show || ['solid','droplet','gas']; cloud.material.uniforms.uLayers.value.set(...['solid','droplet','gas'].map(k=>shown.includes(k)?1:0)); cloud.material.uniforms.uDpr.value=renderer.getPixelRatio();
+      if(selected !== (state.investigation || null)) {
+        selected=state.investigation || null;
+        const attr=cloud.geometry.attributes.selected;
+        data.forEach((p,i)=>attr.setX(i,!selected || p.row.psi_id===selected ? 1 : 0)); attr.needsUpdate=true; clearHover();
+      }
+      cloud.material.uniforms.uTime.value=t;
+      cloud.material.uniforms.uSelected.value=selected ? 1 : 0;
       const valid = Number.isFinite(q.p) && q.p>0 && Number.isFinite(q.o2); cabin.visible=ring.visible=valid; cabinLabel.el.hidden=deltaLabel.el.hidden=!valid;
       const key=[q.p,q.o2,q.g].join('|'), next=pos({p:q.p,o2:q.o2,plane:q.g});
       if (key!==lastKey) { from.copy(lastKey ? cabin.position : next); target.copy(next); changeT=t; lastKey=key; nearest=nearestSolid(state.db,q); }
-      const a = state.capture || ctx.mode==='still' ? 1 : Math.min(1,Math.max(0,(t-changeT)/1.15)), ease=a*a*(3-2*a);
+      const a = state.capture || state.reduced || ctx.mode==='still' ? 1 : Math.min(1,Math.max(0,(t-changeT)/1.15)), ease=a*a*(3-2*a);
       cabin.position.lerpVectors(from,target,ease); cabin.position.y+=Math.sin(a*Math.PI)*.6; ring.position.copy(cabin.position);
       link.visible=valid&&!!nearest; deltaLabel.el.hidden=!link.visible;
       if (nearest && valid) {
@@ -109,7 +118,8 @@ export async function build(ctx) {
       introStart ??= t;
       const entry=state.capture||!animateEntry||interacted?0:Math.max(0,1-(t-introStart)/1.45)**3;
       const fitDistance=phone ? distance : distance*Math.max(1,1.65/camera.aspect), lookYaw=yaw-entry*.22;
-      camera.position.set(Math.sin(lookYaw)*fitDistance,Math.sin(pitch+entry*.06)*fitDistance,Math.cos(lookYaw)*fitDistance); camera.lookAt(.4,phone ? 0 : -.65,0); camera.updateMatrixWorld(); group.updateMatrixWorld(true); ring.quaternion.copy(camera.quaternion);
+      if(!integrated){camera.position.set(Math.sin(lookYaw)*fitDistance,Math.sin(pitch+entry*.06)*fitDistance,Math.cos(lookYaw)*fitDistance); camera.lookAt(.4,phone ? 0 : -.65,0);}
+      camera.updateMatrixWorld(); group.updateMatrixWorld(true); ring.quaternion.copy(camera.quaternion);
       cabinLabel.position.copy(cabin.position).add(new T.Vector3(.25,.4,0));
       if(hovered)hoverLabel.position.copy(pos(hovered)).add(new T.Vector3(.15,.22,0));
       for(const l of labels) {
@@ -119,20 +129,23 @@ export async function build(ctx) {
         if(phone && l.el.classList.contains('field-gap-label'))left=Math.min(host.clientWidth-l.el.offsetWidth-12,left+8);
         if(phone && l.el.classList.contains('field-axis'))left=Math.max(16,Math.min(host.clientWidth-l.el.offsetWidth-12,left));
         if(phone && l.el.classList.contains('field-oxygen-title'))top=103;
-        l.el.style.left=`${left}px`; l.el.style.top=`${top}px`; l.el.hidden=projection.z>1;
+        if(integrated && host.clientWidth<760){left=Math.max(8,Math.min(host.clientWidth-l.el.offsetWidth-8,left));if(l===planeLabels[0])top=Math.max(top,host.clientHeight*.315);}
+        l.el.style.left=`${left}px`; l.el.style.top=`${top}px`; l.el.hidden=projection.z>1 || projection.z< -1 || (integrated && !group.visible);
       }
       host.dataset.fieldRows=String(data.length); host.dataset.fieldCabin=cabin.position.toArray().map(n=>n.toFixed(3)).join(','); host.dataset.fieldCamera=camera.position.toArray().map(n=>n.toFixed(3)).join(',');
       host.dataset.fieldMinPointPx='4.5'; pressureLabel.el.dataset.axis='psia-log';
     },
     pick(x,y) {
       if(!cloud)return null;
-      ray.params.Points.threshold=.14*distance/17.4; ray.setFromCamera({x,y},camera);
-      const hit=ray.intersectObject(cloud).find(h=>shown.includes(data[h.index].layer)), p=hit&&data[hit.index];
+      ray.params.Points.threshold=integrated ? .17 : .14*distance/17.4; ray.setFromCamera({x,y},camera);
+      const hit=ray.intersectObject(cloud).find(h=>shown.includes(data[h.index].layer) && (!selected || data[h.index].row.psi_id===selected)), p=hit&&data[hit.index];
       if(!p){clearHover();return null;}
       hovered=p; cloud.material.uniforms.uHover.value.copy(pos(p)); hoverLabel.el.hidden=false;
       hoverLabel.el.textContent=`${p.row.investigation} · ${p.row.fuel || 'fuel not stated'} · ${Math.round(p.o2*10)/10}% O₂ · ${p.p==null?'pressure not stated':`${Math.round(p.p/KPA_PER_PSI*10)/10} psia`}`;
       return {id:p.row.id,kind:'test',row:p.row};
     },
+    setVisible(value) { group.visible=value; overlay.hidden=!value; if(!value)clearHover(); },
+    get rows() { return data; },
     dispose() { disposers.forEach(fn=>fn()); overlay.remove(); }
   };
 }
