@@ -1,3 +1,68 @@
+function heroWorld(ctx, compact = false) {
+  const { ui, db } = ctx, el = ui.el;
+  const finding = db.findingById['S-SHAPE-01'];
+  const host = el('div.bfh-stage', { 'aria-hidden': 'true' });
+  const output = el('output.bfh-state', { for: compact ? 'brief-flame-details' : 'brief-flame' }, 'In space');
+  const slider = el('input.bfh-slider', { id: compact ? 'brief-flame-details' : 'brief-flame', type: 'range', min: 0, max: 100, step: 1, value: 100,
+    'aria-label': 'Illustrated flame, On Earth to In space', 'aria-valuetext': 'In space, rounded low-momentum flame' });
+  const status = el('p.bfh-static', { hidden: true }, 'Still illustration. The flame control is available in the live 3D view.');
+  const controls = el('div.bfh-controls',
+    el('div.bfh-control-title', el('label', { for: slider.id }, 'Change the view'), output),
+    slider, el('div.bfh-ends', el('span', 'On Earth'), el('span', 'In space')), status);
+  const note = el('p.bfh-note', 'Illustration of a NASA observation, not a simulation');
+  const description = el('p.bfh-description', 'VESTA floats beside a flame in a cabin with Mars in the window. The control changes a yellow teardrop illustration into a rounded blue flame.');
+  const evidence = el('div.bfh-evidence', { data: { claim: finding?.id } },
+    el('p.bfh-evidence-label', 'NASA observed'),
+    finding ? el('blockquote', el('span.quote', finding.quote)) : el('p', 'The source observation is unavailable.'),
+    finding ? el('div.bfh-sources', ui.cite(finding.id, { label: 'NASA source' }),
+      el('a.bfh-original', { href: finding.source.url, target: '_blank', rel: 'noopener' }, 'Read at NASA ↗')) : null,
+    el('p.bfh-scope', 'The observation concerns low-momentum flames, not every fire in space. Shape and colour do not establish safety.'));
+  const picture = el('div.bfh-world', host, el('span.bfh-world-label', 'VESTA / Cabin illustration'), controls);
+  const node = el(compact ? 'section.bfh.bfh-details' : 'div.bfh', picture, note, description);
+  let alive = true, stage, observer;
+  const syncMode = () => {
+    const isStill = stage?.mode === 'still';
+    slider.disabled = isStill; status.hidden = !isStill;
+    node.dataset.mode = isStill ? 'still' : 'live';
+  };
+  const change = () => {
+    const space = Number(slider.value) / 100;
+    output.textContent = space === 0 ? 'On Earth' : space === 1 ? 'In space' : 'Between illustrations';
+    slider.setAttribute('aria-valuetext', space === 0 ? 'On Earth, yellow teardrop' : space === 1 ? 'In space, rounded low-momentum flame' : 'Transition between two illustrations');
+    stage?.set({ space });
+  };
+  const pointer = event => {
+    if (ctx.capture || new URLSearchParams(location.hash.split('?')[1] || '').get('capture') === '1') return;
+    const b = host.getBoundingClientRect();
+    stage?.set({ pointerX: (event.clientX - b.left) / b.width * 2 - 1, pointerY: 1 - (event.clientY - b.top) / b.height * 2 });
+  };
+  const leave = () => stage?.set({ pointerX: 0, pointerY: 0 });
+  slider.addEventListener('input', change); host.addEventListener('pointermove', pointer); host.addEventListener('pointerleave', leave);
+  return {
+    node, evidence,
+    async start() {
+      try {
+        const [{ createStage }, hero] = await Promise.all([import('../scene/engine.js'), import('../scene/hero.js')]);
+        if (!alive) return;
+        stage = await createStage(host, { capture: ctx.capture || new URLSearchParams(location.hash.split('?')[1] || '').get('capture') === '1', still: 'assets/scene/hero.jpg' });
+        if (!alive) { stage.dispose(); return; }
+        await stage.use(hero, { space: 1 });
+        if (!alive) return;
+        observer = new MutationObserver(syncMode); observer.observe(host, { attributes: true, attributeFilter: ['data-scene-mode'] });
+        syncMode();
+      } catch {
+        if (!alive) return;
+        host.append(el('img.bfh-fallback', { src: 'assets/scene/hero.jpg', alt: '' }));
+        slider.disabled = true; status.hidden = false;
+      }
+    },
+    dispose() {
+      alive = false; observer?.disconnect(); stage?.dispose();
+      slider.removeEventListener('input', change); host.removeEventListener('pointermove', pointer); host.removeEventListener('pointerleave', leave);
+    }
+  };
+}
+
 const CONCERNS = ['prevention', 'detection', 'suppression'];
 const CONCERN_LABEL = { prevention: 'Prevention', detection: 'Detection', suppression: 'Suppression' };
 const ADVANCE_MS = 6000, STRIKE_MS = 1200;
@@ -9,7 +74,7 @@ const dig = (obj, path) => path.split('.').reduce((o, k) => (o == null ? o : o[k
 
 function mountDetails(root, ctx) {
   const { ui, db } = ctx, el = ui.el, fmt = ui.fmt;
-  ui.css('css/views/brief.css?v=10');
+  ui.css('css/views/brief.css?v=11');
   const core = ctx.core || {}, rankMod = core.rank, statusMod = core.status, text = core.text;
   const nInv = db.investigations.length;
   const base = `in VESTA’s evidence base (${nInv} PSI investigations)`;
@@ -187,12 +252,15 @@ function mountDetails(root, ctx) {
         inApp('MCP server', '#/open'), inApp('telemetry format', '#/open'), inApp('NTRS snapshot', '#/open')));
     return [engine, open];
   }
-  const page = el('div.bf', { data: { screen: 'brief' } }, hero, el('div.bf-panels', summarizePanel(), rankPanel(), interpretPanel()), strips());
+  const world = heroWorld(ctx, true);
+  world.node.append(world.evidence);
+  const page = el('div.bf', { data: { screen: 'brief' } }, hero, world.node, el('div.bf-panels', summarizePanel(), rankPanel(), interpretPanel()), strips());
   root.replaceChildren(page);
+  world.start();
   const tagline = hero.querySelector('.bf-tagline');
 
   return {
-    unmount() { alive = false; for (const id of timers) clearTimeout(id); timers.clear(); },
+    unmount() { world.dispose(); alive = false; for (const id of timers) clearTimeout(id); timers.clear(); },
     update(next) { ctx = next; q = next.q; renderRank(); },
   };
 }
@@ -202,26 +270,27 @@ const details = ctx => (ctx.view || ctx.params?.view) === 'details';
 
 function mountSimple(root, ctx) {
   const { ui, db } = ctx, el = ui.el;
-  ui.css('css/views/brief.css?v=10');
+  ui.css('css/views/brief.css?v=11');
   const investigations = db.engine.extractor.psi_kept;
   const rows = db.engine.extractor.test_rows;
   const goLink = (label, href, className) => el('a', {
     href, class: className, onclick: event => { event.preventDefault(); ctx.go(href); }
   }, label);
+  const world = heroWorld(ctx);
   const hero = el('header.bfs-intro',
     el('div.bfs-intro-copy',
       el('p.bfs-eyebrow', 'VESTA / NASA fire evidence'),
       el('h1.bfs-title', "Explore NASA's fire experiments."),
       el('p.bfs-promise', 'See where the evidence stops.'),
       el('p.bfs-who', 'For students, researchers and spacecraft designers.'),
+      world.evidence,
       el('div.bfs-actions',
         ui.button('Explore the evidence', { primary: true, icon: '›', onClick: () => ctx.go('#/investigations') }),
         goLink('Run the fire drill', '#/incident', 'bfs-secondary')),
       el('p.bfs-counts', { data: { claim: 'brief-counts' } },
         `${ui.fmt.n(investigations)} investigations · ${ui.fmt.n(rows)} source-table rows`,
         el('a.cite', { href: 'api/v1/index.json', target: '_blank', rel: 'noopener' }, 'source'))),
-    el('div.bfs-mascot', ui.vesta('point', { size: 220 }),
-      el('p', 'The fire officer that doesn’t wait for Houston.')));
+    world.node);
 
   const step = (number, title, copy) => el('li.bfs-step',
     el('span.bfs-step-number', { 'aria-hidden': 'true' }, number),
@@ -246,7 +315,8 @@ function mountSimple(root, ctx) {
     el('p', 'An evidence explorer and a scripted drill. Evidence coverage is not safety certification.'),
     el('div', goLink('How quotes are checked', '#/engine'), el('span', ' · '), goLink('Use the open data', '#/open')));
   root.replaceChildren(el('div.bfs', { data: { screen: 'brief', simple: true } }, hero, journey, lesson, footer));
-  return { unmount() {} };
+  world.start();
+  return { unmount() { world.dispose(); } };
 }
 
 export function mount(root, ctx) {

@@ -1,8 +1,8 @@
 
 
 
-.panel{position:relative;display:flex;flex-direction:column;min-width:0;min-height:0;border:1px solid var(--line);border-radius:var(--r-panel);
-  background:var(--surface-1);}
+.panel{position:relative;display:flex;flex-direction:column;min-width:0;min-height:0;border:0;border-top:1px solid var(--line-strong);border-radius:0;
+  background:transparent;}
 .panel-strong{border-color:var(--line-strong);background:var(--surface-1);}
 .panel-head{display:flex;align-items:center;gap:var(--s3);padding:12px var(--s4) 8px;min-width:0}
 .panel-title{font:600 26px/30px var(--display);letter-spacing:.02em;color:var(--ivory);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -345,3 +345,33 @@ input[type="range"]::-webkit-slider-runnable-track{background:var(--earth-deep)}
 .cite{background:var(--bg-1)}
 .cite:hover,.cite:focus-visible{background:var(--bg-1);color:var(--ivory)}
 .tbl tr[aria-selected="true"] td,.tbl tr.is-on td{background:var(--surface-2)}
+
+.panel{background:transparent;border-color:var(--line-strong)}
+.panel-strong{background:var(--surface-1);border:0;border-top:2px solid var(--rust)}
+.panel-title{font-size:30px;letter-spacing:0;color:var(--ivory)}
+.panel-tag,.tag,.chip,.status-line,.seg>button,.seg>a{letter-spacing:.02em;text-transform:none}
+.panel-head{padding-top:14px;padding-bottom:12px}
+.panel-body{padding-bottom:18px}
+.simple-heading{background:transparent;border:0;border-radius:0;padding:0 0 24px;border-bottom:1px solid var(--line-strong)}
+.simple-question,.answer-question{font:400 23px/1.3 var(--font);color:var(--ivory-dim)}
+.simple-answer,.answer-sentence{font:600 54px/1.08 var(--display);max-width:1520px}
+.simple-block{border:0;border-top:1px solid var(--line-strong);border-radius:0;background:transparent}
+.btn,.cite,.seg,.reason,.tag,.chip,select,input[type="checkbox"]{border-radius:2px}
+.btn{font-weight:600;letter-spacing:0}
+.cite{padding-left:3px;padding-right:3px;border-color:transparent;border-bottom-color:var(--earth);border-radius:0;background:transparent;text-decoration:none;font-weight:400}
+.cite:hover,.cite:focus-visible{background:var(--surface-1);color:var(--ivory);border-bottom-color:currentColor}
+.cite-mark{width:5px;height:5px;border-radius:0}
+.chip{border-color:transparent;padding-left:0;padding-right:6px;background:transparent}
+.chip-no-source,.chip-never-tested{border-bottom-color:var(--rust-line)}
+.chip-simulated{border-color:var(--line-strong)}
+.tag{border:0;border-left:1px solid var(--line-strong)}
+.seg>[aria-pressed="true"],.seg>[aria-current="true"],.seg>.is-on{background:var(--paper);color:var(--ink)}
+.dw-id,.dw-url,.dw-raw,.dw-table code,.scorebar-num{font-family:var(--mono)}
+.dw-quote{border-radius:0;border-left:3px solid var(--rust)}
+.triad-col,.protocol,.bubble{border-radius:2px}
+@media(max-width:759px){
+ html[data-view-mode="simple"] .simple-heading{padding:0 0 24px;gap:12px}
+ html[data-view-mode="simple"] .simple-question,html[data-view-mode="simple"] .answer-question{font-size:19px;line-height:26px}
+ html[data-view-mode="simple"] .simple-answer,html[data-view-mode="simple"] .answer-sentence{font-size:36px;line-height:1.1}
+ html[data-view-mode="simple"] .cite{padding-left:4px;padding-right:4px}
+}

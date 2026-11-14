@@ -11,7 +11,7 @@ const words = (s) => String(s ?? '').replace(/_/g, ' ');
 
 export function mount(root, ctx) {
   const { ui, db } = ctx, { el } = ui, E = db.engine;
-  ui.css('css/views/engine.css');
+  ui.css('css/views/engine.css?v=11');
   root.classList.add('eng');
   const unmount = () => { root.classList.remove('eng'); root.replaceChildren(); };
   if (!E || typeof E !== 'object' || !Object.keys(E).length) {
@@ -40,13 +40,13 @@ export function mount(root, ctx) {
     ];
     root.replaceChildren(
       ui.answer(title, sentence, { class: 'eng-simple-head' }),
-      el('section.eng-simple-pipeline', { 'aria-label': 'Evidence pipeline' }, pipeline.map(([id, label, key, unit, text]) =>
+      el('div.eng-simple-body', el('section.eng-simple-pipeline', { 'aria-label': 'Evidence pipeline' }, pipeline.map(([id, label, key, unit, text]) =>
         el('article.eng-simple-node', { data: { node: id } }, el('h2', label), num(key), el('p.eng-simple-unit', unit), el('p', text)))),
       el('section.eng-simple-limit',
         el('h2', 'Text matching is the first check.'),
         el('p', 'It does not validate VESTA’s interpretation or certify safety. Missing evidence stays visible; VESTA does not guess.'),
         el('a', { href: 'data/engine.json', target: '_blank', rel: 'noopener', class: 'eng-source' }, 'source'),
-        ui.button('Use the data', { primary: true, href: '#/open', onClick: (e) => { e.preventDefault(); ctx.go('#/open'); } })),
+        ui.button('Use the data', { primary: true, href: '#/open', onClick: (e) => { e.preventDefault(); ctx.go('#/open'); } }))),
       el('p.eng-simple-status', ctx.core?.text?.STATUS_LINE ?? 'STATUS = EVIDENCE COVERAGE, NOT A SAFETY CERTIFICATION'));
     return () => { root.classList.remove('eng-simple'); unmount(); };
   }

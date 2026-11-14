@@ -1,0 +1,31 @@
+{
+  "downloaded": "2026-11-14",
+  "fonts": [
+    {
+      "name": "BarlowCondensed-SemiBold.woff2",
+      "bytes": 22308,
+      "source": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B4873z3bWuQ.woff2"
+    },
+    {
+      "name": "BarlowCondensed-Bold.woff2",
+      "bytes": 22444,
+      "source": "https://fonts.gstatic.com/s/barlowcondensed/v13/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3bWuQ.woff2"
+    },
+    {
+      "name": "SourceSans3.woff2",
+      "bytes": 28872,
+      "source": "https://fonts.gstatic.com/s/sourcesans3/v20/nwpStKy2OAdR1K-IwhWudF-R3w8aZQ.woff2"
+    },
+    {
+      "name": "IBMPlexMono-Regular.woff2",
+      "bytes": 14648,
+      "source": "https://fonts.gstatic.com/s/ibmplexmono/v23/-F63fjptAgt5VM-kVkqdyU8n1i8q1w.woff2"
+    },
+    {
+      "name": "IBMPlexMono-SemiBold.woff2",
+      "bytes": 15588,
+      "source": "https://fonts.gstatic.com/s/ibmplexmono/v23/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgg.woff2"
+    }
+  ],
+  "license_source": "https://github.com/google/fonts/tree/main/ofl"
+}

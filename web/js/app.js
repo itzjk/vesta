@@ -107,7 +107,7 @@ async function mount(route, ctx, token) {
   view.dataset.view = route;
   const file = ROUTES.find(r => r.id === route).file;
   let mod = null;
-  try { mod = await import(`./views/${file}?v=10`); }
+  try { mod = await import(`./views/${file}?v=11`); }
   catch (e) { console.warn(`VESTA: views/${file} did not load: ${e && e.message}`); }
   if (token !== mounted.token) return;
   if (!mod || typeof mod.mount !== 'function') { placeholder(); return; }
@@ -143,7 +143,7 @@ function render() {
     } else {
       unmount();
       const token = ++mounted.token;
-      const ctx = { db, q, view: params.view === 'details' ? 'details' : 'simple', params: split.own, route, setQ, setParams, go, openSource, closeSource, ui, core, capture };
+      const ctx = { db, q, view: params.view === 'details' ? 'details' : 'simple', params: split.own, route, setQ, setParams, go, openSource, closeSource, ui, core, capture, sceneHost: document.getElementById('scene-host') };
       mounted = { route, sig: split.sig, handle: null, ctx, token };
       mount(route, ctx, token);
     }
@@ -178,7 +178,7 @@ async function fontsReady() {
   const cap = ms => new Promise(res => setTimeout(res, ms));
   await Promise.race([linkDone, cap(1500)]);
   if (document.fonts && document.fonts.load) {
-    const want = ['400 18px "Space Grotesk"', '600 18px "Space Grotesk"', '600 26px "Clash Display"', '700 28px "Clash Display"'];
+    const want = ['400 18px "Source Sans 3"', '600 18px "Source Sans 3"', '600 26px "Barlow Condensed"', '700 28px "Barlow Condensed"', '400 15px "IBM Plex Mono"'];
     await Promise.race([Promise.all(want.map(f => document.fonts.load(f).catch(() => null))).then(() => document.fonts.ready), cap(2500)]);
   }
 }

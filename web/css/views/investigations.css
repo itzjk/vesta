@@ -122,3 +122,42 @@
 }
 
 .sm-row.is-sel,.sms-table tr.is-selected{background:var(--surface-2)}
+
+.sms{gap:24px;padding:20px 32px}
+.sms-intro .simple-answer{font-size:50px;max-width:1600px}
+.sms-note{color:var(--ivory-dim)}
+.sms-content{grid-template-columns:minmax(0,1fr) 490px;gap:36px}
+.sms-list{border:0;border-top:2px solid var(--rust);border-radius:0;background:transparent}
+.sms-list-label{padding:12px 0;font-size:18px;border-bottom:1px solid var(--line-strong)}
+.sms-table{font-size:21px;line-height:1.35}
+.sms-table thead th{background:var(--bg-1);font-weight:600}
+.sms-table th,.sms-table td{padding:16px 14px;border-bottom:1px solid var(--line)}
+.sms-table th:first-child{padding-left:0}
+.sms-table tr.is-selected{background:var(--surface-1);box-shadow:inset 3px 0 var(--rust)}
+.sms-table tr.is-selected th:first-child{padding-left:12px}
+.sms-pick{font-family:var(--display);font-size:26px;line-height:1.1}
+.sms-table td[data-label="Source rows"]{font-family:var(--mono);font-size:18px}
+.sms-selection{--ivory:var(--ink);--ivory-dim:var(--ink-dim);--earth:#445a68;--line:rgba(39,36,30,.18);--line-strong:rgba(39,36,30,.4);--bg-1:var(--paper);--surface-1:#ded1ba;background:var(--paper);color:var(--ink);padding:28px;border:0;gap:20px}
+.sms-eyebrow{font:400 15px/1.3 var(--mono);letter-spacing:0;text-transform:lowercase}
+.sms-selection h2{font:600 44px/1.05 var(--display);border-bottom:1px solid var(--line-strong);padding-bottom:20px}
+.sms-selection .sms-finding{font:600 26px/1.25 var(--font)}
+.sms-selection .cite:hover,.sms-selection .cite:focus-visible{color:var(--ink);background:var(--surface-1)}
+.sms-details-link{border-top:1px solid var(--line-strong);margin-top:auto;text-underline-offset:4px}
+.sms-footer{border-top:1px solid var(--line-strong);padding-top:18px}
+.sms-footer p{color:var(--ivory-dim);font-size:17px}
+.sm-table th,.sm-cmp th{letter-spacing:0;text-transform:none;font-weight:600}
+.sm-table .sm-name{font-family:var(--display);font-size:21px}
+@media(max-width:759px){
+ .sms{padding:0}
+ .sms-intro .simple-answer{font-size:36px}
+ .sms-content{gap:26px}
+ .sms-selection{padding:24px;gap:16px;border:0}
+ .sms-selection h2{font-size:38px;padding-bottom:16px}
+ .sms-selection .sms-finding{font-size:22px;line-height:1.35}
+ .sms-eyebrow{font-size:13px}
+ .sms-table th,.sms-table td{padding:6px 0;border:0;font-size:18px}
+ .sms-table tr{padding:20px 16px;border-bottom:1px solid var(--line)}
+ .sms-pick{font-size:28px}
+ .sms-table tr.is-selected th:first-child{padding-left:0}
+ .sms-footer p{font-size:16px}
+}

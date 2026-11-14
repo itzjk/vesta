@@ -215,3 +215,43 @@ function drawSimpleMap(ui, host, m) {
     s('text.dzm-point-label', { x: lx, y: ly, 'text-anchor': !phone && px > L + PW * .65 ? 'end' : 'start' }, 'your cabin')));
   return { node: root, setPoint() {}, size: { W, H } };
 }
+
+export function mountField(ui, host, ctx) {
+  const e = ui.el;
+  host.classList.add('design-field');
+  const viewport = e('div.design-field-viewport', { 'aria-label': 'Evidence field. Drag to turn; wheel or pinch to zoom. Every point is a real PSI test row.' });
+  const note = e('p.design-field-help', 'Drag to turn · scroll or pinch to zoom');
+  const legend = e('p.design-field-key', 'Ivory: cabin solids · grey-blue: model fuels · rust: your cabin');
+  const staticNote = e('p.design-field-static', {hidden:true}, 'Static overview: the pictured marker is the Moon-base preset. Current cabin values and evidence remain in the text.');
+  const modeObserver = new MutationObserver(()=>{staticNote.hidden=viewport.dataset.sceneMode !== 'still';}); modeObserver.observe(viewport,{attributes:true,attributeFilter:['data-scene-mode']});
+  const info = e('div.design-field-info', { 'aria-live': 'polite' });
+  const nearest = e('div.design-field-nearest');
+  const select = e('select', { 'aria-label': 'Open any plotted PSI test row', onchange: ev => { if (ev.target.value) ctx.openSource(ev.target.value); } });
+  host.replaceChildren(viewport, staticNote, note, legend, nearest, e('details.design-field-rows', e('summary', 'Read the plotted rows'), select), info);
+  let stage, disposed=false, state={db:ctx.db,q:ctx.q,capture:ctx.capture};
+  const number=v=>v==null?'not stated':String(Math.round(v*10)/10);
+  let helpers;
+  function update(q) {
+    state={...state,q}; stage?.set(state);
+    if (!helpers) return;
+    const near=helpers.nearestSolid(ctx.db,q);
+    nearest.replaceChildren();
+    if(near) nearest.append(e('span', 'Closest solid row by oxygen and pressure, across gravity planes: '),ui.cite(near.row.id,{label:'source'}), e('span',` · cabin minus row: ${number(q.o2-near.o2)} oxygen percentage points, ${number(q.p-near.p)} kPa · ${near.row.gravity || near.row.n.gclass}. Proximity is not a coverage match.`));
+  }
+  Promise.all([import('../scene/engine.js'),import('../scene/field.js')]).then(async([engine,field])=>{
+    if(disposed)return; helpers=field;
+    const rows=field.fieldRows(ctx.db);
+    select.append(e('option',{value:''},`Choose one of ${rows.length} real test rows`),...rows.map(p=>e('option',{value:p.row.id},`${p.row.investigation} · ${p.row.fuel || 'fuel not stated'} · ${number(p.o2)} % oxygen · ${number(p.p)} kPa · ${p.row.gravity || 'gravity not stated'} · ${p.row.id}`)));
+    update(state.q);
+    stage=await engine.createStage(viewport,{still:field.still,capture:ctx.capture});
+    if(disposed){stage.dispose();return;}
+    stage.on('pick',hit=>ctx.openSource(hit.id));
+    stage.on('hover',hit=>{
+      if(!hit.id){info.replaceChildren();return;}
+      const r=ctx.db.testById[hit.id], p=r.n.p??r.n.p_inferred;
+      info.replaceChildren(e('span',`${r.investigation} · ${r.fuel || 'fuel not stated'} · ${number(r.n.o2)} % oxygen · ${p==null?'pressure not in the table':`${number(p)} kPa${r.n.p==null?' (facility inferred)':''}`} · ${r.gravity || 'gravity not stated'}. `),ui.cite(r.id,{label:'source'}));
+    });
+    await stage.use(field,state);
+  }).catch(()=>{if(!disposed)info.textContent='The 3D view is unavailable. Read every plotted row below; all coverage results remain available.';});
+  return {setPoint:update,setLayers(show){state={...state,show};stage?.set(state);},dispose(){disposed=true;modeObserver.disconnect();stage?.dispose();},host};
+}

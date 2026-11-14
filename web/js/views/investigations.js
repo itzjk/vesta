@@ -82,7 +82,7 @@ export function axisText(a, opts = {}) {
 }
 export function mount(root, ctx) {
   const { ui, db } = ctx, el = ui.el, fmt = ui.fmt;
-  ui.css('css/views/investigations.css?v=10');
+  ui.css('css/views/investigations.css?v=11');
   const core = ctx.core || {}, text = core.text || {};
   const nInv = db.investigations.length;
   const base = `in VESTA’s evidence base (${nInv} PSI investigations)`;

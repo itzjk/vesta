@@ -118,7 +118,7 @@ function build(root, ctx) {
   const params = ctx.params ?? {};
   const simple = params.view !== 'details' && ctx.view !== 'details';
   const still = !!ctx.capture || (typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches);
-  let raf = 0, dead = false;
+  let raf = 0, dead = false, sceneStage = null;
   try { ui.css('css/views/incident.css'); } catch { /* the shell reports a missing stylesheet */ }
   root.textContent = '';
 
@@ -160,7 +160,7 @@ function build(root, ctx) {
   const tParam = numOr(params.t, null), wantsPlay = params.play != null && params.play !== '0';
   S.t = tParam != null ? Math.min(Math.max(tParam, S.tMin), S.tMax) : S.tMin;
   S.started = tParam != null || wantsPlay;
-  S.playing = wantsPlay && params.paused == null && S.t < S.tEnd - EPS;
+  S.playing = wantsPlay && !ctx.capture && params.paused == null && S.t < S.tEnd - EPS;
   S.selected = params.step || null;
 
   const fired = () => S.log.filter(e => e.t <= S.t + EPS);
@@ -495,7 +495,13 @@ function build(root, ctx) {
     N.trail = svg('line.inc-trail', { x1: x0, y1: y, x2: x0, y2: y });
     N.geo = { x0, x1, y };
     N.trackNote = h('div.inc-track-note');
-    N.track.replaceChildren(svg('svg.inc-track-svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': 'The alert travelling from the ship to Earth' },
+    N.sceneHost = h('div.inc-scene-host', { 'aria-hidden': 'true', data: { incidentScene: '' } });
+    N.sceneAlt = h('p.inc-scene-alt');
+    N.sceneLabels = h('div.inc-scene-labels', h('span', 'SHIP'), h('span', 'EARTH'));
+    N.sceneDisclosure = simple ? N.simpleSimulation : h('p', 'SIMULATED TELEMETRY · SCRIPTED · NOT A PHYSICS MODEL');
+    N.sceneDisclosure.classList.add('inc-scene-disclosure');
+    N.sceneVisual = h('div.inc-scene-visual', N.sceneHost, N.sceneLabels, N.sceneDisclosure);
+    N.track.replaceChildren(N.sceneVisual, N.sceneAlt, svg('svg.inc-track-svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': 'The alert travelling from the ship to Earth' },
       svg('line.inc-rail', { x1: x0, y1: y, x2: x1, y2: y }), N.trail,
       svg('path.inc-ship', { d: `M${x0 - 36} ${y - 10} L${x0 - 8} ${y} L${x0 - 36} ${y + 10} L${x0 - 28} ${y} Z` }),
       svg('circle.inc-earth-disc', { cx: x1 + 36, cy: y, r: 24 }),
@@ -527,6 +533,9 @@ function build(root, ctx) {
       if (since >= 0 && leg > 0) { N.back.setAttribute('visibility', 'visible'); N.back.setAttribute('cx', (g.x1 - span * Math.min(1, since / leg)).toFixed(1)); }
       else N.back.setAttribute('visibility', 'hidden');
     }
+    const fr = frameAt();
+    if (!simple) N.sceneDisclosure.textContent = simulated() ? 'SIMULATED TELEMETRY · SCRIPTED · NOT A PHYSICS MODEL' : 'TELEMETRY FROM A FILE · REPLAYED AS WRITTEN · NOT A PHYSICS MODEL';
+    N.sceneAlt.textContent = `Illustration · scripted airflow: ${typeof fr.airflow_cm_s === 'number' ? fr.airflow_cm_s > 0 ? 'scripted flow' : 'zero' : 'unknown'}. Flame: ${typeof fr.flame_visible === 'boolean' ? fr.flame_visible ? 'visible' : 'not seen' : 'unknown'}. Distances not to scale.`;
     N.trackNote.textContent = c.heard == null ? 'delay: no verified source' : !alarmed ? 'no alarm yet · nothing sent'
       : heardNow ? 'At the maximum delay, Earth hears the alarm now' : `the alert is ${Math.floor(c.progress * 100)} % of the way to Earth (maximum delay)`;
     N.trackNote.dataset.heard = heardNow ? '1' : '0';
@@ -585,7 +594,36 @@ function build(root, ctx) {
     wrap.dataset.playing = S.playing ? '1' : '0';
   }
 
-  function render() { if (dead) return; renderCentre(); renderLeft(); renderSilence(); renderTransport(); if (simple) renderSimple(); }
+  function sceneState() {
+    const f = frameAt(), F = fired(), clock = clockNow();
+    let flowTime = 0;
+    for (let i = 0; i < S.frames.length; i++) {
+      const row = S.frames[i], end = Math.min(S.t, S.frames[i + 1]?.t ?? S.t);
+      if (row.t >= S.t) break;
+      flowTime += Math.max(0, end - row.t) * Math.max(0, Number(row.airflow_cm_s) || 0) / 12;
+    }
+    return { t: S.t, elapsed: S.t - S.t0, frame: f, flowTime, clock, alarmed: F.length > 0,
+      activeStep: F.find(e => e.step === S.selected) ?? F.at(-1) ?? null };
+  }
+  async function mountScene() {
+    try {
+      const [engine, cabin] = await Promise.all([import('../scene/engine.js'), import('../scene/cabin.js')]);
+      if (dead) return;
+      const stage = await engine.createStage(N.sceneHost, { capture: !!ctx.capture, time: S.t, still: 'assets/scene/cabin.jpg' });
+      if (dead) { stage.dispose(); return; }
+      sceneStage = stage;
+      await stage.use(cabin, sceneState());
+      if (dead) { stage.dispose(); return; }
+      N.track.dataset.sceneReady = '1';
+      N.track.dataset.sceneMode = stage.mode;
+      stage.set(sceneState());
+    } catch (error) {
+      N.track.dataset.sceneReady = '0';
+      N.sceneAlt.textContent += ' The 3D illustration is unavailable; the clock and sources remain available.';
+      console.warn('VESTA cabin unavailable:', error.message);
+    }
+  }
+  function render() { if (dead) return; renderCentre(); renderLeft(); renderSilence(); renderTransport(); if (simple) renderSimple(); sceneStage?.set(sceneState()); }
 
   function loop(now) {
     raf = 0; if (dead || !S.playing) return;
@@ -603,6 +641,7 @@ function build(root, ctx) {
   }
   function run() {
     if (S.unusable) return;
+    if (ctx.capture) { stepTo(+1); return; }
     if (S.t >= S.tEnd - EPS) S.t = S.tMin;
     showMsg(null);
     S.started = true; S.playing = true; S.selected = null; S.holdUntil = 0; S.lastTick = performance.now();
@@ -678,9 +717,9 @@ function build(root, ctx) {
   }
   window.addEventListener('keydown', onKey);
 
-  buildSilence(); buildMarks(); render();
+  buildSilence(); buildMarks(); render(); mountScene();
   if (S.playing) { S.lastTick = performance.now(); raf = requestAnimationFrame(loop); }
   wrap.__incident = { state: S, exportObject, loadText };
 
-  return { destroy() { dead = true; stop(); window.removeEventListener('keydown', onKey); root.textContent = ''; } };
+  return { destroy() { dead = true; stop(); sceneStage?.dispose(); window.removeEventListener('keydown', onKey); root.textContent = ''; } };
 }

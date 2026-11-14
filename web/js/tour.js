@@ -6,20 +6,21 @@ let run = null;
 let pending = null;
 let cached = null;
 let installed = false;
+let navigating = false;
+let internalAction = false;
 
 const hashParams = () => new URLSearchParams(location.hash.split('?')[1] || '');
-const wantsTour  = () => hashParams().get('tour') === '1';
+const wantsTour = () => hashParams().get('tour') === '1';
+const clock = seconds => `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
+const elapsed = () => run ? Math.min(run.cfg.total, run.offset + (run.paused ? 0 : (performance.now() - run.t0) / 1000)) : 0;
 
 function parse(file) {
   if (!file || !Array.isArray(file.steps)) return null;
-  const list = file.steps.filter(s => s && typeof s.at === 'number' && typeof s.hash === 'string' && s.hash.startsWith('#/'))
+  const list = file.steps.filter(s => s && Number.isFinite(s.at) && s.at >= 0 && typeof s.hash === 'string' && s.hash.startsWith('#/'))
     .slice().sort((a, b) => a.at - b.at);
   if (!list.length) return null;
-  return { list, total: typeof file.total_s === 'number' ? file.total_s : list[list.length - 1].at + 6 };
-}
-
-function stageOf(api) {
-  return (api && api.stage) || document.querySelector('[data-stage]') || document.getElementById('stage') || document.querySelector('.stage') || document.body;
+  const total = Number.isFinite(file.total_s) && file.total_s > list.at(-1).at ? file.total_s : list.at(-1).at + 6;
+  return { list, total };
 }
 
 function style() {
@@ -27,45 +28,73 @@ function style() {
   const s = document.createElement('style');
   s.id = 'vesta-tour-style';
   s.textContent = `
-.tour-bar{position:absolute;left:0;right:0;bottom:var(--foot-h,72px);z-index:900;min-height:100px;box-sizing:border-box;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:24px;
-  padding:14px 32px 18px;background:var(--bg-0);border-top:1px solid var(--line-strong,rgba(237,228,212,.9));
-  font-family:var(--font,system-ui,sans-serif);color:var(--ivory,#ede4d4)}
-.tour-bar .tour-stop{font:600 18px/22px var(--font,system-ui,sans-serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ivory,#8fa3b5);
-  border:1px solid var(--line,rgba(237,228,212,.45));border-radius:999px;padding:6px 14px;white-space:normal;max-width:340px;justify-self:start}
-.tour-bar .tour-cap{min-width:0;overflow-wrap:break-word;font:400 22px/28px var(--font,system-ui,sans-serif);color:var(--ivory,#ede4d4)}
-.tour-bar .tour-esc{font:600 18px/22px var(--font,system-ui,sans-serif);letter-spacing:.12em;text-transform:uppercase;color:var(--ivory-dim,rgba(237,228,212,.62));white-space:nowrap}
-.tour-bar .tour-sources{grid-column:2;display:flex;gap:10px;font-size:18px;line-height:22px}
-.tour-bar .tour-sources .cite{font-size:18px;line-height:22px;padding:2px 8px}
-.tour-bar .tour-track{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(237,228,212,.15)}
-.tour-bar .tour-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--earth,#8fa3b5);}
-.tour-bar .tour-mark{position:absolute;top:-3px;width:2px;height:10px;background:var(--ivory,#8fa3b5);opacity:.7}
+body>.tour-bar{position:fixed;inset:auto 0 0;z-index:900;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px 28px;padding:14px 24px calc(18px + env(safe-area-inset-bottom,0px));background:var(--bg-0,#12100e);border-top:1px solid var(--line-strong,#8f877b);font-family:var(--font,system-ui,sans-serif);color:var(--ivory,#ede4d4)}
+.tour-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;min-width:0}
+.tour-stop{font:600 16px/22px var(--font,system-ui,sans-serif);color:var(--ivory,#ede4d4)}
+.tour-time{font:400 14px/20px var(--font,system-ui,sans-serif);font-variant-numeric:tabular-nums;color:var(--ivory-dim,#bdb3a3)}
+.tour-cap{grid-column:1;min-width:0;overflow-wrap:anywhere;font:400 18px/26px var(--font,system-ui,sans-serif)}
+.tour-cap .cite,.tour-cap a{font:inherit;min-height:24px}
+.tour-controls{grid-column:2;grid-row:1/3;display:flex;align-items:center;gap:8px}
+.tour-controls button{min-width:76px;min-height:44px;padding:9px 14px;border:1px solid var(--line-strong,#8f877b);border-radius:6px;background:var(--surface-1,#28241f);color:var(--ivory,#ede4d4);font:500 16px/24px var(--font,system-ui,sans-serif);cursor:pointer}
+.tour-controls button:hover,.tour-controls button[aria-pressed=true]{background:var(--surface-2,#39332b)}
+.tour-track{position:absolute;inset:auto 0 0;height:4px;background:rgba(237,228,212,.15)}
+.tour-fill{display:block;height:100%;width:0;background:var(--earth,#8fa3b5)}
+html[data-tour=running] #view{height:var(--tour-view-height,calc(var(--stage-h) - var(--bar-h) - 172px))!important;overflow-y:auto!important}
+@media(max-width:759px){
+body>.tour-bar{grid-template-columns:minmax(0,1fr);gap:8px;padding:12px 16px calc(16px + env(safe-area-inset-bottom,0px))}
+.tour-meta{justify-content:space-between;gap:4px 12px}
+.tour-stop{font-size:16px;line-height:22px}
+.tour-time{font-size:13px;line-height:20px}
+.tour-cap{font-size:16px;line-height:23px}
+.tour-controls{grid-column:1;grid-row:auto;justify-content:flex-end}
+.tour-controls button{flex:1;min-width:0}
+html[data-tour=running][data-view-mode=simple] #view{height:auto!important}
+html[data-tour=running][data-view-mode=simple] #stage{padding-bottom:var(--tour-bar-height,220px)}
+}
 `;
   document.head.appendChild(s);
 }
 
-function makeBar(cfg, api) {
+function layout() {
+  if (!run) return;
+  const bar = run.ui.bar.getBoundingClientRect();
+  document.documentElement.style.setProperty('--tour-bar-height', `${bar.height}px`);
+  if (innerWidth < 760) return;
+  const view = document.getElementById('view'), stage = document.getElementById('stage');
+  if (!view || !stage) return;
+  const scale = stage.getBoundingClientRect().width / stage.offsetWidth || 1;
+  const top = view.getBoundingClientRect().top;
+  const footer = document.getElementById('foot')?.getBoundingClientRect().top ?? bar.top;
+  document.documentElement.style.setProperty('--tour-view-height', `${Math.max(0, Math.min(footer, bar.top) - top) / scale}px`);
+}
+
+function makeBar(cfg) {
   style();
-  const mk = (cls) => { const e = document.createElement('span'); e.className = cls; return e; };
-  const bar = document.createElement('div');
-  bar.className = 'tour-bar';
+  const mk = (tag, cls) => { const e = document.createElement(tag); e.className = cls; return e; };
+  const bar = mk('section', 'tour-bar');
   bar.setAttribute('data-tour-bar', '');
-  bar.setAttribute('role', 'status');
-  bar.setAttribute('aria-live', 'polite');
-  const stop = mk('tour-stop'), cap = mk('tour-cap'), esc = mk('tour-esc'), sources = mk('tour-sources'), track = mk('tour-track'), fill = mk('tour-fill');
+  bar.setAttribute('aria-label', '60-second guided tour');
+  const meta = mk('div', 'tour-meta'), stop = mk('span', 'tour-stop'), time = mk('span', 'tour-time');
+  const cap = mk('p', 'tour-cap'), controls = mk('div', 'tour-controls'), track = mk('div', 'tour-track'), fill = mk('span', 'tour-fill');
   cap.setAttribute('data-tour-caption', '');
-  esc.textContent = 'Esc or click: take over';
-  track.appendChild(fill);
-  const seen = new Set();
-  for (const s of cfg.list) {
-    const first = !seen.has(s.stop); seen.add(s.stop);
-    if (!first || s.at <= 0) continue;
-    const m = mk('tour-mark'); m.style.left = (100 * s.at / cfg.total) + '%'; track.appendChild(m);
+  cap.setAttribute('role', 'status');
+  cap.setAttribute('aria-live', 'polite');
+  cap.setAttribute('aria-atomic', 'true');
+  time.setAttribute('aria-live', 'off');
+  controls.setAttribute('role', 'group');
+  controls.setAttribute('aria-label', 'Tour controls');
+  const buttons = {};
+  for (const [action, label] of [['pause', 'Pause'], ['next', 'Next'], ['close', 'Close']]) {
+    const button = mk('button', 'tour-control');
+    button.type = 'button'; button.textContent = label; button.dataset.tourControl = action;
+    button.addEventListener('click', () => action === 'pause' ? pause() : action === 'next' ? next() : stopTour());
+    controls.append(button); buttons[action] = button;
   }
-  bar.append(stop, cap, esc, sources, track);
-  const host = stageOf(api);
-  if (host === document.body) bar.style.position = 'fixed';
-  host.appendChild(bar);
-  return { bar, stop, cap, fill, sources };
+  buttons.pause.setAttribute('aria-pressed', 'false');
+  track.setAttribute('aria-hidden', 'true');
+  track.append(fill); meta.append(stop, time); bar.append(meta, cap, controls, track);
+  document.body.append(bar);
+  return { bar, stop, cap, time, fill, buttons };
 }
 
 function setState(state, stopId) {
@@ -74,7 +103,44 @@ function setState(state, stopId) {
   if (stopId) d.tourStop = stopId; else delete d.tourStop;
 }
 
+function navigate(hash) {
+  if (location.hash === hash) return;
+  const oldURL = location.href;
+  history.replaceState(null, '', hash);
+  navigating = true;
+  try { dispatchEvent(new HashChangeEvent('hashchange', { oldURL, newURL: location.href })); }
+  finally { navigating = false; }
+}
+
+function drill(action) {
+  const button = document.querySelector(`.inc-simple-actions [data-action="${action}"]`);
+  if (!button) return false;
+  internalAction = true;
+  try { button.click(); } finally { internalAction = false; }
+  return true;
+}
+
+function settle(step, session, attempt = 0) {
+  if (run !== session || run.step !== step) return;
+  const view = document.getElementById('view');
+  const target = view?.querySelector(step.focus || 'h1');
+  const loading = [...document.querySelectorAll('link[rel=stylesheet]')].some(link => !link.sheet) || document.fonts?.status === 'loading';
+  if (loading && attempt < 120) { requestAnimationFrame(() => settle(step, session, attempt + 1)); return; }
+  if (!target || view.dataset.view !== step.hash.slice(2).split('?')[0]) {
+    if (attempt < 120) requestAnimationFrame(() => settle(step, session, attempt + 1));
+    return;
+  }
+  if (session.paused && drill('pause')) session.resumeDrill = true;
+  layout();
+  if (innerWidth < 760) {
+    const top = step.focus ? target.getBoundingClientRect().top + scrollY - 16 : 0;
+    window.scrollTo({ top, behavior: 'instant' });
+  } else view.scrollTop = 0;
+}
+
 function apply(step) {
+  run.step = step;
+  run.resumeDrill = false;
   run.ui.stop.textContent = step.label || step.stop || '';
   const db = run.api.db || getDb(), core = getCore();
   const q = db ? readQ(Object.fromEntries(new URLSearchParams(step.hash.split('?')[1] || '')), db) : null;
@@ -87,7 +153,7 @@ function apply(step) {
     quotes: db.engine.verifier.quotes_verified.toLocaleString('en-US')
   } : {};
   run.ui.cap.textContent = (step.caption || '').replace(/\{(\w+)\}/g, (_, key) => values[key] ?? 'not reported');
-  run.ui.sources.replaceChildren();
+  delete run.ui.cap.dataset.claim;
   const citeId = step.source === 'material' ? material?.hit_ids?.[0] : step.source;
   const ui = run.api.ui || window.vesta?.ui;
   if (citeId && ui) {
@@ -98,72 +164,123 @@ function apply(step) {
   }
   setState('running', step.stop || '');
   let hash = step.hash + (step.hash.includes('?') ? '&' : '?') + 'view=simple';
-  if (run.capture && !/[?&]capture=/.test(hash)) hash += (hash.includes('?') ? '&' : '?') + 'capture=1';
-  if (location.hash !== hash) location.hash = hash;
+  if (run.capture && !/[?&]capture=/.test(hash)) hash += '&capture=1';
+  navigate(hash);
+  requestAnimationFrame(() => { if (run) settle(step, run); });
 }
 
 function tick() {
   if (!run) return;
-  const t = (performance.now() - run.t0) / 1000;
+  const t = elapsed();
   while (run && run.next < run.cfg.list.length && run.cfg.list[run.next].at <= t) apply(run.cfg.list[run.next++]);
   if (!run) return;
   run.ui.fill.style.width = Math.min(100, 100 * t / run.cfg.total) + '%';
+  run.ui.time.textContent = `${run.paused ? 'Paused · ' : ''}${run.next} / ${run.cfg.list.length} · ${clock(t)} / ${clock(run.cfg.total)}`;
   document.documentElement.dataset.tourT = String(Math.floor(t));
   if (t >= run.cfg.total) end('done');
+}
+
+function pause() {
+  if (!run) return;
+  if (run.paused) {
+    run.paused = false;
+    run.t0 = performance.now();
+    if (run.resumeDrill) drill('play');
+    run.resumeDrill = false;
+  } else {
+    run.offset = elapsed();
+    run.paused = true;
+    run.resumeDrill = drill('pause');
+  }
+  run.ui.buttons.pause.textContent = run.paused ? 'Resume' : 'Pause';
+  run.ui.buttons.pause.setAttribute('aria-pressed', String(run.paused));
+  tick();
+  layout();
+}
+
+function next() {
+  if (!run) return;
+  if (run.next >= run.cfg.list.length) { end('done'); return; }
+  run.offset = run.cfg.list[run.next].at;
+  run.t0 = performance.now();
+  tick();
 }
 
 function end(state) {
   pending = null;
   if (!run) return;
-  const api = run.api;
-  clearInterval(run.timer);
-  run.ui.bar.remove();
+  const { api, ui, trigger, observer, timer, resumeDrill } = run;
+  clearInterval(timer);
+  observer.disconnect();
+  if (resumeDrill) drill('play');
+  ui.bar.remove();
+  const restoreFocus = document.activeElement === document.body || ui.bar.contains(document.activeElement);
   run = null;
   setState(state);
-  try { if (api && typeof api.onStop === 'function') api.onStop(state); } catch (e) { console.warn('[tour] onStop: ' + e.message); }
+  document.documentElement.style.removeProperty('--tour-bar-height');
+  document.documentElement.style.removeProperty('--tour-view-height');
+  if (restoreFocus && trigger?.isConnected) trigger.focus({ preventScroll: true });
+  try { if (typeof api.onStop === 'function') api.onStop(state); } catch (e) { console.warn('[tour] onStop: ' + e.message); }
 }
 
 function begin(cfg, api) {
   pending = null;
   if (run) return;
-  const capture = !!(api && api.capture) || hashParams().get('capture') === '1';
-  run = { cfg, api, capture, t0: performance.now(), next: 0, timer: 0, ui: makeBar(cfg, api) };
+  const capture = !!api.capture || hashParams().get('capture') === '1';
+  const trigger = document.activeElement;
+  if (wantsTour()) {
+    const params = hashParams(); params.delete('tour');
+    history.replaceState(null, '', location.hash.split('?')[0] + (params.size ? '?' + params : ''));
+  }
+  history.pushState(null, '', location.href);
+  run = { cfg, api, capture, trigger, offset: 0, paused: false, resumeDrill: false, t0: performance.now(), next: 0, timer: 0, ui: makeBar(cfg) };
+  run.observer = new ResizeObserver(layout);
+  run.observer.observe(run.ui.bar);
   run.timer = setInterval(tick, TICK_MS);
   tick();
+  layout();
 }
-
 
 export function start(api) {
   api = api && typeof api === 'object' ? api : {};
   api = { db: getDb(), ui: window.vesta?.ui, ...api };
-  if (run) { if (!run.api.onStop && api.onStop) run.api = { ...run.api, ...api }; return stop; }
-  if (pending) { pending = { ...pending, ...api }; return stop; }
-  const cfg = cached || (cached = parse(api.stops) || parse(api.db && api.db.tour));
-  if (cfg) { begin(cfg, api); return stop; }
-  pending = api;
+  if (run) { run.api = { ...run.api, ...api }; return stopTour; }
+  if (pending) { pending.api = { ...pending.api, ...api }; return stopTour; }
+  const cfg = cached || (cached = parse(api.stops) || parse(api.db?.tour));
+  if (cfg) { begin(cfg, api); return stopTour; }
+  const request = { api };
+  pending = request;
   fetch('data/tour.json', { cache: 'no-store' })
     .then(r => { if (!r.ok) throw new Error('data/tour.json answered ' + r.status); return r.json(); })
-    .then(file => { cached = parse(file); if (!cached) throw new Error('data/tour.json has no steps'); if (pending) begin(cached, pending); })
-    .catch(e => { pending = null; setState('unavailable'); console.warn('[tour] not started: ' + e.message); });
-  return stop;
+    .then(file => { cached = parse(file); if (!cached) throw new Error('data/tour.json has no steps'); if (pending === request) begin(cached, request.api); })
+    .catch(e => { if (pending !== request) return; pending = null; setState('unavailable'); console.warn('[tour] not started: ' + e.message); });
+  return stopTour;
 }
 
-export function stop() { if (run) end('stopped'); else if (pending) { pending = null; setState('stopped'); } }
+function stopTour() { if (run) end('stopped'); else if (pending) { pending = null; setState('stopped'); } }
+export { stopTour as stop };
 export const isRunning = () => !!run;
 export { start as startTour };
 export default start;
 
-
 export function install() {
   if (installed || typeof document === 'undefined') return;
   installed = true;
-  document.addEventListener('click', (ev) => {
-    const onButton = ev.target && ev.target.closest && ev.target.closest('[data-action="tour"]');
+  document.addEventListener('click', ev => {
+    if (internalAction) return;
+    const onButton = ev.target?.closest?.('[data-action="tour"]');
     if (onButton) { if (!run && !pending) start(); return; }
-    if (run || pending) stop();
+    if (ev.target?.closest?.('[data-tour-control]')) return;
+    if (run || pending) stopTour();
   }, true);
-  document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && (run || pending)) stop(); }, true);
-  window.addEventListener('hashchange', () => { if (!run && !pending && wantsTour()) start(); });
+  document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && (run || pending)) { ev.preventDefault(); stopTour(); } }, true);
+  window.addEventListener('popstate', () => { if (run || pending) stopTour(); });
+  window.addEventListener('hashchange', () => {
+    if (navigating) return;
+    if (run || pending) { stopTour(); return; }
+    if (wantsTour()) start();
+  });
+  window.addEventListener('resize', layout);
   if (wantsTour()) start();
 }
 

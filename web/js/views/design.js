@@ -1,4 +1,4 @@
-import { drawMap, mapData, LAYERS, MODEL_NOTE } from './design-map.js?v=10';
+import { drawMap, mapData, LAYERS, MODEL_NOTE, mountField } from './design-map.js?v=10';
 
 const CONCERNS = ['prevention', 'detection', 'suppression'];
 const GRAVITY = [['0g', '0 g'], ['moon', '1/6 g'], ['mars', '3/8 g'], ['1g', '1 g']];
@@ -132,13 +132,8 @@ export function mount(root, ctx) {
   function draw() {
     if (disposed) return;
     const data = mapData(db, show), c = currentCell();
-    const drawn = drawMap(ui, mapHost, { data, q, nearest: nearestRow(c), markers: db.markers, bands: db.bands,
-      sel: { material: q.material, concern: q.concern }, tol: core.match.TOL, text: T, onOpen: id => ctx.openSource ? ctx.openSource(id) : ui.openSource(id),
-      onInfo: rec => {
-        if (!rec) return;
-        mapInfo.replaceChildren(claim(rec.id, e('span', rec.label + ': '), e('span', '“' + rec.sources[0].quote + '” '), sourceCite(rec)));
-      } });
-    mapHost.replaceChildren(drawn.node); map = drawn;
+    if (!map) map = mountField(ui, mapHost, { ...ctx, q });
+    map.setPoint(q); map.setLayers(show);
     const burnerRows = db.tests.filter(r => r.o2_basis === 'burner_stream' && r.o2_percent != null);
     const multiRows = db.tests.filter(r => r.multi?.o2_percent);
     mapNotes.replaceChildren(
@@ -166,6 +161,10 @@ export function mount(root, ctx) {
     counts.replaceChildren(...['PROVEN', 'EXTRAPOLATED', 'NEVER_TESTED'].map(id => e('span', { data: { status: id } }, `${cells.filter(c => c.status === id).length} ${T.status(id)}`)));
     oxygen.value.textContent = `${short(q.o2)} %`; pressure.value.textContent = T.pressure(q.p);
     oxygen.input.value = q.o2; pressure.input.value = q.p;
+    for (const [parent, key, value] of [[gravities, 'g', q.g], [concerns, 'concern', q.concern], [materials, 'mat', q.material]]) {
+      for (const b of parent.children) { const on = b.dataset[key] === value; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', String(on)); }
+    }
+    controls.querySelector('.design-material-picker summary').textContent = `Material: ${db.materials[q.material]?.label || 'choose'} · ${Object.keys(db.materials).length} choices`;
     oxygen.input.setAttribute('aria-valuetext', `${short(q.o2)} percent oxygen`); pressure.input.setAttribute('aria-valuetext', T.pressure(q.p));
     for (const b of presets.children) { const on = b.dataset.preset === q.preset; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', String(on)); }
     presetSource.replaceChildren(preset ? claim(preset.id, e('q', preset.sources[0].quote), sourceCite(preset), e('p', { title: preset.scope }, preset.scope)) : e('p', 'Custom design point. Values are selected by you.'));
@@ -263,7 +262,15 @@ export function mount(root, ctx) {
   paint();
   let frame = requestAnimationFrame(() => { if (!disposed) { draw(); revealCell(); } });
   ui.css('css/views/design.css?v=10').then(() => { if (!disposed) { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => { draw(); revealCell(); }); } });
-  return () => { disposed = true; cancelAnimationFrame(frame); root.classList.remove('design-view'); };
+  return {
+    update(next) {
+      q = { ...next.q };
+      show = next.params.show === undefined ? ['solid'] : next.params.show.split(',').filter(v => LAYERS.some(l => l.id === v));
+      for (const input of layerControls.querySelectorAll('input')) input.checked = show.includes(input.dataset.layer);
+      paint(); revealCell();
+    },
+    unmount() { disposed = true; cancelAnimationFrame(frame); map?.dispose(); root.classList.remove('design-view'); }
+  };
 }
 
 function aggregateSource(ui, ctx, q, axis = null) {
@@ -298,7 +305,7 @@ function aggregateSource(ui, ctx, q, axis = null) {
   } }, 'source');
 }
 
-function mountSimple(root, ctx) {
+function mountSimple(root, ctx, retained = null) {
   const { db, ui, core } = ctx, { el: e } = ui, q = ctx.q, T = core.text;
   root.classList.add('design-view', 'design-simple-view');
   const cells = core.status.cells(q, db), tally = core.status.tally(cells), ax = core.status.axes(q, db);
@@ -322,9 +329,9 @@ function mountSimple(root, ctx) {
     e('div', e('h3', 'Where?'), where), e('label', 'What worries you?', concern), e('label', 'Material', material),
     e('p.design-simple-atmosphere', { data: { claim: preset?.id || 'custom-cabin' } },
       `${short(q.o2)} % oxygen · ${q.g_label || 'gravity not stated'}.`, e('br'), `Air pressure: ${short(T.psia(q.p))} psia (pounds per square inch). `, preset ? source(preset.id) : 'Chosen by you.'));
-  const host = e('div.design-simple-map-host');
-  const mapPanel = e('section.design-simple-map', e('h2', 'Tested envelope'), host,
-    e('p', 'Hollow dots: pressure inferred from the test facility. Dots combine gravity levels; this map alone does not prove a match.'));
+  const host = retained?.host || e('div.design-simple-map-host');
+  const mapPanel = e('section.design-simple-map', e('h2', 'Where the evidence stops'), host,
+    e('p', 'Moon and Mars have no test row in this evidence base. Hollow points use inferred or unreported pressure. Depth separates gravity; proximity does not prove coverage.'));
   const statusText = q.material ? T.statusMeaning(c.status, c.qualifier) : 'Choose a material to check its evidence coverage.';
   const result = e('section.design-simple-result', e('h2', q.material ? `${materialName(db.materials[q.material]?.label || q.material)} · ${plainConcern[q.concern].toLowerCase()}` : 'Selected material question'),
     e('div.design-simple-selected', { data: { status: c.status, cell: `${q.material}:${q.concern}`, claim: 'selected-material-coverage' } },
@@ -346,17 +353,14 @@ function mountSimple(root, ctx) {
   }
   const footer = e('footer.design-simple-footer', e('p', T.STATUS_LINE), ui.button('Run the fire drill', { primary: true, action: 'drill', onClick: () => ctx.go('#/incident?view=simple&play=1') }));
   root.append(e('div.design-simple-layout', heading, e('div.design-simple-blocks', choices, mapPanel, result), footer));
-  let disposed = false, frame;
-  function draw() {
-    if (disposed) return;
-    const data = mapData(db, ['solid']);
-    const map = drawMap(ui, host, { simple: true, data, q, markers: [], bands: db.bands, tol: core.match.TOL, text: T,
-      onOpen: id => ctx.openSource(id), sel: { material: q.material, concern: q.concern } });
-    host.replaceChildren(map.node);
-  }
-  draw();
-  frame = requestAnimationFrame(draw);
-  ui.css('css/views/design.css?v=10').then(draw);
-  const observer = new ResizeObserver(draw); observer.observe(host);
-  return () => { disposed = true; cancelAnimationFrame(frame); observer.disconnect(); root.classList.remove('design-view', 'design-simple-view'); };
+  const field = retained?.field || mountField(ui, host, ctx);
+  field.setPoint(q);
+  let current;
+  return {
+    update(next) {
+      root.replaceChildren();
+      current = mountSimple(root, next, { host, field });
+    },
+    unmount() { if (current) current.unmount(); else field.dispose(); root.classList.remove('design-view', 'design-simple-view'); }
+  };
 }

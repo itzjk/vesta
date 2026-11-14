@@ -1,6 +1,6 @@
 {
   "schema": "vesta.tour/1",
-  "note": "A 60-second Simple walkthrough. Caption placeholders are computed from the current evidence base. Repeated hashes preserve the running replay.",
+  "note": "A 60-second Simple walkthrough with pause, next and close controls. Captions read the current evidence base; focus targets keep each stop visible on phones.",
   "total_s": 60,
   "steps": [
     {
@@ -8,53 +8,57 @@
       "stop": "brief",
       "label": "Brief",
       "hash": "#/brief",
-      "caption": "A crew cannot wait for Earth. Start with NASA’s evidence, then see its limits.",
+      "caption": "VESTA uses NASA fire research to show what is known before a crew makes a decision.",
       "source": "S-COMM-01"
     },
     {
       "at": 10,
       "stop": "summarize",
-      "label": "1 · Summarize",
+      "label": "NASA studies",
       "hash": "#/investigations?sel=PSI-25",
-      "caption": "{investigations} investigations, {rows} source-table rows. Select a study to inspect its finding.",
-      "source": "api/v1/investigations.json"
+      "caption": "Explore {investigations} NASA investigations, starting with this selected study and its finding.",
+      "source": "api/v1/investigations.json",
+      "focus": ".sms-selection"
     },
     {
       "at": 22,
       "stop": "rank",
-      "label": "2 · Station",
+      "label": "Space station",
       "hash": "#/design?preset=station&mat=pmma&concern=prevention",
-      "caption": "PMMA: {station_rows} matching rows near Station atmosphere conditions. Pressure is inferred.",
-      "source": "material"
+      "caption": "For acrylic plastic in a space station, {station_rows} nearby test rows offer a comparison with pressure inferred.",
+      "source": "material",
+      "focus": ".design-simple-result"
     },
     {
       "at": 29,
       "stop": "rank",
-      "label": "2 · Moon",
+      "label": "Moon base",
       "hash": "#/design?preset=lunar-base&mat=pmma&concern=prevention",
-      "caption": "Moon-base conditions: {partial_rows} partial-gravity rows in this collection. Related evidence is not cabin validation.",
-      "source": "api/v1/tests.json"
+      "caption": "For a Moon base, missing partial-gravity tests leave this acrylic-plastic comparison unconfirmed.",
+      "focus": ".design-simple-result"
     },
     {
       "at": 38,
       "stop": "interpret",
-      "label": "3 · Separate scenario",
+      "label": "Scripted fire",
       "hash": "#/incident?play=1&speed=150&hold=1.2",
-      "caption": "Now a separate example: a scripted fire aboard a spacecraft travelling to Mars."
+      "caption": "This separate, scripted Mars-flight fire shows decisions being checked while Earth is too far away to answer.",
+      "focus": ".inc-simple-step"
     },
     {
       "at": 49,
       "stop": "interpret",
-      "label": "3 · Evidence limit",
+      "label": "Evidence limit",
       "hash": "#/incident?t=490&paused=1",
-      "caption": "When support runs out, VESTA shows NO SOURCE. An ISS fallback carries its vehicle limits."
+      "caption": "NO SOURCE marks a missing finding, and the fallback below comes from a limited space-station procedure.",
+      "focus": ".inc-simple-step"
     },
     {
       "at": 54,
       "stop": "engine",
       "label": "Check the evidence",
       "hash": "#/engine",
-      "caption": "{quotes} quotes matched NASA text. Matching words does not validate a decision. Open the sources yourself.",
+      "caption": "VESTA matched {quotes} quotes to source text, but matching words does not validate a decision.",
       "source": "data/engine.json"
     }
   ]
