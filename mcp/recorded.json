@@ -1,7 +1,7 @@
 {
  "schema": "vesta.mcp-recording/1",
  "note": "One real exchange with mcp/server.mjs over stdio, recorded by mcp/record.mjs against the evidence files of this build. The answer text is JSON; it is shown parsed here.",
- "evidence_generated_at": "2026-11-14T12:54:48-05:00",
+ "evidence_generated_at": "2026-11-14T12:55:10-05:00",
  "command": "node mcp/server.mjs",
  "server": {
   "name": "vesta",
