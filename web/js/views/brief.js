@@ -1,15 +1,16 @@
 function heroWorld(ctx, compact = false) {
   const { ui, db } = ctx, el = ui.el;
   const finding = db.findingById['S-SHAPE-01'];
+  const poster = innerWidth < 760 && !compact ? 'assets/scene/hero-phone.jpg' : 'assets/scene/hero.jpg';
   const host = el('div.bfh-stage', { 'aria-hidden': 'true' });
   const output = el('output.bfh-state', { for: compact ? 'brief-flame-details' : 'brief-flame' }, 'In space');
   const slider = el('input.bfh-slider', { id: compact ? 'brief-flame-details' : 'brief-flame', type: 'range', min: 0, max: 100, step: 1, value: 100,
     'aria-label': 'Illustrated flame, On Earth to In space', 'aria-valuetext': 'In space, rounded low-momentum flame' });
   const status = el('p.bfh-static', { hidden: true }, 'Still illustration. The flame control is available in the live 3D view.');
   const controls = el('div.bfh-controls',
-    el('div.bfh-control-title', el('label', { for: slider.id }, 'Change the view'), output),
+    el('div.bfh-control-title', el('label', { for: slider.id }, 'Drag to change the view'), output),
     slider, el('div.bfh-ends', el('span', 'On Earth'), el('span', 'In space')), status);
-  const note = el('p.bfh-note', 'Illustration of a NASA observation, not a simulation');
+  const note = el('p.bfh-note', 'Illustration of a NASA observation, not a simulation. Low-momentum flames only.');
   const description = el('p.bfh-description', 'VESTA floats beside a flame in a cabin with Mars in the window. The control changes a yellow teardrop illustration into a rounded blue flame.');
   const evidence = el('div.bfh-evidence', { data: { claim: finding?.id } },
     el('p.bfh-evidence-label', 'NASA observed'),
@@ -19,7 +20,8 @@ function heroWorld(ctx, compact = false) {
     el('p.bfh-scope', 'The observation concerns low-momentum flames, not every fire in space. Shape and colour do not establish safety.'));
   const picture = el('div.bfh-world', host, el('span.bfh-world-label', 'VESTA / Cabin illustration'), controls);
   const node = el(compact ? 'section.bfh.bfh-details' : 'div.bfh', picture, note, description);
-  let alive = true, stage, observer;
+  let alive = true, stage, observer, drag;
+  const capture = ctx.capture || new URLSearchParams(location.hash.split('?')[1] || '').get('capture') === '1';
   const syncMode = () => {
     const isStill = stage?.mode === 'still';
     slider.disabled = isStill; status.hidden = !isStill;
@@ -32,11 +34,23 @@ function heroWorld(ctx, compact = false) {
     stage?.set({ space });
   };
   const pointer = event => {
-    if (ctx.capture || new URLSearchParams(location.hash.split('?')[1] || '').get('capture') === '1') return;
+    if (capture) return;
     const b = host.getBoundingClientRect();
+    if (drag && stage?.mode !== 'still') {
+      const delta = (event.clientX - drag.x) / b.width;
+      if (Math.abs(delta) > .012) drag.moved = true;
+      if (drag.moved) { slider.value = String(Math.round(Math.max(0, Math.min(100, drag.value + delta * 160)))); change(); }
+    }
     stage?.set({ pointerX: (event.clientX - b.left) / b.width * 2 - 1, pointerY: 1 - (event.clientY - b.top) / b.height * 2 });
   };
-  const leave = () => stage?.set({ pointerX: 0, pointerY: 0 });
+  const down = event => {
+    if (capture || stage?.mode === 'still' || event.button !== 0) return;
+    drag = { x: event.clientX, value: Number(slider.value), moved: false };
+    host.setPointerCapture(event.pointerId);
+  };
+  const up = () => { drag = null; };
+  const leave = () => { if (!drag) stage?.set({ pointerX: 0, pointerY: 0 }); };
+  host.addEventListener('pointerdown', down); host.addEventListener('pointerup', up); host.addEventListener('pointercancel', up);
   slider.addEventListener('input', change); host.addEventListener('pointermove', pointer); host.addEventListener('pointerleave', leave);
   return {
     node, evidence,
@@ -44,20 +58,21 @@ function heroWorld(ctx, compact = false) {
       try {
         const [{ createStage }, hero] = await Promise.all([import('../scene/engine.js'), import('../scene/hero.js')]);
         if (!alive) return;
-        stage = await createStage(host, { capture: ctx.capture || new URLSearchParams(location.hash.split('?')[1] || '').get('capture') === '1', still: 'assets/scene/hero.jpg' });
+        stage = await createStage(host, { capture: ctx.capture || new URLSearchParams(location.hash.split('?')[1] || '').get('capture') === '1', still: poster });
         if (!alive) { stage.dispose(); return; }
-        await stage.use(hero, { space: 1 });
+        await stage.use({ ...hero, still: poster, build: async sceneCtx => ({ ...await hero.build(sceneCtx), still: poster }) }, { space: 1, framing: compact ? 'panel' : 'immersive' });
         if (!alive) return;
         observer = new MutationObserver(syncMode); observer.observe(host, { attributes: true, attributeFilter: ['data-scene-mode'] });
         syncMode();
       } catch {
         if (!alive) return;
-        host.append(el('img.bfh-fallback', { src: 'assets/scene/hero.jpg', alt: '' }));
+        host.append(el('img.bfh-fallback', { src: poster, alt: '' }));
         slider.disabled = true; status.hidden = false;
       }
     },
     dispose() {
       alive = false; observer?.disconnect(); stage?.dispose();
+      host.removeEventListener('pointerdown', down); host.removeEventListener('pointerup', up); host.removeEventListener('pointercancel', up);
       slider.removeEventListener('input', change); host.removeEventListener('pointermove', pointer); host.removeEventListener('pointerleave', leave);
     }
   };
@@ -74,7 +89,7 @@ const dig = (obj, path) => path.split('.').reduce((o, k) => (o == null ? o : o[k
 
 function mountDetails(root, ctx) {
   const { ui, db } = ctx, el = ui.el, fmt = ui.fmt;
-  ui.css('css/views/brief.css?v=11');
+  ui.css('css/views/brief.css?v=12');
   const core = ctx.core || {}, rankMod = core.rank, statusMod = core.status, text = core.text;
   const nInv = db.investigations.length;
   const base = `in VESTA’s evidence base (${nInv} PSI investigations)`;
@@ -270,7 +285,7 @@ const details = ctx => (ctx.view || ctx.params?.view) === 'details';
 
 function mountSimple(root, ctx) {
   const { ui, db } = ctx, el = ui.el;
-  ui.css('css/views/brief.css?v=11');
+  ui.css('css/views/brief.css?v=12');
   const investigations = db.engine.extractor.psi_kept;
   const rows = db.engine.extractor.test_rows;
   const goLink = (label, href, className) => el('a', {
@@ -282,8 +297,6 @@ function mountSimple(root, ctx) {
       el('p.bfs-eyebrow', 'VESTA / NASA fire evidence'),
       el('h1.bfs-title', "Explore NASA's fire experiments."),
       el('p.bfs-promise', 'See where the evidence stops.'),
-      el('p.bfs-who', 'For students, researchers and spacecraft designers.'),
-      world.evidence,
       el('div.bfs-actions',
         ui.button('Explore the evidence', { primary: true, icon: '›', onClick: () => ctx.go('#/investigations') }),
         goLink('Run the fire drill', '#/incident', 'bfs-secondary')),
@@ -292,13 +305,14 @@ function mountSimple(root, ctx) {
         el('a.cite', { href: 'api/v1/index.json', target: '_blank', rel: 'noopener' }, 'source'))),
     world.node);
 
-  const step = (number, title, copy) => el('li.bfs-step',
-    el('span.bfs-step-number', { 'aria-hidden': 'true' }, number),
-    el('div', el('h2', title), el('p', copy)));
-  const journey = el('ol.bfs-journey', { 'aria-label': 'How to use VESTA' },
-    step('01', 'Choose a cabin', 'Set the atmosphere, gravity and material you want to explore.'),
-    step('02', 'Follow the evidence', 'Compare NASA findings and open the original source.'),
-    step('03', 'Find the gaps', 'See which conditions differ and which questions lack evidence.'));
+  const path = el('div.bfs-path', { 'aria-hidden': 'true' });
+  path.innerHTML = '<svg viewBox="0 0 1200 170" preserveAspectRatio="none"><path d="M 12 28 C 180 28 200 138 410 138 S 660 28 820 28 S 1050 138 1188 138" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="28" r="5" fill="currentColor"/><circle cx="1188" cy="138" r="6" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
+  const journey = el('section.bfs-journey', { 'aria-label': 'How to use VESTA' }, path,
+    el('h2', 'Choose a cabin,', el('br'), el('span', 'follow the evidence,'), el('br'), 'find the gaps.'),
+    el('p', 'Set the conditions. Open the original NASA sources. See where the evidence stops.'),
+    goLink('Choose your cabin ↗', '#/design', 'bfs-path-link'));
+  const research = el('section.bfs-research',
+    el('p.bfs-who', 'For students, researchers and spacecraft designers.'), world.evidence);
 
   const rule = db.ruleById['R-SHAPE'] || db.rules.find(r => r.finding_ids.some(id => db.findingById[id]));
   const lesson = el('details.bfs-lesson');
@@ -314,9 +328,15 @@ function mountSimple(root, ctx) {
   const footer = el('footer.bfs-footer',
     el('p', 'An evidence explorer and a scripted drill. Evidence coverage is not safety certification.'),
     el('div', goLink('How quotes are checked', '#/engine'), el('span', ' · '), goLink('Use the open data', '#/open')));
-  root.replaceChildren(el('div.bfs', { data: { screen: 'brief', simple: true } }, hero, journey, lesson, footer));
+  root.replaceChildren(el('div.bfs', { data: { screen: 'brief', simple: true } }, hero, journey, research, lesson, footer));
+  const fit = () => {
+    if (innerWidth < 760) hero.style.setProperty('--brief-screen-height', `${Math.max(460, innerHeight - root.getBoundingClientRect().top)}px`);
+  };
+  fit();
+  const resize = new ResizeObserver(fit); resize.observe(document.getElementById('bar'));
+  addEventListener('resize', fit);
   world.start();
-  return { unmount() { world.dispose(); } };
+  return { unmount() { resize.disconnect(); removeEventListener('resize', fit); world.dispose(); } };
 }
 
 export function mount(root, ctx) {

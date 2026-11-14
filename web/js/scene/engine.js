@@ -33,8 +33,9 @@ export async function createStage(host, opts = {}) {
   }
   function render() {
     if (disposed || !module || !renderer || picture.hidden === false) return;
+    const frameStart = performance.now();
     module.update?.(time(), state, camera);
-    renderer.render(scene, camera); host.dataset.sceneFrames = String(++rendered);
+    renderer.render(scene, camera); host.dataset.sceneRenderMs = (performance.now() - frameStart).toFixed(3); host.dataset.sceneFrames = String(++rendered);
   }
   function loop() {
     raf = 0;
@@ -99,8 +100,9 @@ export async function createStage(host, opts = {}) {
     let down;
     const point = ev => { const b = canvas.getBoundingClientRect(); return { x: (ev.clientX - b.left) / b.width * 2 - 1, y: 1 - (ev.clientY - b.top) / b.height * 2 }; };
     listen(canvas, 'pointerdown', ev => { down = [ev.clientX, ev.clientY]; });
-    listen(canvas, 'pointermove', ev => { const p = point(ev); const hit = module?.pick?.(p.x, p.y); emit('hover', hit ? { ...hit, x: ev.clientX, y: ev.clientY } : null); });
-    listen(canvas, 'pointerleave', () => emit('hover', null));
+    listen(canvas, 'pointermove', ev => { const p = point(ev); const hit = module?.pick?.(p.x, p.y); emit('hover', hit ? { ...hit, x: ev.clientX, y: ev.clientY } : null); if (capture) queueMicrotask(resume); });
+    listen(canvas, 'pointerleave', () => { module?.pick?.(999, 999); emit('hover', null); if (capture) queueMicrotask(resume); });
+    listen(host, 'wheel', () => { if (capture) queueMicrotask(resume); }, { passive: true });
     listen(canvas, 'pointerup', ev => { if (!down || Math.hypot(ev.clientX - down[0], ev.clientY - down[1]) > 6) return; const p = point(ev), hit = module?.pick?.(p.x, p.y); if (hit) emit('pick', { ...hit, x: ev.clientX, y: ev.clientY }); down = null; });
     resize();
   } catch (error) { console.warn('VESTA WebGL unavailable:', error.message); fallback(); }

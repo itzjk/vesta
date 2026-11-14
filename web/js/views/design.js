@@ -1,4 +1,4 @@
-import { drawMap, mapData, LAYERS, MODEL_NOTE, mountField } from './design-map.js?v=10';
+import { drawMap, mapData, LAYERS, MODEL_NOTE, mountField } from './design-map.js?v=11';
 
 const CONCERNS = ['prevention', 'detection', 'suppression'];
 const GRAVITY = [['0g', '0 g'], ['moon', '1/6 g'], ['mars', '3/8 g'], ['1g', '1 g']];
@@ -27,7 +27,7 @@ export function rowsForExport(rows, q, db, compare) {
 
 export function mount(root, ctx) {
   const { db, ui, core } = ctx, { el: e } = ui, S = core.status, T = core.text;
-  ui.css('css/views/design.css?v=10');
+  ui.css('css/views/design.css?v=11');
   if (ctx.params.view !== 'details' && ctx.view !== 'details') return mountSimple(root, ctx);
   root.classList.add('design-view');
   let q = { ...ctx.q }, disposed = false, map = null, mapHost, mapInfo, rawPromise;
@@ -261,7 +261,7 @@ export function mount(root, ctx) {
   }
   paint();
   let frame = requestAnimationFrame(() => { if (!disposed) { draw(); revealCell(); } });
-  ui.css('css/views/design.css?v=10').then(() => { if (!disposed) { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => { draw(); revealCell(); }); } });
+  ui.css('css/views/design.css?v=11').then(() => { if (!disposed) { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => { draw(); revealCell(); }); } });
   return {
     update(next) {
       q = { ...next.q };
@@ -330,8 +330,7 @@ function mountSimple(root, ctx, retained = null) {
     e('p.design-simple-atmosphere', { data: { claim: preset?.id || 'custom-cabin' } },
       `${short(q.o2)} % oxygen · ${q.g_label || 'gravity not stated'}.`, e('br'), `Air pressure: ${short(T.psia(q.p))} psia (pounds per square inch). `, preset ? source(preset.id) : 'Chosen by you.'));
   const host = retained?.host || e('div.design-simple-map-host');
-  const mapPanel = e('section.design-simple-map', e('h2', 'Where the evidence stops'), host,
-    e('p', 'Moon and Mars have no test row in this evidence base. Hollow points use inferred or unreported pressure. Depth separates gravity; proximity does not prove coverage.'));
+  const mapPanel = e('section.design-simple-map', e('h2', 'Where the evidence stops'), host);
   const statusText = q.material ? T.statusMeaning(c.status, c.qualifier) : 'Choose a material to check its evidence coverage.';
   const result = e('section.design-simple-result', e('h2', q.material ? `${materialName(db.materials[q.material]?.label || q.material)} · ${plainConcern[q.concern].toLowerCase()}` : 'Selected material question'),
     e('div.design-simple-selected', { data: { status: c.status, cell: `${q.material}:${q.concern}`, claim: 'selected-material-coverage' } },
@@ -352,7 +351,7 @@ function mountSimple(root, ctx, retained = null) {
     result.append(e('p', 'A nearby-condition match only. Airflow and sample shape are not matched.'));
   }
   const footer = e('footer.design-simple-footer', e('p', T.STATUS_LINE), ui.button('Run the fire drill', { primary: true, action: 'drill', onClick: () => ctx.go('#/incident?view=simple&play=1') }));
-  root.append(e('div.design-simple-layout', heading, e('div.design-simple-blocks', choices, mapPanel, result), footer));
+  root.append(e('div.design-simple-layout', heading, e('div.design-simple-blocks', mapPanel, e('div.design-simple-sidebar', choices, result)), footer));
   const field = retained?.field || mountField(ui, host, ctx);
   field.setPoint(q);
   let current;

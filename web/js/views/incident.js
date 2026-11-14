@@ -169,6 +169,7 @@ function build(root, ctx) {
   const shifted = () => S.log.map(e => ({ ...e, t: e.t - S.t0 }));
   const clockNow = () => core.clock.clock(meta, S.t - S.t0, shifted(), db);
   const simulated = () => S.frames.some(f => f.simulated !== false);
+  const hearingLine = (c, alarmed, heard) => c.heard == null ? 'Delay has no verified source.' : !alarmed ? 'Earth has not been alerted.' : heard ? 'Earth has heard the alarm.' : `Earth hears the alarm in ${mmss(Math.max(0, c.heard - (S.t - S.t0)))}`;
   const finding = id => (id != null && db.findingById?.[id]) || null;
   const say = key => (typeof lines[key] === 'string' ? lines[key] : null);
   const levelOf = f => { try { return (text.level && text.level(f)) || ''; } catch { return ''; } };
@@ -241,7 +242,7 @@ function build(root, ctx) {
     wrap.append(
       intro,
       N.simpleStep,
-      h('section.inc-simple-silence', { 'aria-label': 'The Silence' }, h('h2', 'The Silence'), N.simpleClock, N.track, N.simpleAssumption,
+      h('section.inc-simple-silence', { 'aria-label': 'The Silence' }, h('h2', 'The Silence'), N.track, N.simpleClock, N.simpleAssumption,
         h('div.inc-simple-clock-source', finding(meta.comm?.one_way_finding) ? cite(meta.comm.one_way_finding, { label: 'source' }) : null)),
       h('section.inc-simple-progress', { 'aria-label': 'Drill progress' }, N.simpleDots,
         h('div.inc-simple-actions', N.simpleRun, N.simpleStepButton, N.simpleTrust)),
@@ -388,7 +389,7 @@ function build(root, ctx) {
       }
     }
     const alarmed = F.length > 0, heard = c.heard != null && S.t - S.t0 >= c.heard;
-    N.simpleClock.textContent = c.heard == null ? 'Delay has no verified source.' : !alarmed ? 'Earth has not been alerted.' : heard ? 'Earth has heard the alarm.' : `Earth hears the alarm in ${mmss(Math.max(0, c.heard - (S.t - S.t0)))}`;
+    N.simpleClock.textContent = hearingLine(c, alarmed, heard);
     N.simpleAssumption.textContent = c.heard == null ? 'The clock stays hidden without its source.' : `Maximum-delay drill: ${meta.comm.one_way_min} minutes each way; an immediate ground response is assumed.`;
     const dotsKey = `${F.length}:${active?.step}:${end}`;
     if (N.dotsKey !== dotsKey) {
@@ -495,19 +496,21 @@ function build(root, ctx) {
     N.trail = svg('line.inc-trail', { x1: x0, y1: y, x2: x0, y2: y });
     N.geo = { x0, x1, y };
     N.trackNote = h('div.inc-track-note');
+    N.sceneClock = simple ? null : h('p.inc-scene-clock', { data: { silenceClock: '' } });
     N.sceneHost = h('div.inc-scene-host', { 'aria-hidden': 'true', data: { incidentScene: '' } });
     N.sceneAlt = h('p.inc-scene-alt');
     N.sceneLabels = h('div.inc-scene-labels', h('span', 'SHIP'), h('span', 'EARTH'));
     N.sceneDisclosure = simple ? N.simpleSimulation : h('p', 'SIMULATED TELEMETRY · SCRIPTED · NOT A PHYSICS MODEL');
     N.sceneDisclosure.classList.add('inc-scene-disclosure');
-    N.sceneVisual = h('div.inc-scene-visual', N.sceneHost, N.sceneLabels, N.sceneDisclosure);
+    N.scenePose = h('p.inc-scene-pose');
+    N.sceneVisual = h('div.inc-scene-visual', N.sceneHost, N.sceneLabels, N.sceneDisclosure, N.scenePose);
     N.track.replaceChildren(N.sceneVisual, N.sceneAlt, svg('svg.inc-track-svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, role: 'img', 'aria-label': 'The alert travelling from the ship to Earth' },
       svg('line.inc-rail', { x1: x0, y1: y, x2: x1, y2: y }), N.trail,
       svg('path.inc-ship', { d: `M${x0 - 36} ${y - 10} L${x0 - 8} ${y} L${x0 - 36} ${y + 10} L${x0 - 28} ${y} Z` }),
       svg('circle.inc-earth-disc', { cx: x1 + 36, cy: y, r: 24 }),
       svg('path.inc-earth-arc', { d: `M${x1 + 14} ${y - 8} q 22 -9 44 0 M${x1 + 12} ${y + 5} q 24 9 48 0` }),
       svg('text.inc-track-label', { x: x0 - 22, y: H - 8, 'text-anchor': 'middle' }, 'SHIP'), svg('text.inc-track-label', { x: x1 + 36, y: H - 8, 'text-anchor': 'middle' }, 'EARTH'),
-      N.back, N.dot), N.trackNote);
+      N.back, N.dot), N.trackNote, ...(N.sceneClock ? [N.sceneClock] : []));
     N.rSent = h('b'); N.rHeard = h('b'); N.rReply = h('b');
     N.readouts.replaceChildren(
       h('div.inc-ro', h('span', 'alert sent'), N.rSent, h('i', '')),
@@ -525,6 +528,7 @@ function build(root, ctx) {
     const c = clockNow(), alarmed = S.log.length > 0 && S.t >= S.t0 - EPS, elapsed = S.t - S.t0;
     const g = N.geo, span = g.x1 - g.x0, heardNow = c.heard != null && alarmed && elapsed >= c.heard - EPS, replyNow = c.reply != null && alarmed && elapsed >= c.reply - EPS;
     wrap.dataset.heard = heardNow ? '1' : '0';
+    if (N.sceneClock) N.sceneClock.textContent = hearingLine(c, alarmed, heardNow);
     if (c.progress == null || !alarmed) { N.dot.setAttribute('visibility', 'hidden'); N.back.setAttribute('visibility', 'hidden'); N.trail.setAttribute('x2', g.x0); }
     else {
       const x = g.x0 + span * c.progress;
@@ -535,7 +539,10 @@ function build(root, ctx) {
     }
     const fr = frameAt();
     if (!simple) N.sceneDisclosure.textContent = simulated() ? 'SIMULATED TELEMETRY · SCRIPTED · NOT A PHYSICS MODEL' : 'TELEMETRY FROM A FILE · REPLAYED AS WRITTEN · NOT A PHYSICS MODEL';
-    N.sceneAlt.textContent = `Illustration · scripted airflow: ${typeof fr.airflow_cm_s === 'number' ? fr.airflow_cm_s > 0 ? 'scripted flow' : 'zero' : 'unknown'}. Flame: ${typeof fr.flame_visible === 'boolean' ? fr.flame_visible ? 'visible' : 'not seen' : 'unknown'}. Distances not to scale.`;
+    const active = fired().find(e => e.step === S.selected) ?? fired().at(-1);
+    N.scenePose.textContent = active?.state === 'NO_SOURCE' ? 'VESTA · NO SOURCE' : active?.step === 'S1' ? 'VESTA · ALARM' : active ? 'VESTA · EVIDENCE CHECK' : 'VESTA · WATCHING';
+    N.scenePose.dataset.pose = active?.state === 'NO_SOURCE' ? 'nosource' : active?.step === 'S1' ? 'alert' : active ? 'point' : 'standby';
+    N.sceneAlt.textContent = `Illustration · low-momentum flame. Scripted airflow: ${typeof fr.airflow_cm_s === 'number' ? fr.airflow_cm_s > 0 ? 'scripted flow' : 'zero' : 'unknown'}. Flame: ${typeof fr.flame_visible === 'boolean' ? fr.flame_visible ? 'visible' : 'not seen' : 'unknown'}. Distances not to scale.`;
     N.trackNote.textContent = c.heard == null ? 'delay: no verified source' : !alarmed ? 'no alarm yet · nothing sent'
       : heardNow ? 'At the maximum delay, Earth hears the alarm now' : `the alert is ${Math.floor(c.progress * 100)} % of the way to Earth (maximum delay)`;
     N.trackNote.dataset.heard = heardNow ? '1' : '0';

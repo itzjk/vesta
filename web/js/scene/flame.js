@@ -1,4 +1,4 @@
-export async function build({ THREE, mode }) {
+export async function build({ THREE, mode, opaqueFlame = false }) {
   const group = new THREE.Group();
   const geometry = new THREE.SphereGeometry(1, mode === 'low' ? 32 : 48, mode === 'low' ? 24 : 32);
   const earth = geometry.clone(), p = earth.attributes.position;
@@ -12,7 +12,7 @@ export async function build({ THREE, mode }) {
   earth.dispose();
   const uniforms = { uTime: { value: 0 }, uSpace: { value: 1 }, uHalo: { value: 0 } };
   const material = new THREE.ShaderMaterial({
-    uniforms, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    uniforms, transparent: true, depthWrite: false, blending: opaqueFlame ? THREE.NormalBlending : THREE.AdditiveBlending,
     vertexShader: `
       attribute vec3 earthPosition; attribute vec3 earthNormal;
       uniform float uSpace, uTime; varying vec3 vN, vV, vP;
@@ -38,9 +38,11 @@ export async function build({ THREE, mode }) {
         vec3 yellow = mix(vec3(1.0,.23,.015), vec3(1.0,.83,.34), pow(d,.55));
         float base = 1.0 - smoothstep(-1.0,-.55,vP.y);
         vec3 tear = mix(yellow * (.6 + d * .85), vec3(.08,.22,.95), base * .9);
-        vec3 col = mix(tear, sphere, uSpace);
+        float front = mix(-1.8, 1.8, uSpace);
+        float cooling = 1.0 - smoothstep(front - .18, front + .18, vP.y);
+        vec3 col = mix(tear, sphere, cooling);
         float alpha = smoothstep(0.0, .08, d);
-        if(uHalo > .5) { col = mix(vec3(1.0,.35,.06),vec3(.025,.18,.85),uSpace) * rim * .22; alpha *= .5; }
+        if(uHalo > .5) { col = mix(vec3(1.0,.35,.06),vec3(.025,.18,.85),cooling) * rim * .22; alpha *= .5; }
         gl_FragColor = vec4(col, alpha);
         #include <tonemapping_fragment>
         #include <colorspace_fragment>

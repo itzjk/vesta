@@ -33,19 +33,19 @@ export async function build({ THREE }) {
   }
   const dish = new THREE.Mesh(new THREE.SphereGeometry(0.13, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2), hull);
   dish.rotation.z = -0.7; dish.position.set(0.28, 0.24, 0.08); ship.add(dish);
-  ship.rotation.set(0.35, -0.25, -0.08); ship.position.set(-2.4, -1.7, 0); group.add(ship);
-  const earth = new THREE.Mesh(new THREE.SphereGeometry(0.22, 28, 18), new THREE.MeshStandardMaterial({ color: 0x8fa3b5, roughness: 0.85, metalness: 0.05 }));
-  earth.position.set(2.5, -1.47, -1.1); group.add(earth);
+  ship.rotation.set(0.35, -0.25, -0.08); ship.scale.setScalar(1.25); ship.position.set(-2.5, -1.95, 0); group.add(ship);
+  const earth = new THREE.Mesh(new THREE.SphereGeometry(0.34, 28, 18), new THREE.MeshStandardMaterial({ color: 0x8fa3b5, roughness: 0.85, metalness: 0.05 }));
+  earth.position.set(2.65, -1.85, -0.4); group.add(earth);
   for (let i = 0; i < 3; i++) {
-    const patch = new THREE.Mesh(new THREE.SphereGeometry(0.223, 16, 8, i * 1.8, 0.65, 0.6 + i * 0.25, 0.7), new THREE.MeshStandardMaterial({ color: 0xb9bcc0, roughness: 1 }));
+    const patch = new THREE.Mesh(new THREE.SphereGeometry(0.343, 16, 8, i * 1.8, 0.65, 0.6 + i * 0.25, 0.7), new THREE.MeshStandardMaterial({ color: 0xb9bcc0, roughness: 1 }));
     earth.add(patch);
   }
-  const start = new THREE.Vector3(-1.78, -1.56, 0), end = earth.position.clone();
-  const curve = new THREE.QuadraticBezierCurve3(start, new THREE.Vector3(0.2, -1.12, -0.5), end);
+  const start = new THREE.Vector3(-1.65, -1.82, 0), end = earth.position.clone();
+  const curve = new THREE.QuadraticBezierCurve3(start, new THREE.Vector3(0.2, -1.12, -0.3), end);
   const route = new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(80)), new THREE.LineBasicMaterial({ color: 0x8fa3b5, transparent: true, opacity: 0.32 }));
   group.add(route);
   const pulseMaterial = new THREE.MeshBasicMaterial({ color: 0xede4d4 });
-  const pulse = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 8), pulseMaterial);
+  const pulse = new THREE.Mesh(new THREE.SphereGeometry(0.065, 12, 8), pulseMaterial);
   const reply = new THREE.Mesh(new THREE.SphereGeometry(0.04, 12, 8), new THREE.MeshBasicMaterial({ color: 0x8fa3b5 }));
   group.add(pulse, reply);
   return {
