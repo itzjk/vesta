@@ -35,7 +35,7 @@ function buildChrome() {
   if (!demo) document.getElementById('bar-actions').append(modeSwitch());
   const phone = el('div#phone-controls', el('p', 'Details is built for a wide screen'), modeSwitch());
   document.getElementById('viewport').append(phone);
-  if (!demo) document.getElementById('bar-actions').append(button('60-second tour', { action: 'tour', icon: '▶', title: 'A guided path through the five stops' }));
+  if (!demo) document.getElementById('bar-actions').append(button('Play the film', { action: 'tour', icon: '▶', title: 'A guided path through the five stops' }));
 }
 function modeSwitch() {
   return el('div.view-switch', { role: 'group', 'aria-label': 'Information level' }, ...['simple', 'details'].map(mode =>
@@ -138,7 +138,7 @@ function render() {
     if (params.src) drawer.show(params.src); else drawer.hide();
     return;
   }
-  const wantsWorld = params.view !== 'details' && params.still !== '1' && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wantsWorld = params.view !== 'details' && params.still !== '1';
   if (wantsWorld) {
     worldContext = { db, q, params, route, setQ, setParams, go, openSource, closeSource, ui, core, capture };
     if (worldHandle) worldHandle.update(worldContext);
@@ -187,9 +187,9 @@ async function loadTour() {
   try { mod = await import('./tour.js'); } catch (e) { console.warn('VESTA: tour.js did not load: ' + (e && e.message)); return; }
   const begin = mod.start || mod.default;
   if (typeof begin !== 'function') { console.warn('VESTA: tour.js has no start()'); return; }
-  const api = { db, go, stops: db.tour, capture, stage, ui };
+  const api = { db, go, stops: db.tour, capture, stage, ui, get world() { return worldHandle; } };
   const btn = document.querySelector('#bar-actions [data-action="tour"]');
-  if (btn) btn.addEventListener('click', () => begin(api));
+  if (btn && typeof mod.install !== 'function') btn.addEventListener('click', () => begin(api));
   if (typeof mod.install !== 'function' && current().params.tour === '1') begin(api);
 }
 async function fontsReady() {

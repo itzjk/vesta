@@ -1,3 +1,6 @@
+import { createOptics } from './optics.js';
+import { imageEnvironment } from './imagery.js';
+
 let active;
 const flags = () => new URLSearchParams(location.hash.split('?')[1] || '');
 function release(group) {
@@ -14,10 +17,10 @@ function release(group) {
 export async function createStage(host, opts = {}) {
   active?.dispose();
   let disposed = false, module, state = {}, renderer, scene, camera, THREE, raf = 0, serial = 0, visible = true;
-  let epoch = performance.now(), frozen = 0, rendered = 0;
+  let epoch = performance.now(), frozen = 0, rendered = 0, optics, environment, lastFrame = 0, frameTotal = 0, frameSamples = 0, qualityAt = 0, lowScale = 1, frameIntervals = [];
   const events = new Map(), listeners = [], f = flags(), capture = opts.capture ?? f.get('capture') === '1';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let mode = opts.mode || (f.get('still') === '1' || reduced.matches ? 'still' : innerWidth < 760 || navigator.hardwareConcurrency <= 4 || navigator.deviceMemory <= 4 ? 'low' : 'high');
+  let mode = opts.mode || (f.get('still') === '1' || reduced.matches && !opts.reducedCuts ? 'still' : innerWidth < 760 || navigator.hardwareConcurrency <= 4 || navigator.deviceMemory <= 4 ? 'low' : 'high');
   const picture = document.createElement('img');
   picture.className = 'scene-still'; picture.alt = ''; picture.hidden = true;
   host.hidden = false; host.classList.add('scene-host'); host.append(picture);
@@ -35,24 +38,40 @@ export async function createStage(host, opts = {}) {
     if (disposed || !module || !renderer || picture.hidden === false) return;
     const frameStart = performance.now();
     module.update?.(time(), state, camera);
-    renderer.render(scene, camera); host.dataset.sceneRenderMs = (performance.now() - frameStart).toFixed(3); host.dataset.sceneFrames = String(++rendered);
+    if (optics) optics.render(scene, camera, reduced.matches ? 2 : time(), mode); else renderer.render(scene, camera); host.dataset.sceneRenderMs = (performance.now() - frameStart).toFixed(3); host.dataset.sceneFrames = String(++rendered);
   }
-  function loop() {
+  function adapt(now) {
+    if (capture || !lastFrame || document.hidden) { lastFrame = now; return; }
+    const dt = now - lastFrame; lastFrame = now;
+    if (dt > 1000 || now - qualityAt < 2500) return;
+    frameTotal += dt; frameSamples++; frameIntervals.push(dt);
+    if (frameSamples < 45 && frameTotal < 2000) return;
+    const mean = frameTotal / frameSamples, sustained = frameIntervals.sort((a, b) => a - b)[Math.floor(frameSamples * .8)]; host.dataset.sceneFrameMs = mean.toFixed(3);
+    frameTotal = frameSamples = 0; frameIntervals = [];
+    if (mode === 'high' && sustained > 20) {
+      mode = 'low'; renderer.shadowMap.enabled = false; host.dataset.sceneMode = mode; host.dataset.sceneQualityReason = 'frame-budget'; qualityAt = now; resize(false);
+    } else if (mode === 'low' && sustained > 34 && lowScale > .65) {
+      lowScale = Math.max(.65, lowScale - .15); host.dataset.sceneQualityReason = 'frame-budget'; qualityAt = now; resize(false);
+    }
+  }
+  function loop(now) {
     raf = 0;
     if (disposed || !visible || document.hidden || mode === 'still' || capture) return;
-    render(); raf = requestAnimationFrame(loop);
+    adapt(now); render(); raf = requestAnimationFrame(loop);
   }
   function resume() { cancelAnimationFrame(raf); if (!disposed && visible && !document.hidden) { render(); if (mode !== 'still' && !capture) raf = requestAnimationFrame(loop); } }
-  function resize() {
-    if (disposed || !renderer) return;
+  function resize(restart = true) {
+    if (disposed || !renderer || !camera) return;
     const { width, height } = size(), bounds = host.getBoundingClientRect();
-    const ratio = Math.min(mode === 'low' ? 1 : 1.5, devicePixelRatio || 1);
+    const ratio = Math.min(mode === 'low' ? lowScale : 1.5, devicePixelRatio || 1); host.dataset.scenePixelRatio = String(ratio);
     renderer.setPixelRatio(ratio);
     renderer.setSize(Math.max(1, Math.round(bounds.width)), Math.max(1, Math.round(bounds.height)), false);
-    camera.aspect = width / height; camera.updateProjectionMatrix(); resume();
+    optics?.resize();
+    camera.aspect = width / height; camera.updateProjectionMatrix(); if (restart) resume();
   }
   const stage = {
     get mode() { return mode; },
+    get renderer() { return renderer; },
     async use(sceneModule, initial = {}) {
       const id = ++serial;
       if (module) { module.dispose?.(); scene?.remove(module.group); release(module.group); module = null; }
@@ -68,7 +87,7 @@ export async function createStage(host, opts = {}) {
     },
     set(patch) {
       state = { ...state, ...patch };
-      if (flags().get('still') === '1' || reduced.matches || !renderer || renderer.getContext().isContextLost()) fallback();
+      if (flags().get('still') === '1' || reduced.matches && !opts.reducedCuts || !renderer || renderer.getContext().isContextLost()) fallback();
       else if (mode === 'still') { mode = innerWidth < 760 ? 'low' : 'high'; host.dataset.sceneMode = mode; picture.hidden = true; renderer.domElement.hidden = false; resize(); }
       resume();
     },
@@ -76,7 +95,7 @@ export async function createStage(host, opts = {}) {
     dispose() {
       if (disposed) return; disposed = true; serial++; cancelAnimationFrame(raf);
       observer.disconnect(); intersection.disconnect(); listeners.forEach(fn => fn()); events.clear();
-      module?.dispose?.(); release(module?.group); renderer?.dispose(); renderer?.domElement.remove(); picture.remove();
+      module?.dispose?.(); release(module?.group); optics?.dispose(); environment?.dispose(); renderer?.dispose(); renderer?.domElement.remove(); picture.remove();
       if (host.id === 'scene-host') host.hidden = true;
       if (active === stage) active = null;
     }
@@ -85,7 +104,7 @@ export async function createStage(host, opts = {}) {
   const observer = new ResizeObserver(resize), intersection = new IntersectionObserver(entries => { visible = entries[0]?.isIntersecting !== false; resume(); });
   observer.observe(host); intersection.observe(host);
   listen(document, 'visibilitychange', () => { if (document.hidden) frozen = performance.now(); else if (frozen) { epoch += performance.now() - frozen; frozen = 0; } resume(); });
-  listen(reduced, 'change', () => { if (reduced.matches) fallback(); });
+  listen(reduced, 'change', () => { if (reduced.matches && !opts.reducedCuts) fallback(); else resume(); });
   try {
     THREE = await import('../../vendor/three/three.module.js');
     if (disposed) return stage;
@@ -93,9 +112,13 @@ export async function createStage(host, opts = {}) {
     const context = canvas.getContext('webgl2', { alpha: true, antialias: mode === 'high', powerPreference: 'low-power' });
     if (!context) { fallback(); return stage; }
     renderer = new THREE.WebGLRenderer({ canvas, context, alpha: true, antialias: mode === 'high' });
-    renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMappingExposure = .85;
+    renderer.shadowMap.enabled = mode === 'high'; renderer.shadowMap.type = THREE.PCFShadowMap;
     canvas.setAttribute('aria-hidden', 'true'); canvas.className = 'scene-canvas'; host.append(canvas);
-    scene = new THREE.Scene(); camera = new THREE.PerspectiveCamera(36, 1, 0.05, 500); camera.position.set(0, 0, 10);
+    scene = new THREE.Scene();
+    try { environment = await imageEnvironment(THREE, renderer, scene); optics = createOptics(THREE, renderer); } catch (error) { console.warn('VESTA photographic finish unavailable:', error.message); }
+    if (disposed) { optics?.dispose(); environment?.dispose(); renderer.dispose(); return stage; }
+    camera = new THREE.PerspectiveCamera(36, 1, 0.05, 500); camera.position.set(0, 0, 10);
     listen(canvas, 'webglcontextlost', ev => { ev.preventDefault(); fallback(); });
     let down;
     const point = ev => { const b = canvas.getBoundingClientRect(); return { x: (ev.clientX - b.left) / b.width * 2 - 1, y: 1 - (ev.clientY - b.top) / b.height * 2 }; };

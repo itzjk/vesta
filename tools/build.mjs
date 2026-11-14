@@ -10,6 +10,11 @@ import { Writer, stamp, testsCsv, findingsCsv, coverageFile, rankFile, telemetry
 export async function build(root = ROOT) {
   const io = new Inputs(root), warn = (kind, extra) => io.warn(kind, extra);
   const delivered = loadDelivered(io), research = loadEvidence(io), own = loadOwn(io), authored = loadAuthored(io), core = await loadCore(io);
+  const proofCases = io.exists('config/proof-cases.json') ? io.bytes('config/proof-cases.json') : null;
+  if (proofCases) {
+    const reviewed = JSON.parse(proofCases.toString('utf8'));
+    if (reviewed.schema !== 'vesta.proof-cases/1' || !Array.isArray(reviewed.cases)) throw new Error('Invalid reviewed proof cases');
+  }
   for (const rel of ['tools/build.mjs', ...io.list('tools/lib', /\.mjs$/), 'research/tools/quotecheck.py']) io.touch(rel);
   const eligible = research.families.filter(f => f.verified && (!['acme', 'droplets', 'others'].includes(f.family) || f.verification));
   for (const f of research.families.filter(f => f.verified && !eligible.includes(f))) warn('research_review_pending', { family: f.family });
@@ -155,6 +160,7 @@ export async function build(root = ROOT) {
   raw.meta = { schema: 'vesta.meta/1', generated_at, built_display: time.display, scope: 'decision-support prototype, not certified flight software', license_note: 'NASA PSI records and table data: CC0-1.0. Quotes remain attributed to their sources. VESTA interpretations are marked.', counts: { investigations: inv.investigations.length, excluded: inv.excluded.length, tests: rows.length, tables: delivered.tests.tables.length, findings: findings.length, rules: rules.shipped.length, sources: sourcesMap.size, presets: presets.presets.length, protocol_lines: protocol.lines.filter(p => p.gate.pass).length, steps: authored.playbook?.steps.length ?? 0, frames: raw.scenario.frames.length } };
   const writer = new Writer(path.join(root, 'web'));
   for (const [name, value] of Object.entries(raw)) writer.json(`data/${name}.json`, value);
+  if (proofCases) writer.write('data/proof-cases.json', proofCases);
   const api = new Map(), jsonApi = (rel, value, count) => { writer.json(`api/v1/${rel}`, value); api.set(rel, { path: rel, count }); };
   for (const name of ['investigations', 'findings', 'tests', 'rules', 'sources', 'presets', 'protocol', 'engine']) jsonApi(`${name}.json`, raw[name], name === 'engine' ? null : name === 'investigations' ? inv.investigations.length : name === 'protocol' ? protocol.lines.length : name === 'presets' ? presets.presets.length : raw[name][name]?.length ?? null);
   if (delivered.testsCsv) { writer.write('api/v1/tests.csv', delivered.testsCsv); api.set('tests.csv', { path: 'tests.csv', count: rows.length }); }
@@ -171,6 +177,7 @@ export async function build(root = ROOT) {
   }
   if (core.officer) jsonApi('telemetry.schema.json', telemetrySchema(core.officer), null);
   jsonApi('index.json', { schema: 'vesta.api/1', generated_at, scope: raw.meta.scope, license_note: raw.meta.license_note, weights: core.rank?.W ?? null, levels: core.rank?.LEVEL ?? null, spans: core.rank?.SPAN ?? null, tolerances: core.match?.TOL ?? null, reasons: core.text?.reasons(inv.investigations.length) ?? {}, schemas: ['vesta.meta/1', 'vesta.telemetry/1', 'vesta.scenario/1', 'vesta.design-report/1', 'vesta.decision-log/1'], files: [...api.values(), { path: 'index.json', count: null }] }, null);
+  (await import('./lib/provenance.mjs')).writeProvenance({ root, writer, generated_at });
   for (const line of io.lines) console.log(line);
   console.log(`quotes: ${quoteRows.length} checked, ${[...gates.values()].filter(g => g.pass).length} verified, ${rejected.length} rejected`);
   console.log(`sentence: ${cuts.length} cut_before_qualifier; conditions: ${dropped.length} dropped; rows: ${rowFailed.length} rejected`);

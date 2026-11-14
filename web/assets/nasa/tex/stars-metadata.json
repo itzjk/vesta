@@ -1,0 +1,45 @@
+{
+  "href": "https://images-assets.nasa.gov/image/PIA12066/collection.json",
+  "data": [
+    {
+      "center": "JPL",
+      "date_created": "2009-06-04T22:11:44Z",
+      "description": "A star field in the constellation Cepheus is a composite of two 600-second exposures by the Framing Camera acquired during tests on December 3, 2007.",
+      "description_508": "A star field in the constellation Cepheus is a composite of two 600-second exposures by the Framing Camera acquired during tests on December 3, 2007.",
+      "keywords": [
+        "Cepheus",
+        "Dawn"
+      ],
+      "media_type": "image",
+      "nasa_id": "PIA12066",
+      "secondary_creator": "NASA/JPL/MPS/DLR/IDA",
+      "title": "Star Field in the Constellation Cepheus"
+    }
+  ],
+  "links": [
+    {
+      "href": "https://images-assets.nasa.gov/image/PIA12066/PIA12066~small.jpg",
+      "rel": "alternate",
+      "render": "image",
+      "width": 640,
+      "size": 17000,
+      "height": 640
+    },
+    {
+      "href": "https://images-assets.nasa.gov/image/PIA12066/PIA12066~thumb.jpg",
+      "rel": "preview",
+      "render": "image",
+      "width": 640,
+      "size": 17000,
+      "height": 640
+    },
+    {
+      "href": "https://images-assets.nasa.gov/image/PIA12066/PIA12066~orig.jpg",
+      "rel": "canonical",
+      "render": "image",
+      "height": 1024,
+      "width": 1024,
+      "size": 51000
+    }
+  ]
+}

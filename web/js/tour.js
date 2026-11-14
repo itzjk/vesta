@@ -1,264 +1,150 @@
 import { getDb, getCore } from './store.js';
-import { readQ } from './router.js';
 
-const TICK_MS = 100;
-let run = null;
-let pending = null;
-let cached = null;
-let installed = false;
-let navigating = false;
-let internalAction = false;
+const STOPS = ['transit', 'flame', 'evidence', 'drill', 'trust'];
+const TIMES = [0, 8, 20, 34, 48];
+let run = null, pending = null, installed = false, navigating = false;
+const params = () => new URLSearchParams(location.hash.split('?')[1] || '');
+const seconds = () => run ? Math.min(run.total, run.offset + (run.paused ? 0 : (performance.now() - run.epoch) / 1000)) : 0;
+const clock = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
+const worldOf = api => api.world?.navigate ? api.world : window.vesta?.world;
 
-const hashParams = () => new URLSearchParams(location.hash.split('?')[1] || '');
-const wantsTour = () => hashParams().get('tour') === '1';
-const clock = seconds => `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
-const elapsed = () => run ? Math.min(run.cfg.total, run.offset + (run.paused ? 0 : (performance.now() - run.t0) / 1000)) : 0;
+function itinerary(db, input) {
+  const cfg = input?.schema === 'vesta.tour/2' ? input : db?.tour;
+  const valid = cfg?.schema === 'vesta.tour/2' && cfg.total_s === 60 && cfg.steps?.length === 5 && cfg.steps.every((s, i) => s.stop === STOPS[i] && s.at === TIMES[i]);
+  return { total: 60, list: valid ? cfg.steps : STOPS.map((stop, i) => ({ stop, at: TIMES[i], label: stop, caption: '' })) };
+}
 
-function parse(file) {
-  if (!file || !Array.isArray(file.steps)) return null;
-  const list = file.steps.filter(s => s && Number.isFinite(s.at) && s.at >= 0 && typeof s.hash === 'string' && s.hash.startsWith('#/'))
-    .slice().sort((a, b) => a.at - b.at);
-  if (!list.length) return null;
-  const total = Number.isFinite(file.total_s) && file.total_s > list.at(-1).at ? file.total_s : list.at(-1).at + 6;
-  return { list, total };
+function caption(step, db, core) {
+  const comm = db?.findingById?.[db.scenario?.meta?.comm?.one_way_finding];
+  const delay = comm?.gate?.pass ? db?.scenario?.meta?.comm?.one_way_min : null;
+  const values = {
+    delay,
+    investigations: db?.investigations?.length,
+    rows: db?.engine?.extractor?.test_rows?.toLocaleString('en-US'),
+    decisions: db?.engine?.officer?.[db?.scenario?.meta?.id]?.steps,
+    quotes: db?.engine?.verifier?.quotes_verified?.toLocaleString('en-US')
+  };
+  if (step.stop === 'flame' && !db?.findingById?.['S-SHAPE-01']?.gate?.pass) return 'Flame observation unavailable.';
+  if (step.caption && !/\{(\w+)\}/g.test(step.caption.replace(/\{(\w+)\}/g, (_, key) => values[key] == null ? `{${key}}` : String(values[key])))) return step.caption.replace(/\{(\w+)\}/g, (_, key) => values[key]);
+  if (step.stop === 'transit') return comm?.gate?.pass ? comm.quote : 'Communication evidence unavailable.';
+  if (step.stop === 'flame') return db?.findingById?.['S-SHAPE-01'] ? 'Low-momentum flames: illustration of a NASA observation, not a simulation.' : 'Flame observation unavailable.';
+  if (step.stop === 'evidence') return `${values.investigations ?? 0} investigations. ${values.rows ?? 0} source-table rows.`;
+  if (step.stop === 'drill') return db?.scenario ? 'Scripted telemetry. Not a physics model.' : 'Scripted drill unavailable.';
+  return values.quotes == null ? 'Quote verification unavailable.' : `${values.quotes} quote matches. Matching words does not validate a decision.`;
 }
 
 function style() {
   if (document.getElementById('vesta-tour-style')) return;
-  const s = document.createElement('style');
-  s.id = 'vesta-tour-style';
-  s.textContent = `
-body>.tour-bar{position:fixed;inset:auto 0 0;z-index:900;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px 28px;padding:14px 24px calc(18px + env(safe-area-inset-bottom,0px));background:var(--bg-0,#12100e);border-top:1px solid var(--line-strong,#8f877b);font-family:var(--font,system-ui,sans-serif);color:var(--ivory,#ede4d4)}
-.tour-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;min-width:0}
-.tour-stop{font:600 16px/22px var(--font,system-ui,sans-serif);color:var(--ivory,#ede4d4)}
-.tour-time{font:400 14px/20px var(--font,system-ui,sans-serif);font-variant-numeric:tabular-nums;color:var(--ivory-dim,#bdb3a3)}
-.tour-cap{grid-column:1;min-width:0;overflow-wrap:anywhere;font:400 18px/26px var(--font,system-ui,sans-serif)}
-.tour-cap .cite,.tour-cap a{font:inherit;min-height:24px}
-.tour-controls{grid-column:2;grid-row:1/3;display:flex;align-items:center;gap:8px}
-.tour-controls button{min-width:76px;min-height:44px;padding:9px 14px;border:1px solid var(--line-strong,#8f877b);border-radius:6px;background:var(--surface-1,#28241f);color:var(--ivory,#ede4d4);font:500 16px/24px var(--font,system-ui,sans-serif);cursor:pointer}
-.tour-controls button:hover,.tour-controls button[aria-pressed=true]{background:var(--surface-2,#39332b)}
-.tour-track{position:absolute;inset:auto 0 0;height:4px;background:rgba(237,228,212,.15)}
-.tour-fill{display:block;height:100%;width:0;background:var(--earth,#8fa3b5)}
-html[data-tour=running] #view{height:var(--tour-view-height,calc(var(--stage-h) - var(--bar-h) - 172px))!important;overflow-y:auto!important}
-@media(max-width:759px){
-body>.tour-bar{grid-template-columns:minmax(0,1fr);gap:8px;padding:12px 16px calc(16px + env(safe-area-inset-bottom,0px))}
-.tour-meta{justify-content:space-between;gap:4px 12px}
-.tour-stop{font-size:16px;line-height:22px}
-.tour-time{font-size:13px;line-height:20px}
-.tour-cap{font-size:16px;line-height:23px}
-.tour-controls{grid-column:1;grid-row:auto;justify-content:flex-end}
-.tour-controls button{flex:1;min-width:0}
-html[data-tour=running][data-view-mode=simple] #view{height:auto!important}
-html[data-tour=running][data-view-mode=simple] #stage{padding-bottom:var(--tour-bar-height,220px)}
-}
+  const el = document.createElement('style'); el.id = 'vesta-tour-style';
+  el.textContent = `
+body>.tour-bar{position:fixed;inset:auto 0 0;z-index:950;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px 24px;padding:18px 28px calc(20px + env(safe-area-inset-bottom,0px));background:linear-gradient(0deg,rgba(9,10,12,.98),rgba(9,10,12,.92));color:#ede4d4;font-family:var(--font-body,system-ui,sans-serif)}
+.tour-cap{margin:0;font:400 20px/1.35 var(--font-body,system-ui,sans-serif);max-width:72ch;overflow-wrap:anywhere}
+.tour-controls{display:flex;align-items:center;gap:8px}.tour-controls button{min-width:64px;min-height:44px;padding:9px 12px;border:1px solid #8f877b;border-radius:0;background:#191715;color:#ede4d4;font:500 16px/24px var(--font-body,system-ui,sans-serif);cursor:pointer}.tour-controls button:focus-visible{outline:2px solid #ede4d4;outline-offset:3px}.tour-time{font:400 14px/20px var(--font-body,system-ui,sans-serif);font-variant-numeric:tabular-nums;min-width:72px;text-align:center;color:#bdb3a3}
+.tour-track{position:absolute;inset:auto 0 0;height:3px;background:#35302b}.tour-fill{display:block;height:100%;width:0;background:#c8553d}
+html[data-tour=running] .world-answer,html[data-tour=running] .world-holograms,html[data-tour=running] .world-markers,html[data-tour=running] .world-stations,html[data-tour=running] .world-skip,html[data-tour=running] .evidence-tools,html[data-tour=running] .field-labels,html[data-tour=running] .drill-hud,html[data-tour=running] [data-world-answer],html[data-tour=running] [data-world-marker]{visibility:hidden!important;pointer-events:none!important}
+html[data-cinema=true] body>.tour-bar,html[data-cinema=true]>.tour-bar{visibility:hidden}
+@media(max-width:759px){body>.tour-bar{grid-template-columns:1fr;padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));gap:12px}.tour-cap{font-size:18px;line-height:24px}.tour-controls{justify-content:space-between}.tour-controls button{flex:1;min-width:0}.tour-time{min-width:74px}.tour-cap{max-height:96px;overflow-y:auto}}
 `;
-  document.head.appendChild(s);
+  document.head.append(el);
 }
 
-function layout() {
-  if (!run) return;
-  const bar = run.ui.bar.getBoundingClientRect();
-  document.documentElement.style.setProperty('--tour-bar-height', `${bar.height}px`);
-  if (innerWidth < 760) return;
-  const view = document.getElementById('view'), stage = document.getElementById('stage');
-  if (!view || !stage) return;
-  const scale = stage.getBoundingClientRect().width / stage.offsetWidth || 1;
-  const top = view.getBoundingClientRect().top;
-  const footer = document.getElementById('foot')?.getBoundingClientRect().top ?? bar.top;
-  document.documentElement.style.setProperty('--tour-view-height', `${Math.max(0, Math.min(footer, bar.top) - top) / scale}px`);
-}
-
-function makeBar(cfg) {
+function makeBar() {
   style();
-  const mk = (tag, cls) => { const e = document.createElement(tag); e.className = cls; return e; };
-  const bar = mk('section', 'tour-bar');
-  bar.setAttribute('data-tour-bar', '');
-  bar.setAttribute('aria-label', '60-second guided tour');
-  const meta = mk('div', 'tour-meta'), stop = mk('span', 'tour-stop'), time = mk('span', 'tour-time');
-  const cap = mk('p', 'tour-cap'), controls = mk('div', 'tour-controls'), track = mk('div', 'tour-track'), fill = mk('span', 'tour-fill');
-  cap.setAttribute('data-tour-caption', '');
-  cap.setAttribute('role', 'status');
-  cap.setAttribute('aria-live', 'polite');
-  cap.setAttribute('aria-atomic', 'true');
-  time.setAttribute('aria-live', 'off');
-  controls.setAttribute('role', 'group');
-  controls.setAttribute('aria-label', 'Tour controls');
+  const bar = document.createElement('section'); bar.className = 'tour-bar'; bar.dataset.tourBar = ''; bar.setAttribute('aria-label', 'Film controls');
+  const cap = document.createElement('p'); cap.className = 'tour-cap'; cap.dataset.tourCaption = ''; cap.setAttribute('role', 'status'); cap.setAttribute('aria-live', 'polite'); cap.setAttribute('aria-atomic', 'true');
+  const controls = document.createElement('div'); controls.className = 'tour-controls';
+  const time = document.createElement('span'); time.className = 'tour-time'; time.setAttribute('aria-live', 'off');
   const buttons = {};
-  for (const [action, label] of [['pause', 'Pause'], ['next', 'Next'], ['close', 'Close']]) {
-    const button = mk('button', 'tour-control');
-    button.type = 'button'; button.textContent = label; button.dataset.tourControl = action;
-    button.addEventListener('click', () => action === 'pause' ? pause() : action === 'next' ? next() : stopTour());
+  for (const [action, label, fn] of [['pause', 'Pause', pause], ['next', 'Skip', next], ['close', 'Close', stop]]) {
+    const button = document.createElement('button'); button.type = 'button'; button.textContent = label; button.dataset.tourControl = action; button.onclick = fn;
+    if (action === 'next') button.setAttribute('aria-label', 'Skip to the next station');
     controls.append(button); buttons[action] = button;
   }
-  buttons.pause.setAttribute('aria-pressed', 'false');
-  track.setAttribute('aria-hidden', 'true');
-  track.append(fill); meta.append(stop, time); bar.append(meta, cap, controls, track);
-  document.body.append(bar);
-  return { bar, stop, cap, time, fill, buttons };
+  buttons.pause.setAttribute('aria-pressed', 'false'); controls.prepend(time);
+  const track = document.createElement('div'); track.className = 'tour-track'; track.setAttribute('aria-hidden', 'true');
+  const fill = document.createElement('span'); fill.className = 'tour-fill'; track.append(fill); bar.append(cap, controls, track); document.body.append(bar);
+  return { bar, cap, time, fill, buttons };
 }
 
-function setState(state, stopId) {
-  const d = document.documentElement.dataset;
-  d.tour = state;
-  if (stopId) d.tourStop = stopId; else delete d.tourStop;
-}
-
-function navigate(hash) {
-  if (location.hash === hash) return;
-  const oldURL = location.href;
-  history.replaceState(null, '', hash);
+function apply(index) {
+  const session = run, step = session.list[index]; session.index = index;
+  session.ui.cap.textContent = caption(step, session.api.db || getDb(), getCore());
+  document.documentElement.dataset.tourStop = step.stop;
   navigating = true;
-  try { dispatchEvent(new HashChangeEvent('hashchange', { oldURL, newURL: location.href })); }
+  try { session.world.navigate(step.stop, { cut: session.paused || session.capture || matchMedia('(prefers-reduced-motion: reduce)').matches }); }
   finally { navigating = false; }
-}
-
-function drill(action) {
-  const button = document.querySelector(`.inc-simple-actions [data-action="${action}"]`);
-  if (!button) return false;
-  internalAction = true;
-  try { button.click(); } finally { internalAction = false; }
-  return true;
-}
-
-function settle(step, session, attempt = 0) {
-  if (run !== session || run.step !== step) return;
-  const view = document.getElementById('view');
-  const target = view?.querySelector(step.focus || 'h1');
-  const loading = [...document.querySelectorAll('link[rel=stylesheet]')].some(link => !link.sheet) || document.fonts?.status === 'loading';
-  if (loading && attempt < 120) { requestAnimationFrame(() => settle(step, session, attempt + 1)); return; }
-  if (!target || view.dataset.view !== step.hash.slice(2).split('?')[0]) {
-    if (attempt < 120) requestAnimationFrame(() => settle(step, session, attempt + 1));
-    return;
-  }
-  if (session.paused && drill('pause')) session.resumeDrill = true;
-  layout();
-  if (innerWidth < 760) {
-    const top = step.focus ? target.getBoundingClientRect().top + scrollY - 16 : 0;
-    window.scrollTo({ top, behavior: 'instant' });
-  } else view.scrollTop = 0;
-}
-
-function apply(step) {
-  run.step = step;
-  run.resumeDrill = false;
-  run.ui.stop.textContent = step.label || step.stop || '';
-  const db = run.api.db || getDb(), core = getCore();
-  const q = db ? readQ(Object.fromEntries(new URLSearchParams(step.hash.split('?')[1] || '')), db) : null;
-  const material = db && q && core.status ? core.status.cell(q.material, q.concern, q, db) : null;
-  const values = db ? {
-    investigations: db.engine.extractor.psi_kept,
-    rows: db.engine.extractor.test_rows.toLocaleString('en-US'),
-    station_rows: material?.hit_ids?.length ?? 0,
-    partial_rows: db.base.partial_rows,
-    quotes: db.engine.verifier.quotes_verified.toLocaleString('en-US')
-  } : {};
-  run.ui.cap.textContent = (step.caption || '').replace(/\{(\w+)\}/g, (_, key) => values[key] ?? 'not reported');
-  delete run.ui.cap.dataset.claim;
-  const citeId = step.source === 'material' ? material?.hit_ids?.[0] : step.source;
-  const ui = run.api.ui || window.vesta?.ui;
-  if (citeId && ui) {
-    run.ui.cap.dataset.claim = citeId;
-    if (citeId.includes('/')) {
-      const a = document.createElement('a'); a.href = citeId; a.textContent = 'source'; a.dataset.cite = citeId; a.target = '_blank'; a.rel = 'noopener'; run.ui.cap.append(' ', a);
-    } else run.ui.cap.append(' ', ui.cite(citeId, { label: 'source' }));
-  }
-  setState('running', step.stop || '');
-  let hash = step.hash + (step.hash.includes('?') ? '&' : '?') + 'view=simple';
-  if (run.capture && !/[?&]capture=/.test(hash)) hash += '&capture=1';
-  navigate(hash);
-  requestAnimationFrame(() => { if (run) settle(step, run); });
+  session.expectedHash = location.hash;
 }
 
 function tick() {
   if (!run) return;
-  const t = elapsed();
-  while (run && run.next < run.cfg.list.length && run.cfg.list[run.next].at <= t) apply(run.cfg.list[run.next++]);
-  if (!run) return;
-  run.ui.fill.style.width = Math.min(100, 100 * t / run.cfg.total) + '%';
-  run.ui.time.textContent = `${run.paused ? 'Paused · ' : ''}${run.next} / ${run.cfg.list.length} · ${clock(t)} / ${clock(run.cfg.total)}`;
+  if (worldOf(run.api) !== run.world || !document.querySelector('.world-host')) { finish('unavailable'); return; }
+  const t = seconds();
+  const index = run.list.findLastIndex(step => step.at <= t);
+  if (index !== run.index) apply(index);
+  run.ui.time.textContent = `${clock(t)} / ${clock(run.total)}`;
+  run.ui.fill.style.width = `${t / run.total * 100}%`;
   document.documentElement.dataset.tourT = String(Math.floor(t));
-  if (t >= run.cfg.total) end('done');
+  if (t >= run.total) finish('done');
 }
 
-function pause() {
+export function pause() {
   if (!run) return;
-  if (run.paused) {
-    run.paused = false;
-    run.t0 = performance.now();
-    if (run.resumeDrill) drill('play');
-    run.resumeDrill = false;
-  } else {
-    run.offset = elapsed();
-    run.paused = true;
-    run.resumeDrill = drill('pause');
-  }
-  run.ui.buttons.pause.textContent = run.paused ? 'Resume' : 'Pause';
-  run.ui.buttons.pause.setAttribute('aria-pressed', String(run.paused));
-  tick();
-  layout();
+  run.offset = seconds(); run.paused = !run.paused; run.epoch = performance.now();
+  run.ui.buttons.pause.textContent = run.paused ? 'Resume' : 'Pause'; run.ui.buttons.pause.setAttribute('aria-pressed', String(run.paused));
+  run.world.setFilm?.(true, { paused: run.paused }); tick();
 }
 
-function next() {
+export function next() {
   if (!run) return;
-  if (run.next >= run.cfg.list.length) { end('done'); return; }
-  run.offset = run.cfg.list[run.next].at;
-  run.t0 = performance.now();
-  tick();
+  const step = run.list[run.index + 1];
+  if (!step) { finish('done'); return; }
+  run.offset = step.at; run.epoch = performance.now(); tick();
 }
 
-function end(state) {
+function finish(state) {
+  if (pending) { clearTimeout(pending.timer); pending = null; }
+  if (!run) return;
+  const session = run; run = null; clearInterval(session.timer);
+  const focused = session.ui.bar.contains(document.activeElement);
+  session.ui.bar.remove();
+  document.documentElement.dataset.tour = state;
+  delete document.documentElement.dataset.tourStop; delete document.documentElement.dataset.tourT;
+  document.documentElement.style.removeProperty('--film-height');
+  session.observer.disconnect(); session.world.setFilm?.(false);
+  if (focused && session.trigger?.isConnected) session.trigger.focus({ preventScroll: true });
+  session.api.onStop?.(state);
+}
+
+function begin(api, world) {
+  const db = api.db || getDb(), cfg = itinerary(db, api.stops), p = params();
+  const capture = api.capture || p.get('capture') === '1';
+  const offset = capture ? Math.max(0, Math.min(59.999, Number(p.get('film_t')) || 0)) : 0;
   pending = null;
-  if (!run) return;
-  const { api, ui, trigger, observer, timer, resumeDrill } = run;
-  clearInterval(timer);
-  observer.disconnect();
-  if (resumeDrill) drill('play');
-  ui.bar.remove();
-  const restoreFocus = document.activeElement === document.body || ui.bar.contains(document.activeElement);
-  run = null;
-  setState(state);
-  document.documentElement.style.removeProperty('--tour-bar-height');
-  document.documentElement.style.removeProperty('--tour-view-height');
-  if (restoreFocus && trigger?.isConnected) trigger.focus({ preventScroll: true });
-  try { if (typeof api.onStop === 'function') api.onStop(state); } catch (e) { console.warn('[tour] onStop: ' + e.message); }
+  if (p.has('tour')) { p.delete('tour'); history.replaceState(null, '', location.hash.split('?')[0] + (p.size ? '?' + p : '')); }
+  run = { api, world, ...cfg, capture, offset, paused: !!capture, epoch: performance.now(), index: -1, trigger: document.activeElement, ui: makeBar() };
+  document.documentElement.dataset.tour = 'running'; world.setFilm?.(true, { paused: !!capture });
+  run.observer = new ResizeObserver(() => { if (run) document.documentElement.style.setProperty('--film-height', `${run.ui.bar.offsetHeight}px`); }); run.observer.observe(run.ui.bar);
+  run.ui.buttons.pause.textContent = capture ? 'Resume' : 'Pause'; run.ui.buttons.pause.setAttribute('aria-pressed', String(!!capture));
+  run.timer = setInterval(tick, 100); tick();
 }
 
-function begin(cfg, api) {
-  pending = null;
-  if (run) return;
-  const capture = !!api.capture || hashParams().get('capture') === '1';
-  const trigger = document.activeElement;
-  if (wantsTour()) {
-    const params = hashParams(); params.delete('tour');
-    history.replaceState(null, '', location.hash.split('?')[0] + (params.size ? '?' + params : ''));
-  }
-  history.pushState(null, '', location.href);
-  run = { cfg, api, capture, trigger, offset: 0, paused: false, resumeDrill: false, t0: performance.now(), next: 0, timer: 0, ui: makeBar(cfg) };
-  run.observer = new ResizeObserver(layout);
-  run.observer.observe(run.ui.bar);
-  run.timer = setInterval(tick, TICK_MS);
-  tick();
-  layout();
+export function start(api = {}) {
+  if (run || pending) return stop;
+  const world = worldOf(api);
+  if (world?.navigate && document.querySelector('.world-host')) { begin(api, world); return stop; }
+  const request = { api, deadline: performance.now() + 15000 }; pending = request;
+  const wait = () => {
+    if (pending !== request) return;
+    const world = worldOf(api);
+    if (world?.navigate && document.querySelector('.world-host')) { begin(api, world); return; }
+    if (performance.now() > request.deadline || params().get('view') === 'details' || params().get('still') === '1') { pending = null; document.documentElement.dataset.tour = 'unavailable'; return; }
+    request.timer = setTimeout(wait, 100);
+  };
+  wait(); return stop;
 }
 
-export function start(api) {
-  api = api && typeof api === 'object' ? api : {};
-  api = { db: getDb(), ui: window.vesta?.ui, ...api };
-  if (run) { run.api = { ...run.api, ...api }; return stopTour; }
-  if (pending) { pending.api = { ...pending.api, ...api }; return stopTour; }
-  const cfg = cached || (cached = parse(api.stops) || parse(api.db?.tour));
-  if (cfg) { begin(cfg, api); return stopTour; }
-  const request = { api };
-  pending = request;
-  fetch('data/tour.json', { cache: 'no-store' })
-    .then(r => { if (!r.ok) throw new Error('data/tour.json answered ' + r.status); return r.json(); })
-    .then(file => { cached = parse(file); if (!cached) throw new Error('data/tour.json has no steps'); if (pending === request) begin(cached, request.api); })
-    .catch(e => { if (pending !== request) return; pending = null; setState('unavailable'); console.warn('[tour] not started: ' + e.message); });
-  return stopTour;
-}
-
-function stopTour() { if (run) end('stopped'); else if (pending) { pending = null; setState('stopped'); } }
-export { stopTour as stop };
+export function stop() { finish('stopped'); }
 export const isRunning = () => !!run;
 export { start as startTour };
 export default start;
@@ -267,21 +153,18 @@ export function install() {
   if (installed || typeof document === 'undefined') return;
   installed = true;
   document.addEventListener('click', ev => {
-    if (internalAction) return;
-    const onButton = ev.target?.closest?.('[data-action="tour"]');
-    if (onButton) { if (!run && !pending) start(); return; }
-    if (ev.target?.closest?.('[data-tour-control]')) return;
-    if (run || pending) stopTour();
+    if (ev.target.closest?.('[data-action="tour"]')) { start(); return; }
+    if (ev.target.closest?.('[data-tour-control],.world-cinema')) return;
+    if (run && ev.target.closest?.('button,a,input,select,[data-world-marker]')) stop();
   }, true);
-  document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && (run || pending)) { ev.preventDefault(); stopTour(); } }, true);
-  window.addEventListener('popstate', () => { if (run || pending) stopTour(); });
+  document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && (run || pending)) { ev.preventDefault(); stop(); } }, true);
   window.addEventListener('hashchange', () => {
     if (navigating) return;
-    if (run || pending) { stopTour(); return; }
-    if (wantsTour()) start();
+    if (run && location.hash !== run.expectedHash) { stop(); return; }
+    if (!run && params().get('tour') === '1') start();
   });
-  window.addEventListener('resize', layout);
-  if (wantsTour()) start();
+  document.addEventListener('visibilitychange', () => { if (document.hidden && run && !run.paused) pause(); });
+  if (params().get('tour') === '1') start();
 }
 
 install();

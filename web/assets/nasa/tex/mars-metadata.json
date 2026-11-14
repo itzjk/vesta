@@ -1,0 +1,53 @@
+{
+  "href": "https://images-assets.nasa.gov/image/PIA04304/collection.json",
+  "data": [
+    {
+      "center": "JPL",
+      "date_created": "2003-02-05T01:09:55Z",
+      "description": "The Target",
+      "description_508": "The Target",
+      "keywords": [
+        "Mars",
+        "Viking"
+      ],
+      "media_type": "image",
+      "nasa_id": "PIA04304",
+      "secondary_creator": "NASA/USGS",
+      "title": "The Target"
+    }
+  ],
+  "links": [
+    {
+      "href": "https://images-assets.nasa.gov/image/PIA04304/PIA04304~medium.jpg",
+      "rel": "alternate",
+      "render": "image",
+      "width": 1280,
+      "size": 99000,
+      "height": 1213
+    },
+    {
+      "href": "https://images-assets.nasa.gov/image/PIA04304/PIA04304~small.jpg",
+      "rel": "alternate",
+      "render": "image",
+      "width": 640,
+      "size": 26000,
+      "height": 606
+    },
+    {
+      "href": "https://images-assets.nasa.gov/image/PIA04304/PIA04304~thumb.jpg",
+      "rel": "preview",
+      "render": "image",
+      "width": 640,
+      "size": 26000,
+      "height": 606
+    },
+    {
+      "href": "https://images-assets.nasa.gov/image/PIA04304/PIA04304~orig.jpg",
+      "rel": "canonical",
+      "render": "image",
+      "height": 1919,
+      "width": 2024,
+      "size": 236000
+    }
+  ]
+}

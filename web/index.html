@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VESTA · the fire officer that doesn't wait for Houston</title>
 <meta name="description" content="VESTA summarizes, ranks and interprets NASA's PSI microgravity combustion investigations into fire-safety decisions, each with its source. A decision-support prototype, not certified flight software.">
+<meta name="si-generation" content="Code, authored interpretations, data processing and rendered visuals were created with SI assistance from Claude (Anthropic) and Codex (OpenAI). NASA quotations, raw PSI values and original NASA photographs remain attributed source material.">
+<meta name="si-provenance" content="data/si-provenance.json">
+<meta name="nasa-interpretation-notice" content="NASA has not reviewed or endorsed VESTA's SI-assisted interpretations and is not responsible for their accuracy.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#02040a">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -13,7 +16,8 @@
 <link rel="stylesheet" href="css/tokens.css?v=11">
 <link rel="stylesheet" href="css/base.css?v=11">
 <link rel="stylesheet" href="css/components.css?v=11">
-<link rel="stylesheet" href="css/world.css?v=1">
+<link rel="stylesheet" href="css/world.css?v=2">
+<link rel="stylesheet" href="css/si-mark.css?v=1">
 </head>
 <body>
 <div id="viewport">
@@ -32,6 +36,12 @@
     </footer>
   </div>
 </div>
+<details id="si-attribution">
+  <summary id="si-mark">SI-assisted visuals</summary>
+  <p>Code, rendered visuals and VESTA interpretations were created with Claude (Anthropic) and Codex (OpenAI) assistance. NASA quotations, PSI source values and original NASA imagery remain credited source material.</p>
+  <p>NASA has not reviewed or endorsed VESTA's SI-assisted interpretations and is not responsible for their accuracy.</p>
+  <a href="data/si-provenance.json" target="_blank" rel="noopener">Read the SI provenance manifest</a>
+</details>
 <noscript><p style="color:#ede4d4;font:18px system-ui;padding:24px">VESTA needs JavaScript to read its evidence files. The data is also here as plain files: <a href="api/v1/index.json" style="color:#8fa3b5">api/v1/index.json</a>.</p></noscript>
 <script type="module" src="js/app.js?v=11"></script>
 </body>

@@ -139,6 +139,11 @@
 .opn-flag{border-radius:0;letter-spacing:0}
 .opn-viewer,.opn-cmd{border-radius:0}
 .opn-dl{border-top:3px solid var(--rust)}
+.opn-receipt{border-top:1px solid var(--line-strong);padding:16px 0;font-size:18px;line-height:1.45}
+.opn-receipt summary{cursor:pointer;font-size:21px;padding:8px 0}
+.opn-receipt .receipt-controls{max-width:780px}
+.opn-receipt .receipt-controls .btn{min-height:44px;font-size:18px;white-space:normal}
+.opn-receipt .receipt-controls small{font-size:16px;color:var(--ivory-dim)}
 @media(max-width:759px){
  #view.opn.opn-simple{padding:26px 16px;gap:24px}
  .opn-simple-head h1{font-size:19px}

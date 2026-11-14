@@ -22,20 +22,29 @@ export function stationFor(route, params = {}) {
 export async function createWorld(host, context) {
   let ctx = context, disposed = false, index = -1, flight, entered = 0, lastTime, sceneCtx, holo, officer, carrier;
   let engine, inUpdate = false, citationCleanup, desiredPose, renderedPose, updateOfficer;
-  let pointerX = 0, pointerY = 0, introTimer, wheel = 0, wheelAt = 0, gesture, cameraOverride;
+  let pointerX = 0, pointerY = 0, introTimer, wheel = 0, wheelAt = 0, gesture, cameraOverride, filmActive = false, navigationCut = false, filmPausedAt = null;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const capture = ctx.capture || ctx.params?.capture === '1';
   const listeners = [], acts = [], roots = [], worlds = [];
   const canvasHost = document.createElement('div'); canvasHost.className = 'world-canvas'; host.append(canvasHost);
   const overlay = document.createElement('div'); overlay.className = 'world-overlay'; host.append(overlay);
   host.classList.add('world-host');
+  host.dataset.cinema = 'false'; host.dataset.film = 'false'; host.dataset.hologramOpen = 'false';
   document.documentElement.dataset.world = 'true';
   const nav = document.createElement('nav'); nav.className = 'world-stations'; nav.setAttribute('aria-label', 'World stations');
   const live = document.createElement('span'); live.className = 'world-live'; live.setAttribute('aria-live', 'polite');
   const skip = document.createElement('button'); skip.className = 'world-skip'; skip.textContent = 'Enter the cabin'; skip.hidden = true;
-  const instrument = document.createElement('button'); instrument.className = 'world-instrument'; instrument.textContent = 'Instrument view';
+  const instrument = document.createElement('button'); instrument.className = 'world-instrument'; instrument.setAttribute('aria-label', 'Instrument view'); instrument.title = 'Instrument view'; instrument.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v16H3zM3 10h18M9 10v10"/></svg>';
   instrument.onclick = () => ctx.setParams({ view: 'details' });
-  overlay.append(nav, live, skip, instrument);
+  const answer = document.createElement('p'); answer.className = 'world-answer'; answer.setAttribute('aria-live', 'polite');
+  const cinema = document.createElement('button'); cinema.className = 'world-cinema'; cinema.type = 'button'; cinema.setAttribute('aria-label', 'Cinema mode (H)'); cinema.setAttribute('aria-pressed', 'false'); cinema.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>';
+  let cinematic = false;
+  const setCinema = value => { if (value && ctx.params?.src) ctx.closeSource?.(); if (value) document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); cinematic = value; host.dataset.cinema = String(value); document.documentElement.dataset.cinema = String(value); cinema.setAttribute('aria-pressed', String(value)); holo?.setCinema(value); invalidate(); };
+  cinema.onclick = () => setCinema(!cinematic);
+  const film = document.createElement('button'); film.className = 'world-film'; film.type = 'button'; film.dataset.action = 'tour'; film.setAttribute('aria-label', 'Play the film'); film.title = 'Play the film'; film.textContent = '▶'; 
+  const sheet = document.createElement('button'); sheet.className = 'world-sheet-toggle'; sheet.type = 'button'; sheet.setAttribute('aria-label', 'Open station controls'); sheet.innerHTML = '<span aria-hidden="true"></span>'; sheet.onclick = () => { if (sheetPulled) { sheetPulled = false; return; } holo?.openStation(); invalidate(); };
+  let sheetY, sheetPulled = false; sheet.onpointerdown = ev => { sheetY = ev.clientY; sheet.setPointerCapture(ev.pointerId); }; sheet.onpointerup = ev => { if (sheetY - ev.clientY > 30) { sheetPulled = true; holo?.openStation(); invalidate(); } sheetY = null; };
+  overlay.append(nav, live, skip, instrument, answer, cinema, film, sheet);
   const buttons = STATIONS.map((s, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', s.label); b.title = s.label; b.dataset.station = s.id; b.innerHTML = `<span aria-hidden="true"></span><span class="world-station-name">${s.label}</span>`; b.onclick = () => navigate(i); nav.append(b); return b; });
   const listen = (node, name, fn, options) => { node.addEventListener(name, fn, options); listeners.push(() => node.removeEventListener(name, fn, options)); };
   const invalidate = () => { if (!disposed && !inUpdate) engine?.set({ world: performance.now() }); };
@@ -47,6 +56,7 @@ export async function createWorld(host, context) {
   function navigate(value, options = {}) {
     const next = typeof value === 'string' ? STATIONS.findIndex(s => s.id === value) : value;
     if (next < 0 || next >= STATIONS.length || disposed) return;
+    holo?.closeAll(); navigationCut = Boolean(options.cut);
     if (!options.fromHash) {
       const params = { ...ctx.params, station: next === 0 ? 'transit' : null, intro: null };
       if (next === 1) params.station = 'flame';
@@ -75,15 +85,19 @@ export async function createWorld(host, context) {
     }
     buttons.forEach((b, i) => { b.setAttribute('aria-current', i === next ? 'location' : 'false'); });
     overlay.querySelectorAll('.world-picked-source').forEach(node => node.remove());
+    answer.textContent = '';
     host.dataset.station = s.id; live.textContent = s.label; skip.hidden = next !== 0;
+    holo.setStation(s.id);
+    holo.lock(true);
     acts[next]?.enter?.(prior < 0 ? null : STATIONS[prior].id);
-    handles(next).forEach(h => flight.cut ? h.open?.() : h.close?.());
-    if (next === 0 && !capture) introTimer = setTimeout(() => navigate(1), 4000);
+    holo.lock(false);
+    handles(next).forEach(h => h.close?.());
+    if (next === 0 && !capture && !filmActive) introTimer = setTimeout(() => navigate(1), 4000);
     invalidate();
   }
   skip.onclick = () => navigate(1);
   listen(host, 'wheel', ev => {
-    if (ev.ctrlKey || editable(ev.target) || ev.target.closest('.world-hologram')) return;
+    if (filmActive || cinematic || ev.ctrlKey || editable(ev.target) || ev.target.closest('.world-hologram')) return;
     if (Math.abs(ev.deltaY) < Math.abs(ev.deltaX)) return;
     ev.preventDefault();
     const now = performance.now(); if (now - wheelAt > 200) wheel = 0;
@@ -91,29 +105,42 @@ export async function createWorld(host, context) {
     if (Math.abs(wheel) > 65 && (!flight || now / 1000 - flight.start > 1.25)) { navigate(index + Math.sign(wheel)); wheel = 0; }
   }, { passive: false });
   listen(window, 'keydown', ev => {
+    if (ev.key.toLowerCase() === 'h' && !ev.target.closest?.('input,textarea,select,[contenteditable]')) { ev.preventDefault(); ev.stopImmediatePropagation(); setCinema(!cinematic); }
+  }, true);
+  listen(window, 'keydown', ev => {
+    if (ev.key === 'Escape') { holo?.closeAll(); invalidate(); return; }
     if ((editable(ev.target) && !ev.target.closest('.world-stations')) || document.querySelector('[role="dialog"]:not([hidden]),dialog[open]')) return;
+    if (filmActive || cinematic) return;
     const step = ['ArrowDown', 'ArrowRight', 'PageDown'].includes(ev.key) ? 1 : ['ArrowUp', 'ArrowLeft', 'PageUp'].includes(ev.key) ? -1 : 0;
     if (step) { ev.preventDefault(); navigate(index + step); }
     if (ev.key === 'Home') { ev.preventDefault(); navigate(0); }
     if (ev.key === 'End') { ev.preventDefault(); navigate(4); }
   });
-  listen(host, 'pointerdown', ev => { if (!editable(ev.target) && !ev.target.closest('.world-hologram')) gesture = { x: ev.clientX, y: ev.clientY, id: ev.pointerId }; });
-  listen(host, 'pointermove', ev => { const b = host.getBoundingClientRect(); pointerX = (ev.clientX - b.left) / b.width * 2 - 1; pointerY = 1 - (ev.clientY - b.top) / b.height * 2; });
-  listen(window, 'pointerup', ev => { if (!gesture || gesture.id !== ev.pointerId) return; const dx = ev.clientX - gesture.x, dy = ev.clientY - gesture.y; gesture = null; if (Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.3) navigate(index + (dy < 0 ? 1 : -1)); });
+  listen(host, 'pointerdown', ev => { if (cinematic) { setCinema(false); return; } if (!ev.target.closest('.world-hologram,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,[data-action]')) { document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); holo?.closeAll(); } if (!editable(ev.target) && !ev.target.closest('.world-hologram')) gesture = { x: ev.clientX, y: ev.clientY, id: ev.pointerId }; });
+  listen(host, 'pointermove', ev => { const b = canvasHost.getBoundingClientRect(); pointerX = (ev.clientX - b.left) / b.width * 2 - 1; pointerY = 1 - (ev.clientY - b.top) / b.height * 2; });
+  listen(window, 'pointerup', ev => { if (!gesture || gesture.id !== ev.pointerId) return; const dx = ev.clientX - gesture.x, dy = ev.clientY - gesture.y; gesture = null; if (!filmActive && !cinematic && !ev.target.closest?.('.world-hologram,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,[data-action]') && Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.3) navigate(index + (dy < 0 ? 1 : -1)); });
   listen(host, 'pointercancel', () => { gesture = null; });
-  listen(reduced, 'change', () => { if (reduced.matches) fallback('Reduced motion'); else { if (flight) flight.cut = true; invalidate(); } });
+  listen(reduced, 'change', () => { if (flight) flight.cut = true; invalidate(); });
   function disposeWorld() {
     if (disposed) return;
-    disposed = true; clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); canvasHost.remove(); overlay.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world;
+    disposed = true; clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); canvasHost.remove(); overlay.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world; delete document.documentElement.dataset.cinema;
+    for (const key of ['cinema', 'film', 'filmPaused', 'hologramOpen', 'dockSide', 'flying']) delete host.dataset[key];
+    host.style.removeProperty('--world-dock-width');
   }
   if (ctx.signal) listen(ctx.signal, 'abort', disposeWorld, { once: true });
   let citeModule;
   try { citeModule = await import('./cite.js'); } catch { citeModule = null; }
   if (disposed) return { unmount: disposeWorld };
-  engine = await createStage(canvasHost, { capture, mode: ctx.params?.still === '1' ? 'still' : undefined });
+  engine = await createStage(canvasHost, { capture, reducedCuts: true, mode: ctx.params?.still === '1' ? 'still' : undefined });
   const api = {
-    update(next) { const priorRoute = ctx.route; ctx = next; if (sceneCtx && !(index === 0 && ctx.route === 'brief' && priorRoute === 'brief' && !ctx.params.station && !ctx.params.intro)) { const nextIndex = stationFor(ctx.route, ctx.params); if (priorRoute !== ctx.route && nextIndex === index) acts[index]?.enter?.(STATIONS[index].id); else activate(nextIndex); } invalidate(); },
-    navigate, invalidate, get station() { return STATIONS[index]?.id; },
+    update(next) { const priorRoute = ctx.route; ctx = next; if (sceneCtx && !(index === 0 && ctx.route === 'brief' && priorRoute === 'brief' && !ctx.params.station && !ctx.params.intro)) { const nextIndex = stationFor(ctx.route, ctx.params); if (priorRoute !== ctx.route && nextIndex === index) acts[index]?.enter?.(STATIONS[index].id); else activate(nextIndex, navigationCut); navigationCut = false; } invalidate(); },
+    navigate, invalidate, setCinema, setFilm(value, options = {}) {
+      const now = performance.now() / 1000, paused = value && options.paused;
+      if (paused && filmPausedAt == null) filmPausedAt = now;
+      if (!paused && filmPausedAt != null) { if (flight) flight.start += now - Math.max(filmPausedAt, flight.start); filmPausedAt = null; }
+      filmActive = value; host.dataset.film = String(value); host.dataset.filmPaused = String(Boolean(paused));
+      if (value) { clearTimeout(introTimer); holo?.closeAll(); } invalidate();
+    }, get station() { return STATIONS[index]?.id; },
     get stage() { return engine; }, get camera() { return sceneCtx?.camera; }, get vesta() { return officer; },
     unmount: disposeWorld,
     dispose() { api.unmount(); }
@@ -129,18 +156,31 @@ export async function createWorld(host, context) {
     group.add(new THREE.HemisphereLight(0xede4d4, 0x191715, 1.1));
     const key = new THREE.DirectionalLight(0xffddb8, 3); key.position.set(-4, 6, 8); group.add(key);
     const rim = new THREE.DirectionalLight(0x8fa3b5, 2); rim.position.set(4, 2, -2); group.add(rim);
-    holo = createHolograms({ ...stage, host, scene: group, reduced: reduced.matches, capture, projector(out) { carrier.updateMatrixWorld(true); return officer.locate('beacon', renderedPose || officer.defaults, reduced.matches ? 2 : lastTime || 0, out); } });
+    holo = createHolograms({ ...stage, host, size: () => ({ width: host.clientWidth, height: host.clientHeight }), viewSize: () => ({ ...stage.size(), left: canvasHost.offsetLeft, top: canvasHost.offsetTop }), onChange: invalidate, scene: group, reduced: reduced.matches, capture, projector(out) { carrier.updateMatrixWorld(true); return officer.locate('beacon', renderedPose || officer.defaults, reduced.matches ? 2 : lastTime || 0, out); } });
     for (let i = 0; i < STATIONS.length; i++) {
       const root = new THREE.Group(); root.position.fromArray(STATIONS[i].origin); group.add(root); roots.push(root);
       const world = {
         THREE, stage: { ...stage, scene: root, set: patch => { Object.assign(world.state, patch); invalidate(); }, on: (...args) => engine.on(...args) },
-        root, citationPanels(trigger) { return handles(index).filter(h => h.target > 0 && !h.element?.contains(trigger)); }, origin: STATIONS[i].origin, station: STATIONS[i].id, camera, host, overlay, vesta: officer, vestaPose: {}, state: {},
-        get db() { return ctx.db; }, get core() { return ctx.core; }, get q() { return ctx.q; }, get params() { return ctx.params; }, get route() { return ctx.route; }, get capture() { return capture; },
+        root, citationPanels(trigger) { return holo.handles.filter(h => h.target > 0 && !h.options.source && h.options.station === STATIONS[index]?.id); }, origin: STATIONS[i].origin, station: STATIONS[i].id, camera, host, overlay, vesta: officer, vestaPose: {}, state: {},
+        get db() { return ctx.db; }, get core() { return ctx.core; }, get q() { return ctx.q; }, get params() { return ctx.params; }, get route() { return ctx.route; }, get capture() { return capture; }, get filmActive() { return filmActive; },
         ui: ctx.ui, setQ: (...a) => ctx.setQ(...a), setParams: (...a) => ctx.setParams(...a), go: (...a) => ctx.go(...a), openSource: (...a) => ctx.openSource(...a), closeSource: ctx.closeSource,
-        navigate, invalidate, setCamera(patch) { cameraOverride = patch; invalidate(); },
+        navigate, invalidate, answer(value) { world.answerValue = value; if (i === index) answer.textContent = String(value || ''); },
+        marker(handle, options = {}) {
+          if (handle && !handle.element) { options = handle; handle = options.hologram; }
+          const translate = at => Array.isArray(at) ? at.map((n, k) => n + STATIONS[i].origin[k]) : at;
+          const marker = holo.marker(handle, { ...options, station: STATIONS[i].id, at: translate(options.at) });
+          const set = marker.set; marker.set = patch => set({ ...patch, ...('at' in patch ? { at: translate(patch.at) } : {}) });
+          return marker;
+        },
+        setCamera(patch) { cameraOverride = patch; invalidate(); },
         hologram(el, options = {}) {
+          if (options.answer) {
+            world.answerElement = el; el.classList.add('world-answer-content');
+            return { element: el, target: 0, open() { return this; }, close() { return this; }, set() { return this; }, dispose() { el.remove(); } };
+          }
           const translate = at => at.map((n, k) => n + STATIONS[i].origin[k]);
-          const h = holo.hologram(el, { ...options, at: translate(options.at || [0, .3, 0]) });
+          const h = holo.hologram(el, { onDemand: !options.source, station: STATIONS[i].id, ...options, at: translate(options.at || [0, .3, 0]) });
+          if (!options.source && !options.manual && options.marker !== false) world.marker(h, { at: options.markerAt || options.at || [0, .3, 0], label: options.label || el.getAttribute('aria-label') || el.querySelector('h1,h2')?.textContent || 'Open hologram' });
           const set = h.set; h.set = patch => set({ ...patch, ...(patch.at ? { at: translate(patch.at) } : {}) });
           return h;
         }
@@ -174,16 +214,17 @@ export async function createWorld(host, context) {
       inUpdate = true;
       const frameStarted = performance.now();
       const now = capture ? 0 : performance.now() / 1000;
+      const flightNow = filmPausedAt ?? now;
       const dt = lastTime == null ? 1 / 60 : Math.min(.1, Math.max(0, t - lastTime)); lastTime = t;
       if (flight) {
-        const p = flight.cut ? 1 : clamp((now - flight.start) / 1.2), k = ease(p);
+        const p = flight.cut ? 1 : clamp((flightNow - flight.start) / 1.2), k = ease(p);
         if (flight.path) camera.position.copy(flight.path.getPointAt(k));
         else camera.position.lerpVectors(flight.from, flight.to, k);
         camera.position.y += Math.sin(Math.PI * k) * (flight.path ? .08 : .45);
         flight.look.lerpVectors(flight.fromLook, flight.toLook, k);
         if (flight.path) flight.look.lerp(new sceneCtx.THREE.Vector3(-.8, .3, 3), Math.sin(Math.PI * k) * .85);
         if (flight.path && acts[0]?.group) acts[0].group.visible = p < .7;
-        if (!flight.revealed && p > .78) { flight.revealed = true; handles(index).forEach(h => h.open?.()); }
+        if (!flight.revealed && p > .78) flight.revealed = true;
         carrier.position.lerpVectors(flight.fromCarrier, flight.toCarrier, ease(clamp(p * 1.12)));
         carrier.position.y += Math.sin(Math.PI * p) * .6;
         camera.fov = flight.fromFov + (flight.toFov - flight.fromFov) * k;
@@ -201,13 +242,15 @@ export async function createWorld(host, context) {
         const active = i === index;
         roots[i].visible = active || (host.dataset.flying === 'true' && Math.abs(i - index) <= 1);
         if (active) {
-          const state = { ...worlds[i].state, ...ctx.params, q: ctx.q, active, station: STATIONS[i].id, localTime: capture ? Number(ctx.params.t || 2) : now - entered, capture, pointerX, pointerY };
+          const state = { ...worlds[i].state, ...ctx.params, q: ctx.q, active, station: STATIONS[i].id, reduced: reduced.matches, localTime: capture ? Number(ctx.params.t || 2) : now - entered, capture, pointerX, pointerY };
+          holo.lock(true);
           act.update?.(motionT, state);
+          holo.lock(false);
         }
       });
       renderedPose = { ...desiredPose };
       if (flight && host.dataset.flying === 'true') {
-        const p = ease(clamp((now - flight.start) / 1.2));
+        const p = ease(clamp((flightNow - flight.start) / 1.2));
         for (const key of ['x', 'y', 'z', 'scale', 'yaw', 'pitch', 'roll']) {
           const from = flight.fromPose[key] ?? desiredPose[key];
           renderedPose[key] = from + (desiredPose[key] - from) * p;
@@ -223,6 +266,14 @@ export async function createWorld(host, context) {
         if (cameraOverride.fov) { camera.fov = cameraOverride.fov; camera.updateProjectionMatrix(); }
       }
       if (flight && !flight.revealed) handles(index).forEach(h => h.close?.());
+      const currentWorld = worlds[index];
+      if (currentWorld?.answerElement) { if (answer.firstChild !== currentWorld.answerElement) answer.replaceChildren(currentWorld.answerElement); }
+      else if (currentWorld?.answerValue != null) { const text = String(currentWorld.answerValue); if (answer.textContent !== text) answer.textContent = text; }
+      else {
+        const candidates = handles(index).flatMap(h => [...h.element.querySelectorAll('[data-world-answer],[data-answer],.evidence-answer-sentence,[data-trust=counts],p,output')]);
+        const value = candidates.map(n => n.textContent.trim()).find(text => text && text.split(/\s+/).length <= 12);
+        answer.textContent = value || '';
+      }
       holo.update(motionT, dt);
       if (!capture && lastFrame != null) { totalFrame += frameStarted - lastFrame; frameCount++; host.dataset.worldFrameMs = (totalFrame / frameCount).toFixed(2); }
       lastFrame = frameStarted;

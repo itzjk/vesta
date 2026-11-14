@@ -1,0 +1,80 @@
+{
+  "schema": "vesta.proof-cases/1",
+  "review": {
+    "basis": "Reviewed against the shipped core acceptance cases and source-table indices, 2026-11-14.",
+    "scope": "Regression checks of evidence coverage and refusal behavior, not independent scientific validation or safety certification."
+  },
+  "cases": [
+    {
+      "id": "station-pmma", "kind": "material", "machine": "verifier",
+      "cabin": { "preset": "station", "concern": "prevention", "mat": "pmma" },
+      "question": "Does PMMA have prevention test rows near the station atmosphere?",
+      "expected": { "status": "PROVEN", "qualifier": "pressure_inferred", "hits": 16 },
+      "rationale": "Matching atmosphere and gravity rows exist; facility pressure is inferred. This does not match flow or geometry."
+    },
+    {
+      "id": "station-sibal", "kind": "material", "machine": "extractor",
+      "cabin": { "preset": "station", "concern": "prevention", "mat": "sibal" },
+      "question": "Does SIBAL have prevention test rows near the station atmosphere?",
+      "expected": { "status": "PROVEN", "qualifier": "pressure_inferred", "hits": 6 },
+      "rationale": "Six source-table rows match; inferred pressure must remain explicit."
+    },
+    {
+      "id": "lunar-pmma", "kind": "material", "machine": "ranker",
+      "cabin": { "preset": "lunar-base", "concern": "prevention", "mat": "pmma" },
+      "question": "Do the PMMA prevention rows cover the lunar cabin?",
+      "expected": { "status": "EXTRAPOLATED", "reasons": ["gravity_never_tested", "o2_outside", "pressure_outside"] },
+      "rationale": "A relevant material is not a matching cabin. No partial-gravity test row exists in this evidence base."
+    },
+    {
+      "id": "kapton-prevention", "kind": "material", "machine": "verifier",
+      "cabin": { "preset": "station", "concern": "prevention", "mat": "kapton" },
+      "question": "Does Kapton have prevention evidence in this collection?",
+      "expected": { "status": "NEVER_TESTED", "reasons": ["no_row_no_finding"], "rows": 0 },
+      "rationale": "Kapton appears in detection rows. Those rows cannot answer a prevention question."
+    },
+    {
+      "id": "airflow-sourced", "kind": "officer", "machine": "officer", "step": "S2",
+      "cabin": { "preset": "spacecraft", "concern": "prevention", "mat": "" },
+      "question": "The fans are still running. Should the air keep moving?",
+      "expected": { "status": "SOURCED", "coverage": "EXTRAPOLATED", "rule": "R-VENT" },
+      "rationale": "A verified rule supplies the action. Its summary is not proof of matching cabin conditions."
+    },
+    {
+      "id": "cool-flame-limit", "kind": "officer", "machine": "officer", "step": "S6",
+      "cabin": { "preset": "spacecraft", "concern": "detection", "mat": "" },
+      "question": "Suppressant is out and nobody sees a flame. Are we done?",
+      "expected": { "status": "SOURCED", "coverage": "EXTRAPOLATED", "reasons": ["different_fuel_class"] },
+      "rationale": "Droplet cool-flame evidence does not become a matched solid-material fire test."
+    },
+    {
+      "id": "burnt-kapton", "kind": "officer", "machine": "officer", "step": "S7", "material": "kapton",
+      "cabin": { "preset": "spacecraft", "concern": "prevention", "mat": "kapton" },
+      "question": "The crew names the burnt material. Was it ever tested at this cabin?",
+      "expected": { "status": "NO_SOURCE", "gap": "no_row_no_finding", "protocol": "PROT-09" },
+      "rationale": "Missing material evidence causes refusal. The separately sourced ISS fallback retains its conditional limits."
+    },
+    {
+      "id": "restart-refusal", "kind": "officer", "machine": "officer", "step": "S8",
+      "cabin": { "preset": "spacecraft", "concern": "suppression", "mat": "" },
+      "question": "The smoke reading is falling. Can ventilation restart?",
+      "expected": { "status": "NO_SOURCE", "gap": "no_verified_finding_on_topic", "protocol": "PROT-03" },
+      "rationale": "A lower scripted smoke reading cannot create an unsupported restart instruction."
+    },
+    {
+      "id": "removed-airflow-sources", "kind": "officer", "machine": "verifier", "step": "S2",
+      "without_findings": ["S-VENT-01", "S-FLOW-01"],
+      "cabin": { "preset": "spacecraft", "concern": "prevention", "mat": "" },
+      "question": "The fans are still running. Should the air keep moving?",
+      "expected": { "status": "NO_SOURCE", "gap": "rule_without_verified_finding", "protocol": "PROT-03" },
+      "rationale": "Counterfactual source removal in a separate index must revoke the rule without changing the live evidence base."
+    },
+    {
+      "id": "summary-not-test", "kind": "finding", "machine": "ranker", "finding": "S-SHAPE-01",
+      "cabin": { "preset": "station", "concern": "detection", "mat": "" },
+      "question": "Is the low-momentum flame-shape summary a matching experiment?",
+      "expected": { "status": "EXTRAPOLATED", "reasons": ["not_an_experiment", "o2_not_reported", "pressure_not_reported"] },
+      "rationale": "An attributed NASA summary remains a summary. Missing conditions cannot count as a match."
+    }
+  ]
+}

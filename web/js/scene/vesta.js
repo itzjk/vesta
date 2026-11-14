@@ -1,3 +1,4 @@
+import { surface } from './materials.js';
 
 
 import * as THREE from '../../vendor/three/three.module.js';
@@ -137,7 +138,7 @@ void main(){
 }`;
 
 export async function build(ctx) {
-  const group = new THREE.Group();
+  const group = new THREE.Group(); group.name = 'vesta-character';
   const root = new THREE.Group(); 
   const squash = new THREE.Group(); 
   const model = new THREE.Group(); 
@@ -165,10 +166,13 @@ export async function build(ctx) {
   };
   const ceramicProps = {
     color: 0xf1ece2,
-    roughness: 0.3,
+    roughness: 0.42,
+    roughnessMap: surface(THREE, 'ceramic'),
+    bumpMap: surface(THREE, 'ceramic'),
+    bumpScale: .00035,
     metalness: 0,
-    clearcoat: 1,
-    clearcoatRoughness: 0.1,
+    clearcoat: .6,
+    clearcoatRoughness: 0.2,
     sheen: 0.35,
     sheenColor: new THREE.Color(0xffd9b0),
     sheenRoughness: 0.5,
@@ -231,8 +235,8 @@ export async function build(ctx) {
   };
   
   const lidMat = new THREE.MeshPhysicalMaterial({ ...ceramicProps, emissive: 0xf1ece2, emissiveIntensity: 0.12 });
-  const helmetMat = new THREE.MeshPhysicalMaterial({ color: 0xc8553d, roughness: 0.26, metalness: 0.05, clearcoat: 1, clearcoatRoughness: 0.06, envMapIntensity: 1.15 });
-  const orangeMat = new THREE.MeshPhysicalMaterial({ color: 0xc86442, roughness: 0.36, metalness: 0, clearcoat: 0.8, clearcoatRoughness: 0.15, envMapIntensity: 1.0 });
+  const helmetMat = new THREE.MeshPhysicalMaterial({ color: 0xc8553d, roughness: 0.38, roughnessMap: surface(THREE), bumpMap: surface(THREE), bumpScale: .00055, metalness: 0.22, clearcoat: .72, clearcoatRoughness: 0.16, envMapIntensity: 1.15 });
+  const orangeMat = new THREE.MeshPhysicalMaterial({ color: 0xc86442, roughness: 0.48, roughnessMap: surface(THREE), bumpMap: surface(THREE), bumpScale: .0004, metalness: .08, clearcoat: 0.45, clearcoatRoughness: 0.15, envMapIntensity: 1.0 });
   const goldMat = new THREE.MeshPhysicalMaterial({ color: 0xe0a93a, roughness: 0.24, metalness: 1, clearcoat: 0.4, clearcoatRoughness: 0.1, envMapIntensity: 1.5 });
   const darkMat = new THREE.MeshPhysicalMaterial({ color: 0x24262d, roughness: 0.36, metalness: 0.85, clearcoat: 0.3, envMapIntensity: 1.2 });
   const browMat = new THREE.MeshStandardMaterial({ color: 0x1f100b, roughness: 0.6 });
@@ -345,22 +349,13 @@ export async function build(ctx) {
   const beaconHalo = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true }));
   beaconHalo.position.copy(bulb.position);
   beaconHalo.renderOrder = 12;
-  model.add(beaconHalo);
+  model.add(beaconHalo); beaconHalo.layers.enable(1); bulb.layers.enable(1);
   const beaconLight = new THREE.PointLight(0xffffff, 0, 3.5, 2);
   beaconLight.position.set(0, 0.6, 0.02);
   model.add(beaconLight);
 
-  const sh = new THREE.Shape();
-  const bw = 0.06;
-  sh.moveTo(0, 0.078);
-  sh.quadraticCurveTo(bw * 0.45, 0.058, bw, 0.066);
-  sh.quadraticCurveTo(bw * 1.12, 0.0, bw * 0.72, -0.045);
-  sh.quadraticCurveTo(bw * 0.4, -0.074, 0, -0.088);
-  sh.quadraticCurveTo(-bw * 0.4, -0.074, -bw * 0.72, -0.045);
-  sh.quadraticCurveTo(-bw * 1.12, 0.0, -bw, 0.066);
-  sh.quadraticCurveTo(-bw * 0.45, 0.058, 0, 0.078);
-  const badgeGeo = new THREE.ExtrudeGeometry(sh, { depth: 0.008, bevelEnabled: true, bevelThickness: 0.006, bevelSize: 0.006, bevelSegments: 2, curveSegments: 12 });
-  badgeGeo.translate(0, 0, -0.004);
+  const badgeGeo = new THREE.CylinderGeometry(.048, .048, .014, 32);
+  badgeGeo.rotateX(Math.PI / 2);
   const badge = new THREE.Group();
   const badgeMesh = shadow(new THREE.Mesh(badgeGeo, goldMat), true, true);
   badge.add(badgeMesh);
@@ -370,7 +365,7 @@ export async function build(ctx) {
   dot.position.set(0, -0.002, 0.011);
   const dotRing = new THREE.Mesh(new THREE.TorusGeometry(0.03, 0.0045, 8, 32), goldMat);
   dotRing.position.set(0, -0.002, 0.011);
-  badge.add(dot, dotRing);
+  badge.add(dot, dotRing); dot.layers.enable(1);
   {
     const yb = 0.305;
     const r = bodyR(yb) + 0.021;

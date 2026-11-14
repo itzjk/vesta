@@ -40,7 +40,7 @@ export async function build(ctx) {
   const cabinLabel = label('Your cabin', [0,0,0], 'field-cabin-label');
   const deltaLabel = label('', [0,0,0], 'field-delta-label');
   const hoverLabel = label('', [0,0,0], 'field-hover-label'); hoverLabel.el.hidden = true;
-  let shown = ['solid','droplet','gas'], nearest, data = [], cloud, priorDb, lastKey, from = new T.Vector3(), target = new T.Vector3(), changeT = 0, hovered = null, selected = null;
+  let shown = ['solid','droplet','gas'], nearest, data = [], cloud, priorDb, lastKey, from = new T.Vector3(), target = new T.Vector3(), changeT = 0, hovered = null, selected = null, selectedIds = [], selectionKey = '', highlightEmpty = false;
   let yaw = .76, pitch = .1, distance = phone ? 17 : 17.4, drag = null, interacted = false, introStart = null;
   let oMax = 42, pMin = 2, pMax = 80, axisKey;
   const animateEntry = !entered; entered = true;
@@ -69,7 +69,7 @@ export async function build(ctx) {
   const markKey = p => [p.p,p.o2,p.plane,p.layer,p.row.n.p == null].join('|');
   const signed = v => `${v>0?'+':''}${Math.round(v*10)/10}`;
   function populate(db) {
-    data = fieldRows(db); priorDb = db;
+    data = fieldRows(db); priorDb = db; selectionKey='';
     const multiplicity = new Map();
     for(const p of data) multiplicity.set(markKey(p),(multiplicity.get(markKey(p)) || 0)+1);
     const geometry = new T.BufferGeometry(), positions = [], colors = [], flags = [], layers = [], sizes = [];
@@ -79,7 +79,7 @@ export async function build(ctx) {
       sizes.push(Math.min(16,(p.layer === 'solid' ? 6.5 : 4.5)+Math.log2(multiplicity.get(markKey(p)))*1.8));
     }
     geometry.setAttribute('layer',new T.Float32BufferAttribute(layers,1));
-    geometry.setAttribute('selected',new T.Float32BufferAttribute(data.map(p=>!selected || p.row.psi_id===selected ? 1 : 0),1));
+    geometry.setAttribute('selected',new T.Float32BufferAttribute(data.map(p=>!selectedIds.length && !highlightEmpty || selectedIds.includes(p.row.psi_id) ? 1 : 0),1));
     geometry.setAttribute('position',new T.Float32BufferAttribute(positions,3)); geometry.setAttribute('color',new T.Float32BufferAttribute(colors,3)); geometry.setAttribute('inferred',new T.Float32BufferAttribute(flags,1)); geometry.setAttribute('pointSize',new T.Float32BufferAttribute(sizes,1));
     const material = new T.ShaderMaterial({ vertexColors:true, transparent:true, depthWrite:false, uniforms:{uLayers:{value:new T.Vector3(1,1,1)},uDpr:{value:1},uHover:{value:new T.Vector3(999,999,999)},uTime:{value:0},uSelected:{value:0}},
       vertexShader:'attribute float layer; attribute float inferred; attribute float pointSize; attribute float selected; uniform float uDpr; uniform vec3 uHover; uniform float uTime; uniform float uSelected; varying float vLayer; varying vec3 vColor; varying float vRing; varying float vAlpha; void main(){vLayer=layer;vColor=color;vRing=inferred;vAlpha=mix(.09,1.,selected);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);float shimmer=1.+.045*sin(uTime*1.5+position.x*2.+position.y);gl_PointSize=(pointSize*shimmer+uSelected*selected*2.+(distance(position,uHover)<.001?5.0:0.0))*uDpr;}',
@@ -97,13 +97,19 @@ export async function build(ctx) {
       if(axisKey!==nextAxis){[oMax,pMin,pMax]=domain;axisKey=nextAxis;oxygenTicks.forEach((l,i)=>l.position.y=y([10,20,30,40][i]));pressureTicks.forEach((l,i)=>l.position.x=x([2,5,10,20,40,80][i]));populate(state.db);lastKey=null;}
       else if (priorDb !== state.db) populate(state.db);
       shown=state.show || ['solid','droplet','gas']; cloud.material.uniforms.uLayers.value.set(...['solid','droplet','gas'].map(k=>shown.includes(k)?1:0)); cloud.material.uniforms.uDpr.value=renderer.getPixelRatio();
-      if(selected !== (state.investigation || null)) {
-        selected=state.investigation || null;
-        const attr=cloud.geometry.attributes.selected;
-        data.forEach((p,i)=>attr.setX(i,!selected || p.row.psi_id===selected ? 1 : 0)); attr.needsUpdate=true; clearHover();
+      const nextIds = state.highlightInvestigations || [state.investigation, state.comparison].filter(Boolean);
+      const nextSelection = JSON.stringify([nextIds, !!state.highlightEmpty]);
+      if(selectionKey !== nextSelection) {
+        selected=state.investigation || null; selectedIds=nextIds; selectionKey=nextSelection; highlightEmpty=!!state.highlightEmpty;
+        const attr=cloud.geometry.attributes.selected, colors=cloud.geometry.attributes.color;
+        data.forEach((p,i)=>{
+          attr.setX(i, !selectedIds.length && !highlightEmpty || selectedIds.includes(p.row.psi_id) ? 1 : 0);
+          const color=new T.Color(state.comparison && p.row.psi_id===state.comparison ? 0x80c8d5 : selected && p.row.psi_id===selected ? 0xe0a458 : p.layer==='solid' ? 0xf1e9d8 : 0x708394);
+          colors.setXYZ(i,...color.toArray());
+        }); attr.needsUpdate=true; colors.needsUpdate=true; clearHover();
       }
       cloud.material.uniforms.uTime.value=t;
-      cloud.material.uniforms.uSelected.value=selected ? 1 : 0;
+      cloud.material.uniforms.uSelected.value=selectedIds.length ? 1 : 0;
       const valid = Number.isFinite(q.p) && q.p>0 && Number.isFinite(q.o2); cabin.visible=ring.visible=valid; cabinLabel.el.hidden=deltaLabel.el.hidden=!valid;
       const key=[q.p,q.o2,q.g].join('|'), next=pos({p:q.p,o2:q.o2,plane:q.g});
       if (key!==lastKey) { from.copy(lastKey ? cabin.position : next); target.copy(next); changeT=t; lastKey=key; nearest=nearestSolid(state.db,q); }
@@ -122,7 +128,13 @@ export async function build(ctx) {
       camera.updateMatrixWorld(); group.updateMatrixWorld(true); ring.quaternion.copy(camera.quaternion);
       cabinLabel.position.copy(cabin.position).add(new T.Vector3(.25,.4,0));
       if(hovered)hoverLabel.position.copy(pos(hovered)).add(new T.Vector3(.15,.22,0));
-      for(const l of labels) {
+      const occupied = integrated ? [...(ctx.labelObstacles || []), ...document.querySelectorAll('.world-hologram[aria-hidden="false"],.evidence-tool,.world-marker,.world-answer,.world-stations,.world-instrument')].filter(el=>!el.hidden && el.getAttribute('aria-hidden')!=='true').map(el=>el.getBoundingClientRect()).filter(r=>r.width && r.height) : [];
+      const pointer = { x: ((state.pointerX || 0)+1)*host.clientWidth/2, y: (1-(state.pointerY || 0))*host.clientHeight/2 };
+      const hostBounds = host.getBoundingClientRect();
+      const priority = l => l===hoverLabel ? -100000 : Math.hypot((l.screenX || 0)-pointer.x,(l.screenY || 0)-pointer.y);
+      const ordered = integrated ? [...labels].sort((a,b)=>priority(a)-priority(b)) : labels;
+      let visibleLabels=0;
+      for(const l of ordered) {
         if(l===hoverLabel&&!hovered)continue;
         if((l===cabinLabel||l===deltaLabel)&&!valid)continue;
         projection.copy(l.position).applyMatrix4(group.matrixWorld).project(camera); let left=(projection.x+1)/2*host.clientWidth, top=(1-projection.y)/2*host.clientHeight;
@@ -130,6 +142,17 @@ export async function build(ctx) {
         if(phone && l.el.classList.contains('field-axis'))left=Math.max(16,Math.min(host.clientWidth-l.el.offsetWidth-12,left));
         if(phone && l.el.classList.contains('field-oxygen-title'))top=103;
         if(integrated && host.clientWidth<760){left=Math.max(8,Math.min(host.clientWidth-l.el.offsetWidth-8,left));if(l===planeLabels[0])top=Math.max(top,host.clientHeight*.315);}
+        l.screenX=left; l.screenY=top;
+        if(integrated) {
+          const w=l.el.offsetWidth || 160, h=l.el.offsetHeight || 38;
+          left=Math.max(12,Math.min(host.clientWidth-w-12,left)); top=Math.max(100,Math.min(host.clientHeight*.82-h,top));
+          const box={left:left+hostBounds.left,top:top+hostBounds.top,right:left+w+hostBounds.left,bottom:top+h+hostBounds.top};
+          const collision=occupied.some(r=>box.left<r.right+10 && box.right>r.left-10 && box.top<r.bottom+10 && box.bottom>r.top-10);
+          const allowed=(state.labels || l===hoverLabel && hovered) && !collision && visibleLabels<(host.clientWidth<760 ? 3 : 7);
+          l.el.style.opacity=allowed ? '1' : '0';
+          l.el.style.visibility=allowed ? 'visible' : 'hidden';
+          if(allowed) { occupied.push(box); visibleLabels++; }
+        }
         l.el.style.left=`${left}px`; l.el.style.top=`${top}px`; l.el.hidden=projection.z>1 || projection.z< -1 || (integrated && !group.visible);
       }
       host.dataset.fieldRows=String(data.length); host.dataset.fieldCabin=cabin.position.toArray().map(n=>n.toFixed(3)).join(','); host.dataset.fieldCamera=camera.position.toArray().map(n=>n.toFixed(3)).join(',');
@@ -138,7 +161,7 @@ export async function build(ctx) {
     pick(x,y) {
       if(!cloud)return null;
       ray.params.Points.threshold=integrated ? .17 : .14*distance/17.4; ray.setFromCamera({x,y},camera);
-      const hit=ray.intersectObject(cloud).find(h=>shown.includes(data[h.index].layer) && (!selected || data[h.index].row.psi_id===selected)), p=hit&&data[hit.index];
+      const hit=ray.intersectObject(cloud).find(h=>shown.includes(data[h.index].layer) && (!selectedIds.length && !highlightEmpty || selectedIds.includes(data[h.index].row.psi_id))), p=hit&&data[hit.index];
       if(!p){clearHover();return null;}
       hovered=p; cloud.material.uniforms.uHover.value.copy(pos(p)); hoverLabel.el.hidden=false;
       hoverLabel.el.textContent=`${p.row.investigation} · ${p.row.fuel || 'fuel not stated'} · ${Math.round(p.o2*10)/10}% O₂ · ${p.p==null?'pressure not stated':`${Math.round(p.p/KPA_PER_PSI*10)/10} psia`}`;

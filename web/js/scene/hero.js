@@ -1,3 +1,4 @@
+import { hardware, softShadow, tube } from './materials.js';
 import { build as buildVesta } from './vesta.js';
 import { build as buildFlame } from './flame.js';
 import { build as buildMars } from './mars.js';
@@ -9,13 +10,13 @@ export async function build(ctx) {
   const group = new THREE.Group();
   const [vesta, flame, mars] = await Promise.all([buildVesta(ctx), buildFlame({ ...ctx, opaqueFlame: true }), buildMars(ctx)]);
   group.add(vesta.group, flame.group, mars.group);
-  const wall = new THREE.MeshStandardMaterial({ color: 0x171716, roughness: .84, metalness: .24 });
-  const panel = new THREE.MeshStandardMaterial({ color: 0x242321, roughness: .61, metalness: .5 });
-  const trim = new THREE.MeshStandardMaterial({ color: 0x696258, roughness: .44, metalness: .72 });
+  const wall = hardware(THREE, 'fabric', { color: 0x3b4043 });
+  const panel = hardware(THREE, 'metal', { color: 0x40484d, roughness: .6 });
+  const trim = hardware(THREE, 'metal', { color: 0x939c9e, roughness: .4 });
   const dark = new THREE.MeshBasicMaterial({ color: 0x07090b });
   const box = (w, h, d, x, y, z, mat) => {
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
-    mesh.position.set(x, y, z); group.add(mesh); return mesh;
+    mesh.position.set(x, y, z); mesh.castShadow = mesh.receiveShadow = true; group.add(mesh); return mesh;
   };
   box(26, 16, .16, 0, 0, -3.3, wall);
   const floor = box(26, .16, 12, 0, -2.5, -1, panel);
@@ -33,10 +34,10 @@ export async function build(ctx) {
     porthole.add(bolt);
   }
   const ambient = new THREE.HemisphereLight(0xe8e4db, 0x171513, 1.05);
-  const key = new THREE.DirectionalLight(0xffddb8, 3.0); key.position.set(-3, 5, 6);
+  const key = softShadow(new THREE.DirectionalLight(0xe8eefa, 2.1), ctx.mode === 'low' ? 512 : 1024, 8); key.position.set(-3, 5, 6);
   const edge = new THREE.DirectionalLight(0xaac7e5, 3.1); edge.position.set(4, 2, -1);
   const windowLight = new THREE.PointLight(0xe2854e, 9, 9, 2); windowLight.position.set(1.9, 1.7, -1.8);
-  group.add(ambient, key, edge, windowLight);
+  group.add(ambient, key, key.target, edge, windowLight);
   const pose = { ...vesta.defaults, z: .55, yaw: .14, armR: .55, armFwdR: .38, thrust: .65, beacon: .22, beaconWarm: 1, idle: 1 };
   const capture = new URLSearchParams(location.hash.split('?')[1] || '').get('capture') === '1';
   let aspect = 0, previous, space, lookX = 0, lookY = 0;

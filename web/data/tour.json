@@ -1,1 +1,42 @@
-{"schema":"vesta.tour/1","note":"A 60-second Simple walkthrough with pause, next and close controls. Captions read the current evidence base; focus targets keep each stop visible on phones.","total_s":60,"steps":[{"at":0,"stop":"brief","label":"Brief","hash":"#/brief","caption":"VESTA uses NASA fire research to show what is known before a crew makes a decision.","source":"S-COMM-01"},{"at":10,"stop":"summarize","label":"NASA studies","hash":"#/investigations?sel=PSI-25","caption":"Explore {investigations} NASA investigations, starting with this selected study and its finding.","source":"api/v1/investigations.json","focus":".sms-selection"},{"at":22,"stop":"rank","label":"Space station","hash":"#/design?preset=station&mat=pmma&concern=prevention","caption":"For acrylic plastic in a space station, {station_rows} nearby test rows offer a comparison with pressure inferred.","source":"material","focus":".design-simple-result"},{"at":29,"stop":"rank","label":"Moon base","hash":"#/design?preset=lunar-base&mat=pmma&concern=prevention","caption":"For a Moon base, missing partial-gravity tests leave this acrylic-plastic comparison unconfirmed.","focus":".design-simple-result"},{"at":38,"stop":"interpret","label":"Scripted fire","hash":"#/incident?play=1&speed=150&hold=1.2","caption":"This separate, scripted Mars-flight fire shows decisions being checked while Earth is too far away to answer.","focus":".inc-simple-step"},{"at":49,"stop":"interpret","label":"Evidence limit","hash":"#/incident?t=490&paused=1","caption":"NO SOURCE marks a missing finding, and the fallback below comes from a limited space-station procedure.","focus":".inc-simple-step"},{"at":54,"stop":"engine","label":"Check the evidence","hash":"#/engine","caption":"VESTA matched {quotes} quotes to source text, but matching words does not validate a decision.","source":"data/engine.json"}]}
+{
+  "schema": "vesta.tour/2",
+  "note": "Five world stations in sixty seconds. Captions resolve against the current database and core. Reduced motion uses cuts; capture uses film_t as a frozen clock.",
+  "total_s": 60,
+  "steps": [
+    {
+      "at": 0,
+      "stop": "transit",
+      "label": "Transit",
+      "hash": "#/brief?station=transit",
+      "caption": "Up to {delay} minutes one way. Carry the evidence with you."
+    },
+    {
+      "at": 8,
+      "stop": "flame",
+      "label": "Flame",
+      "hash": "#/brief?station=flame",
+      "caption": "Low-momentum flames: illustration of a NASA observation, not a simulation."
+    },
+    {
+      "at": 20,
+      "stop": "evidence",
+      "label": "Evidence",
+      "hash": "#/design",
+      "caption": "{investigations} investigations. {rows} source-table rows. Where does the evidence end?"
+    },
+    {
+      "at": 34,
+      "stop": "drill",
+      "label": "Drill",
+      "hash": "#/incident",
+      "caption": "{decisions} scripted decisions. Telemetry is not a physics model."
+    },
+    {
+      "at": 48,
+      "stop": "trust",
+      "label": "Trust",
+      "hash": "#/engine",
+      "caption": "{quotes} quote matches. Matching words does not validate a decision."
+    }
+  ]
+}

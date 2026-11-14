@@ -1,0 +1,331 @@
+{
+  "schema": "vesta.nasa-media/1",
+  "reviewed_at": "2026-11-14",
+  "note": "NASA experiment photographs, not illustrations or simulations. A photograph does not establish a source-table row or a safety conclusion. Empty coverage describes this reviewed selection, not the entire NASA archive. Search snapshots and rejection audit are retained with W2-FILM.",
+  "usage_guidelines": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+  "images": [
+    {
+      "psi_id": "PSI-10",
+      "investigation": "ACME/Flame Design",
+      "file": "iss059e103188.jpg",
+      "nasa_id": "iss059e103188",
+      "title": "CIR / ACME / Flame Design hardware replacement",
+      "url": "https://images.nasa.gov/details/iss059e103188",
+      "download_url": "https://images-assets.nasa.gov/image/iss059e103188/iss059e103188~medium.jpg",
+      "credit": "NASA",
+      "description": "iss059e103188 (6/14/2019) --- Photo documentation taken aboard the International Space Station (ISS) during the Fluids and Combustion Facility (FCF) Combustion Integration Rack (CIR) / Advanced Combustion via Microgravity Experiments (ACME) / Flame Design hardware replacement.",
+      "width_max": 1024,
+      "bytes": 117851,
+      "sha256": "d4ec1a66807ccda60e30ae017b870a4f2709c19549b83e146addb2b3b322f21a",
+      "review": "Visually reviewed unaltered image: no logos, insignia, flags, patches or recognizable people. Resized only."
+    },
+    {
+      "psi_id": "PSI-25",
+      "investigation": "BASS-II",
+      "file": "iss040e086481.jpg",
+      "nasa_id": "iss040e086481",
+      "title": "BASS-II Experiment",
+      "url": "https://images.nasa.gov/details/iss040e086481",
+      "download_url": "https://images-assets.nasa.gov/image/iss040e086481/iss040e086481~medium.jpg",
+      "credit": "NASA",
+      "description": "Image taken on card 8 during BASS-II flame test session with reduced O2 partial pressure. Session conducted on GMT 213. The Burning and Suppression of Solids - II (BASS-II) investigation examines the burning and extinction characteristics of a wide variety of fuel samples in microgravity. The BASS-II experiment will guide strategies for materials flammability screening for use in spacecraft as well as provide valuable data on solid fuel burning behavior in microgravity. BASS-II results contribute to the combustion computational models used in the design of fire detection and suppression systems in microgravity and on Earth.",
+      "width_max": 1024,
+      "bytes": 28525,
+      "sha256": "10086e8decfe0aeb09962584b68b1d86f53cd5fe4de046849043035087750023",
+      "review": "Visually reviewed unaltered image: no logos, insignia, flags, patches or recognizable people. Resized only."
+    },
+    {
+      "psi_id": "PSI-25",
+      "investigation": "BASS-II",
+      "file": "iss040e088023.jpg",
+      "nasa_id": "iss040e088023",
+      "title": "BASS-II Experiment",
+      "url": "https://images.nasa.gov/details/iss040e088023",
+      "download_url": "https://images-assets.nasa.gov/image/iss040e088023/iss040e088023~medium.jpg",
+      "credit": "NASA",
+      "description": "Image taken on card 15 during BASS-II flame test session with reduced O2 partial pressure. Session conducted on GMT 214. The Burning and Suppression of Solids - II (BASS-II) investigation examines the burning and extinction characteristics of a wide variety of fuel samples in microgravity. The BASS-II experiment will guide strategies for materials flammability screening for use in spacecraft as well as provide valuable data on solid fuel burning behavior in microgravity. BASS-II results contribute to the combustion computational models used in the design of fire detection and suppression systems in microgravity and on Earth.",
+      "width_max": 1024,
+      "bytes": 42534,
+      "sha256": "86ec00c478c4693ead8b2271925c1b4509c4e3c69bd5f0b8d235fa1c2f4dec66",
+      "review": "Visually reviewed unaltered image: no logos, insignia, flags, patches or recognizable people. Resized only."
+    },
+    {
+      "psi_id": "PSI-25",
+      "investigation": "BASS-II",
+      "file": "iss040e072900.jpg",
+      "nasa_id": "iss040e072900",
+      "title": "BASS II Operations",
+      "url": "https://images.nasa.gov/details/iss040e072900",
+      "download_url": "https://images-assets.nasa.gov/image/iss040e072900/iss040e072900~medium.jpg",
+      "credit": "NASA",
+      "description": "Image taken during BASS-II flame test session -card 2 - conducted on GMT 203. Burned a 4 mm thick, 1 cm wide acrylic slab at multiple velocities. At high flows, the flame was long and sooty. When the flow was reduced, the flame stabilized. The Burning and Suppression of Solids II (BASS-II) investigation examines the burning and extinction characteristics of a wide variety of fuel samples in microgravity. The BASS-II experiment will guide strategies for materials flammability screening for use in spacecraft as well as provide valuable data on solid fuel burning behavior in microgravity. BASS-II results contribute to the combustion computational models used in the design of fire detection and suppression systems in microgravity and on Earth.",
+      "width_max": 1024,
+      "bytes": 28553,
+      "sha256": "132c32c33516040599d420a6b71f85279060e782d23b252cd3ac3a1d9938fce7",
+      "review": "Visually reviewed unaltered image: no logos, insignia, flags, patches or recognizable people. Resized only."
+    },
+    {
+      "psi_id": "PSI-26",
+      "investigation": "BASS",
+      "file": "iss035e015900.jpg",
+      "nasa_id": "iss035e015900",
+      "title": "BASS Experiment Imagery",
+      "url": "https://images.nasa.gov/details/iss035e015900",
+      "download_url": "https://images-assets.nasa.gov/image/iss035e015900/iss035e015900~medium.jpg",
+      "credit": "NASA",
+      "description": "ISS035-E-015900 (10 April 2013) --- This is one of a series of close-up images photographed during a run of the Burning and Suppression of Solids (BASS) experiment onboard the Earth-orbiting International Space Station. Following a series of preparations,  NASA astronaut Chris Cassidy (out of frame) conducted several runs of the experiment, which examines the burning and extinction characteristics of a wide variety of fuel samples in microgravity.  The experiment is planned for guiding strategies for extinguishing fires in microgravity. BASS results contribute to the combustion computational models used in the design of fire detection and suppression systems in microgravity and on Earth.",
+      "width_max": 1024,
+      "bytes": 26185,
+      "sha256": "91b8c6b1beb0c50addf2dc5d61e6170266d605d1aa1d7846888579a6a2cef241",
+      "review": "Visually reviewed unaltered image: no logos, insignia, flags, patches or recognizable people. Resized only."
+    },
+    {
+      "psi_id": "PSI-26",
+      "investigation": "BASS",
+      "file": "iss035e015679.jpg",
+      "nasa_id": "iss035e015679",
+      "title": "BASS Experiment Imagery",
+      "url": "https://images.nasa.gov/details/iss035e015679",
+      "download_url": "https://images-assets.nasa.gov/image/iss035e015679/iss035e015679~medium.jpg",
+      "credit": "NASA",
+      "description": "ISS035-E-015679 (10 April 2013) --- This is one of a series of close-up images photographed during a run of the Burning and Suppression of Solids (BASS) experiment onboard the Earth-orbiting International Space Station. Following a series of preparations, NASA astronaut Chris Cassidy (out of frame) conducted a series of runs of the experiment, which examines the burning and extinction characteristics of a wide variety of fuel samples in microgravity.  The experiment is planned for guiding strategies for extinguishing fires in microgravity. BASS results contribute to the combustion computational models used in the design of fire detection and suppression systems in microgravity and on Earth.",
+      "width_max": 1024,
+      "bytes": 20134,
+      "sha256": "b3c39ac8f56e2db524817edc04b6bab20e50d030aed0709d12a18c79ac46dd23",
+      "review": "Visually reviewed unaltered image: no logos, insignia, flags, patches or recognizable people. Resized only."
+    },
+    {
+      "psi_id": "PSI-26",
+      "investigation": "BASS",
+      "file": "iss035e015827.jpg",
+      "nasa_id": "iss035e015827",
+      "title": "BASS Experiment Imagery",
+      "url": "https://images.nasa.gov/details/iss035e015827",
+      "download_url": "https://images-assets.nasa.gov/image/iss035e015827/iss035e015827~medium.jpg",
+      "credit": "NASA",
+      "description": "ISS035-E-015827 (10 April 2013) --- This is one of a series of close-up images photographed during a run of the Burning and Suppression of Solids (BASS) experiment onboard the Earth-orbiting International Space Station. Following a series of preparations, NASA astronaut Chris Cassidy (out of frame) conducted a series of runs of the experiment, which examines the burning and extinction characteristics of a wide variety of fuel samples in microgravity.  The experiment is planned for guiding strategies for extinguishing fires in microgravity. BASS results contribute to the combustion computational models used in the design of fire detection and suppression systems in microgravity and on Earth.",
+      "width_max": 1024,
+      "bytes": 26816,
+      "sha256": "091253bbc8db42f2d374aaccc9fe69756e23480bdea6955619d7f5bbc40a5c0c",
+      "review": "Visually reviewed unaltered image: no logos, insignia, flags, patches or recognizable people. Resized only."
+    }
+  ],
+  "investigations": [
+    {
+      "psi_id": "PSI-10",
+      "name": "ACME/Flame Design",
+      "status": "available",
+      "query": "Flame Design",
+      "search_url": "https://images-api.nasa.gov/search?q=Flame+Design&media_type=image",
+      "total_hits": 143,
+      "reason": null
+    },
+    {
+      "psi_id": "PSI-20",
+      "name": "ACME BRE",
+      "status": "no_reviewed_image",
+      "query": "Burning Rate Emulator",
+      "search_url": "https://images-api.nasa.gov/search?q=Burning+Rate+Emulator&media_type=image",
+      "total_hits": 0,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-21",
+      "name": "ACME CLD Flame",
+      "status": "no_reviewed_image",
+      "query": "Coflow Laminar Diffusion Flame",
+      "search_url": "https://images-api.nasa.gov/search?q=Coflow+Laminar+Diffusion+Flame&media_type=image",
+      "total_hits": 0,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-22",
+      "name": "ACME E-FIELD Flames",
+      "status": "no_reviewed_image",
+      "query": "E-FIELD Flames",
+      "search_url": "https://images-api.nasa.gov/search?q=E-FIELD+Flames&media_type=image",
+      "total_hits": 2,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-23",
+      "name": "ACME s-Flame",
+      "status": "no_reviewed_image",
+      "query": "s-Flame",
+      "search_url": "https://images-api.nasa.gov/search?q=s-Flame&media_type=image",
+      "total_hits": 40,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-25",
+      "name": "BASS-II",
+      "status": "available",
+      "query": "Burning and Suppression of Solids II",
+      "search_url": "https://images-api.nasa.gov/search?q=Burning+and+Suppression+of+Solids+II&media_type=image",
+      "total_hits": 19,
+      "reason": null
+    },
+    {
+      "psi_id": "PSI-26",
+      "name": "BASS",
+      "status": "available",
+      "query": "Burning and Suppression of Solids",
+      "search_url": "https://images-api.nasa.gov/search?q=Burning+and+Suppression+of+Solids&media_type=image",
+      "total_hits": 41,
+      "reason": null
+    },
+    {
+      "psi_id": "PSI-39",
+      "name": "CFI",
+      "status": "no_reviewed_image",
+      "query": "Cool Flames Investigation",
+      "search_url": "https://images-api.nasa.gov/search?q=Cool+Flames+Investigation&media_type=image",
+      "total_hits": 1,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-47",
+      "name": "DAFT / DAFT-2",
+      "status": "no_reviewed_image",
+      "query": "Dust Aerosol Measurement Feasibility Test",
+      "search_url": "https://images-api.nasa.gov/search?q=Dust+Aerosol+Measurement+Feasibility+Test&media_type=image",
+      "total_hits": 2,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-60",
+      "name": "Computational and Experimental Analysis of SPICE Data Sets",
+      "status": "no_reviewed_image",
+      "query": "SPICE combustion",
+      "search_url": "https://images-api.nasa.gov/search?q=SPICE+combustion&media_type=image",
+      "total_hits": 0,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-62",
+      "name": "Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity with Comparison to BASS Experiments using Two-Color Tomography",
+      "status": "no_reviewed_image",
+      "query": "BASS tomography",
+      "search_url": "https://images-api.nasa.gov/search?q=BASS+tomography&media_type=image",
+      "total_hits": 0,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-68",
+      "name": "FLEX-2",
+      "status": "no_reviewed_image",
+      "query": "Flame Extinguishment Experiment 2",
+      "search_url": "https://images-api.nasa.gov/search?q=Flame+Extinguishment+Experiment+2&media_type=image",
+      "total_hits": 8,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-69",
+      "name": "FLEX",
+      "status": "no_reviewed_image",
+      "query": "Flame Extinguishment Experiment",
+      "search_url": "https://images-api.nasa.gov/search?q=Flame+Extinguishment+Experiment&media_type=image",
+      "total_hits": 12,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-98",
+      "name": "SAFFIRE-I",
+      "status": "no_reviewed_image",
+      "query": "Saffire I",
+      "search_url": "https://images-api.nasa.gov/search?q=Saffire+I&media_type=image",
+      "total_hits": 1,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-99",
+      "name": "SAFFIRE-II",
+      "status": "no_reviewed_image",
+      "query": "Saffire II",
+      "search_url": "https://images-api.nasa.gov/search?q=Saffire+II&media_type=image",
+      "total_hits": 1,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-100",
+      "name": "SAFFIRE-III",
+      "status": "no_reviewed_image",
+      "query": "Saffire III",
+      "search_url": "https://images-api.nasa.gov/search?q=Saffire+III&media_type=image",
+      "total_hits": 1,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-101",
+      "name": "SAME-R",
+      "status": "no_reviewed_image",
+      "query": "Smoke Aerosol Measurement Experiment Reflight",
+      "search_url": "https://images-api.nasa.gov/search?q=Smoke+Aerosol+Measurement+Experiment+Reflight&media_type=image",
+      "total_hits": 0,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-102",
+      "name": "SAME",
+      "status": "no_reviewed_image",
+      "query": "Smoke Aerosol Measurement Experiment",
+      "search_url": "https://images-api.nasa.gov/search?q=Smoke+Aerosol+Measurement+Experiment&media_type=image",
+      "total_hits": 8,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-106",
+      "name": "SLICE",
+      "status": "no_reviewed_image",
+      "query": "Structure Liftoff Combustion Experiment",
+      "search_url": "https://images-api.nasa.gov/search?q=Structure+Liftoff+Combustion+Experiment&media_type=image",
+      "total_hits": 4,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-107",
+      "name": "SPICE",
+      "status": "no_reviewed_image",
+      "query": "Smoke Point Coflow Experiment",
+      "search_url": "https://images-api.nasa.gov/search?q=Smoke+Point+Coflow+Experiment&media_type=image",
+      "total_hits": 1,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-115",
+      "name": "Utilization of the Smoke Aerosol Measurement Experiment Data for Advanced Modeling and Simulation of Smoke Generation in Micro-Gravity",
+      "status": "no_reviewed_image",
+      "query": "Smoke Aerosol Measurement Experiment modeling",
+      "search_url": "https://images-api.nasa.gov/search?q=Smoke+Aerosol+Measurement+Experiment+modeling&media_type=image",
+      "total_hits": 5,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-117",
+      "name": "Effect of External Thermo-Convective Perturbation on Cool Flame Dynamics: A Multidimensional Multi-Physics CFD Analysis",
+      "status": "no_reviewed_image",
+      "query": "Cool Flame Dynamics",
+      "search_url": "https://images-api.nasa.gov/search?q=Cool+Flame+Dynamics&media_type=image",
+      "total_hits": 1,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-142",
+      "name": "Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
+      "status": "no_reviewed_image",
+      "query": "Cool Flame Counterflow",
+      "search_url": "https://images-api.nasa.gov/search?q=Cool+Flame+Counterflow&media_type=image",
+      "total_hits": 0,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    },
+    {
+      "psi_id": "PSI-159",
+      "name": "ACME CFI-G",
+      "status": "no_reviewed_image",
+      "query": "Cool Flames Investigation Gases",
+      "search_url": "https://images-api.nasa.gov/search?q=Cool+Flames+Investigation+Gases&media_type=image",
+      "total_hits": 0,
+      "reason": "No experiment-specific image passed the subject and visual exclusions in the reviewed search results. No substitute is shown."
+    }
+  ]
+}

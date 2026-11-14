@@ -1,3 +1,7 @@
+import { buildDeck } from '../scene/deck.js';
+import { buildHabitat } from '../scene/habitat.js';
+import { hardware, balanceWorldLight } from '../scene/materials.js';
+import { NASA_TEXTURES } from '../scene/imagery.js';
 import { build as buildFlame } from '../scene/flame.js';
 import { build as buildMars } from '../scene/mars.js';
 
@@ -6,37 +10,21 @@ const ease = x => { x = clamp(x); return x * x * (3 - 2 * x); };
 
 export async function build(world) {
   const { THREE, stage, db, vesta } = world;
+  const balanceLight = balanceWorldLight(world, .08);
   const group = new THREE.Group(); group.name = 'flame-cabin'; stage.scene.add(group);
-  const wall = new THREE.MeshStandardMaterial({ color: 0x12100e, roughness: .76, metalness: .3, side: THREE.DoubleSide });
-  const rib = new THREE.MeshStandardMaterial({ color: 0x5a534b, roughness: .48, metalness: .72 });
-  const inset = new THREE.MeshStandardMaterial({ color: 0x322d27, roughness: .7, metalness: .4 });
-  function box(size, at, material = wall) {
-    const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material); mesh.position.set(...at); group.add(mesh); return mesh;
-  }
-  box([20, .18, 17], [0, -3.1, -4]); box([20, .18, 17], [0, 5.2, -4]);
-  box([.18, 8.3, 17], [-8, 1, -4]); box([.18, 8.3, 17], [8, 1, -4]);
-  const aperture = new THREE.Shape(); aperture.moveTo(-10, -4); aperture.lineTo(10, -4); aperture.lineTo(10, 6); aperture.lineTo(-10, 6); aperture.closePath();
-  const hole = new THREE.Path(); hole.absarc(0, 1.4, 1.8, 0, Math.PI * 2, true); aperture.holes.push(hole);
-  const back = new THREE.Mesh(new THREE.ShapeGeometry(aperture), wall); back.position.z = -4.5; group.add(back);
-  for (const z of [-4.35, -.4, 3.5]) {
-    box([.1, 8.2, .16], [-6.5, 1, z], rib); box([.1, 8.2, .16], [6.5, 1, z], rib);
-    box([13, .1, .16], [0, 4.8, z], rib);
-    box([.14, 7.8, .18], [-4.8, .8, z], rib); box([.14, 7.8, .18], [4.8, .8, z], rib);
-    const arch = new THREE.Mesh(new THREE.TorusGeometry(5.1, .085, 8, 48), rib); arch.position.set(0, .8, z); group.add(arch);
-  }
-  for (let i = 0; i < 4; i++) box([2.8, .025, .08], [4.8, -.8 + i * 1.25, -4.35], inset);
-  const window = new THREE.Group(); window.position.set(0, 1.4, -4.4);
-  for (const [r, tube] of [[1.86, .14], [1.72, .035]]) window.add(new THREE.Mesh(new THREE.TorusGeometry(r, tube, 10, 64), rib));
-  for (let i = 0; i < 12; i++) {
-    const bolt = new THREE.Mesh(new THREE.SphereGeometry(.035, 8, 6), inset);
-    bolt.position.set(Math.cos(i * Math.PI / 6) * 1.86, Math.sin(i * Math.PI / 6) * 1.86, .13); window.add(bolt);
-  }
-  group.add(window);
-  const mars = await buildMars({ THREE, mode: stage.mode }); mars.group.position.set(-.2, 1.5, -8.3); mars.group.scale.setScalar(2.5); group.add(mars.group);
+  const habitat = buildHabitat({ THREE, mode: stage.mode }); group.add(habitat.group);
+  habitat.group.traverse(object => {
+    const p = object.geometry?.parameters;
+    if (p && p.height < .03 && (p.width === 1.35 || p.width === .025)) object.visible = false;
+    if (object.material?.isMeshPhysicalMaterial && object.material.transparent) { object.material.opacity = .07; object.material.envMapIntensity = 1.2; object.material.roughness = .1; }
+  });
+  group.add(buildDeck({ THREE }).group);
+  const rib = hardware(THREE, 'metal', { color: 0x6e7578, roughness: .54 });
+  const mount = new THREE.Mesh(new THREE.CylinderGeometry(.19, .22, .14, 24), rib); mount.castShadow = mount.receiveShadow = true; group.add(mount);
+  const mars = await buildMars({ THREE, mode: stage.mode, camera: stage.camera }); mars.group.position.set(-.2, 1.5, -8.3); mars.group.scale.setScalar(2.5); group.add(mars.group);
   const flame = await buildFlame({ THREE, mode: stage.mode }); group.add(flame.group);
-  const light = new THREE.DirectionalLight(0xffdfb8, 1.2); light.position.set(-3, 5, 6);
-  const rim = new THREE.DirectionalLight(0x8fa3b5, 1); rim.position.set(4, 2, -2);
-  group.add(light, rim, new THREE.HemisphereLight(0xede4d4, 0x12100e, .4));
+  const rim = new THREE.DirectionalLight(0xb6cce1, .25); rim.position.set(4, 2, -2);
+  group.add(rim, new THREE.HemisphereLight(0xede4d4, 0x12100e, .12));
   const dustGeometry = new THREE.BufferGeometry(), dustPositions = new Float32Array((stage.mode === 'low' ? 24 : 64) * 3);
   for (let i = 0; i < dustPositions.length; i++) dustPositions[i] = Math.sin(i * 127.1 + .3) * (i % 3 === 2 ? 3 : 5);
   dustGeometry.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3));
@@ -54,9 +42,19 @@ export async function build(world) {
   const status = document.createElement('output'); status.htmlFor = slider.id; status.style.display = 'block';
   const action = document.createElement('button'); action.type = 'button'; action.className = 'world-primary'; action.style.background = 'var(--rust-deep)'; action.style.color = 'var(--ivory)'; action.textContent = 'Explore the evidence';
   console.append(label, slider, status, action);
-  const answerHolo = world.hologram(answer, { at: [-2.4, -.55, .4], width: 540, keepPosition: true });
+  const answerHolo = world.hologram(answer, { at: [-1.7, .5, .15], markerAt: [-1.7, .5, .15], label: 'Read the NASA flame observation', dock: 'left', width: 440 });
   const controlSurface = document.createElement('div'); controlSurface.style.background = 'transparent'; controlSurface.append(console);
-  const controlHolo = world.hologram(controlSurface, { at: [2.5, -1.6, .7], width: 500, keepPosition: true });
+  const controlHolo = world.hologram(controlSurface, { at: [2, .65, .1], markerAt: [2, .65, .1], label: 'Compare the flame illustrations', dock: 'right', width: 440 });
+  const credits = document.createElement('section'); credits.setAttribute('aria-label', 'NASA image credits');
+  const creditTitle = document.createElement('h2'); creditTitle.textContent = 'NASA imagery'; credits.append(creditTitle);
+  for (const entry of Object.values(NASA_TEXTURES)) {
+    const p = document.createElement('p'), link = document.createElement('a'); link.href = `https://images.nasa.gov/details/${entry.id}`; link.target = '_blank'; link.rel = 'noopener'; link.textContent = entry.title; p.append(link, document.createElement('br'), entry.credit); credits.append(p);
+  }
+  const creditHolo = world.hologram(credits, { at: [0, 1.4, -4.1], label: 'NASA image credits at the porthole', width: 440 });
+  const disclosure = document.createElement('p'); disclosure.className = 'flame-disclosure'; disclosure.dataset.stationUi = '';
+  disclosure.textContent = 'Illustration, not a simulation. Low-momentum flames only.';
+  Object.assign(disclosure.style, { position: 'absolute', bottom: '100px', left: '50%', transform: 'translateX(-50%)', width: 'calc(100% - 80px)', margin: '0', textAlign: 'center', fontSize: '14px', lineHeight: '1.4', color: '#c6c9c7', pointerEvents: 'none', textShadow: '0 1px 4px #000', zIndex: '2', display: 'none' });
+  world.overlay?.append(disclosure);
   let phoneLayout, active = false, started, previous, space = Number(slider.value) / 100, target = space, drag;
   const host = world.host || stage.renderer?.domElement;
   const signal = () => {
@@ -84,9 +82,9 @@ export async function build(world) {
   host?.addEventListener('pointerdown', down); host?.addEventListener('pointermove', move, { passive: false }); host?.addEventListener('pointerup', up); host?.addEventListener('pointercancel', up);
   signal();
   return {
-    group, anchor: [0, 0, 0], camera: { position: [0, .3, 8.7], target: [0, .15, 0], fov: 38 },
-    enter() { active = true; started = previous = undefined; group.visible = true; answerHolo.open(); controlHolo.open(); },
-    leave() { active = false; drag = null; answerHolo.close(); controlHolo.close(); group.visible = false; },
+    group, anchor: [0, 0, 0], camera: () => ({ position: [0, stage.camera.aspect < .9 ? .45 : .3, stage.camera.aspect < .9 ? 7.8 : 8.7], target: [0, stage.camera.aspect < .9 ? .45 : .15, 0], fov: stage.camera.aspect < .9 ? 44 : 38 }),
+    enter() { balanceLight(true); active = true; started = previous = undefined; group.visible = true; disclosure.style.display = ''; },
+    leave() { balanceLight(false); active = false; drag = null; disclosure.style.display = 'none'; answerHolo.close(); controlHolo.close(); creditHolo.close(); group.visible = false; },
     update(t, state = {}) {
       if (!active && !state.active) return;
       if (started === undefined) started = t;
@@ -95,33 +93,35 @@ export async function build(world) {
       const local = state.localTime ?? t - started, time = reduced ? 2 : t;
       const dt = previous === undefined ? 0 : Math.max(0, Math.min(.1, t - previous)); previous = t;
       space = capture || reduced ? target : space + (target - space) * (1 - Math.exp(-dt * 9));
+      world.answer?.(space < .015 ? 'Earth: yellow teardrop.' : space > .985 ? 'Space: rounded low-momentum flame.' : 'Earth and space blend.');
       const phone = (stage.camera || world.camera)?.aspect < .9;
-      if (phone !== phoneLayout) {
-        phoneLayout = phone;
-        if (phone) { answer.append(console); console.style.marginTop = '12px'; console.style.width = '100%'; controlHolo.close(); }
-        else { controlSurface.append(console); console.style.marginTop = ''; console.style.width = '100%'; if (active) controlHolo.open(); }
-      }
+      const inspecting = [answerHolo, controlHolo, creditHolo].some(h => h.target > 0) || world.host?.dataset.hologramOpen === 'true';
+      phoneLayout = phone;
+      disclosure.style.bottom = phone ? '63px' : '100px';
       const wake = capture || reduced ? 1 : ease(local / 1.5), launch = capture || reduced ? 1 : ease((local - .3) / 1.3);
       const reaction = Math.abs(space - target);
-      vesta.update(time, { ...vesta.defaults, x: (phone ? -.72 : -1.7) + (1 - launch) * 1.5, y: (phone ? 1.55 : .5) - (1 - launch) * .8 + Math.sin(time * .9) * .06, z: .15 - (1 - launch) * 1.8,
-        scale: phone ? 1.7 : 2.3, sleep: 1 - wake, yaw: -.6 * (1 - wake) + .12 + (state.pointerX || 0) * .2,
+      vesta.update(time, { ...vesta.defaults, x: (phone ? -.85 : -1.7) + (1 - launch) * 1.5, y: (phone ? inspecting ? 1.1 : .85 : .5) - (1 - launch) * .8 + Math.sin(time * .9) * .06, z: .15 - (1 - launch) * 1.8,
+        scale: phone ? inspecting ? 1.85 : 2.1 : 1.85, sleep: 1 - wake, yaw: -.6 * (1 - wake) + .12 + (state.pointerX || 0) * .2,
         roll: Math.sin(time * .8) * .035 + Math.sin(launch * Math.PI) * .22, pitch: (state.pointerY || 0) * -.07,
         lookX: (state.pointerX || 0) * .7 + .2, lookY: (state.pointerY || 0) * .5,
         blink: Math.max(0, 1 - Math.abs(time % 5.6 - 4.5) / .14), armR: .35 + wake * .25 + reaction, armFwdR: .35 + reaction * .5,
         thrust: .45 + Math.sin(launch * Math.PI) * .8, fins: .6, beacon: .35 + wake * .5, beaconWarm: 1, idle: reduced ? 0 : 1 });
-      flame.group.position.set(phone ? .9 : 2, phone ? 1.55 : .65, .1);
-      const breath = 1 + Math.sin(time * 1.7) * .018;
-      flame.group.scale.setScalar((phone ? .62 : .85) * breath); flame.update(time, { space }); mars.update(time);
+      flame.group.position.set(phone ? .9 : 2, phone ? .85 : .65, .1);
+      const breath = (1 + Math.sin(time * 1.7) * .018) * (.88 + space * .12);
+      flame.group.scale.setScalar((phone ? .72 : .85) * breath); flame.update(time, { space }); mars.update(time);
+      mount.position.set(phone ? .9 : 2, (phone ? .85 : .65) - (phone ? .72 : .85) * breath * 1.03, .1);
+      answerHolo.marker?.set({ at: [phone ? -.85 : -1.7, phone ? inspecting ? 1.1 : .85 : .5, .15] });
+      controlHolo.marker?.set({ at: [phone ? .9 : 2, phone ? .85 : .65, .1] });
       dust.rotation.y = Math.sin(time * .07) * .12; dust.position.y = Math.sin(time * .17) * .08;
-      if (phone) controlHolo.close();
+
       answerHolo.set?.({ at: phone ? [0, -1.05, .8] : [-2.25, -1.25, .5] });
       controlHolo.set?.({ at: phone ? [0, -2.7, .8] : [2.55, -1.35, .5] });
     },
-    holograms: () => phoneLayout ? [answerHolo] : [answerHolo, controlHolo],
+    holograms: () => [answerHolo, controlHolo, creditHolo],
     dispose() {
-      slider.removeEventListener('input', change); action.removeEventListener('click', advance);
+      balanceLight(false); slider.removeEventListener('input', change); action.removeEventListener('click', advance);
       host?.removeEventListener('pointerdown', down); host?.removeEventListener('pointermove', move); host?.removeEventListener('pointerup', up); host?.removeEventListener('pointercancel', up);
-      answerHolo.dispose(); controlHolo.dispose(); group.removeFromParent();
+      answerHolo.dispose(); controlHolo.dispose(); creditHolo.dispose(); disclosure.remove(); group.removeFromParent();
     }
   };
 }
