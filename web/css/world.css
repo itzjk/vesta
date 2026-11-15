@@ -9,10 +9,10 @@ html[data-world="true"] #nav,html[data-world="true"] #foot,html[data-world="true
 html[data-world="true"] #bar-actions{margin-left:auto;order:0}
 html[data-world="true"] .view-switch{border:0;background:var(--bg-0)}
 html[data-world="true"] .view-switch button{font-size:16px;min-height:44px;border-radius:0}
-html[data-world="true"] #view.world-host{position:absolute;inset:0;width:100%;height:100%;padding:0;overflow:hidden;background:var(--bg-0);touch-action:pan-x}
+html[data-world="true"] #view.world-host{position:absolute;inset:0;width:100%;height:100%;padding:0;overflow:hidden;background:var(--bg-0);touch-action:auto}
 .world-canvas,.world-overlay,.world-holograms{position:absolute!important;inset:0;width:100%;height:100%;overflow:hidden}
 .world-canvas.scene-host{transform:none;opacity:1;pointer-events:auto}
-.world-canvas canvas{display:block;width:100%;height:100%}
+.world-canvas canvas{display:block;width:100%;height:100%;touch-action:none}
 .world-overlay{z-index:4;pointer-events:none}
 .world-overlay>button,.world-overlay nav{pointer-events:auto}
 .world-holograms{z-index:3;pointer-events:none}
