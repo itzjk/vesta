@@ -1,4 +1,7 @@
-import { build as buildField, fieldRows } from '../scene/field.js?v=3';
+import { build as buildField, fieldRows } from '../scene/field.js?v=6';
+import { buildSamples } from '../scene/samples.js';
+import { SAMPLE_NOTES } from '../scene/sample-kit.js';
+import { balanceWorldLight } from '../scene/materials.js';
 import { summarize, axisText } from '../views/investigations.js';
 import { receiptControls } from '../ui/receipt.js';
 import { media } from './media.js';
@@ -7,8 +10,9 @@ import { TOL } from '../core/match.js';
 import { css } from '../ui/el.js';
 import { build as buildCoverage } from './coverage.js';
 import { build as buildGapBrief } from '../ui/gapbrief.js';
-import { searchEvidence, cabinMatches, compareInvestigations, NO_MATCH } from './ask.js?v=2';
+import { searchEvidence, cabinMatches, compareInvestigations, NO_MATCH } from './ask.js?v=3';
 import { evidenceGuidePose } from './evidence-guide.js';
+import { createRackUI } from './evidence-rack-ui.js';
 
 const node = (tag, text, cls) => {
   const el = document.createElement(tag);
@@ -26,34 +30,21 @@ export function evidenceState(db, core, q, investigation = null) {
 
 export async function build(world) {
   const { THREE: T, db, core } = world;
-  await css('css/coverage.css');
-  const wall = buildCoverage(world), gaps = buildGapBrief(world);
+  await Promise.all([css('css/coverage.css'), css('css/evidence-rack.css')]);
+  let selectedMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';
+  const wall = buildCoverage(world, { onSelection: onCoverageSelection }), gaps = buildGapBrief(world);
   const stage = world.stage.context || world.stage.ctx || world.stage;
   const host = stage.renderer.domElement.parentElement, root = world.host || host;
   const group = new T.Group(); group.name = 'evidence-room';
   const labelObstacles = [];
-  const field = await buildField({ ...stage, THREE: T, world: true, labelObstacles }); group.add(field.group);
-  const atmosphere = new T.Mesh(new T.PlaneGeometry(70, 44), new T.ShaderMaterial({
-    transparent: true, depthWrite: false,
-    vertexShader: 'varying vec2 uvSpace; void main(){uvSpace=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
-    fragmentShader: 'varying vec2 uvSpace; void main(){float rust=exp(-length((uvSpace-vec2(.16,.3))*vec2(3.,4.))*4.);float slate=exp(-length((uvSpace-vec2(.85,.7))*vec2(3.,4.))*4.);gl_FragColor=vec4(vec3(.28,.12,.075)*rust+vec3(.065,.13,.18)*slate,.58);}'
-  }));
-  atmosphere.name = 'evidence-space-atmosphere'; atmosphere.position.set(0, 1, -14); atmosphere.renderOrder = -90; group.add(atmosphere);
-  const metal = new T.MeshStandardMaterial({ color: 0x282b2c, roughness: .42, metalness: .75 });
-  const trim = new T.MeshStandardMaterial({ color: 0x80796a, roughness: .55, metalness: .7 });
-  const consoleBody = new T.Mesh(new T.BoxGeometry(6.4, .26, 1.7), metal);
-  consoleBody.position.set(0, -3.4, 5); consoleBody.rotation.x = .3; group.add(consoleBody);
-  const dialMeshes = ['o2', 'p', 'g'].map((key, i) => {
-    const dial = new T.Group(); dial.position.set((i - 1) * 2, -3.1, 5.5);
-    const wheel = new T.Mesh(new T.CylinderGeometry(.34, .37, .18, 32), trim); wheel.rotation.x = Math.PI / 2; dial.add(wheel);
-    const indicator = new T.Mesh(new T.BoxGeometry(.035, .23, .05), new T.MeshBasicMaterial({ color: 0xe0a458 })); indicator.position.set(0, .13, .13); dial.add(indicator);
-    group.add(dial); return { key, dial };
-  });
-  const beacons = new T.Group(); group.add(beacons);
-  const toolLocations = { ask: [4.7, .4, 4.5], cabin: [0, -2.15, 5.5], compare: [-4.7, .4, 4.5] };
-  for (const at of Object.values(toolLocations)) {
-    const light = new T.Mesh(new T.SphereGeometry(.055, 12, 8), new T.MeshBasicMaterial({ color: 0xe0a458 })); light.position.fromArray(at); beacons.add(light);
-  }
+  const field = await buildField({ ...stage, THREE: T, world: true, labelObstacles, invalidate: world.invalidate });
+  field.setVisible(false);
+  let rack;
+  try { rack = await buildSamples({ THREE: T, mode: stage.mode, db }); }
+  catch (error) { field.dispose(); wall.dispose(); gaps.dispose(); throw error; }
+  const rackFill = new T.HemisphereLight(0xede4d4, 0x191715, .24);
+  group.add(field.group, rack.group, rackFill);
+  const balanceLight = balanceWorldLight(world, 0, .1);
   const style = node('style');
   style.textContent = `
 .world-host[data-cinema=true] .evidence-tools,.world-host[data-film=true] .evidence-tools{visibility:hidden!important;pointer-events:none!important}.evidence-tools{position:absolute;inset:0;pointer-events:none;z-index:7}.evidence-tools[hidden]{display:none}.evidence-tool{position:absolute;width:44px;height:44px;transform:translate(-50%,-50%);border:1px solid #e0a45866;border-radius:50%;background:#17191880;box-shadow:0 0 14px #e0a45822;color:#f0d4a4;font:24px/1 sans-serif;pointer-events:auto;cursor:pointer}.evidence-tool:hover,.evidence-tool[aria-expanded=true]{background:#61422cbb;border-color:#e0a458}.evidence-tool:focus-visible{outline:2px solid #fff;outline-offset:3px}
@@ -69,64 +60,56 @@ export async function build(world) {
   const consoleHandle = world.hologram(consoleEl, { at: [-5, 0, 7], width: 440, face: 'camera', manual: true, marker: false, dock: 'left', phoneRatio: .62 });
   let active = false, panel = null, fieldMode = 'cabin', currentQ = world.q, search = '', results = [], resultPsi = [], activeFinding = null;
   let investigation = db.invById[world.params?.sel] ? world.params.sel : null, comparison = db.invById[world.params?.compare] ? world.params.compare : null;
-  let lastKey = '', lastTime = 0, reaction = -100, orbit = .23, elevation = .10, drag = null, dialDrag = null;
-  let guideRow = null, savedAperture;
+  let lastKey = '', lastTime = 0, reaction = -100, highlightedMaterials = null;
+  let guideRow = null, savedAperture, savedExposure;
   const guideTarget = new T.Vector3(), guideScreen = new T.Vector3(), guideHead = new T.Vector3();
   const companion = node('div', null, 'evidence-companion'); companion.hidden = true;
   companion.append(node('span', 'VESTA'), node('small', 'Your evidence guide'));
   host.append(companion);
   labelObstacles.push(companion, ...root.querySelectorAll('.world-guide-intro'));
-  const projected = new T.Vector3();
-  const canvas = stage.renderer.domElement, phone = () => stage.size().width < 760;
-  const buttons = Object.entries({ ask: ['⌕', 'Ask the evidence'], cabin: ['◉', 'Fly your own cabin'], compare: ['⇄', 'Compare investigations'] }).map(([id, [symbol, label]]) => {
-    const marker = world.marker?.({ element: consoleEl, get target() { return panel === id && consoleHandle.target; } }, { at: toolLocations[id], label, onClick: () => setPanel(panel === id ? null : id) });
-    const button = marker?.element || node('button', symbol, 'evidence-tool'); button.type = 'button'; button.dataset.worldMarker = ''; button.dataset.evidenceTool = id;
-    button.setAttribute('aria-label', label); button.setAttribute('aria-expanded', 'false'); button.title = label;
-    for (const name of ['pointerdown', 'pointerup']) button.addEventListener(name, e => e.stopPropagation());
-    button.onclick = () => setPanel(panel === id ? null : id); if (!marker) tools.append(button); return { id, button, marker };
-  });
+  const projected = new T.Vector3(), cameraTarget = new T.Vector3(), origin = new T.Vector3(...world.origin);
+  const phone = () => stage.size().width < 760;
+  const rackUI = createRackUI({ materials: db.materials, onSelect: material => openMaterial(material), onHover: material => { hoveredMaterial = material; world.invalidate?.(); } });
+  tools.append(rackUI.element);
+  function onCoverageSelection(selection) {
+    selectedMaterial = selection?.material || null;
+    if (selection) selectedConcern = selection.concern;
+    rack.focus(selectedMaterial, world.capture);
+    reaction = lastTime;
+    if (!selection && panel === 'sample') setPanel('overview');
+    world.invalidate?.();
+  }
+  function openMaterial(material, concern = selectedConcern) {
+    if (!db.materials[material] || !CONCERNS.includes(concern)) return;
+    selectedMaterial = material; selectedConcern = concern;
+    setPanel('sample'); wall.update(currentQ); wall.selectQuestion(material, concern);
+  }
+  function setDisplay(next) {
+    sceneMode = next; root.dataset.evidenceDisplay = next;
+    rack.setVisible(active && next === 'rack'); rackFill.visible = active && next === 'rack';
+    field.setVisible(active && next === 'chart');
+    if (active) world.vesta.group.visible = next === 'rack';
+    world.invalidate?.();
+  }
+  function toggleConditions() {
+    const next = sceneMode === 'chart' ? 'rack' : 'chart'; setPanel(null); setDisplay(next);
+  }
   function setPanel(next) {
-    consoleHandle.set({ phoneRatio: next === 'overview' || next === 'gaps' ? .70 : .62 });
-    panel = next; if (next) fieldMode = next; buttons.forEach(({ id, button }) => button.setAttribute('aria-expanded', String(id === panel)));
+    if (next) setDisplay('rack');
+    consoleHandle.set({ phoneRatio: next === 'sample' ? .37 : next === 'overview' || next === 'gaps' ? .70 : .62 });
+    panel = next; if (next) fieldMode = next;
+    if (!next || next === 'overview') wall.clearSelection(false);
     if (panel) { paintPanel(); if (!consoleHandle.target) consoleHandle.toggle ? consoleHandle.toggle() : consoleHandle.open(); } else consoleHandle.close();
     lastKey = ''; world.invalidate?.();
     if (panel === 'ask') consoleEl.querySelector('input')?.focus({ preventScroll: true });
   }
-  const outside = event => { if (active && panel && !consoleEl.contains(event.target) && !tools.contains(event.target) && !event.target.closest('.world-marker,.world-guide')) setPanel(null); };
-  const escape = event => { if (active && event.key === 'Escape' && panel) { event.stopPropagation(); setPanel(null); } };
+  const outside = event => { if (active && panel && !consoleEl.contains(event.target) && !tools.contains(event.target) && !event.target.closest('.world-marker,.world-guide,.field-instrument')) setPanel(null); };
+  const escape = event => { if (active && event.key === 'Escape') { if (panel) { event.stopPropagation(); setPanel(null); } else if (sceneMode === 'chart') { event.stopPropagation(); setDisplay('rack'); } } };
   const citation = event => { if (active && event.detail?.open) setPanel(null); };
   root.addEventListener('pointerdown', outside); window.addEventListener('keydown', escape); window.addEventListener('vesta:cite', citation);
   const panelObserver = new MutationObserver(() => { if (active && panel && !consoleHandle.target) setPanel(null); else if (active && !panel && consoleHandle.target) setPanel('overview'); });
   panelObserver.observe(consoleEl, { attributes: true, attributeFilter: ['hidden', 'aria-hidden'] });
-  const dialRay = new T.Raycaster();
-  const startDrag = e => {
-    if (!active) return;
-    const bounds = canvas.getBoundingClientRect();
-    dialRay.setFromCamera({ x: (e.clientX-bounds.left)/bounds.width*2-1, y: 1-(e.clientY-bounds.top)/bounds.height*2 }, stage.camera);
-    const hit = dialRay.intersectObjects(dialMeshes.map(d=>d.dial),true)[0];
-    const target = hit && dialMeshes.find(d=>d.dial.children.includes(hit.object));
-    if (target) {
-      dialDrag={ key:target.key, x:e.clientX, y:e.clientY, base:target.key==='g' ? Object.keys(G).indexOf(currentQ.g) : currentQ[target.key] };
-      setPanel('cabin'); e.stopPropagation(); return;
-    }
-    if (!panel) drag = { x:e.clientX,y:e.clientY,orbit,elevation };
-  };
-  const dragging = e => {
-    if (!active) return;
-    if (dialDrag) {
-      const delta=(e.clientX-dialDrag.x)-(e.clientY-dialDrag.y), key=dialDrag.key;
-      const scale=key==='g' ? .025 : key==='o2' ? .1 : .5;
-      const max=key==='g' ? Object.keys(G).length-1 : key==='o2' ? 100 : 550;
-      const value=Math.max(key==='p' ? 1 : 0,Math.min(max,dialDrag.base+delta*scale));
-      applyQ({[key]:key==='g' ? Object.keys(G)[Math.round(value)] : Math.round(value*10)/10});
-      e.stopPropagation(); return;
-    }
-    if (!drag) return;
-    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
-    if (Math.abs(dx) > Math.abs(dy) * 1.2 && Math.abs(dx) > 5) { orbit = Math.max(-.45, Math.min(.65, drag.orbit - dx * .0025)); elevation = Math.max(-.1, Math.min(.3, drag.elevation + dy * .001)); e.stopPropagation(); world.invalidate?.(); }
-  };
-  const endDrag = () => { drag = null; dialDrag = null; };
-  canvas.addEventListener('pointerdown', startDrag); canvas.addEventListener('pointermove', dragging); window.addEventListener('pointerup', endDrag);
+  const pickRay = new T.Raycaster();
   const plotted = fieldRows(db);
   const format = n => n.toLocaleString('en-US');
   const phrase = (text, id) => world.cite(text, id);
@@ -142,9 +125,18 @@ export async function build(world) {
   }
   function refreshAnswer() {
     const s = evidenceState(db, core, currentQ, investigation);
-    const pair = compareInvestigations(db, investigation, comparison);
-    const text = fieldMode === 'compare' && pair ? pair.short : wall.headline(currentQ);
-    world.answer?.(text);
+    world.answer?.(wall.headline(currentQ)); rack.setCells(s.cells);
+    root.dataset.rackProven = String(s.tally.PROVEN);
+    root.dataset.rackExtrapolated = String(s.tally.EXTRAPOLATED);
+    root.dataset.rackMissing = String(s.tally.NEVER_TESTED);
+    if (fieldMode === 'ask' && search.trim()) {
+      const matches = activeFinding ? results.filter(r => r.finding.id === activeFinding) : results;
+      highlightedMaterials = new Set(matches.flatMap(r => r.finding.n?.material_ids || []).filter(id => db.materials[id]));
+    } else if (fieldMode === 'compare' && (investigation || comparison)) {
+      const ids = new Set([investigation, comparison].filter(Boolean));
+      highlightedMaterials = new Set(Object.keys(db.materials).filter(id => (db.rowsByMaterial[id] || []).some(row => ids.has(row.psi_id))));
+    } else highlightedMaterials = null;
+    rack.highlight(highlightedMaterials === null ? null : [...highlightedMaterials]);
     const count = consoleEl.querySelector('[data-cabin-count]');
     if (count) count.textContent = s.matches.length ? `${format(s.matches.length)} counting source-table rows within tolerance. This is coverage, not a safety certification.` : 'No counting source-table rows match this cabin. That is a gap in this collection, not proof of safety.';
     host.dataset.evidenceMatches = String(s.matches.length);
@@ -173,7 +165,7 @@ export async function build(world) {
     const container = consoleEl.querySelector('[data-search-results]'); if (!container) return;
     container.replaceChildren();
     if (!search.trim()) { container.append(node('p', 'Search verified findings using a topic or a condition. Try one of the questions above.', 'evidence-note')); return; }
-    container.append(node('p', results.length ? `${results.length} verified findings` : NO_MATCH));
+    container.append(node('p', results.length ? `${results.length} verified ${results.length === 1 ? 'finding' : 'findings'}` : NO_MATCH));
     const list = node('ol', null, 'evidence-results');
     for (const result of results) {
       const item = node('li'), trigger = phrase(result.finding.claim, result.finding.id); trigger.dataset.evidenceFinding = result.finding.id;
@@ -184,11 +176,28 @@ export async function build(world) {
     container.append(list); host.dataset.evidenceSearchResults = String(results.length); host.dataset.evidenceSearchRows = String(plotted.filter(p => resultPsi.includes(p.row.psi_id)).length);
   }
   function paintPanel() {
-    const title = { overview: 'Cabin evidence', ask: 'Search the evidence', cabin: 'Configure your cabin', compare: 'Compare investigations', receipt: 'Keep the evidence', gaps: 'Research gaps' }[panel];
+    const title = { overview: 'Cabin evidence', sample: 'Material evidence', ask: 'Search the evidence', cabin: 'Configure your cabin', compare: 'Compare investigations', receipt: 'Keep the evidence', gaps: 'Research gaps' }[panel];
     const close = node('button', '×', 'evidence-close'); close.type = 'button'; close.setAttribute('aria-label', 'Close evidence console'); close.onclick = () => setPanel(null);
     consoleEl.replaceChildren(node('h2', title), close); consoleEl.dataset.evidencePanel = panel || '';
     if (panel === 'overview') {
       consoleEl.querySelector('h2').remove(); wall.update(currentQ); consoleEl.append(wall.element);
+    }
+    if (panel === 'sample') {
+      consoleEl.querySelector('h2').remove();
+      const choices = node('nav', null, 'evidence-sample-concerns'); choices.setAttribute('aria-label', 'Material evidence question');
+      for (const concern of CONCERNS) {
+        const button = node('button', core.text.concern(concern)); button.type = 'button';
+        button.dataset.sampleConcern = concern; button.setAttribute('aria-pressed', String(concern === selectedConcern));
+        button.onclick = () => openMaterial(selectedMaterial, concern); choices.append(button);
+      }
+      wall.update(currentQ); consoleEl.append(choices, wall.element);
+      const model = node('details', null, 'evidence-sample-note');
+      model.append(node('summary', 'Illustrative sample: representation and source'));
+      const note = SAMPLE_NOTES[selectedMaterial] || SAMPLE_NOTES.unknown;
+      const url = note.match(/https:\/\/\S+$/)?.[0];
+      model.append(node('p', url ? note.slice(0, -url.length).trim() : note, 'evidence-note'));
+      if (url) { const source = node('a', 'NASA description of this material'); source.href = url; source.target = '_blank'; source.rel = 'noopener noreferrer'; model.append(source); }
+      consoleEl.append(model);
     }
     if (panel === 'gaps') { consoleEl.querySelector('h2').remove(); gaps.update(currentQ); consoleEl.append(gaps.element); }
     if (panel === 'ask') {
@@ -233,68 +242,127 @@ export async function build(world) {
         }
       } else consoleEl.append(node('p', 'Choose two different investigations.', 'evidence-note'));
     }
-    const scope = node('details'); scope.hidden = panel === 'overview'; scope.append(node('summary', 'Evidence scope'), node('p', core.text.STATUS_LINE, 'evidence-note'), node('p', `${plotted.length} rows with a single ambient oxygen value are plotted. A row can represent a day, series or dataset. Hollow points use facility-inferred pressure.`, 'evidence-note'));
+    const scope = node('details'); scope.hidden = panel === 'overview'; scope.append(node('summary', 'Evidence scope'), node('p', core.text.STATUS_LINE, 'evidence-note'), node('p', `${plotted.length} source-table rows have a single ambient oxygen value. A row can represent a day, series or dataset. Research samples are illustrative; a coverage lamp does not certify a material or a cabin.`, 'evidence-note'));
     const link = node('a', 'Instrument view'); link.href = `#/design?view=details&preset=custom&o2=${currentQ.o2}&p=${currentQ.p}&g=${currentQ.g}&concern=${currentQ.concern}&mat=${currentQ.material || ''}`; scope.append(link); consoleEl.append(scope);
     refreshAnswer();
   }
   function layout() {
-    const { width, height } = stage.size(), camera = stage.camera; camera.updateMatrixWorld();
-    const lower = root.clientWidth < 760 && !panel;
-    field.group.scale.set(phone() ? .62 : 1, phone() ? .78 : 1, 1);
-    field.group.position.set(lower ? -.7 : 0, lower ? -2.8 : phone() ? 1.2 : 0, 0);
-    consoleBody.position.y = lower ? -5.3 : -3.4;
-    dialMeshes.forEach(({ dial }) => { dial.position.y = lower ? -5 : -3.1; });
-    beacons.position.y = lower ? -1.9 : 0;
-    group.updateMatrixWorld(true);
-    for (const { id, button, marker } of buttons) {
-      if (marker) { const at = [...toolLocations[id]]; at[1] += lower ? -1.9 : 0; marker.set({ at }); continue; }
-      projected.fromArray(toolLocations[id]).applyMatrix4(group.matrixWorld).project(camera);
-      const x = Math.max(30, Math.min(width - 50, (projected.x + 1) * width / 2));
-      const y = Math.max(110, Math.min(height * .76, (1 - projected.y) * height / 2));
-      button.style.left = `${x}px`; button.style.top = `${y}px`;
+    const { width, height } = stage.size(), camera = stage.camera;
+    camera.updateMatrixWorld(); group.updateMatrixWorld(true);
+    const positions = new Map();
+    for (const id of rack.materialIds) {
+      projected.copy(rack.anchor(id)); projected.y += phone() ? 1.1 : 1.55;
+      rack.group.localToWorld(projected); projected.project(camera);
+      positions.set(id, { x: (projected.x + 1) * width / 2, y: (1 - projected.y) * height / 2,
+        hidden: projected.z < -1 || projected.z > 1 || Math.abs(projected.x) > 1 || Math.abs(projected.y) > 1 });
     }
+    rackUI.update({ positions, visible: active && sceneMode === 'rack' && root.dataset.cinema !== 'true' && !world.filmActive,
+      selected: selectedMaterial, dimmed: highlightedMaterials, panelOpen: !!panel });
   }
-  field.setVisible(false); group.visible = false; refreshAnswer();
+  function cameraPose() {
+    if (sceneMode === 'chart') return { position: [0, 0, 24], target: [0, 0, 0], fov: 40, aperture: 0, focusDistance: 24, exposure: .85 };
+    const { width, height } = stage.size();
+    return rack.camera({ aspect: width / height, width, height, panel: !!panel,
+      ...(height < 550 ? { insets: { top: 100, bottom: 90, left: 30, right: 80 } } : width < 760 ? { insets: { top: 160, bottom: 225 } } : {}) });
+  }
+  field.setVisible(false); rack.setVisible(false); group.visible = false; refreshAnswer();
   return {
     group,
-    actions: () => [['overview', 'Coverage'], ['cabin', 'Cabin'], ['ask', 'Search'], ['compare', 'Compare'], ['gaps', 'Research gaps'], ['receipt', 'Save JSON']].map(([id, label]) => ({ id, label, primary: id === 'overview', expanded: () => panel === id && consoleHandle.target > 0, run: () => setPanel(panel === id && consoleHandle.target > 0 ? null : id) })),
-    ready() { setPanel('overview'); },
+    actions: () => [...[['overview', 'Coverage'], ['cabin', 'Cabin'], ['ask', 'Search'], ['compare', 'Compare'], ['gaps', 'Research gaps'], ['receipt', 'Save JSON']].map(([id, label]) => ({ id, label, primary: id === 'overview', expanded: () => panel === id && consoleHandle.target > 0, run: () => setPanel(panel === id && consoleHandle.target > 0 ? null : id) })),
+      { id: 'conditions', label: 'Tested conditions', expanded: () => sceneMode === 'chart', run: toggleConditions }],
+    ready() { setPanel(null); setDisplay('rack'); },
     search(query) { search = query; activeFinding = null; setPanel('ask'); },
-    camera() { return { position: [Math.sin(orbit) * 24, Math.sin(elevation) * 25, Math.cos(orbit) * 24], target: [0, phone() ? .4 : -.1, 0], fov: phone() ? 48 : 40 }; },
-    enter() { if (!active) savedAperture = stage.camera.userData.aperture; active = true; currentQ = world.q; group.visible = true; field.setVisible(true); tools.hidden = false; companion.hidden = false; guideRow = null; reaction = -100; host.classList.add('evidence-world-active'); panel = null; consoleHandle.close(); lastKey = ''; refreshAnswer(); },
-    leave() { delete stage.camera.userData.focusDistance; if (savedAperture == null) delete stage.camera.userData.aperture; else stage.camera.userData.aperture = savedAperture; active = false; drag = null; dialDrag = null; group.visible = false; tools.hidden = true; companion.hidden = true; field.setVisible(false); host.classList.remove('evidence-world-active'); setPanel(null); },
+    camera: cameraPose,
+    enter() {
+      if (!active) { savedAperture = stage.camera.userData.aperture; savedExposure = stage.renderer.toneMappingExposure; }
+      active = true; balanceLight(true); currentQ = world.q; group.visible = true; tools.hidden = false; companion.hidden = false;
+      guideRow = null; reaction = -100; host.classList.add('evidence-world-active'); panel = null; consoleHandle.close();
+      wall.clearSelection(false); setDisplay('rack'); lastKey = ''; refreshAnswer();
+    },
+    leave() {
+      delete stage.camera.userData.focusDistance;
+      if (savedAperture == null) delete stage.camera.userData.aperture; else stage.camera.userData.aperture = savedAperture;
+      stage.renderer.toneMappingExposure = savedExposure ?? .85; balanceLight(false);
+      active = false; group.visible = false; tools.hidden = true; companion.hidden = true; rackUI.element.hidden = true;
+      rack.setVisible(false); field.setVisible(false); world.vesta.group.visible = true;
+      host.classList.remove('evidence-world-active'); delete root.dataset.evidenceDisplay; setPanel(null);
+    },
     update(t, state = {}) {
       if (!active || state.active === false) return;
       lastTime = t; currentQ = state.q || world.q;
-      const key = JSON.stringify([currentQ, panel, fieldMode, investigation, comparison]);
-      if (key !== lastKey) { lastKey = key; refreshAnswer(); refreshDials(); if (panel === 'overview') wall.update(currentQ); if (panel === 'gaps') gaps.update(currentQ); }
-      const fixed = state.capture || state.reduced || stage.mode === 'still';
-      stage.camera.userData.focusDistance = stage.camera.position.distanceTo(group.getWorldPosition(projected));
-      stage.camera.userData.aperture = 0;
+      const key = JSON.stringify([currentQ, panel, fieldMode, investigation, comparison, search, activeFinding]);
+      if (key !== lastKey) {
+        lastKey = key; refreshAnswer(); refreshDials();
+        if (panel === 'overview' || panel === 'sample') wall.update(currentQ);
+        if (panel === 'gaps') gaps.update(currentQ);
+      }
+      const fixed = state.capture || state.reduced || stage.mode === 'still', lens = cameraPose();
+      world.vesta.group.visible = sceneMode === 'rack';
+      // Project labels and the chart with the same station lens used for rendering.
+      // The shared world applies its phone flight lens before calling this update.
+      if (root.dataset.flying !== 'true') {
+        stage.camera.position.fromArray(lens.position).add(origin);
+        stage.camera.lookAt(cameraTarget.fromArray(lens.target).add(origin));
+        stage.camera.fov = lens.fov; stage.camera.updateProjectionMatrix();
+      }
+      stage.camera.userData.focusDistance = lens.focusDistance;
+      stage.camera.userData.aperture = lens.aperture;
+      stage.renderer.toneMappingExposure = lens.exposure;
+      rack.update(t, { capture: state.capture, reduced: state.reduced });
       layout();
       const compare = fieldMode === 'compare';
-      field.update(t, { db, q: currentQ, capture: state.capture, reduced: state.reduced, investigation: compare ? investigation : null, comparison: compare ? comparison : null, highlightInvestigations: fieldMode === 'ask' && search.trim() ? resultPsi : null, highlightEmpty: fieldMode === 'ask' && !!search.trim() && !resultPsi.length, labels: !!panel, pointerX: state.pointerX, pointerY: state.pointerY });
-      dialMeshes.forEach(({ key, dial }) => { const value = key === 'g' ? Object.keys(G).indexOf(currentQ.g) / (Object.keys(G).length - 1) : key === 'o2' ? currentQ.o2 / 100 : currentQ.p / 550; dial.rotation.z = (value - .5) * Math.PI * 1.5; });
-      field.focusPosition(guideTarget, guideRow);
-      const pose = evidenceGuidePose({ elapsed: t - reaction, target: guideTarget, compact: phone(), lower: root.clientWidth < 760 && !panel, still: fixed });
-      world.vesta?.update?.(fixed ? 2 : t, { ...world.vesta.defaults, ...pose, blink: fixed ? 0 : Math.max(0, 1 - Math.abs(t % 4.7 - 3.9) / .085) });
+      if (sceneMode === 'chart') field.update(t, {
+        db, q: currentQ, capture: state.capture, reduced: state.reduced,
+        investigation: compare ? investigation : null, comparison: compare ? comparison : null,
+        highlightInvestigations: fieldMode === 'ask' && search.trim() ? resultPsi : null,
+        highlightEmpty: fieldMode === 'ask' && !!search.trim() && !resultPsi.length, labels: true,
+        pointerX: state.pointerX, pointerY: state.pointerY
+      });
+      const attended = hoveredMaterial || selectedMaterial;
+      if (attended) guideTarget.copy(rack.anchor(attended)); else guideTarget.set(0, 0, 0);
+      const pose = evidenceGuidePose({ elapsed: t - reaction, target: guideTarget, compact: phone(), still: fixed });
+      Object.assign(pose, { x: phone() ? 2.6 : 4.15, y: phone() ? -4 : -2.3, z: 1, scale: phone() ? .7 : .85 });
+      pose.lookX = Math.max(-1, Math.min(1, (guideTarget.x - pose.x) / 3));
+      pose.lookY = Math.max(-.6, Math.min(.6, (guideTarget.y - pose.y) / 3));
+      world.vesta?.update?.(fixed ? 2 : t, { ...world.vesta.defaults, ...pose,
+        blink: fixed ? 0 : Math.max(0, 1 - Math.abs(t % 4.7 - 3.9) / .085) });
       guideScreen.set(pose.x, pose.y - pose.scale * .85, pose.z).applyMatrix4(group.matrixWorld).project(stage.camera);
       guideHead.set(pose.x, pose.y + pose.scale * 1.1, pose.z).applyMatrix4(group.matrixWorld).project(stage.camera);
-      companion.style.left = `${Math.max(64, Math.min(host.clientWidth - 64, (guideScreen.x + 1) * host.clientWidth / 2))}px`;
-      companion.style.top = `${(1 - guideHead.y) * host.clientHeight / 2}px`;
-      companion.style.paddingTop = `${Math.max(0, (guideHead.y - guideScreen.y) * host.clientHeight / 2)}px`;
-      const caption = t - reaction < 4.6 ? guideRow ? 'This row has a source' : 'Your selected conditions' : 'Your evidence guide';
+      companion.style.left = Math.max(64, Math.min(host.clientWidth - 64, (guideScreen.x + 1) * host.clientWidth / 2)) + 'px';
+      companion.style.top = (1 - guideHead.y) * host.clientHeight / 2 + 'px';
+      companion.style.paddingTop = Math.max(0, (guideHead.y - guideScreen.y) * host.clientHeight / 2) + 'px';
+      const caption = attended ? db.materials[attended].label : 'Your evidence guide';
       if (companion.lastChild.textContent !== caption) companion.lastChild.textContent = caption;
-      companion.hidden = state.capture && world.filmActive || root.dataset.cinema === 'true' || root.dataset.flying === 'true';
-      host.dataset.evidenceActive = 'true'; host.dataset.evidenceInvestigation = investigation || 'all'; host.dataset.evidenceComparison = comparison || ''; host.dataset.evidenceSelectedRows = String(plotted.filter(p => compare ? p.row.psi_id === investigation || p.row.psi_id === comparison : fieldMode === 'ask' && search.trim() ? resultPsi.includes(p.row.psi_id) : true).length); host.dataset.evidenceFinding = activeFinding || '';
+      companion.hidden = sceneMode === 'chart' || !!panel || state.capture && world.filmActive
+        || root.dataset.cinema === 'true' || root.dataset.flying === 'true';
+      host.dataset.evidenceActive = 'true'; host.dataset.evidenceInvestigation = investigation || '';
+      host.dataset.evidenceComparison = comparison || ''; host.dataset.evidenceFinding = activeFinding || '';
+      host.dataset.evidenceSelectedRows = String(plotted.filter(p => compare
+        ? p.row.psi_id === investigation || p.row.psi_id === comparison
+        : fieldMode === 'ask' && search.trim() ? resultPsi.includes(p.row.psi_id) : true).length);
     },
-    pick(x, y) { return active && !dialDrag ? field.pick(x, y) : null; },
-    select(hit) { if (hit?.kind === 'test') { guideRow = hit.id; reaction = lastTime; world.invalidate?.(); } },
+    pick(x, y) {
+      if (!active) return null;
+      if (sceneMode === 'chart') return field.pick(x, y);
+      pickRay.setFromCamera({ x, y }, stage.camera);
+      const hit = rack.pick(pickRay); hoveredMaterial = hit?.material || null;
+      return hit ? { ...hit, kind: 'material' } : null;
+    },
+    select(hit) {
+      if (hit?.kind === 'material') { openMaterial(hit.material, hit.concern || selectedConcern); return true; }
+      if (hit?.kind === 'test') { guideRow = hit.id; reaction = lastTime; world.invalidate?.(); }
+      return false;
+    },
     holograms() { return []; },
     dispose() {
-      active = false; panelObserver.disconnect(); root.removeEventListener('pointerdown', outside); window.removeEventListener('keydown', escape); window.removeEventListener('vesta:cite', citation); canvas.removeEventListener('pointerdown', startDrag); canvas.removeEventListener('pointermove', dragging); window.removeEventListener('pointerup', endDrag);
-      wall.dispose(); gaps.dispose(); field.dispose(); consoleHandle.dispose(); buttons.forEach(({ marker }) => marker?.dispose()); tools.remove(); companion.remove(); style.remove(); host.classList.remove('evidence-world-active');
-      const seen = new Set(); group.traverse(o => { for (const resource of [o.geometry, ...[o.material].flat()]) if (resource && !seen.has(resource)) { seen.add(resource); resource.dispose?.(); } }); group.removeFromParent();
+      active = false; balanceLight(false); panelObserver.disconnect();
+      root.removeEventListener('pointerdown', outside); window.removeEventListener('keydown', escape);
+      window.removeEventListener('vesta:cite', citation);
+      wall.dispose(); gaps.dispose(); field.dispose(); rack.dispose(); rackUI.dispose(); consoleHandle.dispose();
+      tools.remove(); companion.remove(); style.remove(); host.classList.remove('evidence-world-active'); delete root.dataset.evidenceDisplay;
+      const seen = new Set();
+      group.traverse(o => { for (const resource of [o.geometry, ...[o.material].flat()]) if (resource && !seen.has(resource)) { seen.add(resource); resource.dispose?.(); } });
+      group.removeFromParent();
     }
   };
 }

@@ -16,7 +16,7 @@ export function searchEvidence(db, query, q) {
   const wanted = [...new Set(terms(query).filter(t => !ignored.has(t)))];
   if (!wanted.length) return [];
   const ranked = q ? new Map(rank(db.findings, q, db).map(r => [r.f.id, r.total])) : new Map();
-  return db.findings.filter(f => f.gate?.pass === true && f.verified?.quote === true).flatMap(finding => {
+  return db.findings.filter(f => f.gate?.pass === true && (f.verified?.quote === true || f.verified?.quote === 'exact match')).flatMap(finding => {
     const primary = terms([finding.claim, finding.quote, finding.topic, finding.source?.title].join(' '));
     const all = new Set([...primary, ...terms(values(finding.conditions).join(' ')), ...terms(values(finding.n).join(' '))]);
     if (!wanted.every(t => all.has(t))) return [];

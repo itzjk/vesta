@@ -34,3 +34,18 @@ test('formula aliases preserve the verified-evidence requirement', () => {
   ];
   assert.deepEqual(ids('O2', { findings }), []);
 });
+
+test('published exact-match findings remain searchable', () => {
+  const source = db.findings.find(f => f.id === 'OPERATIONS-243');
+  assert.equal(source.gate.pass, true);
+  assert.equal(source.verified.quote, 'exact match');
+  assert.ok(ids('significant knowledge gap').includes(source.id));
+});
+
+test('both reviewed quote formats require a passing gate; other strings are not proof', () => {
+  const record = (id, quote, pass = true) => ({ id, claim: 'unique probe', gate: { pass }, verified: { quote }, n: {} });
+  const findings = [record('boolean', true), record('exact', 'exact match'),
+    record('failed-gate', 'exact match', false), record('unchecked', 'unchecked'),
+    record('string-true', 'true'), record('none', null), record('false', false)];
+  assert.deepEqual(ids('unique probe', { findings }), ['boolean', 'exact']);
+});

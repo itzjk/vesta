@@ -90,6 +90,7 @@ html[data-capture] .wc-source{animation:none}
 
 @media(max-width:759px){.world-instrument{display:none}}
 .world-picked-source{position:absolute;left:20px;bottom:76px;max-width:260px;padding:8px 12px;background:var(--bg-0);font-size:18px;pointer-events:auto}
+@media(max-width:759px){.world-host[data-station=evidence] .world-picked-source{top:260px;bottom:auto;max-width:230px;font-size:14px}}
 .world-hologram button.primary,.world-hologram [data-primary],.world-hologram .btn-primary,.world-hologram button.world-primary,.world-hologram button[data-drill="run"],.world-skip{background:var(--rust-deep);color:var(--ivory)}
 
 html[data-world="true"] #bar{display:none}

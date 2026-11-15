@@ -1,8 +1,8 @@
-import { TOL } from '../core/match.js';
+import { TOL, match } from '../core/match.js';
+import { cells } from '../core/status.js';
 export const still = 'assets/scene/field.jpg';
 const planes = [{ key: '0g', label: '0 g · microgravity', z: 4.5 }, { key: 'moon', label: '1/6 g · Moon', z: 1.5 }, { key: 'mars', label: '3/8 g · Mars', z: -1.5 }, { key: '1g', label: '1 g · Earth', z: -4.5 }];
 const KPA_PER_PSI = 6.894757293;
-let entered = false;
 export function fieldRows(db) {
   return db.tests.filter(r => r.n?.o2 != null).map(r => ({ row: r, p: r.n.p ?? r.n.p_inferred ?? null, o2: r.n.o2,
     plane: r.n.gclass === 'micro' ? '0g' : r.n.gclass === 'normal' ? '1g' : r.gravity === '1/6 g' ? 'moon' : r.gravity === '3/8 g' ? 'mars' : 'unknown',
@@ -16,188 +16,205 @@ export function nearestSolid(db, q) {
   })[0] || null;
 }
 export async function build(ctx) {
-  const { THREE: T, camera, renderer } = ctx, group = new T.Group(), host = renderer.domElement.parentElement;
-  const integrated = ctx.world === true;
-  const phone = !integrated && ctx.mode === 'low' && innerWidth < 760;
-  if(phone)group.scale.set(.5,1,.7);
-  const overlay = document.createElement('div'); overlay.className = 'field-labels'; host.append(overlay);
-  const labels = [], disposers = [], projection = new T.Vector3();
-  const label = (text, position, cls = '') => { const el = document.createElement('span'); el.className = 'field-label ' + cls; el.textContent = text; overlay.append(el); const item = { el, position: new T.Vector3(...position) }; labels.push(item); return item; };
-  const line = (coords, color, opacity = 1) => new T.Line(new T.BufferGeometry().setFromPoints(coords.map(p => new T.Vector3(...p))), new T.LineBasicMaterial({ color, transparent: true, opacity }));
-  const slices = [];
-  const planeLabels = planes.map(plane => {
-    // Open axes and corner marks preserve depth without four overlapping glass boxes.
-    const axes = line([[-6,2.7,plane.z],[-6,-2.7,plane.z],[6,-2.7,plane.z]], plane.key === '0g' ? 0x8fa3b5 : 0xc78973, .2);
-    const corners = new T.LineSegments(new T.BufferGeometry().setFromPoints([
-      [-6,2.3,plane.z],[-6,2.7,plane.z],[-6,2.7,plane.z],[-5.6,2.7,plane.z],
-      [5.6,2.7,plane.z],[6,2.7,plane.z],[6,2.7,plane.z],[6,2.3,plane.z],
-      [6,-2.3,plane.z],[6,-2.7,plane.z]
-    ].map(p => new T.Vector3(...p))), new T.LineBasicMaterial({ color: 0xc78973, transparent: true, opacity: .2 }));
-    const face = new T.Mesh(new T.PlaneGeometry(12, 5.4), new T.MeshBasicMaterial({ color: plane.key === '0g' ? 0x8fa3b5 : 0xad7b67, transparent: true, opacity: 0, side: T.DoubleSide, depthWrite: false }));
-    face.position.z = plane.z; group.add(axes, corners, face); slices.push({ key: plane.key, axes, corners, face });
-    return label(plane.label, [plane.key === '0g' ? (phone ? -2.2 : -4.9) : 5.7, plane.key === '0g' ? 3.35 : phone ? [0,2.1,-1.2,-4.1][planes.indexOf(plane)] : 2.1 - planes.indexOf(plane)*1.65, plane.z], 'field-plane-label' + (plane.key === '0g' ? ' field-data-label' : ' field-gap-label'));
-  });
-  const pressureLabel = label('Air pressure · psia · log scale →', [-1.5, phone ? -4.35 : -3.8, 4.5], 'field-axis');
-  label('Oxygen %', [-6.8, 3.35, 4.5], 'field-axis field-oxygen-title');
-  label('Pressure not in table', [6.65, 2.9, 4.5], 'field-rail-label');
-  group.add(line([[6.65,-2.7,4.5],[6.65,2.7,4.5]],0x8fa3b5,.4));
-  const cabin = new T.Mesh(new T.OctahedronGeometry(.17), new T.MeshBasicMaterial({ color: 0xee9b7b })); group.add(cabin);
-  const ring = new T.Mesh(new T.TorusGeometry(.29,.018,8,48),new T.MeshBasicMaterial({ color: 0xee9b7b })); group.add(ring);
-  const link = line([[0,0,0],[0,0,0]],0xee9b7b,.9); group.add(link);
-  const cabinLabel = label('Your cabin', [0,0,0], 'field-cabin-label');
-  const deltaLabel = label('', [0,0,0], 'field-delta-label');
-  const hoverLabel = label('', [0,0,0], 'field-hover-label'); hoverLabel.el.hidden = true;
-  let shown = ['solid','droplet','gas'], nearest, data = [], cloud, priorDb, lastKey, from = new T.Vector3(), target = new T.Vector3(), changeT = 0, hovered = null, selected = null, selectedIds = [], selectionKey = '', highlightEmpty = false;
-  let yaw = .76, pitch = .1, distance = phone ? 17 : 17.4, drag = null, interacted = false, introStart = null;
-  let oMax = 42, pMin = 2, pMax = 80, axisKey;
-  const animateEntry = !entered; entered = true;
-  const pointers = new Map(); let pinch;
-  const canvas = renderer.domElement;
-  const listen = (name, fn, options, surface = canvas) => { if(integrated)return; surface.addEventListener(name, fn, options); disposers.push(() => surface.removeEventListener(name, fn, options)); };
-  const clearHover = () => { hovered = null; hoverLabel.el.hidden = true; if(cloud)cloud.material.uniforms.uHover.value.set(999,999,999); };
-  listen('pointerdown', e => { interacted = true; clearHover(); pointers.set(e.pointerId,[e.clientX,e.clientY]); drag = [e.clientX,e.clientY]; canvas.setPointerCapture(e.pointerId); });
-  listen('pointermove', e => {
-    if (!pointers.has(e.pointerId)) return;
-    clearHover();
-    pointers.set(e.pointerId,[e.clientX,e.clientY]);
-    if (pointers.size === 2) { const [a,b] = [...pointers.values()], d = Math.hypot(a[0]-b[0],a[1]-b[1]); if (pinch && d > 0) distance = Math.max(10,Math.min(32,distance * pinch/d)); pinch = d; }
-    else if (drag) { yaw = Math.max(-1.1,Math.min(1.1,yaw + (e.clientX-drag[0])*.006)); pitch = Math.max(-.6,Math.min(.7,pitch + (e.clientY-drag[1])*.004)); }
-    drag = [e.clientX,e.clientY];
-  });
-  const end = e => { pointers.delete(e.pointerId); pinch = null; drag = null; };
-  listen('pointerup',end); listen('pointercancel',end); listen('pointerleave',clearHover);
-  listen('wheel',e => { e.preventDefault(); interacted = true; distance = Math.max(10,Math.min(32,distance * Math.exp(e.deltaY*.001))); },{passive:false},host);
-  const x = psi => (Math.log(psi / pMin) / Math.log(pMax / pMin)) * 12 - 6;
-  const y = oxygen => (oxygen-10)/(oMax-10)*5.4-2.7;
-  const pos = p => new T.Vector3(p.p == null ? 6.65 : x(p.p/KPA_PER_PSI), y(p.o2), planes.find(g=>g.key===p.plane)?.z ?? -7.5);
-  const oxygenTicks = [10,20,30,40].map(o => label(`${o}`, [-6.35,y(o),4.5], 'field-tick field-oxygen-tick'));
-  const pressureTicks = [2,5,10,20,40,80].map(p => label(`${p}`, [x(p),-2.98,4.5], 'field-tick'));
-  const ray = new T.Raycaster();
-  const markKey = p => [p.p,p.o2,p.plane,p.layer,p.row.n.p == null].join('|');
-  const signed = v => `${v>0?'+':''}${Math.round(v*10)/10}`;
-  function populate(db) {
-    data = fieldRows(db); priorDb = db; selectionKey='';
-    const multiplicity = new Map();
-    for(const p of data) multiplicity.set(markKey(p),(multiplicity.get(markKey(p)) || 0)+1);
-    const geometry = new T.BufferGeometry(), positions = [], colors = [], flags = [], layers = [], sizes = [];
-    for (const p of data) {
-      positions.push(...pos(p).toArray()); layers.push(p.layer === 'solid' ? 0 : p.layer === 'droplet' ? 1 : 2);
-      colors.push(...new T.Color(p.layer === 'solid' ? 0xf1e9d8 : 0x708394).toArray()); flags.push(p.row.n.p == null ? 1 : 0);
-      sizes.push(Math.min(16,(p.layer === 'solid' ? 6.5 : 4.5)+Math.log2(multiplicity.get(markKey(p)))*1.8));
-    }
-    geometry.setAttribute('layer',new T.Float32BufferAttribute(layers,1));
-    geometry.setAttribute('selected',new T.Float32BufferAttribute(data.map(p=>!selectedIds.length && !highlightEmpty || selectedIds.includes(p.row.psi_id) ? 1 : 0),1));
-    geometry.setAttribute('position',new T.Float32BufferAttribute(positions,3)); geometry.setAttribute('color',new T.Float32BufferAttribute(colors,3)); geometry.setAttribute('inferred',new T.Float32BufferAttribute(flags,1)); geometry.setAttribute('pointSize',new T.Float32BufferAttribute(sizes,1));
-    const material = new T.ShaderMaterial({ vertexColors:true, transparent:true, depthWrite:false, uniforms:{uLayers:{value:new T.Vector3(1,1,1)},uDpr:{value:1},uHover:{value:new T.Vector3(999,999,999)},uTime:{value:0},uSelected:{value:0}},
-      vertexShader:'attribute float layer; attribute float inferred; attribute float pointSize; attribute float selected; uniform float uDpr; uniform vec3 uHover; uniform float uTime; uniform float uSelected; varying float vLayer; varying vec3 vColor; varying float vRing; varying float vAlpha; void main(){vLayer=layer;vColor=color;vRing=inferred;vAlpha=mix(.09,1.,selected);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);float shimmer=1.+.045*sin(uTime*1.5+position.x*2.+position.y);gl_PointSize=(pointSize*shimmer+uSelected*selected*2.+(distance(position,uHover)<.001?5.0:0.0))*uDpr;}',
-      fragmentShader:'uniform vec3 uLayers; varying float vLayer; varying vec3 vColor; varying float vRing; varying float vAlpha; void main(){if((vLayer<.5 && uLayers.x<.5)||(vLayer>.5 && vLayer<1.5 && uLayers.y<.5)||(vLayer>1.5 && vLayer<2.5 && uLayers.z<.5))discard;float d=length(gl_PointCoord-.5);if(d>.5 || (vRing>.5 && d<.28))discard;gl_FragColor=vec4(vColor,vAlpha);\n#include <colorspace_fragment>\n}' });
-    if(cloud){group.remove(cloud);cloud.geometry.dispose();cloud.material.dispose();}
-    cloud = new T.Points(geometry,material); group.add(cloud);
-    planes.forEach((p,i) => { const n = data.filter(d=>d.plane===p.key).length; planeLabels[i].el.replaceChildren(document.createTextNode(p.label),Object.assign(document.createElement('small'),{textContent:integrated && innerWidth < 760 ? `${n} plotted rows` : n ? `${n} test rows` : integrated ? 'no plotted row in the evidence base' : 'no test row in the evidence base'})); });
+  const { THREE: T, camera, renderer } = ctx;
+  const group = new T.Group(), instrument = new T.Group(), host = renderer.domElement.parentElement;
+  group.name = 'tested-conditions'; group.add(instrument);
+  const make = (tag, cls, text) => {
+    const el = document.createElement(tag); el.className = cls;
+    if (text != null) el.textContent = text;
+    return el;
+  };
+  const overlay = make('section', 'field-labels field-instrument');
+  overlay.setAttribute('aria-label', 'Tested conditions');
+  const style = make('style', '');
+  style.textContent = `
+.field-instrument.field-labels{position:absolute!important;inset:80px 100px 140px 32px!important;max-width:1100px;margin:auto;z-index:8!important;pointer-events:none!important;overflow:visible!important;display:flex;flex-direction:column;color:#f0e8d9;font:16px/1.35 var(--font-body,'Source Sans 3',sans-serif);box-shadow:0 12px 40px #0007;isolation:isolate}
+.field-instrument[hidden]{display:none!important}.field-instrument *{box-sizing:border-box}.field-heading,.field-gravities,.field-caption,.field-key{background:#172126}.field-heading{padding:16px 22px 12px;border-top:2px solid #b98564;display:flex;align-items:center;justify-content:space-between;gap:16px}.field-heading h2{font:500 26px/1.15 var(--font-body,'Source Sans 3',sans-serif);margin:0}.field-cabin-readout{color:#eeb38d;font-size:15px;text-align:right}.field-gravities{padding:0 18px 12px;display:flex;gap:6px;pointer-events:auto}.field-gravities button{flex:1;min-height:48px;padding:6px 8px;border:1px solid #65727a;background:#172126;color:#d0d9dc;font:inherit;cursor:pointer;touch-action:manipulation}.field-gravities button[aria-pressed=true]{border-color:#f0b68e;background:#65402d;color:#fff2df}.field-gravities button small{display:block;font-size:13px;color:inherit}.field-instrument button:focus-visible{outline:2px solid #fff;outline-offset:2px}.field-chart{position:relative;flex:1;min-height:150px}.field-plot{position:absolute;inset:34px 72px 56px 64px;border-left:1px solid #9aa7aa;border-bottom:1px solid #9aa7aa}.field-grid{position:absolute;background:#a6b8c01b;pointer-events:none}.field-grid-x{top:0;bottom:0;width:1px}.field-grid-y{left:0;right:0;height:1px}.field-axis-text{position:absolute;font-size:14px;color:#dbe0dc;white-space:nowrap}.field-x-title{bottom:5px;left:64px}.field-y-title{left:20px;top:7px}.field-tick-text{position:absolute;font:13px/1 var(--font-body,'Source Sans 3',sans-serif);color:#bac7cd}.field-tick-x{top:calc(100% + 10px);transform:translateX(-50%)}.field-tick-y{right:calc(100% + 10px);transform:translateY(50%)}.field-unknown-pressure{position:absolute;top:0;bottom:0;right:-38px;width:1px;background:#94a5b25c}.field-unknown-pressure span{position:absolute;top:-22px;left:-27px;padding-top:0;font-size:11px;color:#bac7cd;white-space:nowrap}.field-empty{position:absolute;inset:10px 12px;display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;gap:10px;color:#dbe0dc;font-size:18px;line-height:1.35}.field-empty[hidden]{display:none}.field-empty strong{font-size:24px;font-weight:500}.field-empty button{pointer-events:auto;min-height:44px;padding:8px 12px;border:1px solid #a17d60;background:#263238;color:#f0e8d9;font:inherit;cursor:pointer}.field-cabin-tag{position:absolute;max-width:200px;padding:5px 8px;background:#10191ef0;color:#ffc69c;font-size:14px;border-left:2px solid #ffc69c;white-space:normal;transform:translate(12px,-100%)}.field-cabin-tag[data-other=true]{border-left-style:dashed;color:#d8c2aa}.field-caption{margin:0;padding:12px 22px 6px;font-size:18px;line-height:1.3}.field-caption strong{color:#efb087;font-weight:500}.field-key{display:flex;flex-wrap:wrap;gap:5px 18px;padding:8px 22px 16px;font-size:13px;color:#b6c3c9}.field-key span:first-child{color:#efb087}.field-row-readout{position:absolute;left:18px;right:18px;bottom:4px;max-width:650px;padding:10px 14px;background:#172126f5;border-left:2px solid #efb087;color:#ede4d4;font-size:15px;pointer-events:none}.field-row-readout[hidden]{display:none}
+@media(max-width:759px){.field-instrument.field-labels{inset:74px 12px 158px!important;max-width:none}.field-heading{padding:12px 12px 10px;display:block}.field-heading h2{font-size:22px}.field-cabin-readout{text-align:left;font-size:13px;margin-top:4px}.field-gravities{padding:0 10px 10px;gap:4px}.field-gravities button{font-size:14px;padding:5px 2px;min-height:48px}.field-gravities button small{font-size:11px}.field-plot{inset:32px 50px 51px 45px}.field-y-title{left:10px}.field-x-title{left:45px;font-size:12px}.field-axis-text{font-size:13px}.field-tick-text{font-size:12px}.field-unknown-pressure{right:-23px}.field-unknown-pressure span{left:-22px;font-size:10px}.field-caption{font-size:16px;padding:10px 12px 5px}.field-key{padding:7px 12px 12px;font-size:11px;gap:4px 12px}.field-cabin-tag{font-size:12px;max-width:150px}.field-empty{font-size:14px;inset:10px 0}.field-empty strong{font-size:20px}.field-empty button{font-size:14px}.field-row-readout{left:8px;right:8px;font-size:13px}}
+@media(max-height:580px){.field-instrument.field-labels{inset:52px 72px 64px 12px!important}.field-heading{padding:6px 12px;display:flex}.field-heading h2{font-size:18px}.field-gravities{padding-bottom:4px}.field-gravities button{min-height:44px}.field-gravities button small{display:none}.field-chart{min-height:90px}.field-caption{font-size:14px;padding:6px 12px}.field-key{padding:3px 12px 6px;font-size:11px}}
+`;
+  const heading = make('header', 'field-heading'), title = make('h2', '', 'Tested conditions');
+  const readout = make('div', 'field-cabin-readout'); heading.append(title, readout);
+  const tabs = make('nav', 'field-gravities'); tabs.setAttribute('aria-label', 'Gravity level');
+  const chart = make('div', 'field-chart'), plot = make('div', 'field-plot');
+  const xTitle = make('div', 'field-axis-text field-x-title', 'Air pressure (psia), log scale');
+  chart.append(make('div', 'field-axis-text field-y-title', 'Oxygen (% by volume)'), plot, xTitle);
+  const rail = make('div', 'field-unknown-pressure'); rail.append(make('span', '', 'Not stated')); plot.append(rail);
+  const cabinLabel = make('div', 'field-cabin-tag'); plot.append(cabinLabel);
+  const empty = make('div', 'field-empty'), emptyTitle = make('strong', ''), emptyText = make('span', ''), available = make('button', '');
+  available.type = 'button'; empty.append(emptyTitle, emptyText, available); plot.append(empty);
+  const caption = make('p', 'field-caption'); caption.setAttribute('aria-live', 'polite');
+  const legend = make('div', 'field-key');
+  for (const text of [`◆ Your cabin · rust = matching rows (±${TOL.o2} pp O₂, ±${TOL.p} kPa)`, '● Cabin materials · ◇ Model fuels', 'Hollow = inferred / absent pressure', 'Source-table rows; overlaps share a mark', 'Coverage, not safety']) legend.append(make('span', '', text));
+  const hover = make('div', 'field-row-readout'); hover.hidden = true;
+  overlay.append(style, heading, tabs, chart, caption, legend, hover); host.append(overlay);
+  for (const type of ['pointerdown', 'pointerup', 'wheel', 'keydown']) tabs.addEventListener(type, e => { if (type !== 'keydown' || e.key !== 'Escape') e.stopPropagation(); });
+  available.addEventListener('pointerdown', e => e.stopPropagation());
+  const invalidate = () => ctx.invalidate ? ctx.invalidate() : ctx.set?.({});
+  let selectedGravity = null, gravity = '0g', stateNow, data = [], visibleRows = [], priorDb, cacheKey = '', layoutKey = '', active = true;
+  let marks, hitRows = new Set(), selectedIds = [], highlightEmpty = false, shown = [], hovered = null, bounds;
+  let oMin = 10, oMax = 42, pMin = 2, pMax = 80;
+  const buttons = new Map(), tickNodes = [], disposed = new Set(), matrix = new T.Matrix4(), local = new T.Matrix4(), inverse = new T.Matrix4();
+  const rotation = new T.Quaternion();
+  const flat = color => new T.MeshBasicMaterial({ color, depthTest: false, depthWrite: false, toneMapped: false });
+  const plate = new T.Mesh(new T.PlaneGeometry(1, 1), flat(0x1c2a32)); plate.renderOrder = 1000; plate.frustumCulled = false; instrument.add(plate);
+  const tolerance = new T.Mesh(new T.PlaneGeometry(1, 1), new T.MeshBasicMaterial({ color: 0xad7859, transparent: true, opacity: .17, depthTest: false, depthWrite: false, toneMapped: false })); tolerance.renderOrder = 1001; tolerance.frustumCulled = false; instrument.add(tolerance);
+  const cabin = new T.Mesh(new T.RingGeometry(.34, .5, 4), flat(0xffc498)); cabin.rotation.z = 0; cabin.renderOrder = 1004; cabin.frustumCulled = false; instrument.add(cabin);
+  const core = new T.Mesh(new T.CircleGeometry(.22, 4), flat(0xffc498)); core.rotation.z = 0; core.renderOrder = 1004; core.frustumCulled = false; instrument.add(core);
+  const x = p => Math.log(p / pMin) / Math.log(pMax / pMin);
+  const y = o => (o - oMin) / (oMax - oMin);
+  const point = p => ({ x: p.p != null && p.p > 0 ? x(p.p / KPA_PER_PSI) : 1, y: y(p.o2) });
+  function selectGravity(key) {
+    if (!buttons.has(key)) return;
+    selectedGravity = key; cacheKey = ''; clearHover();
+    if (stateNow) update(lastTime, stateNow);
+    invalidate();
   }
-  return { group, still,
-    update(t,state) {
-      if (!state.db || !state.q) return;
-      const q=state.q;
-      slices.forEach(slice => {
-        const focused = slice.key === q.g;
-        slice.axes.material.opacity = focused ? .4 : slice.key === '0g' ? .19 : .045;
-        slice.corners.material.opacity = focused ? .55 : .07;
-        slice.face.material.opacity = focused ? .012 : 0;
-        slice.face.visible = focused;
+  function clearHover() { hovered = null; hover.hidden = true; }
+  function populate(db) {
+    data = fieldRows(db); priorDb = db; cacheKey = ''; layoutKey = '';
+    const definitions = [...planes, ...(data.some(p => p.plane === 'unknown') ? [{ key: 'unknown', label: 'Unknown gravity' }] : [])];
+    tabs.replaceChildren(); buttons.clear();
+    for (const def of definitions) {
+      const count = data.filter(p => p.plane === def.key).length;
+      const button = make('button', '', def.key === '0g' ? 'Microgravity' : def.key === 'moon' ? 'Moon' : def.key === 'mars' ? 'Mars' : def.key === '1g' ? 'Earth' : 'Unknown');
+      button.type = 'button'; button.dataset.fieldGravity = def.key;
+      button.append(make('small', '', `${def.label.split(' · ')[0]} · ${count} rows`));
+      button.setAttribute('aria-label', `${def.label}: ${count} rows`); button.onclick = () => selectGravity(def.key);
+      buttons.set(def.key, button); tabs.append(button);
+    }
+    if (selectedGravity && !buttons.has(selectedGravity)) selectedGravity = null;
+    if (marks) { instrument.remove(marks); marks.geometry.dispose(); marks.material.dispose(); }
+    const geometry = new T.PlaneGeometry(1, 1);
+    geometry.setAttribute('shade', new T.InstancedBufferAttribute(new Float32Array(Math.max(1, data.length) * 3), 3));
+    geometry.setAttribute('shape', new T.InstancedBufferAttribute(new Float32Array(Math.max(1, data.length)), 1));
+    geometry.setAttribute('hollow', new T.InstancedBufferAttribute(new Float32Array(Math.max(1, data.length)), 1));
+    const material = new T.ShaderMaterial({ transparent: true, depthTest: false, depthWrite: false, toneMapped: false,
+      vertexShader: 'attribute vec3 shade; attribute float shape; attribute float hollow; varying vec2 markUV; varying vec3 markColor; varying float markShape; varying float markHollow; void main(){markUV=uv-.5;markColor=shade;markShape=shape;markHollow=hollow;gl_Position=projectionMatrix*modelViewMatrix*instanceMatrix*vec4(position,1.);}',
+      fragmentShader: 'varying vec2 markUV; varying vec3 markColor; varying float markShape; varying float markHollow; void main(){float d=markShape>.5?abs(markUV.x)+abs(markUV.y):length(markUV);float a=1.-smoothstep(.43,.5,d);if(markHollow>.5)a*=smoothstep(.24,.31,d);if(a<.01)discard;gl_FragColor=vec4(markColor,a);#include <colorspace_fragment>\n}'.replace('#include', '\n#include')
+    });
+    marks = new T.InstancedMesh(geometry, material, Math.max(1, data.length)); marks.name = 'tested-row-marks'; marks.count = 0; marks.renderOrder = 1002; marks.frustumCulled = false; instrument.add(marks);
+  }
+  function axes(q) {
+    const pressures = data.map(p => p.p / KPA_PER_PSI).filter(p => Number.isFinite(p) && p > 0);
+    const oxygens = data.map(p => p.o2).filter(Number.isFinite);
+    pMin = Math.min(2, ...pressures, Number.isFinite(q.p) && q.p > 0 ? q.p / KPA_PER_PSI : 2); pMax = Math.max(80, ...pressures, Number.isFinite(q.p) && q.p > 0 ? q.p / KPA_PER_PSI : 80);
+    oMin = Math.min(10, ...oxygens, Number.isFinite(q.o2) ? q.o2 : 10); oMax = Math.max(42, ...oxygens, Number.isFinite(q.o2) ? q.o2 : 42);
+    tickNodes.forEach(el => el.remove()); tickNodes.length = 0;
+    const addTick = (value, horizontal) => {
+      const percent = (horizontal ? x(value) : y(value)) * 100;
+      const grid = make('i', `field-grid field-grid-${horizontal ? 'x' : 'y'}`), tick = make('span', `field-tick-text field-tick-${horizontal ? 'x' : 'y'}`, String(value));
+      grid.style[horizontal ? 'left' : 'bottom'] = tick.style[horizontal ? 'left' : 'bottom'] = `${percent}%`;
+      plot.append(grid, tick); tickNodes.push(grid, tick);
+    };
+    for (const p of [2, 5, 10, 20, 40, 80]) if (p >= pMin && p <= pMax) addTick(p, true);
+    const step = oMax - oMin > 60 ? 20 : 10;
+    for (let o = Math.ceil(oMin / step) * step; o <= oMax; o += step) addTick(o, false);
+  }
+  function refresh(state) {
+    const q = state.q; gravity = selectedGravity || (buttons.has(q.g) ? q.g : '0g');
+    shown = state.show || ['solid', 'droplet', 'gas']; selectedIds = state.highlightInvestigations || [state.investigation, state.comparison].filter(Boolean); highlightEmpty = !!state.highlightEmpty;
+    hitRows = new Set(data.filter(p => p.row.n.counts && match(p.row.n, q, state.db.base).fail.length === 0).map(p => p.row.id));
+    visibleRows = data.filter(p => p.plane === gravity && shown.includes(p.layer));
+    const selected = p => !selectedIds.length && !highlightEmpty || selectedIds.includes(p.row.psi_id);
+    const matching = visibleRows.filter(p => selected(p) && hitRows.has(p.row.id)).length;
+    const represented = visibleRows.filter(selected).length;
+    const level = planes.find(p => p.key === gravity)?.label || 'Unknown gravity';
+    for (const [key, button] of buttons) button.setAttribute('aria-pressed', String(key === gravity));
+    readout.textContent = `Your cabin: ${Number.isFinite(q.o2) ? `${q.o2}% O₂` : 'oxygen not set'} · ${Number.isFinite(q.p) ? `${(q.p / KPA_PER_PSI).toFixed(1)} psia` : 'pressure not set'} · ${q.g_label || q.g || 'gravity not set'}`;
+    const coverage = cells(q, state.db), proven = coverage.filter(c => c.status === 'PROVEN').length;
+    caption.replaceChildren(document.createTextNode(`${level}: ${visibleRows.length} rows shown${selectedIds.length || highlightEmpty ? `, ${represented} in the selection` : ''}. `), make('strong', '', `${matching} counting rows within cabin tolerance.`));
+    legend.lastChild.textContent = `${proven} of ${coverage.length} material questions nearby. Coverage, not safety.`;
+    empty.hidden = represented > 0;
+    emptyTitle.textContent = visibleRows.length ? 'No rows in this selection' : `No plotted rows at ${level.split(' · ')[0]}`;
+    emptyText.textContent = 'This is a gap in this collection, not proof of safety.';
+    const populated = [...buttons.keys()].filter(key => data.some(p => p.plane === key && shown.includes(p.layer))).sort((a, b) => data.filter(p => p.plane === b).length - data.filter(p => p.plane === a).length)[0];
+    available.hidden = !populated || populated === gravity;
+    available.textContent = `View ${populated === '0g' ? 'microgravity' : planes.find(p => p.key === populated)?.label || populated} rows`;
+    available.onclick = () => selectGravity(populated);
+    axes(q); clearHover(); layoutKey = '';
+    host.dataset.fieldRows = String(data.length); host.dataset.fieldVisibleRows = String(visibleRows.length); host.dataset.fieldMatches = String(matching); host.dataset.fieldGravity = gravity; host.dataset.fieldMinPointPx = '9';
+  }
+  let lastTime = 0;
+  function update(t, state) {
+    if (!state.db || !state.q) return;
+    lastTime = t; stateNow = state;
+    if (priorDb !== state.db) populate(state.db);
+    const key = JSON.stringify([state.q, selectedGravity, state.show, state.investigation, state.comparison, state.highlightInvestigations, state.highlightEmpty]);
+    if (key !== cacheKey) { refresh(state); cacheKey = key; }
+    if (!active || !group.visible) return;
+    const hostRect = host.getBoundingClientRect(), rect = plot.getBoundingClientRect(); bounds = { left: rect.left - hostRect.left, top: rect.top - hostRect.top, width: rect.width, height: rect.height, hostWidth: hostRect.width, hostHeight: hostRect.height };
+    camera.updateMatrixWorld(); group.updateWorldMatrix(true, false);
+    const depth = 2, height = 2 * depth * Math.tan(camera.fov * Math.PI / 360), width = height * camera.aspect;
+    local.makeTranslation(((bounds.left + rect.width / 2) / hostRect.width - .5) * width, (.5 - (bounds.top + rect.height / 2) / hostRect.height) * height, -depth);
+    matrix.multiplyMatrices(camera.matrixWorld, local); inverse.copy(group.matrixWorld).invert(); instrument.matrixAutoUpdate = false; instrument.matrix.multiplyMatrices(inverse, matrix);
+    instrument.matrixWorldNeedsUpdate = true;
+    const sx = width / hostRect.width, sy = height / hostRect.height, w = rect.width * sx, h = rect.height * sy;
+    const layout = `${rect.width}|${rect.height}|${sx}|${sy}`;
+    if (layoutKey !== layout) {
+      layoutKey = layout; plate.scale.set(w + 130 * sx, h + 94 * sy, 1);
+      const counts = new Map(); for (const p of visibleRows) { const key = `${p.p}|${p.o2}|${p.layer}|${p.row.n.p == null}`; counts.set(key, (counts.get(key) || 0) + 1); }
+      const shade = marks.geometry.attributes.shade, shape = marks.geometry.attributes.shape, hollow = marks.geometry.attributes.hollow;
+      visibleRows.forEach((p, i) => {
+        const at = point(p), selected = !selectedIds.length && !highlightEmpty || selectedIds.includes(p.row.psi_id);
+        const duplicate = counts.get(`${p.p}|${p.o2}|${p.layer}|${p.row.n.p == null}`);
+        const size = Math.min(23, 9 + Math.log2(duplicate) * 1.4 + (hitRows.has(p.row.id) && selected ? 4 : 0)), railX = rect.width + (hostRect.width < 760 ? 23 : 38);
+        const px = p.p != null && p.p > 0 ? at.x * rect.width : railX;
+        const position = new T.Vector3((px - rect.width / 2) * sx, (at.y - .5) * h, 0);
+        matrix.compose(position, rotation, new T.Vector3(size * sx, size * sy, 1)); marks.setMatrixAt(i, matrix);
+        const color = new T.Color(hitRows.has(p.row.id) && selected ? 0xefae86 : state.comparison === p.row.psi_id ? 0x80c8d5 : state.investigation === p.row.psi_id ? 0xe0a458 : p.layer === 'solid' ? 0xe1ded0 : 0x92b8c9);
+        if (!selected) color.multiplyScalar(.24);
+        shade.setXYZ(i, color.r, color.g, color.b); shape.setX(i, p.layer === 'solid' ? 0 : 1); hollow.setX(i, p.row.n.p == null ? 1 : 0);
       });
-      const domain=[Math.max(42,Number.isFinite(q.o2)?q.o2:42),Math.min(2,Number.isFinite(q.p)&&q.p>0?q.p/KPA_PER_PSI:2),Math.max(80,Number.isFinite(q.p)?q.p/KPA_PER_PSI:80)];
-      const nextAxis=domain.join('|');
-      if(axisKey!==nextAxis){[oMax,pMin,pMax]=domain;axisKey=nextAxis;oxygenTicks.forEach((l,i)=>l.position.y=y([10,20,30,40][i]));pressureTicks.forEach((l,i)=>l.position.x=x([2,5,10,20,40,80][i]));populate(state.db);lastKey=null;}
-      else if (priorDb !== state.db) populate(state.db);
-      shown=state.show || ['solid','droplet','gas']; cloud.material.uniforms.uLayers.value.set(...['solid','droplet','gas'].map(k=>shown.includes(k)?1:0)); cloud.material.uniforms.uDpr.value=renderer.getPixelRatio();
-      const nextIds = state.highlightInvestigations || [state.investigation, state.comparison].filter(Boolean);
-      const nextSelection = JSON.stringify([nextIds, !!state.highlightEmpty]);
-      if(selectionKey !== nextSelection) {
-        selected=state.investigation || null; selectedIds=nextIds; selectionKey=nextSelection; highlightEmpty=!!state.highlightEmpty;
-        const attr=cloud.geometry.attributes.selected, colors=cloud.geometry.attributes.color;
-        data.forEach((p,i)=>{
-          attr.setX(i, !selectedIds.length && !highlightEmpty || selectedIds.includes(p.row.psi_id) ? 1 : 0);
-          const color=new T.Color(state.comparison && p.row.psi_id===state.comparison ? 0x80c8d5 : selected && p.row.psi_id===selected ? 0xe0a458 : p.layer==='solid' ? 0xf1e9d8 : 0x708394);
-          colors.setXYZ(i,...color.toArray());
-        }); attr.needsUpdate=true; colors.needsUpdate=true; clearHover();
+      marks.count = visibleRows.length; marks.instanceMatrix.needsUpdate = true; shade.needsUpdate = shape.needsUpdate = hollow.needsUpdate = true;
+      const q = state.q, valid = Number.isFinite(q.p) && q.p > 0 && Number.isFinite(q.o2);
+      cabin.visible = core.visible = valid; cabinLabel.hidden = !valid;
+      if (valid) {
+        const at = { x: x(q.p / KPA_PER_PSI), y: y(q.o2) }, other = q.g !== gravity;
+        cabin.position.set((at.x - .5) * w, (at.y - .5) * h, 0); core.position.copy(cabin.position);
+        cabin.scale.set(23 * sx, 23 * sy, 1); core.scale.set(23 * sx, 23 * sy, 1); core.visible = !other;
+        cabinLabel.dataset.other = String(other); cabinLabel.textContent = other ? `Cabin atmosphere (${q.g_label || q.g})` : 'Your cabin';
+        cabinLabel.style.left = `${at.x * 100}%`; cabinLabel.style.bottom = `${at.y * 100}%`;
+        if (at.x > .62) cabinLabel.style.transform = 'translate(calc(-100% - 12px),-10px)'; else cabinLabel.style.transform = 'translate(12px,-10px)';
+        tolerance.visible = !other;
+        const l = x(Math.max(pMin, (q.p - TOL.p) / KPA_PER_PSI)), r = x(Math.max(pMin, (q.p + TOL.p) / KPA_PER_PSI));
+        const b = y(Math.max(oMin, q.o2 - TOL.o2)), top = y(Math.min(oMax, q.o2 + TOL.o2));
+        tolerance.position.set(((l + r) / 2 - .5) * w, ((b + top) / 2 - .5) * h, 0); tolerance.scale.set((r - l) * w, (top - b) * h, 1);
+      } else tolerance.visible = false;
+    }
+    instrument.updateWorldMatrix(false, true);
+    host.dataset.fieldCabin = cabin.position.toArray().map(n => n.toFixed(3)).join(','); host.dataset.fieldCamera = camera.position.toArray().map(n => n.toFixed(3)).join(',');
+  }
+  return { group, still, update, selectGravity,
+    get gravity() { return gravity; },
+    pick(nx, ny) {
+      if (!active || !group.visible || !bounds) return null;
+      const px = (nx + 1) * bounds.hostWidth / 2 - bounds.left, py = (1 - ny) * bounds.hostHeight / 2 - bounds.top;
+      let best = null, distance = 18;
+      for (const p of visibleRows) {
+        if (highlightEmpty || selectedIds.length && !selectedIds.includes(p.row.psi_id)) continue;
+        const at = point(p), x = p.p != null && p.p > 0 ? at.x * bounds.width : bounds.width + (bounds.hostWidth < 760 ? 23 : 38);
+        const d = Math.hypot(px - x, py - (1 - at.y) * bounds.height);
+        if (d < distance) { best = p; distance = d; }
       }
-      cloud.material.uniforms.uTime.value=state.reduced || state.capture ? 2 : t;
-      cloud.material.uniforms.uSelected.value=selectedIds.length ? 1 : 0;
-      const valid = Number.isFinite(q.p) && q.p>0 && Number.isFinite(q.o2); cabin.visible=ring.visible=valid; cabinLabel.el.hidden=deltaLabel.el.hidden=!valid;
-      const key=[q.p,q.o2,q.g].join('|'), next=pos({p:q.p,o2:q.o2,plane:q.g});
-      if (key!==lastKey) { from.copy(lastKey ? cabin.position : next); target.copy(next); changeT=t; lastKey=key; nearest=nearestSolid(state.db,q); }
-      const a = state.capture || state.reduced || ctx.mode==='still' ? 1 : Math.min(1,Math.max(0,(t-changeT)/1.15)), ease=a*a*(3-2*a);
-      cabin.position.lerpVectors(from,target,ease); cabin.position.y+=Math.sin(a*Math.PI)*.6; ring.position.copy(cabin.position);
-      link.visible=valid&&!!nearest; deltaLabel.el.hidden=!link.visible;
-      if (nearest && valid) {
-        const at=pos(nearest), points=link.geometry.attributes.position; points.setXYZ(0,...cabin.position.toArray()); points.setXYZ(1,...at.toArray()); points.needsUpdate=true; link.geometry.computeBoundingSphere();
-        deltaLabel.position.copy(cabin.position).add(new T.Vector3(.3,-.42,0));
-        deltaLabel.el.textContent=`Cabin − solid row: ${signed(q.o2-nearest.o2)} pp O₂ · ${signed((q.p-nearest.p)/KPA_PER_PSI)} psia`;
-      }
-      introStart ??= t;
-      const entry=state.capture||!animateEntry||interacted?0:Math.max(0,1-(t-introStart)/1.45)**3;
-      const fitDistance=phone ? distance : distance*Math.max(1,1.65/camera.aspect), lookYaw=yaw-entry*.22;
-      if(!integrated){camera.position.set(Math.sin(lookYaw)*fitDistance,Math.sin(pitch+entry*.06)*fitDistance,Math.cos(lookYaw)*fitDistance); camera.lookAt(.4,phone ? 0 : -.65,0);}
-      camera.updateMatrixWorld(); group.updateMatrixWorld(true); ring.quaternion.copy(camera.quaternion);
-      cabinLabel.position.copy(cabin.position).add(new T.Vector3(.25,.4,0));
-      if(hovered)hoverLabel.position.copy(pos(hovered)).add(new T.Vector3(.15,.22,0));
-      const occupied = integrated ? [...(ctx.labelObstacles || []), ...document.querySelectorAll('.world-hologram[aria-hidden="false"],.evidence-tool,.world-marker,.world-answer,.world-stations,.world-instrument')].filter(el=>!el.hidden && el.getAttribute('aria-hidden')!=='true').map(el=>el.getBoundingClientRect()).filter(r=>r.width && r.height) : [];
-      const pointer = { x: ((state.pointerX || 0)+1)*host.clientWidth/2, y: (1-(state.pointerY || 0))*host.clientHeight/2 };
-      const hostBounds = host.getBoundingClientRect();
-      const selectedSlice = planeLabels.find((_, i) => planes[i].key === q.g);
-      const priority = l => l===hoverLabel ? -100000 : l===cabinLabel ? -90000 : l===selectedSlice ? -80000 : l===planeLabels[0] ? -70000 : Math.hypot((l.screenX || 0)-pointer.x,(l.screenY || 0)-pointer.y);
-      const ordered = integrated ? [...labels].sort((a,b)=>priority(a)-priority(b)) : labels;
-      let visibleLabels=0;
-      for(const l of ordered) {
-        if(l===hoverLabel&&!hovered)continue;
-        if((l===cabinLabel||l===deltaLabel)&&!valid)continue;
-        if(integrated && (l===deltaLabel || innerWidth<760 && l.el.matches('.field-axis,.field-tick,.field-rail-label')))continue;
-        projection.copy(l.position).applyMatrix4(group.matrixWorld).project(camera); let left=(projection.x+1)/2*host.clientWidth, top=(1-projection.y)/2*host.clientHeight;
-        if(phone && l.el.classList.contains('field-gap-label'))left=Math.min(host.clientWidth-l.el.offsetWidth-12,left+8);
-        if(phone && l.el.classList.contains('field-axis'))left=Math.max(16,Math.min(host.clientWidth-l.el.offsetWidth-12,left));
-        if(phone && l.el.classList.contains('field-oxygen-title'))top=103;
-        if(integrated && host.clientWidth<760){left=Math.max(8,Math.min(host.clientWidth-l.el.offsetWidth-8,left));if(l===planeLabels[0])top=Math.max(top,host.clientHeight*.315);}
-        l.screenX=left; l.screenY=top;
-        if(integrated) {
-          const w=l.el.offsetWidth || 160, h=l.el.offsetHeight || 38;
-          left=Math.max(12,Math.min(host.clientWidth-w-12,left)); top=Math.max(100,Math.min(host.clientHeight*.82-h,top));
-          const contextLabel = l === selectedSlice || l === cabinLabel || l === planeLabels[0];
-          const overlaps = box => occupied.some(r=>box.left<r.right+10 && box.right>r.left-10 && box.top<r.bottom+10 && box.bottom>r.top-10);
-          const at = (x,y) => ({left:x+hostBounds.left,top:y+hostBounds.top,right:x+w+hostBounds.left,bottom:y+h+hostBounds.top});
-          let box=at(left,top), collision=overlaps(box);
-          if (contextLabel && collision) {
-            for (const offset of [-h-14, -h, -2*(h+14), h+14]) {
-              const candidateTop=top+offset, candidate=at(left,candidateTop);
-              if(candidateTop>=100 && candidateTop+h<host.clientHeight*.82 && !overlaps(candidate)) { top=candidateTop; box=candidate; collision=false; break; }
-            }
-          }
-          const allowed=(state.labels || contextLabel || l===hoverLabel && hovered) && !collision && visibleLabels<(host.clientWidth<760 ? 3 : 7);
-          l.el.style.opacity=allowed ? '1' : '0';
-          l.el.style.visibility=allowed ? 'visible' : 'hidden';
-          if(allowed) { occupied.push(box); visibleLabels++; }
-        }
-        l.el.style.left=`${left}px`; l.el.style.top=`${top}px`; l.el.hidden=projection.z>1 || projection.z< -1 || (integrated && !group.visible);
-      }
-      host.dataset.fieldRows=String(data.length); host.dataset.fieldCabin=cabin.position.toArray().map(n=>n.toFixed(3)).join(','); host.dataset.fieldCamera=camera.position.toArray().map(n=>n.toFixed(3)).join(',');
-      host.dataset.fieldMinPointPx='4.5'; pressureLabel.el.dataset.axis='psia-log';
+      if (!best) { clearHover(); return null; }
+      hovered = best; hover.hidden = false;
+      const duplicates = visibleRows.filter(p => p.p === best.p && p.o2 === best.o2 && p.layer === best.layer && (p.row.n.p == null) === (best.row.n.p == null)).length;
+      hover.textContent = `${best.row.investigation} · ${best.row.fuel || 'fuel not stated'} · ${best.o2}% O₂ · ${best.p == null ? 'pressure not stated' : `${(best.p / KPA_PER_PSI).toFixed(1)} psia${best.row.n.p == null ? ', inferred' : ''}`} · ${duplicates} overlapping row${duplicates === 1 ? '' : 's'}`;
+      return { id: best.row.id, kind: 'test', row: best.row };
     },
-    pick(x,y) {
-      if(!cloud)return null;
-      ray.params.Points.threshold=integrated ? .17 : .14*distance/17.4; ray.setFromCamera({x,y},camera);
-      const hit=ray.intersectObject(cloud).find(h=>shown.includes(data[h.index].layer) && (!selectedIds.length && !highlightEmpty || selectedIds.includes(data[h.index].row.psi_id))), p=hit&&data[hit.index];
-      if(!p){clearHover();return null;}
-      hovered=p; cloud.material.uniforms.uHover.value.copy(pos(p)); hoverLabel.el.hidden=false;
-      hoverLabel.el.textContent=`${p.row.investigation} · ${p.row.fuel || 'fuel not stated'} · ${Math.round(p.o2*10)/10}% O₂ · ${p.p==null?'pressure not stated':`${Math.round(p.p/KPA_PER_PSI*10)/10} psia`}`;
-      return {id:p.row.id,kind:'test',row:p.row};
-    },
-    setVisible(value) { group.visible=value; overlay.hidden=!value; if(!value)clearHover(); },
+    setVisible(value) { active = value; group.visible = value; overlay.hidden = !value; if (!value) clearHover(); },
     focusPosition(out, rowId = null) {
       const row = rowId && data.find(p => p.row.id === rowId);
-      out.copy(row ? pos(row) : cabin.position);
-      group.updateMatrix(); return out.applyMatrix4(group.matrix);
+      if (row && bounds) {
+        const at = point(row), sx = plate.scale.x / (bounds.width + 130), sy = plate.scale.y / (bounds.height + 94);
+        out.set((at.x - .5) * bounds.width * sx, (at.y - .5) * bounds.height * sy, 0);
+      } else out.copy(cabin.position);
+      instrument.updateWorldMatrix(true, false); return out.applyMatrix4(instrument.matrixWorld).applyMatrix4(group.parent ? group.parent.matrixWorld.clone().invert() : new T.Matrix4());
     },
     get rows() { return data; },
-    dispose() { disposers.forEach(fn=>fn()); overlay.remove(); }
+    dispose() {
+      overlay.remove(); instrument.traverse(object => { for (const item of [object.geometry, ...[object.material].flat()]) if (item && !disposed.has(item)) { item.dispose(); disposed.add(item); } });
+    }
   };
 }

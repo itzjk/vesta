@@ -228,8 +228,8 @@ export async function createWorld(host, context) {
     welcome = buildWelcome(worlds[0]); welcomeHost.append(welcome.element);
     listen(window, 'vesta:cite', event => { if (!event.detail.open) invalidate(); });
     engine.on('pick', hit => {
-      if (!hit?.id) return;
-      acts[index]?.select?.(hit);
+      if (!hit) return;
+      if (acts[index]?.select?.(hit) === true || !hit.id) return;
       const trigger = worlds[index].cite('Read the selected test row', hit.id);
       trigger.classList.add('world-picked-source'); overlay.append(trigger); trigger.click();
     });

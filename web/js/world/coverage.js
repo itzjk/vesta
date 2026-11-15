@@ -33,7 +33,7 @@ export function question(material, concern, q, db, core = defaults) {
     findings: core.rank.rank(candidates, { ...q, material, concern }, db).slice(0, 3) };
 }
 
-export function build(world) {
+export function build(world, { onSelection } = {}) {
   const { db, core = defaults } = world;
   let q = world.q, model, selected = null, disposed = false, lastQuery = '';
   const element = node('section', null, 'coverage-wall');
@@ -86,6 +86,7 @@ export function build(world) {
 
   function closeDetail(focus = true) {
     const previous = selected; selected = null; detail.hidden = true;
+    onSelection?.(null);
     delete element.dataset.detail;
     for (const button of buttons.values()) button.setAttribute('aria-expanded', 'false');
     if (focus && previous) buttons.get(`${previous.material}:${previous.concern}`)?.focus({ preventScroll: true });
@@ -138,12 +139,20 @@ export function build(world) {
     if (focus) heading.focus({ preventScroll: true });
   }
 
+  function selectQuestion(material, concern, focus = true) {
+    const button = buttons.get(`${material}:${concern}`);
+    if (disposed || !button) return false;
+    selected = { material, concern };
+    for (const other of buttons.values()) other.setAttribute('aria-expanded', String(other === button));
+    paintDetail(focus);
+    onSelection?.({ ...selected });
+    return true;
+  }
+
   function click(event) {
     const button = event.target.closest('[data-coverage-material]');
     if (!button || !element.contains(button)) return;
-    selected = { material: button.dataset.coverageMaterial, concern: button.dataset.coverageConcern };
-    for (const other of buttons.values()) other.setAttribute('aria-expanded', String(other === button));
-    paintDetail(true);
+    selectQuestion(button.dataset.coverageMaterial, button.dataset.coverageConcern);
   }
 
   function keydown(event) {
@@ -182,6 +191,6 @@ export function build(world) {
 
   element.addEventListener('click', click); element.addEventListener('keydown', keydown);
   update(q);
-  return { element, update, headline: nextQ => headline(nextQ ?? q, db, core),
+  return { element, update, selectQuestion, clearSelection: closeDetail, headline: nextQ => headline(nextQ ?? q, db, core),
     dispose() { disposed = true; element.removeEventListener('click', click); element.removeEventListener('keydown', keydown); detail.replaceChildren(); element.remove(); buttons.clear(); } };
 }
