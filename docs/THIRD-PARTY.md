@@ -1,23 +1,20 @@
 # Third-party resources and licenses
 
-Inventory inspected on 2026-11-14 for the static app and the current `web/demo/vesta-demo.mp4`. A version marked **not recorded** has not been inferred from a family name. A missing license file is stated explicitly. This inventory does not relicense NASA, partner, font, SI-service or tool content under VESTA's MIT license.
+Inventory inspected on 2026-11-14 for the static app and for the demo video `web/demo/vesta-demo.mp4`, a recording of the live app made on 2026-11-14. A version marked **not recorded** has not been inferred from a family name. A missing license file is stated explicitly. This inventory does not relicense NASA, partner, font, SI-service or tool content under VESTA's MIT license.
 
 ## Redistributed app code and typefaces
 
 | Resource and actual use | Version or distribution | Applicable license | License text in this repository | Primary URL |
 |---|---|---|---|---|
-| Three.js, WebGL renderer and CSS3DRenderer in `web/vendor/three/`; also used to render the demo | 0.186.1; app core/module bytes match the film package; `REVISION` 186 | MIT | `web/vendor/three/LICENSE`, opened and read | [Three.js](https://threejs.org/), [upstream license](https://github.com/mrdoob/three.js/blob/r186/LICENSE) |
+| Three.js, WebGL renderer and CSS3DRenderer in `web/vendor/three/` | 0.186.1; `REVISION` 186 | MIT | `web/vendor/three/LICENSE`, opened and read | [Three.js](https://threejs.org/), [upstream license](https://github.com/mrdoob/three.js/blob/r186/LICENSE) |
 | Barlow Condensed, app display, SemiBold and Bold WOFF2 | 1.408 from the WOFF2 name table; Google Fonts distribution v13, downloaded 2026-11-14 | SIL OFL 1.1 | `web/assets/fonts/BarlowCondensed-OFL.txt`, opened and read | [Family](https://fonts.google.com/specimen/Barlow+Condensed), [source license](https://github.com/google/fonts/blob/main/ofl/barlowcondensed/OFL.txt) |
 | Source Sans 3, app body WOFF2 | 3.052 from the WOFF2 name table; Google Fonts distribution v20, downloaded 2026-11-14 | SIL OFL 1.1 | `web/assets/fonts/SourceSans3-OFL.txt`, opened and read | [Family](https://fonts.google.com/specimen/Source+Sans+3), [source license](https://github.com/google/fonts/blob/main/ofl/sourcesans3/OFL.txt) |
 | IBM Plex Mono, app data, Regular and SemiBold WOFF2 | 2.3 from the WOFF2 name table; Google Fonts distribution v23, downloaded 2026-11-14 | SIL OFL 1.1 | `web/assets/fonts/IBMPlexMono-OFL.txt`, opened and read | [Family](https://fonts.google.com/specimen/IBM+Plex+Mono), [source license](https://github.com/google/fonts/blob/main/ofl/ibmplexmono/OFL.txt) |
-| Space Grotesk WOFF2, demo type and legacy component page; also retained in app assets | 2.000 from the WOFF2 name table; demo and app WOFF2 bytes match | SIL OFL 1.1 | `web/assets/fonts/OFL.txt`, opened and read | [Family and license](https://github.com/floriankarsten/space-grotesk) |
-| Clash Display, 600/700 in current video; Fontshare API font request in `web/ui-demo.html` | 1.001 in both existing film WOFF2 name tables; current official downloadable family also identifies 1.001, but the static WOFF2 bytes differ | Official download currently supplies ITF Free Font License 2.0, 17 Aug 2026; exact terms effective for the existing binaries **not verified** | **No license text bundled in the public product repository.** Official ZIP license opened during this audit; provenance of the existing binaries remains missing | [Family](https://www.fontshare.com/fonts/clash-display), [official ZIP containing `License/FFL.txt`](https://api.fontshare.com/v2/fonts/download/clash-display), [licenses](https://www.fontshare.com/licenses) |
+| Space Grotesk WOFF2, retained in `web/assets/fonts/` from an earlier interface; no page, stylesheet or video of the current product uses it | 2.000 from the WOFF2 name table | SIL OFL 1.1 | `web/assets/fonts/OFL.txt`, opened and read | [Family and license](https://github.com/floriankarsten/space-grotesk) |
 
-All five family versions above were read from the actual WOFF2 OpenType name tables without modifying the font files. Clash Display font software, trademarks and copyrights belong to Indian Type Foundry; that ownership is acknowledged here in the production resource credits. Its embedded license metadata points to [Fontshare terms](https://fontshare.com/terms) and requires ownership credit, unlike the optional credit in the current downloadable FFL.
+All four family versions above were read from the actual WOFF2 OpenType name tables without modifying the font files.
 
 Exact app font download URLs are retained in `web/assets/fonts/SOURCES.json`. Distribution versions v13/v20/v23 are Google Fonts URL versions, not claims about internal OpenType revisions.
-
-The current official ITF license permits normal media and video use and own-site embedding, while restricting font modification, transfer and redistribution. That is evidence about today's download, not proof of the terms accepted for the demo's different font files. It is not an OFL or OSI license. Do not certify Space Apps open-material compatibility from the word “free”.
 
 ## NASA data and source text
 
@@ -50,7 +47,18 @@ For every row, the usage basis is [NASA's media guidance](https://www.nasa.gov/n
 | `media/iss035e015679.jpg` | iss035e015679, BASS; downloaded 2026-11-14 | NASA | [Original record](https://images.nasa.gov/details/iss035e015679) |
 | `media/iss035e015827.jpg` | iss035e015827, BASS; downloaded 2026-11-14 | NASA | [Original record](https://images.nasa.gov/details/iss035e015827) |
 
-Paths in this table are relative to `web/assets/nasa/`. NASA photographs in the current app are not evidence that the older demo video used the same photos. The published demo's own resource trail is the film source; a replacement demo must reconcile its actual images again.
+Paths in this table are relative to `web/assets/nasa/`. The demo video is a recording of the app, so the NASA photographs visible in it are the app's own, among them the Mars and Earth textures.
+
+## NASA video footage
+
+The app's **Video cases** player streams two NASA videos from NASA's servers when playback is requested; the files are not redistributed in this repository (see [video cases](video-cases.md)). The demo video contains a short excerpt of the first one, as the row states.
+
+| Video and actual use | Stable record | Required credit | Original URL |
+|---|---|---|---|
+| FLEX fuel-droplet combustion on the International Space Station; streamed by the app, and about three seconds of it (90 frames, without its soundtrack) appear in the demo video between 12.2 and 15.2 s, with the credit shown in the frame | Scientific Visualization Studio record 11318 | Science@NASA / NASA's Goddard Space Flight Center | [SVS 11318](https://svs.gsfc.nasa.gov/11318/) |
+| Saffire-V, a ribbed Plexiglas sample burning; streamed by the app only | GRC-2021-CN-00008 | NASA Glenn Research Center | [Original record](https://images.nasa.gov/details/GRC-2021-CN-00008) |
+
+The usage basis is the same NASA media guidance as for the photographs above. A credit is a source acknowledgement, not an endorsement.
 
 ## NASA visual references used during creation
 
@@ -58,31 +66,30 @@ The procedural ship's design bench cites two NASA Cygnus photographs as visual r
 
 ## Video, build, validation and hosting tools
 
-Tool executables are not redistributed as app runtime dependencies. Their licenses do not automatically become the license of rendered pixels or encoded audio. Exact versions below describe the inspected environment; without an encoding log they do not prove the historical binary version that produced the current video.
+Tool executables are not redistributed as app runtime dependencies. Their licenses do not automatically become the license of rendered pixels or encoded audio. Unless a row says otherwise, versions are those of the machine that recorded and encoded the demo video on 2026-11-14.
 
 | Resource and actual use | Observed version / limit | License or terms | License text in the public product repository | Primary URL |
 |---|---|---|---|---|
-| GSAP, `parseEase` in the film renderer | 3.15.0 in film package and lockfile | GSAP Standard “No Charge” license; official page effective 2025-04-30, modified 2025-05-30, read 2026-11-14; proprietary use restrictions, not MIT | **Not bundled**; official license identified here, exact text at linked source | [GSAP license](https://gsap.com/community/standard-license/) |
-| FFmpeg, background-clip frame extraction, video/audio encoding and loudness measurement | Lenovo n9.0.2 inspected; original encode binary version not recorded | This installed build reports GPL-3.0-or-later via `ffmpeg -L`; upstream licensing depends on build options | **Not bundled** | [FFmpeg legal](https://ffmpeg.org/legal.html) |
-| Playwright / playwright-core, headless frame rendering and browser checks | 1.62.1 inspected on browser machine; historical film-run version not recorded | Apache-2.0 | **Not bundled** | [Playwright license](https://github.com/microsoft/playwright/blob/main/LICENSE) |
-| Chromium, browser renderer used through Playwright | Exact browser revision used for the original video not recorded | BSD-style Chromium license plus third-party notices | **Not bundled** | [Chromium license](https://chromium.googlesource.com/chromium/src/+/main/LICENSE) |
-| Node.js, source build, tests, custom JSON-RPC/MCP server and film renderer | Local build v24.16.0; browser machine v26.13.0 inspected; original video-run version not recorded | MIT plus bundled dependency notices | **Not bundled** | [Node.js license](https://github.com/nodejs/node/blob/main/LICENSE) |
-| Python, table normalization, quote checks and soundtrack synthesis | Local 3.9.6; browser machine 3.14.10 inspected | PSF license and included historical licenses | **Not bundled** | [Python license](https://docs.python.org/3/license.html) |
-| NumPy, procedural soundtrack synthesis | Browser machine 2.5.4 inspected; original soundtrack-run version not recorded | BSD-3-Clause and bundled notices | **Not bundled** | [NumPy license](https://github.com/numpy/numpy/blob/main/LICENSE.txt) |
-| SciPy, filters, WAV writing and soundtrack processing | Browser machine 1.18.1 inspected; original soundtrack-run version not recorded | BSD-3-Clause and bundled notices | **Not bundled** | [SciPy license](https://github.com/scipy/scipy/blob/main/LICENSE.txt) |
-| Pillow, deterministic watermark in the four scene JPEGs | Local 11.3.0 used for the watermark; browser machine 13.0.0 inspected | MIT-CMU, verified in the Pillow 11.3.0 license; bundled font has its own terms | **Not bundled** | [Pillow license](https://github.com/python-pillow/Pillow/blob/main/LICENSE) |
+| FFmpeg, encoding of the demo video and its audio, and loudness measurement | n9.0.2 on the recording machine | This installed build reports GPL-3.0-or-later via `ffmpeg -L`; upstream licensing depends on build options | **Not bundled** | [FFmpeg legal](https://ffmpeg.org/legal.html) |
+| Playwright, recording of the live app for the demo video, and browser checks | 1.62.1 on the recording machine | Apache-2.0 | **Not bundled** | [Playwright license](https://github.com/microsoft/playwright/blob/main/LICENSE) |
+| Google Chrome, the browser that ran the live app for the recording, driven through Playwright; Playwright's own Chrome for Testing build runs the other browser checks | Google Chrome 157.0.8103.50 for the recording; Chrome for Testing 151.0.7922.34 for the checks | Google Chrome terms for the browser binary; BSD-style Chromium license plus third-party notices for Chromium | **Not bundled** | [Chrome terms](https://www.google.com/chrome/terms/), [Chromium license](https://chromium.googlesource.com/chromium/src/+/main/LICENSE) |
+| Node.js, source build, tests, custom JSON-RPC/MCP server and the demo recording script | Local build v24.16.0; v26.13.0 on the recording machine | MIT plus bundled dependency notices | **Not bundled** | [Node.js license](https://github.com/nodejs/node/blob/main/LICENSE) |
+| Python, table normalization, quote checks, and the soundtrack synthesis and edit of the demo video | Local 3.9.6; 3.14.10 on the recording machine | PSF license and included historical licenses | **Not bundled** | [Python license](https://docs.python.org/3/license.html) |
+| NumPy, synthesis of the demo video's original soundtrack | 2.5.4 on the recording machine | BSD-3-Clause and bundled notices | **Not bundled** | [NumPy license](https://github.com/numpy/numpy/blob/main/LICENSE.txt) |
+| Pillow, deterministic watermark in the four scene JPEGs, and the captions of the demo video | Local 11.3.0 used for the watermark; 13.0.0 on the recording machine for the captions | MIT-CMU, verified in the Pillow 11.3.0 license; bundled font has its own terms | **Not bundled** | [Pillow license](https://github.com/python-pillow/Pillow/blob/main/LICENSE) |
 | Aileron, Pillow's scalable default font used by the JPEG watermark | Bundled Aileron Regular 1.102 in local Pillow 11.3.0, read from its OpenType name table | No Rights Reserved, as stated by the font publisher; exact bundled-font metadata inspected | **Not bundled**; publisher terms are linked here | [Pillow font source](https://github.com/python-pillow/Pillow/blob/11.3.0/src/PIL/ImageFont.py), [publisher terms](https://dotcolon.net/fonts/aileron/) |
+| Nimbus Sans, Regular and Bold, typeface of the demo video's captions; the letters are drawn into the frames and the font files are not redistributed | URW++ base 35 fonts as packaged in `gsfonts` 20200910 on the recording machine | AGPL-3.0-only with the PostScript/PDF font exception, as declared by that package | **Not bundled** | [URW++ base 35 fonts](https://github.com/ArtifexSoftware/urw-base35-fonts) |
 | Model Context Protocol, interface specification; server is custom code, no MCP SDK dependency | Protocol fallback 2024-11-05 in `mcp/server.mjs`; no third-party SDK version | Current upstream license is transitioning from MIT to Apache-2.0; documentation excluding specifications is CC-BY-4.0. No SDK is redistributed; custom implementation covered by VESTA LICENSE | **No copied specification license text bundled** | [MCP specification](https://modelcontextprotocol.io/), [license](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/LICENSE) |
 | GitHub Pages and Actions, static hosting and release workflow | `actions/checkout@v4`, `setup-node@v4`, `configure-pages@v5`, `upload-pages-artifact@v3`, `deploy-pages@v4`; service versions not exposed | GitHub service terms; the five referenced action repositories identify MIT licenses | **Not bundled** | [Pages](https://pages.github.com/), [GitHub terms](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service), [Actions source](https://github.com/actions) |
 | Claude by Anthropic, SI development/evidence/text assistance | Exact model versions not recorded for every session | Service terms applicable to the account; **account-specific output rights not independently verified** | **Not bundled** | [Claude](https://www.anthropic.com/claude), [terms](https://www.anthropic.com/legal/consumer-terms) |
 | Codex by OpenAI, SI code/evidence/review assistance | Exact model versions not recorded for every session | Service terms applicable to the account; **account-specific output rights not independently verified** | **Not bundled** | [Codex](https://openai.com/codex/), [terms](https://openai.com/policies/terms-of-use/) |
-| Grok Imagine by xAI, background clips in the current demo only | Service model version not recorded | Service terms applicable to the account; **clip rights and account-specific output terms not independently verified** | **Not bundled** | [xAI](https://x.ai/), [terms](https://x.ai/legal/terms-of-service) |
 
-The soundtrack source imports NumPy and SciPy and synthesizes tones/noise; no external music recording, voice or sample library was observed in that source. Procedural ships, robot geometry, flames and shaders are VESTA artwork made with SI-assisted code, not NASA vehicle photographs. Private visual reference records are not claimed as delivered textures. No new runtime dependency was added for the provenance manifest or live app watermark.
+The soundtrack source imports NumPy and synthesizes oscillators, seeded noise and delays; it uses no external music recording, voice or sample library. Procedural ships, robot geometry, flames and shaders are VESTA artwork made with SI-assisted code, not NASA vehicle photographs. Private visual reference records are not claimed as delivered textures. No new runtime dependency was added for the provenance manifest or live app watermark.
+
+An earlier demo film, public until 2026-11-14, used the Clash Display typeface, GSAP, SciPy and background clips generated with Grok Imagine (xAI). The recording described in this inventory replaced it, and none of those resources is part of the current product.
 
 ## Remaining resource gaps
 
-- Exact license-grant provenance of the existing Clash Display binaries remains unverified; the font version is confirmed as 1.001. The official current license was obtainable from the ZIP even though the license webpage itself only returned a JavaScript shell. The app's legacy `ui-demo.html` still requests that family.
 - NASA and partner rights are not universally established by an image credit. PSI CC0 labels are retained from the local records, with the live-check limitation above. NASA report/source licenses require record-specific review where third-party material is present.
-- Most build-only tool licenses are identified here by name and primary URL but their full text is not bundled. Installed versions do not prove the historical encoder/synthesizer versions. No tool or service is described as OSI licensed unless that applies to it.
-- The NASA and Other References fields must be reconciled against this inventory before submission, especially the eleven NASA images and the newly explicit audio/watermark dependencies. Listing a source in this repository does not submit the project form.
+- Most build-only tool licenses are identified here by name and primary URL but their full text is not bundled. No tool or service is described as OSI licensed unless that applies to it.
+- The reference fields of the project form hold at most 25 links each. This inventory, the [NASA image credits](../web/assets/nasa/CREDITS.md) and the source register `web/data/sources.json` are the complete lists.

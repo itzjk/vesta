@@ -5,8 +5,7 @@ import { spawnSync } from 'node:child_process';
 
 export const SI_TOOLS = [
   { product: 'Claude', provider: 'Anthropic', use: ['SI-assisted code and documentation', 'source extraction and proposed evidence summaries, claims and rules', 'review and visual rendering code'], version: 'Model versions were not recorded for every session.' },
-  { product: 'Codex', provider: 'OpenAI', use: ['SI-assisted code and documentation', 'source extraction, review and product implementation', 'compliance metadata and visual watermark code'], version: 'Model versions were not recorded for every session.' },
-  { product: 'Grok Imagine', provider: 'xAI', use: ['Generated background clips in the current demo video only'], version: 'Service model version not recorded.', scope: 'web/demo/vesta-demo.mp4; not used to generate NASA evidence or app data' }
+  { product: 'Codex', provider: 'OpenAI', use: ['SI-assisted code and documentation', 'source extraction, review and product implementation', 'compliance metadata and visual watermark code'], version: 'Model versions were not recorded for every session.' }
 ];
 
 export const NASA_NOTICE = "NASA has not reviewed or endorsed VESTA's SI-assisted interpretations and is not responsible for their accuracy.";
@@ -24,7 +23,7 @@ const walk = dir => fs.existsSync(dir) ? fs.readdirSync(dir, { withFileTypes: tr
 const isSidecar = rel => /\.provenance\.json$/.test(rel);
 const metadata = rel => ({
   schema: 'vesta.si-provenance/1', si_assisted: true,
-  tools: SI_TOOLS.filter(t => t.product !== 'Grok Imagine').map(({ product, provider }) => ({ product, provider })),
+  tools: SI_TOOLS.map(({ product, provider }) => ({ product, provider })),
   activity: /(?:tests|tables|sources|investigations|ntrs)/.test(rel) ? 'SI-assisted extraction, transcription, organization and deterministic normalization of attributed NASA sources; source values are not SI inventions.' : 'SI-assisted VESTA authorship and deterministic processing; attributed NASA quotations remain source text.',
   source_boundary: sourceBoundary,
   manifest: 'https://itzjk.github.io/vesta/data/si-provenance.json',

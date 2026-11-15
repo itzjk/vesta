@@ -37,3 +37,14 @@ Mars, Earth and the dim Cepheus plate also illuminate a PMREM lightbox alongside
 
 - `tex/candle-pair.jpg`: **Candle in normal gravity and microgravity**, nasa_id `GRC-1998-C-00485`. Credit: **NASA Glenn Research Center**. [NASA library record](https://images.nasa.gov/details/GRC-1998-C-00485), [download](https://images-assets.nasa.gov/image/GRC-1998-C-00485/GRC-1998-C-00485~medium.jpg). The library dates the record 2004-05-01; that metadata date is not asserted as the exposure date. Original 1280×1024 image cropped to pixel rectangle [64,64,1216,960], preserving both photographs and their separator, removing all white margins, NASA insignia and center-name imprint. No colour, flame or photographic-content modification. Metadata retained in `tex/candle-pair-metadata.json`. Retrieved by W2-REAL and visually reviewed/cropped on 2026-11-14. The physical plate and enlarged on-demand panel identify it as NASA's photograph; the adjacent rendered candle remains explicitly an illustration of low-momentum observations, not a simulation. No NASA endorsement is implied.
 <!-- W3-PHOTO END -->
+
+<!-- DEMO-VIDEO START -->
+## NASA video footage
+
+The **Video cases** player streams two NASA videos from NASA's servers when playback is requested. The files are not stored in this repository.
+
+- **FLEX fuel-droplet combustion on the International Space Station**, Scientific Visualization Studio record `11318`. Credit: **Science@NASA / NASA's Goddard Space Flight Center**. [Original record](https://svs.gsfc.nasa.gov/11318/). About three seconds of this video (90 frames, without its soundtrack) also appear in the demo video `web/demo/vesta-demo.mp4`, between 12.2 and 15.2 s, with this credit shown in the frame. It is a fuel-droplet test in microgravity, not evidence for a lunar cabin.
+- **Saffire-V**, nasa_id `GRC-2021-CN-00008`. Credit: **NASA Glenn Research Center**. [NASA library record](https://images.nasa.gov/details/GRC-2021-CN-00008). Streamed by the app only.
+
+NASA credit is a source acknowledgement, not endorsement.
+<!-- DEMO-VIDEO END -->

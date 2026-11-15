@@ -114,7 +114,7 @@ Evidence coverage concerns a material and a concern in VESTA’s evidence base (
 <!-- COMPLY START -->
 ## SI provenance and third-party resources
 
-Claude (Anthropic) and Codex (OpenAI) assisted code, documentation, source extraction, proposed interpretations and visual rendering code. Grok Imagine (xAI) generated background clips in the current demo video only. Its music was synthesized with SI-assisted code. The [human-readable SI provenance](SI-PROVENANCE.md) distinguishes NASA quotations and original PSI cells from VESTA processing and interpretation; the build publishes the [machine-readable manifest](web/data/si-provenance.json), JSON metadata and CSV/JSONL provenance companions. See the [third-party resource and license inventory](docs/THIRD-PARTY.md) and [NASA image credits](web/assets/nasa/CREDITS.md).
+Claude (Anthropic) and Codex (OpenAI) assisted code, documentation, source extraction, proposed interpretations and visual rendering code. The demo video is a recording of the live app: no image or clip in it was generated, and its captions and original music were produced by SI-assisted code. The [human-readable SI provenance](SI-PROVENANCE.md) distinguishes NASA quotations and original PSI cells from VESTA processing and interpretation; the build publishes the [machine-readable manifest](web/data/si-provenance.json), JSON metadata and CSV/JSONL provenance companions. See the [third-party resource and license inventory](docs/THIRD-PARTY.md) and [NASA image credits](web/assets/nasa/CREDITS.md).
 
 NASA has not reviewed or endorsed VESTA's SI-assisted interpretations and is not responsible for their accuracy.
 <!-- COMPLY END -->
