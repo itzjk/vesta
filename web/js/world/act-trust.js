@@ -333,10 +333,10 @@ export async function build(world) {
     const phone = (world.host?.clientWidth ?? world.stage.size().width) < 760;
     const still = world.capture || matchMedia('(prefers-reduced-motion: reduce)').matches;
     // A narrow window that is also short gives a canvas wider than tall. The phone distance left the bench
-    // small and behind the station title there: fit it to the width and aim above it, so it sits large below the title.
+    // small there: fit it to the width and centre it in the canvas (the station sentence sits below the scene).
     const short = phone && world.camera.aspect > 1;
-    const phoneDistance = Math.max(short ? 12.5 : 16, 5.2 / (Math.tan(22 * Math.PI / 180) * world.camera.aspect));
-    const phoneTarget = world.host?.dataset.cinema === 'true' ? -.2 : short ? 2.9 : 1.4;
+    const phoneDistance = Math.max(short ? 10.8 : 16, 5.2 / (Math.tan(22 * Math.PI / 180) * world.camera.aspect));
+    const phoneTarget = world.host?.dataset.cinema === 'true' ? -.2 : short ? .3 : 1.4;
     world.camera.userData.focusDistance = phone ? phoneDistance : isInspecting() ? 13 : 10.8;
     world.camera.userData.aperture = 1.1;
     const drift = still ? 0 : Math.sin(t * 0.22) * 0.18;

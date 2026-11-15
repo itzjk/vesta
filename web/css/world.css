@@ -375,3 +375,46 @@ html[data-world=true] body #si-attribution{right:80px;transform:none}
 @media(min-width:760px){
  .world-host[data-station=drill] .drill-hud[data-panel-open] .drill-notice{top:68px!important;bottom:auto!important}
 }
+
+.world-host[data-station] .world-guide .world-guide-intro{display:block;box-sizing:border-box;top:92px;bottom:auto;left:32px;width:min(430px,calc(100% - 180px));max-width:none;max-height:none;padding:0;background:none}
+.world-guide-intro h1{font:600 clamp(24px,2.4vw,34px)/1.15 var(--display);margin:0;text-wrap:balance;color:var(--ivory)}
+.world-guide-intro .world-flame-limit{font:400 17px/1.35 var(--font);color:var(--ivory-dim);margin-top:12px!important;padding:0!important;border:0!important}
+.world-host[data-station] .world-guide-intro.world-guide-in-panel{display:block;position:sticky;inset:auto;top:0;box-sizing:border-box;width:auto;max-width:none;max-height:none;margin:0 0 18px;padding:0 0 12px;background:var(--information-surface,#12191b);z-index:2;text-shadow:none}
+.world-guide-in-panel h1{font-size:24px}
+.world-host[data-station=transit] .world-guide .world-guide-intro{left:500px;top:120px;width:min(440px,calc(100% - 620px))}
+.world-host[data-station=evidence] .world-guide .world-guide-intro{top:150px;width:280px}
+.world-host:has(.world-guide-intro) .evidence-rack-caption{visibility:hidden}
+.world-host[data-station=evidence][data-evidence-display=chart] .world-guide .world-guide-intro{display:none}
+html[data-tour=running] .world-guide-intro,.world-host[data-film=true] .world-guide-intro{visibility:hidden!important;pointer-events:none!important}
+body:has(.wc-source[aria-modal=true]) .world-guide-intro{visibility:hidden!important;pointer-events:none!important}
+.world-host[data-station=evidence] .world-hologram[data-evidence-panel=ask]>.world-guide-intro{display:none}
+@media(min-width:760px){
+ .world-host[data-station=flame] .world-guide .world-guide-intro{left:auto;right:100px;top:26.7%;width:300px}
+}
+@media(max-width:759px){
+ .world-host[data-station] .world-guide .world-guide-intro{left:16px;top:94px;bottom:auto;width:calc(100% - 32px);padding:0}
+ .world-guide-intro h1{font-size:22px;line-height:1.12}
+ .world-guide-intro .world-flame-limit{font-size:16px;line-height:1.3;margin-top:8px!important}
+ .world-host[data-station=evidence] .world-guide .world-guide-intro{top:92px;width:calc(100% - 32px)}
+ .world-host[data-station=evidence] .world-guide .world-guide-intro h1{font-size:20px;white-space:nowrap;text-wrap:nowrap}
+ .world-host[data-station=transit] .world-welcome{max-height:calc(100% - 340px)}
+ .world-host .world-actions button{white-space:normal}
+ .world-host .world-guide-intro.world-guide-in-panel{margin-bottom:12px;padding-bottom:8px}
+}
+
+@media(max-width:759px){
+ .world-host[data-station=flame] .world-guide .world-guide-intro{top:calc(100% - 272px)}
+ .world-host[data-station=flame] .world-answer{display:none}
+ .world-host[data-station=trust] .world-guide .world-guide-intro{top:calc(100% - 272px)}
+ .world-host[data-station=flame] .world-guide .world-guide-intro h1,.world-host[data-station=trust] .world-guide .world-guide-intro h1{font-size:26px}
+ .world-host[data-station=drill] .world-guide .world-guide-intro{top:62px;left:120px;width:calc(100% - 136px)}
+ .world-host[data-station=trust][data-hologram-open=true] .world-guide .world-guide-intro{top:62px;left:120px;width:calc(100% - 136px)}
+ .world-host[data-station=trust][data-hologram-open=true] .world-guide .world-guide-intro h1{font-size:22px}
+ .world-host[data-station=drill]:has(.world-guide-intro) .world-agent-toggle{display:none}
+}
+@media(max-width:759px){
+ .world-host .world-guide .world-actions button{line-height:1.2;padding-top:6px;padding-bottom:6px}
+ .world-host[data-station=evidence] .world-guide .world-actions button{font-size:14px;line-height:1.2;padding:6px 3px;min-height:46px}
+ .world-host[data-station=evidence] .world-guide .world-actions button:last-child{grid-column:auto}
+ .world-host[data-station=trust] .world-answer,.world-host[data-station=robotics] .world-answer{bottom:180px}
+}

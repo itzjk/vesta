@@ -114,7 +114,7 @@ export async function build(world) {
   return {
     actions: () => [
       { id:'compare',label:'Earth / space',primary:true,expanded:()=>controlHolo.target>0,run:()=>controlHolo.toggle() },
-      { id:'source',label:'NASA observation',expanded:()=>answerHolo.target>0,run:()=>answerHolo.toggle() },
+      { id:'source',label:'NASA observation',context:note,expanded:()=>answerHolo.target>0,run:()=>answerHolo.toggle() },
       { id:'evidence',label:'Explore the evidence',run:advance }
     ],
     group, anchor: [0, 0, 0], camera: () => { const aspect = stage.camera.aspect, phone = aspect < .9, distance = phone ? Math.max(4.05, 2.78 / aspect) : 2.8; return { position: [phone ? .15 : .65, .72, distance - 1.5], target: [0, .28, -1.5], fov: 33 }; },
@@ -134,7 +134,7 @@ export async function build(world) {
       const dt = previous === undefined ? 0 : Math.max(0, Math.min(.1, t - previous)); previous = t;
       space = capture || reduced ? target : space + (target - space) * (1 - Math.exp(-dt * 9));
       stage.renderer.toneMappingExposure = EXPOSURE_VARIANT ? .72 + EXPOSURE_VARIANT * ((3 + 3 * space) - .72) : .72;
-      world.answer?.(space < .015 ? 'Earth illustration, not a simulation; low-momentum only.' : space > .985 ? 'Space illustration, not a simulation; low-momentum only.' : 'Blend illustration, not a simulation; low-momentum only.');
+      world.answer?.(space < .015 ? 'On Earth: yellow teardrop.' : space > .985 ? 'In space: rounded low-momentum flame.' : 'Between the Earth and space illustrations.');
       const phone = (stage.camera || world.camera)?.aspect < .9;
       photoImage.style.maxHeight = phone ? '18vh' : '38vh';
       plate.position.set(phone ? -.36 : -.78, phone ? -.31 : -.013, phone ? -1.11 : -1.13); plate.scale.setScalar(phone ? .88 : .95);
