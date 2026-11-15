@@ -39,7 +39,16 @@ export async function buildSamples({ THREE, mode = 'high', db }) {
   const brightness = { PROVEN: 1.08, EXTRAPOLATED: .55, NEVER_TESTED: .12 };
   const lamps = ids.flatMap(material => concerns.map(concern => ({ material, concern, from: lampColors.NEVER_TESTED.clone(), to: lampColors.NEVER_TESTED.clone(), color: lampColors.NEVER_TESTED.clone(), position: new THREE.Vector3() })));
   const selectedMaterials = new Set(ids), lampColor = new THREE.Color();
-  let aspect = 1.6, panel = false, selected = null, time = 0, changeAt = 0, stateKey = '', firstCells = true, disposed = false;
+  let aspect = 1.6, layoutMode = 'default', geometryKey = '', panel = false, selected = null, time = 0, changeAt = 0, stateKey = '', firstCells = true, disposed = false;
+  let interactionSurface = null, clickableSurface = null;
+  const markInteractive = () => {};
+  function syncInteractionSurface() {
+    const next = group.visible && layoutMode === 'compact-wide' ? interactionSurface : null;
+    if (next === clickableSurface) return;
+    clickableSurface?.removeEventListener('click', markInteractive);
+    clickableSurface = next;
+    clickableSurface?.addEventListener('click', markInteractive);
+  }
   const smooth = x => { const a = THREE.MathUtils.clamp(x, 0, 1); return a * a * (3 - 2 * a); };
   const put = (o, index, position, scale = [1, 1, 1]) => { dummy.position.set(...position); dummy.rotation.set(0, 0, 0); dummy.scale.set(...scale); dummy.updateMatrix(); o.setMatrixAt(index, dummy.matrix); };
   for (const id of ids) {
@@ -51,31 +60,38 @@ export async function buildSamples({ THREE, mode = 'high', db }) {
     samples.set(id, { holder, position: new THREE.Vector3(), from: new THREE.Vector3(), to: new THREE.Vector3(), scaleFrom: 1, scaleTo: 1, at: 0, materials, wash: new THREE.Color(0), washFrom: new THREE.Color(0), washTo: new THREE.Color(0), light: .12, lightFrom: .12, lightTo: .12 });
   }
   function setLayout(options = {}) {
-    const next = options.aspect ?? aspect;
+    const next = options.aspect ?? aspect, wasPortrait = aspect < .9;
     if (!Number.isFinite(next) || next <= 0) throw new Error('samples: aspect must be positive');
-    aspect = next; panel = !!options.panel;
-    const portrait = aspect < .9, columns = portrait ? 3 : 5, rows = 15 / columns, width = columns * 1.35 + .4, height = rows * 1.94 + .35;
+    aspect = next; panel = !!options.panel; layoutMode = options.layout ?? layoutMode;
+    const portrait = aspect < .9, compact = layoutMode === 'compact-wide';
+    const nextKey = compact ? layoutMode : portrait ? 'portrait' : 'wide';
+    wash.intensity = portrait ? 55 : 48;
+    if (geometryKey === nextKey) { if (selected && portrait !== wasPortrait) focus(selected, true); return; }
+    geometryKey = nextKey;
+    const columns = compact ? 5 : portrait ? 3 : 5, rows = 15 / columns, pitch = compact ? 2 : 1.35;
+    const width = columns * pitch + .4, height = rows * 1.94 + .35, bay = compact ? pitch - .1 : 1.25;
+    const divider = compact ? pitch / 2 - .035 : .64, screwOffset = compact ? pitch / 2 - .115 : .56;
     frame.position.set(0, 0, -.46); frame.scale.set(width, height, .34);
     recess.position.set(0, 0, -.26); recess.scale.set(width - .13, height - .13, .09);
     wall.position.set(0, 0, -.75); wall.scale.set(width + 17, height + 12, .2);
     for (const [i, id] of ids.entries()) {
-      const x = (i % columns - (columns - 1) / 2) * 1.35, y = ((rows - 1) / 2 - Math.floor(i / columns)) * 1.94 - .68;
+      const x = (i % columns - (columns - 1) / 2) * pitch, y = ((rows - 1) / 2 - Math.floor(i / columns)) * 1.94 - .68;
       const item = samples.get(id); item.position.set(x, y, .08); item.to.copy(item.position); item.from.copy(item.position); item.holder.position.copy(item.position);
-      put(trays, i, [x, y - .04, .06], [1.25, .1, .75]);
-      put(backs, i, [x, y + .64, -.16], [1.24, 1.53, .07]);
-      put(compartmentWash, i, [x, y + .64, -.105]);
-      put(dividers, i * 2, [x - .64, y + .65, -.04], [.035, 1.83, .55]);
-      put(dividers, i * 2 + 1, [x + .64, y + .65, -.04], [.035, 1.83, .55]);
+      put(trays, i, [x, y - .04, .06], [bay, .1, .75]);
+      put(backs, i, [x, y + .64, -.16], [compact ? bay - .01 : 1.24, 1.53, .07]);
+      put(compartmentWash, i, [x, y + .64, -.105], [compact ? (bay - .02) / 1.23 : 1, 1, 1]);
+      put(dividers, i * 2, [x - divider, y + .65, -.04], [.035, 1.83, .55]);
+      put(dividers, i * 2 + 1, [x + divider, y + .65, -.04], [.035, 1.83, .55]);
       for (let c = 0; c < 3; c++) {
         const li = i * 3 + c, lp = [x + (c - 1) * .4, y - .24, .39];
         lamps[li].position.fromArray(lp); put(bezels, li, [lp[0], lp[1], lp[2] - .035]); put(bulbs, li, lp, [1, 1, .5]);
       }
-      for (let c = 0; c < 4; c++) put(screw, i * 4 + c, [x + (c % 2 ? .56 : -.56), y + (c < 2 ? 1.4 : -.3), .015]);
+      for (let c = 0; c < 4; c++) put(screw, i * 4 + c, [x + (c % 2 ? 1 : -1) * screwOffset, y + (c < 2 ? 1.4 : -.3), .015]);
     }
     fixture.position.set(0, height / 2 + .27, .65); fixture.scale.set(width - .6, .18, .65);
     diffuser.position.set(0, height / 2 + .18, .65); diffuser.scale.set(width - .85, .025, .47);
     light.position.set(0, height / 2 + .1, 2.1); light.target.position.set(0, -1, 0);
-    wash.position.set(-width * .28, height * .34, 3.2); wash.intensity = portrait ? 55 : 48;
+    wash.position.set(-width * .28, height * .34, 3.2);
     warm.position.set(width * .5, -height * .3, 2);
     for (const o of [...harness.children]) { o.geometry.dispose(); harness.remove(o); }
     tube(THREE, [[-width / 2 - .18, height / 2 + .7, -.3], [-width / 2 - .26, height / 2 - .4, -.2], [-width / 2 - .22, -height / 2 - .2, -.2], [-width / 2 + .4, -height / 2 - .4, -.2]], .055, dark, harness);
@@ -84,9 +100,11 @@ export async function buildSamples({ THREE, mode = 'high', db }) {
   }
   function camera(options = {}) {
     const nextPanel = options.panel ?? panel;
-    if ((options.aspect ?? aspect) !== aspect) setLayout({ ...options, panel: nextPanel });
+    if ((options.aspect ?? aspect) !== aspect || (options.layout ?? layoutMode) !== layoutMode) setLayout({ ...options, panel: nextPanel });
     else panel = !!nextPanel;
-    const portrait = aspect < .9, height = portrait ? 10.9 : 6.35, width = portrait ? 4.6 : 7.7;
+    interactionSurface = options.surface ?? interactionSurface; syncInteractionSurface();
+    const portrait = aspect < .9, compact = layoutMode === 'compact-wide';
+    const height = compact ? portrait ? 6.9 : 8 : portrait ? 10.9 : 6.35, width = compact ? 10.9 : portrait ? 4.6 : 7.7;
     const pixels = options.height ?? (portrait ? 844 : 900), horizontal = options.width ?? pixels * aspect;
     const insets = { top: portrait ? 140 : 135, bottom: portrait ? 190 : 120, left: portrait ? 15 : 70, right: portrait ? 15 : 70, ...options.insets };
     if (![pixels, horizontal, ...Object.values(insets)].every(Number.isFinite) || pixels <= 0 || horizontal <= 0 || Object.values(insets).some(v => v < 0)) throw new Error('samples: invalid camera dimensions or insets');
@@ -164,7 +182,7 @@ export async function buildSamples({ THREE, mode = 'high', db }) {
   }
   setLayout(); update(0);
   return { group, camera, setLayout, setCells, highlight, pick, focus, anchor, update, materialIds: ids.slice(), kitReady: true,
-    setVisible(value) { group.visible = !!value; },
-    dispose() { if (disposed) return; disposed = true; washTexture.dispose(); const seen = new Set(); group.traverse(o => { o.shadow?.dispose(); for (const resource of [o.geometry, ...[o.material].flat()]) if (resource && !seen.has(resource)) { seen.add(resource); resource.dispose?.(); } }); group.removeFromParent(); }
+    setVisible(value) { group.visible = !!value; syncInteractionSurface(); },
+    dispose() { if (disposed) return; disposed = true; interactionSurface = null; syncInteractionSurface(); washTexture.dispose(); const seen = new Set(); group.traverse(o => { o.shadow?.dispose(); for (const resource of [o.geometry, ...[o.material].flat()]) if (resource && !seen.has(resource)) { seen.add(resource); resource.dispose?.(); } }); group.removeFromParent(); }
   };
 }

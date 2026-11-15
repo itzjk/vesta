@@ -1,4 +1,4 @@
-import { balanceWorldLight, hardware } from '../scene/materials.js';
+import { hardware } from '../scene/materials.js';
 import { loadCases, validateCases, evaluateCase } from './proof.js';
 
 const at = (value, path) => path.split('.').reduce((item, key) => item?.[key], value);
@@ -91,7 +91,7 @@ export async function build(world) {
   }
   const exit = ring(group, 0.23, rust, [xs[1], 0.56, 0]);
   exit.rotation.x = Math.PI / 2;
-  const balanceLight = balanceWorldLight(world, 0);
+  // The bench is lit by the world's own lights at full strength: dimming them left the machines unreadable.
   for (const mat of materials) mat.envMapIntensity = .055;
   const wornHousing = hardware(THREE, 'metal', { color: 0x454b4d, roughness: .74, metalness: .48, envMapIntensity: .055 });
   materials.add(wornHousing);
@@ -332,8 +332,11 @@ export async function build(world) {
   const camera = (t = 0) => {
     const phone = (world.host?.clientWidth ?? world.stage.size().width) < 760;
     const still = world.capture || matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const phoneDistance = Math.max(16, 5.2 / (Math.tan(22 * Math.PI / 180) * world.camera.aspect));
-    const phoneTarget = world.host?.dataset.cinema === 'true' ? -.2 : 1.4;
+    // A narrow window that is also short gives a canvas wider than tall. The phone distance left the bench
+    // small and behind the station title there: fit it to the width and aim above it, so it sits large below the title.
+    const short = phone && world.camera.aspect > 1;
+    const phoneDistance = Math.max(short ? 12.5 : 16, 5.2 / (Math.tan(22 * Math.PI / 180) * world.camera.aspect));
+    const phoneTarget = world.host?.dataset.cinema === 'true' ? -.2 : short ? 2.9 : 1.4;
     world.camera.userData.focusDistance = phone ? phoneDistance : isInspecting() ? 13 : 10.8;
     world.camera.userData.aperture = 1.1;
     const drift = still ? 0 : Math.sin(t * 0.22) * 0.18;
@@ -345,8 +348,8 @@ export async function build(world) {
   return {
     group, anchor, camera,
     actions: () => [['checks', 'Run checks'], ['download', 'Download data'], ['api', 'Query the API'], ['assistant', 'Connect an assistant']].map(([id, label]) => ({ id, label, primary: id === 'checks', expanded: () => tab === id && consoleHolo.target > 0, run() { if (tab === id && consoleHolo.target) consoleHolo.close(); else { show(id); consoleHolo.requested = true; consoleHolo.open(); } } })),
-    enter() { balanceLight(true); active = true; group.visible = true; marksLayer.hidden = false; world.answer?.(results.length && casesFile ? summaryAnswer() : normalAnswer()); },
-    leave() { balanceLight(false); delete world.camera.userData.focusDistance; delete world.camera.userData.aperture; active = false; group.visible = false; marksLayer.hidden = true; stopChecks(); consoleHolo.close(); },
+    enter() { active = true; group.visible = true; marksLayer.hidden = false; world.answer?.(results.length && casesFile ? summaryAnswer() : normalAnswer()); },
+    leave() { delete world.camera.userData.focusDistance; delete world.camera.userData.aperture; active = false; group.visible = false; marksLayer.hidden = true; stopChecks(); consoleHolo.close(); },
     update(t, state = {}) {
       if (!active) return;
       const reduced = state.reducedMotion ?? matchMedia('(prefers-reduced-motion: reduce)').matches;

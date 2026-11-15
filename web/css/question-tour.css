@@ -10,12 +10,9 @@
 .world-host[data-question-state=running] :is(.world-guide-intro,.world-actions,.world-answer,.world-stations,.world-case-toggle,.world-mission-toggle,.world-agent-toggle,.world-cinema,.world-film,.world-instrument,.world-sheet-toggle,.question-launch,.evidence-companion){visibility:hidden!important;pointer-events:none!important}
 .world-host[data-question-state=running] .world-hologram{transition:none!important}
 .world-host[data-question-state=running] .evidence-console{max-height:calc(100% - 170px)!important}
-.world-host[data-question-state=running] .wc-source{max-height:calc(100dvh - 210px)!important}
 @media(max-width:1099px),(max-height:699px){.question-launch,.question-controls,.question-label,.question-focus{display:none!important}}
 @media(prefers-reduced-motion:reduce){.question-focus{box-shadow:none}}
 
-.wc-source>.question-controls{position:sticky;inset:0 0 auto;justify-content:flex-end;background:var(--bg-0);padding:0 0 12px;margin:0;z-index:30}
-.world-host[data-question-state=running][data-question-step=rack] .world-answer{visibility:visible!important;pointer-events:none!important}
 
 .question-launch-docked{position:absolute;bottom:32px;left:32px}
 .world-host[data-station=transit] .question-launch-docked{display:none}
@@ -23,3 +20,20 @@
 .world-host[data-question-state=running][data-question-capture=true] :focus-visible{outline:none!important}
 
 .world-host[data-question-capture=true] .question-focus{box-shadow:none}
+
+.world-host[data-question-state=running][data-question-step=gap] .field-instrument{inset:96px 100px 108px 300px!important}
+.world-host[data-question-state=running][data-question-step=close] :is(.matchpanel-compared,.matchpanel-title,.matchpanel-key,.matchpanel-outside,.coverage-findings,.coverage-limit){display:none}
+.world-host[data-question-state=running][data-question-step=close] .evidence-console .matchpanel-warning{font-size:24px!important;line-height:1.35!important;margin-top:24px!important}
+.world-host[data-question-state=running][data-question-step=close] .coverage-detail>:not(h3):not(.coverage-state):not(.matchpanel){display:none}
+.world-host[data-question-state=running][data-question-step=close] :is(.coverage-scope,.evidence-sample-note){display:none}
+
+.world-host[data-question-state=running][data-question-capture=true] .question-controls{visibility:hidden;pointer-events:none}
+@media(max-height:800px){
+.world-host[data-question-state=running][data-question-step=gap] .field-empty{justify-content:flex-start!important}
+.world-host[data-question-state=running][data-question-step=gap] .field-empty button{display:none}
+.world-host[data-question-state=running]:is([data-question-step=question],[data-question-step=comparison]) :is(.matchpanel-title,.matchpanel-compared,.matchpanel-key,.matchpanel-outside,.coverage-scope,.evidence-console>details){display:none}
+.world-host[data-question-state=running]:is([data-question-step=question],[data-question-step=comparison]) .coverage-detail>.matchpanel~*{display:none}
+.world-host[data-question-state=running][data-question-step=cabin] .evidence-console>.cabin-gravity~*{display:none}
+}
+.world-host[data-question-state=running]:is([data-question-step=question],[data-question-step=comparison]) :is(.matchpanel-key,.matchpanel-outside,.coverage-scope,.evidence-console>details){display:none}
+.world-host[data-question-state=running]:is([data-question-step=question],[data-question-step=comparison]) .coverage-detail>.matchpanel~*{display:none}

@@ -4,7 +4,7 @@
 
 VESTA lets you set oxygen, pressure and gravity, inspect nearby evidence, and carry the answer back to its original source. Built by **Team Zerack** for NASA Space Apps Challenge 2026, “Flame in Freefall”.
 
-[Enter VESTA](https://itzjk.github.io/vesta/#/brief) · [Watch the 60-second tour](https://itzjk.github.io/vesta/#/brief?tour=1) · [Open the instrument view](https://itzjk.github.io/vesta/#/design?view=details) · [JSON receipt format](docs/evidence-receipt.md)
+[Enter VESTA](https://itzjk.github.io/vesta/#/brief) · [Watch one question answered in 26 seconds](https://itzjk.github.io/vesta/?question=1#/brief?station=transit) (wide screens) · [Watch the 60-second tour](https://itzjk.github.io/vesta/#/brief?tour=1) · [Open the instrument view](https://itzjk.github.io/vesta/#/design?view=details) · [JSON receipt format](docs/evidence-receipt.md)
 
 ## Start with one question
 

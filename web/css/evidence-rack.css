@@ -44,3 +44,10 @@ body:has(dialog[open]) .world-host[data-station=evidence] :is(.evidence-rack-ui,
 .world-host[data-station=evidence] :is(.world-actions button,.world-answer,.field-gravities button,.field-caption){line-height:1.5}
 body:has(.world-host[data-station=evidence]) :is(.world-cases,.mission-brief) :is(h2,h3){line-height:1.35}
 .evidence-console .coverage-matrix tbody th{line-height:1.5}
+
+.world-host[data-station=evidence][data-rack-compact=true] .evidence-rack-ui[data-panel-open=false] .evidence-sample-name{box-sizing:border-box;width:54px;min-width:44px;max-width:54px;min-height:44px;white-space:normal;overflow-wrap:anywhere}
+.world-host[data-station=evidence][data-rack-compact=true] .evidence-companion{display:none}
+@media(max-width:759px) and (max-height:550px){
+ .world-host[data-station=evidence][data-rack-compact=true] .evidence-rack-ui[data-panel-open=false] .evidence-rack-order{display:block;top:82px}
+ .world-host[data-station=evidence][data-rack-compact=true] .evidence-rack-ui[data-panel-open=false] .evidence-rack-legend{top:100px}
+}

@@ -1,5 +1,15 @@
+const rationalePreferences = new WeakMap();
+
 export function polishDecisionContent(content, { entry, done = false, outside = false } = {}) {
   if (!content) return null;
+  let preference = rationalePreferences.get(content);
+  if (!preference) {
+    preference = { open: false, details: null };
+    rationalePreferences.set(content, preference);
+  }
+  // A rebuild can precede the queued toggle event. Read the last disclosure now.
+  if (preference.details) preference.open = preference.details.open;
+  preference.details = null;
   const panel = content.closest('.world-drill');
   const heading = panel?.querySelector('.drill-heading');
   const controls = panel?.querySelector('.drill-controls');
@@ -17,7 +27,7 @@ export function polishDecisionContent(content, { entry, done = false, outside = 
   if (!entry || done || outside) return null;
   const children = [...content.children];
   const existing = children.find(node => node.classList.contains('drill-rationale'));
-  if (existing) return existing;
+  if (existing) { preference.details = existing; return existing; }
 
   const triad = children.find(node => node.classList.contains('drill-triad'));
   const beats = triad ? [...triad.children] : children;
@@ -31,8 +41,14 @@ export function polishDecisionContent(content, { entry, done = false, outside = 
 
   const details = content.ownerDocument.createElement('details');
   details.className = 'drill-rationale';
+  details.open = preference.open;
+  preference.details = details;
+  details.addEventListener('toggle', () => {
+    // Ignore queued events from a disclosure replaced by a later decision.
+    if (preference.details === details && details.parentElement === content) preference.open = details.open;
+  });
   const summary = content.ownerDocument.createElement('summary');
-  summary.textContent = 'NASA evidence & reasoning';
+  summary.textContent = 'Why this decision? Evidence & limits';
   details.append(summary);
   if (triad && entry.state !== 'NO_SOURCE' && entry.coverage) {
     const fullStatus = children.find(node => node.classList.contains('drill-limit'));

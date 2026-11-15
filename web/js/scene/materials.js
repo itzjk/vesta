@@ -36,10 +36,12 @@ export function tube(THREE, points, radius, material, group) {
 }
 
 export function balanceWorldLight(world, factor = .3, environmentFactor = factor) {
-  const lights = world.root?.parent?.children.filter(o => o.isLight).map(light => [light, light.intensity]) || [];
+  // The world puts its lights back at their base before it enters a station, so the base is read
+  // on entry. Reading it when the station is built is wrong: stations are built in the background
+  // while another one may be dimming these same lights.
   let top = world.root;
   while (top?.parent) top = top.parent;
-  let active = false, environment, environmentScene;
+  let active = false, lights = null, environment, environmentScene;
   const applyEnvironment = () => {
     let scene = world.root;
     while (scene?.parent) scene = scene.parent;
@@ -56,7 +58,9 @@ export function balanceWorldLight(world, factor = .3, environmentFactor = factor
   top?.addEventListener('added', applyEnvironment);
   return value => {
     active = value;
-    for (const [light, intensity] of lights) light.intensity = intensity * (active ? factor : 1);
+    if (active) lights ??= (world.root?.parent?.children.filter(o => o.isLight) || []).map(light => [light, light.intensity]);
+    for (const [light, intensity] of lights || []) light.intensity = intensity * (active ? factor : 1);
+    if (!active) lights = null;
     applyEnvironment();
   };
 }

@@ -212,7 +212,11 @@ export async function build(world) {
   }
   function paintPanel() {
     const title = { overview: 'Cabin evidence', sample: 'Material evidence', ask: 'Search the evidence', cabin: 'Configure your cabin', compare: 'Compare investigations', receipt: 'Keep the evidence', gaps: 'Research gaps' }[panel];
-    const close = node('button', '×', 'evidence-close'); close.type = 'button'; close.setAttribute('aria-label', 'Close evidence console'); close.onclick = () => setPanel(null);
+    const close = node('button', '×', 'evidence-close'); close.type = 'button'; close.setAttribute('aria-label', 'Close evidence console'); close.onclick = () => {
+      const trigger = close.matches(':focus-visible') && selectedMaterial && root.querySelector(`[data-sample-material="${selectedMaterial}"]`);
+      setPanel(null);
+      if (trigger) requestAnimationFrame(() => trigger.focus({ preventScroll: true }));
+    };
     consoleEl.replaceChildren(node('h2', title), close); consoleEl.dataset.evidencePanel = panel || '';
     if (panel === 'overview') {
       consoleEl.querySelector('h2').remove(); wall.update(currentQ); consoleEl.append(wall.element);
@@ -310,8 +314,12 @@ export async function build(world) {
   function cameraPose() {
     if (sceneMode === 'chart') return { position: [0, 0, 24], target: [0, 0, 0], fov: 40, aperture: 0, focusDistance: 24, exposure: .85 };
     const { width, height } = stage.size();
-    return rack.camera({ aspect: width / height, width, height, panel: !!panel,
-      ...(height < 550 ? { insets: { top: 100, bottom: 90, left: 30, right: 80 } } : width < 760 ? { insets: { top: 160, bottom: 225 } } : {}) });
+    const portrait = width / height < .9;
+    const insets = { top: portrait ? 140 : 135, bottom: portrait ? 190 : 120, left: portrait ? 15 : 70, right: portrait ? 15 : 70,
+      ...(height < 550 ? { top: 100, bottom: 90, left: 30, right: 80 } : width < 760 ? { top: 160, bottom: 225 } : {}) };
+    const compact = width < 760 && width - insets.left - insets.right > height - insets.top - insets.bottom;
+    if (root.dataset.rackCompact !== String(compact)) root.dataset.rackCompact = String(compact);
+    return rack.camera({ aspect: width / height, width, height, panel: !!panel, insets, surface: stage.renderer.domElement, layout: compact ? 'compact-wide' : 'default' });
   }
   field.setVisible(false); rack.setVisible(false); group.visible = false; refreshAnswer();
   selectionReady = true;
@@ -408,7 +416,7 @@ export async function build(world) {
       root.removeEventListener('pointerdown', outside); window.removeEventListener('keydown', escape);
       window.removeEventListener('vesta:cite', citation);
       wall.dispose(); gaps.dispose(); field.dispose(); rack.dispose(); rackUI.dispose(); consoleHandle.dispose();
-      tools.remove(); companion.remove(); style.remove(); host.classList.remove('evidence-world-active'); delete root.dataset.evidenceDisplay;
+      tools.remove(); companion.remove(); style.remove(); host.classList.remove('evidence-world-active'); delete root.dataset.evidenceDisplay; delete root.dataset.rackCompact;
       const seen = new Set();
       group.traverse(o => { for (const resource of [o.geometry, ...[o.material].flat()]) if (resource && !seen.has(resource)) { seen.add(resource); resource.dispose?.(); } });
       group.removeFromParent();

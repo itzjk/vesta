@@ -223,11 +223,16 @@ export async function build(world) {
     scenery = await buildCabin({ ...ctx, THREE: world.THREE, vesta: world.vesta, world: true });
     ctx.scene.add(scenery.group); scenery.group.visible = false;
   }
-  const balanceLight = balanceWorldLight(world, 0);
+  // The cabin keeps most of the world's fill light: with none, only the two ceiling pools reached
+  // anything and the walls, floor and equipment were black on an ordinary screen.
+  const balanceLight = balanceWorldLight(world, .7, .8);
   const camera = t => {
     const mobile = innerWidth < 760;
-    return outside ? { position: [0, 1.3, mobile ? 27 : 10], target: [0, 0, 0], fov: mobile ? 44 : 35 }
-      : { position: [0.22 + (reduced ? 0 : Math.sin(t * 0.22) * 0.18), 0.8, mobile ? 13.5 : 8.5], target: [0.2, 0.65, 0], fov: 35 };
+    // A narrow window that is also short gives a canvas wider than tall. The phone distance left the officer
+    // tiny and under the telemetry notice there: come closer and aim higher, so the officer sits large below it.
+    const short = mobile && world.camera.aspect > 1;
+    return outside ? { position: [0, 1.3, short ? 16 : mobile ? 27 : 10], target: [0, short ? 1.6 : 0, 0], fov: mobile ? 44 : 35 }
+      : { position: [0.22 + (reduced ? 0 : Math.sin(t * 0.22) * 0.18), 0.8, short ? 10 : mobile ? 13.5 : 8.5], target: [0.2, short ? 1.85 : 0.65, 0], fov: 35 };
   };
   function keydown(event) {
     if (!active) return;

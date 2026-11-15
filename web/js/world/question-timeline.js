@@ -1,12 +1,10 @@
-export const QUESTION_SECONDS = 28;
+export const QUESTION_SECONDS = 26.5;
 export const QUESTION_STEPS = Object.freeze([
-  { id: 'question', at: 0, label: 'One material question' },
-  { id: 'cabin', at: 3.5, label: 'Choose the Moon' },
-  { id: 'rack', at: 7, label: 'What NASA tested' },
-  { id: 'comparison', at: 9.5, label: 'Different conditions' },
-  { id: 'source', at: 15, label: 'Check the source' },
-  { id: 'gap', at: 20, label: 'No source here' },
-  { id: 'repeat', at: 24, label: 'Repeat the result' }
+  { id: 'question', at: 0, label: 'One question' },
+  { id: 'cabin', at: 9, label: 'Change one condition' },
+  { id: 'comparison', at: 12, label: 'No longer matching' },
+  { id: 'gap', at: 15.5, label: 'Not tested yet' },
+  { id: 'close', at: 20, label: 'Evidence, not a verdict' }
 ]);
 export function questionStep(seconds) {
   const t = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
