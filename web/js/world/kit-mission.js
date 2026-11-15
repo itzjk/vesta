@@ -1,5 +1,5 @@
 // Virtual choreography only. Evidence calculations and physical hardware remain separate.
-export const KIT_TIMING = Object.freeze({ approach: 2.4, retrieve: 0.9, carry: 2.6, place: 0.8, handoff: 0.6 });
+export const KIT_TIMING = Object.freeze({ approach: 3.4, retrieve: 1.3, carry: 4.2, place: 1.4, handoff: 1.0 });
 export const KIT_PHASES = Object.freeze(['ready', 'approved', 'approach', 'retrieve', 'carry', 'place', 'handoff', 'complete']);
 export const KIT_COMPLETE_LABEL = 'Virtual kit staged — crew review required';
 const MATERIALS = ['pmma', 'kapton', 'silicone'];

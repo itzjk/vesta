@@ -17,11 +17,11 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   const geometries = new Set(), materials = new Set(), roundedCache = new Map();
   const geometry = value => { geometries.add(value); return value; };
   const material = (color, extra = {}) => { const m = new T.MeshStandardMaterial({ color, roughness: .48, metalness: .28, ...extra }); materials.add(m); return m; };
-  const shell = material(0xc4c5bd, { roughness: .51, metalness: .24 });
+  const shell = material(0xd0cec2, { roughness: .57, metalness: .14 });
   const graphite = material(0x222a2e, { roughness: .58, metalness: .38 });
   const titanium = material(0x8a9699, { roughness: .31, metalness: .72 });
   const copper = material(0xa56f4c, { roughness: .44, metalness: .58 });
-  const glass = material(0x101c23, { roughness: .18, metalness: .47 });
+  const glass = material(0x15262f, { roughness: .28, metalness: .24 });
   const signal = material(0xc2a46e, { emissive: 0xc79242, emissiveIntensity: .24, roughness: .3 });
   const optics = material(0x7eabb7, { emissive: 0x6e9aa9, emissiveIntensity: .13, roughness: .2, metalness: .3 });
   const contactMaterial = new T.MeshBasicMaterial({ color: 0x080b0c, transparent: true, opacity: .17, depthWrite: false }); materials.add(contactMaterial);
@@ -103,6 +103,13 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   const neck = pivot(torso, 'articulated-head', 0, .745);
   cylinder(neck, graphite, .072, .10, [0, .012, 0]); cylinder(neck, titanium, .078, .022, [0, .045, 0]);
   ellipsoid(neck, shell, [.168, .205, .161], [0, .245, -.003]);
+  // Cheek and jaw surfaces clarify the adult head silhouette without changing
+  // the articulated head frame, eye line, shoulder reach or any grip endpoint.
+  for (const side of [-1, 1]) {
+    const cheek = panel(neck, shell, [.044, .09, .065], [side * .12, .165, .12], .016);
+    cheek.rotation.z = side * -.20;
+  }
+  panel(neck, shell, [.17, .065, .065], [0, .115, .11], .023, 'lower-face-shell');
   panel(neck, glass, [.289, .108, .05], [0, .242, .141], .035, 'sensor-visor');
   panel(neck, graphite, [.30, .014, .026], [0, .306, .138], .006);
   panel(neck, graphite, [.10, .025, .024], [0, .13, .142], .008);
@@ -204,7 +211,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   const joints = [torso, neck, leftArm.shoulder, leftArm.elbow, leftArm.wrist, rightArm.shoulder, rightArm.elbow, rightArm.wrist];
   const fromPose = joints.map(j => j.quaternion.clone()), poseQuaternion = joints.map(() => new T.Quaternion());
   let previousPhase = null, previousReviewPose = false, fromYaw = .18, disposed = false;
-  const kitDurations = { approach: 2.4, retrieve: .9, carry: 2.6, place: .8, handoff: .6 };
+  const kitDurations = { approach: 3.4, retrieve: 1.3, carry: 4.2, place: 1.4, handoff: 1.0 };
   const kitDefaultSlots = Object.fromEntries([['pmma', -.45], ['kapton', .05], ['silicone', .55]].map(([id, x]) =>
     [id, { point: [x, 0, .25], robotPosition: [x - .25, groundY, .85], robotYaw: Math.PI }]));
   const kitDefaultFixture = { point: [2.05, 0, .25], robotPosition: [1.80, groundY, .85], robotYaw: Math.PI };

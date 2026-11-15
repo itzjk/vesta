@@ -24,7 +24,7 @@ The default experience is one continuous 3D world with named station tabs and vi
 | Evidence | Inspect 45 coverage questions, each with up to three nearest source rows and a strip of compared conditions and excluded variables; configure a cabin, filter the complete evidence register, search findings, compare investigations, and export receipts or research gaps. | Coverage under explicit matching rules, with source provenance. |
 | Drill | Step through eight decisions, inspect their support, replay the exercise and export its debrief. | A bounded teaching exercise, not operational flight guidance. |
 | Trust | Execute ten reviewed cases and inspect the build's evidence checks. | Reproducible software checks, not independent scientific certification. |
-| Robotics | Follow a humanoid inspection concept from a scripted observation to a human-approved inspection, and save the record. | A concept simulation of a workflow in a grounded lab. No physical robot, telemetry, locomotion control or autonomous controller is connected. |
+| Robotics | Review material evidence, approve a virtual kit retrieval and crew handoff, and save its source-linked report. | The evidence review uses the loaded collection. Kit motion is illustrative; no physical robot, sensor measurement or locomotion controller is connected. |
 
 **Mission**, available from every station, explains the problem, the software roles behind each station (they are not live language-model conversations) and the robotics concept, with links to NASA references. Its **Method & limits** topic exposes the matching tolerances, relevance weights, excluded variables and the distinction between reproducibility and scientific validation, with direct routes to evidence, JSON receipts and reviewed cases.
 

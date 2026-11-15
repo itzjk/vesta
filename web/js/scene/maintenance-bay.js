@@ -1,7 +1,10 @@
-// A bounded, procedural set for the software inspection concept. No external assets,
-// shadow maps, telemetry feeds or physical sensor model are used here.
+import { nasaTexture, NASA_TEXTURES } from './imagery.js';
+
+// A bounded procedural set with one already-bundled, credited NASA Earth photograph.
+// No shadow maps, telemetry feeds or physical sensor model are used here.
 export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
   const group = new T.Group(); group.name = 'lunar-crew-support-habitat';
+  let disposed = false;
   const geometries = new Set(), materials = new Set(), textures = new Set();
   const geo = value => { geometries.add(value); return value; };
   const mat = (color, options = {}) => {
@@ -64,7 +67,8 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
 
   // A continuous interior envelope contains every camera pose. The Moon is visible
   // only through the rear viewport; this is a visual set, not a pressure model.
-  // All exterior terrain is original illustrative geometry, not a NASA image.
+  // Terrain is original illustrative geometry. The distant Earth is a static,
+  // archival hemisphere photograph: neither a live view nor a sky-position model.
   const rearZ=-3.82,frontZ=10.4;
   const vaultPositions=[],vaultUvs=[],vaultIndices=[],vaultSegments=32;
   for(let i=0;i<=vaultSegments;i++){
@@ -104,6 +108,20 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
   }
   for(const x of [-4.15,4.15])box([.035,.006,13.9],[x,groundY+.003,3.25],copper);
   group.userData.enclosure={kind:'visual-interior',rearZ,frontZ,halfWidth:5,vaultHeight:4.4,groundY,viewport:'rear-bulkhead-only'};
+  const earthMaterial = new T.MeshBasicMaterial({ color: 0xffffff, toneMapped: false }); materials.add(earthMaterial);
+  const earth = mesh(geo(new T.CircleGeometry(1.05, 48)), earthMaterial, [1, 1, 1], [-1, 1.25, -14]);
+  earth.name = 'archival-earth-through-viewport'; earth.visible = false;
+  earth.userData = { nasa_id: NASA_TEXTURES.earth.id, credit: NASA_TEXTURES.earth.credit,
+    source: `https://images.nasa.gov/details/${NASA_TEXTURES.earth.id}`,
+    projection: 'cropped orthographic photograph', scenic: true, live: false };
+  group.userData.earthImage = { ...earth.userData, state: 'loading' };
+  // Reuse the established orthographic crop; do not wrap a hemispheric photograph
+  // around a sphere or invent its unseen side. Async completion respects disposal.
+  const earthReady = nasaTexture(T, 'earth', true).then(texture => {
+    if (disposed) { texture.dispose(); return false; }
+    texture.anisotropy = 1; textures.add(texture); earthMaterial.map = texture;
+    earthMaterial.needsUpdate = true; earth.visible = true; group.userData.earthImage.state = 'ready'; return true;
+  }).catch(() => { if (!disposed) group.userData.earthImage.state = 'unavailable'; return false; });
   const lunar=mat(0x807e75,{roughness:1,metalness:0});
   const terrain=geo(new T.PlaneGeometry(22,15,24,16));terrain.rotateX(-Math.PI/2);
   const terrainPositions=terrain.attributes.position;
@@ -143,7 +161,7 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
   decal('KAPTON CABLE',1.30,.28,[-3.65,.83,-1.07]);
   for(const x of [-1.82,1.82])box([.045,2.55,.035],[x,.86,-3.33],recess);
   for(const y of [-.42,2.14])box([3.66,.045,.035],[0,y,-3.33],recess);
-  decal('SILICONE SEAL',1.45,.28,[2.70,1.77,-3.30]);
+  decal('SILICONE SEAL',1.45,.28,[2.70,.85,-3.30]);
   const targetSpec=(label,tag,point,robotPosition,robotYaw)=>Object.freeze({label,tag,point:Object.freeze(point),robotPosition:Object.freeze(robotPosition),robotYaw});
   const workTargets=Object.freeze({
     pmma:targetSpec('PMMA work-zone panel','HAB-PMMA-01',[2.65,.28,-1.025],[1.65,groundY,-.05],2.44),
@@ -237,13 +255,14 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
   const key=new T.PointLight(0xf1e2c7,15,14,2);key.position.set(-2.4,2.35,2.2);group.add(key);
   const task=new T.PointLight(0xb7cbd2,9,10,2);task.position.set(3.35,1.8,.5);group.add(task);
 
-  // The wall monitor shows the real software tally; it is not a sensor display.
+  // The real-tally monitor sits on the solid rear-right wall, leaving the viewport
+  // open. Its screen is not a sensor display and creates no evidence of its own.
   const screenCanvas = document.createElement('canvas'); screenCanvas.width = 512; screenCanvas.height = 384;
   const screenContext = screenCanvas.getContext('2d'), screenTexture = new T.CanvasTexture(screenCanvas); screenTexture.colorSpace = T.SRGBColorSpace; textures.add(screenTexture);
   const screenMaterial = new T.MeshBasicMaterial({ map: screenTexture, toneMapped: false }); materials.add(screenMaterial);
-  box([1.6, 1.28, .14], [-.6, .38, -2.69], graphite);
-  box([.16, .95, .16], [-.6, groundY + .48, -2.76], steel);
-  mesh(geo(new T.PlaneGeometry(1.42, 1.06)), screenMaterial, [1, 1, 1], [-.6, .38, -2.60]);
+  box([1.6, 1.20, .14], [2.95, 1.58, -3.34], graphite);
+  box([.16, .58, .16], [2.95, 1.00, -3.40], steel);
+  mesh(geo(new T.PlaneGeometry(1.42, 1.06)), screenMaterial, [1, 1, 1], [2.95, 1.58, -3.25]);
   // Fixed opaque pieces share a draw submission. Keep the moving cue/scan and every
   // texture plane independent so their transforms and live monitor remain updateable.
   const moving = new Set([cue, targetRing, scan]);
@@ -340,7 +359,7 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
   }
   let meshes = 0, triangles = 0, lights = 0;
   group.traverse(item => { if (item.isMesh) { meshes++; triangles += (item.geometry.index?.count ?? item.geometry.attributes.position.count) / 3; } if (item.isLight) lights++; });
-  const stats = Object.freeze({ meshes, authoredMeshes, triangles, lights, shadowMaps: 0, textures: textures.size, externalAssets: 0 });
+  const stats = Object.freeze({ meshes, authoredMeshes, triangles, lights, shadowMaps: 0, textures: textures.size + 1, externalAssets: 1 });
   group.userData.budget = stats;
-  return { group, stats, cuePosition, workTargets,kit,cameraHints,lightingScale:.45, update, dispose() { group.removeFromParent(); geometries.forEach(item => item.dispose()); materials.forEach(item => item.dispose()); textures.forEach(item => item.dispose()); } };
+  return { group, stats, cuePosition, workTargets,kit,cameraHints,earthReady,lightingScale:.45, update, dispose() { if (disposed) return; disposed = true; group.removeFromParent(); geometries.forEach(item => item.dispose()); materials.forEach(item => item.dispose()); textures.forEach(item => item.dispose()); } };
 }

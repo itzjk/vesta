@@ -1,16 +1,16 @@
-import { createHumanoidInspector } from '../scene/humanoid-inspector.js?v=crew-kit-20261115-1';
-import { createMaintenanceBay } from '../scene/maintenance-bay.js?v=crew-kit-20261115-1';
+import { createHumanoidInspector } from '../scene/humanoid-inspector.js?v=earth-task-20261115-1';
+import { createMaintenanceBay } from '../scene/maintenance-bay.js?v=earth-task-20261115-1';
 import { ensureInformationPolishStyles } from './information-polish.js?v=habitat-20261115-1';
 import { createInventoryReviewSession, reviewToMarkdown } from '../core/inventory-review.js?v=habitat-20261115-1';
 import { createInventoryReviewPanel } from './inventory-review-panel.js?v=habitat-20261115-1';
 import { openCitation } from './cite.js?v=habitat-20261115-1';
-import { proposeKitMission, createKitMission, kitInputSignature } from './kit-mission.js';
-import { createKitMissionPanel } from './kit-mission-panel.js';
+import { proposeKitMission, createKitMission, kitInputSignature } from './kit-mission.js?v=earth-task-20261115-1';
+import { createKitMissionPanel } from './kit-mission-panel.js?v=earth-task-20261115-1';
 import { createRecordedReviewPanel } from './recorded-claude-review.js';
 
 if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-robotics]')) {
   for (const file of ['robotics']) {
-    const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL(`../../css/${file}.css?v=crew-kit-20261115-1`,import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
+    const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL(`../../css/${file}.css?v=earth-task-20261115-1`,import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
   }
 }
 const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text)el.textContent=text;if(cls)el.className=cls;return el;};
@@ -20,6 +20,7 @@ export async function build(world) {
   ensureInformationPolishStyles();world.host.classList.add('information-polish');
   const {THREE:T,stage,db}=world,group=new T.Group();group.name='lunar-inventory-review';
   const bay=createMaintenanceBay({THREE:T,groundY:-1.43});group.add(bay.group);
+  bay.earthReady?.then(()=>world.invalidate?.());
   const humanoid=createHumanoidInspector({THREE:T,groundY:-1.43});group.add(humanoid.group);
   group.userData.resourceBudget={bay:bay.stats,humanoid:humanoid.stats};
   let active=false,disposed=false,lastTime=0,changed=0,savedAperture,parkedAt=null;
@@ -38,6 +39,11 @@ export async function build(world) {
   caption.append(node('p','LUNAR HABITAT · CREW SUPPORT','robotics-eyebrow'),node('h1','Prepare the crew review.'),targetLabel,outcome,selectedResult,locationButton,node('p','Evidence analysis + virtual kit staging','robotics-caption-scope'));
   const kitPanel=createKitMissionPanel({onApprove:approveKit,onCancel:cancelKit,onReset:prepareKit,onDownload:downloadKit,onEvidence:()=>locationButton.click()});
   const kitCabin=node('p',null,'robotics-kit-cabin');kitCabin.hidden=true;caption.append(kitCabin,kitPanel.element);
+  const imageCredit=node('details',null,'robotics-image-credit');
+  const earthSource=node('a','NASA/NOAA/GSFC/Suomi NPP/VIIRS/Norman Kuring');
+  earthSource.href='https://images.nasa.gov/details/GSFC_20171208_Archive_e001386';earthSource.target='_blank';earthSource.rel='noopener noreferrer';
+  imageCredit.append(node('summary','Earth imagery · credit'),earthSource,node('p','Archival Blue Marble photograph used as scenery. Planet position and scale are illustrative.'));
+  caption.append(imageCredit);
   world.host.querySelector('.world-overlay').append(caption);
   const workspace=node('aside',null,'inventory-review-workspace');workspace.hidden=true;workspace.setAttribute('aria-label','Material evidence review workspace');
   const back=node('button','Back to habitat','inventory-review-back');back.type='button';back.onclick=()=>closeWorkspace();
@@ -71,6 +77,9 @@ export async function build(world) {
   function guardCabin(){if(lastCabin&&lastCabin!==cabinKey()){clearRun('Cabin changed. Previous results cleared; run a new review.');return false;}return true;}
   function refresh(){
     const q=currentQuestion(),target=bay.workTargets?.[focus.material];
+    back.textContent=report?.status==='complete'&&kitState?.phase==='ready'
+      ? 'View robot task · approval required'
+      : report?.status==='complete' ? 'View robot & review kit' : 'Back to habitat';
     recordedPanel?.update(report);
     if(!report){const line=panel.element.querySelector('.inventory-cabin');if(line)line.textContent=`Current cabin · ${world.q.o2??'unknown'}% O2 · ${world.q.p??'unknown'} kPa · ${world.q.g??'unknown gravity'}`;}
     targetLabel.textContent=target?`${target.tag} · ${target.label}`:`${db.materials[focus.material]?.label||focus.material} · no scene component`;
@@ -180,7 +189,7 @@ export async function build(world) {
       // Keep the pickup and handoff within one view; evidence remains in its own
       // readable workspace and is never delayed by camera or robot choreography.
       const shift=workspaceOpen&&!compact?1.8:0;
-      if(bay.kit)return {position:compact?[2.4,1.8,9]:[2.6,2.0,6.9],target:[.5+shift,-.2,.25],fov:compact?62:50};
+      if(bay.kit)return {position:compact?[0,1.8,9.6]:[.8,1.6,7.4],target:[(compact?0:-.4)+shift,compact?-2.2:-.15,-.25],fov:compact?70:52};
       if(!compact)return {position:[-1.0,1.1,7.8],target:[.7+shift,0,-.4],fov:49};
       return {position:[.8,.8,8.2],target:[1.2,-.15,0],fov:56};
     },

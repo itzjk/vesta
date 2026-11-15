@@ -11,6 +11,7 @@ const EVIDENCE = Object.freeze({
   NEVER_TESTED: 'No source in this collection'
 });
 const RUNNING = new Set(['approved', 'approach', 'retrieve', 'carry', 'place', 'handoff']);
+const PHASE_STEP = Object.freeze({ approach: 1, retrieve: 2, carry: 3, place: 4, handoff: 5 });
 const DEFAULT_PURPOSE = 'Stage a virtual review kit at the crew-review fixture for the selected component.';
 const node = (tag, text = '', cls = '') => {
   const element = document.createElement(tag);
@@ -30,7 +31,7 @@ const titleCase = value => typeof value === 'string' && value
 function ensureStyles() {
   if (document.querySelector('link[data-kit-mission-styles]')) return;
   const sheet = node('link'); sheet.rel = 'stylesheet';
-  sheet.href = new URL('../../css/kit-mission.css?v=kit-task-20261115-1', import.meta.url).href;
+  sheet.href = new URL('../../css/kit-mission.css?v=earth-task-20261115-1', import.meta.url).href;
   sheet.dataset.kitMissionStyles = ''; document.head.append(sheet);
 }
 
@@ -43,6 +44,7 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
   ensureStyles();
   let current = null, disposed = false, lastSignature = null, callbackError = '';
   const cleanups = [];
+  const motionPreference = typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion: reduce)') : null;
   const element = node('section', '', 'kit-mission-strip');
   element.setAttribute('aria-label', 'Evidence-linked virtual task'); element.hidden = true;
   const eyebrow = node('p', 'VIRTUAL KIT TASK', 'kit-mission-eyebrow');
@@ -53,6 +55,7 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
   const purpose = node('p', DEFAULT_PURPOSE, 'kit-mission-purpose');
   const details = node('details', '', 'kit-mission-details');
   const summary = node('summary', 'Review request & sources');
+  const conditions = node('p', '', 'kit-mission-conditions');
   const reason = node('p', '', 'kit-mission-request');
   const nextStep = node('p');
   const count = node('p', '', 'kit-mission-source-count');
@@ -60,6 +63,7 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
   const findings = node('p', '', 'kit-mission-source-ids');
   const error = node('p', '', 'kit-mission-error'); error.hidden = true;
   error.setAttribute('role', 'alert');
+  const motionNote = node('p', '', 'kit-mission-motion-note'); motionNote.hidden = true;
   const actions = node('div', '', 'kit-mission-actions');
   const hasPlan = () => !disposed && current?.schema === 'vesta.virtual-kit-state/1'
     && current.plan?.schema === 'vesta.virtual-kit-plan/1';
@@ -90,8 +94,8 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
     call(onEvidence, { material: current.plan.material_id, concern: current.plan.concern,
       questionId: current.plan.question_id }, current);
   }, details);
-  details.prepend(summary, reason, nextStep, count, rows, findings);
-  const approve = button('Approve virtual task', 'approve', () => {
+  details.prepend(summary, evidence, conditions, reason, nextStep, count, rows, findings);
+  const approve = button('Approve & run animation', 'approve', () => {
     if (canApprove()) call(onApprove, current);
   }); approve.className = 'kit-mission-primary';
   const cancel = button('Cancel task', 'cancel', () => {
@@ -100,11 +104,17 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
   const download = button('Save crew handoff', 'download', () => {
     if (canDownload()) call(onDownload, current);
   });
-  const reset = button('Reset task', 'reset', () => {
-    if (hasPlan() && !RUNNING.has(current.phase) && typeof onReset === 'function') call(onReset, current);
+  const reset = button('Prepare replay', 'reset', () => {
+    if (hasPlan() && !RUNNING.has(current.phase) && typeof onReset === 'function') {
+      details.open = false;
+      call(onReset, current);
+      if (canApprove()) approve.focus();
+    }
   });
+  reset.title = 'Reset this task, then approve it again before any movement.';
+  actions.insertBefore(reset, download);
   const scope = node('p', 'Virtual staging · no physical test. Evidence unchanged.', 'kit-mission-scope');
-  element.append(eyebrow, heading, evidence, purpose, task, actions, error, details, scope);
+  element.append(eyebrow, heading, purpose, task, actions, motionNote, error, details, scope);
 
   function showMessage() {
     const message = callbackError || current?.revoked_reason || current?.last_rejection || '';
@@ -112,6 +122,7 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
   }
   function update(snapshot) {
     if (disposed) return;
+    const focused = document.activeElement;
     if (snapshot?.plan?.input_signature !== current?.plan?.input_signature || snapshot?.phase !== current?.phase) callbackError = '';
     current = snapshot || null;
     element.hidden = !hasPlan();
@@ -123,10 +134,11 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
       lastSignature = plan.input_signature;
       text(heading, `${plan.material || titleCase(plan.material_id)} · ${titleCase(plan.concern)}`);
       text(evidence, `Evidence · ${EVIDENCE[plan.evidence_status] || 'Status unavailable'}`);
+      text(conditions, `Saved cabin: ${plan.query?.o2 ?? 'unavailable'}% oxygen · ${plan.query?.p ?? 'unavailable'} kPa · gravity: ${plan.query?.g ?? 'unavailable'}.`);
       text(reason, plan.request?.reason || 'Review request unavailable.');
       text(nextStep, plan.request?.next_step || ''); nextStep.hidden = !plan.request?.next_step;
       const rowIds = sourceIds(plan.source_ids?.rows), findingIds = sourceIds(plan.source_ids?.findings);
-      text(summary, `Review request · ${rowIds.length} ${rowIds.length === 1 ? 'row' : 'rows'} · ${findingIds.length} ${findingIds.length === 1 ? 'finding' : 'findings'}`);
+      text(summary, 'Evidence & review request');
       text(count, `Linked evidence: ${rowIds.length} source ${rowIds.length === 1 ? 'row' : 'rows'} · ${findingIds.length} ${findingIds.length === 1 ? 'finding' : 'findings'}`);
       text(rows, rowIds.length ? `Row IDs: ${rowIds.join(', ')}` : 'No source row linked.');
       text(findings, findingIds.length ? `Finding IDs: ${findingIds.join(', ')}` : 'No finding linked.');
@@ -137,18 +149,35 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
     const phaseLabel = !valid && current.phase === 'ready' ? 'New plan and approval required'
       : current.phase === 'complete' && !staged ? 'Completion unavailable'
       : STATES[current.phase] || 'Stage unavailable';
-    text(task, phaseLabel);
+    const step = PHASE_STEP[current.phase];
+    text(task, step ? `${step}/5 · ${phaseLabel}` : phaseLabel);
     text(purpose, staged
       ? 'Crew review required. No physical work is authorized.'
       : `Bring the ${plan.material || titleCase(plan.material_id)} review kit to the crew console.`);
     element.dataset.kitPhase = current.phase;
+    const reduced = motionPreference?.matches || current.motion_mode === 'reduced-motion-poses';
+    text(approve, reduced ? 'Approve & show final pose' : 'Approve & run animation');
+    text(motionNote, motionPreference?.matches
+      ? 'Reduced motion is on. Approval shows the final pose without animation.'
+      : 'This run used still poses; no continuous animation was shown.');
+    motionNote.hidden = !reduced;
     approve.hidden = current.phase !== 'ready'; approve.disabled = !canApprove();
     cancel.hidden = !running; cancel.disabled = !valid || typeof onCancel !== 'function';
     download.hidden = current.phase !== 'complete'; download.disabled = !canDownload();
-    reset.hidden = running; reset.disabled = typeof onReset !== 'function';
+    reset.hidden = running || (valid && current.phase === 'ready'); reset.disabled = typeof onReset !== 'function';
+    text(reset, staged ? 'Prepare replay' : 'Prepare new task');
+    reset.classList.toggle('kit-mission-primary', staged);
     source.disabled = typeof onEvidence !== 'function';
     showMessage();
+    // Keep keyboard focus on a usable control when a deliberate action changes phase.
+    if ([approve, cancel, reset].includes(focused) && focused.hidden) {
+      const nextControl = [approve, cancel, reset].find(control => !control.hidden && !control.disabled);
+      nextControl?.focus({ preventScroll: true });
+    }
   }
+  const preferenceChanged = () => { if (current) update(current); };
+  motionPreference?.addEventListener?.('change', preferenceChanged);
+  cleanups.push(() => motionPreference?.removeEventListener?.('change', preferenceChanged));
   return { element, update, dispose() {
     if (disposed) return;
     disposed = true; cleanups.splice(0).forEach(remove => remove()); current = null; element.remove();
