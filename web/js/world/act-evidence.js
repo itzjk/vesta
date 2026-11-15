@@ -32,6 +32,7 @@ export async function build(world) {
   const { THREE: T, db, core } = world;
   await Promise.all([css('css/coverage.css'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1')]);
   let selectedMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';
+  let selectionReady = false;
   const wall = buildCoverage(world, { onSelection: onCoverageSelection }), gaps = buildGapBrief(world);
   const stage = world.stage.context || world.stage.ctx || world.stage;
   const host = stage.renderer.domElement.parentElement, root = world.host || host;
@@ -72,8 +73,14 @@ export async function build(world) {
   const rackUI = createRackUI({ materials: db.materials, onSelect: material => openMaterial(material), onHover: material => { hoveredMaterial = material; world.invalidate?.(); } });
   tools.append(rackUI.element);
   function onCoverageSelection(selection) {
+    if (!selectionReady) return;
     selectedMaterial = selection?.material || null;
-    if (selection) selectedConcern = selection.concern;
+    if (selection) {
+      selectedConcern = selection.concern;
+      if (currentQ.material !== selectedMaterial || currentQ.concern !== selectedConcern) {
+        applyQ({ material: selectedMaterial, concern: selectedConcern });
+      }
+    }
     rack.focus(selectedMaterial, world.capture);
     reaction = lastTime;
     if (!selection && panel === 'sample') setPanel('overview');
@@ -140,6 +147,13 @@ export async function build(world) {
     const count = consoleEl.querySelector('[data-cabin-count]');
     if (count) count.textContent = s.matches.length ? `${format(s.matches.length)} counting source-table rows within tolerance. This is coverage, not a safety certification.` : 'No counting source-table rows match this cabin. That is a gap in this collection, not proof of safety.';
     host.dataset.evidenceMatches = String(s.matches.length);
+    const preview = consoleEl.querySelector('[data-receipt-question]');
+    if (preview) {
+      const question = currentQ.material
+        ? `${db.materials[currentQ.material]?.label || currentQ.material} · ${core.text.concern(currentQ.concern)}`
+        : 'All material-and-concern questions';
+      preview.textContent = `Question: ${question}. Cabin: ${core.text.oxygen(currentQ.o2)}, ${core.text.pressure(currentQ.p)}, ${currentQ.g_label || core.text.gravity(currentQ.gclass)}. The file includes all coverage cells and identifies the selected question.`;
+    }
     return s;
   }
   function refreshDials() {
@@ -242,7 +256,20 @@ export async function build(world) {
       const receipt = node('button', 'Save or recheck this cabin'); receipt.type = 'button'; receipt.onclick = () => setPanel('receipt');
       consoleEl.append(details, receipt); refreshDials();
     }
-    if (panel === 'receipt') consoleEl.append(receiptControls({ db, getQuery: () => currentQ, onReplay: q => { applyQ({ ...q, preset: 'custom' }); setPanel('cabin'); } }));
+    if (panel === 'receipt') {
+      const preview = node('p', null, 'evidence-note');
+      preview.dataset.receiptQuestion = '';
+      consoleEl.append(preview, receiptControls({
+        db,
+        getQuery: () => currentQ,
+        onReplay: q => {
+          wall.clearSelection(false);
+          selectedConcern = q.concern;
+          applyQ({ ...q, preset: 'custom' });
+          setPanel('cabin');
+        }
+      }));
+    }
     if (panel === 'compare') {
       const options = [['', 'Choose an investigation'], ...db.investigations.map(i => [i.psi_id, i.name || i.full_name])];
       const pick = (side, value) => { if (side === 'a') { investigation = value || null; if (comparison === investigation) comparison = null; } else comparison = value || null; activeFinding = null; resultPsi = []; paintPanel(); refreshAnswer(); world.invalidate?.(); };
@@ -287,6 +314,7 @@ export async function build(world) {
       ...(height < 550 ? { insets: { top: 100, bottom: 90, left: 30, right: 80 } } : width < 760 ? { insets: { top: 160, bottom: 225 } } : {}) });
   }
   field.setVisible(false); rack.setVisible(false); group.visible = false; refreshAnswer();
+  selectionReady = true;
   return {
     group,
     actions: () => [...[['overview', 'Coverage'], ['cabin', 'Cabin'], ['ask', 'Search'], ['compare', 'Compare'], ['gaps', 'Research gaps'], ['receipt', 'Save JSON']].map(([id, label]) => ({ id, label, primary: id === 'overview', expanded: () => panel === id && consoleHandle.target > 0, run: () => setPanel(panel === id && consoleHandle.target > 0 ? null : id) })),

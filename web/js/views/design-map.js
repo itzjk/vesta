@@ -135,7 +135,7 @@ export function drawMap(ui, host, m) {
   const hx = s('line.dzm-hair'), hy = s('line.dzm-hair'), box = s('rect.dzm-tol', { rx: 2 });
   const core = s('g.dzm-core', s('circle.dzm-core-ring', { r: 11 }), s('circle.dzm-core-dot', { r: 4.5 }));
   const label = s('text.dzm-point-label'), sub = s('text.dzm-point-sub');
-  const point = s('g.dzm-point', { data: { point: 'cabin' } }, s('title', 'The design point of your cabin, with the tolerance box of the PROVEN test'), link, ring, hx, hy, box, core, label, sub);
+  const point = s('g.dzm-point', { data: { point: 'cabin' } }, s('title', 'The cabin design point and VESTA’s atmosphere-matching tolerance box'), link, ring, hx, hy, box, core, label, sub);
   root.append(point);
 
   function setPoint(q, nearest) {

@@ -1,0 +1,37 @@
+.vesta-method{max-width:900px;min-width:0;color:var(--ivory);font:400 18px/1.5 var(--font);overflow-wrap:anywhere}
+.vesta-method .method-lead{max-width:780px;margin:20px 0 24px;color:var(--ivory-dim)}
+.vesta-method h3{margin:22px 0 8px;font:600 26px/1.2 var(--display)}
+.vesta-method p{margin:10px 0 16px}
+.vesta-method .method-limit{color:var(--ivory-dim)}
+.vesta-method .method-detail{margin:0;border-top:1px solid var(--line-strong);padding:0 0 4px}
+.vesta-method .method-detail>summary{min-height:44px;box-sizing:border-box;padding:12px 4px;cursor:pointer;color:var(--ivory);font-weight:500}
+.vesta-method .method-detail[open]>summary{color:var(--amber)}
+.vesta-method .method-detail>p,.vesta-method .method-detail>.method-links{padding-left:4px;padding-right:4px}
+.vesta-method .method-labels{display:grid;grid-template-columns:minmax(155px,190px) minmax(0,1fr);gap:12px 20px;margin:8px 4px 18px}
+.vesta-method .method-labels dt{font-size:15px;font-weight:600;letter-spacing:.025em;color:var(--earth)}
+.vesta-method .method-labels dd{margin:0}
+.vesta-method .method-weights{width:100%;max-width:600px;table-layout:fixed;border-collapse:collapse;margin:8px 0 18px;font-size:17px}
+.vesta-method .method-weights caption{text-align:left;color:var(--ivory-dim);padding:4px 8px 10px;font-size:16px}
+.vesta-method .method-weights th,.vesta-method .method-weights td{padding:8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.vesta-method .method-weights thead th{font-weight:600;color:var(--earth)}
+.vesta-method .method-weights tbody th{font-weight:400}
+.vesta-method .method-weights td:last-child,.vesta-method .method-weights th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.vesta-method .method-links{display:flex;flex-wrap:wrap;gap:4px 22px}
+.vesta-method a{min-height:44px;box-sizing:border-box;display:inline-flex;align-items:center;padding:8px 0;margin:0;color:var(--earth);font-size:16px;text-decoration:underline;text-underline-offset:4px}
+.vesta-method .method-actions{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 12px}
+.vesta-method .method-actions button{min-height:44px;margin:0;white-space:normal;text-align:left}
+.vesta-method .method-related{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 4px}
+.vesta-method .method-related button{min-height:44px;border:0;border-bottom:1px solid var(--line-strong);background:transparent;padding:8px 4px;margin:0 16px 0 0;font-size:16px;text-align:left;color:var(--ivory-dim)}
+.vesta-method summary:focus-visible,.vesta-method button:focus-visible,.vesta-method a:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
+@media(max-width:759px){
+ .vesta-method{font-size:16px}
+ .vesta-method .method-lead{margin:16px 0 20px}
+ .vesta-method h3{font-size:24px}
+ .vesta-method .method-labels{grid-template-columns:minmax(0,1fr);gap:4px}
+ .vesta-method .method-labels dd{margin-bottom:14px}
+ .vesta-method .method-weights{font-size:16px}
+ .vesta-method .method-weights th,.vesta-method .method-weights td{padding:8px 4px}
+ .vesta-method .method-actions{flex-direction:column;align-items:stretch}
+ .vesta-method .method-actions button{width:100%}
+ .vesta-method .method-links{flex-direction:column;align-items:flex-start;gap:0}
+}

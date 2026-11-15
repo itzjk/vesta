@@ -164,11 +164,11 @@ test('pressure prints psia first and kPa second', () => {
 });
 
 test('status words and the fixed line', () => {
-  assert.equal(text.status('PROVEN'), 'PROVEN'); assert.equal(text.status('NEVER_TESTED'), 'NEVER TESTED'); assert.equal(text.status('NO_SOURCE'), 'NO SOURCE');
-  assert.equal(text.status('PROVEN', 'pressure_inferred'), 'PROVEN · pressure inferred'); assert.equal(text.status('EXTRAPOLATED'), 'EXTRAPOLATED');
+  assert.equal(text.status('PROVEN'), 'NEARBY EVIDENCE'); assert.equal(text.status('NEVER_TESTED'), 'NO SOURCE FOUND'); assert.equal(text.status('NO_SOURCE'), 'NO SOURCE');
+  assert.equal(text.status('PROVEN', 'pressure_inferred'), 'NEARBY EVIDENCE · pressure inferred'); assert.equal(text.status('EXTRAPOLATED'), 'OTHER CONDITIONS');
   assert.equal(text.STATUS_LINE, 'STATUS = EVIDENCE COVERAGE, NOT A SAFETY CERTIFICATION');
   const l = text.legend(24);
-  assert.match(l.PROVEN, /within 1 point and pressure within 5 kPa/); assert.match(l.PROVEN, /does not mean safe/);
+  assert.match(l.PROVEN, /within 1 percentage point and pressure within 5 kPa/); assert.match(l.PROVEN, /does not establish experimental equivalence or cabin safety/);
   assert.match(l.NEVER_TESTED, /in VESTA's evidence base \(24 PSI investigations\)\.$/);
 });
 
@@ -244,7 +244,7 @@ test('cell sentences', () => {
   const station = presetPoint(db, 'station');
   assert.equal(text.cellSentence(statusMod.cell('fx-kappa', 'prevention', station, db), 'FX Kappa', 24),
     "No test row and no verified finding for FX Kappa and prevention in VESTA's evidence base (24 PSI investigations).");
-  assert.match(text.cellSentence(statusMod.cell('fx-alpha', 'prevention', station, db), 'FX Alpha', 24), /^2 PSI test rows .* near these atmosphere conditions .* pressure inferred from the facility\.$/);
+  assert.match(text.cellSentence(statusMod.cell('fx-alpha', 'prevention', station, db), 'FX Alpha', 24), /^2 PSI source-table rows .* near these atmosphere conditions .* pressure inferred from the facility\.$/);
   assert.equal(text.elsewhere(statusMod.cell('fx-kappa', 'prevention', station, db)), 'this material also appears in: detection');
   assert.equal(text.elsewhere(statusMod.cell('fx-nothing', 'prevention', station, db)), null);
 });

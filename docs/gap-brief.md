@@ -54,7 +54,7 @@ A missing question has no direct finding or row to cite. Its absence is supporte
 
 ## Matching and exact differences
 
-`PROVEN` is the existing technical name for nearby evidence, not a safety result. It requires oxygen within the core's tolerance and pressure within its tolerance on the same row at the same gravity class. `EXTRAPOLATED` includes finding-only evidence, unknown conditions and mismatched conditions. `NEVER_TESTED` means no exact material/concern row or finding in the collection.
+The data IDs remain stable. The display labels are **Nearby evidence** (`PROVEN`), **Other conditions** (`EXTRAPOLATED`), and **No source found** (`NEVER_TESTED`). `PROVEN` is the existing technical name for nearby evidence, not a safety result. It requires oxygen within the core's tolerance and pressure within its tolerance on the same row at the same gravity class. `EXTRAPOLATED` includes finding-only evidence, unknown conditions and mismatched conditions. `NEVER_TESTED` means no exact material/concern row or finding in the collection. Previously exported documents retain these IDs and their original wording; a display-label change does not change the matching method.
 
 The nearest row is chosen by `nearestRow` in `core/status.js`, preserving its failure-count, oxygen-distance, pressure-distance and row-ID tie breaks. Finding relevance uses `rank` in `core/rank.js`; relevance is not probability and does not govern agenda priority. No coverage threshold is changed or duplicated.
 

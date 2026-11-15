@@ -247,7 +247,7 @@ function mountDetails(root, ctx) {
              el('ul.bf-gap-list', gaps.map(g => el('li.bf-gap', { title: g.title, data: { gap: g.axis, claim: g.cite ? 'gap-' + g.axis : null } },
                el('span.bf-gap-text', el('b.bf-gap-head', g.head), ' ', el('span.bf-gap-detail', g.detail)), g.cite))),
              el('p.bf-note', `Counted over ${fmt.n(db.cabinRows.length)} cabin-material test rows ${base}.`)]
-          : el('p.bf-gaps-none', { data: { claim: 'axis-coverage' } }, `No axis is NEVER TESTED at this cabin: ${fmt.n(ax.gravity.cabin)} cabin-material rows at ${q.g_label}, ${fmt.n(ax.o2.cabin)} within 1 point of ${fmt.short(q.o2)} % O2, ${fmt.n(ax.pressure.cabin)} within 5 kPa of the pressure (${fmt.n(ax.pressure.cabin_inferred)} with the pressure inferred from the facility), ${base}.`, dataset('data/tests.json'))));
+          : el('p.bf-gaps-none', { data: { claim: 'axis-coverage' } }, `This collection has rows near each selected axis value: ${fmt.n(ax.gravity.cabin)} cabin-material rows at ${q.g_label}, ${fmt.n(ax.o2.cabin)} within 1 point of ${fmt.short(q.o2)} % O2, ${fmt.n(ax.pressure.cabin)} within 5 kPa of the pressure (${fmt.n(ax.pressure.cabin_inferred)} with the pressure inferred from the facility), ${base}.`, dataset('data/tests.json'))));
     }
     rankBody.append(el('div.bf-foot',
       el('p.bf-legend', (text && text.STATUS_LINE) || 'STATUS = EVIDENCE COVERAGE, NOT A SAFETY CERTIFICATION'),

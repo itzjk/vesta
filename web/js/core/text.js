@@ -33,15 +33,15 @@ export function base(n) {
   return k ? `in VESTA's evidence base (${k} PSI investigations)` : "in VESTA's evidence base";
 }
 
-const STATUS = { PROVEN: 'PROVEN', EXTRAPOLATED: 'EXTRAPOLATED', NEVER_TESTED: 'NEVER TESTED', SOURCED: 'SOURCED', NO_SOURCE: 'NO SOURCE',
+const STATUS = { PROVEN: 'NEARBY EVIDENCE', EXTRAPOLATED: 'OTHER CONDITIONS', NEVER_TESTED: 'NO SOURCE FOUND', SOURCED: 'SOURCED', NO_SOURCE: 'NO SOURCE',
                  SIMULATED: 'SIMULATED', INTERPRETATION: 'INTERPRETATION', SI: 'SI' };
 export function status(id, qualifier) {
   const s = STATUS[id] ?? String(id ?? '');
   return qualifier === 'pressure_inferred' ? `${s} · pressure inferred` : s;
 }
 const STATUS_MEANING = {
-  PROVEN: 'NASA tested this material near these atmosphere conditions',
-  EXTRAPOLATED: 'NASA evidence from different or incomplete conditions',
+  PROVEN: "Source evidence near these atmosphere conditions, in the same gravity class, in VESTA's collection",
+  EXTRAPOLATED: "Evidence in VESTA's collection has different or incomplete conditions, or lacks a matching test row",
   NEVER_TESTED: "No test row or verified finding for this material and concern in VESTA's evidence base",
   SOURCED: 'This step has a source; condition coverage is shown separately',
   NO_SOURCE: 'No supporting finding, so VESTA does not guess',
@@ -55,9 +55,9 @@ export function statusMeaning(id, qualifier) {
 }
 export function legend(n) {
   return {
-    PROVEN: `Tested near these atmosphere conditions: at least one PSI test row of this material, in a table that speaks to this concern, in the same gravity class, with oxygen within ${trim(TOL.o2)} point and pressure within ${trim(TOL.p)} kPa of the cabin, on the same row ${base(n)}. Flow, sample geometry, thickness, ignition and suppressant configuration are not matched. It does not mean safe.`,
+    PROVEN: `At least one PSI source-table row for this material and concern meets VESTA's matching rules: the same gravity class, oxygen within ${trim(TOL.o2)} percentage point and pressure within ${trim(TOL.p)} kPa of the cabin, on the same row ${base(n)}. Flow, sample geometry, thickness, ignition and suppressant configuration are not matched. This does not establish experimental equivalence or cabin safety.`,
     PROVEN_INFERRED: 'Pressure is inferred, not reported in the table. The match assumes the facility pressure applies to this run.',
-    EXTRAPOLATED: 'There is evidence, and at least one condition differs or is not stated. The reasons say which.',
+    EXTRAPOLATED: `Evidence exists ${base(n)}, but conditions differ, are incomplete, or no matching experimental row is available. The reasons identify what prevents a nearby match.`,
     NEVER_TESTED: `No test row and no verified finding for this question ${base(n)}.`,
     line: STATUS_LINE };
 }
@@ -156,10 +156,10 @@ export function cellSentence(c, label, n) {
   const what = `${label ?? c.material} and ${String(concern(c.concern)).toLowerCase()}`;
   if (c.status === 'NEVER_TESTED') return `No test row and no verified finding for ${what} ${base(n)}.`;
   if (c.status === 'PROVEN')
-    return `${c.hit_ids.length} PSI test ${c.hit_ids.length === 1 ? 'row' : 'rows'} for ${what} near these atmosphere conditions ${base(n)}`
+    return `${c.hit_ids.length} PSI source-table ${c.hit_ids.length === 1 ? 'row' : 'rows'} for ${what} near these atmosphere conditions ${base(n)}`
          + (c.qualifier === 'pressure_inferred' ? ', with the pressure inferred from the facility.' : '.');
   if (c.reasons.includes('finding_without_rows')) return `A verified finding speaks to ${what}; no PSI test row does ${base(n)}.`;
-  return `${c.rows} PSI test ${c.rows === 1 ? 'row' : 'rows'} for ${what} ${base(n)}; none matches these gravity and atmosphere conditions.`;
+  return `${c.rows} PSI source-table ${c.rows === 1 ? 'row' : 'rows'} for ${what} ${base(n)}; none matches these gravity and atmosphere conditions.`;
 }
 export function materialNote(f, q, db) {
   if (!q.material || (f.n.material_ids ?? []).includes(q.material)) return null;

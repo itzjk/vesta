@@ -66,11 +66,11 @@ export async function build(world) {
     log.replaceChildren();
     for(const [name,text,step] of [
       ['Observer','Scripted visual cue; no diagnosis.',1],
-      ['Evidence agent',`${counts.PROVEN} nearby-condition questions; ${counts.EXTRAPOLATED} extrapolated; ${counts.NEVER_TESTED} without a source.`,2],
+      ['Evidence agent',`${counts.PROVEN} questions with nearby evidence; ${counts.EXTRAPOLATED} under other or incomplete conditions; ${counts.NEVER_TESTED} with no source found in this collection.`,2],
       ['Coordinator','Proposes a visual inspection; does not command suppression.',3],
       ['Human review',report.human_approved?'Inspection approved in this demo.':'Approval required before the inspection step.',4]
     ]){const item=node('li');item.dataset.state=index>=step?'complete':'pending';item.append(node('strong',name),node('span',text));log.append(item);}
-    world.answer?.(messages[phase]);
+    world.answer?.(`Concept simulation. ${messages[phase]}`);
     world.host.dataset.roboticsPhase=phase;world.host.dataset.roboticsApproved=String(report.human_approved);
     lastQ=JSON.stringify(world.q);
   }

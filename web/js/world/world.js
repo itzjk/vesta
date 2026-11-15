@@ -56,8 +56,8 @@ export async function createWorld(host, context) {
   let welcome, welcomeKey = '';
   const cases = createVideoCases({ onEvidence(query) { navigate(2); acts[2]?.search?.(query); }, onDrill() { navigate(3); } });
   const caseButton = document.createElement('button'); caseButton.type = 'button'; caseButton.className = 'world-case-toggle'; caseButton.textContent = 'Video cases'; caseButton.onclick = () => { holo?.closeAll(); cases.open(caseButton); }; overlay.append(caseButton);
-  const mission = createMissionBrief({ navigate, run(station,id) { const i=STATIONS.findIndex(s=>s.id===station); acts[i]?.actions?.().find(action=>action.id===id)?.run(); } });
-  const missionButton=document.createElement('button');missionButton.type='button';missionButton.className='world-mission-toggle';missionButton.textContent='Mission';missionButton.setAttribute('aria-label','Why VESTA: problem, agents and robotics');missionButton.onclick=()=>mission.open('problem',missionButton);
+  const mission = createMissionBrief({ navigate, run(station,id) { const i=STATIONS.findIndex(s=>s.id===station); const action=acts[i]?.actions?.().find(action=>action.id===id); if(action && !action.expanded?.()) action.run(); } });
+  const missionButton=document.createElement('button');missionButton.type='button';missionButton.className='world-mission-toggle';missionButton.textContent='Mission';missionButton.setAttribute('aria-label','Why VESTA: problem, method, agents and robotics');missionButton.onclick=()=>mission.open('problem',missionButton);
   const agentButton=document.createElement('button');agentButton.type='button';agentButton.className='world-agent-toggle';agentButton.onclick=()=>mission.open('agents',agentButton);
   overlay.append(missionButton,agentButton);
   film.textContent = '▶ 60s tour';

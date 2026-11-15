@@ -120,7 +120,7 @@ export function build(world) {
     if (summary) {
       conditions.append(world.cite(summary.conditions, preset?.id || 'design-coverage'));
       const { PROVEN: near, EXTRAPOLATED: extrapolated, NEVER_TESTED: absent } = summary.counts;
-      coverage.append(world.cite(`${summary.total} questions: ${near} near · ${extrapolated} extrapolated · ${absent} no evidence`, 'design-coverage'));
+      coverage.append(world.cite(`${summary.total} questions: ${near} NEARBY EVIDENCE · ${extrapolated} OTHER CONDITIONS · ${absent} NO SOURCE FOUND`, 'design-coverage'));
     } else {
       conditions.textContent = available.length ? 'Coverage unavailable for this cabin.' : 'Cabin evidence unavailable.';
     }

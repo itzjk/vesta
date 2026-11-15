@@ -2,7 +2,7 @@
 import { el, svg } from './el.js';
 
 // The words come from core/text.js once the shell has loaded it; these stand in until then.
-const WORDS = { PROVEN: 'PROVEN', EXTRAPOLATED: 'EXTRAPOLATED', NEVER_TESTED: 'NEVER TESTED', SOURCED: 'SOURCED', NO_SOURCE: 'NO SOURCE',
+const WORDS = { PROVEN: 'NEARBY EVIDENCE', EXTRAPOLATED: 'OTHER CONDITIONS', NEVER_TESTED: 'NO SOURCE FOUND', SOURCED: 'SOURCED', NO_SOURCE: 'NO SOURCE',
                 SIMULATED: 'SIMULATED', INTERPRETATION: 'INTERPRETATION', SI: 'SI' };
 const QUALIFIER = { pressure_inferred: 'pressure inferred' };
 let text = null;

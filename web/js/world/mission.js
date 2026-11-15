@@ -1,3 +1,5 @@
+import { renderMethod } from './method.js';
+
 const node = (tag, text, cls) => { const el = document.createElement(tag); if (text) el.textContent = text; if (cls) el.className = cls; return el; };
 const references = {
   fire: ['NASA: Fire safety in space', 'https://microdevices.jpl.nasa.gov/capabilities/in-situ-instruments-tls/spacecraft-fire/'],
@@ -18,7 +20,7 @@ export function createMissionBrief({ navigate, run }) {
   const nav = node('nav'); nav.setAttribute('aria-label', 'Mission brief topics');
   const body = node('div', null, 'mission-body'); let trigger;
   const tabs = new Map();
-  for (const [id, label] of [['problem','The problem'],['agents','The agents'],['robotics','Space robotics']]) {
+  for (const [id, label] of [['problem','The problem'],['method','Method & limits'],['agents','The agents'],['robotics','Space robotics']]) {
     const button = node('button', label); button.type='button'; button.onclick=()=>show(id); tabs.set(id,button); nav.append(button);
   }
   dialog.append(header, nav, body); document.body.append(dialog);
@@ -26,7 +28,7 @@ export function createMissionBrief({ navigate, run }) {
   const action = (label, station, task) => { const button=node('button',label,'mission-action'); button.type='button'; button.onclick=()=>{dialog.close();navigate(station);if(task)run(station,task);}; return button; };
   function show(tab) {
     tabs.forEach((button,id)=>button.setAttribute('aria-current',id===tab?'page':'false'));
-    body.replaceChildren(); title.textContent=tab==='problem'?'A real problem. A useful next step.':tab==='agents'?'Meet the evidence team.':'From evidence to space robotics.';
+    body.replaceChildren(); title.textContent=({problem:'A real problem. A useful next step.',method:'How to evaluate the evidence.',agents:'Meet the evidence team.',robotics:'From evidence to space robotics.'})[tab] ?? 'Why VESTA';
     if(tab==='problem') {
       body.append(node('p','Fire in a spacecraft puts the crew inside the hazard. Understanding it requires evidence from the conditions where people will live.','mission-lead'));
       const grid=node('div',null,'mission-facts');
@@ -36,6 +38,8 @@ export function createMissionBrief({ navigate, run }) {
         ['03','Evidence must reach the decision','VESTA links a chosen cabin to source rows and findings, makes gaps visible, and lets people rehearse an evidence-linked drill.',null]
       ]) { const card=node('article');card.append(node('h3',heading),node('p',text));if(key)card.append(link(key));grid.append(card); }
       body.append(grid,node('p','Our contribution: make the boundary between a measured result, an extrapolation and a missing answer visible.'),action('Explore the evidence','evidence'),action('Try the digital robotics lab','robotics'));
+    } else if(tab==='method') {
+      body.append(renderMethod({action,onTopic(id){show(id);tabs.get(id)?.focus();}}));
     } else if(tab==='agents') {
       body.append(node('p','Software roles with inspectable work. Extraction is prepared in the dataset; checks, ranking and drill rules run locally. These are not live conversations with separate language models.','mission-lead'));
       const pipeline=node('div',null,'mission-pipeline');

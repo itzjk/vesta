@@ -10,7 +10,7 @@ The receipt contains:
 - `result`: the nearby cabin-row IDs, all material/concern coverage cells, their tally and the selected cell. These rows are source-table records, not a count of independent experiments.
 - `evidence`: exact snapshots of nearby and nearest referenced rows, source URLs, row matching reasons, reported/inferred pressure labels and referenced findings.
 
-`PROVEN` retains the core's technical name and only means nearby evidence under the listed matching rules. `NEVER_TESTED` is a gap in this collection for that material and concern. Flow, geometry, sample thickness and ignition are not matched. Facility pressure can be inferred. Findings and table rows have different units of evidence.
+The stable receipt IDs are unchanged: `PROVEN` is displayed as **Nearby evidence**, `EXTRAPOLATED` as **Other conditions**, and `NEVER_TESTED` as **No source found**. `PROVEN` only means nearby evidence under the listed matching rules; `EXTRAPOLATED` includes different or incomplete conditions and finding-only support. `NEVER_TESTED` is a gap in this collection for that material and concern. Flow, geometry, sample thickness, ignition and suppressant configuration are not matched. Facility pressure can be inferred. Findings and table rows have different units of evidence. Display wording does not change the receipt method or recheck contract.
 
 ## Browser integration
 

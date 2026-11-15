@@ -5,7 +5,7 @@ import { CONCERNS } from '../core/index.js';
 
 const defaults = { status, rank: ranking, text };
 const symbols = { PROVEN: '●', EXTRAPOLATED: '↗', NEVER_TESTED: '×' };
-const meanings = { PROVEN: 'Nearby conditions', EXTRAPOLATED: 'Other conditions', NEVER_TESTED: 'No source' };
+const meanings = { PROVEN: 'Within matching rules', EXTRAPOLATED: 'Different or incomplete support', NEVER_TESTED: 'In this collection' };
 const node = (tag, value, cls) => {
   const el = document.createElement(tag);
   if (value != null) el.textContent = value;
@@ -104,7 +104,7 @@ export function build(world, { onSelection } = {}) {
     state.dataset.coverageStatus = cell.status;
     detail.replaceChildren(back, heading, state);
     if (cell.status === 'NEVER_TESTED') {
-      detail.append(node('p', `NO SOURCE. ${core.text.cellSentence(cell, db.materials[material].label, db)}`, 'coverage-empty'));
+      detail.append(node('p', `${core.text.status(cell.status)}. ${core.text.cellSentence(cell, db.materials[material].label, db)}`, 'coverage-empty'));
       detail.hidden = false; detail.scrollTop = 0; element.dataset.detail = 'true';
       if (focus) heading.focus({ preventScroll: true });
       return;
@@ -121,8 +121,8 @@ export function build(world, { onSelection } = {}) {
       const differences = [...fail, ...note].map(code => core.text.reasonSentence(code, { q, delta, n: db }));
       if (!fail.length) differences.unshift('Same gravity class; oxygen and pressure are within VESTA’s tolerances.');
       const explanation = node('p', null, 'coverage-differences');
-      cited(explanation, differences.join(' '), row.id); detail.append(explanation);
-      detail.append(node('p', 'Airflow, geometry, thickness, ignition and suppressant configuration are not matched.', 'coverage-limit'));
+      cited(explanation, `${fail.length ? 'Differences:' : 'Matched parameters:'} ${differences.join(' ')}`, row.id); detail.append(explanation);
+      detail.append(node('p', 'Not matched: airflow, geometry, thickness, ignition and suppressant configuration. A match does not establish safety.', 'coverage-limit'));
     } else detail.append(node('p', 'No source-table row for this question in VESTA’s collection.', 'coverage-empty'));
     if (findings.length) {
       detail.append(node('h4', 'Best-matching findings'));
@@ -134,7 +134,7 @@ export function build(world, { onSelection } = {}) {
         list.append(li);
       }
       detail.append(list, node('p', core.text.SCORE_LABEL, 'coverage-limit'));
-    } else detail.append(node('p', 'No verified finding names this material and concern. The table row is the available evidence.', 'coverage-empty'));
+    } else detail.append(node('p', 'No verified finding in VESTA’s collection names this material and concern. The source-table row above is the available evidence.', 'coverage-empty'));
     detail.hidden = false; detail.scrollTop = 0; element.dataset.detail = 'true';
     if (focus) heading.focus({ preventScroll: true });
   }
@@ -177,7 +177,7 @@ export function build(world, { onSelection } = {}) {
     conditions.replaceChildren();
     if (db.presetById[q.preset]) cited(conditions, model.conditions, q.preset);
     else conditions.textContent = model.conditions;
-    live.textContent = `${model.headline} ${model.counts.EXTRAPOLATED} extrapolated; ${model.counts.NEVER_TESTED} without a source in VESTA’s collection.`;
+    live.textContent = `${model.headline} ${model.counts.EXTRAPOLATED} ${core.text.status('EXTRAPOLATED')}; ${model.counts.NEVER_TESTED} ${core.text.status('NEVER_TESTED')} in VESTA’s collection.`;
     for (const id of Object.keys(totals)) totals[id].textContent = model.counts[id];
     for (const cell of model.cells) {
       const button = buttons.get(`${cell.material}:${cell.concern}`);

@@ -26,7 +26,7 @@ The default experience is one continuous 3D world with named station tabs and vi
 | Trust | Execute ten reviewed cases and inspect the build's evidence checks. | Reproducible software checks, not independent scientific certification. |
 | Robotics | Follow a digital inspection robot from a scripted observation to a human-approved inspection, and save the record. | A concept simulation of a workflow. No physical robot, telemetry or autonomous controller is connected. |
 
-**Mission**, available from every station, explains the problem, the software roles behind each station (they are not live language-model conversations) and the robotics concept, with links to NASA references.
+**Mission**, available from every station, explains the problem, the software roles behind each station (they are not live language-model conversations) and the robotics concept, with links to NASA references. Its **Method & limits** topic exposes the matching tolerances, relevance weights, excluded variables and the distinction between reproducibility and scientific validation, with direct routes to evidence, JSON receipts and reviewed cases.
 
 **Video cases**, available from every station, pairs original NASA FLEX and Saffire-V footage with the problem, recorded observation, VESTA response and limits. Each case opens an evidence search or the scripted drill. See [video sources and behavior](docs/video-cases.md). Playback starts only on request; source credits remain with the footage.
 
@@ -36,11 +36,13 @@ The 60-second tour travels through the first five stations. It can be paused, re
 
 VESTA's collection contains 24 PSI investigations. Source-table records may describe days, series or measurement sessions; they are not a count of independent burns. Findings and table rows are different units of evidence.
 
-| Status | Meaning within VESTA |
-| --- | --- |
-| `PROVEN` | Nearby evidence meets the implemented matching rules for the selected material and concern. It does not mean the cabin is safe. |
-| `EXTRAPOLATED` | Evidence exists, but reported conditions or the evidence type do not support that same match. |
-| `NEVER_TESTED` | No matching row or finding for that material and concern exists in this collection. It is not a claim about all NASA research. |
+| Display label | Stable data ID | Meaning within VESTA |
+| --- | --- | --- |
+| Nearby evidence | `PROVEN` | At least one source-table row meets the implemented matching rules for the selected material and concern. It does not establish equivalent experiments or cabin safety. |
+| Other conditions | `EXTRAPOLATED` | Evidence exists, but different or incomplete conditions, or finding-only support, do not establish that same match. |
+| No source found | `NEVER_TESTED` | No row or verified finding for that material and concern exists in this collection. It is not a claim about all NASA research. |
+
+These display labels leave the data IDs, API contracts and saved evidence receipts unchanged.
 
 The current atmosphere match requires the same gravity class, oxygen within **one percentage point** and pressure within **five kPa**. Missing measurements do not silently become matches. Inferred facility pressure is identified. Flow, geometry, sample thickness and ignition are not matched, so a nearby atmosphere is not an equivalent fire experiment.
 

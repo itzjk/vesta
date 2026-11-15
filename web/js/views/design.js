@@ -175,11 +175,11 @@ export function mount(root, ctx) {
     banner.replaceChildren(e('span.design-banner-mark', '!'), e('div',
       pf ? claim(pf.id, e('q', pf.quote), cite(pf.id)) : e('p', 'Partial-gravity source not available.'),
       bound ? claim(bound.id, e('span', 'The challenge page says results “could bound” intermediate gravity; that is not demonstrated. '), cite(bound.id)) : null));
-    nearestLine.replaceChildren(e('span.t-label', c.status === 'PROVEN' ? 'Tested near these atmosphere conditions' : 'Nearest test · selected material + concern'),
+    nearestLine.replaceChildren(e('span.t-label', c.status === 'PROVEN' ? T.status(c.status) : 'Nearest source row · selected material + concern'),
       row ? claim(row.id, e('strong', `${row.investigation}, ${row.fuel}${row.fuel_form ? ' ' + row.fuel_form : ''}`),
         e('span', ` · ${short(row.n.o2)} % O2 · ${T.pressure(row.n.p ?? row.n.p_inferred)}${row.n.p == null && row.n.p_inferred != null ? ' inferred' : ''}`),
         c.nearest ? e('span.design-delta', ' · ', `${c.nearest.delta.o2 == null ? 'oxygen not stated' : signed(c.nearest.delta.o2) + ' points O2'}, ${c.nearest.delta.p == null ? 'pressure not stated' : signed(c.nearest.delta.p) + ' kPa'} (cabin minus test)`) : null,
-        e('span.design-row-source', ` · ${row.table_file} · row ${row.row} `), cite(row.id)) : e('p', 'No test row for this material and concern. Model fuels are not a cabin-material nearest test.'));
+        e('span.design-row-source', ` · ${row.table_file} · row ${row.row} `), cite(row.id)) : e('p', 'No source-table row for this material and concern in VESTA’s collection. Model-fuel rows are not treated as nearby cabin-material evidence.'));
     const ranks = db.findings.some(f => f.pillar === q.concern) ? core.rank.rank(db.findings, q, db) : [];
     concernSelect.value = q.concern; rankedCount.textContent = `Top ${Math.min(ranks.length, 25)} of ${ranks.length}`;
     rankedList.replaceChildren(...ranks.slice(0, 25).map((entry, i) => {
@@ -201,7 +201,7 @@ export function mount(root, ctx) {
     gapList.replaceChildren(e('div.design-gap-title', e('h3', 'Gaps at this cabin'), e('span', `${gaps.length} axes`)),
       ...gaps.map(g => {
         return e('div.design-gap', { data: { gap: g.axis, status: 'NEVER_TESTED', claim: 'coverage-' + g.axis }, title: g.sentence },
-          e('div', e('i'), e('strong', g.label), e('b', '0 rows')), e('span.design-gap-word', 'NEVER TESTED'),
+          e('div', e('i'), e('strong', g.label), e('b', '0 rows')), e('span.design-gap-word', { title: g.sentence }, 'NO NEARBY ROW'),
           g.extra ? e('p', g.extra) : null, aggregateSource(ui, ctx, q, g.axis));
       }));
     if (!gaps.length) gapList.append(e('p.design-no-gap', 'Cabin-material rows cover each axis separately. The matrix checks all conditions on the same row.'));

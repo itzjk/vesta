@@ -10,7 +10,7 @@ export function createRackUI({ materials, onSelect, onHover }) {
   element.dataset.stationUi = 'evidence'; element.hidden = true;
   const legend = node('div', null, 'evidence-rack-legend');
   legend.setAttribute('aria-label', 'Evidence coverage in VESTA’s collection, not safety');
-  for (const [status, label] of [['PROVEN', 'Nearby'], ['EXTRAPOLATED', 'Elsewhere'], ['NEVER_TESTED', 'No source']]) {
+  for (const [status, label] of [['PROVEN', 'Nearby'], ['EXTRAPOLATED', 'Other conditions'], ['NEVER_TESTED', 'No source']]) {
     const item = node('span', label); item.dataset.rackStatus = status;
     legend.append(item);
   }
