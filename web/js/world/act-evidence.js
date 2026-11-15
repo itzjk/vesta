@@ -30,7 +30,7 @@ export function evidenceState(db, core, q, investigation = null) {
 
 export async function build(world) {
   const { THREE: T, db, core } = world;
-  await Promise.all([css('css/coverage.css'), css('css/evidence-rack.css')]);
+  await Promise.all([css('css/coverage.css'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1')]);
   let selectedMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';
   const wall = buildCoverage(world, { onSelection: onCoverageSelection }), gaps = buildGapBrief(world);
   const stage = world.stage.context || world.stage.ctx || world.stage;
@@ -48,7 +48,7 @@ export async function build(world) {
   const style = node('style');
   style.textContent = `
 .world-host[data-cinema=true] .evidence-tools,.world-host[data-film=true] .evidence-tools{visibility:hidden!important;pointer-events:none!important}.evidence-tools{position:absolute;inset:0;pointer-events:none;z-index:7}.evidence-tools[hidden]{display:none}.evidence-tool{position:absolute;width:44px;height:44px;transform:translate(-50%,-50%);border:1px solid #e0a45866;border-radius:50%;background:#17191880;box-shadow:0 0 14px #e0a45822;color:#f0d4a4;font:24px/1 sans-serif;pointer-events:auto;cursor:pointer}.evidence-tool:hover,.evidence-tool[aria-expanded=true]{background:#61422cbb;border-color:#e0a458}.evidence-tool:focus-visible{outline:2px solid #fff;outline-offset:3px}
-.evidence-holo{box-sizing:border-box;color:#ede4d4;font:18px/1.4 var(--font-body,'Source Sans 3',sans-serif);padding:20px;background:rgba(17,20,20,.96);border:0;border-top:1px solid #e0a45866;border-radius:0;box-shadow:none}.evidence-holo h2{font-size:24px;line-height:1.2;margin:0 44px 18px 0}.evidence-holo p{margin:12px 0}.evidence-holo button,.evidence-holo input,.evidence-holo select{font:inherit;color:inherit}.evidence-holo select,.evidence-holo input[type=search]{box-sizing:border-box;width:100%;min-height:44px;background:#252928;border:1px solid #90948b88;border-radius:0;padding:8px}.evidence-holo option{background:#252928}.evidence-holo label{display:block;margin:14px 0}.evidence-holo label>span{display:block;margin-bottom:5px}.evidence-holo :focus-visible{outline:2px solid #ede4d4;outline-offset:3px}.evidence-console{width:410px;overflow:auto;overscroll-behavior:contain;max-height:var(--evidence-panel-height,560px)!important}.evidence-close{position:absolute;right:12px;top:10px;width:44px;height:44px;border:0;background:transparent;font-size:26px!important;cursor:pointer}.evidence-note{color:#c0b7a8;font-size:18px}.evidence-answer{background:none;border:0;padding:0;text-align:center;width:940px;overflow:visible;pointer-events:auto;font-size:22px}.evidence-answer p{margin:0}.evidence-answer .world-cite{font:inherit}.evidence-results{list-style:none;padding:0;margin:14px 0}.evidence-results li{padding:12px 0;border-bottom:1px solid #ede4d422}.evidence-results .world-cite{font-size:18px;line-height:1.4;text-align:left}.evidence-results small{display:block;color:#c0b7a8;font-size:14px;margin-top:6px}.evidence-compare-a{color:#e0a458}.evidence-compare-b{color:#80c8d5}.evidence-dial{display:grid!important;grid-template-columns:78px 1fr;gap:8px 14px;align-items:center}.evidence-dial>span{grid-column:2}.evidence-dial-knob{grid-column:1;grid-row:1/3;display:block;width:68px;height:68px;border-radius:50%;background:repeating-conic-gradient(from 0deg,#9a968b 0 2deg,#3b403f 2deg 15deg);border:4px solid #292d2c;box-shadow:inset 0 0 0 8px #4b504e,0 5px 8px #0009;position:relative;transform:rotate(var(--dial-angle,0deg))}.evidence-dial-knob:after{content:'';position:absolute;width:3px;height:20px;background:#e0a458;top:9px;left:32px}.evidence-dial input{grid-column:2;width:100%;accent-color:#e0a458;min-height:32px;margin:0}.evidence-dial output{font-variant-numeric:tabular-nums}.evidence-holo details{margin-top:16px}.evidence-holo summary{min-height:44px;cursor:pointer}.evidence-holo a{color:inherit}.evidence-world-active .field-labels{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:hidden}.evidence-world-active .field-label{position:absolute;max-width:200px;color:#c0b7a8;font:14px/1.25 var(--font-body,'Source Sans 3',sans-serif);background:#111515db;padding:5px 7px;transform:none;transition:opacity .15s}.evidence-world-active .field-label small{display:block;font-size:14px}.evidence-world-active .field-hover-label{font-size:16px;max-width:260px;color:#ede4d4}.evidence-world-active .field-delta-label{display:none}.evidence-world-active .field-cabin-label{color:#ee9b7b}
+.evidence-holo{box-sizing:border-box;color:#ede4d4;font:18px/1.4 var(--font-body,'Source Sans 3',sans-serif);padding:20px;background:rgba(17,20,20,.96);border:0;border-top:1px solid #e0a45866;border-radius:0;box-shadow:none}.evidence-holo h2{font-size:24px;line-height:1.2;margin:0 44px 18px 0}.evidence-holo p{margin:12px 0}.evidence-holo button,.evidence-holo input,.evidence-holo select{font:inherit;color:inherit}.evidence-holo select,.evidence-holo input[type=search]{box-sizing:border-box;width:100%;min-height:44px;background:#252928;border:1px solid #90948b88;border-radius:0;padding:8px}.evidence-holo option{background:#252928}.evidence-holo label{display:block;margin:14px 0}.evidence-holo label>span{display:block;margin-bottom:5px}.evidence-holo :focus-visible{outline:2px solid #ede4d4;outline-offset:3px}.evidence-console{width:410px;overflow:auto;overscroll-behavior:contain;max-height:var(--evidence-panel-height,560px)!important}.evidence-close{position:absolute;right:12px;top:10px;width:44px;height:44px;border:0;background:transparent;font-size:26px!important;cursor:pointer}.evidence-note{color:#c0b7a8;font-size:18px}.evidence-answer{background:none;border:0;padding:0;text-align:center;width:940px;overflow:visible;pointer-events:auto;font-size:22px}.evidence-answer p{margin:0}.evidence-answer .world-cite{font:inherit}.evidence-results{list-style:none;padding:0;margin:14px 0}.evidence-results li{padding:12px 0;border-bottom:1px solid #ede4d422}.evidence-results .world-cite{font-size:18px;line-height:1.4;text-align:left}.evidence-results small{display:block;color:#c0b7a8;font-size:14px;margin-top:6px}.evidence-compare-a{color:#e0a458}.evidence-compare-b{color:#80c8d5}.evidence-holo details{margin-top:16px}.evidence-holo summary{min-height:44px;cursor:pointer}.evidence-holo a{color:inherit}.evidence-world-active .field-labels{position:absolute;inset:0;pointer-events:none;z-index:3;overflow:hidden}.evidence-world-active .field-label{position:absolute;max-width:200px;color:#c0b7a8;font:14px/1.25 var(--font-body,'Source Sans 3',sans-serif);background:#111515db;padding:5px 7px;transform:none;transition:opacity .15s}.evidence-world-active .field-label small{display:block;font-size:14px}.evidence-world-active .field-hover-label{font-size:16px;max-width:260px;color:#ede4d4}.evidence-world-active .field-delta-label{display:none}.evidence-world-active .field-cabin-label{color:#ee9b7b}
 @media(max-width:759px){.evidence-console{width:354px;padding:16px}.evidence-answer{font-size:18px}.evidence-tool{width:44px;height:44px}.evidence-holo h2{font-size:22px}.evidence-world-active .field-axis,.evidence-world-active .field-tick,.evidence-world-active .field-rail-label{display:none}}
 `;
   root.append(style);
@@ -144,21 +144,42 @@ export async function build(world) {
   }
   function refreshDials() {
     const preset = consoleEl.querySelector('[data-evidence-choice="preset"]'); if (preset) preset.value = currentQ.preset;
-    for (const key of ['o2', 'p', 'g']) {
+    for (const key of ['o2', 'p']) {
       const input = consoleEl.querySelector(`[data-evidence-dial="${key}"]`); if (!input) continue;
-      input.value = key === 'g' ? Object.keys(G).indexOf(currentQ.g) : currentQ[key];
-      const label = key === 'o2' ? core.text.oxygen(currentQ.o2) : key === 'p' ? core.text.pressure(currentQ.p) : currentQ.g_label;
-      input.parentElement.querySelector('output').textContent = label;
-      input.setAttribute('aria-valuetext', label);
-      input.parentElement.style.setProperty('--dial-angle', `${-135 + 270 * (Number(input.value) - Number(input.min)) / (Number(input.max) - Number(input.min))}deg`);
+      input.value = currentQ[key];
+      const control = input.closest('.cabin-control');
+      const value = control.querySelector('input[type=number]');
+      if (document.activeElement !== value) value.value = currentQ[key];
+      input.setAttribute('aria-valuetext', key === 'o2' ? core.text.oxygen(currentQ.o2) : core.text.pressure(currentQ.p));
+      input.style.setProperty('--control-fill', `${100 * (Number(input.value) - Number(input.min)) / (Number(input.max) - Number(input.min))}%`);
     }
+    for (const button of consoleEl.querySelectorAll('[data-cabin-gravity]')) button.setAttribute('aria-pressed', String(button.dataset.cabinGravity === currentQ.g));
   }
   function dial(label, key, min, max, step) {
-    const wrapper = node('label', null, 'evidence-dial'), title = node('span', `${label} `), output = node('output'), input = node('input');
-    title.append(output); const knob = node('i', null, 'evidence-dial-knob'); knob.setAttribute('aria-hidden', 'true');
+    const wrapper = node('div', null, 'cabin-control'), head = node('div', null, 'cabin-control-head');
+    const title = node('label', label), readout = node('div', null, 'cabin-value');
+    const value = node('input'), input = node('input'), unit = key === 'o2' ? '%' : 'kPa';
+    value.type = 'number'; value.min = min; value.max = max; value.step = step; value.inputMode = 'decimal';
+    value.id = `cabin-value-${key}`; title.htmlFor = value.id; value.setAttribute('aria-label', `${label} in ${key === 'o2' ? 'percent' : 'kilopascals'}`);
+    value.dataset.cabinValue = key;
+    value.onchange = () => { if (value.value !== '' && value.validity.valid) applyQ({ [key]: value.valueAsNumber }); value.value = currentQ[key]; };
+    value.onkeydown = event => { if (event.key === 'Enter') value.blur(); if (event.key === 'Escape') { value.value = currentQ[key]; event.stopPropagation(); value.blur(); } };
+    value.onblur = () => { value.value = currentQ[key]; };
     input.type = 'range'; input.min = min; input.max = max; input.step = step; input.dataset.evidenceDial = key; input.setAttribute('aria-label', label);
-    input.oninput = () => applyQ({ [key]: key === 'g' ? Object.keys(G)[Number(input.value)] : Number(input.value) });
-    wrapper.append(knob, title, input); return wrapper;
+    input.oninput = () => applyQ({ [key]: Number(input.value) });
+    readout.append(value, node('span', unit)); head.append(title, readout);
+    wrapper.append(head, input); return wrapper;
+  }
+  function gravityControl() {
+    const wrapper = node('div', null, 'cabin-gravity'), title = node('p', 'Gravity', 'cabin-gravity-title'), choices = node('div', null, 'cabin-gravity-options');
+    choices.setAttribute('role', 'group'); choices.setAttribute('aria-label', 'Gravity');
+    const names = { '0g': 'Microgravity', moon: 'Moon', mars: 'Mars', '1g': 'Earth' };
+    for (const [id, gravity] of Object.entries(G)) {
+      const button = node('button', gravity.label); button.type = 'button'; button.dataset.cabinGravity = id;
+      button.setAttribute('aria-label', `${names[id]}, ${gravity.label}`); button.onclick = () => applyQ({ g: id });
+      button.append(node('span', names[id])); choices.append(button);
+    }
+    wrapper.append(title, choices); return wrapper;
   }
   function renderResults() {
     results = searchEvidence(db, search, currentQ); resultPsi = [...new Set(results.map(r => r.psi).filter(Boolean))];
@@ -211,7 +232,7 @@ export async function build(world) {
       consoleEl.append(node('p', 'Choose a topic or type your own. Each result opens its source and limits.', 'evidence-note'), input, suggestions, resultList); renderResults();
     }
     if (panel === 'cabin') {
-      consoleEl.append(selector('Cabin preset', 'preset', [['custom', 'Custom cabin'], ...db.presets.map(p => [p.id, p.short || p.label])], currentQ.preset, preset => { applyQ({ preset }); paintPanel(); }), dial('Oxygen', 'o2', 0, 100, .1), dial('Pressure', 'p', 1, 550, .1), dial('Gravity', 'g', 0, Object.keys(G).length - 1, 1));
+      consoleEl.append(selector('Cabin preset', 'preset', [['custom', 'Custom cabin'], ...db.presets.map(p => [p.id, p.short || p.label])], currentQ.preset, preset => { applyQ({ preset }); paintPanel(); }), dial('Oxygen', 'o2', 0, 100, .1), dial('Pressure', 'p', 1, 550, .1), gravityControl());
       const count = node('p'); count.dataset.cabinCount = ''; count.setAttribute('aria-live', 'polite'); consoleEl.append(count);
       const details = node('details'); details.append(node('summary', 'Match rules and material coverage'));
       const s = evidenceState(db, core, currentQ);

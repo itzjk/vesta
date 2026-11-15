@@ -28,6 +28,7 @@ export function rowsForExport(rows, q, db, compare) {
 export function mount(root, ctx) {
   const { db, ui, core } = ctx, { el: e } = ui, S = core.status, T = core.text;
   ui.css('css/views/design.css?v=11');
+  ui.css('css/cabin-controls.css?v=1');
   if (ctx.params.view !== 'details' && ctx.view !== 'details') return mountSimple(root, ctx);
   root.classList.add('design-view');
   let q = { ...ctx.q }, disposed = false, map = null, mapHost, mapInfo, rawPromise;
@@ -52,11 +53,11 @@ export function mount(root, ctx) {
   const cabinBody = e('div.design-cabin-body');
   const cabin = ui.panel('Cabin', cabinBody, { class: 'design-cabin' });
   const controls = e('div.design-controls');
-  const presets = e('div.design-presets', db.presets.map(p => btn(
-    [e('span', p.short || p.label), e('span.design-preset-values', `${short(p.o2)} % · ${p.p_display}`)],
-    { preset: p.id, claim: p.id }, () => ctx.setQ({ preset: p.id }), p.id === q.preset)));
-  for (const b of presets.children) b.append(sourceCite(db.presetById[b.dataset.preset]));
+  const presetSelect = e('select.design-preset-select', { 'aria-label': 'Cabin preset', onchange: ev => ctx.setQ({ preset: ev.target.value }) },
+    e('option', { value: 'custom' }, 'Custom cabin'), ...db.presets.map(p => e('option', { value: p.id }, p.short || p.label)));
+  const presets = e('label.design-preset-field', e('span', 'Cabin preset'), presetSelect);
   const presetSource = e('div.design-preset-source');
+  const presetDetails = e('details.design-preset-details', e('summary', 'Preset source and limits'), presetSource);
   const slider = (name, key, min, max) => {
     const value = e('output', { for: 'design-' + key });
     const input = e('input', { id: 'design-' + key, type: 'range', min, max, step: 0.5, value: q[key], data: { slider: key }, 'aria-label': name,
@@ -88,7 +89,7 @@ export function mount(root, ctx) {
     e('div.design-cabin-actions', ui.button('Reset', { small: true, action: 'reset', onClick: () => {
       ctx.setParams({ cell: null, show: null }, { render: false }); ctx.setQ({ preset: 'lunar-base', material: 'pmma', concern: 'prevention' });
     } }), copy));
-  cabinBody.append(presets, presetSource, controls);
+  cabinBody.append(presets, controls, presetDetails);
 
   const mapBody = e('div.design-map-body');
   const layerControls = e('div.design-layers', LAYERS.map(l => e('label',
@@ -161,12 +162,13 @@ export function mount(root, ctx) {
     counts.replaceChildren(...['PROVEN', 'EXTRAPOLATED', 'NEVER_TESTED'].map(id => e('span', { data: { status: id } }, `${cells.filter(c => c.status === id).length} ${T.status(id)}`)));
     oxygen.value.textContent = `${short(q.o2)} %`; pressure.value.textContent = T.pressure(q.p);
     oxygen.input.value = q.o2; pressure.input.value = q.p;
+    for (const { input } of [oxygen, pressure]) input.style.setProperty('--control-fill', `${100 * (Number(input.value) - Number(input.min)) / (Number(input.max) - Number(input.min))}%`);
     for (const [parent, key, value] of [[gravities, 'g', q.g], [concerns, 'concern', q.concern], [materials, 'mat', q.material]]) {
       for (const b of parent.children) { const on = b.dataset[key] === value; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', String(on)); }
     }
     controls.querySelector('.design-material-picker summary').textContent = `Material: ${db.materials[q.material]?.label || 'choose'} · ${Object.keys(db.materials).length} choices`;
     oxygen.input.setAttribute('aria-valuetext', `${short(q.o2)} percent oxygen`); pressure.input.setAttribute('aria-valuetext', T.pressure(q.p));
-    for (const b of presets.children) { const on = b.dataset.preset === q.preset; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', String(on)); }
+    presetSelect.value = q.preset || 'custom';
     presetSource.replaceChildren(preset ? claim(preset.id, e('q', preset.sources[0].quote), sourceCite(preset), e('p', { title: preset.scope }, preset.scope)) : e('p', 'Custom design point. Values are selected by you.'));
     const partial = q.gclass === 'partial', pf = db.findingById['S-PARTG-02'], bound = db.findingById['S-PARTG-03'];
     banner.hidden = !partial;
