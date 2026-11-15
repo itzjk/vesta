@@ -2,6 +2,7 @@ import { balanceWorldLight } from '../scene/materials.js';
 import { build as buildCabin } from '../scene/cabin.js';
 import { build as buildDrillThread } from './drill-thread.js';
 import { build as buildDebrief } from './debrief.js';
+import { polishDecisionContent, ensureInformationPolishStyles } from './information-polish.js';
 
 const finite = (value, fallback) => value !== null && value !== '' && Number.isFinite(Number(value)) ? Number(value) : fallback;
 const el = (tag, text, className) => {
@@ -13,6 +14,8 @@ const el = (tag, text, className) => {
 const clamp = (n, a, b) => Math.min(b, Math.max(a, n));
 
 export async function build(world) {
+  ensureInformationPolishStyles();
+  world.host.classList.add('information-polish');
   const { db, core } = world;
   const params = { ...world.q, ...world.params };
   const scenario = db.scenario, meta = scenario?.meta, frames = scenario?.frames || [];
@@ -137,6 +140,10 @@ export async function build(world) {
     const p = el('p'); p.append(phrase(value, id)); section.append(p); return section;
   }
   function renderContent(entry, done) {
+    renderDecisionContent(entry, done);
+    polishDecisionContent(content, { entry, done, outside });
+  }
+  function renderDecisionContent(entry, done) {
     content.replaceChildren();
     if (outside) {
       title.textContent = 'The Silence';
@@ -225,7 +232,7 @@ export async function build(world) {
   function keydown(event) {
     if (!active) return;
     if (event.key === 'Escape' && panelOpen) { closePanel(true); return; }
-    if (event.target.closest('button,a,input,textarea,select,[contenteditable]')) return;
+    if (event.target.closest('button,a,input,textarea,select,summary,[contenteditable]')) return;
     if (event.code === 'Space') { event.preventDefault(); event.stopImmediatePropagation(); playing ? pause() : run(); }
   }
   document.addEventListener('keydown', keydown, true); listeners.push(() => document.removeEventListener('keydown', keydown, true));
@@ -293,6 +300,9 @@ export async function build(world) {
       const entries = fired(), entry = entries.at(-1), frameNow = frame();
       const alarmThreshold = db.playbook.steps[0]?.when.find(item => item[0] === 'smoke_pct_alarm')?.[2];
       scenery?.update(reduced ? 0 : t, { frame: frameNow, activeStep: entry, t: time, elapsed: time - t0, flowTime: reduced ? time : t, clock: nowClock(), alarmed: entries.length > 0, alarmThreshold, shot: outside ? 'silence' : 'cabin', officerScale: innerWidth < 760 ? 1.6 : 2.1, officerAt: innerWidth < 760 ? { x: -.6, y: 1.8, z: 0 } : { x: world.host.dataset.hologramOpen === 'true' ? -.9 : -2.2, y: 0.55, z: 0.65 } });
+      // Focus follows the same breakpoint as the camera (window width). cabin.js picks it by canvas aspect, and on a
+      // narrow, short window the two disagreed and left the officer out of focus.
+      if (scenery && world.camera) world.camera.userData.focusDistance = camera(t).position[2];
     },
     holograms: () => [],
     dispose() { disposed = true; thread.dispose(); debrief.dispose(); listeners.forEach(fn => fn()); h.dispose?.(); scenery?.group.removeFromParent(); scenery?.dispose?.(); root.remove(); hud.remove(); },

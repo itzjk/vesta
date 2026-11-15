@@ -1,3 +1,4 @@
+import { createQuestionTour } from './question-tour.js';
 import { warmBlanket } from '../scene/ship-blanket.js';
 import { cite, configureCitations } from './cite.js';
 import { createStationLoader, afterPaint } from './station-loader.js';
@@ -35,7 +36,7 @@ export function stationFor(route, params = {}) {
 export async function createWorld(host, context) {
   let ctx = context, disposed = false, index = -1, flight, entered = 0, lastTime, sceneCtx, holo, officer, carrier;
   let loader, requested, initialShown = false, baseLights = [];
-  let engine, inUpdate = false, citationCleanup, desiredPose, renderedPose, updateOfficer;
+  let engine, inUpdate = false, citationCleanup, desiredPose, renderedPose, updateOfficer, questionTour;
   let pointerX = 0, pointerY = 0, introTimer, wheel = 0, wheelAt = 0, gesture, cameraOverride, filmActive = false, navigationCut = false, filmPausedAt = null;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const capture = ctx.capture || ctx.params?.capture === '1';
@@ -177,7 +178,7 @@ export async function createWorld(host, context) {
   listen(reduced, 'change', () => { if (flight) flight.cut = true; invalidate(); });
   function disposeWorld() {
     if (disposed) return;
-    disposed = true; clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); welcome?.dispose(); cases.dispose(); mission.dispose(); guide.dispose(); canvasHost.remove(); overlay.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world; delete document.documentElement.dataset.cinema;
+    disposed = true; questionTour?.dispose(); clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); welcome?.dispose(); cases.dispose(); mission.dispose(); guide.dispose(); canvasHost.remove(); overlay.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world; delete document.documentElement.dataset.cinema;
     for (const key of ['worldAllBuilt', 'worldLoading', 'worldRequested', 'worldEntry', 'worldSettled', 'cinema', 'film', 'filmPaused', 'hologramOpen', 'dockSide', 'flying']) delete host.dataset[key];
     STATIONS.forEach(station => { delete host.dataset[`${station.id}Ready`]; delete host.dataset[`${station.id}Unavailable`]; });
     host.style.removeProperty('--world-dock-width');
@@ -196,6 +197,7 @@ export async function createWorld(host, context) {
     unmount: disposeWorld,
     dispose() { api.unmount(); }
   };
+  questionTour = createQuestionTour({ host, overlay, api, context: () => ctx, world: () => worlds[index], actions: () => acts[index]?.actions?.(), invalidate });
   async function start() {
   if (disposed) return;
   const welcomeWorld = {
@@ -335,7 +337,7 @@ export async function createWorld(host, context) {
           holo.lock(false);
         }
       });
-      renderedPose = { ...desiredPose };
+      renderedPose = questionTour?.pose({ ...desiredPose }) || { ...desiredPose };
       if (flight && host.dataset.flying === 'true') {
         const p = ease(clamp((flightNow - flight.start) / 1.2));
         for (const key of ['x', 'y', 'z', 'scale', 'yaw', 'pitch', 'roll']) {
