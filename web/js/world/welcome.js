@@ -5,7 +5,8 @@ const stations = [
   { id: 'flame', route: 'brief', name: 'Flame', action: 'See how fire changes' },
   { id: 'evidence', route: 'design', name: 'Evidence', action: 'Find your evidence gaps' },
   { id: 'drill', route: 'incident', name: 'Drill', action: 'Rehearse a scripted response' },
-  { id: 'trust', route: 'engine', name: 'Trust', action: 'Inspect how VESTA decides' }
+  { id: 'trust', route: 'engine', name: 'Trust', action: 'Inspect how VESTA decides' },
+  { id: 'robotics', route: 'engine', name: 'Robotics', action: 'Explore the digital inspection lab' }
 ];
 const validPoint = q => q && Number.isFinite(q.o2) && Number.isFinite(q.p) && q.gclass && (q.g_label || q.g);
 const node = (tag, className, text) => {

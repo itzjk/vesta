@@ -110,6 +110,11 @@ export async function build(world) {
   host?.addEventListener('pointerdown', plateStart, true); host?.addEventListener('pointerup', plateEnd, true); host?.addEventListener('pointerdown', down); host?.addEventListener('pointermove', move, { passive: false }); host?.addEventListener('pointerup', up); host?.addEventListener('pointercancel', up);
   signal();
   return {
+    actions: () => [
+      { id:'compare',label:'Earth / space',primary:true,expanded:()=>controlHolo.target>0,run:()=>controlHolo.toggle() },
+      { id:'source',label:'NASA observation',expanded:()=>answerHolo.target>0,run:()=>answerHolo.toggle() },
+      { id:'evidence',label:'Explore the evidence',run:advance }
+    ],
     group, anchor: [0, 0, 0], camera: () => { const aspect = stage.camera.aspect, phone = aspect < .9, distance = phone ? Math.max(4.05, 2.78 / aspect) : 2.8; return { position: [phone ? .15 : .65, .72, distance - 1.5], target: [0, .28, -1.5], fov: 33 }; },
     enter() { balanceLight(true); if (!active) { savedExposure = stage.renderer.toneMappingExposure; savedAnswerStyle = Object.fromEntries(['fontSize','fontFamily','fontWeight','letterSpacing'].map(key => [key, answerLine?.style[key] || ''])); } stage.renderer.toneMappingExposure = .72; active = true; started = previous = undefined; group.visible = true; },
     leave() { balanceLight(false); if (answerLine && savedAnswerStyle) Object.assign(answerLine.style, savedAnswerStyle); stage.renderer.toneMappingExposure = savedExposure ?? .85; delete stage.camera.userData.focusObject; delete stage.camera.userData.focusOffset; delete stage.camera.userData.aperture; active = false; drag = null; answerHolo.close(); controlHolo.close(); creditHolo.close(); photoHolo.close(); group.visible = false; },

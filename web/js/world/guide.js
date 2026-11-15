@@ -1,8 +1,10 @@
 const copy = {
   transit: ['Fire cannot wait for Earth.', 'Explore the flame, check your cabin against NASA evidence, then follow an on-board fire drill. Choose where to begin.'],
+  flame: ['A different environment. A different flame.', 'Explore a visual explanation, then inspect the NASA observation behind it.'],
   evidence: ['What evidence covers your cabin?', 'Dots are NASA test rows. The diamond is your cabin. Change its conditions to explore gaps in the evidence.'],
   drill: ['An alarm. Eight decisions. No instant help.', 'Follow a scripted avionics fire. Advance one decision at a time to inspect the evidence, limits and source gaps.'],
-  trust: ['Inspect the decisions behind the scene.', 'Run reviewed cases, inspect the rules and download the data that VESTA uses.']
+  trust: ['Inspect the decisions behind the scene.', 'Run reviewed cases, inspect the rules and download the data that VESTA uses.'],
+  robotics: ['Give the evidence a mission.', 'Concept simulation. Watch a digital robot observe, check your cabin’s evidence and request human approval before an inspection.']
 };
 
 export function createGuide(overlay) {

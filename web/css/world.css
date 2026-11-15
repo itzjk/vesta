@@ -236,7 +236,7 @@ html[data-cinema="true"] .tour-bar,html[data-cinema="true"] .wc-shell{visibility
 .world-actions button:disabled{opacity:.45;cursor:default}
 .world-actions button:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
 .world-host[data-hologram-open=true] .world-guide-intro{display:none}
-.world-host:not([data-station=flame]) .world-answer{bottom:86px;font-size:18px}
+.world-host .world-answer{bottom:86px;font-size:18px}
 .world-station-name{opacity:1;font-size:14px}
 .world-host[data-hologram-open=true] .world-station-name{display:block}
 .world-host[data-film=true] .world-guide{visibility:hidden;pointer-events:none}
@@ -260,8 +260,8 @@ html[data-cinema="true"] .tour-bar,html[data-cinema="true"] .wc-shell{visibility
  .world-guide h1{font-size:28px;max-width:340px}.world-guide-intro>p:last-child{font-size:16px;line-height:1.4}.world-guide-label{margin-bottom:8px}
  .world-actions{bottom:64px;left:12px;right:12px;transform:none;max-width:none;display:flex;flex-wrap:wrap;gap:6px}
  .world-actions button{flex:1 1 28%;padding:8px 10px;min-height:44px;font-size:15px}
- .world-host:not([data-station=flame]) .world-answer,.world-host:not([data-station=flame])[data-hologram-open=true] .world-answer{top:auto;bottom:170px;font-size:15px;max-height:54px;background:#12100ed9;padding:5px 8px;width:calc(100% - 40px);left:50%}
- .world-host[data-hologram-open=true]:not([data-station=flame]) .world-answer{display:none}
+ .world-host .world-answer,.world-host[data-hologram-open=true] .world-answer{top:auto;bottom:170px;font-size:15px;max-height:54px;background:#12100ed9;padding:5px 8px;width:calc(100% - 40px);left:50%}
+ .world-host[data-hologram-open=true] .world-answer{display:none}
  .world-stations{left:8px;right:8px;bottom:4px;transform:none;justify-content:space-between}
  .world-stations button{width:20%;height:48px;flex-direction:column;gap:7px}
  .world-stations button>span:first-child{width:5px;height:5px}.world-station-name{position:static;font-size:12px;padding:0;background:transparent}
@@ -273,7 +273,7 @@ html[data-cinema="true"] .tour-bar,html[data-cinema="true"] .wc-shell{visibility
  .world-guide-intro{top:62px;max-width:50%;padding:8px}.world-guide h1{font-size:23px}.world-guide-intro>p:last-child{display:none}
  .world-actions{bottom:12px;right:72px;flex-wrap:nowrap}.world-actions button{font-size:13px;padding:6px}
  .world-stations{left:auto;right:4px;top:62px;bottom:auto;transform:none;width:62px;flex-direction:column}.world-stations button{width:62px}
- .world-host:not([data-station=flame]) .world-answer{bottom:68px}
+ .world-host .world-answer{bottom:68px}
 }
 
 @media(max-width:759px){
@@ -303,8 +303,56 @@ html[data-cinema="true"] .tour-bar,html[data-cinema="true"] .wc-shell{visibility
 @media(max-width:759px){.world-host[data-station=transit] .world-answer{bottom:160px;font-size:14px;line-height:1.3}}
 @media(max-width:759px){.evidence-console .coverage-wall{--coverage-height:calc(70dvh - 76px)}}
 .world-drill .drill-controls button{display:none}
+.world-mission-toggle,.world-agent-toggle{position:absolute;min-height:44px;border:1px solid #c7bb9f44;background:#12100ed9;color:var(--ivory);padding:8px 12px;font:400 16px/1.3 var(--font);cursor:pointer}
+.world-mission-toggle{left:264px;top:16px}
+.world-agent-toggle{right:80px;top:72px;border:0;border-left:2px solid var(--rust);font-size:14px;min-height:32px}
+.world-agent-toggle::before{content:'';display:inline-block;width:6px;height:6px;margin-right:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px #b8955c66;animation:agent-beacon 3s ease-in-out infinite}
+@keyframes agent-beacon{50%{opacity:.4}}
+.world-host[data-film=true] .world-mission-toggle,.world-host[data-film=true] .world-agent-toggle,.world-host[data-cinema=true] .world-mission-toggle,.world-host[data-cinema=true] .world-agent-toggle{display:none}
+.world-host[data-station=flame] .world-guide-intro{display:none}
+html[data-world=true] body #si-attribution{right:80px;transform:none}
+.mission-brief{width:min(1040px,calc(100vw - 40px));max-height:calc(100dvh - 48px);padding:28px;border:1px solid #aa785844;background:#111719;color:var(--ivory);font:400 18px/1.5 var(--font);overflow:auto;overscroll-behavior:contain;box-shadow:0 24px 100px #000b}
+.mission-brief::backdrop{background:#030609de;backdrop-filter:blur(6px)}
+.mission-brief>header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+.mission-brief h2{font:600 clamp(28px,4vw,42px)/1.1 var(--display);margin:0 0 24px}
+.mission-brief h3{font:600 25px/1.2 var(--display);margin:12px 0}
+.mission-brief p{margin:12px 0}.mission-lead{font-size:21px;max-width:820px;color:#d2ccc0}
+.mission-brief button{min-height:44px;border:1px solid #8fa3b555;background:#1b2325;color:var(--ivory);padding:9px 14px;font:inherit;cursor:pointer}
+.mission-brief>header button{font-size:25px;line-height:1;flex-shrink:0}
+.mission-brief>nav{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid #8fa3b533;padding-bottom:18px}
+.mission-brief [aria-current=page],.mission-brief .mission-action{background:#713b2b;border-color:#b66a4d}
+.mission-brief .mission-action{margin:12px 10px 0 0;font-size:16px}
+.mission-brief a{display:block;margin-top:10px;color:#b4c6cd;font-size:15px;text-underline-offset:4px}
+.mission-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin:28px 0}
+.mission-facts article{border-top:1px solid #b79a6b88;padding-top:18px}
+.mission-number{font:500 12px/1.4 var(--mono);letter-spacing:.12em;color:#d0b087}
+.mission-pipeline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:24px}
+.mission-pipeline article{position:relative;border:1px solid #8fa3b533;border-left:3px solid #ad765b;padding:18px 24px;background:linear-gradient(120deg,#29353866,#111719)}
+.mission-pipeline article:last-child{grid-column:1/-1}
+.mission-pipeline p{color:var(--ivory-dim)}
+.mission-brief :focus-visible,.world-agent-toggle:focus-visible,.world-mission-toggle:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
+.robotics-console{width:420px;font:400 18px/1.45 var(--font)}
+.robotics-console .robotics-scope{color:var(--ivory-dim);font-size:16px!important}
+.robotics-log{list-style:none;padding:0;margin:20px 0;counter-reset:agent}
+.robotics-log li{position:relative;border-left:2px solid #8fa3b544;padding:8px 0 8px 20px}
+.robotics-log li[data-state=complete]{border-color:#c5a56d;background:linear-gradient(90deg,#c5a56d12,transparent)}
+.robotics-log strong,.robotics-log span{display:block}.robotics-log strong{color:#d0b087;font-weight:600}.robotics-log span{margin-top:6px;font-size:16px}
 @media(max-width:759px){
- html[data-world=true] body #si-attribution{right:66px;transform:none}
+ .world-mission-toggle{left:164px;top:12px;font-size:14px;padding:8px 10px}
+ .world-agent-toggle{right:20px;top:62px;font-size:11px;min-height:26px;padding:4px 6px;border:0}
+ .world-agent-toggle::before{width:4px;height:4px;margin-right:6px}
+ html[data-world=true] body #si-attribution{left:12px;right:auto;top:62px;font-size:10px;transform:none}
+ .world-stations button{width:auto;flex:1}.world-station-name{font-size:11px}
+ .mission-brief{padding:20px;width:calc(100vw - 24px);max-height:calc(100dvh - 24px);font-size:16px}
+ .mission-brief h2{font-size:28px}.mission-lead{font-size:18px}
+ .mission-facts,.mission-pipeline{grid-template-columns:1fr;gap:16px}.mission-pipeline article:last-child{grid-column:auto}
+ .mission-brief>nav{gap:5px}.mission-brief>nav button{padding:8px;font-size:14px}
+ .world-host[data-station=robotics] .world-guide-intro{max-width:340px}
+ .world-host[data-station=robotics] .world-answer{bottom:170px}
+}
+@media(prefers-reduced-motion:reduce){.world-agent-toggle::before{animation:none}}
+@media(max-width:759px){
+ html[data-world=true] body #si-attribution{left:12px;right:auto;top:62px;font-size:10px;transform:none}
  .world-host .world-welcome .vesta-welcome-brand,.world-host .world-welcome .vesta-welcome-nav{display:none}
  .world-host .world-welcome .vesta-welcome-intro{font-size:18px;line-height:1.35;margin-bottom:10px}
  .world-host .world-welcome .vesta-welcome-title{font-size:24px;margin-bottom:10px}

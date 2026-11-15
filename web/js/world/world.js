@@ -5,19 +5,22 @@ import { buildHash } from '../router.js';
 import { createGuide } from './guide.js';
 import { createVideoCases } from './cases.js';
 import { build as buildWelcome } from './welcome.js';
+import { createMissionBrief, STATION_AGENTS } from './mission.js';
 
 export const STATIONS = [
   { id: 'transit', route: 'brief', origin: [0, 0, 0], position: [0, 1.2, 19], target: [0, 0, 0], label: 'Transit' },
   { id: 'flame', route: 'brief', origin: [0, 0, 0], position: [0, .35, 8], target: [0, .1, 0], label: 'Flame' },
   { id: 'evidence', route: 'design', origin: [12, 0, 0], position: [12, 1, 10], target: [12, .1, 0], label: 'Evidence' },
   { id: 'drill', route: 'incident', origin: [25, 0, 0], position: [25, .5, 8.4], target: [25, .1, 0], label: 'Drill' },
-  { id: 'trust', route: 'engine', origin: [38, 0, 0], position: [38, 1, 10], target: [38, .3, 0], label: 'Trust' }
+  { id: 'trust', route: 'engine', origin: [38, 0, 0], position: [38, 1, 10], target: [38, .3, 0], label: 'Trust' },
+  { id: 'robotics', route: 'engine', origin: [52, 0, 0], position: [57, 3, 13], target: [52, -.2, 0], label: 'Robotics' }
 ];
-const FILES = ['act-transit', 'act-flame', 'act-evidence', 'act-drill', 'act-trust'];
+const FILES = ['act-transit', 'act-flame', 'act-evidence', 'act-drill', 'act-trust', 'act-robotics'];
 const clamp = x => Math.max(0, Math.min(1, x));
 const ease = x => x * x * x * (x * (x * 6 - 15) + 10);
 const editable = target => target?.closest?.('input,textarea,select,button,a,[contenteditable="true"],[role="dialog"]');
 export function stationFor(route, params = {}) {
+  if (route === 'engine' && params.station === 'robotics') return 5;
   if (route === 'brief') return params.station === 'transit' || params.intro === '1' ? 0 : 1;
   return route === 'design' || route === 'investigations' ? 2 : route === 'incident' ? 3 : 4;
 }
@@ -53,6 +56,10 @@ export async function createWorld(host, context) {
   let welcome, welcomeKey = '';
   const cases = createVideoCases({ onEvidence(query) { navigate(2); acts[2]?.search?.(query); }, onDrill() { navigate(3); } });
   const caseButton = document.createElement('button'); caseButton.type = 'button'; caseButton.className = 'world-case-toggle'; caseButton.textContent = 'Video cases'; caseButton.onclick = () => { holo?.closeAll(); cases.open(caseButton); }; overlay.append(caseButton);
+  const mission = createMissionBrief({ navigate, run(station,id) { const i=STATIONS.findIndex(s=>s.id===station); acts[i]?.actions?.().find(action=>action.id===id)?.run(); } });
+  const missionButton=document.createElement('button');missionButton.type='button';missionButton.className='world-mission-toggle';missionButton.textContent='Mission';missionButton.setAttribute('aria-label','Why VESTA: problem, agents and robotics');missionButton.onclick=()=>mission.open('problem',missionButton);
+  const agentButton=document.createElement('button');agentButton.type='button';agentButton.className='world-agent-toggle';agentButton.onclick=()=>mission.open('agents',agentButton);
+  overlay.append(missionButton,agentButton);
   film.textContent = '▶ 60s tour';
   const buttons = STATIONS.map((s, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', s.label); b.title = s.label; b.dataset.station = s.id; b.innerHTML = `<span aria-hidden="true"></span><span class="world-station-name">${s.label}</span>`; b.onclick = () => navigate(i); nav.append(b); return b; });
   const listen = (node, name, fn, options) => { node.addEventListener(name, fn, options); listeners.push(() => node.removeEventListener(name, fn, options)); };
@@ -65,10 +72,11 @@ export async function createWorld(host, context) {
   function navigate(value, options = {}) {
     const next = typeof value === 'string' ? STATIONS.findIndex(s => s.id === value) : value;
     if (next < 0 || next >= STATIONS.length || disposed) return;
-    cases.close(); holo?.closeAll(); navigationCut = Boolean(options.cut);
+    cases.close(); mission.close(); holo?.closeAll(); navigationCut = Boolean(options.cut);
     if (!options.fromHash) {
       const params = { ...ctx.params, station: next === 0 ? 'transit' : null, intro: null };
       if (next === 1) params.station = 'flame';
+      if (STATIONS[next].id === 'robotics') params.station = 'robotics';
       ctx.go(buildHash(STATIONS[next].route, params));
     }
     activate(next, options.cut);
@@ -96,6 +104,8 @@ export async function createWorld(host, context) {
     overlay.querySelectorAll('.world-picked-source').forEach(node => node.remove());
     answer.textContent = '';
     host.dataset.station = s.id; live.textContent = s.label; skip.hidden = true;
+    agentButton.textContent=`VESTA · ${STATION_AGENTS[s.id]}`;
+    agentButton.setAttribute('aria-label',`Meet the agents: ${STATION_AGENTS[s.id]}`);
     welcomeHost.hidden = next !== 0;
     holo.setStation(s.id);
     holo.lock(true);
@@ -128,7 +138,7 @@ export async function createWorld(host, context) {
     const step = ['ArrowDown', 'ArrowRight', 'PageDown'].includes(ev.key) ? 1 : ['ArrowUp', 'ArrowLeft', 'PageUp'].includes(ev.key) ? -1 : 0;
     if (step) { ev.preventDefault(); navigate(index + step); }
     if (ev.key === 'Home') { ev.preventDefault(); navigate(0); }
-    if (ev.key === 'End') { ev.preventDefault(); navigate(4); }
+    if (ev.key === 'End') { ev.preventDefault(); navigate(STATIONS.length-1); }
   });
   listen(host, 'pointerdown', ev => { if (cinematic) { setCinema(false); return; } if (!ev.target.closest('.world-hologram,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]')) { document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); holo?.closeAll(); } if (!editable(ev.target) && !ev.target.closest('.world-hologram')) gesture = { x: ev.clientX, y: ev.clientY, id: ev.pointerId }; });
   listen(host, 'pointermove', ev => { const b = canvasHost.getBoundingClientRect(); pointerX = (ev.clientX - b.left) / b.width * 2 - 1; pointerY = 1 - (ev.clientY - b.top) / b.height * 2; });
@@ -137,7 +147,7 @@ export async function createWorld(host, context) {
   listen(reduced, 'change', () => { if (flight) flight.cut = true; invalidate(); });
   function disposeWorld() {
     if (disposed) return;
-    disposed = true; clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); welcome?.dispose(); cases.dispose(); guide.dispose(); canvasHost.remove(); overlay.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world; delete document.documentElement.dataset.cinema;
+    disposed = true; clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); welcome?.dispose(); cases.dispose(); mission.dispose(); guide.dispose(); canvasHost.remove(); overlay.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world; delete document.documentElement.dataset.cinema;
     for (const key of ['cinema', 'film', 'filmPaused', 'hologramOpen', 'dockSide', 'flying']) delete host.dataset[key];
     host.style.removeProperty('--world-dock-width');
   }
@@ -153,7 +163,7 @@ export async function createWorld(host, context) {
       if (paused && filmPausedAt == null) filmPausedAt = now;
       if (!paused && filmPausedAt != null) { if (flight) flight.start += now - Math.max(filmPausedAt, flight.start); filmPausedAt = null; }
       filmActive = value; host.dataset.film = String(value); host.dataset.filmPaused = String(Boolean(paused));
-      if (value) { clearTimeout(introTimer); cases.close(); holo?.closeAll(); } invalidate();
+      if (value) { clearTimeout(introTimer); cases.close(); mission.close(); holo?.closeAll(); } invalidate();
     }, get station() { return STATIONS[index]?.id; },
     get stage() { return engine; }, get camera() { return sceneCtx?.camera; }, get vesta() { return officer; },
     unmount: disposeWorld,

@@ -15,7 +15,7 @@ VESTA lets you set oxygen, pressure and gravity, inspect nearby evidence, and ca
 
 The default experience is one continuous 3D world with named station tabs and visible action buttons. Object markers also open their controls or evidence. The eye button or **H** hides the controls for presenting. The instrument view exposes the tables and technical detail, and remains available without WebGL.
 
-## Five stations, one evidence trail
+## Six stations, one evidence trail
 
 | Station | What you can do | What the result means |
 | --- | --- | --- |
@@ -24,10 +24,13 @@ The default experience is one continuous 3D world with named station tabs and vi
 | Evidence | Inspect 45 coverage questions, configure a cabin, search verified findings, compare investigations, and export receipts or research gaps. | Coverage under explicit matching rules, with source provenance. |
 | Drill | Step through eight decisions, inspect their support, replay the exercise and export its debrief. | A bounded teaching exercise, not operational flight guidance. |
 | Trust | Execute ten reviewed cases and inspect the build's evidence checks. | Reproducible software checks, not independent scientific certification. |
+| Robotics | Follow a digital inspection robot from a scripted observation to a human-approved inspection, and save the record. | A concept simulation of a workflow. No physical robot, telemetry or autonomous controller is connected. |
+
+**Mission**, available from every station, explains the problem, the software roles behind each station (they are not live language-model conversations) and the robotics concept, with links to NASA references.
 
 **Video cases**, available from every station, pairs original NASA FLEX and Saffire-V footage with the problem, recorded observation, VESTA response and limits. Each case opens an evidence search or the scripted drill. See [video sources and behavior](docs/video-cases.md). Playback starts only on request; source credits remain with the footage.
 
-The 60-second tour travels through all five stations. It can be paused, resumed or skipped. NASA photographs carry their own attribution and remain distinct from the illustrated world.
+The 60-second tour travels through the first five stations. It can be paused, resumed or skipped. NASA photographs carry their own attribution and remain distinct from the illustrated world.
 
 ## Read the coverage correctly
 
