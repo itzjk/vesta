@@ -7,7 +7,7 @@
 .trust-check-actions button:disabled{opacity:.7;cursor:default}
 .world-host .trust-console :is(.trust-report-scope,.trust-case-verdict){font-size:14px!important;line-height:1.4!important;color:#c2c5bc}
 .trust-check-results,.trust-rejected-report>ol{list-style:none;padding:0;margin:12px 0}
-.trust-check-result,.trust-rejected-excerpt{border-top:1px solid #a9b3ad66;padding:18px 0 10px;margin:0}
+.trust-check-result,.trust-rejected-excerpt{border-top:1px solid #a9b3ad66;padding:0;margin:0}
 .world-host .trust-console :is(.trust-check-result h3,.trust-rejected-excerpt h3){font-size:19px!important;line-height:1.3!important;margin:5px 0 10px}
 .world-host .trust-console .trust-rejected-excerpt h4{font-size:15px!important;line-height:1.4!important;margin:14px 0 5px;color:#d6b57d}
 .trust-check-report details,.trust-rejected-report details{margin:12px 0}
@@ -18,7 +18,7 @@
 .world-host .trust-console .trust-check-report :is(th,td){font-size:14px!important;line-height:1.45!important;text-align:left;vertical-align:top;padding:8px 5px;border-bottom:1px solid #a9b3ad55}
 .trust-check-report th:first-child{width:24%}
 .trust-case-sources :is(a,button){min-height:44px;white-space:normal;overflow-wrap:anywhere}
-.trust-check-result .trust-case-verdict{color:#d6b57d!important;letter-spacing:.03em}
+.trust-check-result .trust-case-verdict{color:#d6b57d!important;letter-spacing:.03em;flex:0 0 auto;font-weight:600}
 .trust-check-error,.trust-check-result[data-pass=false] .trust-case-verdict{color:#f2b29c!important}
 .trust-report-limit{padding-left:10px;border-left:2px solid #c59a65}
 .trust-rejected-excerpt blockquote{margin:6px 0;padding-left:12px;border-left:2px solid #77838a;overflow-wrap:anywhere}
@@ -37,5 +37,44 @@
  .world-host .trust-console .trust-check-summary{font-size:16px!important;margin:0 0 8px}
  .trust-check-actions{margin:4px 0 8px;gap:6px}
  .world-host .trust-console .trust-check-actions button{font-size:15px!important;padding:6px 10px}
- .trust-check-result{padding-top:12px}
+ .trust-check-result{padding-top:0}
+}
+
+/* The workbench leads with the actual check, while source and developer tools
+   stay accessible without competing with the primary action. */
+.trust-workbench-nav{display:flex;align-items:flex-start;gap:16px;position:relative;margin:0 40px 12px 0;flex-shrink:0}
+.trust-workbench-nav>button,.trust-tools-menu>summary{min-height:44px;box-sizing:border-box;font:inherit;font-size:16px;padding:10px 0;cursor:pointer;white-space:nowrap}
+.trust-tools-menu{flex:1;min-width:0}
+.trust-tools-list{position:absolute;z-index:4;top:44px;left:0;right:-40px;display:flex;flex-direction:column;gap:2px;padding:8px 12px;background:#202b2f;border:1px solid #9daea570;box-shadow:0 12px 22px #0007;max-height:240px;overflow:auto}
+.trust-tools-list>button{text-align:left!important;white-space:normal!important}
+.trust-tools-list>button[aria-expanded=true]{color:#efcb92!important}
+.trust-tool-directory{display:grid;gap:8px}
+.trust-tool-directory>button{text-align:left;border:1px solid #a9b3ad66!important}
+.world-host .trust-console :is(.trust-check-purpose,.trust-check-meaning){font-size:16px!important;line-height:1.45!important;margin:8px 0;color:#e0e1d8}
+.world-host .trust-console .trust-check-summary{padding:10px 12px;border-left:3px solid #c59a65;background:#293438;margin:12px 0 8px}
+.trust-check-report[data-check-phase=error] .trust-check-summary{border-color:#f2b29c}
+.trust-check-report .trust-check-actions>button:first-child{min-width:132px;background:#855137!important;border:1px solid #dba578!important;font-weight:600}
+.trust-check-report .trust-case-details{margin:0}
+.trust-check-report .trust-case-heading{display:flex;align-items:flex-start;gap:10px;padding:14px 0;font-size:16px;line-height:1.4;list-style:none}
+.trust-check-report .trust-case-heading::-webkit-details-marker{display:none}
+.trust-case-heading::after{content:'+';margin-left:auto;flex:0 0 16px;font-size:20px;color:#d6b57d;text-align:right}
+.trust-case-details[open]>.trust-case-heading::after{content:'−'}
+.trust-case-question{min-width:0;overflow-wrap:anywhere}
+.trust-case-content{padding:0 0 14px}
+.world-host .trust-console .trust-case-content>p{font-size:16px!important;line-height:1.45!important;margin:10px 0}
+.trust-case-content>.trust-case-outcome{font-weight:600}
+.trust-case-content>.trust-case-sources{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.trust-case-sources>.world-cite{display:block;min-height:44px;padding:10px 0;box-sizing:border-box;text-align:left}
+.trust-rejected-excerpt{padding:16px 0}
+.trust-workbench-nav :is(button,summary):focus-visible,.trust-tool-directory button:focus-visible{outline:2px solid #ede4d4;outline-offset:3px}
+.world-host[data-station=trust] .world-actions :is([data-station-action=rejected],[data-station-action=download],[data-station-action=api],[data-station-action=assistant]){display:none!important}
+.world-host[data-station=trust][data-hologram-open=true] .world-guide>.world-actions{display:none!important}
+.world-host[data-station=trust][data-hologram-open=true] .world-answer{display:none!important}
+.world-host[data-station=trust] .trust-console .trust-status{font-size:13px!important;line-height:1.35!important}
+@media(max-width:759px){
+ .trust-workbench-nav{gap:12px;margin-bottom:6px}
+ .trust-workbench-nav>button,.trust-tools-menu>summary{font-size:15px}
+ .world-host .trust-console .trust-check-summary{font-size:16px!important;padding:8px 10px}
+ .world-host[data-station=trust] .world-guide>.world-actions{flex-wrap:nowrap}
+ .world-host[data-station=trust] .world-guide>.world-actions button{flex:1 1 auto;font-size:14px}
 }

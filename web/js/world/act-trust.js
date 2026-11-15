@@ -1,7 +1,7 @@
 import { hardware } from '../scene/materials.js';
 import { loadCases, evaluateCase } from './proof.js';
 import { createProofSession } from './proof-session.js?v=habitat-20261115-1';
-import { createProofReport, renderRejectedExcerpts } from './trust-report.js?v=habitat-20261115-1';
+import { createProofReport, renderRejectedExcerpts } from './trust-report.js?v=trust-explore-20261115-1';
 import { cite as contextualCite } from './cite.js?v=habitat-20261115-1';
 import { sourceLocator } from '../ui/source-locator.js?v=habitat-20261115-1';
 import { ensureInformationPolishStyles } from './information-polish.js?v=habitat-20261115-1';
@@ -99,8 +99,8 @@ export async function build(world) {
   const exit = ring(group, 0.23, rust, [xs[1], 0.56, 0]);
   exit.rotation.x = Math.PI / 2;
   // The bench is lit by the world's own lights at full strength: dimming them left the machines unreadable.
-  for (const mat of materials) mat.envMapIntensity = .055;
-  const wornHousing = hardware(THREE, 'metal', { color: 0x454b4d, roughness: .74, metalness: .48, envMapIntensity: .055 });
+  for (const mat of materials) mat.envMapIntensity = .16;
+  const wornHousing = hardware(THREE, 'metal', { color: 0x596164, roughness: .74, metalness: .35, envMapIntensity: .16 });
   materials.add(wornHousing);
   box(group, [15, 8, .12], wornHousing, [0, .1, -.88]);
   for (const x of [-4.12, 4.12]) box(group, [.12, 3.2, 1.7], wornHousing, [x, .1, -.08]);
@@ -109,10 +109,9 @@ export async function build(world) {
     box(group, [.82, .1, .28], wornHousing, [x, 1.36, .72]);
     box(group, [.66, .025, .18], fixture, [x, 1.3, .72]).layers.enable(1);
     const pool = new THREE.SpotLight(0xd2ddd9, 3.2, 4.5, .66, .65, 2); pool.position.set(x, 1.25, .74); pool.target.position.set(x, -.2, .05); group.add(pool, pool.target);
-    const screenLight = new THREE.PointLight(0x7997af, .14, 1.3, 2); screenLight.position.set(x, -.1, .65); group.add(screenLight);
   }
-  const light = new THREE.PointLight(0xe0b77e, 1.8, 5, 2); light.position.set(-2.3, 1.5, 1.6); group.add(light);
-  group.add(new THREE.HemisphereLight(0x9baab5, 0x14110e, .045));
+  const light = new THREE.PointLight(0xe0c8a4, 3.2, 7, 2); light.position.set(-2.3, 1.5, 2.6); group.add(light);
+  group.add(new THREE.HemisphereLight(0xcbd5da, 0x514333, .65));
 
   const baseStyle = { color: 'var(--ivory, #ede4d4)', fontFamily: '"Source Sans 3", sans-serif', fontSize: '18px', lineHeight: '1.4', boxSizing: 'border-box' };
   const scenarioId = db.scenario?.meta?.id ?? Object.keys(E.officer ?? {}).find(key => E.officer[key] && typeof E.officer[key] === 'object');
@@ -127,8 +126,12 @@ export async function build(world) {
 
   consoleEl.setAttribute('aria-label', 'Evidence checks and data');
   consoleEl.dataset.worldPanel = 'trust';
-  const nav = element('nav', null, { display: 'flex', flexWrap: 'nowrap', overflowX: 'auto', gap: '16px', marginBottom: '14px', maxWidth: 'calc(100% - 40px)' });
-  nav.setAttribute('aria-label', 'Use the evidence');
+  const nav = element('nav');
+  nav.className = 'trust-workbench-nav';
+  nav.setAttribute('aria-label', 'Evidence check workbench');
+  const toolsMenu = element('details'); toolsMenu.className = 'trust-tools-menu';
+  toolsMenu.append(element('summary', 'Sources & tools'));
+  const toolsList = element('div'); toolsList.className = 'trust-tools-list'; toolsMenu.append(toolsList);
   const body = element('div', null, { overflowY: 'auto', minHeight: '36px', flexShrink: '1', flexGrow: '1' });
   body.className = 'trust-content';
   body.tabIndex = 0;
@@ -148,16 +151,19 @@ export async function build(world) {
     else { node.target = '_blank'; node.rel = 'noopener'; }
     return node;
   };
-  for (const [id, text] of [['checks', 'Checks'], ['rejected', 'Rejected excerpts'], ['report', 'Machines'], ['download', 'Download'], ['api', 'API'], ['assistant', 'Assistant']]) {
+  const toolDefinitions = [['checks', 'Checks'], ['rejected', 'Rejected excerpts'], ['report', 'Method & limits'], ['download', 'Download data'], ['api', 'Published API'], ['assistant', 'Connect an assistant']];
+  for (const [id, text] of toolDefinitions) {
     const button = element('button', text, { font: 'inherit', background: 'none', border: '0', borderBottom: '1px solid var(--line-strong)', padding: '10px 0', minHeight: '44px', color: 'var(--ivory)', cursor: 'pointer' });
     button.type = 'button'; button.dataset.trust = id; button.style.flexShrink = '0';
-    button.addEventListener('click', () => show(id));
-    buttons.set(id, button); nav.append(button);
+    button.addEventListener('click', () => { show(id); body.focus({ preventScroll: true }); });
+    buttons.set(id, button); (id === 'checks' ? nav : toolsList).append(button);
   }
+  nav.append(toolsMenu);
+  toolsMenu.addEventListener('keydown', event => { if (event.key === 'Escape') { toolsMenu.open = false; toolsMenu.querySelector('summary').focus(); event.stopPropagation(); } });
   const consoleContent = element('div', null, { display: 'flex', flexDirection: 'column', height: '100%', minHeight: '0' });
   consoleContent.append(nav, body);
   consoleEl.append(consoleContent);
-  const status = element('p', 'Evidence checks are not a safety certification.', { fontSize: '18px', color: 'var(--ivory-dim)', margin: '12px 0 0' });
+  const status = element('p', 'Software workbench · the 3D bench is an illustration.', { fontSize: '18px', color: 'var(--ivory-dim)', margin: '12px 0 0' });
   status.className = 'trust-status';
   status.style.flexShrink = '0';
   consoleContent.append(status);
@@ -192,6 +198,7 @@ export async function build(world) {
   }
   async function show(next) {
     tab = next;
+    toolsMenu.open = false;
     const request = ++serial;
     for (const [id, button] of buttons) button.setAttribute('aria-expanded', String(id === next));
     body.replaceChildren();
@@ -200,13 +207,22 @@ export async function build(world) {
       body.append(element('p', 'Run the checks or take the evidence with you.'));
     } else if (next === 'checks') {
       renderChecks();
+    } else if (next === 'tools') {
+      body.append(element('h2', 'Sources & tools'), element('p', 'Inspect the source-text audit or take the underlying data into your own review.'));
+      const list = element('div'); list.className = 'trust-tool-directory';
+      for (const [id, label] of toolDefinitions.filter(([id]) => id !== 'checks')) list.append(button(label, () => show(id)));
+      body.append(list);
     } else if (next === 'report') {
-      body.append(element('h2', 'Inside the machines', { fontSize: '24px', margin: '0 0 10px' }));
-      for (const [name, path, unit] of definitions) body.append(element('p', `${name}: ${count(path ? at(E, path) : null)} ${unit}`, { margin: '6px 0' }));
-      body.append(element('p', 'Text matching does not validate interpretation or certify safety.'));
+      body.append(element('h2', 'Method & limits', { fontSize: '24px', margin: '0 0 10px' }));
+      body.append(element('p', 'VESTA separates source extraction, text verification, relevance ranking and scripted drill decisions. These are software stages; the bench is not a physical laboratory.'));
+      body.append(element('h3', 'Stored build audit'));
+      body.append(element('p', `${count(E.verifier?.quotes_verified)} excerpts matched the cached source text; ${count(E.verifier?.rejected?.length)} candidates were rejected. These build results are not rerun by Run checks.`));
+      body.append(element('p', 'An excerpt count is not a finding count or a count of independent experiments. Text matching does not validate interpretation or certify safety.'));
       body.append(element('p', E.verifier?.review_coverage?.scope ?? 'Independent review coverage is not reported in this build.'));
       body.append(button('Inspect rejected excerpts', () => show('rejected')));
-      const advanced = element('details'); advanced.append(element('summary', 'Advanced: build report'), link('Build report · JSON', 'data/engine.json', 'vesta-engine.json')); body.append(advanced);
+      const advanced = element('details'); advanced.append(element('summary', 'Build stages & original report'));
+      for (const [name, path, unit] of definitions) advanced.append(element('p', `${name}: ${count(path ? at(E, path) : null)} ${unit}`, { margin: '6px 0' }));
+      advanced.append(link('Build report · JSON', 'data/engine.json', 'vesta-engine.json')); body.append(advanced);
     } else if (next === 'rejected') {
       body.append(element('h2', 'Rejected excerpts'), element('p', 'Loading the omitted context and source links…'));
       let sourceRecords = new Map();
@@ -216,6 +232,7 @@ export async function build(world) {
       body.replaceChildren(renderRejectedExcerpts({ records: E.verifier?.rejected ?? [], sources: sourceRecords, locator: sourceLocator, rawLink: link }));
     } else if (next === 'assistant') {
       const site = new URL('.', location.href.split('#')[0]).href;
+      body.append(element('h2', 'Connect an assistant'), element('p', 'Give an external assistant access to VESTA’s evidence tools. The public workbench does not run a live language model. The recorded Claude review is a separate, labelled result in Robotics.'));
       body.append(element('p', 'Run from a clone of the repository. A browser cannot start a local stdio server.'));
       const config = JSON.stringify({ mcpServers: { vesta: { command: 'node', args: ['mcp/server.mjs', '--base', site] } } }, null, 2);
       const pre = element('pre', config, { whiteSpace: 'pre-wrap', overflowWrap: 'anywhere', fontSize: '18px' });
@@ -285,7 +302,7 @@ export async function build(world) {
   });
   (world.overlay ?? world.host)?.append(marksLayer);
   const handles = [consoleHolo];
-  const normalAnswer = () => `${count(E.verifier?.quotes_verified)} excerpts matched; ${count(E.verifier?.rejected?.length)} rejected.`;
+  const normalAnswer = () => 'Check condition matching and refusals when evidence is missing.';
   const summaryAnswer = () => `${results.length}/${casesFile?.cases.length ?? 10} cases checked · ${results.filter(r => r.pass).length} passed · ${results.filter(r => !r.pass).length} failed.`;
   const button = (label, action) => {
     const node = element('button', label, { font: 'inherit', padding: '10px 12px', cursor: 'pointer', minHeight: '44px' });
@@ -322,9 +339,9 @@ export async function build(world) {
     if (running || !alive || !active) return;
     show('checks'); return proofSession.run();
   }
-  function openChecks() {
+  function openChecks(run = true) {
     show('checks'); consoleHolo.requested = true; consoleHolo.open();
-    if (!running && !results.length) startChecks();
+    if (run && !running && !results.length) startChecks();
   }
   const isInspecting = () => world.host?.dataset.hologramOpen === 'true' || consoleHolo.target > 0;
   const camera = (t = 0) => {
@@ -345,8 +362,11 @@ export async function build(world) {
   show('checks');
   return {
     group, anchor, camera,
-    actions: () => [['checks', () => running ? 'Checks running' : results.length ? 'Check results' : 'Run checks'], ['rejected', 'Rejected excerpts'], ['download', 'Download data'], ['api', 'Query the API'], ['assistant', 'Connect an assistant']].map(([id, label]) => ({ id, label, primary: id === 'checks', expanded: () => tab === id && consoleHolo.target > 0, run() { if (id === 'checks') openChecks(); else if (tab === id && consoleHolo.target) consoleHolo.close(); else { show(id); consoleHolo.requested = true; consoleHolo.open(); } } })),
-    enter() { active = true; group.visible = true; marksLayer.hidden = false; world.answer?.(results.length && casesFile ? summaryAnswer() : normalAnswer()); },
+    actions: () => [['checks', () => running ? 'Checks running' : results.length ? 'Check results' : 'Run checks'], ['tools', 'Sources & tools'], ['rejected', 'Rejected excerpts'], ['download', 'Download data'], ['api', 'Query the API'], ['assistant', 'Connect an assistant']].map(([id, label]) => ({ id, label, primary: id === 'checks', expanded: () => tab === id && consoleHolo.target > 0, run(trigger) { if (id === 'checks') openChecks(!trigger?.hasAttribute('data-station-explain')); else if (tab === id && consoleHolo.target) consoleHolo.close(); else { show(id); consoleHolo.requested = true; consoleHolo.open(); } } })),
+    enter() { active = true; group.visible = true; marksLayer.hidden = false; world.answer?.(results.length && casesFile ? summaryAnswer() : normalAnswer()); show('checks'); },
+    // Activation closes station panels after enter(); ready() is the existing
+    // hook for presenting a workbench without starting its checks.
+    ready() { if (active) { consoleHolo.requested = true; consoleHolo.open(); } },
     leave() { delete world.camera.userData.focusDistance; delete world.camera.userData.aperture; active = false; group.visible = false; marksLayer.hidden = true; stopChecks(); consoleHolo.close(); },
     update(t, state = {}) {
       if (!active) return;
@@ -384,11 +404,13 @@ export async function build(world) {
         screenPoint.set(xs[i], 1.3 + anchor[1], 0.3).add(stationOrigin).project(panelCamera);
         mark.style.transform = `translate(${offsetX + (screenPoint.x + 1) * size.width / 2 - 18 + offset % 2 * 22}px,${offsetY + (1 - screenPoint.y) * size.height / 2 - Math.floor(offset / 2) * 25}px)`;
       });
-      const clock = reduced ? 2.8 : t;
+      // The illustration moves only while the software is actually running checks.
+      // It is not a stream of live source verification or a physical test apparatus.
+      const clock = reduced || !running ? 0 : t;
       const cycle = ((clock % 7.6) + 7.6) % 7.6;
       const rejectPhase = clamp((cycle - 2.5) / 1.8);
       const ejection = smooth((rejectPhase - 0.4) / 0.6);
-      rejected.visible = Array.isArray(E.verifier?.rejected) && E.verifier.rejected.length > 0 && cycle >= 2.5 && cycle < 4.3;
+      rejected.visible = running && Array.isArray(E.verifier?.rejected) && E.verifier.rejected.length > 0 && cycle >= 2.5 && cycle < 4.3;
       rejected.position.set(xs[1] + ejection * 2.4, 0.12 + smooth(rejectPhase / 0.4) * 0.65 + ejection * 1.3, ejection * 0.8);
       rejected.rotation.set(ejection * 1.2, ejection * 0.9, -ejection * 2.7);
       machines.forEach(({ rotor, aperture, indicator }, i) => {
@@ -396,13 +418,13 @@ export async function build(world) {
         if (i === 1) { rotor.position.y = Math.sin(phase * 2) * 0.32; rotor.rotation.y = 0; }
         else rotor.rotation.y = reduced ? 0.3 : phase * (i === 2 ? -0.45 : 0.35);
         aperture.rotation.z = i === 1 ? 0 : phase * 0.35;
-        indicator.scale.x = completed.has(definitions[i][0].toLowerCase()) ? 1.8 : 0.75 + 0.25 * Math.sin(phase);
+        indicator.scale.x = completed.has(definitions[i][0].toLowerCase()) ? 1.8 : running ? 0.75 + 0.25 * Math.sin(phase) : .75;
       });
       tokens.forEach((token, i) => {
         const progress = ((clock * 0.2 + i / tokens.length) % 1 + 1) % 1;
         token.position.set(xs[0] - 0.5 + progress * 6.4, -0.08 + Math.sin(progress * Math.PI * 6) * 0.045, 0.12);
         token.rotation.y = progress * Math.PI * 2;
-        token.visible = progress < 0.98;
+        token.visible = running && progress < 0.98;
       });
       group.userData.flowTime = clock;
       group.userData.rejectionPhase = rejectPhase;

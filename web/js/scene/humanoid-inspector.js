@@ -24,7 +24,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   const glass = material(0x15262f, { roughness: .28, metalness: .24 });
   const signal = material(0xc2a46e, { emissive: 0xc79242, emissiveIntensity: .24, roughness: .3 });
   const optics = material(0x7eabb7, { emissive: 0x6e9aa9, emissiveIntensity: .13, roughness: .2, metalness: .3 });
-  const contactMaterial = new T.MeshBasicMaterial({ color: 0x080b0c, transparent: true, opacity: .17, depthWrite: false }); materials.add(contactMaterial);
+  const contactMaterial = new T.MeshBasicMaterial({ color: 0x080b0c, transparent: true, opacity: .29, depthWrite: false }); materials.add(contactMaterial);
   const sphereGeometry = geometry(new T.SphereGeometry(1, 16, 10));
   const smallSphere = geometry(new T.SphereGeometry(1, 8, 6));
   const cylinderGeometry = geometry(new T.CylinderGeometry(1, 1, 1, 16));
@@ -87,6 +87,15 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   for (const y of [1.525, 1.565, 1.605]) cylinder(group, titanium, .183, .014, [0, y, 0]);
   const torso = pivot(group, 'articulated-torso', 0, 1.60);
   taperedShell(torso, graphite, .70, .34, .23, [0, .32, 0], .60); chestPlate(-1); chestPlate(1);
+  // Industrial shell overlays stay inside the existing shoulder/hand envelope.
+  // They alter appearance only; every articulated frame and endpoint is retained.
+  for (const side of [-1, 1]) {
+    const flank = panel(torso, shell, [.10, .24, .10], [side * .245, .18, .09], .023);
+    flank.rotation.z = side * -.12;
+    const seam = panel(torso, graphite, [.012, .205, .008], [side * .265, .445, .191], .003);
+    seam.rotation.z = side * -.10;
+    for (const y of [.33, .56]) cylinder(torso, titanium, .010, .006, [side * .265, y, .199], 'z');
+  }
   panel(torso, titanium, [.038, .26, .025], [0, .43, .194], .01);
   panel(torso, signal, [.07, .016, .018], [.17, .53, .199], .006);
   for (const side of [-1, 1]) for (let i = 0; i < 3; i++) {
@@ -153,9 +162,13 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   }
   function arm(side) {
     const shoulder = pivot(torso, side > 0 ? 'right-shoulder' : 'left-shoulder', side * .425, .63, 0);
-    hinge(shoulder, .118, .19); ellipsoid(shoulder, shell, [.143, .135, .143], [side * .025, .025, .007]);
+    hinge(shoulder, .118, .19);
+    // Broad cap with a flatter machined crown instead of a spherical ball.
+    panel(shoulder, shell, [.255, .205, .265], [side * .025, .035, .007], .048);
+    panel(shoulder, graphite, [.012, .115, .18], [side * .155, .035, .007], .004);
+    cylinder(shoulder, titanium, .014, .007, [side * .164, .035, .007], 'x');
     panel(shoulder, copper, [.024, .07, .10], [side * .151, .025, .018], .01);
-    taperedShell(shoulder, shell, .37, .090, .075, [0, -.25, 0]); panel(shoulder, graphite, [.034, .25, .02], [0, -.25, -.071], .007);
+    taperedShell(shoulder, shell, .37, .108, .086, [0, -.25, 0], .88); panel(shoulder, graphite, [.034, .25, .02], [0, -.25, -.071], .007);
     const elbow = pivot(shoulder, side > 0 ? 'right-elbow' : 'left-elbow', 0, -.48);
     hinge(elbow, .080, .16); taperedShell(elbow, shell, .34, .087, .058, [0, -.235, .004]);
     panel(elbow, graphite, [.055, .22, .021], [0, -.22, -.064], .008); cylinder(elbow, copper, .065, .020, [0, -.383, 0]);
@@ -167,7 +180,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   const kitGrip = pivot(leftArm.wrist, 'kit-grip', 0, -.105, .025);
   function leg(side) {
     const hip = pivot(group, side > 0 ? 'right-hip' : 'left-hip', side * .17, hipHeight); hinge(hip, .112, .15);
-    taperedShell(hip, shell, .53, .115, .087, [0, -.34, .005]); panel(hip, graphite, [.055, .32, .021], [side * .025, -.36, -.083], .01);
+    taperedShell(hip, shell, .53, .139, .102, [0, -.34, .005], .86); panel(hip, graphite, [.055, .32, .021], [side * .025, -.36, -.083], .01);
     const knee = pivot(hip, side > 0 ? 'right-knee' : 'left-knee', 0, -upperLeg); hinge(knee, .088, .17);
     panel(knee, shell, [.16, .15, .065], [0, -.007, .084], .032);
     taperedShell(knee, graphite, .50, .078, .054, [0, -.34, -.015]); taperedShell(knee, shell, .43, .083, .058, [0, -.32, .041], .45);
@@ -177,7 +190,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     panel(ankle, shell, [.18, .075, .24], [0, -.008, .15], .032, 'toe-shell');
     panel(ankle, shell, [.15, .095, .14], [0, .006, -.035], .028, 'heel-shell');
     panel(ankle, graphite, [.185, .018, .014], [0, -.012, .13], .005);
-    const contact = mesh(group, contactGeometry, contactMaterial, [.13, .25, 1], side * .17, .002, .085, 'foot-contact');
+    const contact = mesh(group, contactGeometry, contactMaterial, [.145, .27, 1], side * .17, .002, .085, 'foot-contact');
     contact.rotation.x = -Math.PI / 2; contact.userData.keepMesh = true; return { hip, knee, ankle, contact };
   }
   const leftLeg = leg(-1), rightLeg = leg(1);

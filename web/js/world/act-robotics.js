@@ -1,4 +1,4 @@
-import { createHumanoidInspector } from '../scene/humanoid-inspector.js?v=crew-workspace-20261115-1';
+import { createHumanoidInspector } from '../scene/humanoid-inspector.js?v=trust-explore-20261115-1';
 import { createMaintenanceBay } from '../scene/maintenance-bay.js?v=crew-workspace-20261115-1';
 import { ensureInformationPolishStyles } from './information-polish.js?v=habitat-20261115-1';
 import { createInventoryReviewSession, reviewToMarkdown } from '../core/inventory-review.js?v=pressure-basis-20261115-1';
@@ -7,10 +7,11 @@ import { openCitation } from './cite.js?v=habitat-20261115-1';
 import { proposeKitMission, createKitMission, kitInputSignature } from './kit-mission.js?v=crew-workspace-20261115-1';
 import { createKitMissionPanel } from './kit-mission-panel.js?v=review-workbench-20261115-1';
 import { createRecordedReviewPanel } from './recorded-claude-review.js';
+import { createHabitatCamera, createHabitatGesture, habitatKeyInput } from './habitat-camera.js?v=trust-explore-20261115-1';
 
 if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-robotics]')) {
   for (const file of ['robotics']) {
-    const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL(`../../css/${file}.css?v=review-workbench-20261115-1`,import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
+    const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL(`../../css/${file}.css?v=trust-explore-20261115-1`,import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
   }
 }
 const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text)el.textContent=text;if(cls)el.className=cls;return el;};
@@ -64,15 +65,18 @@ export async function build(world) {
   let focus={material:'pmma',concern:'prevention'},workspaceOpen=false,notice='',cameraView='overview',workRegion=null,cameraCache=null;
   let kit=null,kitState=null,kitSignature=null,kitFrame=null;
   let recordedPanel=null;
+  const explore=createHabitatCamera(),canvas=stage.renderer.domElement,inputCleanups=[],gesture=createHabitatGesture();
+  const canvasAttributes={tabindex:canvas.getAttribute('tabindex'),label:canvas.getAttribute('aria-label')};
+  let panMode=false,objectSelection=null;
   const cabinKey=()=>JSON.stringify([world.q.preset,world.q.habitat,world.q.o2,world.q.p,world.q.g,world.q.gclass]);
   const currentQuestion=()=>report?.questions.find(q=>q.material_id===focus.material&&q.concern===focus.concern);
   const caption=node('section',null,'robotics-caption robotics-work-caption');caption.dataset.stationUi='robotics';caption.hidden=true;
   const targetLabel=node('p','Material inventory → evidence → review requests','robotics-mission-evidence');
-  const outcome=node('p','Select materials and run the evidence review.','robotics-work-outcome');
+  const outcome=node('p','Check which materials have applicable NASA source evidence for this cabin, then prepare a human review request.','robotics-work-outcome');
   const selectedResult=node('p',null,'robotics-work-result');
   const locationButton=node('button','Open this question','robotics-question-button');locationButton.type='button';locationButton.dataset.action='review-question';
   locationButton.onclick=()=>{openWorkspace();panel.element.querySelector(`[data-question-id="${focus.material}/${focus.concern}"]`)?.scrollIntoView({block:'nearest'});};
-  caption.append(node('p','LUNAR HABITAT · CREW SUPPORT','robotics-eyebrow'),node('h1','Prepare the crew review.'),targetLabel,outcome,selectedResult,locationButton,node('p','Evidence analysis + virtual kit staging','robotics-caption-scope'));
+  caption.append(node('p','LUNAR HABITAT · CREW SUPPORT','robotics-eyebrow'),node('h1','Check evidence before crew work.'),targetLabel,outcome,selectedResult,locationButton,node('p','Evidence analysis + virtual kit staging','robotics-caption-scope'));
   const kitPanel=createKitMissionPanel({onApprove:approveKit,onCancel:cancelKit,onReset:prepareKit,onDownload:downloadKit,onEvidence:openKitEvidence});
   const kitCabin=node('p',null,'robotics-kit-cabin');kitCabin.hidden=true;caption.append(kitCabin,kitPanel.element);
   const imageCredit=node('details',null,'robotics-image-credit');
@@ -82,9 +86,45 @@ export async function build(world) {
   caption.append(imageCredit);
   world.host.querySelector('.world-overlay').append(caption);
   const workspace=node('aside',null,'inventory-review-workspace');workspace.hidden=true;workspace.setAttribute('aria-label','Material evidence review workspace');
-  const back=node('button','Back to habitat','inventory-review-back');back.type='button';back.onclick=()=>closeWorkspace();
+  const back=node('button','Back to habitat','inventory-review-back');back.type='button';back.onclick=()=>{
+    if(report?.status==='complete'&&cameraView==='explore')setExplore(false);
+    closeWorkspace();
+  };
   const panel=createInventoryReviewPanel({db,onRun:run,onCancel:cancel,onReset:reset,onMaterialsChange:ids=>{selected=[...ids];reset('Inventory changed. Run a new review.');},onEvidence:openEvidence,onFocus:locate,onDownload:download});
   workspace.append(back,panel.element);world.host.append(workspace);
+  const explorer=node('section',null,'robotics-explorer');explorer.hidden=true;explorer.setAttribute('aria-label','Explore habitat camera');
+  const cameraButtons=node('div',null,'robotics-camera-buttons');
+  function cameraButton(label,action,title){const b=node('button',label);b.type='button';b.onclick=action;if(title)b.title=title;cameraButtons.append(b);return b;}
+  const orbitButton=cameraButton('Orbit',()=>{panMode=false;syncExplorer();},'Drag to turn the camera');
+  const panButton=cameraButton('Pan',()=>{panMode=true;syncExplorer();},'Drag to move the camera aim');
+  cameraButton('−',()=>moveCamera({zoom:.18}),'Zoom out');cameraButton('+',()=>moveCamera({zoom:-.18}),'Zoom in');
+  cameraButton('Reset',()=>{explore.reset(stage.size().width<760);world.invalidate?.();},'Reset Explore camera');
+  cameraButton('Done',()=>setExplore(false),'Return to Overview and task controls');
+  const cameraHint=node('p','Drag to orbit · Pan or two fingers to move · wheel / pinch to zoom.');
+  const objectPicker=node('select');objectPicker.setAttribute('aria-label','Choose a habitat object');
+  for(const [value,label] of [['','Choose an object…'],['pmma','PMMA review kit'],['kapton','Kapton review kit'],['silicone','Silicone review kit'],['crew','Crew review station']]){const option=node('option',label);option.value=value;objectPicker.append(option);}
+  objectPicker.onchange=()=>{if(objectPicker.value)openObject(objectPicker.value);};
+  const keyboardHint=node('p','Keyboard: arrows orbit · Shift + arrows pan · + / − zoom · 0 reset · Esc exits.','robotics-key-hint');
+  explorer.append(cameraButtons,cameraHint,objectPicker,keyboardHint);world.host.append(explorer);
+  const objectCard=node('section',null,'robotics-object-card');objectCard.hidden=true;objectCard.setAttribute('aria-label','Selected habitat object');
+  const objectTitle=node('h2'),objectText=node('p'),objectActions=node('div',null,'robotics-object-actions');
+  objectTitle.tabIndex=-1;
+  const objectEvidence=node('button'),objectTask=node('button'),objectClose=node('button','Close');
+  for(const b of [objectEvidence,objectTask,objectClose]){b.type='button';objectActions.append(b);}
+  objectClose.onclick=()=>{objectSelection=null;objectPicker.value='';syncObject();};
+  objectCard.onkeydown=event=>{if(event.key==='Escape'){objectClose.click();event.preventDefault();event.stopPropagation();}};
+  objectEvidence.onclick=()=>{
+    if(!guardCabin()||!objectSelection)return;
+    if(objectSelection==='crew'){openWorkspace();return;}
+    const id=`${objectSelection}/prevention`,q=report?.questions.find(item=>item.id===id||item.question_id===id||`${item.material_id}/${item.concern}`===id);
+    if(q){openWorkspace();panel.focusQuestion(id,{expandSources:true});}
+    else run([objectSelection]);
+  };
+  objectTask.onclick=()=>{
+    if(!guardCabin()||!objectSelection||objectSelection==='crew'||report?.status!=='complete'||kitRunning())return;
+    const material=objectSelection;objectSelection=null;setExplore(false);locate({material,concern:'prevention'});
+  };
+  objectCard.append(objectTitle,objectText,objectActions);world.host.append(objectCard);
   const recordedSlot=node('details',null,'inventory-recorded-review'),recordedSummary=node('summary','Recorded Claude review · 12 tool calls');
   recordedSlot.append(recordedSummary,node('p','Loading the recorded external review…'));
   panel.element.insertBefore(recordedSlot,panel.element.querySelector('.inventory-export'));
@@ -99,11 +139,77 @@ export async function build(world) {
     recordedSlot.replaceChildren(recordedSummary,recordedPanel.element);recordedPanel.update(report);
   }).catch(error=>{if(!disposed&&error.name!=='AbortError')recordedSlot.replaceChildren(recordedSummary,node('p','The recorded Claude review could not be loaded. The current evidence calculation remains available.'));});
   const markers=Object.entries(bay.workTargets||{}).map(([material,target])=>{
-    const marker=world.marker(null,{at:target.point,label:`${target.label}: locate evidence`,onClick:()=>locate({material,concern:focus.concern})});
+    const marker=world.marker(null,{at:target.point,label:`${target.label}: review actions`,onClick:()=>openObject(material)});
     marker.element.dataset.reviewMaterial=material;return marker;
   });
-  function openWorkspace(){workspaceOpen=true;workspace.hidden=false;world.host.dataset.roboticsWorkspace='true';world.invalidate?.();}
-  function closeWorkspace(){workspaceOpen=false;workspace.hidden=true;world.host.dataset.roboticsWorkspace='false';world.invalidate?.();}
+  function openWorkspace(){workspaceOpen=true;workspace.hidden=false;world.host.dataset.roboticsWorkspace='true';releasePointers();syncExplorer();syncObject();world.invalidate?.();}
+  function closeWorkspace(){workspaceOpen=false;workspace.hidden=true;world.host.dataset.roboticsWorkspace='false';syncExplorer();syncObject();world.invalidate?.();}
+  function kitRunning(){return ['approved','approach','retrieve','carry','place','handoff'].includes(kitState?.phase);}
+  function openObject(id){if(!active||!guardCabin()||!['crew',...Object.keys(bay.kit.slots)].includes(id))return;objectSelection=id;objectPicker.value=id;syncObject();objectTitle.focus({preventScroll:true});world.invalidate?.();}
+  function syncObject(){
+    objectCard.hidden=!active||workspaceOpen||!objectSelection;if(objectCard.hidden)return;
+    const crew=objectSelection==='crew',label=db.materials[objectSelection]?.label||objectSelection;
+    const q=report?.questions.find(item=>item.material_id===objectSelection&&item.concern==='prevention');
+    objectTitle.textContent=crew?'Crew review station':`${label} review kit`;
+    objectText.textContent=crew?(report?.status==='complete'?`${report.counts.completed_questions} material questions reviewed. Open the source records and human review requests. A staged kit adds no experimental evidence.`:'Check selected materials against NASA source conditions for this cabin. The result is cited evidence and questions for human review, not a safety clearance.')
+      :q?`${q.label||meaning[q.status]}. Open the exact source comparison, or prepare this question’s virtual handoff for separate approval.`
+        :`Check ${label} against this cabin’s oxygen, pressure and gravity. This starts a new material review and replaces any current task; it does not move the robot.`;
+    objectEvidence.textContent=crew?'Open review workspace':q?'Open source comparison':`Review ${label} only`;
+    objectEvidence.disabled=report?.status==='running'||(!q&&!crew&&kitRunning());
+    objectTask.textContent='Prepare robot task';objectTask.hidden=crew||!q;objectTask.disabled=kitRunning()||report?.status!=='complete';
+  }
+  function syncExplorer(){
+    const enabled=active&&cameraView==='explore'&&!workspaceOpen;
+    explorer.hidden=!enabled;world.host.dataset.roboticsExploring=String(enabled);
+    orbitButton.setAttribute('aria-pressed',String(!panMode));panButton.setAttribute('aria-pressed',String(panMode));
+    if(enabled){canvas.tabIndex=0;canvas.setAttribute('aria-label','Explore the 3D habitat. Arrow keys orbit; Shift arrows pan; plus and minus zoom; zero resets; Escape returns to Overview.');}
+    else for(const [name,value] of [['tabindex',canvasAttributes.tabindex],['aria-label',canvasAttributes.label]]){if(value==null)canvas.removeAttribute(name);else canvas.setAttribute(name,value);}
+  }
+  function setExplore(value){
+    const returnFocus=!value&&(document.activeElement===canvas||explorer.contains(document.activeElement));
+    releasePointers();cameraView=value?'explore':'overview';workRegion=null;objectSelection=null;objectPicker.value='';
+    if(value)explore.reset(stage.size().width<760);syncExplorer();syncObject();refresh();world.invalidate?.();
+    if(value)canvas.focus({preventScroll:true});
+    else if(returnFocus)world.host.querySelector('[data-station-action="inventory-explore"]')?.focus({preventScroll:true});
+  }
+  function moveCamera(delta){explore.move(delta);world.invalidate?.();}
+  function releasePointers(){for(const id of gesture.clear())if(canvas.hasPointerCapture?.(id))canvas.releasePointerCapture(id);}
+  function sceneInputEnabled(){return active&&!disposed&&cameraView==='explore'&&!workspaceOpen&&!world.filmActive&&world.host.dataset.flying!=='true'&&!document.querySelector('dialog[open],[role="dialog"]:not([hidden])');}
+  function ownsSceneInput(event){return (active&&!disposed&&!workspaceOpen&&objectCard.contains(event.target))||(sceneInputEnabled()&&(event.target===canvas||explorer.contains(event.target)||gesture.owns(event.pointerId)));}
+  function listenInput(type,fn,options){canvas.addEventListener(type,fn,options);inputCleanups.push(()=>canvas.removeEventListener(type,fn,options));}
+  listenInput('pointerdown',event=>{if(!sceneInputEnabled())return;gesture.begin(event.pointerId,event.clientX,event.clientY);canvas.setPointerCapture(event.pointerId);canvas.focus({preventScroll:true});event.preventDefault();},{capture:true});
+  listenInput('pointermove',event=>{
+    if(!sceneInputEnabled())return;
+    const delta=gesture.move(event.pointerId,event.clientX,event.clientY,panMode||event.shiftKey||event.buttons===2);if(!delta)return;
+    moveCamera(delta);event.preventDefault();event.stopPropagation();
+  },{capture:true});
+  listenInput('pointerup',event=>{const result=gesture.end(event.pointerId);if(!result.owned)return;if(canvas.hasPointerCapture(event.pointerId))canvas.releasePointerCapture(event.pointerId);if(result.dragged){event.preventDefault();event.stopImmediatePropagation();}},{capture:true});
+  listenInput('pointercancel',()=>releasePointers(),{capture:true});
+  listenInput('lostpointercapture',event=>gesture.end(event.pointerId),{capture:true});
+  listenInput('wheel',event=>{if(!sceneInputEnabled())return;moveCamera({zoom:Math.max(-.22,Math.min(.22,event.deltaY*.0015))});event.preventDefault();event.stopPropagation();},{passive:false});
+  listenInput('contextmenu',event=>{if(sceneInputEnabled())event.preventDefault();});
+  function cameraKeydown(event){
+    if(!sceneInputEnabled()||event.target.closest?.('select,input,textarea,[contenteditable]'))return;
+    const delta=habitatKeyInput(event);
+    if(delta)moveCamera(delta);
+    else if(event.key==='0'||event.key==='Home'){explore.reset(stage.size().width<760);world.invalidate?.();}
+    else if(event.key==='Escape')setExplore(false);
+    else return;
+    event.preventDefault();event.stopPropagation();
+  }
+  listenInput('keydown',cameraKeydown);
+  explorer.addEventListener('keydown',cameraKeydown);inputCleanups.push(()=>explorer.removeEventListener('keydown',cameraKeydown));
+  const raycaster=new T.Raycaster(),pickPoint=new T.Vector3(),pickNdc=new T.Vector2();
+  function pick(x,y){
+    if(!active||workspaceOpen||world.host.dataset.flying==='true'||gesture.count||Math.abs(x)>1||Math.abs(y)>1)return null;
+    raycaster.setFromCamera(pickNdc.set(x,y),stage.camera);group.updateWorldMatrix(true,true);
+    const hit=raycaster.intersectObject(group,true).find(item=>{for(let object=item.object;object&&object!==group;object=object.parent)if(!object.visible)return false;return item.object.material?.opacity!==0;});if(!hit)return null;
+    for(let item=hit.object;item&&item!==group;item=item.parent)if(item.userData.material_id&&bay.kit.slots[item.userData.material_id])return {kind:'habitat-object',material:item.userData.material_id};
+    pickPoint.copy(hit.point);bay.group.worldToLocal(pickPoint);
+    if(pickPoint.x> -1.6&&pickPoint.x<.45&&pickPoint.y> -1.43&&pickPoint.y<.65&&pickPoint.z>-.3&&pickPoint.z<.65)return {kind:'habitat-object',material:'crew'};
+    for(const [material,target] of Object.entries(bay.workTargets))if(pickPoint.distanceTo(new T.Vector3(...target.point))<.65)return {kind:'habitat-object',material};
+    return null;
+  }
   function openKitEvidence(request){
     if(disposed||!guardCabin()||!kitState?.plan_valid)return;
     const questionId=request?.questionId||kitState.plan.question_id;
@@ -111,13 +217,14 @@ export async function build(world) {
     openWorkspace();panel.focusQuestion(questionId,{expandSources:true});
   }
   function toggleCameraView(){
-    cameraView=cameraView==='overview'?'work':'overview';
+    releasePointers();
+    cameraView=cameraView==='work'?'overview':'work';
     if(cameraView==='work'){
       const staged=kitState?.phase==='complete'&&kitState?.virtual_object_state==='staged';
       const spot=staged?bay.kit.fixture:bay.kit.slots[focus.material];
       workRegion={point:[...(spot?.point||spot?.position||[.9,0,.25])],material:focus.material,kind:staged?'handoff':'pickup'};
     }
-    world.host.dataset.roboticsView=cameraView;world.host.dataset.roboticsViewTarget=cameraView==='work'&&workRegion?`${workRegion.material}/${workRegion.kind}`:'';world.invalidate?.();
+    syncExplorer();world.host.dataset.roboticsView=cameraView;world.host.dataset.roboticsViewTarget=cameraView==='work'&&workRegion?`${workRegion.material}/${workRegion.kind}`:'';world.invalidate?.();
   }
   function clearRun(reason){
     discardKit(reason||'A new evidence review is required.');
@@ -139,7 +246,7 @@ export async function build(world) {
     else if(report?.status==='running')outcome.textContent=`${report.counts.completed_questions} / ${report.counts.questions} questions reviewed · ${report.progress.completed} / ${report.progress.total} operations completed.`;
     else if(report?.status==='cancelled')outcome.textContent='Review cancelled. Partial results cannot be exported as a completed review.';
     else if(report?.status==='error')outcome.textContent=`Review stopped: ${report.error}`;
-    else outcome.textContent=notice||'Check the selected cabin against material evidence and prepare the next human review.';
+    else outcome.textContent=notice||'Check which materials have applicable NASA source evidence for this cabin, then prepare questions for human review.';
     locationButton.hidden=!q;
     world.answer?.(report?.status==='complete'?'Select a component to locate its evidence and unresolved questions. The report is ready now.':report?.status==='running'?'Checking source coverage and condition differences for the selected inventory.':'The useful output: cited findings, condition differences and a review request for every material question.');
     world.host.dataset.roboticsPhase=phase;world.host.dataset.roboticsReview=report?.status||'idle';world.host.dataset.roboticsMaterial=focus.material;
@@ -150,6 +257,7 @@ export async function build(world) {
     world.host.dataset.roboticsMotionReady=String(report?.status!=='running');
     world.host.dataset.roboticsView=cameraView;
     world.host.dataset.roboticsViewTarget=cameraView==='work'&&workRegion?`${workRegion.material}/${workRegion.kind}`:'';
+    syncObject();syncExplorer();
   }
   async function run(ids=selected){
     if(disposed)return;clearRun('');selected=[...ids];const token=generation;
@@ -239,8 +347,13 @@ export async function build(world) {
   workspace.addEventListener('keydown',onKey);
   return {
     group,
+    pick,select(hit){if(hit?.kind!=='habitat-object')return false;openObject(hit.material);return true;},ownsSceneInput,
     camera(){
       const {width,height}=stage.size();
+      if(cameraView==='explore'&&!workspaceOpen){
+        if(cameraCache?.view!=='explore'||cameraCache.width!==width||cameraCache.height!==height||cameraCache.revision!==explore.revision)cameraCache={view:'explore',width,height,revision:explore.revision,frame:explore.frame(width<760)};
+        return cameraCache.frame;
+      }
       // Framing changes only on an explicit view choice, resize or workspace toggle.
       if(!cameraCache||cameraCache.width!==width||cameraCache.height!==height||cameraCache.view!==cameraView||cameraCache.workspaceOpen!==workspaceOpen||cameraCache.region!==workRegion){
         cameraCache={width,height,view:cameraView,workspaceOpen,region:workRegion,frame:roboticsCameraFrame({width,height,view:cameraView,workspaceOpen,hints:bay.cameraHints,region:workRegion})};
@@ -248,14 +361,15 @@ export async function build(world) {
       return cameraCache.frame;
     },
     actions:()=>[
-      {id:'inventory-run',label:()=>report?.status==='running'?'Review running…':'Run evidence review',disabled:()=>!selected.length||report?.status==='running',primary:true,run:()=>run()},
+      {id:'inventory-run',label:()=>report?.status==='running'?'Checking evidence…':'Check cabin evidence',disabled:()=>!selected.length||report?.status==='running',primary:true,run:()=>run()},
       {id:'inventory-workspace',label:()=>report?.status==='complete'?'Review results':'Materials & method',expanded:()=>workspaceOpen,run:()=>workspaceOpen?closeWorkspace():openWorkspace()},
       {id:'inventory-view',label:()=>cameraView==='work'?'Overview':stage.size().width<760?`Inspect ${db.materials[focus.material]?.label||focus.material} ${kitState?.phase==='complete'?'handoff':'pickup'}`:'Work view',run:toggleCameraView},
+      {id:'inventory-explore',label:()=>cameraView==='explore'?'Exit Explore':'Explore base',run:()=>setExplore(cameraView!=='explore')},
       {id:'inventory-next',label:'Next review question',disabled:()=>report?.status!=='complete',run:nextQuestion},
       {id:'inventory-download',label:'Save full inventory',disabled:()=>report?.status!=='complete',run:downloadReport}
     ],
     enter(){active=true;group.visible=true;caption.hidden=false;world.setBaseLightScale?.(bay.lightingScale??1);savedAperture=stage.camera.userData.aperture;guardCabin();lastCabin=cabinKey();refresh();},
-    leave(){active=false;parkedAt=lastTime;group.visible=false;caption.hidden=true;world.setBaseLightScale?.(1);closeWorkspace();if(savedAperture==null)delete stage.camera.userData.aperture;else stage.camera.userData.aperture=savedAperture;},
+    leave(){active=false;parkedAt=lastTime;group.visible=false;caption.hidden=true;releasePointers();syncExplorer();syncObject();world.setBaseLightScale?.(1);closeWorkspace();if(savedAperture==null)delete stage.camera.userData.aperture;else stage.camera.userData.aperture=savedAperture;},
     update(t,state={}){
       if(!active)return;if(parkedAt!=null){changed+=Math.max(0,t-parkedAt);kitFrame=t;parkedAt=null;}lastTime=t;
       still=Boolean(state.reduced||state.reducedMotion||state.capture||world.capture||matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -271,6 +385,6 @@ export async function build(world) {
       world.vesta?.update?.(still?2:t,{...world.vesta.defaults,x:-2.65,y:-1,z:1.25,scale:.4,yaw:.55,lookX:.6,armL:.1,armR:.1,idle:0,thrust:0,beacon:.15});
     },
     holograms:()=>[],
-    dispose(){disposed=true;generation++;recordedAbort.abort();recordedPanel?.dispose();session?.cancel('Workspace disposed');kit?.advance({type:'cancel',reason:'Workspace disposed'});kitPanel.dispose();workspace.removeEventListener('keydown',onKey);panel.dispose();workspace.remove();markers.forEach(m=>m.dispose());humanoid.dispose();bay.dispose();caption.remove();group.removeFromParent();for(const key of ['roboticsPhase','roboticsApproved','roboticsScanning','roboticsMotionReady','roboticsDisposition','roboticsReview','roboticsWorkspace','roboticsMaterial','roboticsKitPhase','roboticsKitObject','roboticsView','roboticsViewTarget'])delete world.host.dataset[key];}
+    dispose(){disposed=true;active=false;generation++;releasePointers();syncExplorer();inputCleanups.forEach(remove=>remove());explorer.remove();objectCard.remove();recordedAbort.abort();recordedPanel?.dispose();session?.cancel('Workspace disposed');kit?.advance({type:'cancel',reason:'Workspace disposed'});kitPanel.dispose();workspace.removeEventListener('keydown',onKey);panel.dispose();workspace.remove();markers.forEach(m=>m.dispose());humanoid.dispose();bay.dispose();caption.remove();group.removeFromParent();for(const key of ['roboticsPhase','roboticsApproved','roboticsScanning','roboticsMotionReady','roboticsDisposition','roboticsReview','roboticsWorkspace','roboticsMaterial','roboticsKitPhase','roboticsKitObject','roboticsView','roboticsViewTarget','roboticsExploring'])delete world.host.dataset[key];}
   };
 }

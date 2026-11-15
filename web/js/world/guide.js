@@ -49,7 +49,7 @@ export function createGuide(overlay) {
         if (rationale) { rationale.open = true; rationale.scrollIntoView({ block: 'nearest' }); }
       } };
     }
-    if (station === 'trust') return { id: 'explain', label: 'Machines & limits', run(button) {
+    if (station === 'trust') return { id: 'explain', label: 'Method & limits', run(button) {
       const checks = action('checks');
       if (!checks?.expanded?.()) checks?.run(button);
       host.querySelector('[data-trust=report]')?.click();

@@ -4,7 +4,7 @@ const node = (tag, text, cls = '') => { const n = document.createElement(tag); i
 const details = (label, content) => { const d = node('details'); d.append(node('summary', label), content); return d; };
 export function ensureTrustReportStyles() {
   if (document.querySelector('link[data-trust-report]')) return;
-  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/trust-report.css?v=habitat-20261115-1', import.meta.url).href;
+  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/trust-report.css?v=trust-explore-20261115-1', import.meta.url).href;
   link.dataset.trustReport = ''; document.head.append(link);
 }
 const fieldNames = { status: 'Outcome', qualifier: 'Pressure qualifier', hits: 'Nearby source rows', rows: 'Relevant source rows', reasons: 'Reasons', coverage: 'Condition coverage', gap: 'Evidence gap', protocol: 'Conditional fallback', rule: 'Rule' };
@@ -19,29 +19,44 @@ function valueText(key, value, text) {
 export function createProofReport({ db, core, cite, onRun, onStop, onRejected, rawLink }) {
   ensureTrustReportStyles();
   const element = node('section', null, 'trust-check-report'); element.dataset.checkReport = '';
-  const title = node('h2', 'Evidence check results'), summary = node('p', '', 'trust-check-summary');
+  const title = node('h2', 'Evidence checks'), summary = node('p', '', 'trust-check-summary');
+  const purpose = node('p', 'Does VESTA preserve the limits of its evidence?', 'trust-check-purpose');
+  const meaning = node('p', '', 'trust-check-meaning');
   summary.setAttribute('role', 'status'); summary.setAttribute('aria-live', 'polite'); summary.dataset.checkSummary = '';
   const progress = node('progress'); progress.max = 10; progress.value = 0; progress.setAttribute('aria-label', 'Reviewed cases completed');
   const actions = node('div', null, 'trust-check-actions');
   const button = (label, fn) => { const b = node('button', label); b.type = 'button'; b.onclick = fn; actions.append(b); return b; };
-  const run = button('Run 10 reviewed cases', onRun); run.dataset.trust = 'start';
+  const run = button('Run checks', onRun); run.dataset.trust = 'start';
   const stop = button('Stop', onStop); stop.hidden = true;
-  button(`${db.engine?.verifier?.rejected?.length ?? 0} rejected excerpts`, onRejected);
-  const explanation = node('p', scope, 'trust-report-scope');
+  const explanation = node('p', 'Software checks, not scientific validation or safety certification.', 'trust-report-scope');
+  const scopeContent = node('div');
+  scopeContent.append(node('h3', 'Checked here'), node('p', 'Ten fixed cases compare the loaded software with reviewed expected outcomes: nearby rows, inferred pressure, different cabin conditions, missing evidence, and unsupported-answer refusals. One case removes two sources from a separate index to check that their rule is revoked.'));
+  scopeContent.append(node('h3', 'Not checked here'), node('p', 'These cases do not rerun the source-text verification, validate every finding, measure fire behavior, or establish whether an experiment applies to a real spacecraft. They use their own stated cabins; your selected cabin is unchanged.'));
+  const scopeDetails = details('What is checked — and what is not', scopeContent);
+  scopeDetails.className = 'trust-check-scope';
   const list = node('ol', null, 'trust-check-results'); list.dataset.trust = 'results';
   const advancedContent = node('div'); advancedContent.append(node('p', scope), rawLink('Download reviewed cases · JSON', 'data/proof-cases.json', 'vesta-proof-cases.json'));
-  const advanced = details('Advanced: scope and reviewed case file', advancedContent);
+  const rejectionButton = node('button', `Inspect ${db.engine?.verifier?.rejected?.length ?? 0} rejected excerpts`); rejectionButton.type = 'button'; rejectionButton.onclick = onRejected;
+  advancedContent.prepend(rejectionButton);
+  const advanced = details('Source-text audit & case file', advancedContent);
   const error = node('p', '', 'trust-check-error'); error.hidden = true;
-  element.append(title, summary, progress, actions, explanation, error, list, advanced);
+  element.append(title, purpose, actions, summary, meaning, progress, explanation, error, scopeDetails, list, advanced);
   const cards = new Map();
   function resultCard(result, reviewed, ordinal) {
     const row = node('li', null, 'trust-check-result'); row.dataset.proofId = result.id; row.dataset.pass = String(result.pass);
+    const disclosure = node('details', null, 'trust-case-details');
+    const heading = node('summary', null, 'trust-case-heading');
+    heading.append(node('span', result.pass ? 'PASS' : 'FAIL', 'trust-case-verdict'), node('span', `${ordinal}. ${result.question}`, 'trust-case-question'));
+    disclosure.append(heading);
+    // Success is a compact, inspectable result; a failure exposes its evidence immediately.
+    disclosure.open = !result.pass;
+    row.append(disclosure);
+    const content = node('div', null, 'trust-case-content'); disclosure.append(content);
     let q = result.cabin; try { q ??= core.index.designPoint(reviewed.cabin, db); } catch { /* an unavailable cabin remains explicit */ }
-    row.append(node('p', `${result.pass ? 'PASS' : 'FAIL'} · case ${ordinal} · ${result.machine}`, 'trust-case-verdict'), node('h3', result.question));
-    if (q) row.append(node('p', `Case cabin: ${db.presetById[q.preset]?.label ?? q.preset} · ${core.text.oxygen(q.o2)} · ${core.text.pressure(q.p)} · ${q.g_label || core.text.gravity(q.gclass)}.`, 'trust-case-cabin'));
-    row.append(node('p', result.answer, 'trust-case-answer'));
-    row.append(node('p', `Expected ${core.text.status(result.expected.status)}. Observed ${core.text.status(result.actual.status)}.`, 'trust-case-outcome'));
-    row.append(node('p', reviewed.rationale, 'trust-case-why'));
+    if (q) content.append(node('p', `Case cabin: ${db.presetById[q.preset]?.label ?? q.preset} · ${core.text.oxygen(q.o2)} · ${core.text.pressure(q.p)} · ${q.g_label || core.text.gravity(q.gclass)}.`, 'trust-case-cabin'));
+    content.append(node('p', `Expected ${core.text.status(result.expected.status)}. Observed ${core.text.status(result.actual.status)}.`, 'trust-case-outcome'));
+    if (reviewed.kind === 'officer') content.append(node('p', 'Scripted drill case — the following is a software result, not an instruction for a live incident.', 'trust-report-limit'));
+    content.append(node('p', result.answer, 'trust-case-answer'), node('p', reviewed.rationale, 'trust-case-why'));
     const sources = node('div', null, 'trust-case-sources');
     for (const id of result.refs ?? []) sources.append(cite(`Inspect source ${id}`, id, q));
     if (!result.refs?.length) sources.append(node('p', result.mismatches.includes('execution') ? 'No source result: this case could not execute.' : 'No matching source is returned for this case; that absence is part of the check.'));
@@ -49,7 +64,7 @@ export function createProofReport({ db, core, cite, onRun, onStop, onRejected, r
     if (fallback?.finding_id) {
       sources.append(node('p', 'Separate conditional fallback; it does not fill the evidence gap.', 'trust-report-limit'), cite(`Inspect fallback source ${fallback.finding_id}`, fallback.finding_id, q));
     }
-    row.append(sources);
+    content.append(sources);
     const body = node('div');
     if (reviewed.without_findings?.length) body.append(node('p', `Counterfactual: ${reviewed.without_findings.join(', ')} removed from a separate index. The loaded collection remains unchanged.`, 'trust-report-limit'));
     if (reviewed.kind === 'officer') body.append(node('p', 'Scripted drill input; no live telemetry or physics model.', 'trust-report-limit'));
@@ -69,17 +84,22 @@ export function createProofReport({ db, core, cite, onRun, onStop, onRejected, r
     if (result.limits) body.append(node('p', result.limits, 'trust-report-limit'));
     if (!result.pass) body.append(node('p', `Mismatch: ${result.mismatches.join(', ')}.`, 'trust-check-error'));
     const why = details('Why this result · full comparison', body); if (!result.pass) why.open = true;
-    row.append(why); return row;
+    content.append(why); return row;
   }
   function update(state) {
     const busy = ['loading', 'running'].includes(state.phase);
-    run.disabled = busy; run.textContent = busy ? 'Running…' : state.results.length || state.phase === 'complete' ? 'Run again' : 'Run 10 reviewed cases';
+    run.disabled = busy; run.textContent = busy ? 'Running…' : state.results.length || state.phase === 'complete' ? 'Run again' : 'Run checks';
     stop.hidden = !busy; progress.max = state.total; progress.value = state.completed;
-    progress.hidden = !busy; title.hidden = explanation.hidden = state.results.length > 0;
-    summary.textContent = state.phase === 'idle' ? 'Run the reviewed cases against the loaded collection.'
+    progress.hidden = !busy; purpose.hidden = state.results.length > 0;
+    summary.textContent = state.phase === 'idle' ? '10 fixed cases · checked against this loaded collection'
       : state.phase === 'loading' ? 'Loading the reviewed expected outcomes…'
       : state.phase === 'error' ? 'Checks unavailable. Retry to load the reviewed cases.'
       : `${state.completed} of ${state.total} checked · ${state.passed} passed · ${state.failed} failed${state.phase === 'stopped' ? ' · stopped' : state.phase === 'complete' ? ' · complete' : ''}.`;
+    meaning.textContent = state.phase === 'complete'
+      ? state.failed ? 'Some results differ from the expected behavior. Open the failed cases before relying on this build.' : 'The software reproduced all expected outcomes, including refusals when support is missing. PASS means expected behavior, not that a material is safe.'
+      : state.phase === 'stopped' ? 'This run is incomplete. The cases below retain their actual results; unchecked cases have no verdict.'
+      : '';
+    meaning.hidden = !meaning.textContent;
     element.dataset.checkPhase = state.phase; error.hidden = !state.error; error.textContent = state.error || '';
     if (!state.results.length && cards.size) { cards.clear(); list.replaceChildren(); }
     state.results.forEach((result, i) => {
