@@ -178,9 +178,10 @@ export function buildHabitat({ THREE: T, mode = 'high' }) {
 
   const luminous = new T.MeshStandardMaterial({ color: 0xd5d9cf, emissive: 0xbfcddd, emissiveIntensity: .6, roughness: .7 });
   for (const side of [-1, 1]) {
-    box([2.2, .24, .28], [side * 4.1, 4.44, -4.04], darkMetal);
-    const fixture = box([1.95, .09, .04], [side * 4.1, 4.43, -3.88], luminous); fixture.layers.enable(1);
-    const fill = new T.PointLight(0xd9e5ec, 3, 6, 2); fill.position.set(side * 4.1, 4.2, -3.35); group.add(fill);
+    const fixtureX = side < 0 ? -3.4 : 4.1, fixtureY = side < 0 ? 1.65 : 4.44;
+    box([2.2, .24, .28], [fixtureX, fixtureY, -4.04], darkMetal);
+    const fixture = box([1.95, .09, .04], [fixtureX, fixtureY - .01, -3.88], luminous); fixture.layers.enable(1);
+    const fill = new T.PointLight(0xd9e5ec, 3, 6, 2); fill.position.set(fixtureX, fixtureY - .24, -3.35); group.add(fill);
   }
   const screws = new T.InstancedMesh(new T.CylinderGeometry(.027, .027, .018, 8), metal, fasteners.length);
   const cuts = new T.InstancedMesh(new T.BoxGeometry(.028, .006, .003), rubber, fasteners.length);

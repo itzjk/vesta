@@ -31,3 +31,9 @@ Mars is the Viking image/mosaic published by NASA/USGS; Earth is the 2012 Suomi 
 
 Mars, Earth and the dim Cepheus plate also illuminate a PMREM lightbox alongside neutral practical strip lights; the reflected light is an artistic reconstruction, not measured cabin illumination. The flame and smoke are original shader illustrations, not NASA photographs or a combustion simulation.
 <!-- /W2-REAL -->
+
+<!-- W3-PHOTO START -->
+## W3-PHOTO: physical candle comparison plate
+
+- `tex/candle-pair.jpg`: **Candle in normal gravity and microgravity**, nasa_id `GRC-1998-C-00485`. Credit: **NASA Glenn Research Center**. [NASA library record](https://images.nasa.gov/details/GRC-1998-C-00485), [download](https://images-assets.nasa.gov/image/GRC-1998-C-00485/GRC-1998-C-00485~medium.jpg). The library dates the record 2004-05-01; that metadata date is not asserted as the exposure date. Original 1280×1024 image cropped to pixel rectangle [64,64,1216,960], preserving both photographs and their separator, removing all white margins, NASA insignia and center-name imprint. No colour, flame or photographic-content modification. Metadata retained in `tex/candle-pair-metadata.json`. Retrieved by W2-REAL and visually reviewed/cropped on 2026-11-14. The physical plate and enlarged on-demand panel identify it as NASA's photograph; the adjacent rendered candle remains explicitly an illustration of low-momentum observations, not a simulation. No NASA endorsement is implied.
+<!-- W3-PHOTO END -->

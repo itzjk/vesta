@@ -1,0 +1,64 @@
+{
+  "href": "https://images-assets.nasa.gov/image/GRC-1998-C-00485/collection.json",
+  "data": [
+    {
+      "center": "GRC",
+      "date_created": "2004-05-01T00:00:00Z",
+      "description": "Comparison of a Candle Flame burning in normal gravity or 1-G (left) and a flame burning in Microgravity.",
+      "keywords": [
+        "Candle",
+        "Candle Flame",
+        "Flame",
+        "Fire",
+        "0-G",
+        "Microgravity",
+        "Zero-G",
+        "1-G",
+        "Gravity",
+        "Combustion"
+      ],
+      "media_type": "image",
+      "nasa_id": "GRC-1998-C-00485",
+      "title": "GRC-1998-C-00485"
+    }
+  ],
+  "links": [
+    {
+      "href": "https://images-assets.nasa.gov/image/GRC-1998-C-00485/GRC-1998-C-00485~medium.jpg",
+      "rel": "alternate",
+      "render": "image",
+      "width": 1280,
+      "size": 96000,
+      "height": 1024
+    },
+    {
+      "href": "https://images-assets.nasa.gov/image/GRC-1998-C-00485/GRC-1998-C-00485~small.jpg",
+      "rel": "alternate",
+      "render": "image",
+      "width": 640,
+      "size": 21000,
+      "height": 512
+    },
+    {
+      "href": "https://images-assets.nasa.gov/image/GRC-1998-C-00485/GRC-1998-C-00485~thumb.jpg",
+      "rel": "preview",
+      "render": "image",
+      "width": 640,
+      "size": 21000,
+      "height": 512
+    },
+    {
+      "href": "https://images-assets.nasa.gov/image/GRC-1998-C-00485/GRC-1998-C-00485~large.jpg",
+      "rel": "alternate",
+      "render": "image",
+      "width": 1920,
+      "size": 248000,
+      "height": 1536
+    },
+    {
+      "href": "https://images-assets.nasa.gov/image/GRC-1998-C-00485/GRC-1998-C-00485~orig.jpg",
+      "rel": "canonical",
+      "render": "image"
+    }
+  ]
+}

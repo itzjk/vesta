@@ -14,12 +14,12 @@ export function createOptics(THREE, renderer) {
       float noise(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}
       void main(){
         float z=viewDepth(texture2D(depth,vUv).x);
-        float coc=clamp(abs(z-focus)/max(z,.1)*5.,0.,3.2)*aperture;
+        float coc=clamp(abs(z-focus)/max(z,.1)*5.,0.,4.)*aperture;
         vec3 col=texture2D(image,vUv).rgb; float weight=1.;
         if(aperture>.5&&coc>.1){
         for(int i=0;i<8;i++){
           float a=float(i)*2.399963;
-          vec2 uv=vUv+vec2(cos(a),sin(a))*pixel*coc*(.5+float(i)/8.);
+          vec2 uv=vUv+vec2(cos(a),sin(a))*pixel*coc*sqrt((float(i)+.5)/8.);
           float dz=viewDepth(texture2D(depth,uv).x);
           float w=step(z-.5,dz);
           col+=texture2D(image,uv).rgb*w;weight+=w;
@@ -38,7 +38,7 @@ export function createOptics(THREE, renderer) {
         gl_FragColor=vec4(col,1.);
         #include <tonemapping_fragment>
         #include <colorspace_fragment>
-        float grain=(noise(gl_FragCoord.xy+floor(time*24.))- .5)*.012;
+        float grain=(noise(gl_FragCoord.xy+floor(time*24.))- .5)*.005;
         gl_FragColor.rgb+=grain;
       }` });
   const screen = new THREE.Scene(), camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1), quad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material); screen.add(quad);
@@ -46,11 +46,17 @@ export function createOptics(THREE, renderer) {
   return {
     resize() { renderer.getDrawingBufferSize(size); target.setSize(size.x, size.y); glow.setSize(Math.max(1, Math.round(size.x / 4)), Math.max(1, Math.round(size.y / 4))); uniforms.pixel.value.set(1 / size.x, 1 / size.y); },
     render(scene, view, t, quality) {
+      view.updateMatrixWorld();
       uniforms.time.value = t; uniforms.near.value = view.near; uniforms.far.value = view.far;
       const officer = scene.getObjectByName('world-officer') || scene.getObjectByName('incident-officer') || scene.getObjectByName('vesta-character');
-      if (officer?.visible) { officer.getWorldPosition(position); position.applyMatrix4(view.matrixWorldInverse); uniforms.focus.value = Math.max(.3, -position.z); }
-      else uniforms.focus.value = view.userData.focusDistance || 18;
-      uniforms.aperture.value = quality === 'high' ? 1 : 0;
+      const subject = view.userData.focusObject || officer;
+      if (Number.isFinite(view.userData.focusDistance)) uniforms.focus.value = view.userData.focusDistance;
+      else if (subject?.visible) {
+        subject.updateWorldMatrix(true, false);
+        position.fromArray(view.userData.focusOffset || [0, 0, 0]); subject.localToWorld(position); position.applyMatrix4(view.matrixWorldInverse);
+        uniforms.focus.value = Math.max(.1, -position.z);
+      } else uniforms.focus.value = 18;
+      uniforms.aperture.value = (quality === 'high' ? 1 : .6) * (view.userData.aperture ?? 1);
       renderer.resetState(); renderer.setRenderTarget(target); renderer.render(scene, view);
       const mask = view.layers.mask, background = scene.background, alpha = renderer.getClearAlpha(); renderer.getClearColor(savedClear);
       view.layers.set(1); scene.background = null; renderer.setClearColor(0x000000, 1); renderer.setRenderTarget(glow); renderer.render(scene, view);

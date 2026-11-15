@@ -1,0 +1,438 @@
+{
+ "schema": "vesta.si-provenance/1",
+ "generated_at": "2026-11-14T18:31:50-05:00",
+ "declaration": "VESTA code, authored text, data processing and original rendered visuals were created with Synthetic Intelligence (SI) assistance. NASA source quotations, raw PSI values and original NASA imagery are attributed source material, not SI-generated observations.",
+ "tools": [
+  {
+   "product": "Claude",
+   "provider": "Anthropic",
+   "use": [
+    "SI-assisted code and documentation",
+    "source extraction and proposed evidence summaries, claims and rules",
+    "review and visual rendering code"
+   ],
+   "version": "Model versions were not recorded for every session."
+  },
+  {
+   "product": "Codex",
+   "provider": "OpenAI",
+   "use": [
+    "SI-assisted code and documentation",
+    "source extraction, review and product implementation",
+    "compliance metadata and visual watermark code"
+   ],
+   "version": "Model versions were not recorded for every session."
+  },
+  {
+   "product": "Grok Imagine",
+   "provider": "xAI",
+   "use": [
+    "Generated background clips in the current demo video only"
+   ],
+   "version": "Service model version not recorded.",
+   "scope": "web/demo/vesta-demo.mp4; not used to generate NASA evidence or app data"
+  }
+ ],
+ "code_paths": [
+  "web/js/**",
+  "web/css/**",
+  "web/index.html",
+  "web/demo/index.html",
+  "web/ui-demo.html",
+  "web/assets/favicon.svg",
+  "tools/**",
+  "mcp/**",
+  "pipeline/**",
+  "tests/**"
+ ],
+ "data_paths": [
+  "config/**",
+  "seed/**",
+  "data/**",
+  "research/evidence/**",
+  "web/data/**",
+  "web/api/v1/**",
+  "web/feed/ntrs.json"
+ ],
+ "path_scope": "Repository-relative patterns describe SI-assisted work, not exclusive model authorship of every line. Third-party libraries and fonts retain their own authorship and licenses.",
+ "preserved_source_paths": [
+  "research/raw/**",
+  "web/data/tests-raw.json",
+  "web/assets/nasa/**"
+ ],
+ "visual_paths": [
+  "web/assets/scene/*.jpg",
+  "web/js/world/**",
+  "web/demo/vesta-demo.mp4"
+ ],
+ "source_boundary": {
+  "nasa": "Verbatim NASA quote fields and original PSI raw table cells are NASA source content, not SI-generated evidence. Table transcriptions retain source-file and row references; this is not a claim that every exported file is byte-identical to a NASA download.",
+  "vesta": "Claims, summaries, rules, titles, normalizations, inferred conditions, rankings, coverage labels and scripted telemetry/decisions are VESTA interpretations or processing authored with SI assistance. Quote gates verify text matching, not scientific correctness. Deterministic runtime computation does not call an SI model.",
+  "imagery": "Original NASA photographs and mosaics retain their NASA/partner credits, not an SI-generation watermark. Shader flames, smoke, geometry and reconstructed lighting are SI-assisted VESTA illustrations, not NASA observations.",
+  "nasa_notice": "NASA has not reviewed or endorsed VESTA's SI-assisted interpretations and is not responsible for their accuracy."
+ },
+ "descriptive_text": "https://github.com/itzjk/vesta/blob/main/SI-PROVENANCE.md",
+ "third_party": "https://github.com/itzjk/vesta/blob/main/docs/THIRD-PARTY.md",
+ "files": [
+  {
+   "path": "data/engine.json",
+   "metadata": "data/engine.json",
+   "embedded": true
+  },
+  {
+   "path": "data/findings.json",
+   "metadata": "data/findings.json",
+   "embedded": true
+  },
+  {
+   "path": "data/investigations.json",
+   "metadata": "data/investigations.json",
+   "embedded": true
+  },
+  {
+   "path": "data/lines.json",
+   "metadata": "data/lines.json",
+   "embedded": true
+  },
+  {
+   "path": "data/meta.json",
+   "metadata": "data/meta.json",
+   "embedded": true
+  },
+  {
+   "path": "data/playbook.json",
+   "metadata": "data/playbook.json",
+   "embedded": true
+  },
+  {
+   "path": "data/presets.json",
+   "metadata": "data/presets.json",
+   "embedded": true
+  },
+  {
+   "path": "data/proof-cases.json",
+   "metadata": "data/proof-cases.json.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "data/protocol.json",
+   "metadata": "data/protocol.json",
+   "embedded": true
+  },
+  {
+   "path": "data/rules.json",
+   "metadata": "data/rules.json",
+   "embedded": true
+  },
+  {
+   "path": "data/scenario.json",
+   "metadata": "data/scenario.json",
+   "embedded": true
+  },
+  {
+   "path": "data/sources.json",
+   "metadata": "data/sources.json",
+   "embedded": true
+  },
+  {
+   "path": "data/tables.json",
+   "metadata": "data/tables.json",
+   "embedded": true
+  },
+  {
+   "path": "data/tests-raw.json",
+   "metadata": "data/tests-raw.json.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "data/tests.json",
+   "metadata": "data/tests.json",
+   "embedded": true
+  },
+  {
+   "path": "data/tour.json",
+   "metadata": "data/tour.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/coverage/lunar-base.json",
+   "metadata": "api/v1/coverage/lunar-base.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/coverage/mars-base.json",
+   "metadata": "api/v1/coverage/mars-base.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/coverage/rover.json",
+   "metadata": "api/v1/coverage/rover.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/coverage/spacecraft.json",
+   "metadata": "api/v1/coverage/spacecraft.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/coverage/station.json",
+   "metadata": "api/v1/coverage/station.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/engine.json",
+   "metadata": "api/v1/engine.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/findings.csv",
+   "metadata": "api/v1/findings.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/findings.json",
+   "metadata": "api/v1/findings.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/index.json",
+   "metadata": "api/v1/index.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/investigations.json",
+   "metadata": "api/v1/investigations.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/officer/transit-avionics-01.json",
+   "metadata": "api/v1/officer/transit-avionics-01.json.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/presets.json",
+   "metadata": "api/v1/presets.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/protocol.json",
+   "metadata": "api/v1/protocol.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/lunar-base.detection.json",
+   "metadata": "api/v1/rank/lunar-base.detection.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/lunar-base.prevention.json",
+   "metadata": "api/v1/rank/lunar-base.prevention.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/lunar-base.suppression.json",
+   "metadata": "api/v1/rank/lunar-base.suppression.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/mars-base.detection.json",
+   "metadata": "api/v1/rank/mars-base.detection.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/mars-base.prevention.json",
+   "metadata": "api/v1/rank/mars-base.prevention.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/mars-base.suppression.json",
+   "metadata": "api/v1/rank/mars-base.suppression.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/rover.detection.json",
+   "metadata": "api/v1/rank/rover.detection.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/rover.prevention.json",
+   "metadata": "api/v1/rank/rover.prevention.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/rover.suppression.json",
+   "metadata": "api/v1/rank/rover.suppression.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/spacecraft.detection.json",
+   "metadata": "api/v1/rank/spacecraft.detection.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/spacecraft.prevention.json",
+   "metadata": "api/v1/rank/spacecraft.prevention.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/spacecraft.suppression.json",
+   "metadata": "api/v1/rank/spacecraft.suppression.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/station.detection.json",
+   "metadata": "api/v1/rank/station.detection.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/station.prevention.json",
+   "metadata": "api/v1/rank/station.prevention.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rank/station.suppression.json",
+   "metadata": "api/v1/rank/station.suppression.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/rules.json",
+   "metadata": "api/v1/rules.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/scenarios/transit-avionics-01.jsonl",
+   "metadata": "api/v1/scenarios/transit-avionics-01.jsonl.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/scenarios/transit-avionics-01.meta.json",
+   "metadata": "api/v1/scenarios/transit-avionics-01.meta.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/sources.json",
+   "metadata": "api/v1/sources.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/telemetry.schema.json",
+   "metadata": "api/v1/telemetry.schema.json",
+   "embedded": true
+  },
+  {
+   "path": "api/v1/tests/PSI-10.csv",
+   "metadata": "api/v1/tests/PSI-10.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-100.csv",
+   "metadata": "api/v1/tests/PSI-100.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-101.csv",
+   "metadata": "api/v1/tests/PSI-101.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-102.csv",
+   "metadata": "api/v1/tests/PSI-102.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-106.csv",
+   "metadata": "api/v1/tests/PSI-106.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-107.csv",
+   "metadata": "api/v1/tests/PSI-107.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-142.csv",
+   "metadata": "api/v1/tests/PSI-142.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-159.csv",
+   "metadata": "api/v1/tests/PSI-159.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-20.csv",
+   "metadata": "api/v1/tests/PSI-20.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-21.csv",
+   "metadata": "api/v1/tests/PSI-21.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-22.csv",
+   "metadata": "api/v1/tests/PSI-22.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-23.csv",
+   "metadata": "api/v1/tests/PSI-23.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-25.csv",
+   "metadata": "api/v1/tests/PSI-25.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-26.csv",
+   "metadata": "api/v1/tests/PSI-26.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-39.csv",
+   "metadata": "api/v1/tests/PSI-39.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-47.csv",
+   "metadata": "api/v1/tests/PSI-47.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-68.csv",
+   "metadata": "api/v1/tests/PSI-68.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-69.csv",
+   "metadata": "api/v1/tests/PSI-69.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-98.csv",
+   "metadata": "api/v1/tests/PSI-98.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests/PSI-99.csv",
+   "metadata": "api/v1/tests/PSI-99.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests.csv",
+   "metadata": "api/v1/tests.csv.provenance.json",
+   "embedded": false
+  },
+  {
+   "path": "api/v1/tests.json",
+   "metadata": "api/v1/tests.json",
+   "embedded": true
+  },
+  {
+   "path": "feed/ntrs.json",
+   "metadata": "feed/ntrs.json.provenance.json",
+   "embedded": false
+  }
+ ]
+}

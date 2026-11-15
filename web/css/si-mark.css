@@ -24,7 +24,7 @@
 #si-mark::-webkit-details-marker { display: none; }
 #si-mark:focus-visible { outline: 2px solid #80c8d5; outline-offset: 2px; }
 #si-attribution[open] { width: min(360px, calc(100vw - 24px)); padding: 0 12px 14px; }
-#si-attribution[open] #si-mark { padding-left: 0; }
+#si-attribution[open] #si-mark { margin-inline: auto; }
 #si-attribution p { margin: 10px 0; font: inherit; }
 #si-attribution a { color: #80c8d5; text-underline-offset: 3px; }
 html[data-world="true"] #si-attribution {

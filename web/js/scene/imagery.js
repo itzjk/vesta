@@ -1,4 +1,5 @@
 export const NASA_TEXTURES = Object.freeze({
+  candle: { path: 'candle-pair.jpg', id: 'GRC-1998-C-00485', title: 'Candle in normal gravity and microgravity', credit: 'NASA Glenn Research Center' },
   mars: { path: 'mars.jpg', id: 'PIA04304', title: 'The Target', credit: 'NASA/USGS', crop: [164, 145, 968, 968] },
   earth: { path: 'earth.jpg', id: 'GSFC_20171208_Archive_e001386', title: 'Most Amazing High Definition Image of Earth, Blue Marble 2012', credit: 'NASA/NOAA/GSFC/Suomi NPP/VIIRS/Norman Kuring', crop: [86, 86, 1108, 1108] },
   stars: { path: 'stars.jpg', id: 'PIA12066', title: 'Star Field in the Constellation Cepheus', credit: 'NASA/JPL/MPS/DLR/IDA' }

@@ -166,14 +166,14 @@ export async function build(ctx) {
   };
   const ceramicProps = {
     color: 0xf1ece2,
-    roughness: 0.42,
+    roughness: 0.29,
     roughnessMap: surface(THREE, 'ceramic'),
     bumpMap: surface(THREE, 'ceramic'),
     bumpScale: .00035,
     metalness: 0,
     clearcoat: .6,
-    clearcoatRoughness: 0.2,
-    sheen: 0.35,
+    clearcoatRoughness: 0.13,
+    sheen: 0.08,
     sheenColor: new THREE.Color(0xffd9b0),
     sheenRoughness: 0.5,
     envMapIntensity: 1.0,
@@ -242,14 +242,14 @@ export async function build(ctx) {
   const browMat = new THREE.MeshStandardMaterial({ color: 0x1f100b, roughness: 0.6 });
   const lashMat = new THREE.MeshBasicMaterial({ color: 0x1a0d09 });
   const eyeMat = new THREE.MeshPhysicalMaterial({ color: 0x0a0607, roughness: 0.05, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.02, envMapIntensity: 1.7 });
-  const eyeUni = { uHi: { value: 1 } };
+  const eyeUni = { uHi: { value: 1 }, uIrisFill: {value: 1}, uCandle: {value: new THREE.Vector3()}, uCandleSpace: {value: 0}, uCandleGain: {value: 0} };
   eyeMat.onBeforeCompile = (sh) => {
     Object.assign(sh.uniforms, eyeUni);
     sh.vertexShader = sh.vertexShader
-      .replace('#include <common>', '#include <common>\nvarying vec3 vOP;')
-      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvOP = position;');
+      .replace('#include <common>', '#include <common>\nvarying vec3 vOP; varying vec3 candleSurface;')
+      .replace('#include <begin_vertex>', '#include <begin_vertex>\nvOP = position; candleSurface=(modelMatrix*vec4(position,1.)).xyz;');
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', '#include <common>\nvarying vec3 vOP; uniform float uHi;')
+      .replace('#include <common>', '#include <common>\nvarying vec3 vOP; varying vec3 candleSurface; uniform float uHi,uIrisFill; uniform vec3 uCandle; uniform float uCandleSpace,uCandleGain;')
       .replace(
         '#include <color_fragment>',
         `#include <color_fragment>
@@ -265,7 +265,17 @@ export async function build(ctx) {
           float h1 = 1.0 - smoothstep(0.250 - aa, 0.250 + aa, distance(ed, normalize(vec3(-0.36, 0.44, 0.82))));
           float h2 = 1.0 - smoothstep(0.125 - aa, 0.125 + aa, distance(ed, normalize(vec3(0.34, -0.36, 0.86))));
           float glow = smoothstep(0.1, -0.9, ed.y) * smoothstep(0.1, 0.7, ed.z);
-          totalEmissiveRadiance += vec3(1.35) * max(h1, h2 * 0.9) * uHi + vec3(0.035, 0.11, 0.3) * glow * uHi;
+          if(uCandleGain>.0){
+            vec3 worldN=inverseTransformDirection(normal,viewMatrix);
+            vec3 ray=reflect(normalize(candleSurface-cameraPosition),worldN);
+            vec3 delta=uCandle-candleSurface, facing=normalize(delta);
+            vec3 right=normalize(cross(facing,vec3(0.,1.,0.))), up=normalize(cross(right,facing));
+            vec2 p=vec2(dot(ray,right),dot(ray,up))*length(delta)/max(.01,dot(ray,facing));
+            vec2 extent=mix(vec2(.055,.27),vec2(.18,.10),uCandleSpace);
+            float image=(1.-smoothstep(.65,1.,length(p/extent)))*step(.1,dot(ray,facing));
+            totalEmissiveRadiance+=mix(vec3(1.5,.75,.18),vec3(.04,.16,.65),uCandleSpace)*image*uCandleGain;
+          }
+          totalEmissiveRadiance += vec3(1.35) * max(h1, h2 * 0.9) * uHi + vec3(0.035, 0.11, 0.3) * glow * uIrisFill;
         }`
       );
   };
@@ -334,7 +344,7 @@ export async function build(ctx) {
     const k = smooth(HB + 0.045, HB + 0.11, o.y) * (1 - smooth(0.4, 0.475, o.y));
     if (k > 0) o.r += 0.0085 * k * Math.pow(0.5 + 0.5 * Math.cos(8 * az + Math.PI), 5);
   });
-  const helmet = shadow(new THREE.Mesh(helmetGeo, helmetMat), false, true); 
+  const helmet = shadow(new THREE.Mesh(helmetGeo, helmetMat), true, true); 
   model.add(helmet);
 
   const collar = shadow(new THREE.Mesh(new THREE.TorusGeometry(0.058, 0.02, 16, 48), goldMat), true, true);
@@ -603,8 +613,12 @@ export async function build(ctx) {
       const b = lerp(90, 4, Math.max(squint * 0.82, blink * 0.25)) * DEG;
       e.lo.rotation.set(b, 0, 0, 'ZXY');
     });
-    eyeUni.uHi.value = 1 - 0.5 * sl;
-    const fill = 0.12 * (1 - 0.6 * sl);
+    eyeUni.uCandleGain.value = s.photographic && s.candleWorld ? s.candleGain ?? 1 : 0;
+    if (s.candleWorld) eyeUni.uCandle.value.copy(s.candleWorld);
+    eyeUni.uCandleSpace.value = s.candleSpace || 0;
+    eyeUni.uIrisFill.value = s.photographic ? .22 : 1 - .5 * sl;
+    eyeUni.uHi.value = (1 - 0.5 * sl) * (s.photographic ? .012 : 1);
+    const fill = (s.photographic ? 0 : .12) * (1 - 0.6 * sl);
     uni.uFaceFill.value = fill;
     lidMat.emissiveIntensity = fill;
 

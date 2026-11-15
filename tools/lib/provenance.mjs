@@ -39,7 +39,7 @@ export function writeProvenance({ root, writer, generated_at }) {
   const files = [];
   for (const rel of payloads) {
     const provenance = metadata(rel);
-    const unchangedShape = rel === 'data/tests-raw.json' || rel.startsWith('api/v1/officer/') || /\.(csv|jsonl)$/.test(rel);
+    const unchangedShape = ['data/tests-raw.json', 'data/proof-cases.json'].includes(rel) || rel.startsWith('api/v1/officer/') || /\.(csv|jsonl)$/.test(rel);
     if (unchangedShape) {
       const sidecar = `${rel}.provenance.json`;
       writer.json(sidecar, { schema: 'vesta.data-sidecar/1', describes: path.posix.basename(rel), si_provenance: provenance });

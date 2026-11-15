@@ -35,7 +35,28 @@ export function tube(THREE, points, radius, material, group) {
   mesh.castShadow = mesh.receiveShadow = true; group.add(mesh); return mesh;
 }
 
-export function balanceWorldLight(world, factor = .3) {
+export function balanceWorldLight(world, factor = .3, environmentFactor = factor) {
   const lights = world.root?.parent?.children.filter(o => o.isLight).map(light => [light, light.intensity]) || [];
-  return active => { for (const [light, intensity] of lights) light.intensity = intensity * (active ? factor : 1); };
+  let top = world.root;
+  while (top?.parent) top = top.parent;
+  let active = false, environment, environmentScene;
+  const applyEnvironment = () => {
+    let scene = world.root;
+    while (scene?.parent) scene = scene.parent;
+    if (!scene?.isScene) return;
+    if (active && !environmentScene) {
+      environmentScene = scene; environment = scene.environmentIntensity;
+      if (Number.isFinite(environment)) scene.environmentIntensity = environment * environmentFactor;
+    }
+    if (!active && environmentScene) {
+      if (Number.isFinite(environment)) environmentScene.environmentIntensity = environment;
+      environmentScene = null;
+    }
+  };
+  top?.addEventListener('added', applyEnvironment);
+  return value => {
+    active = value;
+    for (const [light, intensity] of lights) light.intensity = intensity * (active ? factor : 1);
+    applyEnvironment();
+  };
 }
