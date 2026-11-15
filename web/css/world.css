@@ -361,3 +361,17 @@ html[data-world=true] body #si-attribution{right:80px;transform:none}
  .world-host .world-welcome .vesta-welcome-conditions,.world-host .world-welcome .vesta-welcome-coverage{font-size:16px;line-height:1.35}
  .world-host .world-welcome .vesta-welcome-meaning{font-size:13px}
 }
+/* Drill on narrow screens. One primary panel at a time: while the decision panel is open, the progress card steps aside
+   (the panel carries the progress). The notice that the telemetry is scripted stays in view in both states, under the top row
+   of labels; closed, the progress card sits under the notice. Nothing is drawn over anything else. */
+@media(max-width:759px){
+ .world-host .drill-hud[data-panel-open="true"]>.vesta-drill-thread{display:none}
+ .world-host[data-station=drill] .drill-hud[data-panel-open] .drill-notice{top:96px!important;bottom:auto!important}
+ .world-host[data-station=drill] .drill-hud:not([data-panel-open="true"])>.vesta-drill-thread{top:140px}
+ /* The in-scene dot that opens the same panel lands on the progress card at this width; the action bar has that button. */
+ .world-marker[aria-label="Open decision evidence"]{display:none!important}
+}
+/* Drill on wide screens: the notice stays at the top whether the panel is open or closed; at the bottom it sat on the action buttons. */
+@media(min-width:760px){
+ .world-host[data-station=drill] .drill-hud[data-panel-open] .drill-notice{top:68px!important;bottom:auto!important}
+}

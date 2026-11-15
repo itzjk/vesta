@@ -5,7 +5,9 @@ import { NASA_TEXTURES, nasaTexture } from '../scene/imagery.js';
 import { build as buildFlame } from '../scene/candle.js';
 import { build as buildMars } from '../scene/mars.js';
 
-export const EXPOSURE_VARIANT = 0;
+// 1 = the camera opens up for the dim flame (exposure 3 on Earth, 6 in space) so the cabin and the guide stay readable.
+// The owner asked for this on Nov 14 at 11:19 p.m. after seeing the darker look (0) on the live site.
+export const EXPOSURE_VARIANT = 1;
 
 const clamp = x => Math.max(0, Math.min(1, x));
 const ease = x => { x = clamp(x); return x * x * (3 - 2 * x); };

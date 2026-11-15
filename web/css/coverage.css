@@ -70,3 +70,8 @@
 .coverage-wall.coverage-wall[data-detail=true] .coverage-detail h3{margin:4px 0 8px}
 .coverage-wall.coverage-wall[data-detail=true] .coverage-detail h4:first-of-type{margin-top:10px}
 .coverage-wall.coverage-wall[data-detail=true] .coverage-detail .matchpanel{margin-top:10px;padding-top:10px}}
+/* Narrow panel: the three totals read as rows (number, label, meaning) instead of three cramped columns of wrapped words. */
+@container (max-width:759px){.coverage-wall .coverage-legend{grid-template-columns:minmax(0,1fr);gap:4px}
+.coverage-wall .coverage-legend>div{display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:12px}
+.coverage-wall .coverage-legend dd{grid-row:1/3;align-self:center;margin:0;font-size:32px}
+.coverage-wall .coverage-legend dt{align-self:end}}

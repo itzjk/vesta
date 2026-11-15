@@ -11,7 +11,7 @@ VESTA lets you set oxygen, pressure and gravity, inspect nearby evidence, and ca
 1. Choose a mission cabin in Transit. The opening answer reports coverage for 45 material-and-concern questions, with the matching limits beside it. Enter the cabin when ready.
 2. Open [Evidence](https://itzjk.github.io/vesta/#/design). Use **Coverage**, **Cabin**, **Search**, **Compare** and **Research gaps** to inspect the result, its source rows and the missing measurements. Export a research brief as Markdown or JSON.
 3. Choose **Save JSON** to keep an evidence receipt. Reopen it with **Recheck JSON** to compare the saved method, evidence fingerprint and result with the loaded collection. Only an exact match enables **Apply checked cabin**. Files are checked locally.
-4. Open [Drill](https://itzjk.github.io/vesta/#/incident), start the exercise and step through eight source-linked decisions. The progress thread stays visible; the debrief exports the actual scripted decision log. Open [Trust](https://itzjk.github.io/vesta/#/engine) to run the ten published cases, including questions that must return no source.
+4. Open [Drill](https://itzjk.github.io/vesta/#/incident), start the exercise and step through eight source-linked decisions. The progress thread stays visible; the debrief exports the scripted decision log as one self-contained JSON, and **Recheck decision JSON** runs the same rules on the saved inputs and reports whether the decisions match ([format](docs/decision-replay.md)). Open [Trust](https://itzjk.github.io/vesta/#/engine) to run the ten published cases, including questions that must return no source.
 
 The default experience is one continuous 3D world with named station tabs and visible action buttons. Object markers also open their controls or evidence. The eye button or **H** hides the controls for presenting. The instrument view exposes the tables and technical detail, and remains available without WebGL.
 
@@ -21,7 +21,7 @@ The default experience is one continuous 3D world with named station tabs and vi
 | --- | --- | --- |
 | Transit | Select a mission cabin and read its opening coverage answer. | Coverage in this collection, with explicit atmosphere limits. |
 | Flame | Compare the Earth and low-momentum space flame illustrations and read NASA's observation. | An illustration, not a combustion simulation. |
-| Evidence | Inspect 45 coverage questions, configure a cabin, search verified findings, compare investigations, and export receipts or research gaps. | Coverage under explicit matching rules, with source provenance. |
+| Evidence | Inspect 45 coverage questions, each with its nearest source row and a strip of what was compared with your cabin and what is never compared; configure a cabin, search verified findings, compare investigations, and export receipts or research gaps. | Coverage under explicit matching rules, with source provenance. |
 | Drill | Step through eight decisions, inspect their support, replay the exercise and export its debrief. | A bounded teaching exercise, not operational flight guidance. |
 | Trust | Execute ten reviewed cases and inspect the build's evidence checks. | Reproducible software checks, not independent scientific certification. |
 | Robotics | Follow a digital inspection robot from a scripted observation to a human-approved inspection, and save the record. | A concept simulation of a workflow. No physical robot, telemetry or autonomous controller is connected. |
