@@ -1,4 +1,4 @@
-export function createStationLoader({ count, build, yieldTurn = () => new Promise(resolve => setTimeout(resolve, 0)), stopped = () => false, changed = () => {} }) {
+export function createStationLoader({ count, build, yieldTurn = () => new Promise(resolve => setTimeout(resolve, 0)), stopped = () => false, paused = () => false, changed = () => {} }) {
   const states = Array(count).fill('pending'), promises = new Map();
   let priority = 0, running;
   function ensure(i) {
@@ -16,6 +16,7 @@ export function createStationLoader({ count, build, yieldTurn = () => new Promis
   }
   return {
     states, ensure,
+    quiet() { return Promise.all([...promises.values()]); },
     request(i) { priority = i; },
     get complete() { return states.every(state => state === 'ready'); },
     get settled() { return states.every(state => state === 'ready' || state === 'unavailable'); },
@@ -24,6 +25,7 @@ export function createStationLoader({ count, build, yieldTurn = () => new Promis
         while (!stopped() && states.includes('pending')) {
           await yieldTurn();
           if (stopped()) break;
+          if (paused()) continue;
           const i = states[priority] === 'pending' ? priority : states.indexOf('pending');
           if (i >= 0) await ensure(i);
         }
@@ -40,5 +42,12 @@ export function afterPaint() {
     const finish = () => { if (!done) { done = true; clearTimeout(timer); resolve(); } };
     const timer = setTimeout(finish, 100);
     requestAnimationFrame(() => requestAnimationFrame(finish));
+  });
+}
+
+export function idleTurn() {
+  return new Promise(resolve => {
+    if (typeof requestIdleCallback === 'function') requestIdleCallback(() => resolve());
+    else afterPaint().then(resolve);
   });
 }

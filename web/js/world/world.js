@@ -1,8 +1,8 @@
 import { createQuestionTour } from './question-tour.js';
 import { warmBlanket } from '../scene/ship-blanket.js';
 import { cite, configureCitations } from './cite.js';
-import { createStationLoader, afterPaint } from './station-loader.js';
-import { createStage } from '../scene/engine.js';
+import { createStationLoader, afterPaint, idleTurn } from './station-loader.js?v=2';
+import { createStage } from '../scene/engine.js?v=2';
 import { build as buildVesta } from '../scene/vesta.js';
 import { createHolograms } from './holo.js';
 import { buildHash } from '../router.js';
@@ -35,6 +35,7 @@ export function stationFor(route, params = {}) {
 
 export async function createWorld(host, context) {
   let ctx = context, disposed = false, index = -1, flight, entered = 0, lastTime, sceneCtx, holo, officer, carrier;
+  let pendingCut = false, activation = 0, warmingStation = false;
   let loader, requested, initialShown = false, baseLights = [];
   let engine, inUpdate = false, citationCleanup, desiredPose, renderedPose, updateOfficer, questionTour;
   let pointerX = 0, pointerY = 0, introTimer, wheel = 0, wheelAt = 0, gesture, cameraOverride, filmActive = false, navigationCut = false, filmPausedAt = null;
@@ -66,13 +67,29 @@ export async function createWorld(host, context) {
   instrument.onclick = () => ctx.setParams({ view: 'details' });
   const answer = document.createElement('p'); answer.className = 'world-answer'; answer.setAttribute('aria-live', 'polite');
   const cinema = document.createElement('button'); cinema.className = 'world-cinema'; cinema.type = 'button'; cinema.setAttribute('aria-label', 'Cinema mode (H)'); cinema.setAttribute('aria-pressed', 'false'); cinema.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>';
-  let cinematic = false;
-  const setCinema = value => { if (value && ctx.params?.src) ctx.closeSource?.(); if (value) document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); cinematic = value; host.dataset.cinema = String(value); document.documentElement.dataset.cinema = String(value); cinema.setAttribute('aria-pressed', String(value)); holo?.setCinema(value); invalidate(); };
+  const exitCinema = document.createElement('button'); exitCinema.className = 'world-cinema-exit'; exitCinema.type = 'button'; exitCinema.textContent = 'Exit cinema'; exitCinema.hidden = true; host.append(exitCinema);
+  let cinematic = false, cinemaFocus;
+  const setCinema = value => {
+    if (value === cinematic) return;
+    if (value && ctx.params?.src) ctx.closeSource?.();
+    if (value) { document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); cinemaFocus = document.activeElement; }
+    cinematic = value; host.dataset.cinema = String(value); document.documentElement.dataset.cinema = String(value);
+    cinema.setAttribute('aria-pressed', String(value)); exitCinema.hidden = !value; holo?.setCinema(value);
+    if (value) exitCinema.focus({ preventScroll: true });
+    else { const focus = cinemaFocus?.isConnected && cinemaFocus !== document.body && cinemaFocus.getClientRects().length && getComputedStyle(cinemaFocus).visibility !== 'hidden' && !cinemaFocus.closest('[hidden],[inert]') ? cinemaFocus : cinema; focus.focus({ preventScroll: true }); if (document.activeElement !== focus) cinema.focus({ preventScroll: true }); }
+    invalidate();
+  };
+  exitCinema.onclick = () => setCinema(false);
   cinema.onclick = () => setCinema(!cinematic);
   const film = document.createElement('button'); film.className = 'world-film'; film.type = 'button'; film.dataset.action = 'tour'; film.setAttribute('aria-label', 'Play the film'); film.title = 'Play the film'; film.textContent = '▶'; 
   const sheet = document.createElement('button'); sheet.className = 'world-sheet-toggle'; sheet.type = 'button'; sheet.setAttribute('aria-label', 'Open station controls'); sheet.innerHTML = '<span aria-hidden="true"></span>'; sheet.onclick = () => { if (sheetPulled) { sheetPulled = false; return; } holo?.openStation(); invalidate(); };
   let sheetY, sheetPulled = false; sheet.onpointerdown = ev => { sheetY = ev.clientY; sheet.setPointerCapture(ev.pointerId); }; sheet.onpointerup = ev => { if (sheetY - ev.clientY > 30) { sheetPulled = true; holo?.openStation(); invalidate(); } sheetY = null; };
-  overlay.append(nav, live, skip, instrument, answer, cinema, film, sheet);
+  const quality = document.createElement('button'); quality.className = 'world-quality'; quality.type = 'button';
+  const qualityDisabled = () => !engine || warmingStation || host.dataset.worldLoading === 'true' || host.dataset.flying === 'true';
+  function syncQuality() { quality.hidden = !engine?.qualitySelectable; quality.disabled = qualityDisabled(); const low = engine?.mode === 'low'; quality.textContent = low ? 'Light 3D' : 'High 3D'; quality.setAttribute('aria-label', low ? 'Light 3D active. Switch to high quality' : 'High quality active. Switch to light 3D'); quality.setAttribute('aria-pressed', String(low)); }
+  quality.onclick = () => { engine?.setQuality(engine.mode === 'low' ? 'high' : 'low'); syncQuality(); invalidate(); };
+  syncQuality();
+  overlay.append(nav, live, skip, instrument, answer, cinema, film, sheet, quality);
   const guide = createGuide(overlay);
   const welcomeHost = document.createElement('div'); welcomeHost.className = 'world-welcome'; welcomeHost.dataset.stationUi = 'transit'; welcomeHost.hidden = true; overlay.append(welcomeHost);
   let welcome, welcomeKey = '';
@@ -108,10 +125,13 @@ export async function createWorld(host, context) {
   function handles(i) { return acts[i]?.holograms?.() || []; }
   function activate(next, cut = false) {
     if (disposed) return;
-    if (!sceneCtx || loader?.states[next] !== 'ready') { showLoading(next); return; }
+    if (warmingStation) { pendingCut = cut; showLoading(next); return; }
+    pendingCut = cut;
+    if (!sceneCtx || loader?.states[next] !== 'ready') { activation++; showLoading(next); if (loader) loader.ensure(next); return; }
     requested = next; host.dataset.worldRequested = STATIONS[next].id;
     if (next === index) { loading.hidden = true; host.dataset.worldLoading = 'false'; welcomeHost.hidden = next !== 0; return; }
     loading.hidden = true; host.dataset.worldLoading = 'false';
+    const shouldWarm = initialShown && !cut && !capture && !reduced.matches;
     if (!initialShown) { cut = true; initialShown = true; host.dataset.worldEntry = STATIONS[next].id; }
 
     clearTimeout(introTimer); cameraOverride = null;
@@ -148,6 +168,24 @@ export async function createWorld(host, context) {
     ] : next === 4 ? [{ id: 'inspect-trust', label: 'Open the data console', primary: true, run: () => holo.openStation() }] : []);
     guide.set(s, actions);
     if (!capture && !filmActive) acts[next]?.ready?.();
+    if (shouldWarm) {
+      const token = ++activation, currentFlight = flight;
+      warmingStation = true; syncQuality(); engine.hold(); loading.hidden = false; host.dataset.worldLoading = 'true'; loading.textContent = `Preparing ${s.label} cabin…`;
+      afterPaint().then(async () => {
+        if (disposed || token !== activation) return;
+        try {
+          await loader.quiet();
+          if (disposed) return;
+          await engine.warm(pass => { currentFlight.cut = pass === 1; currentFlight.start = performance.now() / 1000; }, () => {
+            if (flight !== currentFlight) return;
+            currentFlight.cut = false; currentFlight.start = performance.now() / 1000; entered = currentFlight.start;
+            sceneCtx.camera.position.copy(currentFlight.from); sceneCtx.camera.fov = currentFlight.fromFov;
+            carrier.position.copy(currentFlight.fromCarrier); renderedPose = { ...currentFlight.fromPose };
+          });
+        } catch (error) { console.warn('VESTA cabin warm-up unavailable:', error.message); currentFlight.start = performance.now() / 1000; }
+        finally { if (token === activation) { warmingStation = false; loading.hidden = true; host.dataset.worldLoading = 'false'; syncQuality(); if (requested !== index) activate(requested, pendingCut); } }
+      });
+    }
     invalidate();
   }
   skip.onclick = () => navigate(1);
@@ -160,7 +198,8 @@ export async function createWorld(host, context) {
     if (Math.abs(wheel) > 65 && (!flight || now / 1000 - flight.start > 1.25)) { navigate(index + Math.sign(wheel)); wheel = 0; }
   }, { passive: false });
   listen(window, 'keydown', ev => {
-    if (ev.key.toLowerCase() === 'h' && !document.querySelector('.world-cases[open]') && !ev.target.closest?.('input,textarea,select,[contenteditable]')) { ev.preventDefault(); ev.stopImmediatePropagation(); setCinema(!cinematic); }
+    if (ev.key === 'Escape' && cinematic) { ev.preventDefault(); ev.stopImmediatePropagation(); setCinema(false); return; }
+    if (ev.key.toLowerCase() === 'h' && !document.querySelector('dialog[open]') && !ev.target.closest?.('input,textarea,select,[contenteditable]')) { ev.preventDefault(); ev.stopImmediatePropagation(); setCinema(!cinematic); }
   }, true);
   listen(window, 'keydown', ev => {
     if (ev.key === 'Escape') { holo?.closeAll(); invalidate(); return; }
@@ -171,14 +210,14 @@ export async function createWorld(host, context) {
     if (ev.key === 'Home') { ev.preventDefault(); navigate(0); }
     if (ev.key === 'End') { ev.preventDefault(); navigate(STATIONS.length-1); }
   });
-  listen(host, 'pointerdown', ev => { if (cinematic) { setCinema(false); return; } if (!ev.target.closest('.world-hologram,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]')) { document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); holo?.closeAll(); } if (!editable(ev.target) && !ev.target.closest('.world-hologram')) gesture = { x: ev.clientX, y: ev.clientY, id: ev.pointerId }; });
+  listen(host, 'pointerdown', ev => { if (cinematic) { if (!ev.target.closest('.world-cinema-exit')) setCinema(false); return; } if (!ev.target.closest('.world-hologram,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]')) { document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); holo?.closeAll(); } if (!editable(ev.target) && !ev.target.closest('.world-hologram')) gesture = { x: ev.clientX, y: ev.clientY, id: ev.pointerId }; });
   listen(host, 'pointermove', ev => { const b = canvasHost.getBoundingClientRect(); pointerX = (ev.clientX - b.left) / b.width * 2 - 1; pointerY = 1 - (ev.clientY - b.top) / b.height * 2; });
   listen(window, 'pointerup', ev => { if (!gesture || gesture.id !== ev.pointerId) return; const dx = ev.clientX - gesture.x, dy = ev.clientY - gesture.y; gesture = null; if (!filmActive && !cinematic && !ev.target.closest?.('.world-hologram,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]') && Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.3) navigate(index + (dy < 0 ? 1 : -1)); });
   listen(host, 'pointercancel', () => { gesture = null; });
   listen(reduced, 'change', () => { if (flight) flight.cut = true; invalidate(); });
   function disposeWorld() {
     if (disposed) return;
-    disposed = true; questionTour?.dispose(); clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); welcome?.dispose(); cases.dispose(); mission.dispose(); guide.dispose(); canvasHost.remove(); overlay.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world; delete document.documentElement.dataset.cinema;
+    disposed = true; questionTour?.dispose(); clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); welcome?.dispose(); cases.dispose(); mission.dispose(); guide.dispose(); canvasHost.remove(); overlay.remove(); exitCinema.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world; delete document.documentElement.dataset.cinema;
     for (const key of ['worldAllBuilt', 'worldLoading', 'worldRequested', 'worldEntry', 'worldSettled', 'cinema', 'film', 'filmPaused', 'hologramOpen', 'dockSide', 'flying']) delete host.dataset[key];
     STATIONS.forEach(station => { delete host.dataset[`${station.id}Ready`]; delete host.dataset[`${station.id}Unavailable`]; });
     host.style.removeProperty('--world-dock-width');
@@ -208,11 +247,12 @@ export async function createWorld(host, context) {
     }, invalidate
   };
   welcome = buildWelcome(welcomeWorld); welcomeKey = JSON.stringify(ctx.q); welcomeHost.append(welcome.element); welcomeHost.hidden = requested !== 0;
-  warmBlanket(innerWidth < 760 || navigator.hardwareConcurrency <= 4 || navigator.deviceMemory <= 4);
+  warmBlanket(false);
   await afterPaint();
   if (disposed) return;
   engine = await createStage(canvasHost, { capture, reducedCuts: true, mode: ctx.params?.still === '1' ? 'still' : undefined });
   if (disposed) { engine.dispose(); return; }
+  engine.on('quality', syncQuality); syncQuality();
   if (engine.mode === 'still') { api.unmount(); ctx.setParams({ view: 'details' }, { replace: true }); return api; }
   await engine.use({ async build(stage) {
     sceneCtx = stage;
@@ -227,7 +267,7 @@ export async function createWorld(host, context) {
     for (let i = 0; i < STATIONS.length; i++) {
       const root = new THREE.Group(); root.position.fromArray(STATIONS[i].origin); group.add(root); roots.push(root); root.visible = false;
       const world = {
-        THREE, stage: { ...stage, scene: root, set: patch => { Object.assign(world.state, patch); invalidate(); }, on: (...args) => engine.on(...args) },
+        THREE, stage: { ...stage, mode: 'high', scene: root, set: patch => { Object.assign(world.state, patch); invalidate(); }, on: (...args) => engine.on(...args) },
         root, citationPanels(trigger) { return holo.handles.filter(h => h.target > 0 && !h.options.source && h.options.station === STATIONS[index]?.id); }, origin: STATIONS[i].origin, station: STATIONS[i].id, camera, host, overlay, vesta: officer, vestaPose: {}, state: {},
         get db() { return ctx.db; }, get core() { return ctx.core; }, get q() { return ctx.q; }, get params() { return ctx.params; }, get route() { return ctx.route; }, get capture() { return capture; }, get filmActive() { return filmActive; },
         ui: ctx.ui, setQ: (...a) => ctx.setQ(...a), setParams: (...a) => ctx.setParams(...a), go: (...a) => ctx.go(...a), openSource: (...a) => ctx.openSource(...a), closeSource: ctx.closeSource,
@@ -260,9 +300,9 @@ export async function createWorld(host, context) {
     }
     baseLights = group.children.filter(item => item.isLight).map(light => [light, light.intensity]);
     loader = createStationLoader({
-      count: STATIONS.length, stopped: () => disposed, yieldTurn: afterPaint,
+      count: STATIONS.length, stopped: () => disposed, paused: () => warmingStation || host.dataset.flying === 'true' || Boolean(flight && !flight.cut && performance.now() / 1000 - flight.start < 1.2), yieldTurn: capture ? afterPaint : idleTurn,
       async build(i) {
-        const [mod] = await Promise.all([import(`./${FILES[i]}.js`), i === 0 || i === 3 ? warmBlanket(stage.mode === 'low') : null]);
+        const [mod] = await Promise.all([import(`./${FILES[i]}.js`), i === 0 || i === 3 ? warmBlanket(false) : null]);
         if (disposed) return;
         const priorLights = baseLights.map(([light]) => light.intensity);
         let built;
@@ -283,7 +323,7 @@ export async function createWorld(host, context) {
           console.warn(`VESTA ${STATIONS[i].id} unavailable: ${error.message}`);
           if (i === requested) showLoading(i);
         }
-        if (state === 'ready' && i === requested && !capture) activate(i, true);
+        if (state === 'ready' && i === requested && !capture) activate(i, pendingCut);
       }
     });
     Object.setPrototypeOf(welcomeWorld, worlds[0]);
@@ -322,6 +362,7 @@ export async function createWorld(host, context) {
         host.dataset.flying = String(p < 1);
         sceneCtx.renderer.domElement.parentElement.dataset.flying = host.dataset.flying;
       }
+      const disableQuality = qualityDisabled(); if (quality.disabled !== disableQuality) quality.disabled = disableQuality;
       if (camera.aspect < .9) camera.fov = Math.max(44, camera.fov);
       camera.updateProjectionMatrix();
       const motionT = reduced.matches ? 2 : t;

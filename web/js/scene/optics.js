@@ -45,7 +45,8 @@ export function createOptics(THREE, renderer) {
   const size = new THREE.Vector2(), position = new THREE.Vector3(), savedClear = new THREE.Color();
   return {
     resize() { renderer.getDrawingBufferSize(size); target.setSize(size.x, size.y); glow.setSize(Math.max(1, Math.round(size.x / 4)), Math.max(1, Math.round(size.y / 4))); uniforms.pixel.value.set(1 / size.x, 1 / size.y); },
-    render(scene, view, t, quality) {
+    render(scene, view, t, quality, output = null) {
+      if (quality === 'low') { renderer.setRenderTarget(output); renderer.render(scene, view); return; }
       view.updateMatrixWorld();
       uniforms.time.value = t; uniforms.near.value = view.near; uniforms.far.value = view.far;
       const officer = scene.getObjectByName('world-officer') || scene.getObjectByName('incident-officer') || scene.getObjectByName('vesta-character');
@@ -61,7 +62,17 @@ export function createOptics(THREE, renderer) {
       const mask = view.layers.mask, background = scene.background, alpha = renderer.getClearAlpha(); renderer.getClearColor(savedClear);
       view.layers.set(1); scene.background = null; renderer.setClearColor(0x000000, 1); renderer.setRenderTarget(glow); renderer.render(scene, view);
       view.layers.mask = mask; scene.background = background; renderer.setClearColor(savedClear, alpha);
-      renderer.setRenderTarget(null); renderer.render(screen, camera);
+      renderer.setRenderTarget(output); renderer.render(screen, camera);
+    },
+    async compile(scene, view, quality) {
+      const previous = renderer.getRenderTarget();
+      try {
+        renderer.setRenderTarget(quality === 'low' ? null : target);
+        const visibleScene = Object.create(scene);
+        visibleScene.traverse = visit => scene.traverseVisible(visit);
+        await renderer.compileAsync(visibleScene, view);
+        if (quality === 'high') { renderer.setRenderTarget(null); await renderer.compileAsync(screen, camera); }
+      } finally { renderer.setRenderTarget(previous); }
     },
     dispose() { target.depthTexture.dispose(); target.dispose(); glow.dispose(); quad.geometry.dispose(); material.dispose(); }
   };

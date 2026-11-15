@@ -13,7 +13,7 @@ import { empty } from './ui/empty.js';
 import { download, downloadJson, downloadCsv, downloadText } from './ui/download.js';
 import { vesta, vestaMark } from './ui/vesta.js';
 import { ROUTES, SHARED, GLOBAL, parseHash, buildHash, readQ as readQLocal, patchQ, withSticky, write } from './router.js';
-import { createWorld } from './world/world.js';
+import { createWorld } from './world/world.js?v=2';
 import { loadDb, getDb, getCore, setOpener, openSource, closeSource, lookup } from './store.js';
 
 export const ui = { el, svg, css, clear, fmt, button, still, answer, panel, chip, reason, tag, statusLine, legend, cite, citeLabel, drawer, openSource, closeSource, triad, scorebar, rangebar, spark, empty,

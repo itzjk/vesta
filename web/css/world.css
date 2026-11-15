@@ -418,3 +418,12 @@ body:has(.wc-source[aria-modal=true]) .world-guide-intro{visibility:hidden!impor
  .world-host[data-station=evidence] .world-guide .world-actions button:last-child{grid-column:auto}
  .world-host[data-station=trust] .world-answer,.world-host[data-station=robotics] .world-answer{bottom:180px}
 }
+
+.world-cinema-exit{position:absolute;z-index:110;bottom:24px;right:20px;min-height:44px;padding:8px 16px;border:1px solid #e0c59170;background:#12100eeb;color:var(--ivory);font:500 16px/1.2 var(--font);cursor:pointer;pointer-events:auto}
+.world-cinema-exit[hidden]{display:none!important}
+.world-cinema-exit:focus-visible,.world-quality:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
+.world-quality{position:absolute;top:16px;right:210px;min-height:44px;padding:8px 12px;border:0;background:#12100e80;color:var(--ivory);font:400 14px/1.2 var(--font);cursor:pointer;pointer-events:auto}
+
+.world-host[data-film=true] .world-quality,.world-host[data-question-state=running] .world-quality{visibility:hidden;pointer-events:none}
+
+@media(max-width:759px){.world-quality{top:12px;right:64px;padding:8px 6px;font-size:12px}}

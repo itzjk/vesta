@@ -1,4 +1,4 @@
-import { createOptics } from './optics.js';
+import { createOptics } from './optics.js?v=2';
 import { imageEnvironment } from './imagery.js';
 
 let active;
@@ -16,11 +16,12 @@ function release(group) {
 }
 export async function createStage(host, opts = {}) {
   active?.dispose();
-  let disposed = false, module, state = {}, renderer, scene, camera, THREE, raf = 0, serial = 0, visible = true;
-  let epoch = performance.now(), frozen = 0, rendered = 0, optics, environment, lastFrame = 0, frameTotal = 0, frameSamples = 0, qualityAt = 0, lowScale = 1, frameIntervals = [];
+  let disposed = false, module, state = {}, renderer, scene, camera, THREE, raf = 0, serial = 0, visible = true, warming = false;
+  let epoch = performance.now(), frozen = 0, rendered = 0, optics, environment;
   const events = new Map(), listeners = [], f = flags(), capture = opts.capture ?? f.get('capture') === '1';
+  const qualityFlag = f.get('quality') || new URLSearchParams(location.search).get('quality');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  let mode = opts.mode || (f.get('still') === '1' || reduced.matches && !opts.reducedCuts ? 'still' : innerWidth < 760 || navigator.hardwareConcurrency <= 4 || navigator.deviceMemory <= 4 ? 'low' : 'high');
+  let mode = opts.mode || (f.get('still') === '1' || reduced.matches && !opts.reducedCuts ? 'still' : qualityFlag === 'low' ? 'low' : 'high');
   const picture = document.createElement('img');
   picture.className = 'scene-still'; picture.alt = ''; picture.hidden = true;
   host.hidden = false; host.classList.add('scene-host'); host.append(picture);
@@ -35,35 +36,28 @@ export async function createStage(host, opts = {}) {
     if (src) { picture.src = src; picture.hidden = false; }
   }
   function render() {
-    if (disposed || !module || !renderer || picture.hidden === false) return;
+    if (disposed || warming || !module || !renderer || picture.hidden === false) return;
     const frameStart = performance.now();
     module.update?.(time(), state, camera);
-    if (optics) optics.render(scene, camera, reduced.matches ? 2 : time(), mode); else renderer.render(scene, camera); host.dataset.sceneRenderMs = (performance.now() - frameStart).toFixed(3); host.dataset.sceneFrames = String(++rendered);
+    if (optics) optics.render(scene, camera, reduced.matches ? 2 : time(), mode); else renderer.render(scene, camera); const elapsed = performance.now() - frameStart; host.dataset.sceneRenderMs = elapsed.toFixed(3); host.dataset.sceneFrames = String(++rendered);
   }
-  function adapt(now) {
-    if (capture || !lastFrame || document.hidden) { lastFrame = now; return; }
-    const dt = now - lastFrame; lastFrame = now;
-    if (dt > 1000 || now - qualityAt < 2500) return;
-    frameTotal += dt; frameSamples++; frameIntervals.push(dt);
-    if (frameSamples < 45 && frameTotal < 2000) return;
-    const mean = frameTotal / frameSamples, sustained = frameIntervals.sort((a, b) => a - b)[Math.floor(frameSamples * .8)]; host.dataset.sceneFrameMs = mean.toFixed(3);
-    frameTotal = frameSamples = 0; frameIntervals = [];
-    if (mode === 'high' && sustained > 20) {
-      mode = 'low'; renderer.shadowMap.enabled = false; host.dataset.sceneMode = mode; host.dataset.sceneQualityReason = 'frame-budget'; qualityAt = now; resize(false);
-    } else if (mode === 'low' && sustained > 34 && lowScale > .65) {
-      lowScale = Math.max(.65, lowScale - .15); host.dataset.sceneQualityReason = 'frame-budget'; qualityAt = now; resize(false);
-    }
+  function setQuality(value, reason = 'manual') {
+    if (!['high', 'low'].includes(value) || disposed || !renderer || mode === 'still') return;
+    mode = value;
+    renderer.shadowMap.enabled = value === 'high';
+    host.dataset.sceneMode = value; host.dataset.sceneQualityReason = reason;
+    resize(false); emit('quality', { mode: value, reason });
   }
   function loop(now) {
     raf = 0;
-    if (disposed || !visible || document.hidden || mode === 'still' || capture) return;
-    adapt(now); render(); raf = requestAnimationFrame(loop);
+    if (disposed || !visible || document.hidden || mode === 'still' || capture || warming) return;
+    render(); raf = requestAnimationFrame(loop);
   }
   function resume() { cancelAnimationFrame(raf); if (!disposed && visible && !document.hidden) { render(); if (mode !== 'still' && !capture) raf = requestAnimationFrame(loop); } }
   function resize(restart = true) {
     if (disposed || !renderer || !camera) return;
     const { width, height } = size(), bounds = host.getBoundingClientRect();
-    const ratio = Math.min(mode === 'low' ? lowScale : 1.5, devicePixelRatio || 1); host.dataset.scenePixelRatio = String(ratio);
+    const ratio = Math.min(mode === 'low' ? 1 : 1.5, devicePixelRatio || 1); host.dataset.scenePixelRatio = String(ratio);
     renderer.setPixelRatio(ratio);
     renderer.setSize(Math.max(1, Math.round(bounds.width)), Math.max(1, Math.round(bounds.height)), false);
     optics?.resize();
@@ -71,7 +65,31 @@ export async function createStage(host, opts = {}) {
   }
   const stage = {
     get mode() { return mode; },
+    get qualitySelectable() { return ['low', 'high'].includes(qualityFlag); },
     get renderer() { return renderer; },
+    setQuality,
+    hold() { warming = true; cancelAnimationFrame(raf); },
+    async warm(prepare, restore) {
+      if (disposed || !renderer || !module) return;
+      warming = true; cancelAnimationFrame(raf);
+      const started = performance.now(), previous = renderer.getRenderTarget(), opacity = renderer.domElement.style.opacity;
+      renderer.domElement.style.opacity = '0';
+      try {
+        for (const pass of [0, 1, 0]) {
+          if (disposed) return;
+          prepare?.(pass); module.update?.(time(), state, camera);
+          if (optics) await optics.compile(scene, camera, mode); else await renderer.compileAsync(scene, camera);
+          if (disposed) return;
+          if (optics) optics.render(scene, camera, time(), mode); else { renderer.setRenderTarget(null); renderer.render(scene, camera); }
+          await new Promise(resolve => requestAnimationFrame(resolve));
+        }
+        host.dataset.sceneWarmMs = (performance.now() - started).toFixed(3);
+      } finally {
+        renderer.setRenderTarget(previous); restore?.(); warming = false;
+        if (!disposed) resume();
+        renderer.domElement.style.opacity = opacity;
+      }
+    },
     async use(sceneModule, initial = {}) {
       const id = ++serial;
       if (module) { module.dispose?.(); scene?.remove(module.group); release(module.group); module = null; }
@@ -88,7 +106,7 @@ export async function createStage(host, opts = {}) {
     set(patch) {
       state = { ...state, ...patch };
       if (flags().get('still') === '1' || reduced.matches && !opts.reducedCuts || !renderer || renderer.getContext().isContextLost()) fallback();
-      else if (mode === 'still') { mode = innerWidth < 760 ? 'low' : 'high'; host.dataset.sceneMode = mode; picture.hidden = true; renderer.domElement.hidden = false; resize(); }
+      else if (mode === 'still') { mode = qualityFlag === 'low' ? 'low' : 'high'; host.dataset.sceneMode = mode; picture.hidden = true; renderer.domElement.hidden = false; resize(); }
       resume();
     },
     on(name, fn) { if (!events.has(name)) events.set(name, new Set()); events.get(name).add(fn); return () => events.get(name)?.delete(fn); },
@@ -109,9 +127,9 @@ export async function createStage(host, opts = {}) {
     THREE = await import('../../vendor/three/three.module.js');
     if (disposed) return stage;
     const canvas = document.createElement('canvas');
-    const context = canvas.getContext('webgl2', { alpha: true, antialias: mode === 'high', powerPreference: 'low-power' });
+    const context = canvas.getContext('webgl2', { alpha: true, antialias: true, powerPreference: 'low-power' });
     if (!context) { fallback(); return stage; }
-    renderer = new THREE.WebGLRenderer({ canvas, context, alpha: true, antialias: mode === 'high' });
+    renderer = new THREE.WebGLRenderer({ canvas, context, alpha: true, antialias: true });
     renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMappingExposure = .85;
     renderer.shadowMap.enabled = mode === 'high'; renderer.shadowMap.type = THREE.PCFShadowMap;
     canvas.setAttribute('aria-hidden', 'true'); canvas.className = 'scene-canvas'; host.append(canvas);
