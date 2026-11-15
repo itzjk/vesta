@@ -1,0 +1,71 @@
+.inventory-review{--ir-ink:#f0e9dc;--ir-muted:#c0c5c0;--ir-rule:#6c797566;--ir-accent:#e4b68a;color:var(--ir-ink);background:#151b1e;font-family:var(--font-body,var(--font,sans-serif));font-size:16px;line-height:1.5;padding:0;min-width:0;max-width:100%;overflow-wrap:anywhere;color-scheme:dark}
+.inventory-review *{box-sizing:border-box}
+.inventory-review [hidden]{display:none!important}
+.inventory-review h2{font-size:24px!important;line-height:1.2!important;font-weight:600;margin:0 0 10px!important;letter-spacing:0!important}
+.inventory-review h3{font-size:19px!important;line-height:1.3!important;font-weight:600;margin:0 0 6px!important;letter-spacing:0!important}
+.inventory-review h4{font-size:16px!important;line-height:1.4!important;margin:0 0 6px!important}
+.inventory-review p{margin:0 0 10px!important}
+.world-host .inventory-review :is(p,li,label,button,summary,dd,dt,span,legend,a){font-size:16px!important;line-height:1.5!important;letter-spacing:0!important}
+.inventory-review :is(.inventory-scope,.inventory-small,.inventory-source-count,.inventory-current){color:var(--ir-muted)}
+.inventory-review .inventory-scope{font-size:14px!important;line-height:1.45!important;margin:10px 0 0!important}
+.inventory-review .inventory-cabin{color:var(--ir-ink);font-variant-numeric:tabular-nums;margin:10px 0!important}
+.inventory-review :is(button,a,summary,label){-webkit-tap-highlight-color:transparent}
+.inventory-review button{min-height:44px;min-width:44px;padding:8px 12px;border:1px solid #aab5ae77;border-radius:5px;background:transparent;color:var(--ir-ink);text-align:left;cursor:pointer;white-space:normal;overflow-wrap:anywhere}
+.inventory-review button:hover:not(:disabled){background:#253037;border-color:#d9dbca}
+.inventory-review button:disabled{color:#a2aaa8;border-color:#65706b66;cursor:default;background:transparent}
+.inventory-review .inventory-primary{background:#733d2b;border-color:#bf8965;color:#fff0df;font-weight:600}
+.inventory-review .inventory-primary:hover:not(:disabled){background:#854b36}
+.inventory-review :is(button,a,summary,input):focus-visible{outline:3px solid #f2e6cd;outline-offset:3px}
+.inventory-review .inventory-actions{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
+.inventory-review .inventory-summary{font-weight:600;margin:10px 0 4px!important}
+.inventory-review .inventory-current{min-height:0;margin-bottom:6px!important}
+.inventory-review .inventory-current:empty{display:none}
+.inventory-review progress{display:block;width:100%;height:5px;accent-color:#d7a778;margin:8px 0 14px}
+.inventory-review .inventory-counts{padding-top:0;color:#ded7c7;margin-bottom:6px!important}
+.inventory-review :is(.inventory-warning,.inventory-error){color:#f2bd9a;border-left:2px solid #cf9769;padding-left:10px}
+.inventory-review details{border-top:1px solid var(--ir-rule);padding:0;margin:12px 0 0}
+.inventory-review summary{min-height:44px;display:list-item;padding:10px 0;cursor:pointer;font-weight:600;color:var(--ir-ink)}
+.inventory-review details[open]>summary{color:var(--ir-accent)}
+.inventory-review fieldset{border:0;padding:4px 0 12px;margin:0;min-width:0}
+.inventory-review legend{padding:0 0 8px;color:var(--ir-muted)}
+.inventory-review .inventory-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 14px}
+.inventory-review .inventory-choices label{display:flex;align-items:center;gap:10px;min-height:44px;padding:5px 0;cursor:pointer}
+.inventory-review input[type=checkbox]{width:21px;height:21px;flex:0 0 21px;margin:0;accent-color:#c8966b}
+.inventory-review .inventory-question{border-top:1px solid var(--ir-rule);padding:18px 0;margin:0}
+.inventory-review .inventory-question:first-child{margin-top:12px}
+.inventory-review .inventory-verdict{color:var(--ir-accent);font-size:14px!important;font-weight:600;margin-bottom:7px!important}
+.inventory-review .inventory-source-count{font-variant-numeric:tabular-nums;font-size:14px!important}
+.inventory-review .inventory-question-description{margin-bottom:6px!important}
+.inventory-review .inventory-source{padding:14px 0;border-bottom:1px solid var(--ir-rule)}
+.inventory-review .inventory-source:last-child{border-bottom:0}
+.inventory-review .inventory-source>a{display:inline-flex;align-items:center;min-height:44px;padding:6px 0;color:#eed7b7;text-decoration:underline;text-underline-offset:3px}
+.inventory-review .inventory-source>button{margin-bottom:10px}
+.inventory-review .inventory-condition-comparison{display:grid;grid-template-columns:minmax(90px,.7fr) minmax(0,2fr);gap:8px 14px;margin:12px 0}
+.inventory-review :is(dt,dd){margin:0}
+.inventory-review dt{font-weight:600;color:#e1d3bb}
+.inventory-review dd{color:var(--ir-muted)}
+.inventory-review :is(ul,ol){padding-left:23px;margin:6px 0 14px}
+.inventory-review li{margin:7px 0}
+.inventory-review .inventory-digest{font-size:14px!important;word-break:break-word;color:var(--ir-muted)}
+.inventory-review .inventory-trace{list-style:none;padding:0;margin-bottom:0}
+.inventory-review .inventory-trace>li{margin:0}
+.inventory-review .inventory-trace details{margin:0}
+.inventory-review .inventory-trace dl{margin:0 0 10px}
+.inventory-review .inventory-export{margin-top:8px}
+.inventory-review .inventory-export .inventory-actions{margin:2px 0 8px}
+.inventory-review .inventory-method-limits{margin-top:0}
+.inventory-review .inventory-section-title{margin-top:16px!important}
+.inventory-review .inventory-locate{margin:4px 0 2px}
+.inventory-review .inventory-exact pre{font:14px/1.5 ui-monospace,monospace!important;white-space:pre-wrap;overflow-wrap:anywhere;max-height:320px;overflow:auto;padding:0 0 10px;margin:0;color:var(--ir-muted)}
+@media(max-width:759px){
+ .inventory-review{padding:0}
+ .inventory-review h2{font-size:22px!important}
+ .inventory-review .inventory-actions{gap:6px;margin-bottom:12px}
+ .inventory-review .inventory-actions button{flex:1 1 auto}
+ .inventory-review .inventory-choices{grid-template-columns:1fr}
+ .inventory-review .inventory-condition-comparison{grid-template-columns:1fr;gap:3px}
+ .inventory-review .inventory-condition-comparison dd{margin-bottom:8px}
+ .inventory-review .inventory-question{padding:15px 0}
+ .inventory-review .inventory-source{padding:12px 0}
+}
+@media(prefers-reduced-motion:reduce){.inventory-review *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}

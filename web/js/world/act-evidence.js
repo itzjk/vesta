@@ -1,24 +1,24 @@
 import { buildObservationModel } from './observation-lens.js';
-import { openCitation } from './cite.js?v=expert-20261115-1';
-import { build as buildField, fieldRows } from '../scene/field.js?v=expert-20261115-1';
-import { buildSamples } from '../scene/samples.js?v=expert-20261115-1';
+import { openCitation } from './cite.js?v=habitat-20261115-1';
+import { build as buildField, fieldRows } from '../scene/field.js?v=habitat-20261115-1';
+import { buildSamples } from '../scene/samples.js?v=habitat-20261115-1';
 import { SAMPLE_NOTES } from '../scene/sample-kit.js';
 import { balanceWorldLight } from '../scene/materials.js';
 import { summarize, axisText } from '../views/investigations.js';
-import { receiptControls } from '../ui/receipt.js?v=expert-20261115-1';
+import { receiptControls } from '../ui/receipt.js?v=habitat-20261115-1';
 import { media } from './media.js';
 import { G, CONCERNS } from '../core/index.js';
 import { TOL } from '../core/match.js';
 import { css } from '../ui/el.js';
-import { build as buildCoverage } from './coverage.js?v=expert-20261115-1';
+import { build as buildCoverage } from './coverage.js?v=habitat-20261115-1';
 import { build as buildGapBrief } from '../ui/gapbrief.js';
 import { searchEvidence, cabinMatches, compareInvestigations, guidedAnswer, NO_MATCH } from './ask.js?v=4';
 import { evidenceGuidePose } from './evidence-guide.js';
 import { createRackUI } from './evidence-rack-ui.js';
-import { buildEvidenceRegister, renderCollectionSummary } from './evidence-register.js?v=expert-20261115-1';
-import { createEvidenceWorkspace } from './evidence-workspace.js?v=expert-20261115-1';
+import { buildEvidenceRegister, renderCollectionSummary } from './evidence-register.js?v=habitat-20261115-1';
+import { createEvidenceWorkspace } from './evidence-workspace.js?v=habitat-20261115-1';
 import { renderMethod } from './method.js';
-import { renderFindingComparison } from '../ui/matchpanel.js?v=expert-20261115-1';
+import { renderFindingComparison } from '../ui/matchpanel.js?v=habitat-20261115-1';
 
 const node = (tag, text, cls) => {
   const el = document.createElement(tag);
@@ -36,7 +36,7 @@ export function evidenceState(db, core, q, investigation = null) {
 
 export async function build(world) {
   const { THREE: T, db, core } = world;
-  await Promise.all([css('css/coverage.css?v=expert-20261115-1'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css?v=expert-20261115-1'), css('css/evidence-workspace.css?v=expert-20261115-1')]);
+  await Promise.all([css('css/coverage.css?v=habitat-20261115-1'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css?v=habitat-20261115-1'), css('css/evidence-workspace.css?v=habitat-20261115-1')]);
   const dropletEntry = buildObservationModel({ db, investigationId: 'PSI-69' }).points[0] || null;
   let guidedTask = '', guidedLeft = '', guidedRight = '', citationOpen = false;
   let selectedMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';

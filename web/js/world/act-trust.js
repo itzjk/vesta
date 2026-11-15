@@ -1,10 +1,10 @@
 import { hardware } from '../scene/materials.js';
 import { loadCases, evaluateCase } from './proof.js';
-import { createProofSession } from './proof-session.js?v=expert-20261115-1';
-import { createProofReport, renderRejectedExcerpts } from './trust-report.js?v=expert-20261115-1';
-import { cite as contextualCite } from './cite.js?v=expert-20261115-1';
-import { sourceLocator } from '../ui/source-locator.js?v=expert-20261115-1';
-import { ensureInformationPolishStyles } from './information-polish.js?v=expert-20261115-1';
+import { createProofSession } from './proof-session.js?v=habitat-20261115-1';
+import { createProofReport, renderRejectedExcerpts } from './trust-report.js?v=habitat-20261115-1';
+import { cite as contextualCite } from './cite.js?v=habitat-20261115-1';
+import { sourceLocator } from '../ui/source-locator.js?v=habitat-20261115-1';
+import { ensureInformationPolishStyles } from './information-polish.js?v=habitat-20261115-1';
 
 const at = (value, path) => path.split('.').reduce((item, key) => item?.[key], value);
 const count = value => Number.isFinite(value) ? value.toLocaleString('en-US') : 'not reported';
@@ -174,7 +174,7 @@ export async function build(world) {
   }
   async function rejectionSources() {
     if (rejectedSourceRecords) return rejectedSourceRecords;
-    const response = await fetch('data/rejected-excerpts.json?v=expert-20261115-1', { signal: controller.signal });
+    const response = await fetch('data/rejected-excerpts.json?v=habitat-20261115-1', { signal: controller.signal });
     if (!response.ok) throw new Error('Rejected source details did not load.');
     const audit = await response.json();
     if (audit.schema !== 'vesta.rejected-excerpts/1' || !Array.isArray(audit.records)) throw new Error('Unrecognized rejected-source report.');

@@ -1,5 +1,5 @@
-import { createReproduction, recheckReproduction, MAX_REPRODUCTION_BYTES } from './reproduction.js?v=expert-20261115-1';
-import { collectionSummary } from './evidence-register.js?v=expert-20261115-1';
+import { createReproduction, recheckReproduction, MAX_REPRODUCTION_BYTES } from './reproduction.js?v=habitat-20261115-1';
+import { collectionSummary } from './evidence-register.js?v=habitat-20261115-1';
 
 export const REVIEWER_SCHEMA = 'vesta.reviewer-package/1';
 export const REVIEWER_DIGEST_SCOPE = 'reproduction-and-review-context';

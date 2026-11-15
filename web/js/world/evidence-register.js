@@ -1,15 +1,15 @@
-import { collectionSummary, scoreFactors, nearestSourceRows } from '../core/evidence-register.js?v=expert-20261115-1';
+import { collectionSummary, scoreFactors, nearestSourceRows } from '../core/evidence-register.js?v=habitat-20261115-1';
 import * as text from '../core/text.js';
-import { browseEvidence, collectionAvailability, registerQuery } from '../core/evidence-browser.js?v=expert-20261115-1';
-import { cite as sourceCitation } from './cite.js?v=expert-20261115-1';
-import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=expert-20261115-1';
+import { browseEvidence, collectionAvailability, registerQuery } from '../core/evidence-browser.js?v=habitat-20261115-1';
+import { cite as sourceCitation } from './cite.js?v=habitat-20261115-1';
+import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=habitat-20261115-1';
 
 const node = (tag, value, cls) => {
   const el = document.createElement(tag); if (value != null) el.textContent = value; if (cls) el.className = cls; return el;
 };
 function styles() {
   if (document.querySelector('link[data-evidence-register-style]')) return;
-  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/evidence-register.css?v=expert-20261115-1', import.meta.url).href;
+  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/evidence-register.css?v=habitat-20261115-1', import.meta.url).href;
   link.dataset.evidenceRegisterStyle = ''; document.head.append(link);
 }
 const detail = (label, content) => { const el = node('details'); el.append(node('summary', label), content); return el; };

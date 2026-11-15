@@ -1,10 +1,10 @@
-import { proofComparisons } from './proof-session.js?v=expert-20261115-1';
+import { proofComparisons } from './proof-session.js?v=habitat-20261115-1';
 
 const node = (tag, text, cls = '') => { const n = document.createElement(tag); if (text != null) n.textContent = text; if (cls) n.className = cls; return n; };
 const details = (label, content) => { const d = node('details'); d.append(node('summary', label), content); return d; };
 export function ensureTrustReportStyles() {
   if (document.querySelector('link[data-trust-report]')) return;
-  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/trust-report.css?v=expert-20261115-1', import.meta.url).href;
+  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/trust-report.css?v=habitat-20261115-1', import.meta.url).href;
   link.dataset.trustReport = ''; document.head.append(link);
 }
 const fieldNames = { status: 'Outcome', qualifier: 'Pressure qualifier', hits: 'Nearby source rows', rows: 'Relevant source rows', reasons: 'Reasons', coverage: 'Condition coverage', gap: 'Evidence gap', protocol: 'Conditional fallback', rule: 'Rule' };

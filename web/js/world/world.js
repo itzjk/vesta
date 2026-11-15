@@ -1,15 +1,15 @@
-import { createQuestionTour } from './question-tour.js?v=expert-20261115-1';
+import { createQuestionTour } from './question-tour.js?v=habitat-20261115-1';
 import { warmBlanket } from '../scene/ship-blanket.js';
-import { cite, configureCitations } from './cite.js?v=expert-20261115-1';
+import { cite, configureCitations } from './cite.js?v=habitat-20261115-1';
 import { createStationLoader, afterPaint, idleTurn } from './station-loader.js?v=2';
-import { createStage } from '../scene/engine.js?v=expert-20261115-1';
+import { createStage } from '../scene/engine.js?v=habitat-20261115-1';
 import { build as buildVesta } from '../scene/vesta.js';
-import { createHolograms } from './holo.js?v=expert-20261115-1';
+import { createHolograms } from './holo.js?v=habitat-20261115-1';
 import { buildHash } from '../router.js';
-import { createGuide } from './guide.js?v=expert-20261115-1';
+import { createGuide } from './guide.js?v=habitat-20261115-1';
 import { createVideoCases } from './cases.js';
 import { build as buildWelcome } from './welcome.js';
-import { createMissionBrief, STATION_AGENTS } from './mission.js';
+import { createMissionBrief, STATION_AGENTS } from './mission.js?v=habitat-20261115-1';
 
 if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-welcome]')) {
   const sheet = document.createElement('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/welcome.css?v=2', import.meta.url).href; sheet.dataset.vestaWelcome = ''; document.head.append(sheet);
@@ -200,7 +200,7 @@ export async function createWorld(host, context) {
   }
   skip.onclick = () => navigate(1);
   listen(host, 'wheel', ev => {
-    if (filmActive || cinematic || ev.ctrlKey || editable(ev.target) || ev.target.closest('.world-hologram,.world-welcome,.vesta-drill-thread')) return;
+    if (filmActive || cinematic || ev.ctrlKey || editable(ev.target) || ev.target.closest('.world-hologram,.inventory-review-workspace,.world-welcome,.vesta-drill-thread')) return;
     if (Math.abs(ev.deltaY) < Math.abs(ev.deltaX)) return;
     ev.preventDefault();
     const now = performance.now(); if (now - wheelAt > 200) wheel = 0;
@@ -220,9 +220,9 @@ export async function createWorld(host, context) {
     if (ev.key === 'Home') { ev.preventDefault(); navigate(0); }
     if (ev.key === 'End') { ev.preventDefault(); navigate(STATIONS.length-1); }
   });
-  listen(host, 'pointerdown', ev => { if (cinematic) { if (!ev.target.closest('.world-cinema-exit')) setCinema(false); return; } if (!ev.target.closest('.world-hologram,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]')) { document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); holo?.closeAll(); } if (!editable(ev.target) && !ev.target.closest('.world-hologram')) gesture = { x: ev.clientX, y: ev.clientY, id: ev.pointerId }; });
+  listen(host, 'pointerdown', ev => { if (cinematic) { if (!ev.target.closest('.world-cinema-exit')) setCinema(false); return; } if (!ev.target.closest('.world-hologram,.inventory-review-workspace,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]')) { document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); holo?.closeAll(); } if (!editable(ev.target) && !ev.target.closest('.world-hologram')) gesture = { x: ev.clientX, y: ev.clientY, id: ev.pointerId }; });
   listen(host, 'pointermove', ev => { const b = canvasHost.getBoundingClientRect(); pointerX = (ev.clientX - b.left) / b.width * 2 - 1; pointerY = 1 - (ev.clientY - b.top) / b.height * 2; });
-  listen(window, 'pointerup', ev => { if (!gesture || gesture.id !== ev.pointerId) return; const dx = ev.clientX - gesture.x, dy = ev.clientY - gesture.y; gesture = null; if (!filmActive && !cinematic && !ev.target.closest?.('.world-hologram,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]') && Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.3) navigate(index + (dy < 0 ? 1 : -1)); });
+  listen(window, 'pointerup', ev => { if (!gesture || gesture.id !== ev.pointerId) return; const dx = ev.clientX - gesture.x, dy = ev.clientY - gesture.y; gesture = null; if (!filmActive && !cinematic && !ev.target.closest?.('.world-hologram,.inventory-review-workspace,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]') && Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.3) navigate(index + (dy < 0 ? 1 : -1)); });
   listen(host, 'pointercancel', () => { gesture = null; });
   listen(reduced, 'change', () => { if (flight) flight.cut = true; invalidate(); });
   function disposeWorld() {
@@ -267,7 +267,7 @@ export async function createWorld(host, context) {
   if (disposed) { engine.dispose(); return; }
   engine.on('quality', syncQuality); syncQuality();
   if (new URLSearchParams(location.search).get('perf') === '1') {
-    const { createPerformanceProbe } = await import('./performance-probe.js?v=expert-20261115-1');
+    const { createPerformanceProbe } = await import('./performance-probe.js?v=habitat-20261115-1');
     if (!disposed) performanceProbe = createPerformanceProbe({ stage: engine, host, station: () => STATIONS[index]?.id });
   }
   if (engine.mode === 'still') { api.unmount(); ctx.setParams({ view: 'details' }, { replace: true }); return api; }
@@ -319,7 +319,7 @@ export async function createWorld(host, context) {
     loader = createStationLoader({
       count: STATIONS.length, stopped: () => disposed, paused: () => warmingStation || host.dataset.flying === 'true' || Boolean(flight && !flight.cut && performance.now() / 1000 - flight.start < 1.2), yieldTurn: capture ? afterPaint : idleTurn,
       async build(i) {
-        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=expert-20261115-1`), i === 0 || i === 3 ? warmBlanket(false) : null]);
+        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=habitat-20261115-1`), i === 0 || i === 3 ? warmBlanket(false) : null]);
         if (disposed) return;
         const priorLights = baseLights.map(([light]) => light.intensity);
         let built;

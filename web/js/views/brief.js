@@ -1,4 +1,4 @@
-import { cite } from '../world/cite.js?v=expert-20261115-1';
+import { cite } from '../world/cite.js?v=habitat-20261115-1';
 
 function heroWorld(ctx, compact = false) {
   const { ui, db } = ctx, el = ui.el;
@@ -56,7 +56,7 @@ function heroWorld(ctx, compact = false) {
     node, evidence,
     async start() {
       try {
-        const [{ createStage }, hero] = await Promise.all([import('../scene/engine.js?v=expert-20261115-1'), import('../scene/hero.js')]);
+        const [{ createStage }, hero] = await Promise.all([import('../scene/engine.js?v=habitat-20261115-1'), import('../scene/hero.js')]);
         if (!alive) return;
         stage = await createStage(host, { capture: ctx.capture || new URLSearchParams(location.hash.split('?')[1] || '').get('capture') === '1', still: poster });
         if (!alive) { stage.dispose(); return; }
@@ -90,7 +90,7 @@ const dig = (obj, path) => path.split('.').reduce((o, k) => (o == null ? o : o[k
 function mountDetails(root, ctx) {
   const { ui, db } = ctx, el = ui.el, fmt = ui.fmt;
   ui.css('css/views/brief.css?v=13');
-  ui.css('css/world.css?v=expert-20261115-1');
+  ui.css('css/world.css?v=habitat-20261115-1');
   const core = ctx.core || {}, rankMod = core.rank, statusMod = core.status, text = core.text;
   const nInv = db.investigations.length;
   const base = `in VESTA’s evidence base (${nInv} PSI investigations)`;
@@ -298,7 +298,7 @@ const details = ctx => (ctx.view || ctx.params?.view) === 'details';
 function mountSimple(root, ctx) {
   const { ui, db } = ctx, el = ui.el;
   ui.css('css/views/brief.css?v=13');
-  ui.css('css/world.css?v=expert-20261115-1');
+  ui.css('css/world.css?v=habitat-20261115-1');
   const investigations = db.engine.extractor.psi_kept;
   const rows = db.engine.extractor.test_rows;
   const goLink = (label, href, className) => el('a', {

@@ -4,7 +4,7 @@ const copy = {
   evidence: 'Pick a sample. Inspect its evidence.',
   drill: 'Rehearse a cabin fire.',
   trust: 'Inspect how VESTA checks evidence.',
-  robotics: 'Lunar crew support'
+  robotics: 'Review the habitat inventory'
 };
 
 export function createGuide(overlay) {

@@ -1,4 +1,4 @@
-import { evidenceRegister } from './evidence-register.js?v=expert-20261115-1';
+import { evidenceRegister } from './evidence-register.js?v=habitat-20261115-1';
 import { isMeasure } from './match.js';
 
 // Completeness of normalized comparison fields, not experimental quality.

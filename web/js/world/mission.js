@@ -38,27 +38,27 @@ export function createMissionBrief({ navigate, run }) {
         ['02','Testing has limits','Crew safety limits what can be tested aboard an occupied spacecraft. Saffire helps researchers study larger fires without putting astronauts beside them.','saffire'],
         ['03','Evidence must reach the decision','VESTA links a chosen cabin to source rows and findings, makes gaps visible, and lets people rehearse an evidence-linked drill.',null]
       ]) { const card=node('article');card.append(node('h3',heading),node('p',text));if(key)card.append(link(key));grid.append(card); }
-      body.append(grid,node('p','Our contribution: make the boundary between a measured result, an extrapolation and a missing answer visible.'),action('Explore the evidence','evidence'),action('Try the digital robotics lab','robotics'));
+      body.append(grid,node('p','Our contribution: make the boundary between a measured result, an extrapolation and a missing answer visible, then turn the gaps into source-linked requests for human review.'),action('Explore the evidence','evidence'),action('Review habitat materials','robotics'));
     } else if(tab==='method') {
       body.append(renderMethod({action,onTopic(id){show(id);tabs.get(id)?.focus();}}));
     } else if(tab==='agents') {
-      body.append(node('p','Software roles with inspectable work. Extraction is prepared in the dataset; checks, ranking and drill rules run locally. These are not live conversations with separate language models.','mission-lead'));
+      body.append(node('p','Software roles with inspectable work. Extraction is prepared in the dataset; checks, ranking, inventory review and drill rules run locally. The inventory workflow is deterministic. An autonomous AI runtime is not connected to this public app.','mission-lead'));
       const pipeline=node('div',null,'mission-pipeline');
       for(const [role,work,station,task] of [
         ['Extractor','Organizes the NASA investigations and recorded conditions.','evidence','compare'],
-        ['Verifier','Checks the source trail and exposes the evidence checks.','trust','checks'],
-        ['Ranker','Compares findings with your selected cabin and shows coverage gaps.','evidence','overview'],
+        ['Verifier','Runs reviewed software cases and exposes source-text checks. These do not independently validate the science.','trust','checks'],
+        ['Ranker','Orders findings by relevance to your selected cabin and exposes coverage gaps. Relevance is not a risk score.','evidence','overview'],
         ['Officer','Connects a scripted incident to source-linked decisions and missing evidence.','drill',null],
-        ['Robotics coordinator','Demonstrates observation, evidence review and a human-approved inspection.','robotics',null]
+        ['Robotics coordinator','Runs a bounded material-inventory review across prevention, detection and suppression, compares source conditions and drafts source-linked requests for human review. The humanoid locates linked concept components.','robotics',null]
       ]) {const card=node('article');card.append(node('h3',role),node('p',work),action(`Open ${role.toLowerCase()}`,station,task));pipeline.append(card);}
       body.append(pipeline);
     } else {
-      body.append(node('p','Our vision is to give robotic assistants an evidence trail people can inspect. Explore that idea as an interactive software experience.','mission-lead'));
+      body.append(node('p','Review a habitat inventory against NASA evidence, then locate the components those results concern. The useful output is a traceable evidence review and a draft request for the questions still unresolved.','mission-lead'));
       const grid=node('div',null,'mission-facts');
       const existing=node('article'); existing.append(node('span','NASA REFERENCE','mission-number'),node('h3','Robots already work in orbit'),node('p','NASA’s Astrobee platform supports free-flying robotics research aboard the ISS, and the Robonaut project has researched a dexterous humanoid robot there since 2011. Both give this direction a real context.'),link('astrobee'),link('robonaut'),link('operations'));
-      const ours=node('article'); ours.append(node('span','VESTA DIGITAL CONCEPT','mission-number'),node('h3','Make the decision visible'),node('p','A scripted observation enters the workflow. The evidence agent checks your cabin, the coordinator proposes a visual inspection, and a person approves the next step.'));
-      const next=node('article'); next.append(node('span','POSSIBLE APPLICATIONS','mission-number'),node('h3','Inspect, document, explain'),node('p','Explore equipment inspection, source-linked mission records and crew training. The animated humanoid illustrates the workflow; it is not a connected flight system.'));
-      grid.append(existing,ours,next);body.append(grid,action('Enter the robotics lab','robotics'));
+      const ours=node('article'); ours.append(node('span','WORKING EVIDENCE WORKFLOW','mission-number'),node('h3','Turn gaps into review requests'),node('p','Choose materials and cabin conditions. The deterministic workflow checks prevention, detection and suppression, inspects attributable records, compares conditions and exports a source-linked human-review request. Unknown variables stay unknown; the result is not a validated test procedure or safety clearance.'));
+      const next=node('article'); next.append(node('span','HUMANOID INTERFACE · CONCEPT','mission-number'),node('h3','Locate the component in context'),node('p','The animated humanoid locates linked PMMA, Kapton and silicone components in the concept habitat. Its motion helps explain which component a review concerns; it does not inspect real hardware or supply sensor measurements. No autonomous AI runtime or robot controller is connected.'));
+      grid.append(existing,ours,next);body.append(grid,action('Enter the habitat','robotics'));
     }
   }
   close.onclick=()=>dialog.close(); dialog.addEventListener('close',()=>trigger?.isConnected&&trigger.focus());

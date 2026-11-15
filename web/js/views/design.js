@@ -1,5 +1,5 @@
-import { drawMap, mapData, LAYERS, MODEL_NOTE, mountField } from './design-map.js?v=expert-20261115-1';
-import { renderMatchPanel } from '../ui/matchpanel.js?v=expert-20261115-1';
+import { drawMap, mapData, LAYERS, MODEL_NOTE, mountField } from './design-map.js?v=habitat-20261115-1';
+import { renderMatchPanel } from '../ui/matchpanel.js?v=habitat-20261115-1';
 
 const CONCERNS = ['prevention', 'detection', 'suppression'];
 const GRAVITY = [['0g', '0 g'], ['moon', '1/6 g'], ['mars', '3/8 g'], ['1g', '1 g']];

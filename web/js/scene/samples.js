@@ -1,6 +1,6 @@
 import { hardware, tube } from './materials.js';
 import { buildSample } from './sample-kit.js';
-import { lampProgress } from './lamp-sequence.js?v=expert-20261115-1';
+import { lampProgress } from './lamp-sequence.js?v=habitat-20261115-1';
 
 const concerns = ['prevention', 'detection', 'suppression'];
 const states = ['PROVEN', 'EXTRAPOLATED', 'NEVER_TESTED'];

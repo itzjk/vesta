@@ -113,7 +113,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     cylinder(neck, graphite, .063, .018, [side * .163, .222, -.015], 'x');
     cylinder(neck, titanium, .041, .023, [side * .17, .222, -.015], 'x');
   }
-  const sensorTarget = new T.Vector3(2.65, groundY + 1.71, -1.025); let sensorOrigin;
+  const defaultSensorTarget = new T.Vector3(2.65, groundY + 1.71, -1.025), sensorTarget = defaultSensorTarget.clone(); let sensorOrigin;
   const fingers = [];
   function hand(wrist, side) {
     panel(wrist, graphite, [.145, .14, .075], [0, -.055, 0], .025);
@@ -194,27 +194,36 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     value.hip.rotation.x = hip; value.knee.rotation.x = knee; value.ankle.rotation.x = -hip - knee;
     value.contact.position.z = forward + .085; value.contact.visible = lift < .012;
   }
-  const dock = new T.Vector3(-2, groundY, 1), inspection = new T.Vector3(1.65, groundY, -.05);
+  const dock = new T.Vector3(-2, groundY, 1), inspection = new T.Vector3(1.65, groundY, -.05), workPoint = inspection.clone(), previousPoint = sensorTarget.clone();
   const from = dock.clone(), target = dock.clone(), localTarget = new T.Vector3(), targetWorld = new T.Vector3(), sensorPosition = new T.Vector3();
   const parentQuaternion = new T.Quaternion(), aimQuaternion = new T.Quaternion(), downward = new T.Vector3(0, -1, 0);
   group.position.copy(dock); group.rotation.y = .18;
   const joints = [torso, neck, leftArm.shoulder, leftArm.elbow, leftArm.wrist, rightArm.shoulder, rightArm.elbow, rightArm.wrist];
   const fromPose = joints.map(j => j.quaternion.clone()), poseQuaternion = joints.map(() => new T.Quaternion());
-  let previousPhase = null, fromYaw = .18, disposed = false;
-  function update({ phase = 'ready', elapsed = 0, still = false } = {}) {
+  let previousPhase = null, previousReviewPose = false, fromYaw = .18, disposed = false;
+  function update({ phase = 'ready', elapsed = 0, still = false, targetPoint = null, workPosition = null, workYaw = null } = {}) {
     if (disposed) return;
     if (!HUMANOID_PHASES.includes(phase)) throw new TypeError(`Unknown humanoid inspection phase: ${phase}`);
     if (!Number.isFinite(elapsed)) throw new TypeError('Humanoid phase elapsed time must be finite.');
+    for(const [name,value] of [['targetPoint',targetPoint],['workPosition',workPosition]])if(value!=null&&(!Array.isArray(value)||value.length!==3||!value.every(Number.isFinite)))throw new TypeError(`${name} must be a finite [x,y,z] array.`);
+    if(workYaw!=null&&!Number.isFinite(workYaw))throw new TypeError('workYaw must be finite.');
+    // Optional targets show evidence records at illustrative components. The review
+    // engine does the data work; this motion is presentation, never sensing or progress.
+    const reviewPose=targetPoint!=null||workPosition!=null;
+    if(targetPoint)sensorTarget.fromArray(targetPoint);else sensorTarget.copy(defaultSensorTarget);
+    if(workPosition)workPoint.fromArray(workPosition);else workPoint.copy(inspection);
+    const showingWork=phase==='inspect'||reviewPose&&phase==='complete',destination=showingWork?workPoint:dock;
     const age = Math.max(0, elapsed);
-    if (phase !== previousPhase) {
+    if (phase !== previousPhase || !target.equals(destination) || previousReviewPose!==reviewPose || !previousPoint.equals(sensorTarget)) {
       from.copy(group.position); fromYaw = group.rotation.y; joints.forEach((j, i) => fromPose[i].copy(j.quaternion));
-      target.copy(phase === 'inspect' ? inspection : dock); previousPhase = phase;
+      target.copy(destination); previousPhase = phase; previousReviewPose=reviewPose; previousPoint.copy(sensorTarget);
     }
     const delay = phase === 'return' ? HUMANOID_TIMING.retract : 0;
-    const travelAge = Math.max(0, age - delay), duration = phase === 'inspect' || phase === 'return' ? HUMANOID_TIMING.approach : .9;
+    const travelAge = Math.max(0, age - delay), duration = showingWork || phase === 'return' ? HUMANOID_TIMING.approach : .9;
     const distance = from.distanceTo(target), progress = still ? 1 : ease(travelAge / duration); group.position.lerpVectors(from, target, progress);
     const moving = distance > .05 && travelAge > 0 && progress < 1 && !still;
-    const arrivalYaw = phase === 'inspect' ? 2.44 : phase === 'observe' || phase === 'evidence' ? 1.20 : phase === 'review' ? .32 : .18;
+    const selectedYaw=workYaw??(reviewPose?Math.atan2(sensorTarget.x-workPoint.x,sensorTarget.z-workPoint.z):2.44);
+    const arrivalYaw = showingWork ? selectedYaw : phase === 'observe' || phase === 'evidence' ? 1.20 : phase === 'review' ? .32 : .18;
     const travelYaw = distance > .05 ? Math.atan2(target.x - from.x, target.z - from.z) : fromYaw;
     const routeYaw = angleMix(travelYaw, arrivalYaw, ease((progress - .72) / .28));
     group.rotation.y = still ? arrivalYaw : age < delay ? fromYaw : angleMix(fromYaw, moving ? routeYaw : arrivalYaw, ease(travelAge / .55));
@@ -224,7 +233,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     leftArm.shoulder.rotation.set(.04 + stride, 0, -.07); rightArm.shoulder.rotation.set(.04 - stride, 0, .07);
     leftArm.elbow.rotation.set(-.12, 0, 0); rightArm.elbow.rotation.set(-.12, 0, 0);
     leftArm.wrist.rotation.set(0, 0, -.05); rightArm.wrist.rotation.set(0, 0, .05);
-    const reach = phase === 'inspect' ? still ? 1 : ease((age - 3.25) / .90) : 0;
+    const reach = showingWork ? (still || reviewPose&&phase==='complete'&&distance<.05 ? 1 : ease((age - 3.25) / .90)) : 0;
     if (phase === 'review') { leftArm.shoulder.rotation.x = -.28; leftArm.elbow.rotation.x = -1.02; leftArm.wrist.rotation.set(-.10, -.25, -.18); neck.rotation.y = -.15; }
     if (reach) { rightArm.shoulder.rotation.set(.04 - reach * .88, -reach * .12, .07 - reach * .14); rightArm.elbow.rotation.x = -.12 - reach * .76; leftArm.elbow.rotation.x = -.12 - reach * .15; torso.rotation.y = reach * .045; }
     const posed = still ? 1 : ease(age / (phase === 'return' ? HUMANOID_TIMING.retract : .45));
@@ -234,15 +243,15 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
       finger.base.rotation.set(finger.thumb ? .16 : curl, finger.thumb ? finger.side * -.30 : 0, finger.spread); finger.tip.rotation.x = finger.thumb ? .35 : curl * .85;
     }
     group.updateWorldMatrix(true, true); targetWorld.copy(sensorTarget); group.parent?.localToWorld(targetWorld);
-    if (['observe', 'evidence', 'inspect'].includes(phase)) {
+    if (['observe', 'evidence'].includes(phase) || showingWork) {
       localTarget.copy(targetWorld); torso.worldToLocal(localTarget); localTarget.sub(neck.position);
-      const scan = phase === 'observe' && !still ? Math.sin(Math.min(age, 2.2) / 2.2 * Math.PI * 2) * .055 : 0, headBlend = still ? 1 : ease(age / .85);
+      const scan = phase === 'observe' && !still && !reviewPose ? Math.sin(Math.min(age, 2.2) / 2.2 * Math.PI * 2) * .055 : 0, headBlend = still ? 1 : ease(age / .85);
       neck.rotation.y = angleMix(neck.rotation.y, clamp(Math.atan2(localTarget.x, localTarget.z) + scan, -.95, .95), headBlend);
       neck.rotation.x = angleMix(neck.rotation.x, clamp(-Math.atan2(localTarget.y - .24, Math.hypot(localTarget.x, localTarget.z)), -.45, .45), headBlend);
     }
     if (reach) {
       rightArm.elbow.getWorldQuaternion(parentQuaternion).invert();
-      const sweep = still ? 0 : Math.sin(Math.max(0, age - HUMANOID_TIMING.reach) * 1.6) * .34;
+      const sweep = still || reviewPose ? 0 : Math.sin(Math.max(0, age - HUMANOID_TIMING.reach) * 1.6) * .34;
       // First align from the wrist, then correct the handheld head's offset twice.
       // This stays bounded and uses no scene-wide solve or per-frame allocation.
       for (let correction = 0; correction < 3; correction++) {
@@ -252,8 +261,9 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
       }
     }
     group.updateMatrixWorld(true); optics.emissiveIntensity = reach ? .30 : .13;
-    group.userData.phase = phase; group.userData.atInspectionView = phase === 'inspect' && (still || age >= HUMANOID_TIMING.reach);
-    group.userData.motionComplete = still || age >= (phase === 'inspect' ? HUMANOID_TIMING.inspection : phase === 'return' ? HUMANOID_TIMING.return : .9);
+    group.userData.phase = phase; group.userData.presentationMode=reviewPose?'evidence-record':'inspection-concept';
+    group.userData.atInspectionView = showingWork && (still || reach===1);
+    group.userData.motionComplete = still || age >= (showingWork ? reviewPose?HUMANOID_TIMING.reach:HUMANOID_TIMING.inspection : phase === 'return' ? HUMANOID_TIMING.return : .9);
   }
   let meshCount = 0, triangles = 0;
   group.traverse(object => { if (object.isMesh) { meshCount++; triangles += (object.geometry.index?.count ?? object.geometry.attributes.position.count) / 3; } });

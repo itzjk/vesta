@@ -1,8 +1,8 @@
 import { balanceWorldLight } from '../scene/materials.js';
 import { build as buildCabin } from '../scene/cabin.js';
 import { build as buildDrillThread } from './drill-thread.js';
-import { build as buildDebrief } from './debrief.js?v=expert-20261115-1';
-import { polishDecisionContent, ensureInformationPolishStyles } from './information-polish.js?v=expert-20261115-1';
+import { build as buildDebrief } from './debrief.js?v=habitat-20261115-1';
+import { polishDecisionContent, ensureInformationPolishStyles } from './information-polish.js?v=habitat-20261115-1';
 
 const finite = (value, fallback) => value !== null && value !== '' && Number.isFinite(Number(value)) ? Number(value) : fallback;
 const el = (tag, text, className) => {

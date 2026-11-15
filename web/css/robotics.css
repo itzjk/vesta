@@ -56,3 +56,37 @@
  .world-host[data-station=robotics][data-hologram-open=true] :is(.world-guide>.world-actions,.world-answer){display:none!important}
  .world-host[data-station=robotics]:is([data-robotics-phase=inspect],[data-robotics-phase=return]) .robotics-caption{display:none}
 }
+
+/* The scene locates real review records; the native workspace keeps them readable. */
+.inventory-review-workspace{position:absolute;z-index:12;top:76px;right:76px;bottom:90px;width:min(490px,42%);box-sizing:border-box;padding:18px 22px;background:#111b1e;box-shadow:-18px 0 50px #05090b66;border-top:2px solid #b18c59;overflow:auto;overscroll-behavior:contain;color:#eee6d6;pointer-events:auto;touch-action:pan-y}
+.inventory-review-workspace[hidden]{display:none!important}
+.inventory-review-back{font:500 15px/1.3 var(--font);color:#e5c89d;background:transparent;border:0;border-bottom:1px solid #78817c;padding:8px 0;min-height:44px;cursor:pointer;margin-bottom:14px}
+.inventory-review-workspace :focus-visible,.robotics-question-button:focus-visible{outline:2px solid #e5c89d;outline-offset:4px}
+.robotics-work-caption h1{font-size:30px;max-width:330px}
+.robotics-work-caption .robotics-work-outcome{margin-top:14px;font-size:16px;color:#eee6d6}
+.robotics-work-caption .robotics-work-result{margin-top:10px;font-size:15px;color:#ddbd89}
+.robotics-question-button{pointer-events:auto;min-height:44px;margin-top:10px;padding:8px 0;background:none;border:0;border-bottom:1px solid #b99d73;color:#eee6d6;font:500 15px/1.3 var(--font);cursor:pointer}
+.robotics-question-button[hidden]{display:none}
+.world-host[data-station=robotics][data-robotics-workspace=true] .robotics-caption{display:none}
+.world-host[data-station=robotics] .world-answer{max-width:520px}
+@media(max-width:759px){
+ .inventory-review-workspace{inset:76px 12px 48px;width:auto;padding:14px 18px}
+ .world-host[data-station=robotics][data-robotics-workspace=true] :is(.world-guide,.world-answer,.world-markers){display:none!important}
+ .robotics-work-caption h1{font-size:24px;max-width:310px}
+ .robotics-work-caption .robotics-work-outcome{font-size:14px;margin-top:9px;max-width:320px}
+ .robotics-work-caption .robotics-work-result{font-size:14px;margin-top:6px}
+ .world-host[data-station=robotics][data-robotics-phase=inspect] .robotics-work-caption{display:block;top:86px}
+ .world-host[data-station=robotics][data-robotics-workspace=true] .robotics-work-caption{display:none}
+ .world-host[data-station=robotics] .world-answer{bottom:164px;font-size:14px;max-height:54px}
+ .world-host[data-station=robotics] .world-guide .world-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .world-host[data-station=robotics] .world-guide .world-actions>button,.world-host[data-station=robotics] .world-guide .world-actions>button:nth-child(-n+2){grid-column:span 1;min-height:44px}
+}
+
+@media(max-width:759px){
+ .world-host[data-station=robotics] .world-answer{display:none!important}
+ .world-host[data-station=robotics] .world-actions [data-station-explain]{display:none!important}
+ .world-host[data-station=robotics][data-robotics-phase=complete] .robotics-work-caption{display:block;top:86px}
+ .world-host[data-station=robotics][data-robotics-workspace=true] .robotics-work-caption{display:none}
+}
+
+.inventory-review-back{position:sticky;top:0;z-index:2;width:100%;background:#111b1e}

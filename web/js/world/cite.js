@@ -1,9 +1,9 @@
 import { renderObservationLens } from './observation-lens.js';
 import { el, css } from '../ui/el.js';
 import { getDb, getCore, lookup, loadRawCells } from '../store.js';
-import { sourceLocator } from '../ui/source-locator.js?v=expert-20261115-1';
-import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=expert-20261115-1';
-import { scoreFactors } from '../core/evidence-register.js?v=expert-20261115-1';
+import { sourceLocator } from '../ui/source-locator.js?v=habitat-20261115-1';
+import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=habitat-20261115-1';
+import { scoreFactors } from '../core/evidence-register.js?v=habitat-20261115-1';
 
 let binding = null, active = null, serial = 0;
 const flags = () => new URLSearchParams(location.hash.split('?')[1] || '');
@@ -187,15 +187,15 @@ async function open(id, trigger, world, citationOptions = {}) {
   const returnTo = parent ? parent.trigger : trigger;
   close(false);
   const currentSerial = ++serial;
-  await css('css/world.css?v=expert-20261115-1');
+  await css('css/world.css?v=habitat-20261115-1');
   if (!returnTo.isConnected || currentSerial !== serial) return;
   const session = { id, trigger: returnTo, controller: new AbortController(), inert: [], panel: null };
   const context = world || parent?.context || binding;
   const query = citationOptions.query || parent?.query || context?.q;
   session.context = context; session.query = query ? { ...query } : null;
-  const focusedEvidence = Boolean(returnTo.closest('.evidence-workspace')) || context?.station === 'evidence';
+  const focusedEvidence = Boolean(returnTo.closest('.evidence-workspace,.inventory-review-workspace')) || context?.station === 'evidence';
   if (focusedEvidence) {
-    await css('css/evidence-workspace.css?v=expert-20261115-1');
+    await css('css/evidence-workspace.css?v=habitat-20261115-1');
     if (!returnTo.isConnected || currentSerial !== serial) return;
   }
   const db = context?.db || getDb(), text = context?.core?.text || getCore().text || {};
@@ -232,7 +232,7 @@ async function open(id, trigger, world, citationOptions = {}) {
   }
   if (!panel.isConnected) {
     const shell = el('dialog.wc-shell', { 'aria-label': 'Evidence hologram', oncancel: event => { event.preventDefault(); close(); } }, panel);
-    if (focusedEvidence) { shell.classList.add('evidence-source-shell'); dismiss.textContent = returnTo.closest('.evidence-workspace') ? '← Back to evidence' : '← Back to the 3D collection'; }
+    if (focusedEvidence) { shell.classList.add('evidence-source-shell'); dismiss.textContent = returnTo.closest('.inventory-review-workspace') ? '← Back to review' : returnTo.closest('.evidence-workspace') ? '← Back to evidence' : '← Back to the 3D collection'; }
     session.shell = shell; document.body.append(shell); shell.showModal();
     shell.addEventListener('click', event => { if (event.target === shell) close(); });
   } else lock(session);

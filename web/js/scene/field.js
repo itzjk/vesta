@@ -3,7 +3,7 @@ import { cells } from '../core/status.js';
 import { plottedSummary, markGroups } from '../core/field-inspect.js';
 import { css } from '../ui/el.js';
 import { openSource } from '../store.js';
-import { cite } from '../world/cite.js?v=expert-20261115-1';
+import { cite } from '../world/cite.js?v=habitat-20261115-1';
 export const still = 'assets/scene/field.jpg';
 const planes = [{ key: '0g', label: '0 g · microgravity', z: 4.5 }, { key: 'moon', label: '1/6 g · Moon', z: 1.5 }, { key: 'mars', label: '3/8 g · Mars', z: -1.5 }, { key: '1g', label: '1 g · Earth', z: -4.5 }];
 const KPA_PER_PSI = 6.894757293;
