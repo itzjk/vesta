@@ -33,8 +33,6 @@ function buildChrome() {
   document.getElementById('brand-mark').append(vestaMark(40));
   for (const r of ROUTES) nav.append(el('a', { href: '#/' + r.id, data: { view: r.id } }, r.n ? el('span.n', String(r.n)) : null, el('span', r.label)));
   if (!demo) document.getElementById('bar-actions').append(modeSwitch());
-  const phone = el('div#phone-controls', el('p', 'Details is built for a wide screen'), modeSwitch());
-  document.getElementById('viewport').append(phone);
   if (!demo) document.getElementById('bar-actions').append(button('Play the film', { action: 'tour', icon: '▶', title: 'A guided path through the five stops' }));
 }
 function modeSwitch() {
@@ -45,7 +43,6 @@ function paintChrome(route, params) {
   const mode = demo || params.view === 'details' ? 'details' : 'simple';
   document.documentElement.dataset.viewMode = mode;
   stage.dataset.viewMode = mode;
-  document.getElementById('phone-controls').inert = !!params.src;
   for (const b of document.querySelectorAll('[data-view-mode] button, button[data-view-mode]')) {
     if (b.dataset.viewMode) b.setAttribute('aria-pressed', String(b.dataset.viewMode === mode));
   }
@@ -59,6 +56,7 @@ function paintChrome(route, params) {
   const r = ROUTES.find(x => x.id === route);
   document.title = `VESTA · ${r ? r.label : 'Brief'}`;
   if (document.documentElement.dataset.phone === 'true' && stage.dataset.route !== route) {
+    document.getElementById('viewport').scrollTop = 0;
     const active = nav.querySelector('[aria-current="page"]');
     if (active) nav.scrollLeft = Math.max(0, active.offsetLeft - nav.offsetLeft - (nav.clientWidth - active.offsetWidth) / 2);
   }

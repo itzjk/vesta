@@ -549,3 +549,49 @@ html[data-tour="running"] .design-simple-blocks h2{margin-bottom:12px}
  .design-simple-heading{padding-bottom:0}
  .design-simple-blocks{min-height:734px}
 }
+
+@media(max-width:759px){
+ html[data-view-mode="details"] .design-layout{height:auto;display:flex;flex-direction:column;gap:24px}
+ html[data-view-mode="details"] :is(.design-heading,.design-heading>div:first-child,.design-gravity-banner,.design-legend){align-items:flex-start;flex-direction:column;gap:12px}
+ html[data-view-mode="details"] .design-heading-right{align-items:flex-start}
+ html[data-view-mode="details"] :is(.design-point-title,.design-counts){flex-wrap:wrap;gap:10px}
+ html[data-view-mode="details"] :is(.design-top,.design-bottom){display:flex;flex-direction:column;gap:28px}
+ html[data-view-mode="details"] :is(.design-cabin-body,.design-ranked-body,.design-ranked-list,.design-matrix-body,.design-why-body,.design-map-body){height:auto;overflow:visible;scrollbar-gutter:auto;max-height:none}
+ html[data-view-mode="details"] .design-presets{gap:8px}
+ html[data-view-mode="details"] .design-presets>.design-choice{display:grid;grid-template-columns:minmax(0,1fr) 44px;padding:10px 8px;gap:4px 12px}
+ html[data-view-mode="details"] .design-presets .design-preset-values{grid-row:2;white-space:normal}
+ html[data-view-mode="details"] #view .design-presets .cite{position:static;grid-column:2;grid-row:1/3;width:44px;min-width:44px;max-width:none;padding:10px;align-self:center}
+ html[data-view-mode="details"] .design-preset-source p{display:block;overflow:visible;-webkit-line-clamp:unset}
+ html[data-view-mode="details"] .design-controls{gap:16px}
+ html[data-view-mode="details"] :is(.design-gravities,.design-concerns){display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+ html[data-view-mode="details"] .design-materials{grid-template-columns:minmax(0,1fr);gap:8px}
+ html[data-view-mode="details"] .design-materials>.design-choice{padding:8px;display:flex;flex-wrap:wrap}
+ html[data-view-mode="details"] #view .design-materials .cite{position:static;width:44px;min-width:44px;padding:10px;margin-left:auto}
+ html[data-view-mode="details"] .design-cabin-body .design-cabin-actions{position:static;padding-top:12px}
+ html[data-view-mode="details"] :is(.design-cabin-actions,.design-ranked-controls,.design-rank-head,.design-gap-title,.design-why-tools,.design-exports){flex-wrap:wrap;gap:12px}
+ html[data-view-mode="details"] .design-layers{flex-direction:column;gap:12px}
+ html[data-view-mode="details"] .design-layers label{gap:12px}
+ html[data-view-mode="details"] :is(.design-map-intro,.design-map-legend){flex-wrap:wrap;gap:12px}
+ html[data-view-mode="details"] .design-map-info{max-height:none}
+ html[data-view-mode="details"] .design-map-host{flex:none;min-height:0}
+ html[data-view-mode="details"] .design-map-body .design-field-viewport{height:240px;min-height:240px}
+ html[data-view-mode="details"] .design-rank-card{margin-bottom:18px;padding:16px 12px}
+ html[data-view-mode="details"] .design-gap{padding:12px}
+ html[data-view-mode="details"] .design-gap>div{flex-wrap:wrap}
+ html[data-view-mode="details"] .design-gap>.design-source-link{position:static;display:inline-flex;align-items:center}
+ html[data-view-mode="details"] .design-matrix-header{display:none}
+ html[data-view-mode="details"] .design-matrix-caption{position:static}
+ html[data-view-mode="details"] .design-matrix-row{display:flex;flex-direction:column;gap:8px;padding:16px 0}
+ html[data-view-mode="details"] .design-matrix-cell{display:flex;flex-direction:column;align-items:flex-start;padding:12px;gap:8px}
+ html[data-view-mode="details"] #view .design-matrix-cell>.cite{position:static;min-width:44px;width:auto;height:auto;padding:10px}
+ html[data-view-mode="details"] .design-matrix-cell::before{font-weight:600;color:var(--ivory-dim)}
+ html[data-view-mode="details"] .design-matrix-cell:nth-child(2)::before{content:'Prevention'}
+ html[data-view-mode="details"] .design-matrix-cell:nth-child(3)::before{content:'Detection'}
+ html[data-view-mode="details"] .design-matrix-cell:nth-child(4)::before{content:'Suppression'}
+ html[data-view-mode="details"] .design-legend .status-line{text-align:left}
+}
+@media(max-width:759px){
+ html[data-view-mode="details"] .design-presets>.design-choice{grid-template-columns:minmax(0,1fr) 88px}
+ html[data-view-mode="details"] #view .design-presets .cite,html[data-view-mode="details"] #view .design-materials .cite{width:88px;min-width:88px}
+ html[data-view-mode="details"] #view :is(.design-presets,.design-materials,.design-matrix-cell) .cite-plain{display:inline}
+}

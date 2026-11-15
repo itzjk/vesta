@@ -92,38 +92,37 @@ html[data-view-mode="simple"] .t-dim{color:var(--ivory)}
 html[data-tour="running"] #view{height:calc(var(--stage-h) - var(--bar-h) - 172px)}
 html[data-tour="running"] #stage .tour-bar{bottom:72px;min-height:100px}
 @media(max-width:759px){
-  html[data-view-mode="simple"],html[data-view-mode="simple"] body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
-  html[data-view-mode="simple"] #viewport{position:relative;inset:auto;overflow:visible;min-height:100dvh}
-  html[data-view-mode="simple"] #stage{position:relative;width:100%;height:auto;min-height:100dvh;overflow:clip;display:flex;flex-direction:column}
-  html[data-view-mode="simple"] #stars{height:100dvh;opacity:.5}
-  html[data-view-mode="simple"] #bar{position:relative;height:auto;min-height:0;flex-wrap:wrap;gap:12px;padding:14px 16px 0}
-  html[data-view-mode="simple"] #bar .brand{margin:0;margin-right:auto;gap:6px}
-  html[data-view-mode="simple"] #bar .brand b{font-size:24px}
-  html[data-view-mode="simple"] #bar .brand svg{width:32px;height:32px}
-  html[data-view-mode="simple"] #bar-actions{order:1;gap:8px}
-  html[data-view-mode="simple"] #bar-actions>[data-action="tour"]{position:absolute;right:16px;bottom:64px;font-size:16px;min-height:44px;padding:4px 12px}
-  html[data-view-mode="simple"] #bar .scope{order:2;width:100%;border:0;border-radius:0;padding:0 148px 0 0;background:transparent;font-size:16px;line-height:21px;white-space:normal;min-height:44px}
-  html[data-view-mode="simple"] #nav{order:3;flex:0 0 calc(100% + 32px);margin:0 -16px;overflow-x:auto;min-height:52px;scrollbar-width:thin;padding:4px 8px;gap:4px}
-  html[data-view-mode="simple"] #nav a{font-size:16px;padding:0 12px;min-height:44px}
-  html[data-view-mode="simple"] #nav .n{width:20px;height:20px;font-size:13px}
-  html[data-view-mode="simple"] #view{position:relative;top:auto;left:auto;height:auto;width:100%;padding:28px 16px;overflow:visible;font-size:18px;line-height:1.5;flex:1}
-  html[data-view-mode="simple"] #foot{position:relative;bottom:auto;flex-direction:column;align-items:flex-start;font-size:16px;line-height:23px;padding:18px 16px;gap:12px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]),html:is([data-view-mode="simple"],[data-view-mode="details"]) body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #viewport{position:relative;inset:auto;overflow:visible;min-height:100dvh}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #stage{position:relative;width:100%;height:auto;min-height:100dvh;overflow:clip;display:flex;flex-direction:column}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #stars{height:100dvh;opacity:.5}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar{position:relative;height:auto;min-height:0;flex-wrap:wrap;gap:12px;padding:14px 16px 0}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar .brand{margin:0;margin-right:auto;gap:6px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar .brand b{font-size:24px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar .brand svg{width:32px;height:32px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar-actions{order:1;gap:8px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar-actions>[data-action="tour"]{position:absolute;right:16px;bottom:64px;font-size:16px;min-height:44px;padding:4px 12px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar .scope{order:2;width:100%;border:0;border-radius:0;padding:0 148px 0 0;background:transparent;font-size:16px;line-height:21px;white-space:normal;min-height:44px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #nav{order:3;flex:0 0 calc(100% + 32px);margin:0 -16px;overflow-x:auto;min-height:52px;scrollbar-width:thin;padding:4px 8px;gap:4px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #nav a{font-size:16px;padding:0 12px;min-height:44px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #nav .n{width:20px;height:20px;font-size:13px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #view{position:relative;top:auto;left:auto;height:auto;width:100%;padding:28px 16px;overflow:visible;font-size:18px;line-height:1.5;flex:1}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #foot{position:relative;bottom:auto;flex-direction:column;align-items:flex-start;font-size:16px;line-height:23px;padding:18px 16px;gap:12px}
   .view-switch button{min-height:44px;padding:5px 10px;font-size:16px;line-height:22px}
-  html[data-view-mode="simple"] .t-body,html[data-view-mode="simple"] .t-body-strong{font-size:18px}
-  html[data-view-mode="simple"] .t-small,html[data-view-mode="simple"] .t-label{font-size:16px}
-  html[data-view-mode="simple"] #fail{position:relative;min-height:100dvh;padding:16px}
-  html[data-view-mode="simple"] .fail-panel{width:100%;padding:24px}
-  html[data-view-mode="details"] #phone-controls{position:fixed;z-index:50;top:0;left:0;right:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;background:var(--bg-0);padding:10px 16px;border-bottom:1px solid var(--line);font-size:16px;line-height:22px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) .t-body,html:is([data-view-mode="simple"],[data-view-mode="details"]) .t-body-strong{font-size:18px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) .t-small,html:is([data-view-mode="simple"],[data-view-mode="details"]) .t-label{font-size:16px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #fail{position:relative;min-height:100dvh;padding:16px}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) .fail-panel{width:100%;padding:24px}
   html[data-tour="running"][data-view-mode="simple"] #stage .tour-bar{position:relative;bottom:auto;order:3;width:100%;min-height:0;grid-template-columns:1fr;gap:10px;padding:16px}
   html[data-tour="running"][data-view-mode="simple"] #stage .tour-bar .tour-cap{font-size:18px;line-height:26px}
   html[data-tour="running"][data-view-mode="simple"] #view{height:auto}
 }
 @media(max-width:759px){
-  html[data-view-mode="simple"] #bar-actions{display:contents}
-  html[data-view-mode="simple"] #bar-actions .view-switch{order:1}
-  html[data-view-mode="simple"] #bar .scope{padding:0;min-width:100%;min-height:0;letter-spacing:0;font-weight:500}
-  html[data-view-mode="simple"] #bar-actions>[data-action="tour"]{position:static;order:3;margin-left:auto}
-  html[data-view-mode="simple"] #nav{order:4}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar-actions{display:contents}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar-actions .view-switch{order:1}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar .scope{padding:0;min-width:100%;min-height:0;letter-spacing:0;font-weight:500}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar-actions>[data-action="tour"]{position:static;order:3;margin-left:auto}
+  html:is([data-view-mode="simple"],[data-view-mode="details"]) #nav{order:4}
 }
 body[data-ui-demo] #phone-controls{display:none!important}
 
@@ -139,8 +138,8 @@ a{color:var(--earth)}
 :focus-visible{outline:3px solid var(--ivory);outline-offset:4px}
 
 @media(max-width:759px){
- html[data-view-mode="simple"] #bar .scope{order:2;flex:1;min-width:0;width:auto;max-width:calc(100% - 150px);font-size:13px;line-height:18px}
- html[data-view-mode="simple"] #bar-actions>[data-action="tour"]{order:2;font-size:14px;padding:4px 10px;min-height:44px;letter-spacing:0}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar .scope{order:2;flex:1;min-width:0;width:auto;max-width:calc(100% - 150px);font-size:13px;line-height:18px}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar-actions>[data-action="tour"]{order:2;font-size:14px;padding:4px 10px;min-height:44px;letter-spacing:0}
 }
 
 body{font-kerning:normal}
@@ -166,22 +165,40 @@ html[data-view-mode="simple"] #bar .scope{padding:0 0 0 18px;font-size:16px;line
 #foot .built{font-family:var(--mono);font-size:13px;white-space:nowrap}
 html[data-view-mode="simple"] #foot{font-size:16px;line-height:21px}
 @media(max-width:759px){
- html[data-view-mode="simple"] #bar{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:14px 16px 0}
- html[data-view-mode="simple"] #bar .brand{grid-column:1;grid-row:1;align-self:center;margin:0}
- html[data-view-mode="simple"] #bar .brand b{font-size:30px}
- html[data-view-mode="simple"] #bar-actions{display:contents}
- html[data-view-mode="simple"] #bar-actions .view-switch{grid-column:2;grid-row:1;justify-self:end}
- html[data-view-mode="simple"] #bar .scope{grid-column:1/-1;grid-row:2;display:block;max-width:none;width:100%;min-width:0;padding:0;border:0;font-size:16px;line-height:21px;color:var(--ivory-dim)}
- html[data-view-mode="simple"] #bar .scope span{display:block}
- html[data-view-mode="simple"] #bar-actions>[data-action="tour"]{grid-column:1/-1;grid-row:3;position:static;width:100%;margin:0;min-height:44px;font-size:16px;justify-content:space-between;background:var(--rust-deep);border-color:var(--rust-deep);color:var(--ivory)}
- html[data-view-mode="simple"] #nav{grid-column:1/-1;grid-row:4;display:flex;align-items:stretch;gap:0;margin:0 -16px;padding:0 8px;min-width:0;min-height:50px;width:calc(100% + 32px);overflow-x:auto;border-top:1px solid var(--line)}
- html[data-view-mode="simple"] #nav a{flex:0 0 auto;min-width:max-content;font-size:16px;padding:0 12px;gap:6px;min-height:48px}
- html[data-view-mode="simple"] #nav .n{width:auto;height:auto;font-size:12px;display:inline}
- html[data-view-mode="simple"] #view{padding-top:26px}
- html[data-view-mode="simple"] #foot{font-size:15px;line-height:21px}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:14px 16px 0}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar .brand{grid-column:1;grid-row:1;align-self:center;margin:0}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar .brand b{font-size:30px}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar-actions{display:contents}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar-actions .view-switch{grid-column:2;grid-row:1;justify-self:end}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar .scope{grid-column:1/-1;grid-row:2;display:block;max-width:none;width:100%;min-width:0;padding:0;border:0;font-size:16px;line-height:21px;color:var(--ivory-dim)}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar .scope span{display:block}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #bar-actions>[data-action="tour"]{grid-column:1/-1;grid-row:3;position:static;width:100%;margin:0;min-height:44px;font-size:16px;justify-content:space-between;background:var(--rust-deep);border-color:var(--rust-deep);color:var(--ivory)}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #nav{grid-column:1/-1;grid-row:4;display:flex;align-items:stretch;gap:0;margin:0 -16px;padding:0 8px;min-width:0;min-height:50px;width:calc(100% + 32px);overflow-x:auto;border-top:1px solid var(--line)}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #nav a{flex:0 0 auto;min-width:max-content;font-size:16px;padding:0 12px;gap:6px;min-height:48px}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #nav .n{width:auto;height:auto;font-size:12px;display:inline}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #view{padding-top:26px}
+ html:is([data-view-mode="simple"],[data-view-mode="details"]) #foot{font-size:15px;line-height:21px}
  #foot .built{white-space:normal;overflow-wrap:anywhere;font-size:12px}
 }
 
 .scene-host{position:relative;isolation:isolate;overflow:hidden;background:var(--bg-0)}
 .scene-canvas,.scene-still{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 #scene-host{position:absolute;inset:var(--bar-h) 0 var(--foot-h);z-index:0}
+
+@media(max-width:759px){
+ html[data-view-mode="details"],html[data-view-mode="details"] body{height:100%;overflow:hidden}
+ html[data-view-mode="details"] #viewport{position:fixed;inset:0 0 64px;overflow-y:auto;overflow-x:hidden;min-height:0;scroll-padding:16px}
+ html[data-view-mode="details"] #stage{min-height:calc(100dvh - 64px);overflow:visible}
+ html[data-view-mode="details"] #bar{flex:none}
+ html[data-view-mode="details"] #bar .brand{min-height:44px}
+ html[data-view-mode="details"] #nav .n{font-size:16px}
+ html[data-view-mode="details"] #view{font-size:18px;line-height:1.5;min-width:0;overflow:visible}
+ html[data-view-mode="details"] #foot,html[data-view-mode="details"] #foot .built{font-size:16px;line-height:1.5;white-space:normal;overflow-wrap:anywhere}
+ html[data-view-mode="details"] #si-attribution{font-size:16px;line-height:1.5}
+ html[data-view-mode="details"] #si-mark{min-height:44px;display:flex;align-items:center}
+ html[data-view-mode="details"] #si-attribution a{display:inline-flex;align-items:center;min-height:44px}
+}
+@media(max-width:759px){
+ html[data-view-mode="details"] #bar{position:sticky;top:0}
+ html[data-view-mode="details"] #viewport{scroll-padding-top:252px}
+}

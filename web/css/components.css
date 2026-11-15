@@ -375,3 +375,53 @@ input[type="range"]::-webkit-slider-runnable-track{background:var(--earth-deep)}
  html[data-view-mode="simple"] .simple-answer,html[data-view-mode="simple"] .answer-sentence{font-size:36px;line-height:1.1}
  html[data-view-mode="simple"] .cite{padding-left:4px;padding-right:4px}
 }
+
+@media(max-width:759px){
+ html[data-view-mode="details"] :is(#view,#drawer,dialog) :where(*){font-size:max(16px,1em);line-height:1.5;overflow-wrap:anywhere}
+ html[data-view-mode="details"] #view :is(h1,.t-display-1){font-size:32px;line-height:1.15;white-space:normal}
+ html[data-view-mode="details"] #view :is(h2,.panel-title,.triad-title){font-size:26px;line-height:1.2;white-space:normal}
+ html[data-view-mode="details"] #view h3{font-size:22px;line-height:1.3}
+ html[data-view-mode="details"] :is(#bar,#view,#drawer,dialog) :is(button,input,select,a[href],summary,[role="button"],[role="slider"],tr[tabindex]){min-height:44px;height:auto;max-width:100%;white-space:normal;font-size:18px;line-height:1.4}
+ html[data-view-mode="details"] :is(#view,#drawer,dialog) :is(button,a[href],summary){padding-top:10px;padding-bottom:10px}
+ html[data-view-mode="details"] #view input[type="range"]{height:44px;min-height:44px;touch-action:pan-y}
+ html[data-view-mode="details"] #view input[type="checkbox"]{width:44px;height:44px;min-width:44px;background-size:20px;vertical-align:middle}
+ html[data-view-mode="details"] input[type="range"]::-webkit-slider-thumb{width:28px;height:28px;margin-top:-11px}
+ html[data-view-mode="details"] input[type="range"]::-moz-range-thumb{width:24px;height:24px}
+ html[data-view-mode="details"] #view :is(.panel,.panel-body,.panel-scroll,.triad-col){height:auto;overflow:visible;flex:none;min-width:0}
+ html[data-view-mode="details"] #view .panel-head{flex-wrap:wrap;gap:12px;padding:16px 0}
+ html[data-view-mode="details"] #view .panel-body{padding:0 0 20px}
+ html[data-view-mode="details"] #view .panel-actions{flex-wrap:wrap;margin-left:0;max-width:100%}
+ html[data-view-mode="details"] #view :is(.chip,.tag,.reason,.cite){height:auto;white-space:normal;max-width:100%;flex-wrap:wrap}
+ html[data-view-mode="details"] #view .triad{grid-template-columns:minmax(0,1fr);height:auto;gap:16px}
+ html[data-view-mode="details"] #view :is(.triad-title,.triad-sub,.triad-text,.triad-decision,.triad-quote){white-space:normal;overflow:visible;display:block;-webkit-line-clamp:unset}
+ html[data-view-mode="details"] #view .triad-col{padding:18px}
+ html[data-view-mode="details"] #view .triad-head .chip{margin-left:0}
+ html[data-view-mode="details"] #view :is(.status-line,.scorebar-legend,.rangebar-text){white-space:normal}
+ html[data-view-mode="details"] #drawer{position:fixed;inset:0 0 64px;width:100%;height:calc(100dvh - 64px);transform:none;max-height:none}
+ html[data-view-mode="details"] #drawer-backdrop{position:fixed;inset:0 0 64px}
+ html[data-view-mode="details"] #drawer .dw-close{width:44px;height:44px;top:12px;right:12px;padding:0}
+ html[data-view-mode="details"] #drawer .dw-body{padding:24px 18px;gap:24px;overscroll-behavior:contain}
+ html[data-view-mode="details"] #drawer .dw-title{font-size:26px;line-height:1.3}
+ html[data-view-mode="details"] #drawer .dw-line{grid-template-columns:minmax(0,1fr);gap:4px}
+ html[data-view-mode="details"] #drawer .dw-table{table-layout:fixed;width:100%}
+ html[data-view-mode="details"] #drawer .dw-links{flex-direction:column;align-items:stretch}
+}
+@media(max-width:759px){
+ html[data-view-mode="details"] :is(#bar,#view,#drawer,dialog) :is(button,a[href],[role="button"]){min-width:44px}
+}
+@media(max-width:759px){
+ html[data-view-mode="details"] .wc-shell{inset:0 0 64px;height:calc(100dvh - 64px);padding:16px}
+ html[data-view-mode="details"] .wc-shell::backdrop{clip-path:inset(0 0 64px)}
+ html[data-view-mode="details"] .wc-source{max-height:calc(100dvh - 96px);width:100%;padding:16px}
+ html[data-view-mode="details"] .wc-values{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+@media(max-width:759px){
+ html[data-view-mode="details"] #drawer{padding-top:68px}
+ html[data-view-mode="details"] #drawer .dw-body{padding-top:12px}
+}
+@media(max-width:759px){
+ html[data-view-mode="details"] :is(#view,#drawer,dialog) .wc-title{font-size:26px;line-height:1.2}
+}
+@media(max-width:759px){
+ html[data-view-mode="details"] #drawer :is(.chip,.tag,.reason){height:auto;max-width:100%;white-space:normal;flex-wrap:wrap}
+}

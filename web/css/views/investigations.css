@@ -161,3 +161,39 @@
  .sms-table tr.is-selected th:first-child{padding-left:0}
  .sms-footer p{font-size:16px}
 }
+
+@media(max-width:759px){
+ html[data-view-mode="details"] .sm{height:auto;display:flex;flex-direction:column;gap:28px}
+ html[data-view-mode="details"] :is(.sm-left>.panel-body,.sm-right){overflow:visible;gap:20px}
+ html[data-view-mode="details"] :is(.sm-scroll,.sm-cmp-scroll,.sm-detail>.panel-body,.sm-compare,.sm-excluded){overflow:visible;max-height:none;flex:none}
+ html[data-view-mode="details"] .sm-check{align-items:center;padding:0}
+ html[data-view-mode="details"] .sm-filter{min-width:100%}
+ html[data-view-mode="details"] .sm-table,html[data-view-mode="details"] .sm-table :is(tbody,tr,td){display:block;width:100%;height:auto;overflow:visible;white-space:normal}
+ html[data-view-mode="details"] .sm-table thead{display:none}
+ html[data-view-mode="details"] .sm-table tr{padding:18px 12px;border-bottom:1px solid var(--line-strong)}
+ html[data-view-mode="details"] .sm-table td{border:0;padding:6px 0;text-align:left}
+ html[data-view-mode="details"] .sm-table td::before{display:block;font-weight:600;color:var(--ivory-dim)}
+ html[data-view-mode="details"] .sm-c-cmp::before{content:'Cmp'}
+ html[data-view-mode="details"] .sm-c-name::before{content:'Investigation'}
+ html[data-view-mode="details"] .sm-c-psi::before{content:'PSI'}
+ html[data-view-mode="details"] .sm-c-fam::before{content:'Family'}
+ html[data-view-mode="details"] .sm-c-fuels::before{content:'Fuels · form'}
+ html[data-view-mode="details"] .sm-c-o2::before{content:'O2 %'}
+ html[data-view-mode="details"] .sm-c-p::before{content:'Pressure psia (kPa)'}
+ html[data-view-mode="details"] .sm-c-flow::before{content:'Flow cm/s'}
+ html[data-view-mode="details"] .sm-c-n::before{content:'Rows'}
+ html[data-view-mode="details"] .sm-c-f::before{content:'F'}
+ html[data-view-mode="details"] .sm-cmp{table-layout:fixed}
+ html[data-view-mode="details"] .sm-cmp :is(th,td){width:auto!important;overflow-wrap:anywhere;padding:8px 4px;position:static}
+ html[data-view-mode="details"] .sm-cmp .sm-vals{max-height:none;overflow:visible}
+ html[data-view-mode="details"] .sm-line{grid-template-columns:minmax(0,1fr);gap:8px}
+ html[data-view-mode="details"] .sm-record-cite{white-space:normal}
+ html[data-view-mode="details"] .sm-link{max-width:100%}
+}
+@media(max-width:759px){
+ html[data-view-mode="details"] .sm-cmp :is(thead,tbody,tr,th,td){display:block;width:100%!important;text-align:left}
+ html[data-view-mode="details"] .sm-cmp tr{counter-reset:comparison;padding:12px 0;border-bottom:1px solid var(--line-strong)}
+ html[data-view-mode="details"] .sm-cmp :is(th,td){border:0;padding:10px 0}
+ html[data-view-mode="details"] .sm-cmp thead th:nth-child(n+2):not(:last-child)::before,html[data-view-mode="details"] .sm-cmp tbody td:not(:last-child)::before{counter-increment:comparison;content:counter(comparison) ' · ';display:block;font-weight:600;color:var(--ivory-dim)}
+ html[data-view-mode="details"] .sm-cmp .sm-verdict::before{content:'Same / differs: ';font-weight:600}
+}

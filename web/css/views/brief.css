@@ -234,3 +234,33 @@
  .bfs-summary-label,.bfs-limit{font-size:16px}
  .bfs-footer{font-size:16px;gap:16px;flex-direction:column;padding:28px 20px}
 }
+
+@media(max-width:759px){
+ html[data-view-mode="details"] .bf{height:auto;display:flex;flex-direction:column;gap:28px}
+ html[data-view-mode="details"] :is(.bf-hero,.bf-panels,.bfh-details,.bf-strip){display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+ html[data-view-mode="details"] .bf-drill{flex-wrap:wrap}
+ html[data-view-mode="details"] .bf .bf-drill-btn{padding:12px 16px}
+ html[data-view-mode="details"] .bfh-details .bfh-world{height:300px;grid-row:auto}
+ html[data-view-mode="details"] .bfh-details :is(.bfh-note,.bfh-evidence){grid-column:auto}
+ html[data-view-mode="details"] .bfh-details .bfh-controls{position:relative;inset:auto;padding:16px;background:var(--bg-0)}
+ html[data-view-mode="details"] .bfh-details .bfh-world{height:auto;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end}
+ html[data-view-mode="details"] .bfh-details .bfh-stage{position:relative;height:200px;inset:auto}
+ html[data-view-mode="details"] .bfh-details .bfh-world-label{position:static;padding:12px 16px;order:-1}
+ html[data-view-mode="details"] :is(.bf-foot,.bf-for,.bf-big){flex-wrap:wrap}
+ html[data-view-mode="details"] .bf-top-row{grid-template-columns:auto minmax(0,1fr);gap:10px}
+ html[data-view-mode="details"] .bf-top-row>*{grid-column:auto}
+ html[data-view-mode="details"] .bf-top-row :is(.bf-top-topic,.bf-top-level,.chip){grid-column:1/-1;justify-self:start}
+ html[data-view-mode="details"] .bf-legend{max-width:none}
+ html[data-view-mode="details"] .bf-arrow{min-width:44px}
+ html[data-view-mode="details"] .bf-rule-all{gap:8px}
+ html[data-view-mode="details"] .bf-open-links{align-items:stretch;flex-direction:column}
+ html[data-view-mode="details"] .bf-open-link{border:0;padding-left:0}
+ html[data-view-mode="details"] .bf-node{white-space:normal}
+ html[data-view-mode="details"] #view .bf-big-n{font-size:64px;line-height:1.1}
+}
+@media(max-width:759px){
+ html[data-view-mode="details"] .bf-sub-claim{display:block}
+ html[data-view-mode="details"] .bf-sub .quote{display:flex;align-items:flex-start;gap:4px;margin-top:8px}
+ html[data-view-mode="details"] .bf-sub .quote::after{align-self:flex-end}
+ html[data-view-mode="details"] .bf-sub .world-cite{flex:1;min-width:0}
+}

@@ -1,4 +1,3 @@
-// The page is one fixed 1920x1080 stage scaled to the viewport with a CSS transform, so a 1366 px laptop and the film see the same layout.
 export const STAGE = { w: 1920, h: 1080 };
 let scale = 1;
 export const stageScale = () => scale;
@@ -6,7 +5,7 @@ export const stageScale = () => scale;
 export function fitStage(stage) {
   const vw = document.documentElement.clientWidth || innerWidth, vh = document.documentElement.clientHeight || innerHeight;
   const phone = vw < 760;
-  const fluid = phone && stage.dataset.viewMode !== 'details';
+  const fluid = phone;
   document.documentElement.dataset.phone = phone ? 'true' : 'false';
   if (fluid) {
     scale = 1;

@@ -165,3 +165,23 @@
  .opn-volume dd{font-size:52px}
  .opn-volume dt{font-size:16px}
 }
+
+@media(max-width:759px){
+ html[data-view-mode="details"] :is(.opn-head,.opn-grid){height:auto;display:flex;flex-direction:column;gap:24px;align-items:stretch}
+ html[data-view-mode="details"] .opn-sub{white-space:normal;overflow:visible}
+ html[data-view-mode="details"] .opn-col>.panel>.panel-body{flex:none}
+ html[data-view-mode="details"] .opn-row{grid-template-columns:minmax(0,1fr);gap:8px;padding:16px 0}
+ html[data-view-mode="details"] :is(.opn-what,.opn-path,.opn-vhead code,.opn-vhead .opn-dim){white-space:normal;overflow:visible}
+ html[data-view-mode="details"] .opn-vhead{flex-wrap:wrap;align-items:center}
+ html[data-view-mode="details"] .opn-viewer{flex:none;min-height:180px;max-height:none}
+ html[data-view-mode="details"] #view .opn-pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:480px;overflow:auto;flex:none}
+ html[data-view-mode="details"] .opn-mcp .opn-tools{max-height:none;overflow:visible}
+ html[data-view-mode="details"] .opn-tool{grid-template-columns:minmax(0,1fr);gap:8px}
+ html[data-view-mode="details"] .opn-items{overflow:visible;max-height:none;flex:none}
+ html[data-view-mode="details"] .opn-files .btn-label{flex-wrap:wrap}
+}
+@media(max-width:759px){
+ html[data-view-mode="details"] #view .opn-grid,html[data-view-mode="details"] #view .opn-col{display:block;flex:none;height:auto}
+ html[data-view-mode="details"] #view .opn-col>.panel{flex:none;height:auto;margin-bottom:32px}
+ html[data-view-mode="details"] #view .opn-col>.panel>.panel-body{flex:none}
+}

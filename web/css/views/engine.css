@@ -167,3 +167,25 @@
  .eng-simple-limit .btn{font-size:19px}
  .eng-simple-status{font-size:16px}
 }
+
+@media(max-width:759px){
+ html[data-view-mode="details"] :is(.eng-head,.eng-flow,.eng-bottom){height:auto;display:flex;flex-direction:column;gap:24px;align-items:stretch}
+ html[data-view-mode="details"] .eng-motto{margin:0}
+ html[data-view-mode="details"] .eng-arrow{transform:rotate(90deg)}
+ html[data-view-mode="details"] :is(.eng-drawer,.eng-cover .panel-body,.eng-side .panel-body){overflow:visible;max-height:none;flex:none}
+ html[data-view-mode="details"] .eng-tab{height:auto}
+ html[data-view-mode="details"] :is(.eng-stat,.eng-sub){flex-wrap:wrap;white-space:normal}
+ html[data-view-mode="details"] .eng-table{table-layout:fixed;overflow-wrap:anywhere}
+ html[data-view-mode="details"] .eng-table :is(th,td){white-space:normal;padding:10px 4px}
+ html[data-view-mode="details"] .eng-table .eng-id,html[data-view-mode="details"] .eng-table .eng-q a{white-space:normal}
+ html[data-view-mode="details"] .eng-cov :is(tbody,tr,td,th){display:block;width:100%;text-align:left}
+ html[data-view-mode="details"] .eng-cov thead{display:none}
+ html[data-view-mode="details"] .eng-cov td:nth-child(2)::before{content:'PROVEN: '}
+ html[data-view-mode="details"] .eng-cov td:nth-child(3)::before{content:'EXTRAPOLATED: '}
+ html[data-view-mode="details"] .eng-cov td:nth-child(4)::before{content:'NEVER TESTED: '}
+ html[data-view-mode="details"] .eng-cov tr{padding:12px 0;border-bottom:1px solid var(--line-strong)}
+}
+@media(max-width:759px){
+ html[data-view-mode="details"] #view .eng-flow,html[data-view-mode="details"] #view .eng-bottom{flex:none;height:auto}
+ html[data-view-mode="details"] #view .eng-bottom>.panel{flex:none}
+}
