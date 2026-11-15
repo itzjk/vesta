@@ -25,13 +25,41 @@ export async function build(ctx) {
     return el;
   };
   const overlay = make('section', 'field-labels field-instrument');
+  const embedded = host.classList.contains('design-field-viewport');
+  overlay.dataset.embedded = String(embedded);
   overlay.setAttribute('aria-label', 'Tested conditions');
   const style = make('style', '');
   style.textContent = `
 .field-instrument.field-labels{position:absolute!important;inset:80px 100px 140px 32px!important;max-width:1100px;margin:auto;z-index:8!important;pointer-events:none!important;overflow:visible!important;display:flex;flex-direction:column;color:#f0e8d9;font:16px/1.35 var(--font-body,'Source Sans 3',sans-serif);box-shadow:0 12px 40px #0007;isolation:isolate}
 .field-instrument[hidden]{display:none!important}.field-instrument *{box-sizing:border-box}.field-heading,.field-gravities,.field-caption,.field-key{background:#172126}.field-heading{padding:16px 22px 12px;border-top:2px solid #b98564;display:flex;align-items:center;justify-content:space-between;gap:16px}.field-heading h2{font:500 26px/1.15 var(--font-body,'Source Sans 3',sans-serif);margin:0}.field-cabin-readout{color:#eeb38d;font-size:15px;text-align:right}.field-gravities{padding:0 18px 12px;display:flex;gap:6px;pointer-events:auto}.field-gravities button{flex:1;min-height:48px;padding:6px 8px;border:1px solid #65727a;background:#172126;color:#d0d9dc;font:inherit;cursor:pointer;touch-action:manipulation}.field-gravities button[aria-pressed=true]{border-color:#f0b68e;background:#65402d;color:#fff2df}.field-gravities button small{display:block;font-size:13px;color:inherit}.field-instrument button:focus-visible{outline:2px solid #fff;outline-offset:2px}.field-chart{position:relative;flex:1;min-height:150px}.field-plot{position:absolute;inset:34px 72px 56px 64px;border-left:1px solid #9aa7aa;border-bottom:1px solid #9aa7aa}.field-grid{position:absolute;background:#a6b8c01b;pointer-events:none}.field-grid-x{top:0;bottom:0;width:1px}.field-grid-y{left:0;right:0;height:1px}.field-axis-text{position:absolute;font-size:14px;color:#dbe0dc;white-space:nowrap}.field-x-title{bottom:5px;left:64px}.field-y-title{left:20px;top:7px}.field-tick-text{position:absolute;font:13px/1 var(--font-body,'Source Sans 3',sans-serif);color:#bac7cd}.field-tick-x{top:calc(100% + 10px);transform:translateX(-50%)}.field-tick-y{right:calc(100% + 10px);transform:translateY(50%)}.field-unknown-pressure{position:absolute;top:0;bottom:0;right:-38px;width:1px;background:#94a5b25c}.field-unknown-pressure span{position:absolute;top:-22px;left:-27px;padding-top:0;font-size:11px;color:#bac7cd;white-space:nowrap}.field-empty{position:absolute;inset:10px 12px;display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;gap:10px;color:#dbe0dc;font-size:18px;line-height:1.35}.field-empty[hidden]{display:none}.field-empty strong{font-size:24px;font-weight:500}.field-empty button{pointer-events:auto;min-height:44px;padding:8px 12px;border:1px solid #a17d60;background:#263238;color:#f0e8d9;font:inherit;cursor:pointer}.field-cabin-tag{position:absolute;max-width:200px;padding:5px 8px;background:#10191ef0;color:#ffc69c;font-size:14px;border-left:2px solid #ffc69c;white-space:normal;transform:translate(12px,-100%)}.field-cabin-tag[data-other=true]{border-left-style:dashed;color:#d8c2aa}.field-caption{margin:0;padding:12px 22px 6px;font-size:18px;line-height:1.3}.field-caption strong{color:#efb087;font-weight:500}.field-key{display:flex;flex-wrap:wrap;gap:5px 18px;padding:8px 22px 16px;font-size:13px;color:#b6c3c9}.field-key span:first-child{color:#efb087}.field-row-readout{position:absolute;left:18px;right:18px;bottom:4px;max-width:650px;padding:10px 14px;background:#172126f5;border-left:2px solid #efb087;color:#ede4d4;font-size:15px;pointer-events:none}.field-row-readout[hidden]{display:none}
 @media(max-width:759px){.field-instrument.field-labels{inset:74px 12px 158px!important;max-width:none}.field-heading{padding:12px 12px 10px;display:block}.field-heading h2{font-size:22px}.field-cabin-readout{text-align:left;font-size:13px;margin-top:4px}.field-gravities{padding:0 10px 10px;gap:4px}.field-gravities button{font-size:14px;padding:5px 2px;min-height:48px}.field-gravities button small{font-size:11px}.field-plot{inset:32px 50px 51px 45px}.field-y-title{left:10px}.field-x-title{left:45px;font-size:12px}.field-axis-text{font-size:13px}.field-tick-text{font-size:12px}.field-unknown-pressure{right:-23px}.field-unknown-pressure span{left:-22px;font-size:10px}.field-caption{font-size:16px;padding:10px 12px 5px}.field-key{padding:7px 12px 12px;font-size:11px;gap:4px 12px}.field-cabin-tag{font-size:12px;max-width:150px}.field-empty{font-size:14px;inset:10px 0}.field-empty strong{font-size:20px}.field-empty button{font-size:14px}.field-row-readout{left:8px;right:8px;font-size:13px}}
-@media(max-height:580px){.field-instrument.field-labels{inset:52px 72px 64px 12px!important}.field-heading{padding:6px 12px;display:flex}.field-heading h2{font-size:18px}.field-gravities{padding-bottom:4px}.field-gravities button{min-height:44px}.field-gravities button small{display:none}.field-chart{min-height:90px}.field-caption{font-size:14px;padding:6px 12px}.field-key{padding:3px 12px 6px;font-size:11px}}
+@media(max-height:580px){.field-instrument.field-labels{inset:52px 72px 64px 12px!important}.field-heading{padding:6px 12px;display:flex}.field-heading h2{font-size:18px}.field-gravities{padding-bottom:4px}.field-gravities button{min-height:44px}.field-gravities button small{display:block}.field-chart{min-height:90px}.field-caption{font-size:14px;padding:6px 12px}.field-key{padding:3px 12px 6px;font-size:11px}}
+
+.field-instrument :is(.field-heading,.field-gravities,.field-caption,.field-key){flex-shrink:0}
+.design-field-viewport:has(>.field-instrument[data-embedded=true]){height:auto!important;min-height:680px!important;flex:none!important}
+.field-instrument.field-labels[data-embedded=true]{position:relative!important;inset:auto!important;margin:0;max-width:none;width:100%;min-height:680px}
+.field-instrument[data-embedded=true] .field-chart{min-height:340px}
+.field-instrument[data-embedded=true] .field-empty button{min-height:calc(45px / var(--stage-scale,1))}
+.design-layout:has(.field-instrument){height:auto;grid-template-rows:40px auto minmax(850px,auto) 220px 30px}
+#view.design-view:has(.field-instrument){overflow-y:auto!important}
+.design-envelope:has(.field-instrument){min-height:850px}
+.design-map-body:has(.field-instrument){overflow:visible!important}
+@media(max-width:759px){.field-instrument[data-embedded=true] .field-chart{min-height:484px}.field-instrument[data-embedded=true] .field-gravities button{min-width:0}.field-instrument[data-embedded=true] .field-empty{gap:10px}.field-instrument[data-embedded=true] .field-empty button{min-height:44px}}
+@media(max-width:759px){
+html[data-view-mode=details] #view .field-instrument :is(.field-tick-text,.field-axis-text,.field-unknown-pressure span){font-size:16px;line-height:1.2;overflow-wrap:normal;white-space:nowrap;max-width:none}
+html[data-view-mode=details] #view .field-instrument .field-tick-text{line-height:1}
+html[data-view-mode=details] #view .field-instrument .field-gravities{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+html[data-view-mode=details] #view .field-instrument .field-gravities button{font-size:16px;line-height:1.25;padding:8px 4px;min-height:64px;white-space:nowrap;overflow-wrap:normal}
+html[data-view-mode=details] #view .field-instrument .field-gravities small{font-size:16px;line-height:1.25;white-space:nowrap;overflow-wrap:normal}
+html[data-view-mode=details] #view .field-instrument .field-plot{inset:48px 50px 76px 45px}
+html[data-view-mode=details] #view .field-instrument .field-unknown-pressure span{left:auto;right:0;top:-30px}
+html[data-view-mode=details] #view .field-instrument .field-x-title{bottom:8px;left:12px}
+html[data-view-mode=details] #view .field-instrument .field-cabin-tag{font-size:16px;line-height:1.25;overflow-wrap:normal}
+html[data-view-mode=details] #view .field-instrument .field-empty{font-size:16px;line-height:1.35}
+html[data-view-mode=details] #view .field-instrument .field-empty strong{font-size:20px;line-height:1.2}
+html[data-view-mode=details] #view .field-instrument .field-key{font-size:16px;line-height:1.35}
+}
+
 `;
   const heading = make('header', 'field-heading'), title = make('h2', '', 'Tested conditions');
   const readout = make('div', 'field-cabin-readout'); heading.append(title, readout);
@@ -135,6 +163,38 @@ export async function build(ctx) {
     axes(q); clearHover(); layoutKey = '';
     host.dataset.fieldRows = String(data.length); host.dataset.fieldVisibleRows = String(visibleRows.length); host.dataset.fieldMatches = String(matching); host.dataset.fieldGravity = gravity; host.dataset.fieldMinPointPx = '9';
   }
+  function fitCabin(at) {
+    empty.style.justifyContent = '';
+    const rect = plot.getBoundingClientRect();
+    const marker = { left: rect.left + at.x * rect.width - 12, right: rect.left + at.x * rect.width + 12, top: rect.bottom - at.y * rect.height - 12, bottom: rect.bottom - at.y * rect.height + 12 };
+    const intersects = (a, b, gap = 6) => a.left < b.right + gap && a.right > b.left - gap && a.top < b.bottom + gap && a.bottom > b.top - gap;
+    const messageRects = () => empty.hidden ? [] : [...empty.children].filter(el => !el.hidden).map(el => el.getBoundingClientRect());
+    if (messageRects().some(r => intersects(marker, r))) {
+      for (const alignment of ['flex-start', 'flex-end']) {
+        empty.style.justifyContent = alignment;
+        if (!messageRects().some(r => intersects(marker, r))) break;
+      }
+    }
+    const message = messageRects();
+    const markerFits = marker.left >= rect.left && marker.right <= rect.right && marker.top >= rect.top && marker.bottom <= rect.bottom && !message.some(r => intersects(marker, r));
+    cabin.visible = markerFits; core.visible = markerFits && cabinLabel.dataset.other !== 'true';
+    tolerance.visible = markerFits && cabinLabel.dataset.other !== 'true';
+    host.dataset.fieldCabinMarker = markerFits ? 'visible' : 'hidden-for-text';
+    const label = cabinLabel.getBoundingClientRect();
+    const obstacles = [...message, ...chart.querySelectorAll('.field-axis-text,.field-tick-text,.field-unknown-pressure span')].map(el => el.getBoundingClientRect ? el.getBoundingClientRect() : el);
+    const fits = r => r.left >= rect.left + 3 && r.right <= rect.right - 3 && r.top >= rect.top + 3 && r.bottom <= rect.bottom - 3 && !obstacles.some(o => intersects(r, o));
+    if (fits(label)) return;
+    const lefts = [marker.right + 12, marker.left - label.width - 12, rect.left + 6, rect.right - label.width - 6];
+    const tops = [marker.top - label.height - 4, marker.bottom + 4, rect.top + 6, rect.bottom - label.height - 6];
+    const candidates = lefts.flatMap(left => tops.map(top => ({ left, top, right: left + label.width, bottom: top + label.height }))).filter(fits);
+    candidates.sort((a, b) => Math.hypot(a.left - label.left, a.top - label.top) - Math.hypot(b.left - label.left, b.top - label.top));
+    if (candidates.length) {
+      const next = candidates[0];
+      cabinLabel.style.left = `${(next.left - rect.left) / rect.width * 100}%`;
+      cabinLabel.style.bottom = `${(rect.bottom - next.bottom) / rect.height * 100}%`;
+      cabinLabel.style.transform = 'none';
+    }
+  }
   let lastTime = 0;
   function update(t, state) {
     if (!state.db || !state.q) return;
@@ -180,7 +240,8 @@ export async function build(ctx) {
         const l = x(Math.max(pMin, (q.p - TOL.p) / KPA_PER_PSI)), r = x(Math.max(pMin, (q.p + TOL.p) / KPA_PER_PSI));
         const b = y(Math.max(oMin, q.o2 - TOL.o2)), top = y(Math.min(oMax, q.o2 + TOL.o2));
         tolerance.position.set(((l + r) / 2 - .5) * w, ((b + top) / 2 - .5) * h, 0); tolerance.scale.set((r - l) * w, (top - b) * h, 1);
-      } else tolerance.visible = false;
+        fitCabin(at);
+      } else { tolerance.visible = false; host.dataset.fieldCabinMarker = 'hidden-invalid'; }
     }
     instrument.updateWorldMatrix(false, true);
     host.dataset.fieldCabin = cabin.position.toArray().map(n => n.toFixed(3)).join(','); host.dataset.fieldCamera = camera.position.toArray().map(n => n.toFixed(3)).join(',');
