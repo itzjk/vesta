@@ -90,6 +90,24 @@
 .coverage-wall .coverage-score-note,.coverage-wall .coverage-score-terms p{font-size:14px;line-height:1.4;color:var(--ivory-dim)}
 .coverage-wall .coverage-score-terms p{margin:8px 0!important}
 .evidence-console[data-evidence-panel=sample]:has(.coverage-score-why[open]) .world-guide-intro.world-guide-in-panel{position:static!important}
+.evidence-workspace .evidence-console[data-evidence-panel=sample] .coverage-wall[data-detail=true] :is(.coverage-header,.coverage-legend,.coverage-overview){display:none!important}
+.evidence-workspace .evidence-console[data-evidence-panel=sample] .coverage-wall .coverage-detail{padding:0;border:0}
+.evidence-question-tools{margin:0 0 8px!important}
+.evidence-question-tools>summary{min-height:44px;padding:8px 0;font-size:15px;cursor:pointer}
+.evidence-question-tools .evidence-workspace-nav{margin-top:8px}
+.coverage-wall .coverage-question-cabin{font-size:15px;color:var(--ivory-dim);margin:8px 0!important}
+.coverage-wall .coverage-question-meaning{font-size:17px;line-height:1.4;margin:8px 0!important;max-width:70ch}
+.coverage-review-actions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}
+.coverage-wall .coverage-review-actions button{min-height:44px;padding:9px 12px;background:#253238;border:1px solid #b99c70;border-radius:3px;font-size:16px;text-align:left}
+.coverage-wall .coverage-review-actions button:first-child{background:#754832;border-color:#d5a575;color:#f5eadc}
+.coverage-wall .coverage-review-status{font-size:14px;color:#dfc49b;margin:8px 0!important}
+.coverage-wall .coverage-question-limits,.coverage-wall .coverage-nearest-order{margin:8px 0}
+.coverage-wall :is(.coverage-question-limits,.coverage-nearest-order)>summary{min-height:44px;padding:10px 0;font-size:15px;cursor:pointer}
+.coverage-wall :is(.coverage-question-limits,.coverage-nearest-order) p{font-size:15px;line-height:1.45;margin:8px 0!important}
+@media(max-width:759px){
+ .coverage-wall .coverage-review-actions button{flex:1 1 44%;font-size:15px;padding:8px}
+ .evidence-workspace .coverage-wall .coverage-detail h3{font-size:22px;line-height:1.2}
+}
 @media(max-width:759px){
  .coverage-wall .coverage-score-parts{font-size:14px;line-height:1.3;gap:2px 12px;margin:8px 0}
  .coverage-wall .coverage-score-formula{padding:8px 0}

@@ -4,12 +4,28 @@ import fs from 'node:fs';
 import * as index from '../../web/js/core/index.js';
 import * as status from '../../web/js/core/status.js';
 import { readQ, patchQ, parseHash, withSticky } from '../../web/js/router.js';
-import { destinations, cabinSummary, headline, stationHash } from '../../web/js/world/welcome.js';
+import { destinations, cabinSummary, headline, stationHash, reviewQuestion, reviewQuestionText } from '../../web/js/world/welcome.js';
 
 const names = ['tests', 'findings', 'presets'];
 const raw = Object.fromEntries(names.map(name => [name, JSON.parse(fs.readFileSync(new URL(`../../web/data/${name}.json`, import.meta.url), 'utf8'))]));
 const db = index.buildIndex(raw);
 const core = { index, status };
+
+test('a missing or invalid material offers a labelled suggestion and preserves a valid concern', () => {
+  for (const material of [null, '', 'not-indexed']) {
+    const q = { ...index.presetPoint(db, 'lunar-base'), material, concern: 'detection' };
+    const before = JSON.stringify(q);
+    assert.deepEqual(reviewQuestion(q, db), { material: 'pmma', concern: 'detection' });
+    assert.match(reviewQuestionText(q, db), /^Suggested starting question: PMMA · detection$/);
+    assert.equal(JSON.stringify(q), before, 'A suggestion must not silently select a material or change the cabin.');
+  }
+  const invalid = { material: null, concern: 'not-a-concern' };
+  assert.deepEqual(reviewQuestion(invalid, db), { material: 'pmma', concern: 'prevention' });
+  const chosen = { material: 'kapton', concern: 'suppression' };
+  assert.deepEqual(reviewQuestion(chosen, db), chosen);
+  assert.doesNotMatch(reviewQuestionText(chosen, db), /Suggested/);
+  assert.equal(reviewQuestion(invalid, { materials: {} }), null);
+});
 
 test('welcome offers only the real cabin presets, excluding markers and incomplete records', () => {
   assert.deepEqual(destinations(db).map(p => p.id), db.presets.map(p => p.id));

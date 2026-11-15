@@ -260,6 +260,14 @@ export function createInventoryReviewPanel({ db, onRun, onCancel, onReset, onEvi
     view.title.scrollIntoView({ block: 'start', behavior: 'auto' });
     return true;
   }
+  function setMaterials(ids) {
+    if (disposed || !Array.isArray(ids) || ids.some(id => !checkboxes.has(id))) return false;
+    const wanted = new Set(ids);
+    for (const [id, check] of checkboxes) check.checked = wanted.has(id);
+    selectionTouched = true;
+    refreshControls();
+    return true;
+  }
   update(null);
-  return { element, update, focusQuestion, dispose() { if (disposed) return; disposed = true; clearResults(); cleanups.splice(0).forEach(remove => remove()); report = null; element.remove(); } };
+  return { element, update, focusQuestion, setMaterials, dispose() { if (disposed) return; disposed = true; clearResults(); cleanups.splice(0).forEach(remove => remove()); report = null; element.remove(); } };
 }

@@ -1,12 +1,13 @@
 import { num, gravity } from '../core/text.js';
 import { buildHash } from '../router.js';
+import { CONCERNS } from '../core/index.js';
 
 const stations = [
   { id: 'flame', route: 'brief', name: 'Flame', action: 'See how fire changes' },
   { id: 'evidence', route: 'design', name: 'Evidence', action: 'Find your evidence gaps' },
   { id: 'drill', route: 'incident', name: 'Drill', action: 'Rehearse a scripted response' },
   { id: 'trust', route: 'engine', name: 'Trust', action: 'Inspect how VESTA decides' },
-  { id: 'robotics', route: 'engine', name: 'Robotics', action: 'Explore the digital inspection lab' }
+  { id: 'robotics', route: 'engine', name: 'Space lab', action: 'Review evidence with the robot' }
 ];
 const validPoint = q => q && Number.isFinite(q.o2) && Number.isFinite(q.p) && q.gclass && (q.g_label || q.g);
 const node = (tag, className, text) => {
@@ -45,11 +46,24 @@ export function stationHash(id, q) {
   return buildHash(station.route, params);
 }
 
+export function reviewQuestion(q, db) {
+  if (db?.materials?.[q?.material] && CONCERNS.includes(q?.concern)) return { material: q.material, concern: q.concern };
+  return db?.materials?.pmma ? { material: 'pmma', concern: CONCERNS.includes(q?.concern) ? q.concern : 'prevention' } : null;
+}
+
+export function reviewQuestionText(q, db) {
+  const choice = reviewQuestion(q, db);
+  if (!choice) return 'A material question is unavailable in this collection.';
+  const label = `${db.materials[choice.material].label} · ${choice.concern}`;
+  return choice.material === q?.material && choice.concern === q?.concern
+    ? `${label} · this cabin` : `Suggested starting question: ${label}`;
+}
+
 export function build(world) {
   if (!document.querySelector('link[data-vesta-welcome]')) {
     const sheet = node('link');
     sheet.rel = 'stylesheet';
-    sheet.href = new URL('../../css/welcome.css?v=2', import.meta.url).href;
+    sheet.href = new URL('../../css/welcome.css?v=question-lab-20261115-3', import.meta.url).href;
     sheet.dataset.vestaWelcome = '';
     document.head.append(sheet);
   }
@@ -59,9 +73,9 @@ export function build(world) {
   const brand = node('p', 'vesta-welcome-brand', 'VESTA');
   const intro = node('p', 'vesta-welcome-intro');
   intro.append(world.cite('NASA microgravity fire evidence', 'investigation-counts'), ', compared with your mission cabin.');
-  const title = node('h2', 'vesta-welcome-title', 'Where are you going?');
+  const title = node('h2', 'vesta-welcome-title', 'Which NASA evidence applies to this cabin?');
   const label = node('label', 'vesta-welcome-destination');
-  label.append(node('span', 'vesta-welcome-label', 'Your cabin for the journey'));
+  label.append(node('span', 'vesta-welcome-label', 'Mission cabin'));
   const select = node('select', 'vesta-welcome-select');
   select.setAttribute('aria-label', 'Mission cabin');
   const available = destinations(world.db);
@@ -88,10 +102,25 @@ export function build(world) {
   const conditions = node('p', 'vesta-welcome-conditions');
   const coverage = node('p', 'vesta-welcome-coverage');
   const meaning = node('p', 'vesta-welcome-meaning', "Coverage in VESTA's collection, not safety.");
-  live.append(conditions, coverage, meaning);
-  const nav = node('nav', 'vesta-welcome-nav');
-  nav.setAttribute('aria-label', 'Explore VESTA');
-  nav.append(node('p', 'vesta-welcome-label', 'Where next?'));
+  live.append(conditions, meaning);
+  const questionControls = node('div', 'vesta-welcome-question-controls');
+  const materialSelect = node('select', 'vesta-welcome-select'), concernSelect = node('select', 'vesta-welcome-select');
+  for (const [control, text] of [[materialSelect, 'Material'], [concernSelect, 'Question']]) {
+    const wrapper = node('label'); wrapper.append(node('span', 'vesta-welcome-label', text), control);
+    control.setAttribute('aria-label', text); questionControls.append(wrapper);
+  }
+  for (const [id, m] of Object.entries(world.db.materials)) { const option = node('option', '', m.label); option.value = id; materialSelect.append(option); }
+  for (const concern of CONCERNS) { const option = node('option', '', concern[0].toUpperCase() + concern.slice(1)); option.value = concern; concernSelect.append(option); }
+  const selectedQuestion = node('p', 'vesta-welcome-question');
+  const questionEdit = node('details', 'vesta-welcome-edit'); questionEdit.append(node('summary', '', 'Change material or question'), questionControls);
+  const review = node('button', 'vesta-welcome-review', 'Review this question'); review.type = 'button';
+  review.dataset.welcomeReview = '';
+  const outcome = node('p', 'vesta-welcome-output', 'Read the source. Compare its conditions. Save a review note.');
+  const coverageDetails = node('details', 'vesta-welcome-collection'); coverageDetails.append(node('summary', '', 'Whole-cabin coverage'), coverage);
+  // Keep this a direct child: the existing gravity walkthrough inserts its launcher before it.
+  const nav = node('details', 'vesta-welcome-nav');
+  nav.setAttribute('aria-label', 'Explore VESTA stations');
+  nav.append(node('summary', '', 'Explore all stations'));
   for (const station of stations) {
     const link = node('a', 'vesta-welcome-link');
     link.href = stationHash(station.id);
@@ -105,11 +134,15 @@ export function build(world) {
     }, { signal: controller.signal });
     nav.append(link);
   }
-  element.append(brand, intro, title, label, live, nav);
+  element.append(brand, title, intro, label, live, selectedQuestion, review, outcome, questionEdit, coverageDetails, nav);
   let current, disposed = false;
   function update(q = world.q) {
     if (disposed) return;
     current = q;
+    const choice = reviewQuestion(q, world.db);
+    review.disabled = !choice || !validPoint(q);
+    materialSelect.value = choice?.material || ''; concernSelect.value = choice?.concern || '';
+    selectedQuestion.textContent = reviewQuestionText(q, world.db);
     for (const link of nav.querySelectorAll('[data-welcome-station]')) link.href = stationHash(link.dataset.welcomeStation, q);
     const preset = available.find(p => p.id === q?.preset);
     custom.hidden = q?.preset !== 'custom';
@@ -125,8 +158,22 @@ export function build(world) {
       conditions.textContent = available.length ? 'Coverage unavailable for this cabin.' : 'Cabin evidence unavailable.';
     }
     coverage.hidden = !summary;
+    coverageDetails.hidden = !summary;
     meaning.hidden = !summary;
   }
+  const changeQuestion = () => {
+    const patch = { material: materialSelect.value, concern: concernSelect.value };
+    world.setQ(patch, { render: false }); update({ ...current, ...patch });
+  };
+  materialSelect.addEventListener('change', changeQuestion, { signal: controller.signal });
+  concernSelect.addEventListener('change', changeQuestion, { signal: controller.signal });
+  review.addEventListener('click', () => {
+    const question = reviewQuestion(current, world.db);
+    if (!question || !validPoint(current)) return;
+    world.setQ(question, { render: false });
+    if (world.navigate) world.navigate('evidence', { evidenceQuestion: question });
+    else world.go(stationHash('evidence', { ...current, ...question }));
+  }, { signal: controller.signal });
   select.addEventListener('change', () => {
     const preset = available.find(p => p.id === select.value);
     if (!preset) return;

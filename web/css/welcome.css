@@ -31,9 +31,38 @@
 .vesta-welcome .vesta-welcome-link:focus-visible,.vesta-welcome .vesta-welcome-select:focus-visible,.vesta-welcome button:focus-visible{outline:2px solid var(--earth);outline-offset:3px}
 .vesta-welcome button.world-cite{display:inline;min-height:0;border:0;border-radius:0;padding:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;text-decoration:underline dotted var(--earth);text-underline-offset:4px}
 .vesta-welcome [hidden]{display:none!important}
+.vesta-welcome .vesta-welcome-title{font-size:clamp(23px,2.5vw,30px);max-width:25ch;line-height:1.15;margin-bottom:10px}
+.vesta-welcome .vesta-welcome-intro{font-size:16px;margin-bottom:16px}
+.vesta-welcome .vesta-welcome-result{margin:10px 0 14px}
+.vesta-welcome .vesta-welcome-conditions{font-size:17px;margin-bottom:4px}
+.vesta-welcome .vesta-welcome-meaning,.vesta-welcome .vesta-welcome-output{font-size:14px;color:var(--ivory-dim);line-height:1.4}
+.vesta-welcome-question-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.vesta-welcome-question-controls label{min-width:0}
+.vesta-welcome .vesta-welcome-question-controls select{font-size:16px}
+.vesta-welcome .vesta-welcome-question{font-size:16px;margin:12px 0 8px}
+.vesta-welcome-review{width:100%;min-height:48px;padding:10px 16px;background:#835039;border:1px solid #cba276;border-radius:4px;color:#f4ebdc;font:600 17px/1.3 var(--font);cursor:pointer}
+.vesta-welcome-review:disabled{opacity:.5;cursor:default}
+.vesta-welcome .vesta-welcome-output{margin:8px 0 12px}
+.vesta-welcome :is(.vesta-welcome-nav,.vesta-welcome-collection,.vesta-welcome-edit){display:block;border-top:1px solid var(--line);margin-top:8px}
+.vesta-welcome :is(.vesta-welcome-nav,.vesta-welcome-collection,.vesta-welcome-edit)>summary{min-height:44px;padding:10px 0;font-size:15px;cursor:pointer}
+.vesta-welcome .vesta-welcome-collection .vesta-welcome-coverage{font-size:15px;padding-bottom:12px}
+.world-host[data-station=transit] .world-welcome{max-height:calc(100% - 170px);padding:16px}
+.world-host[data-station=transit] .world-welcome .vesta-welcome-brand{display:none}
+.world-host[data-station=transit] .world-welcome .vesta-welcome-nav{display:block}
+.world-host[data-station=transit] .world-welcome .vesta-welcome-intro{font-size:15px;margin-bottom:12px}
+.world-host[data-station=transit] .world-welcome .vesta-welcome-title{font-size:25px;line-height:1.15;margin-bottom:8px}
+@media(max-width:759px){
+ html[data-world=true] .world-host[data-station=transit] .world-welcome{top:84px;bottom:auto;left:12px;width:calc(100% - 24px);max-height:calc(100% - 220px);padding:14px}
+ html[data-world=true] .world-host[data-station=transit] .world-guide-intro,
+ html[data-world=true] .world-host[data-station=transit] .world-answer{display:none}
+ .world-host[data-station=transit] .world-welcome .vesta-welcome-title{font-size:23px}
+ .world-host[data-station=transit] .world-welcome .vesta-welcome-intro{font-size:14px;line-height:1.35;margin-bottom:10px}
+ .world-host[data-station=transit] .world-welcome .vesta-welcome-result{margin:8px 0}
+ .world-host[data-station=transit] .world-welcome .vesta-welcome-output{font-size:13px}
+}
 @media(max-width:600px){
-  .vesta-welcome .vesta-welcome-intro{font-size:20px;margin-bottom:18px}
-  .vesta-welcome .vesta-welcome-title{font-size:30px}
-  .vesta-welcome .vesta-welcome-result{margin:14px 0 18px}
+  .vesta-welcome .vesta-welcome-intro{font-size:15px;margin-bottom:12px}
+  .vesta-welcome .vesta-welcome-title{font-size:24px}
+  .vesta-welcome .vesta-welcome-result{margin:10px 0 12px}
   .vesta-welcome .vesta-welcome-link{grid-template-columns:76px minmax(0,1fr);gap:8px}
 }

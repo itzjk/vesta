@@ -69,7 +69,10 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
       for (let i = 0; i < 3; i++) { const cx = x + 80 + i * 128; rect(cx - 57, y + 34, 114, 92, '#8f8b7e'); rect(cx - 52, y + 39, 104, 82, '#2a343a'); }
     }
     { // Crew-review console, the face towards the room.
-      const [x, y, w] = P.console; rect(x, y, w, 272, '#1f292e'); rect(x, y, w, 58, '#11181c'); text('CREW REVIEW STATION', x + w / 2, y + 30, 29, '#ece4cf', 'center');
+      const [x, y, w] = P.console; rect(x, y, w, 272, '#1f292e'); rect(x, y, w, 58, '#11181c');
+      // Printed place identity only: the live screen retains the actual review state.
+      text('SPACE LAB', x + w / 2, y + 20, 29, '#ece4cf', 'center');
+      text('EVIDENCE BENCH', x + w / 2, y + 44, 16, '#9db0b4', 'center');
       door(x + 10, y + 68, 194, 150); door(x + 212, y + 68, 194, 150); pull(x + 72, y + 90, 70); pull(x + 274, y + 90, 70); rect(x + 28, y + 150, 80, 34, '#c9c2b0'); rect(x + 230, y + 150, 80, 34, '#c9c2b0');
       rect(x + 10, y + 228, w - 20, 34, '#11181c'); for (let i = 0; i < 14; i++) rect(x + 24 + i * 27, y + 238, 14, 14, '#0a0f12');
     }

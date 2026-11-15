@@ -6,13 +6,13 @@ import { createStage } from '../scene/engine.js?v=habitat-20261115-1';
 import { build as buildVesta } from '../scene/vesta.js';
 import { createHolograms } from './holo.js?v=habitat-20261115-1';
 import { buildHash } from '../router.js';
-import { createGuide } from './guide.js?v=trust-explore-20261115-1';
+import { createGuide } from './guide.js?v=question-lab-20261115-3';
 import { createVideoCases } from './cases.js';
-import { build as buildWelcome } from './welcome.js';
+import { build as buildWelcome } from './welcome.js?v=question-lab-20261115-3';
 import { createMissionBrief, STATION_AGENTS } from './mission.js?v=crew-workspace-20261115-1';
 
 if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-welcome]')) {
-  const sheet = document.createElement('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/welcome.css?v=2', import.meta.url).href; sheet.dataset.vestaWelcome = ''; document.head.append(sheet);
+  const sheet = document.createElement('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/welcome.css?v=question-lab-20261115-3', import.meta.url).href; sheet.dataset.vestaWelcome = ''; document.head.append(sheet);
 }
 
 export const STATIONS = [
@@ -21,7 +21,7 @@ export const STATIONS = [
   { id: 'evidence', route: 'design', origin: [12, 0, 0], position: [12, 1, 10], target: [12, .1, 0], label: 'Evidence' },
   { id: 'drill', route: 'incident', origin: [25, 0, 0], position: [25, .5, 8.4], target: [25, .1, 0], label: 'Drill' },
   { id: 'trust', route: 'engine', origin: [38, 0, 0], position: [38, 1, 10], target: [38, .3, 0], label: 'Trust' },
-  { id: 'robotics', route: 'engine', origin: [52, 0, 0], position: [57, 3, 13], target: [52, -.2, 0], label: 'Robotics' }
+  { id: 'robotics', route: 'engine', origin: [52, 0, 0], position: [57, 3, 13], target: [52, -.2, 0], label: 'Space lab' }
 ];
 const FILES = ['act-transit', 'act-flame', 'act-evidence', 'act-drill', 'act-trust', 'act-robotics'];
 const clamp = x => Math.max(0, Math.min(1, x));
@@ -35,7 +35,7 @@ export function stationFor(route, params = {}) {
 
 export async function createWorld(host, context) {
   let ctx = context, disposed = false, index = -1, flight, entered = 0, lastTime, sceneCtx, holo, officer, carrier;
-  let pendingCut = false, activation = 0, warmingStation = false, pendingEvidenceQuestion = null;
+  let pendingCut = false, activation = 0, warmingStation = false, pendingEvidenceQuestion = null, pendingRoboticsQuestion = null;
   let loader, requested, initialShown = false, baseLights = [];
   let performanceProbe;
   let engine, inUpdate = false, citationCleanup, desiredPose, renderedPose, updateOfficer, questionTour;
@@ -115,6 +115,7 @@ export async function createWorld(host, context) {
     const next = typeof value === 'string' ? STATIONS.findIndex(s => s.id === value) : value;
     if (next < 0 || next >= STATIONS.length || disposed) return;
     pendingEvidenceQuestion = next === 2 ? options.evidenceQuestion ?? null : null;
+    pendingRoboticsQuestion = next === 5 ? options.roboticsQuestion ?? null : null;
     cases.close(); mission.close(); holo?.closeAll(); navigationCut = Boolean(options.cut);
     if (!options.fromHash) {
       const params = { ...ctx.params, station: next === 0 ? 'transit' : null, intro: null };
@@ -130,15 +131,22 @@ export async function createWorld(host, context) {
     pendingEvidenceQuestion = null;
     acts[next].requestQuestion(question);
   }
+  function deliverRoboticsQuestion(next) {
+    if (next !== 5 || !pendingRoboticsQuestion || !acts[next]?.requestQuestion) return;
+    const question = pendingRoboticsQuestion;
+    pendingRoboticsQuestion = null;
+    acts[next].requestQuestion(question);
+  }
   function handles(i) { return acts[i]?.holograms?.() || []; }
   function activate(next, cut = false) {
     if (disposed) return;
     if (next !== 2) pendingEvidenceQuestion = null;
+    if (next !== 5) pendingRoboticsQuestion = null;
     if (warmingStation) { pendingCut = cut; showLoading(next); return; }
     pendingCut = cut;
     if (!sceneCtx || loader?.states[next] !== 'ready') { activation++; showLoading(next); if (loader) loader.ensure(next); return; }
     requested = next; host.dataset.worldRequested = STATIONS[next].id;
-    if (next === index) { loading.hidden = true; host.dataset.worldLoading = 'false'; welcomeHost.hidden = next !== 0; deliverEvidenceQuestion(next); return; }
+    if (next === index) { loading.hidden = true; host.dataset.worldLoading = 'false'; welcomeHost.hidden = next !== 0; deliverEvidenceQuestion(next); deliverRoboticsQuestion(next); return; }
     loading.hidden = true; host.dataset.worldLoading = 'false';
     const shouldWarm = initialShown && !cut && !capture && !reduced.matches;
     if (!initialShown) { cut = true; initialShown = true; host.dataset.worldEntry = STATIONS[next].id; }
@@ -173,11 +181,12 @@ export async function createWorld(host, context) {
     holo.lock(false);
     handles(next).forEach(h => h.close?.());
     const actions = acts[next]?.actions?.() || (next === 0 ? [
-      { id: 'enter-cabin', label: 'Enter the cabin', primary: true, run: () => navigate(1) }
+      { id: 'enter-cabin', label: 'Enter the cabin', run: () => navigate(1) }
     ] : next === 4 ? [{ id: 'inspect-trust', label: 'Open the data console', primary: true, run: () => holo.openStation() }] : []);
     guide.set(s, actions);
     if (!capture && !filmActive) acts[next]?.ready?.();
     deliverEvidenceQuestion(next);
+    deliverRoboticsQuestion(next);
     if (shouldWarm) {
       const token = ++activation, currentFlight = flight;
       warmingStation = true; syncQuality(); engine.hold(); loading.hidden = false; host.dataset.worldLoading = 'true'; loading.textContent = `Preparing ${s.label} cabin…`;
@@ -326,7 +335,7 @@ export async function createWorld(host, context) {
     loader = createStationLoader({
       count: STATIONS.length, stopped: () => disposed, paused: () => warmingStation || host.dataset.flying === 'true' || Boolean(flight && !flight.cut && performance.now() / 1000 - flight.start < 1.2), yieldTurn: capture ? afterPaint : idleTurn,
       async build(i) {
-        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=trust-explore-20261115-1`), i === 0 || i === 3 ? warmBlanket(false) : null]);
+        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=question-lab-20261115-3`), i === 0 || i === 3 ? warmBlanket(false) : null]);
         if (disposed) return;
         const priorLights = baseLights.map(([light]) => light.intensity);
         let built;

@@ -7,6 +7,7 @@ import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v
 import { nearestSourceRows, scoreFactors } from '../core/evidence-register.js?v=habitat-20261115-1';
 import { scorebar } from '../ui/scorebar.js';
 import { pressureDependence, pressureDependenceText, pressureAudit, pressureAuditText, PRESSURE_DEPENDENCE_SCOPE } from '../core/assumption-audit.js';
+import { createQuestionNote } from '../core/question-note.js?v=question-lab-20261115-3';
 
 const defaults = { status, rank: ranking, text };
 const symbols = { PROVEN: '●', EXTRAPOLATED: '↗', NEVER_TESTED: '×' };
@@ -43,7 +44,7 @@ export function scoreExplanation(entry, rank = ranking) {
   return { sum, multiplier: entry.f.n.support === 'direct' ? 1 : rank.PARTIAL_SUPPORT, total: entry.total };
 }
 
-export function build(world, { onSelection, onInspectAll } = {}) {
+export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepareCrew } = {}) {
   const { db, core = defaults } = world;
   let q = world.q, model, selected = null, disposed = false, lastQuery = '';
   const element = node('section', null, 'coverage-wall');
@@ -112,11 +113,31 @@ export function build(world, { onSelection, onInspectAll } = {}) {
     const { cell, pressureDependence: dependence, nearest, nearestRows, findings } = question(material, concern, q, db, core);
     const back = node('button', '← All questions', 'coverage-back'); back.type = 'button';
     back.dataset.coverageBack = ''; back.onclick = () => closeDetail();
+    const point = { ...q, material, concern };
     const heading = node('h3', `${db.materials[material].label} · ${core.text.concern(concern)}`);
     heading.tabIndex = -1;
     const state = node('p', `${symbols[cell.status]} ${core.text.status(cell.status, cell.qualifier)}`, 'coverage-state');
     state.dataset.coverageStatus = cell.status;
-    detail.replaceChildren(back, heading, state);
+    const cabinLine = node('p', `${db.presetById[q.preset]?.label || 'Custom cabin'} · ${core.text.oxygen(q.o2)} · ${core.text.pressure(q.p)} · ${q.g_label || core.text.gravity(q.gclass)}`, 'coverage-question-cabin');
+    const meaning = node('p', cell.status === 'PROVEN' ? 'Nearby source conditions exist. This does not establish material safety.'
+      : cell.status === 'EXTRAPOLATED' ? 'Relevant evidence exists; its conditions differ or are incomplete.'
+        : 'No source addresses this material and concern in VESTA’s collection.', 'coverage-question-meaning');
+    detail.replaceChildren(back, heading, cabinLine, state, meaning);
+    const reviewActions = node('div', null, 'coverage-review-actions'), reviewStatus = node('p', null, 'coverage-review-status');
+    reviewStatus.setAttribute('role', 'status'); reviewStatus.setAttribute('aria-live', 'polite'); reviewStatus.hidden = true;
+    for (const [label, action, id] of [['Save question review', onSaveReview, 'save'], ['Prepare crew review', onPrepareCrew, 'crew']]) {
+      if (!action) continue;
+      const button = node('button', label); button.type = 'button'; button.dataset.questionReview = id;
+      button.onclick = () => { try { const message = action(point); if (message) { reviewStatus.textContent = message; reviewStatus.hidden = false; } }
+        catch (error) { reviewStatus.textContent = error.message; reviewStatus.hidden = false; } };
+      reviewActions.append(button);
+    }
+    detail.append(reviewActions, reviewStatus);
+    const limits = node('details', null, 'coverage-question-limits');
+    limits.append(node('summary', 'Limits & next human review'));
+    try { const note = createQuestionNote(db, point); limits.append(node('p', note.next_review), node('p', note.limits[1]), node('p', 'The saved note is derived text. Keep the evidence JSON separately for replay.')); }
+    catch { limits.append(node('p', 'Complete the cabin conditions before preparing a review note.')); }
+    detail.append(limits);
     if (dependence.nearby) {
       const basis = node('p', `${pressureDependenceText(dependence)} ${PRESSURE_DEPENDENCE_SCOPE}`, 'coverage-nearest-rule coverage-pressure-basis');
       basis.dataset.pressureReported = String(dependence.reported); basis.dataset.pressureInferred = String(dependence.inferred);
@@ -132,14 +153,15 @@ export function build(world, { onSelection, onInspectAll } = {}) {
     const sentence = node('p', core.text.cellSentence(cell, db.materials[material].label, db));
     if (nearest) {
       const { row, note } = nearest;
-      detail.append(node('h4', 'Nearest source-table row'));
-      detail.append(node('p', 'For this material + concern: fewest failed conditions first. Ties use the smallest O₂ gap, then pressure gap, then row ID.', 'coverage-nearest-rule'));
+      detail.append(node('h4', 'Source & compared conditions'));
+      const ordering = node('details', null, 'coverage-nearest-order');
+      ordering.append(node('summary', 'Why this source row?'), node('p', 'For this material + concern: fewest failed conditions first. Ties use the smallest O₂ gap, then pressure gap, then row ID. This order does not establish experimental equivalence.', 'coverage-nearest-rule'));
       const rowLine = node('p');
       const pressure = core.text.pressure(row.n.p ?? row.n.p_inferred)
         + (note.includes('pressure_inferred') ? ` (${core.text.reason('pressure_inferred')})` : '');
-      cited(rowLine, `${db.invById[row.psi_id]?.name || row.investigation || 'Recorded conditions'}: ${core.text.oxygen(row.n.o2)}, ${pressure}, ${core.text.gravity(row.n.gclass)}.`, row.id);
+      cited(rowLine, `${row.id} · ${db.invById[row.psi_id]?.name || row.investigation || 'Recorded conditions'}: ${core.text.oxygen(row.n.o2)}, ${pressure}, ${core.text.gravity(row.n.gclass)}.`, row.id);
       detail.append(rowLine);
-      detail.append(renderMatchPanel(row, q, db), sentence);
+      detail.append(renderMatchPanel(row, q, db), sentence, ordering);
       if (nearestRows.length > 1) {
         const alternatives = node('details', null, 'coverage-nearest-list');
         alternatives.append(node('summary', `Next ${nearestRows.length - 1} nearest source rows`));

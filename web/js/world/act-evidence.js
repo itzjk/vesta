@@ -10,7 +10,7 @@ import { media } from './media.js';
 import { G, CONCERNS } from '../core/index.js';
 import { TOL } from '../core/match.js';
 import { css } from '../ui/el.js';
-import { build as buildCoverage } from './coverage.js?v=pressure-basis-20261115-1';
+import { build as buildCoverage } from './coverage.js?v=question-lab-20261115-3';
 import { build as buildGapBrief } from '../ui/gapbrief.js';
 import { searchEvidence, cabinMatches, compareInvestigations, guidedAnswer, NO_MATCH } from './ask.js?v=4';
 import { evidenceGuidePose } from './evidence-guide.js';
@@ -19,6 +19,8 @@ import { buildEvidenceRegister, renderCollectionSummary } from './evidence-regis
 import { createEvidenceWorkspace } from './evidence-workspace.js?v=habitat-20261115-1';
 import { renderMethod } from './method.js';
 import { renderFindingComparison } from '../ui/matchpanel.js?v=habitat-20261115-1';
+import { createQuestionNote, questionNoteMarkdown, questionNoteMatches, questionNoteKey } from '../core/question-note.js?v=question-lab-20261115-3';
+import { download } from '../ui/download.js';
 
 const node = (tag, text, cls) => {
   const el = document.createElement(tag);
@@ -36,12 +38,12 @@ export function evidenceState(db, core, q, investigation = null) {
 
 export async function build(world) {
   const { THREE: T, db, core } = world;
-  await Promise.all([css('css/coverage.css?v=habitat-20261115-1'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css?v=habitat-20261115-1'), css('css/evidence-workspace.css?v=habitat-20261115-1')]);
+  await Promise.all([css('css/coverage.css?v=question-lab-20261115-3'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css?v=habitat-20261115-1'), css('css/evidence-workspace.css?v=habitat-20261115-1')]);
   const dropletEntry = buildObservationModel({ db, investigationId: 'PSI-69' }).points[0] || null;
   let guidedTask = '', guidedLeft = '', guidedRight = '', citationOpen = false;
   let selectedMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';
   let selectionReady = false, pendingQuestion = null;
-  const wall = buildCoverage(world, { onSelection: onCoverageSelection, onInspectAll: openRegister }), gaps = buildGapBrief(world), evidenceRegister = buildEvidenceRegister(world);
+  const wall = buildCoverage(world, { onSelection: onCoverageSelection, onInspectAll: openRegister, onSaveReview: saveQuestionReview, onPrepareCrew: prepareCrewReview }), gaps = buildGapBrief(world), evidenceRegister = buildEvidenceRegister(world);
   const stage = world.stage.context || world.stage.ctx || world.stage;
   const host = stage.renderer.domElement.parentElement, root = world.host || host;
   const group = new T.Group(); group.name = 'evidence-room';
@@ -99,6 +101,21 @@ export async function build(world) {
     if (!db.materials[material] || !CONCERNS.includes(concern)) return;
     selectedMaterial = material; selectedConcern = concern;
     setPanel('sample'); wall.update(currentQ); wall.selectQuestion(material, concern);
+  }
+  function currentQuestion(point) {
+    if (!active || questionNoteKey(point) !== questionNoteKey(world.q)) throw new Error('The cabin or selected question changed. Reopen its current evidence before continuing.');
+  }
+  function saveQuestionReview(point) {
+    currentQuestion(point);
+    const note = createQuestionNote(db, point);
+    if (!questionNoteMatches(note, world.q)) throw new Error('The cabin changed. Prepare a new review note.');
+    download(`vesta-${point.material}-${point.concern}-review.md`, questionNoteMarkdown(note, world.q), 'text/markdown;charset=utf-8');
+    return 'Saved a derived question review. The evidence JSON remains the separate replay receipt.';
+  }
+  function prepareCrewReview(point) {
+    currentQuestion(point);
+    setPanel(null);
+    world.navigate('robotics', { roboticsQuestion: { material: point.material, concern: point.concern } });
   }
   function setDisplay(next) {
     sceneMode = next; root.dataset.evidenceDisplay = next;
@@ -239,7 +256,9 @@ export async function build(world) {
     for (const [id, label] of [['overview', 'Coverage'], ['register', 'All evidence'], ['collection', 'Collection & limits'], ['method', 'Method'], ['ask', 'Search'], ['cabin', 'Cabin']]) {
       const b = node('button', label); b.type = 'button'; b.setAttribute('aria-pressed', String(panel === id)); b.onclick = () => setPanel(id); nav.append(b);
     }
-    consoleEl.append(nav);
+    if (panel === 'sample') {
+      const sections = node('details', null, 'evidence-question-tools'); sections.append(node('summary', 'More evidence tools'), nav); consoleEl.append(sections);
+    } else consoleEl.append(nav);
     if (panel === 'collection') { consoleEl.querySelector('h2').textContent = 'Collection & limits'; consoleEl.append(renderCollectionSummary(db)); }
     if (panel === 'method') {
       consoleEl.querySelector('h2').textContent = 'Method, ranking & validation limits';

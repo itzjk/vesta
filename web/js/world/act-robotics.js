@@ -1,13 +1,16 @@
 import { createHumanoidInspector } from '../scene/humanoid-inspector.js?v=trust-explore-20261115-1';
-import { createMaintenanceBay } from '../scene/maintenance-bay.js?v=crew-workspace-20261115-1';
+import { createMaintenanceBay } from '../scene/maintenance-bay.js?v=question-lab-20261115-3';
 import { ensureInformationPolishStyles } from './information-polish.js?v=habitat-20261115-1';
 import { createInventoryReviewSession, reviewToMarkdown } from '../core/inventory-review.js?v=pressure-basis-20261115-1';
-import { createInventoryReviewPanel } from './inventory-review-panel.js?v=pressure-basis-20261115-1';
+import { createInventoryReviewPanel } from './inventory-review-panel.js?v=question-lab-20261115-3';
 import { openCitation } from './cite.js?v=habitat-20261115-1';
 import { proposeKitMission, createKitMission, kitInputSignature } from './kit-mission.js?v=crew-workspace-20261115-1';
 import { createKitMissionPanel } from './kit-mission-panel.js?v=review-workbench-20261115-1';
 import { createRecordedReviewPanel } from './recorded-claude-review.js';
 import { createHabitatCamera, createHabitatGesture, habitatKeyInput } from './habitat-camera.js?v=trust-explore-20261115-1';
+import { requestedReviewSelection, chooseReviewFocus } from './review-selection.js?v=question-lab-20261115-3';
+import { spaceLabRecord } from './space-lab-record.js?v=question-lab-20261115-3';
+import { createSpaceLabPanel } from './space-lab-panel.js?v=question-lab-20261115-3';
 
 if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-robotics]')) {
   for (const file of ['robotics']) {
@@ -63,6 +66,9 @@ export async function build(world) {
   let active=false,disposed=false,lastTime=0,changed=0,savedAperture,parkedAt=null;
   let phase='ready',still=false,selected=['pmma','kapton','silicone'],session=null,report=null,generation=0,lastCabin='';
   let focus={material:'pmma',concern:'prevention'},workspaceOpen=false,notice='',cameraView='overview',workRegion=null,cameraCache=null;
+  let focusExplicit=false,pendingReviewQuestion=null;
+  const initialQuestion=requestedReviewSelection({material:world.q.material,concern:world.q.concern},db.materials,selected);
+  if(initialQuestion){focus=initialQuestion.focus;selected=initialQuestion.materials;focusExplicit=true;}
   let kit=null,kitState=null,kitSignature=null,kitFrame=null;
   let recordedPanel=null;
   const explore=createHabitatCamera(),canvas=stage.renderer.domElement,inputCleanups=[],gesture=createHabitatGesture();
@@ -76,9 +82,10 @@ export async function build(world) {
   const selectedResult=node('p',null,'robotics-work-result');
   const locationButton=node('button','Open this question','robotics-question-button');locationButton.type='button';locationButton.dataset.action='review-question';
   locationButton.onclick=()=>{openWorkspace();panel.element.querySelector(`[data-question-id="${focus.material}/${focus.concern}"]`)?.scrollIntoView({block:'nearest'});};
-  caption.append(node('p','LUNAR HABITAT · CREW SUPPORT','robotics-eyebrow'),node('h1','Check evidence before crew work.'),targetLabel,outcome,selectedResult,locationButton,node('p','Evidence analysis + virtual kit staging','robotics-caption-scope'));
+  caption.append(node('p','SPACE LAB · ROBOTICS CONCEPT','robotics-eyebrow'),node('h1','Bring evidence to the lab bench.'),node('p','Choose a question → review records → approve staging','robotics-lab-path'),targetLabel,outcome,selectedResult,locationButton,node('p','Evidence analysis + virtual kit staging','robotics-caption-scope'));
   const kitPanel=createKitMissionPanel({onApprove:approveKit,onCancel:cancelKit,onReset:prepareKit,onDownload:downloadKit,onEvidence:openKitEvidence});
   const kitCabin=node('p',null,'robotics-kit-cabin');kitCabin.hidden=true;caption.append(kitCabin,kitPanel.element);
+  const labPanel=createSpaceLabPanel({onSource:openEvidence});caption.append(labPanel.element);
   const imageCredit=node('details',null,'robotics-image-credit');
   const earthSource=node('a','NASA/NOAA/GSFC/Suomi NPP/VIIRS/Norman Kuring');
   earthSource.href='https://images.nasa.gov/details/GSFC_20171208_Archive_e001386';earthSource.target='_blank';earthSource.rel='noopener noreferrer';
@@ -90,8 +97,10 @@ export async function build(world) {
     if(report?.status==='complete'&&cameraView==='explore')setExplore(false);
     closeWorkspace();
   };
-  const panel=createInventoryReviewPanel({db,onRun:run,onCancel:cancel,onReset:reset,onMaterialsChange:ids=>{selected=[...ids];reset('Inventory changed. Run a new review.');},onEvidence:openEvidence,onFocus:locate,onDownload:download});
-  workspace.append(back,panel.element);world.host.append(workspace);
+  const panel=createInventoryReviewPanel({db,onRun:run,onCancel:cancel,onReset:reset,onMaterialsChange:ids=>{selected=[...ids];if(!selected.includes(focus.material))focusExplicit=false;reset('Inventory changed. Run a new review.');},onEvidence:openEvidence,onFocus:locate,onDownload:download});
+  if(initialQuestion)panel.setMaterials(selected);
+  const questionNotice=node('p',null,'inventory-intro');questionNotice.hidden=true;questionNotice.setAttribute('role','status');
+  workspace.append(back,questionNotice,panel.element);world.host.append(workspace);
   const explorer=node('section',null,'robotics-explorer');explorer.hidden=true;explorer.setAttribute('aria-label','Explore habitat camera');
   const cameraButtons=node('div',null,'robotics-camera-buttons');
   function cameraButton(label,action,title){const b=node('button',label);b.type='button';b.onclick=action;if(title)b.title=title;cameraButtons.append(b);return b;}
@@ -118,7 +127,7 @@ export async function build(world) {
     if(objectSelection==='crew'){openWorkspace();return;}
     const id=`${objectSelection}/prevention`,q=report?.questions.find(item=>item.id===id||item.question_id===id||`${item.material_id}/${item.concern}`===id);
     if(q){openWorkspace();panel.focusQuestion(id,{expandSources:true});}
-    else run([objectSelection]);
+    else {focus={material:objectSelection,concern:'prevention'};focusExplicit=true;run([objectSelection]);}
   };
   objectTask.onclick=()=>{
     if(!guardCabin()||!objectSelection||objectSelection==='crew'||report?.status!=='complete'||kitRunning())return;
@@ -235,9 +244,13 @@ export async function build(world) {
   function guardCabin(){if(lastCabin&&lastCabin!==cabinKey()){clearRun('Cabin changed. Previous results cleared; run a new review.');return false;}return true;}
   function refresh(){
     const q=currentQuestion(),target=bay.workTargets?.[focus.material];
+    const labResult=report?.status==='complete'?spaceLabRecord(db,q,report.input.query):null;
+    labPanel.update(labResult);caption.classList.toggle('has-lab-result',Boolean(labResult));
+    questionNotice.hidden=!focusExplicit;
+    if(focusExplicit)questionNotice.textContent=`Selected question: ${db.materials[focus.material]?.label||focus.material} · ${focus.concern}. ${report?.status==='complete'?'Report scope':'Next review'}: ${selected.length} ${selected.length===1?'material':'materials'} × 3 concerns. This question stays in focus.${target?'':' No virtual kit is modelled for this material; evidence review and export remain available.'}`;
     back.textContent=report?.status==='complete'&&kitState?.phase==='ready'
       ? 'View robot task · approval required'
-      : report?.status==='complete' ? 'View robot & review kit' : 'Back to habitat';
+      : report?.status==='complete' ? kitState ? 'View robot & review kit' : 'View lab result' : 'Back to habitat';
     recordedPanel?.update(report);
     if(!report){const line=panel.element.querySelector('.inventory-cabin');if(line)line.textContent=`Current cabin · ${world.q.o2??'unknown'}% O2 · ${world.q.p??'unknown'} kPa · ${world.q.g??'unknown gravity'}`;}
     targetLabel.textContent=target?`${target.tag} · ${target.label}`:`${db.materials[focus.material]?.label||focus.material} · no scene component`;
@@ -260,7 +273,7 @@ export async function build(world) {
     syncObject();syncExplorer();
   }
   async function run(ids=selected){
-    if(disposed)return;clearRun('');selected=[...ids];const token=generation;
+    if(disposed)return;clearRun('');selected=[...ids];panel.setMaterials(selected);const token=generation;
     try{
       session=createInventoryReviewSession({db,query:{...world.q},materials:selected,onEvent:()=>{
         if(token!==generation||disposed)return;
@@ -275,8 +288,8 @@ export async function build(world) {
       if(token!==generation||disposed)return;
       report=result;panel.update(report);
       if(result.status==='complete'){
-        const first=result.priority.find(p=>bay.workTargets?.[p.question_id.split('/')[0]]);
-        if(first){const [material,concern]=first.question_id.split('/');locate({material,concern},false);}
+        const nextFocus=chooseReviewFocus(result,focus,focusExplicit);
+        if(nextFocus){locate(nextFocus,false,nextFocus.explicit);if(focusExplicit)panel.focusQuestion(`${focus.material}/${focus.concern}`,{expandSources:true});}
       }
       refresh();world.invalidate?.();
     }catch(error){notice=`Could not start review: ${error.message}`;refresh();world.invalidate?.();}
@@ -318,13 +331,24 @@ export async function build(world) {
       download({content:text,mime:'text/markdown;charset=utf-8',filename:'vesta-crew-review-handoff.md',report});
     }catch(error){notice=error.message;refresh();}
   }
-  function locate({material,concern},close=true){
+  function locate({material,concern},close=true,explicit=true){
     if(!guardCabin())return;
     if(workRegion&&workRegion.material!==material){cameraView='overview';workRegion=null;}
-    focus={material,concern};
+    focus={material,concern};focusExplicit=explicit;
     // Selecting evidence prepares a task; only explicit approval starts motion.
     phase='ready';changed=lastTime;prepareKit();
     if(close)closeWorkspace();refresh();world.invalidate?.();
+  }
+  function applyRequestedQuestion(request){
+    const next=requestedReviewSelection(request,db.materials,selected);if(!next)return false;guardCabin();
+    const changedQuestion=focus.material!==next.focus.material||focus.concern!==next.focus.concern;
+    if(next.inventoryChanged)clearRun('The selected question adds a material. Run a new review for this inventory.');
+    else if(changedQuestion)discardKit('A different review question was selected; any earlier task approval is cleared.');
+    focus=next.focus;focusExplicit=true;selected=next.materials;panel.setMaterials(selected);
+    if(workRegion&&workRegion.material!==focus.material){cameraView='overview';workRegion=null;}
+    openWorkspace();refresh();
+    if(report?.status==='complete')panel.focusQuestion(`${focus.material}/${focus.concern}`,{expandSources:true});
+    world.invalidate?.();return true;
   }
   function nextQuestion(){
     if(!guardCabin()||report?.status!=='complete')return;
@@ -347,6 +371,10 @@ export async function build(world) {
   workspace.addEventListener('keydown',onKey);
   return {
     group,
+    requestQuestion(request){
+      if(disposed||!requestedReviewSelection(request,db.materials,selected))return false;
+      pendingReviewQuestion={material:request.material,concern:request.concern};world.invalidate?.();return true;
+    },
     pick,select(hit){if(hit?.kind!=='habitat-object')return false;openObject(hit.material);return true;},ownsSceneInput,
     camera(){
       const {width,height}=stage.size();
@@ -361,17 +389,20 @@ export async function build(world) {
       return cameraCache.frame;
     },
     actions:()=>[
-      {id:'inventory-run',label:()=>report?.status==='running'?'Checking evidence…':'Check cabin evidence',disabled:()=>!selected.length||report?.status==='running',primary:true,run:()=>run()},
+      {id:'inventory-run',label:()=>report?.status==='running'?'Reviewing lab evidence…':'Run lab review',disabled:()=>!selected.length||report?.status==='running',primary:true,run:()=>run()},
       {id:'inventory-workspace',label:()=>report?.status==='complete'?'Review results':'Materials & method',expanded:()=>workspaceOpen,run:()=>workspaceOpen?closeWorkspace():openWorkspace()},
-      {id:'inventory-view',label:()=>cameraView==='work'?'Overview':stage.size().width<760?`Inspect ${db.materials[focus.material]?.label||focus.material} ${kitState?.phase==='complete'?'handoff':'pickup'}`:'Work view',run:toggleCameraView},
+      {id:'inventory-view',label:()=>cameraView==='work'?'Overview':stage.size().width<760&&bay.workTargets?.[focus.material]?`Inspect ${db.materials[focus.material]?.label||focus.material} ${kitState?.phase==='complete'?'handoff':'pickup'}`:'Work view',run:toggleCameraView},
       {id:'inventory-explore',label:()=>cameraView==='explore'?'Exit Explore':'Explore base',run:()=>setExplore(cameraView!=='explore')},
       {id:'inventory-next',label:'Next review question',disabled:()=>report?.status!=='complete',run:nextQuestion},
       {id:'inventory-download',label:'Save full inventory',disabled:()=>report?.status!=='complete',run:downloadReport}
     ],
     enter(){active=true;group.visible=true;caption.hidden=false;world.setBaseLightScale?.(bay.lightingScale??1);savedAperture=stage.camera.userData.aperture;guardCabin();lastCabin=cabinKey();refresh();},
-    leave(){active=false;parkedAt=lastTime;group.visible=false;caption.hidden=true;releasePointers();syncExplorer();syncObject();world.setBaseLightScale?.(1);closeWorkspace();if(savedAperture==null)delete stage.camera.userData.aperture;else stage.camera.userData.aperture=savedAperture;},
+    leave(){active=false;pendingReviewQuestion=null;parkedAt=lastTime;group.visible=false;caption.hidden=true;releasePointers();syncExplorer();syncObject();world.setBaseLightScale?.(1);closeWorkspace();if(savedAperture==null)delete stage.camera.userData.aperture;else stage.camera.userData.aperture=savedAperture;},
     update(t,state={}){
       if(!active)return;if(parkedAt!=null){changed+=Math.max(0,t-parkedAt);kitFrame=t;parkedAt=null;}lastTime=t;
+      if(pendingReviewQuestion&&world.host.dataset.flying!=='true'&&world.host.dataset.worldLoading!=='true'){
+        const request=pendingReviewQuestion;pendingReviewQuestion=null;applyRequestedQuestion(request);
+      }
       still=Boolean(state.reduced||state.reducedMotion||state.capture||world.capture||matchMedia('(prefers-reduced-motion: reduce)').matches);
       guardCabin();stage.camera.userData.aperture=0;
       const target=bay.workTargets?.[focus.material],q=currentQuestion(),elapsed=Math.max(0,t-changed);
@@ -385,6 +416,6 @@ export async function build(world) {
       world.vesta?.update?.(still?2:t,{...world.vesta.defaults,x:-2.65,y:-1,z:1.25,scale:.4,yaw:.55,lookX:.6,armL:.1,armR:.1,idle:0,thrust:0,beacon:.15});
     },
     holograms:()=>[],
-    dispose(){disposed=true;active=false;generation++;releasePointers();syncExplorer();inputCleanups.forEach(remove=>remove());explorer.remove();objectCard.remove();recordedAbort.abort();recordedPanel?.dispose();session?.cancel('Workspace disposed');kit?.advance({type:'cancel',reason:'Workspace disposed'});kitPanel.dispose();workspace.removeEventListener('keydown',onKey);panel.dispose();workspace.remove();markers.forEach(m=>m.dispose());humanoid.dispose();bay.dispose();caption.remove();group.removeFromParent();for(const key of ['roboticsPhase','roboticsApproved','roboticsScanning','roboticsMotionReady','roboticsDisposition','roboticsReview','roboticsWorkspace','roboticsMaterial','roboticsKitPhase','roboticsKitObject','roboticsView','roboticsViewTarget','roboticsExploring'])delete world.host.dataset[key];}
+    dispose(){disposed=true;active=false;generation++;releasePointers();syncExplorer();inputCleanups.forEach(remove=>remove());explorer.remove();objectCard.remove();recordedAbort.abort();recordedPanel?.dispose();session?.cancel('Workspace disposed');kit?.advance({type:'cancel',reason:'Workspace disposed'});kitPanel.dispose();labPanel.dispose();workspace.removeEventListener('keydown',onKey);panel.dispose();workspace.remove();markers.forEach(m=>m.dispose());humanoid.dispose();bay.dispose();caption.remove();group.removeFromParent();for(const key of ['roboticsPhase','roboticsApproved','roboticsScanning','roboticsMotionReady','roboticsDisposition','roboticsReview','roboticsWorkspace','roboticsMaterial','roboticsKitPhase','roboticsKitObject','roboticsView','roboticsViewTarget','roboticsExploring'])delete world.host.dataset[key];}
   };
 }
