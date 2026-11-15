@@ -6,6 +6,7 @@ import { TOL } from '../core/match.js';
 import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=habitat-20261115-1';
 import { nearestSourceRows, scoreFactors } from '../core/evidence-register.js?v=habitat-20261115-1';
 import { scorebar } from '../ui/scorebar.js';
+import { pressureDependence, pressureDependenceText, pressureAudit, pressureAuditText, PRESSURE_DEPENDENCE_SCOPE } from '../core/assumption-audit.js';
 
 const defaults = { status, rank: ranking, text };
 const symbols = { PROVEN: '●', EXTRAPOLATED: '↗', NEVER_TESTED: '×' };
@@ -20,7 +21,7 @@ const node = (tag, value, cls) => {
 export function coverage(q, db, core = defaults) {
   const cells = core.status.cells(q, db), counts = core.status.tally(cells);
   const cabin = db.presetById[q.preset]?.label || 'Custom cabin';
-  return { cells, counts, total: cells.length, cabin,
+  return { cells, counts, total: cells.length, cabin, pressureAudit: pressureAudit(cells, db),
     headline: `${cabin}: ${counts.PROVEN}/${cells.length} questions have nearby-condition evidence.`,
     sentence: `${counts.PROVEN} of ${cells.length} questions have nearby-condition evidence`,
     conditions: `${core.text.oxygen(q.o2)} · ${core.text.pressure(q.p)} · ${q.g_label || core.text.gravity(q.gclass)}` };
@@ -33,7 +34,7 @@ export function headline(q, db, core = defaults) {
 export function question(material, concern, q, db, core = defaults) {
   const cell = core.status.cell(material, concern, q, db);
   const candidates = cell.finding_ids.map(id => db.findingById[id]).filter(Boolean);
-  return { cell, nearest: core.status.nearestRow(material, concern, q, db), nearestRows: nearestSourceRows(material, concern, q, db),
+  return { cell, pressureDependence: pressureDependence(cell, db), nearest: core.status.nearestRow(material, concern, q, db), nearestRows: nearestSourceRows(material, concern, q, db),
     findings: core.rank.rank(candidates, { ...q, material, concern }, db).slice(0, 3) };
 }
 
@@ -53,7 +54,9 @@ export function build(world, { onSelection, onInspectAll } = {}) {
   const conditions = node('p', null, 'coverage-conditions');
   const live = node('p', null, 'coverage-sr');
   live.setAttribute('role', 'status'); live.setAttribute('aria-live', 'polite'); live.setAttribute('aria-atomic', 'true');
-  header.append(title, answer, definition, conditions, live);
+  const pressureBasisLine = node('p', null, 'coverage-conditions coverage-pressure-basis'); pressureBasisLine.hidden = true;
+  pressureBasisLine.title = PRESSURE_DEPENDENCE_SCOPE;
+  header.append(title, answer, definition, conditions, pressureBasisLine, live);
   const legend = node('dl', null, 'coverage-legend');
   const totals = {};
   for (const id of Object.keys(symbols)) {
@@ -106,7 +109,7 @@ export function build(world, { onSelection, onInspectAll } = {}) {
     if (!selected) return;
     const expanded = new Set([...detail.querySelectorAll('[data-score-finding][open]')].map(el => el.dataset.scoreFinding));
     const { material, concern } = selected;
-    const { cell, nearest, nearestRows, findings } = question(material, concern, q, db, core);
+    const { cell, pressureDependence: dependence, nearest, nearestRows, findings } = question(material, concern, q, db, core);
     const back = node('button', '← All questions', 'coverage-back'); back.type = 'button';
     back.dataset.coverageBack = ''; back.onclick = () => closeDetail();
     const heading = node('h3', `${db.materials[material].label} · ${core.text.concern(concern)}`);
@@ -114,6 +117,11 @@ export function build(world, { onSelection, onInspectAll } = {}) {
     const state = node('p', `${symbols[cell.status]} ${core.text.status(cell.status, cell.qualifier)}`, 'coverage-state');
     state.dataset.coverageStatus = cell.status;
     detail.replaceChildren(back, heading, state);
+    if (dependence.nearby) {
+      const basis = node('p', `${pressureDependenceText(dependence)} ${PRESSURE_DEPENDENCE_SCOPE}`, 'coverage-nearest-rule coverage-pressure-basis');
+      basis.dataset.pressureReported = String(dependence.reported); basis.dataset.pressureInferred = String(dependence.inferred);
+      detail.append(basis);
+    }
     if (cell.status === 'NEVER_TESTED') {
       detail.append(node('p', `${core.text.status(cell.status)}. ${core.text.cellSentence(cell, db.materials[material].label, db)}`, 'coverage-empty'));
       detail.append(renderMatchPanel(null, q, db), node('p', 'No finding is available for this question, so no relevance score is calculated.', 'coverage-score-note'));
@@ -226,6 +234,7 @@ export function build(world, { onSelection, onInspectAll } = {}) {
     if (db.presetById[q.preset]) cited(conditions, model.conditions, q.preset);
     else conditions.textContent = model.conditions;
     live.textContent = `${model.headline} ${model.counts.EXTRAPOLATED} ${core.text.status('EXTRAPOLATED')}; ${model.counts.NEVER_TESTED} ${core.text.status('NEVER_TESTED')} in VESTA’s collection.`;
+    pressureBasisLine.textContent = pressureAuditText(model.pressureAudit); pressureBasisLine.hidden = !model.pressureAudit.nearby;
     for (const id of Object.keys(totals)) totals[id].textContent = model.counts[id];
     for (const cell of model.cells) {
       const button = buttons.get(`${cell.material}:${cell.concern}`);

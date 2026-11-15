@@ -5,6 +5,7 @@ import { matchPanel } from './matchpanel.js';
 import { rank, W, SPAN, PARTIAL_SUPPORT } from './rank.js';
 import { createReceipt, receiptQuery } from './receipt.js';
 import { status as statusLabel } from './text.js';
+import { pressureBasis } from './assumption-audit.js';
 
 export const INVENTORY_REVIEW_SCHEMA = 'vesta.inventory-review/1';
 const MAX_MATERIALS = 24;
@@ -42,7 +43,7 @@ function sourceRows(material, concern, query, db) {
     source_url: row.psi_url || db.invById[row.psi_id]?.psi_url || null,
     role: fail.length ? 'nearest_row_other_conditions' : 'nearby_row',
     fail, note, delta, conditions: clone(row.n),
-    pressure_basis: row.n.p != null ? 'reported' : row.n.p_inferred != null ? 'facility_inferred' : 'unknown',
+    pressure_basis: pressureBasis(row.n),
     pressure_inference_source: row.n.p_inferred_source ?? null
   }));
 }

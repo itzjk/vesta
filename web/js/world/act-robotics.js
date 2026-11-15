@@ -1,8 +1,8 @@
 import { createHumanoidInspector } from '../scene/humanoid-inspector.js?v=crew-workspace-20261115-1';
 import { createMaintenanceBay } from '../scene/maintenance-bay.js?v=crew-workspace-20261115-1';
 import { ensureInformationPolishStyles } from './information-polish.js?v=habitat-20261115-1';
-import { createInventoryReviewSession, reviewToMarkdown } from '../core/inventory-review.js?v=habitat-20261115-1';
-import { createInventoryReviewPanel } from './inventory-review-panel.js?v=review-workbench-20261115-1';
+import { createInventoryReviewSession, reviewToMarkdown } from '../core/inventory-review.js?v=pressure-basis-20261115-1';
+import { createInventoryReviewPanel } from './inventory-review-panel.js?v=pressure-basis-20261115-1';
 import { openCitation } from './cite.js?v=habitat-20261115-1';
 import { proposeKitMission, createKitMission, kitInputSignature } from './kit-mission.js?v=crew-workspace-20261115-1';
 import { createKitMissionPanel } from './kit-mission-panel.js?v=review-workbench-20261115-1';

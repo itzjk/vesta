@@ -10,7 +10,7 @@ import { media } from './media.js';
 import { G, CONCERNS } from '../core/index.js';
 import { TOL } from '../core/match.js';
 import { css } from '../ui/el.js';
-import { build as buildCoverage } from './coverage.js?v=habitat-20261115-1';
+import { build as buildCoverage } from './coverage.js?v=pressure-basis-20261115-1';
 import { build as buildGapBrief } from '../ui/gapbrief.js';
 import { searchEvidence, cabinMatches, compareInvestigations, guidedAnswer, NO_MATCH } from './ask.js?v=4';
 import { evidenceGuidePose } from './evidence-guide.js';

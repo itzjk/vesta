@@ -1,5 +1,6 @@
-import { reviewToMarkdown, reviewToCsv } from '../core/inventory-review.js?v=habitat-20261115-1';
+import { reviewToMarkdown, reviewToCsv } from '../core/inventory-review.js?v=pressure-basis-20261115-1';
 import { createRowComparison } from './row-comparison.js?v=review-workbench-20261115-1';
+import { pressureDependence } from '../core/assumption-audit.js';
 
 const node = (tag, text, className = '') => {
   const element = document.createElement(tag);
@@ -130,7 +131,9 @@ export function createInventoryReviewPanel({ db, onRun, onCancel, onReset, onEvi
   function updateQuestion(q) {
     const view = cards.get(q.id) || rowView(q);
     view.verdict.textContent = q.label; view.outer.dataset.coverage = q.status;
-    view.numbers.textContent = `${q.cell.rows} source-table rows · ${(q.cell.hit_ids || []).length} nearby · ${q.cell.finding_ids.length} findings for this question`;
+    const dependence = pressureDependence(q.cell, db);
+    view.numbers.textContent = `${q.cell.rows} source-table rows · ${(q.cell.hit_ids || []).length} nearby`
+      + `${dependence.nearby ? ` (pressure: ${dependence.reported} reported, ${dependence.inferred} facility-inferred)` : ''} · ${q.cell.finding_ids.length} findings for this question`;
     view.description.textContent = q.status === 'NOT_INDEXED' ? 'This material ID is outside the cabin-material index. Resolve its identity before drawing a conclusion.'
       : q.status === 'NEVER_TESTED' ? 'No source for this material and concern in this collection.'
       : q.status === 'EXTRAPOLATED' ? 'Evidence exists, but conditions differ, are incomplete, or have no matching experimental row.'
