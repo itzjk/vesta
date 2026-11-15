@@ -2,6 +2,9 @@ import { createStage } from '../scene/engine.js';
 import { build as buildVesta } from '../scene/vesta.js';
 import { createHolograms } from './holo.js';
 import { buildHash } from '../router.js';
+import { createGuide } from './guide.js';
+import { createVideoCases } from './cases.js';
+import { build as buildWelcome } from './welcome.js';
 
 export const STATIONS = [
   { id: 'transit', route: 'brief', origin: [0, 0, 0], position: [0, 1.2, 19], target: [0, 0, 0], label: 'Transit' },
@@ -45,6 +48,12 @@ export async function createWorld(host, context) {
   const sheet = document.createElement('button'); sheet.className = 'world-sheet-toggle'; sheet.type = 'button'; sheet.setAttribute('aria-label', 'Open station controls'); sheet.innerHTML = '<span aria-hidden="true"></span>'; sheet.onclick = () => { if (sheetPulled) { sheetPulled = false; return; } holo?.openStation(); invalidate(); };
   let sheetY, sheetPulled = false; sheet.onpointerdown = ev => { sheetY = ev.clientY; sheet.setPointerCapture(ev.pointerId); }; sheet.onpointerup = ev => { if (sheetY - ev.clientY > 30) { sheetPulled = true; holo?.openStation(); invalidate(); } sheetY = null; };
   overlay.append(nav, live, skip, instrument, answer, cinema, film, sheet);
+  const guide = createGuide(overlay);
+  const welcomeHost = document.createElement('div'); welcomeHost.className = 'world-welcome'; welcomeHost.dataset.stationUi = 'transit'; welcomeHost.hidden = true; overlay.append(welcomeHost);
+  let welcome, welcomeKey = '';
+  const cases = createVideoCases({ onEvidence(query) { navigate(2); acts[2]?.search?.(query); }, onDrill() { navigate(3); } });
+  const caseButton = document.createElement('button'); caseButton.type = 'button'; caseButton.className = 'world-case-toggle'; caseButton.textContent = 'Video cases'; caseButton.onclick = () => { holo?.closeAll(); cases.open(caseButton); }; overlay.append(caseButton);
+  film.textContent = '▶ 60s tour';
   const buttons = STATIONS.map((s, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', s.label); b.title = s.label; b.dataset.station = s.id; b.innerHTML = `<span aria-hidden="true"></span><span class="world-station-name">${s.label}</span>`; b.onclick = () => navigate(i); nav.append(b); return b; });
   const listen = (node, name, fn, options) => { node.addEventListener(name, fn, options); listeners.push(() => node.removeEventListener(name, fn, options)); };
   const invalidate = () => { if (!disposed && !inUpdate) engine?.set({ world: performance.now() }); };
@@ -56,7 +65,7 @@ export async function createWorld(host, context) {
   function navigate(value, options = {}) {
     const next = typeof value === 'string' ? STATIONS.findIndex(s => s.id === value) : value;
     if (next < 0 || next >= STATIONS.length || disposed) return;
-    holo?.closeAll(); navigationCut = Boolean(options.cut);
+    cases.close(); holo?.closeAll(); navigationCut = Boolean(options.cut);
     if (!options.fromHash) {
       const params = { ...ctx.params, station: next === 0 ? 'transit' : null, intro: null };
       if (next === 1) params.station = 'flame';
@@ -86,18 +95,23 @@ export async function createWorld(host, context) {
     buttons.forEach((b, i) => { b.setAttribute('aria-current', i === next ? 'location' : 'false'); });
     overlay.querySelectorAll('.world-picked-source').forEach(node => node.remove());
     answer.textContent = '';
-    host.dataset.station = s.id; live.textContent = s.label; skip.hidden = next !== 0;
+    host.dataset.station = s.id; live.textContent = s.label; skip.hidden = true;
+    welcomeHost.hidden = next !== 0;
     holo.setStation(s.id);
     holo.lock(true);
     acts[next]?.enter?.(prior < 0 ? null : STATIONS[prior].id);
     holo.lock(false);
     handles(next).forEach(h => h.close?.());
-    if (next === 0 && !capture && !filmActive) introTimer = setTimeout(() => navigate(1), 4000);
+    const actions = acts[next]?.actions?.() || (next === 0 ? [
+      { id: 'enter-cabin', label: 'Enter the cabin', primary: true, run: () => navigate(1) }
+    ] : next === 4 ? [{ id: 'inspect-trust', label: 'Open the data console', primary: true, run: () => holo.openStation() }] : []);
+    guide.set(s, actions);
+    if (!capture && !filmActive) acts[next]?.ready?.();
     invalidate();
   }
   skip.onclick = () => navigate(1);
   listen(host, 'wheel', ev => {
-    if (filmActive || cinematic || ev.ctrlKey || editable(ev.target) || ev.target.closest('.world-hologram')) return;
+    if (filmActive || cinematic || ev.ctrlKey || editable(ev.target) || ev.target.closest('.world-hologram,.world-welcome,.vesta-drill-thread')) return;
     if (Math.abs(ev.deltaY) < Math.abs(ev.deltaX)) return;
     ev.preventDefault();
     const now = performance.now(); if (now - wheelAt > 200) wheel = 0;
@@ -105,7 +119,7 @@ export async function createWorld(host, context) {
     if (Math.abs(wheel) > 65 && (!flight || now / 1000 - flight.start > 1.25)) { navigate(index + Math.sign(wheel)); wheel = 0; }
   }, { passive: false });
   listen(window, 'keydown', ev => {
-    if (ev.key.toLowerCase() === 'h' && !ev.target.closest?.('input,textarea,select,[contenteditable]')) { ev.preventDefault(); ev.stopImmediatePropagation(); setCinema(!cinematic); }
+    if (ev.key.toLowerCase() === 'h' && !document.querySelector('.world-cases[open]') && !ev.target.closest?.('input,textarea,select,[contenteditable]')) { ev.preventDefault(); ev.stopImmediatePropagation(); setCinema(!cinematic); }
   }, true);
   listen(window, 'keydown', ev => {
     if (ev.key === 'Escape') { holo?.closeAll(); invalidate(); return; }
@@ -116,14 +130,14 @@ export async function createWorld(host, context) {
     if (ev.key === 'Home') { ev.preventDefault(); navigate(0); }
     if (ev.key === 'End') { ev.preventDefault(); navigate(4); }
   });
-  listen(host, 'pointerdown', ev => { if (cinematic) { setCinema(false); return; } if (!ev.target.closest('.world-hologram,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,[data-action]')) { document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); holo?.closeAll(); } if (!editable(ev.target) && !ev.target.closest('.world-hologram')) gesture = { x: ev.clientX, y: ev.clientY, id: ev.pointerId }; });
+  listen(host, 'pointerdown', ev => { if (cinematic) { setCinema(false); return; } if (!ev.target.closest('.world-hologram,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]')) { document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); holo?.closeAll(); } if (!editable(ev.target) && !ev.target.closest('.world-hologram')) gesture = { x: ev.clientX, y: ev.clientY, id: ev.pointerId }; });
   listen(host, 'pointermove', ev => { const b = canvasHost.getBoundingClientRect(); pointerX = (ev.clientX - b.left) / b.width * 2 - 1; pointerY = 1 - (ev.clientY - b.top) / b.height * 2; });
-  listen(window, 'pointerup', ev => { if (!gesture || gesture.id !== ev.pointerId) return; const dx = ev.clientX - gesture.x, dy = ev.clientY - gesture.y; gesture = null; if (!filmActive && !cinematic && !ev.target.closest?.('.world-hologram,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,[data-action]') && Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.3) navigate(index + (dy < 0 ? 1 : -1)); });
+  listen(window, 'pointerup', ev => { if (!gesture || gesture.id !== ev.pointerId) return; const dx = ev.clientX - gesture.x, dy = ev.clientY - gesture.y; gesture = null; if (!filmActive && !cinematic && !ev.target.closest?.('.world-hologram,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]') && Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.3) navigate(index + (dy < 0 ? 1 : -1)); });
   listen(host, 'pointercancel', () => { gesture = null; });
   listen(reduced, 'change', () => { if (flight) flight.cut = true; invalidate(); });
   function disposeWorld() {
     if (disposed) return;
-    disposed = true; clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); canvasHost.remove(); overlay.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world; delete document.documentElement.dataset.cinema;
+    disposed = true; clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); welcome?.dispose(); cases.dispose(); guide.dispose(); canvasHost.remove(); overlay.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world; delete document.documentElement.dataset.cinema;
     for (const key of ['cinema', 'film', 'filmPaused', 'hologramOpen', 'dockSide', 'flying']) delete host.dataset[key];
     host.style.removeProperty('--world-dock-width');
   }
@@ -139,7 +153,7 @@ export async function createWorld(host, context) {
       if (paused && filmPausedAt == null) filmPausedAt = now;
       if (!paused && filmPausedAt != null) { if (flight) flight.start += now - Math.max(filmPausedAt, flight.start); filmPausedAt = null; }
       filmActive = value; host.dataset.film = String(value); host.dataset.filmPaused = String(Boolean(paused));
-      if (value) { clearTimeout(introTimer); holo?.closeAll(); } invalidate();
+      if (value) { clearTimeout(introTimer); cases.close(); holo?.closeAll(); } invalidate();
     }, get station() { return STATIONS[index]?.id; },
     get stage() { return engine; }, get camera() { return sceneCtx?.camera; }, get vesta() { return officer; },
     unmount: disposeWorld,
@@ -201,9 +215,11 @@ export async function createWorld(host, context) {
       }
     }
     citationCleanup = citeModule?.configureCitations?.({ ...worlds[0], stage, hologram: holo.hologram });
+    welcome = buildWelcome(worlds[0]); welcomeHost.append(welcome.element);
     listen(window, 'vesta:cite', event => { if (!event.detail.open) invalidate(); });
     engine.on('pick', hit => {
       if (!hit?.id) return;
+      acts[index]?.select?.(hit);
       const trigger = worlds[index].cite('Read the selected test row', hit.id);
       trigger.classList.add('world-picked-source'); overlay.append(trigger); trigger.click();
     });
@@ -267,7 +283,8 @@ export async function createWorld(host, context) {
       }
       if (flight && !flight.revealed) handles(index).forEach(h => h.close?.());
       const currentWorld = worlds[index];
-      if (currentWorld?.answerElement) { if (answer.firstChild !== currentWorld.answerElement) answer.replaceChildren(currentWorld.answerElement); }
+      if (index === 0 && welcome) answer.textContent = welcome.headline(ctx.q);
+      else if (currentWorld?.answerElement) { if (answer.firstChild !== currentWorld.answerElement) answer.replaceChildren(currentWorld.answerElement); }
       else if (currentWorld?.answerValue != null) { const text = String(currentWorld.answerValue); if (answer.textContent !== text) answer.textContent = text; }
       else {
         const candidates = handles(index).flatMap(h => [...h.element.querySelectorAll('[data-world-answer],[data-answer],.evidence-answer-sentence,[data-trust=counts],p,output')]);
@@ -275,6 +292,8 @@ export async function createWorld(host, context) {
         answer.textContent = value || '';
       }
       holo.update(motionT, dt);
+      guide.update();
+      if (index === 0) { const key = JSON.stringify(ctx.q); if (key !== welcomeKey) { welcomeKey = key; welcome.update(ctx.q); } }
       if (!capture && lastFrame != null) { totalFrame += frameStarted - lastFrame; frameCount++; host.dataset.worldFrameMs = (totalFrame / frameCount).toFixed(2); }
       lastFrame = frameStarted;
       inUpdate = false;

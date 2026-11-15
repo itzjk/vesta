@@ -1,3 +1,4 @@
+import { balanceWorldLight, hardware } from '../scene/materials.js';
 import { loadCases, validateCases, evaluateCase } from './proof.js';
 
 const at = (value, path) => path.split('.').reduce((item, key) => item?.[key], value);
@@ -90,10 +91,21 @@ export async function build(world) {
   }
   const exit = ring(group, 0.23, rust, [xs[1], 0.56, 0]);
   exit.rotation.x = Math.PI / 2;
-  const light = new THREE.PointLight(0xe0a458, 9, 13, 2);
-  light.position.set(-1, 3, 4);
-  group.add(light);
-  group.add(new THREE.HemisphereLight(0xede4d4, 0x211e1b, 1.5));
+  const balanceLight = balanceWorldLight(world, 0);
+  for (const mat of materials) mat.envMapIntensity = .055;
+  const wornHousing = hardware(THREE, 'metal', { color: 0x454b4d, roughness: .74, metalness: .48, envMapIntensity: .055 });
+  materials.add(wornHousing);
+  box(group, [15, 8, .12], wornHousing, [0, .1, -.88]);
+  for (const x of [-4.12, 4.12]) box(group, [.12, 3.2, 1.7], wornHousing, [x, .1, -.08]);
+  const fixture = material(0xc4c8c1, { emissive: 0xcad4ce, emissiveIntensity: 1.4, metalness: .1 });
+  for (const x of xs) {
+    box(group, [.82, .1, .28], wornHousing, [x, 1.36, .72]);
+    box(group, [.66, .025, .18], fixture, [x, 1.3, .72]).layers.enable(1);
+    const pool = new THREE.SpotLight(0xd2ddd9, 3.2, 4.5, .66, .65, 2); pool.position.set(x, 1.25, .74); pool.target.position.set(x, -.2, .05); group.add(pool, pool.target);
+    const screenLight = new THREE.PointLight(0x7997af, .14, 1.3, 2); screenLight.position.set(x, -.1, .65); group.add(screenLight);
+  }
+  const light = new THREE.PointLight(0xe0b77e, 1.8, 5, 2); light.position.set(-2.3, 1.5, 1.6); group.add(light);
+  group.add(new THREE.HemisphereLight(0x9baab5, 0x14110e, .045));
 
   const baseStyle = { color: 'var(--ivory, #ede4d4)', fontFamily: '"Source Sans 3", sans-serif', fontSize: '18px', lineHeight: '1.4', boxSizing: 'border-box' };
   const scenarioId = db.scenario?.meta?.id ?? Object.keys(E.officer ?? {}).find(key => E.officer[key] && typeof E.officer[key] === 'object');
@@ -320,16 +332,21 @@ export async function build(world) {
   const camera = (t = 0) => {
     const phone = (world.host?.clientWidth ?? world.stage.size().width) < 760;
     const still = world.capture || matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const drift = still ? 0 : Math.sin(t * 0.22) * 0.65;
-    return { position: [drift, 0.5, phone ? 18 : isInspecting() ? 13 : 10.8], target: [0, phone ? -1.25 : 0.2, 0], fov: phone ? 44 : 45 };
+    const phoneDistance = Math.max(16, 5.2 / (Math.tan(22 * Math.PI / 180) * world.camera.aspect));
+    const phoneTarget = world.host?.dataset.cinema === 'true' ? -.2 : 1.4;
+    world.camera.userData.focusDistance = phone ? phoneDistance : isInspecting() ? 13 : 10.8;
+    world.camera.userData.aperture = 1.1;
+    const drift = still ? 0 : Math.sin(t * 0.22) * 0.18;
+    return { position: [drift - .35, 0.5, phone ? phoneDistance : isInspecting() ? 13 : 10.8], target: [-.35, phone ? phoneTarget : -.2, 0], fov: phone ? 44 : 35 };
   };
   const screenPoint = new THREE.Vector3(), panelCamera = new THREE.PerspectiveCamera(), panelTarget = new THREE.Vector3();
   const stationOrigin = new THREE.Vector3(...(world.origin ?? [0, 0, 0]));
   show('checks');
   return {
     group, anchor, camera,
-    enter() { active = true; group.visible = true; marksLayer.hidden = false; world.answer?.(results.length && casesFile ? summaryAnswer() : normalAnswer()); },
-    leave() { active = false; group.visible = false; marksLayer.hidden = true; stopChecks(); consoleHolo.close(); },
+    actions: () => [['checks', 'Run checks'], ['download', 'Download data'], ['api', 'Query the API'], ['assistant', 'Connect an assistant']].map(([id, label]) => ({ id, label, primary: id === 'checks', expanded: () => tab === id && consoleHolo.target > 0, run() { if (tab === id && consoleHolo.target) consoleHolo.close(); else { show(id); consoleHolo.requested = true; consoleHolo.open(); } } })),
+    enter() { balanceLight(true); active = true; group.visible = true; marksLayer.hidden = false; world.answer?.(results.length && casesFile ? summaryAnswer() : normalAnswer()); },
+    leave() { balanceLight(false); delete world.camera.userData.focusDistance; delete world.camera.userData.aperture; active = false; group.visible = false; marksLayer.hidden = true; stopChecks(); consoleHolo.close(); },
     update(t, state = {}) {
       if (!active) return;
       const reduced = state.reducedMotion ?? matchMedia('(prefers-reduced-motion: reduce)').matches;

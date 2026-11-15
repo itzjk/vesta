@@ -1,4 +1,7 @@
+import { balanceWorldLight } from '../scene/materials.js';
 import { build as buildCabin } from '../scene/cabin.js';
+import { build as buildDrillThread } from './drill-thread.js';
+import { build as buildDebrief } from './debrief.js';
 
 const finite = (value, fallback) => value !== null && value !== '' && Number.isFinite(Number(value)) ? Number(value) : fallback;
 const el = (tag, text, className) => {
@@ -46,7 +49,7 @@ export async function build(world) {
   const runButton = button('run', 'Run', () => playing ? pause() : run());
   const stepButton = button('step', 'Next', () => next());
   stepButton.setAttribute('aria-label', 'Next decision');
-  const resetButton = button('reset', '↺', () => reset()); resetButton.setAttribute('aria-label', 'Restart drill'); resetButton.title = 'Restart drill';
+  const resetButton = button('reset', 'Restart', () => reset()); resetButton.setAttribute('aria-label', 'Restart drill'); resetButton.title = 'Restart drill';
   const timeLabel = el('span', null, 'drill-time'); controls.append(timeLabel);
   let silenceButton = button('silence', '◌', () => { closePanel(); outside = !outside; autoOutside = false; sync(); write(); world.invalidate?.(); }, hud);
   silenceButton.className = 'drill-marker'; silenceButton.title = 'The Silence';
@@ -72,6 +75,16 @@ export async function build(world) {
     return { enter() { hud.hidden = false; }, leave() { hud.hidden = true; }, update() {}, holograms: () => [], dispose() { hud.remove(); } };
   }
   const log = core.officer.run(frames, db, meta);
+  const thread = buildDrillThread(world);
+  const debrief = buildDebrief({ ...world, onReplay: () => { reset(); world.overlay.querySelector('[data-station-action=next-decision]')?.focus({ preventScroll: true }); } });
+  hud.append(thread.element); body.insertBefore(debrief.element, truth);
+  const timeline = el('details', null, 'drill-timeline'), timelineTitle = el('summary', 'Eight decision points'), timelineList = el('ol');
+  const timelineButtons = log.map((entry, i) => {
+    const item = el('li'), jump = el('button', `${i + 1}. ${entry.label}`); jump.type = 'button'; jump.dataset.drillDecision = entry.step;
+    jump.onclick = () => { playing = false; setTime(entry.t); if (!panelOpen) togglePanel(); };
+    item.append(jump); timelineList.append(item); return jump;
+  });
+  timeline.append(timelineTitle, timelineList); inner.insertBefore(timeline, body);
   const shifted = log.map(entry => ({ ...entry, t: entry.t - (log[0]?.t || 0) }));
   const t0 = log[0]?.t || 0, start = frames[0].t, last = log.at(-1)?.t ?? frames.at(-1).t;
   const clockBase = core.clock.clock(meta, 0, shifted, db);
@@ -85,7 +98,7 @@ export async function build(world) {
   let previousTick = null, beatAge = 0, currentKey = '', held = 0, scenery = null, disposed = false;
   const listeners = [];
   let panelOpen = false;
-  const h = world.hologram(root, { at: [0, -1, 0.7], face: true, width: 480, dock: 'right', marker: false });
+  const h = world.hologram(root, { at: [0, -1, 0.7], face: true, width: 480, dock: 'right', marker: false, phoneRatio: .48 });
   if (world.marker) {
     const localPoint = point => new world.THREE.Vector3(...point).add(new world.THREE.Vector3(...(world.origin || [0, 0, 0])));
     const evidence = world.marker({ at: () => localPoint([2.05, .7, -.6]), label: 'Open decision evidence', onClick: () => togglePanel() });
@@ -110,7 +123,7 @@ export async function build(world) {
   const fired = () => log.filter(entry => entry.t <= time);
   const frame = () => frames.findLast(entry => entry.t <= time) || frames[0];
   const write = () => world.setQ?.({ t: Math.round(time * 1000) / 1000, paused: playing ? null : '1', play: playing ? '1' : null, shot: outside ? 'silence' : null }, { replace: true, render: false });
-  const setTime = value => { closePanel(); autoOutside = false; time = clamp(value, start, end); beatAge = 0; held = hold; currentKey = ''; outside = false; sync(); write(); };
+  const setTime = value => { autoOutside = false; time = clamp(value, start, end); beatAge = 0; held = hold; currentKey = ''; outside = false; sync(); write(); world.invalidate?.(); };
   function pause() { closePanel(); playing = false; sync(); write(); }
   function run() { closePanel(); if (time >= end) reset(); playing = true; previousTick = null; sync(); write(); }
   function next() { playing = false; const entry = log.find(item => item.t > time); setTime(entry ? entry.t : end); }
@@ -129,15 +142,9 @@ export async function build(world) {
     }
     title.textContent = done ? 'The on-board decisions are in.' : (innerWidth < 760 ? entry?.label.toLowerCase() : entry?.question) || meta.title;
     if (done) {
-      const counts = nowClock().decided, summary = el('div', null, 'drill-summary');
-      for (const key of ['experiment', 'summary', 'operations', 'no_source']) {
-        const p = el('p'); p.append(el('b', String(counts[key])), el('span', core.text.basis(key))); summary.append(p);
-      }
-      content.append(summary, el('p', core.text.NO_SOURCE_LINE, 'drill-limit'));
-      const trust = el('button', 'Can you trust it?'); trust.type = 'button'; trust.onclick = () => world.go('#/engine'); content.append(trust);
       return;
     }
-    if (!entry) { content.append(el('p', db.lines?.lines?.standby || db.lines?.standby)); return; }
+    if (!entry) { content.append(el('p', 'Start at the alarm, then advance through eight on-board decisions. Each step shows the NASA evidence, VESTA interpretation and what remains unsupported.'), el('p', db.lines?.lines?.standby || db.lines?.standby)); return; }
     root.dataset.state = entry.state;
     if (entry.state === 'NO_SOURCE') {
       content.append(el('p', core.text.NO_SOURCE_LINE, 'drill-decision'));
@@ -175,6 +182,8 @@ export async function build(world) {
   }
   function sync() {
     const entries = fired(), entry = entries.at(-1), done = time >= end, clock = nowClock();
+    thread.update({ t: time, shot: outside ? 'silence' : null }); debrief.update({ t: time, shot: outside ? 'silence' : null });
+    clockLine.hidden = assumption.hidden = done;
     const key = `${entry?.step || 'standby'}:${done}:${outside}`;
     if (key !== currentKey) { currentKey = key; beatAge = capture || reduced ? 10 : 0; renderContent(entry, done); }
     const coverage = entry?.state === 'NO_SOURCE' ? 'NO_SOURCE' : entry?.coverage?.status || entry?.state || 'SIMULATED';
@@ -188,6 +197,9 @@ export async function build(world) {
     runButton.setAttribute('aria-label', playing ? 'Pause drill' : done ? 'Run drill again' : 'Run the drill');
     runButton.dataset.action = playing ? 'pause' : 'play';
     stepButton.disabled = done;
+    stepButton.textContent = !entries.length ? 'Start drill' : done ? 'Complete' : 'Next decision';
+    timelineTitle.textContent = `${entries.length} of ${log.length} decisions · jump to a step`;
+    timelineButtons.forEach((button, i) => button.setAttribute('aria-current', log[i].step === entry?.step ? 'step' : 'false'));
     silenceButton.disabled = !entries.length || clock.heard === null;
     silenceButton.setAttribute('aria-label', outside ? 'Return to cabin' : 'The Silence'); silenceButton.title = outside ? 'Return to cabin' : 'The Silence';
     if (!world.marker) silenceButton.textContent = outside ? '↵' : '◌';
@@ -201,9 +213,10 @@ export async function build(world) {
     scenery = await buildCabin({ ...ctx, THREE: world.THREE, vesta: world.vesta, world: true });
     ctx.scene.add(scenery.group); scenery.group.visible = false;
   }
+  const balanceLight = balanceWorldLight(world, 0);
   const camera = t => {
     const mobile = innerWidth < 760;
-    return outside ? { position: [0, 1.3, mobile ? 16 : 10], target: [0, 0, 0], fov: 35 }
+    return outside ? { position: [0, 1.3, mobile ? 27 : 10], target: [0, 0, 0], fov: mobile ? 44 : 35 }
       : { position: [0.22 + (reduced ? 0 : Math.sin(t * 0.22) * 0.18), 0.8, mobile ? 13.5 : 8.5], target: [0.2, 0.65, 0], fov: 35 };
   };
   function keydown(event) {
@@ -213,18 +226,25 @@ export async function build(world) {
     if (event.code === 'Space') { event.preventDefault(); event.stopImmediatePropagation(); playing ? pause() : run(); }
   }
   document.addEventListener('keydown', keydown, true); listeners.push(() => document.removeEventListener('keydown', keydown, true));
-  const outsideTap = event => { if (active && panelOpen && !root.contains(event.target) && !hud.contains(event.target) && !evidenceMarker.contains(event.target) && !silenceButton.contains(event.target) && !event.target.closest('.wc-source,.world-sheet-toggle')) closePanel(); };
+  const outsideTap = event => { if (active && panelOpen && !root.contains(event.target) && !hud.contains(event.target) && !evidenceMarker.contains(event.target) && !silenceButton.contains(event.target) && !event.target.closest('.wc-source,.world-sheet-toggle,.world-guide')) closePanel(); };
   const citation = event => { if (active && event.detail?.open) closePanel(); };
   document.addEventListener('pointerdown', outsideTap); window.addEventListener('vesta:cite', citation);
   listeners.push(() => document.removeEventListener('pointerdown', outsideTap), () => window.removeEventListener('vesta:cite', citation));
   sync();
   return {
     camera,
+    actions: () => [
+      { id: 'next-decision', label: () => time >= end ? 'Drill complete' : fired().length ? 'Next decision' : 'Start drill', primary: true, disabled: () => time >= end, run: () => { next(); if (!panelOpen || !h.target) { panelOpen = false; togglePanel(); } } },
+      { id: 'play-drill', label: () => playing ? 'Pause timeline' : time >= end ? 'Replay timeline' : 'Play timeline', run: () => playing ? pause() : run() },
+      { id: 'decision-evidence', label: 'Decision evidence', expanded: () => panelOpen && h.target > 0, run: () => togglePanel() },
+      { id: 'restart-drill', label: 'Restart', run: () => reset() }
+    ],
+    ready() { if (!panelOpen) togglePanel(); },
     enter() {
-      active = true; hud.hidden = false; world.answer?.(answer.textContent); previousTick = null; if (scenery) scenery.group.visible = true; closePanel();
+      balanceLight(true); active = true; hud.hidden = false; world.answer?.(answer.textContent); previousTick = null; if (scenery) scenery.group.visible = true; closePanel();
       if (!capture && params?.play === '1' && params?.paused == null) run();
     },
-    leave() { active = false; hud.hidden = true; closePanel(); world.vesta.group.visible = true; world.setCamera?.(null); playing = false; previousTick = null; h.close?.(); if (scenery) scenery.group.visible = false; },
+    leave() { balanceLight(false); delete world.camera.userData.focusDistance; delete world.camera.userData.aperture; active = false; hud.hidden = true; closePanel(); world.vesta.group.visible = true; world.setCamera?.(null); playing = false; previousTick = null; h.close?.(); if (scenery) scenery.group.visible = false; },
     update(t) {
       if (!active || disposed) return;
       const delta = previousTick === null ? 0 : clamp(t - previousTick, 0, 0.1); previousTick = t;
@@ -249,7 +269,7 @@ export async function build(world) {
       sync();
       const beats = content.querySelectorAll('.drill-beat');
       beats.forEach((node, i) => {
-        const phase = capture || reduced ? 1 : clamp((beatAge - i * 0.28) / 0.5, 0, 1);
+        const phase = capture || reduced || !playing ? 1 : clamp((beatAge - i * 0.28) / 0.5, 0, 1);
         node.style.opacity = String(phase);
         node.style.transform = `perspective(900px) rotateY(${(1 - phase) * -12}deg) scaleX(${0.94 + phase * 0.06})`;
       });
@@ -272,6 +292,6 @@ export async function build(world) {
       scenery?.update(reduced ? 0 : t, { frame: frameNow, activeStep: entry, t: time, elapsed: time - t0, flowTime: reduced ? time : t, clock: nowClock(), alarmed: entries.length > 0, alarmThreshold, shot: outside ? 'silence' : 'cabin', officerScale: innerWidth < 760 ? 1.6 : 2.1, officerAt: innerWidth < 760 ? { x: -.6, y: 1.8, z: 0 } : { x: world.host.dataset.hologramOpen === 'true' ? -.9 : -2.2, y: 0.55, z: 0.65 } });
     },
     holograms: () => [],
-    dispose() { disposed = true; listeners.forEach(fn => fn()); h.dispose?.(); scenery?.group.removeFromParent(); scenery?.dispose?.(); root.remove(); hud.remove(); },
+    dispose() { disposed = true; thread.dispose(); debrief.dispose(); listeners.forEach(fn => fn()); h.dispose?.(); scenery?.group.removeFromParent(); scenery?.dispose?.(); root.remove(); hud.remove(); },
   };
 }

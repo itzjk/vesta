@@ -12,7 +12,7 @@ function blanketMap(THREE, low) {
   for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
     let value = 128 + (hash(x + y * size) - .5) * 13;
     for (const fold of folds) {
-      const dx = x - fold.x, dy = y - fold.y, u = dx * fold.cosine + dy * fold.sine, v = -dx * fold.sine + dy * fold.cosine;
+      const dx = (x - fold.x + size * 1.5) % size - size * .5, dy = (y - fold.y + size * 1.5) % size - size * .5, u = dx * fold.cosine + dy * fold.sine, v = -dx * fold.sine + dy * fold.cosine;
       value += fold.strength * Math.exp(-v * v / (fold.width * fold.width) - u * u / (fold.length * fold.length));
     }
     const p = (y * size + x) * 4;
@@ -39,8 +39,8 @@ function solarMap(THREE) {
 }
 
 function foilShell(THREE, r0, r1, z0, z1, low, phase) {
-  const nx = low ? 64 : 128, ny = low ? 16 : 40, positions = [], uvs = [], colors = [], indices = [];
-  const folds = Array.from({ length: 22 }, (_, i) => [hash(i * 7 + phase) * TAU, hash(i * 7 + 1 + phase), .06 + hash(i * 7 + 2 + phase) * .24, (hash(i * 7 + 3 + phase) - .5) * .045]);
+  const nx = low ? 80 : 160, ny = low ? 20 : 48, positions = [], uvs = [], colors = [], indices = [];
+  const folds = Array.from({ length: 38 }, (_, i) => [hash(i * 7 + phase) * TAU, hash(i * 7 + 1 + phase), .06 + hash(i * 7 + 2 + phase) * .24, (hash(i * 7 + 3 + phase) - .5) * .075]);
   for (let j = 0; j <= ny; j++) for (let i = 0; i <= nx; i++) {
     const u = i / nx, v = j / ny, a = u * TAU;
     let relief = .003 * Math.sin(a * 39 + v * 71 + phase) * Math.sin(a * 23 - v * 49);
@@ -64,14 +64,14 @@ export function buildShip({ THREE, mode = 'high' }) {
   const low = mode === 'low', group = new THREE.Group(); group.name = 'vesta-exterior';
   const bump = blanketMap(THREE, low), cellMap = solarMap(THREE), batches = new Map();
   const physical = props => new THREE.MeshPhysicalMaterial({ envMapIntensity: 0, ...props });
-  const silver = physical({ color: 0xc8cbc9, metalness: .63, roughness: .64, roughnessMap: bump, bumpMap: bump, bumpScale: .028, vertexColors: true });
-  const gold = physical({ color: 0xa88b42, metalness: .82, roughness: .6, roughnessMap: bump, bumpMap: bump, bumpScale: .038, vertexColors: true });
+  const silver = physical({ color: 0xc8cbc9, metalness: .56, roughness: .48, roughnessMap: bump, bumpMap: bump, bumpScale: .028, vertexColors: true });
+  const gold = physical({ color: 0xa88b42, metalness: .82, roughness: .48, roughnessMap: bump, bumpMap: bump, bumpScale: .038, vertexColors: true });
   const titanium = physical({ color: 0x9a9f9e, metalness: .78, roughness: .3 });
   const ceramic = physical({ color: 0xb9bcba, metalness: .14, roughness: .66 });
   const dark = physical({ color: 0x24262a, metalness: .48, roughness: .48 });
   const gasket = physical({ color: 0x101113, metalness: .02, roughness: .84 });
   const copper = physical({ color: 0x564637, metalness: .62, roughness: .4 });
-  const solar = physical({ map: cellMap, color: 0xc3c8d0, metalness: .42, roughness: .24, clearcoat: 1, clearcoatRoughness: .13 });
+  const solar = physical({ map: cellMap, color: 0xc3c8d0, metalness: .42, roughness: .12, clearcoat: .5, clearcoatRoughness: .07 });
   const warm = new THREE.MeshStandardMaterial({ color: 0x332b20, emissive: 0xffc273, emissiveIntensity: .65, roughness: .38, envMapIntensity: 0 });
   const rodGeometry = new THREE.CylinderGeometry(1, 1, 1, low ? 6 : 8), boxGeometry = new THREE.BoxGeometry(1, 1, 1), boltGeometry = new THREE.CylinderGeometry(1, 1, 1, 6);
   const dummy = new THREE.Object3D(), up = new THREE.Vector3(0, 1, 0);
@@ -117,8 +117,12 @@ export function buildShip({ THREE, mode = 'high' }) {
   const boltRotation = new THREE.Quaternion().setFromEuler(new THREE.Euler(Math.PI / 2, 0, 0));
   for (let i = 0; i < 24; i++) {
     const a = i * TAU / 24;
-    instance('docking-fasteners', boltGeometry, titanium, [Math.cos(a) * .738, Math.sin(a) * .738, 2.087], [.022, .025, .022], boltRotation);
-    if (i % 4 === 0) box('docking-latches', dark, [Math.cos(a) * .88, Math.sin(a) * .88, 1.96], [.10, .10, .15]);
+    instance('docking-fasteners', boltGeometry, titanium, [Math.cos(a) * .738, Math.sin(a) * .738, 2.087], [.012, .012, .012], boltRotation);
+    if (i % 4 === 0) {
+      const q = new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, a));
+      box('docking-latch-body', dark, [Math.cos(a) * .85, Math.sin(a) * .85, 1.97], [.055, .09, .08], q);
+      box('docking-latch-hook', titanium, [Math.cos(a) * .837, Math.sin(a) * .837, 2.015], [.07, .045, .025], q);
+    }
   }
   const glass = physical({ color: 0x18221f, metalness: .2, roughness: .08, transparent: true, opacity: .32, clearcoat: 1, depthWrite: false });
   add(new THREE.CircleGeometry(.599, low ? 48 : 80), glass, 'viewport-glass').position.z = 2.025;
@@ -166,8 +170,13 @@ export function buildShip({ THREE, mode = 'high' }) {
     rod([Math.cos(a) * .36, Math.sin(a) * .36, -5.66], [Math.cos(a) * .565, Math.sin(a) * .565, -6.36], .01, dark, 'nozzle-cooling-lines');
   }
   for (const side of [-1, 1]) {
-    rod([side * .3, 0, -2.5], [side * 4.9, 0, -2.5], .06, titanium, 'array-spars');
-    const wing = new THREE.Group(); wing.name = 'solar-array'; wing.position.set(side * 3, .04, -2.5); wing.rotation.x = .29; group.add(wing);
+    const wing = new THREE.Group(); wing.name = 'solar-array';
+    wing.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), new THREE.Vector3(...(side > 0 ? [.70, .435, .568] : [.778, .407, .478])).normalize());
+    const axes = new THREE.Matrix4().makeRotationFromQuaternion(wing.quaternion).elements;
+    wing.position.set(side * (4.9 - Math.abs(axes[0]) * 1.9 - Math.abs(axes[8]) * .75), .04, -2.5); group.add(wing);
+    const hinge = new THREE.Vector3(0, -.13, 0).applyQuaternion(wing.quaternion).add(wing.position);
+    rod([side * .3, 0, -2.5], hinge.toArray(), .045, titanium, 'array-spars');
+    rod(hinge.toArray(), wing.position.toArray(), .065, dark, 'array-gimbals');
     localBox('photovoltaic-cells', solar, wing, [0, 0, 0], [3.8, .025, 1.5]);
     for (const z of [-.758, .758]) {
       localBox('array-frame', titanium, wing, [0, -.005, z], [3.84, .045, .025]);

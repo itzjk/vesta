@@ -68,13 +68,14 @@ export function createHolograms({ THREE, host, camera, scene, size, reduced = fa
       h.object.visible = true;
       const el = h.element;
       const phone = width < 760;
+      const maxHeight = phone ? Math.min(height - 180, height * (h.options.phoneRatio || .42)) : height - 170;
       const panelWidth = phone ? width - 24 : Math.min(h.options.width || 440, width * .31);
       el.style.setProperty('width', `${panelWidth}px`, 'important');
       el.style.setProperty('max-width', `${panelWidth}px`, 'important');
-      el.style.setProperty('max-height', `${phone ? height * .42 : height - 170}px`, 'important');
+      el.style.setProperty('max-height', `${maxHeight}px`, 'important');
       el.dataset.dock = phone ? 'bottom' : h.options.dock || 'right';
       const distance = 6, scale = distance / focal;
-      const panelHeight = Math.min(el.offsetHeight || 200, phone ? height * .42 : height - 170);
+      const panelHeight = Math.min(el.offsetHeight || 200, maxHeight);
       const x = phone ? width / 2 : el.dataset.dock === 'left' ? 24 + panelWidth / 2 : width - 76 - panelWidth / 2;
       const y = phone ? height - 180 - panelHeight / 2 : 76 + panelHeight / 2;
       v.set((x / width * 2 - 1) * distance * width / height / (focal / height * 2), (1 - y / height * 2) * distance / (focal / height * 2), -distance);

@@ -8,22 +8,24 @@ VESTA lets you set oxygen, pressure and gravity, inspect nearby evidence, and ca
 
 ## Start with one question
 
-1. Open [Evidence](https://itzjk.github.io/vesta/#/brief?station=evidence) and the cabin console. Choose a preset or turn the oxygen, pressure and gravity dials. The field and coverage answer update from the source rows.
-2. Search a question such as `ventilation`, or compare two investigations. Open a finding's source to inspect its quote and context, or a table row's investigation, table, row number and raw cells.
-3. Choose **Save evidence JSON**. Reopen it with **Recheck JSON** to compare the saved method, evidence fingerprint and result with the loaded collection. Only an exact match enables **Apply checked cabin**. Files are checked locally.
-4. Open [Trust](https://itzjk.github.io/vesta/#/brief?station=trust) and run the ten published cases. They include questions that must return no source. The [reviewed case file](config/proof-cases.json) is readable without the interface.
+1. Choose a mission cabin in Transit. The opening answer reports coverage for 45 material-and-concern questions, with the matching limits beside it. Enter the cabin when ready.
+2. Open [Evidence](https://itzjk.github.io/vesta/#/design). Use **Coverage**, **Cabin**, **Search**, **Compare** and **Research gaps** to inspect the result, its source rows and the missing measurements. Export a research brief as Markdown or JSON.
+3. Choose **Save JSON** to keep an evidence receipt. Reopen it with **Recheck JSON** to compare the saved method, evidence fingerprint and result with the loaded collection. Only an exact match enables **Apply checked cabin**. Files are checked locally.
+4. Open [Drill](https://itzjk.github.io/vesta/#/incident), start the exercise and step through eight source-linked decisions. The progress thread stays visible; the debrief exports the actual scripted decision log. Open [Trust](https://itzjk.github.io/vesta/#/engine) to run the ten published cases, including questions that must return no source.
 
-The default experience is one continuous 3D world. Touch an object's marker for its controls or evidence; only one panel opens at a time. The eye button or **H** hides the controls for presenting. The instrument view exposes the tables and technical detail, and remains available without WebGL.
+The default experience is one continuous 3D world with named station tabs and visible action buttons. Object markers also open their controls or evidence. The eye button or **H** hides the controls for presenting. The instrument view exposes the tables and technical detail, and remains available without WebGL.
 
 ## Five stations, one evidence trail
 
 | Station | What you can do | What the result means |
 | --- | --- | --- |
-| Transit | Enter the spacecraft and inspect the communication-delay source. | Context for a scripted exploration scenario, not a live mission feed. |
+| Transit | Select a mission cabin and read its opening coverage answer. | Coverage in this collection, with explicit atmosphere limits. |
 | Flame | Compare the Earth and low-momentum space flame illustrations and read NASA's observation. | An illustration, not a combustion simulation. |
-| Evidence | Configure a cabin, search verified findings, compare investigations, inspect NASA media and save a JSON receipt. | Coverage under explicit matching rules, with source provenance. |
-| Drill | Work through source-linked decisions in the scripted fire scenario. | A bounded teaching exercise, not operational flight guidance. |
+| Evidence | Inspect 45 coverage questions, configure a cabin, search verified findings, compare investigations, and export receipts or research gaps. | Coverage under explicit matching rules, with source provenance. |
+| Drill | Step through eight decisions, inspect their support, replay the exercise and export its debrief. | A bounded teaching exercise, not operational flight guidance. |
 | Trust | Execute ten reviewed cases and inspect the build's evidence checks. | Reproducible software checks, not independent scientific certification. |
+
+**Video cases**, available from every station, pairs original NASA FLEX and Saffire-V footage with the problem, recorded observation, VESTA response and limits. Each case opens an evidence search or the scripted drill. See [video sources and behavior](docs/video-cases.md). Playback starts only on request; source credits remain with the footage.
 
 The 60-second tour travels through all five stations. It can be paused, resumed or skipped. NASA photographs carry their own attribution and remain distinct from the illustrated world.
 

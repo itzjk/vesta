@@ -1,0 +1,68 @@
+.coverage-wall.coverage-wall{box-sizing:border-box;container-type:inline-size;width:100%;height:var(--coverage-height,min(820px,calc(100dvh - 120px)));max-height:100%;min-height:0;display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;gap:12px;color:var(--ivory);background:var(--bg-0);font:18px/1.35 var(--font);text-align:left;padding:16px;overflow:hidden}
+.coverage-wall.coverage-wall *{box-sizing:border-box}
+.coverage-wall.coverage-wall [hidden]{display:none!important}
+.coverage-wall.coverage-wall h2,.coverage-wall.coverage-wall h3,.coverage-wall.coverage-wall h4,.coverage-wall.coverage-wall p{margin:0}
+.coverage-wall .coverage-header h2{font:600 30px/1.05 var(--display);margin:0 0 8px}
+.coverage-wall .coverage-answer{font-size:22px;line-height:1.15}
+.coverage-wall .coverage-conditions{margin-top:8px!important;color:var(--ivory-dim);font-size:14px}
+.coverage-wall.coverage-wall button,.coverage-wall.coverage-wall a{color:inherit;font:inherit}
+.coverage-wall.coverage-wall button{cursor:pointer;touch-action:manipulation}
+.coverage-wall.coverage-wall :focus-visible{outline:2px solid var(--ivory);outline-offset:-3px}
+.coverage-wall.coverage-wall .world-cite,.coverage-wall.coverage-wall .coverage-cite{display:inline;min-height:0;padding:0;border:0;border-bottom:1px dotted var(--ivory-dim);border-radius:0;background:none;text-align:inherit;font:inherit;line-height:inherit;white-space:normal;overflow-wrap:anywhere;cursor:pointer}
+.coverage-wall .coverage-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0;padding:0 0 10px;border-bottom:1px solid var(--line)}
+.coverage-wall .coverage-legend dd{font:600 36px/1 var(--display);margin:0 0 3px}
+.coverage-wall .coverage-legend dt,.coverage-wall .coverage-legend span{display:block;font-size:14px}
+.coverage-wall .coverage-legend span{color:var(--ivory-dim)}
+.coverage-wall.coverage-wall [data-coverage-status=PROVEN]{color:var(--ivory)}
+.coverage-wall.coverage-wall [data-coverage-status=EXTRAPOLATED]{color:var(--amber)}
+.coverage-wall.coverage-wall [data-coverage-status=NEVER_TESTED]{color:var(--rust-text)}
+.coverage-wall .coverage-layout{min-height:0;display:grid;grid-template-columns:minmax(0,1fr);gap:20px;overflow:hidden}
+.coverage-wall .coverage-overview,.coverage-wall .coverage-detail{min-width:0;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--ivory-faint) transparent}
+.coverage-wall .coverage-matrix{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;font-size:18px}
+.coverage-wall .coverage-matrix caption{text-align:left;color:var(--ivory-dim);font-size:14px;padding:0 0 8px}
+.coverage-wall .coverage-matrix th{text-align:left;font-weight:400;overflow-wrap:anywhere}
+.coverage-wall .coverage-matrix thead{position:sticky;top:0;z-index:1;background:var(--bg-0)}
+.coverage-wall .coverage-matrix thead th{font:600 14px/1.35 var(--display);padding:0 0 8px;text-align:center;color:var(--ivory-dim)}
+.coverage-wall .coverage-matrix thead th:first-child{width:43%;text-align:left}
+.coverage-wall .coverage-matrix tbody th{padding:2px 8px 2px 0;border-bottom:1px solid var(--line-faint);line-height:1.15}
+.coverage-wall .coverage-matrix td{padding:0;border-bottom:1px solid var(--line-faint);text-align:center}
+.coverage-wall .coverage-matrix button{display:block;width:100%;height:44px;min-width:44px;border:0;border-radius:0;background:none;font:24px/1 var(--font)}
+.coverage-wall .coverage-matrix button:hover,.coverage-wall .coverage-matrix button[aria-expanded=true]{background:var(--surface-2);box-shadow:inset 0 -2px currentColor}
+.coverage-wall .coverage-detail{padding-right:6px}
+.coverage-wall .coverage-back{border:0;background:none;min-height:44px;padding:0;color:var(--ivory-dim)!important;text-decoration:underline;text-underline-offset:4px}
+.coverage-wall .coverage-detail h3{font:600 28px/1.1 var(--display);margin:10px 0 12px;overflow-wrap:anywhere}
+.coverage-wall .coverage-detail h4{font:600 23px/1.15 var(--display);margin:24px 0 10px}
+.coverage-wall .coverage-detail p+p,.coverage-wall .coverage-state+p{margin-top:12px}
+.coverage-wall .coverage-state{font-size:14px}
+.coverage-wall .coverage-differences,.coverage-wall .coverage-limit{color:var(--ivory-dim)}
+.coverage-wall .coverage-empty{padding:16px 0;border-top:1px solid var(--line);margin-top:20px!important}
+.coverage-wall .coverage-findings{list-style:none;margin:0;padding:0}
+.coverage-wall .coverage-findings li{padding:14px 0;border-bottom:1px solid var(--line)}
+.coverage-wall .coverage-finding-meta{font-size:14px;color:var(--ivory-dim);margin-top:8px!important}
+.coverage-wall .coverage-limit{margin-top:16px!important}
+.coverage-wall .coverage-scope{border-top:1px solid var(--line);max-height:180px;overflow:auto}
+.coverage-wall .coverage-scope summary{min-height:44px;display:list-item;cursor:pointer;padding-top:10px;font-size:14px;color:var(--ivory-dim)}
+.coverage-wall .coverage-scope p{padding:8px 0;font-size:18px}
+.coverage-wall .coverage-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+@container (min-width:760px){.coverage-wall.coverage-wall[data-detail=true] .coverage-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.coverage-wall .coverage-detail{border-left:1px solid var(--line);padding-left:24px}
+.coverage-wall .coverage-matrix button{height:32px}
+.coverage-wall .coverage-legend>div{display:grid;grid-template-columns:auto 1fr;column-gap:12px}
+.coverage-wall .coverage-legend dd{grid-row:1/3;align-self:center;margin:0}
+.coverage-wall .coverage-legend dt{align-self:end}
+}
+
+@container (max-width:759px){.coverage-wall.coverage-wall[data-detail=true] .coverage-overview{display:none}
+}
+
+@container (max-width:420px){.coverage-wall .coverage-header h2{font-size:28px}
+.coverage-wall .coverage-answer{font-size:22px}
+.coverage-wall .coverage-legend{gap:8px}
+.coverage-wall .coverage-matrix thead th:first-child{width:40%}
+.coverage-wall .coverage-matrix thead th{font-size:14px;overflow-wrap:normal;word-break:normal}
+.coverage-wall .coverage-matrix tbody th{font-size:18px}
+.coverage-wall .coverage-legend dt{font-size:14px}
+.coverage-wall .coverage-legend dd{font-size:32px}
+}
+

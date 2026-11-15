@@ -24,10 +24,17 @@ export async function build(ctx) {
   const labels = [], disposers = [], projection = new T.Vector3();
   const label = (text, position, cls = '') => { const el = document.createElement('span'); el.className = 'field-label ' + cls; el.textContent = text; overlay.append(el); const item = { el, position: new T.Vector3(...position) }; labels.push(item); return item; };
   const line = (coords, color, opacity = 1) => new T.Line(new T.BufferGeometry().setFromPoints(coords.map(p => new T.Vector3(...p))), new T.LineBasicMaterial({ color, transparent: true, opacity }));
+  const slices = [];
   const planeLabels = planes.map(plane => {
-    group.add(line([[-6,-2.7,plane.z],[6,-2.7,plane.z],[6,2.7,plane.z],[-6,2.7,plane.z],[-6,-2.7,plane.z]], plane.key === '0g' ? 0x8fa3b5 : 0xc78973, .6));
-    const face = new T.Mesh(new T.PlaneGeometry(12, 5.4), new T.MeshBasicMaterial({ color: plane.key === '0g' ? 0x8fa3b5 : 0xad7b67, transparent: true, opacity: plane.key === '0g' ? .075 : .055, side: T.DoubleSide, depthWrite: false }));
-    face.position.z = plane.z; group.add(face);
+    // Open axes and corner marks preserve depth without four overlapping glass boxes.
+    const axes = line([[-6,2.7,plane.z],[-6,-2.7,plane.z],[6,-2.7,plane.z]], plane.key === '0g' ? 0x8fa3b5 : 0xc78973, .2);
+    const corners = new T.LineSegments(new T.BufferGeometry().setFromPoints([
+      [-6,2.3,plane.z],[-6,2.7,plane.z],[-6,2.7,plane.z],[-5.6,2.7,plane.z],
+      [5.6,2.7,plane.z],[6,2.7,plane.z],[6,2.7,plane.z],[6,2.3,plane.z],
+      [6,-2.3,plane.z],[6,-2.7,plane.z]
+    ].map(p => new T.Vector3(...p))), new T.LineBasicMaterial({ color: 0xc78973, transparent: true, opacity: .2 }));
+    const face = new T.Mesh(new T.PlaneGeometry(12, 5.4), new T.MeshBasicMaterial({ color: plane.key === '0g' ? 0x8fa3b5 : 0xad7b67, transparent: true, opacity: 0, side: T.DoubleSide, depthWrite: false }));
+    face.position.z = plane.z; group.add(axes, corners, face); slices.push({ key: plane.key, axes, corners, face });
     return label(plane.label, [plane.key === '0g' ? (phone ? -2.2 : -4.9) : 5.7, plane.key === '0g' ? 3.35 : phone ? [0,2.1,-1.2,-4.1][planes.indexOf(plane)] : 2.1 - planes.indexOf(plane)*1.65, plane.z], 'field-plane-label' + (plane.key === '0g' ? ' field-data-label' : ' field-gap-label'));
   });
   const pressureLabel = label('Air pressure · psia · log scale →', [-1.5, phone ? -4.35 : -3.8, 4.5], 'field-axis');
@@ -92,6 +99,13 @@ export async function build(ctx) {
     update(t,state) {
       if (!state.db || !state.q) return;
       const q=state.q;
+      slices.forEach(slice => {
+        const focused = slice.key === q.g;
+        slice.axes.material.opacity = focused ? .4 : slice.key === '0g' ? .19 : .045;
+        slice.corners.material.opacity = focused ? .55 : .07;
+        slice.face.material.opacity = focused ? .012 : 0;
+        slice.face.visible = focused;
+      });
       const domain=[Math.max(42,Number.isFinite(q.o2)?q.o2:42),Math.min(2,Number.isFinite(q.p)&&q.p>0?q.p/KPA_PER_PSI:2),Math.max(80,Number.isFinite(q.p)?q.p/KPA_PER_PSI:80)];
       const nextAxis=domain.join('|');
       if(axisKey!==nextAxis){[oMax,pMin,pMax]=domain;axisKey=nextAxis;oxygenTicks.forEach((l,i)=>l.position.y=y([10,20,30,40][i]));pressureTicks.forEach((l,i)=>l.position.x=x([2,5,10,20,40,80][i]));populate(state.db);lastKey=null;}
@@ -108,7 +122,7 @@ export async function build(ctx) {
           colors.setXYZ(i,...color.toArray());
         }); attr.needsUpdate=true; colors.needsUpdate=true; clearHover();
       }
-      cloud.material.uniforms.uTime.value=t;
+      cloud.material.uniforms.uTime.value=state.reduced || state.capture ? 2 : t;
       cloud.material.uniforms.uSelected.value=selectedIds.length ? 1 : 0;
       const valid = Number.isFinite(q.p) && q.p>0 && Number.isFinite(q.o2); cabin.visible=ring.visible=valid; cabinLabel.el.hidden=deltaLabel.el.hidden=!valid;
       const key=[q.p,q.o2,q.g].join('|'), next=pos({p:q.p,o2:q.o2,plane:q.g});
@@ -131,12 +145,14 @@ export async function build(ctx) {
       const occupied = integrated ? [...(ctx.labelObstacles || []), ...document.querySelectorAll('.world-hologram[aria-hidden="false"],.evidence-tool,.world-marker,.world-answer,.world-stations,.world-instrument')].filter(el=>!el.hidden && el.getAttribute('aria-hidden')!=='true').map(el=>el.getBoundingClientRect()).filter(r=>r.width && r.height) : [];
       const pointer = { x: ((state.pointerX || 0)+1)*host.clientWidth/2, y: (1-(state.pointerY || 0))*host.clientHeight/2 };
       const hostBounds = host.getBoundingClientRect();
-      const priority = l => l===hoverLabel ? -100000 : Math.hypot((l.screenX || 0)-pointer.x,(l.screenY || 0)-pointer.y);
+      const selectedSlice = planeLabels.find((_, i) => planes[i].key === q.g);
+      const priority = l => l===hoverLabel ? -100000 : l===cabinLabel ? -90000 : l===selectedSlice ? -80000 : l===planeLabels[0] ? -70000 : Math.hypot((l.screenX || 0)-pointer.x,(l.screenY || 0)-pointer.y);
       const ordered = integrated ? [...labels].sort((a,b)=>priority(a)-priority(b)) : labels;
       let visibleLabels=0;
       for(const l of ordered) {
         if(l===hoverLabel&&!hovered)continue;
         if((l===cabinLabel||l===deltaLabel)&&!valid)continue;
+        if(integrated && (l===deltaLabel || innerWidth<760 && l.el.matches('.field-axis,.field-tick,.field-rail-label')))continue;
         projection.copy(l.position).applyMatrix4(group.matrixWorld).project(camera); let left=(projection.x+1)/2*host.clientWidth, top=(1-projection.y)/2*host.clientHeight;
         if(phone && l.el.classList.contains('field-gap-label'))left=Math.min(host.clientWidth-l.el.offsetWidth-12,left+8);
         if(phone && l.el.classList.contains('field-axis'))left=Math.max(16,Math.min(host.clientWidth-l.el.offsetWidth-12,left));
@@ -146,9 +162,17 @@ export async function build(ctx) {
         if(integrated) {
           const w=l.el.offsetWidth || 160, h=l.el.offsetHeight || 38;
           left=Math.max(12,Math.min(host.clientWidth-w-12,left)); top=Math.max(100,Math.min(host.clientHeight*.82-h,top));
-          const box={left:left+hostBounds.left,top:top+hostBounds.top,right:left+w+hostBounds.left,bottom:top+h+hostBounds.top};
-          const collision=occupied.some(r=>box.left<r.right+10 && box.right>r.left-10 && box.top<r.bottom+10 && box.bottom>r.top-10);
-          const allowed=(state.labels || l===hoverLabel && hovered) && !collision && visibleLabels<(host.clientWidth<760 ? 3 : 7);
+          const contextLabel = l === selectedSlice || l === cabinLabel || l === planeLabels[0];
+          const overlaps = box => occupied.some(r=>box.left<r.right+10 && box.right>r.left-10 && box.top<r.bottom+10 && box.bottom>r.top-10);
+          const at = (x,y) => ({left:x+hostBounds.left,top:y+hostBounds.top,right:x+w+hostBounds.left,bottom:y+h+hostBounds.top});
+          let box=at(left,top), collision=overlaps(box);
+          if (contextLabel && collision) {
+            for (const offset of [-h-14, -h, -2*(h+14), h+14]) {
+              const candidateTop=top+offset, candidate=at(left,candidateTop);
+              if(candidateTop>=100 && candidateTop+h<host.clientHeight*.82 && !overlaps(candidate)) { top=candidateTop; box=candidate; collision=false; break; }
+            }
+          }
+          const allowed=(state.labels || contextLabel || l===hoverLabel && hovered) && !collision && visibleLabels<(host.clientWidth<760 ? 3 : 7);
           l.el.style.opacity=allowed ? '1' : '0';
           l.el.style.visibility=allowed ? 'visible' : 'hidden';
           if(allowed) { occupied.push(box); visibleLabels++; }
@@ -168,6 +192,11 @@ export async function build(ctx) {
       return {id:p.row.id,kind:'test',row:p.row};
     },
     setVisible(value) { group.visible=value; overlay.hidden=!value; if(!value)clearHover(); },
+    focusPosition(out, rowId = null) {
+      const row = rowId && data.find(p => p.row.id === rowId);
+      out.copy(row ? pos(row) : cabin.position);
+      group.updateMatrix(); return out.applyMatrix4(group.matrix);
+    },
     get rows() { return data; },
     dispose() { disposers.forEach(fn=>fn()); overlay.remove(); }
   };

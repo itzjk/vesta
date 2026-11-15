@@ -1,5 +1,6 @@
-import { hardware, softShadow, tube } from './materials.js';
-import { photoPlanet } from './imagery.js';
+import { hardware, tube } from './materials.js';
+import { build as buildMars } from './mars.js';
+import { buildDeck } from './deck.js';
 import { build as buildSilence } from './silence.js';
 
 export const still = 'assets/scene/cabin.jpg';
@@ -18,7 +19,7 @@ export async function build(ctx) {
   const { THREE, camera } = ctx;
   const sharedOfficer = ctx.vesta;
   const group = new THREE.Group();
-  const [vestaModule, flameModule] = await Promise.all([import('./vesta.js'), import('./flame.js')]);
+  const [vestaModule, flameModule] = await Promise.all([import('./vesta.js'), import('./candle.js')]);
   const officer = sharedOfficer || await vestaModule.build(ctx), flame = await flameModule.build(ctx), silence = await buildSilence(ctx);
   const interior = new THREE.Group();
   group.add(interior);
@@ -30,9 +31,10 @@ export async function build(ctx) {
   if (!sharedOfficer) interior.add(officer.group);
   interior.add(flame.group);
   group.add(silence.group);
-  const steel = hardware(THREE, 'metal', { color: 0x575f65, metalness: .65, roughness: .54 });
-  const wall = hardware(THREE, 'fabric', { color: 0x3d4346 });
-  const trim = hardware(THREE, 'metal', { color: 0xa0a7aa, roughness: .42 });
+  const steel = hardware(THREE, 'metal', { color: 0x737b7e, metalness: .45, roughness: .67, envMapIntensity: .06 });
+  const wall = hardware(THREE, 'fabric', { color: 0x626561, roughness: .96, envMapIntensity: .025 });
+  const trim = hardware(THREE, 'metal', { color: 0xa0a7aa, roughness: .48, envMapIntensity: .08 });
+  const panelVariants = [steel, hardware(THREE, 'metal', { color: 0x676d6b, metalness: .38, roughness: .79, envMapIntensity: .06 }), hardware(THREE, 'metal', { color: 0x80827a, metalness: .4, roughness: .7, envMapIntensity: .06 })];
   const boxes = new Map();
   const box = (w, h, d, x, y, z, material) => {
     if (!boxes.has(material)) boxes.set(material, []);
@@ -40,20 +42,21 @@ export async function build(ctx) {
   };
   box(10, 4.1, 0.15, 0, 1.3, -1.65, wall);
   if (ctx.world) {
-    box(10.5, 0.12, 7, 0, -1.18, 1.7, wall);
+    const deck = buildDeck({ THREE }); deck.group.position.set(0, 1.95, 2.2); deck.group.scale.set(.65, 1, .6); interior.add(deck.group);
+    box(10.5, 0.12, 7, 0, -1.22, 1.7, wall);
     box(10.5, 0.12, 7, 0, 3.65, 1.7, wall);
     for (const x of [-5.2, 5.2]) {
       box(0.12, 4.8, 7, x, 1.2, 1.7, steel);
       for (const z of [-1.3, 0.7, 2.7, 4.7]) {
         box(0.14, 4.7, 0.09, x + (x < 0 ? 0.12 : -0.12), 1.2, z, trim);
         box(10.3, 0.08, 0.09, 0, 3.5, z, trim);
-        box(10.3, 0.018, 0.03, 0, -1.1, z, trim);
+        box(10.3, 0.018, 0.03, 0, -1.16, z, trim);
       }
     }
     for (const x of [-3.5, 3.5]) box(0.045, 0.025, 6.6, x, -1.1, 1.7, trim);
   }
   for (let i = 0; i < 6; i++) {
-    box(1.5, 3.7, 0.08, -4 + i * 1.6, 1.3, -1.52, steel);
+    box(1.5, 3.7, 0.08, -4 + i * 1.6, 1.3, -1.52, panelVariants[i % 3]);
     box(0.025, 4, 0.12, -4.8 + i * 1.6, 1.3, -1.4, trim);
   }
   for (const y of [-0.72, 3.3]) box(10, 0.09, 0.13, 0, y, -1.35, trim);
@@ -61,8 +64,8 @@ export async function build(ctx) {
   porthole.position.set(-2.55, 1.65, -1.23); interior.add(porthole);
   const glass = new THREE.Mesh(new THREE.CircleGeometry(0.78, 48), new THREE.MeshPhysicalMaterial({ color: 0xb5cede, transparent: true, opacity: .09, roughness: .1, metalness: .1, clearcoat: 1, envMapIntensity: 1.2 }));
   glass.position.set(-2.55, 1.65, -.52); interior.add(glass);
-  const mars = await photoPlanet(THREE, 'mars', ctx.mode); mars.scale.setScalar(.68);
-  mars.position.set(-2.55, 1.65, -1.3); interior.add(mars);
+  const mars = await buildMars({ THREE, mode: ctx.mode, camera }); mars.group.scale.setScalar(.68);
+  mars.group.position.set(-2.55, 1.65, -1.3); interior.add(mars.group);
   box(1.35, 1.64, 0.46, 2.05, 0.3, -0.96, wall);
   for (let i = 0; i < 4; i++) {
     box(1.2, 0.3, 0.06, 2.05, -0.3 + i * 0.4, -0.7, steel);
@@ -70,6 +73,11 @@ export async function build(ctx) {
   }
   box(1.8, 0.65, 0.3, 2.2, 2.55, -0.85, wall);
   for (let i = 0; i < 10; i++) box(0.06, 0.53, 0.06, 1.48 + i * 0.16, 2.55, -0.65, trim);
+  const bag = hardware(THREE, 'fabric', { color: 0x777364, roughness: .97, bumpScale: .018, envMapIntensity: .025 });
+  const strap = hardware(THREE, 'fabric', { color: 0x272a27, roughness: 1, envMapIntensity: 0 });
+  box(.82, .64, .3, -4, .15, -1.12, bag);
+  for (const x of [-4.25, -3.75]) box(.055, .72, .34, x, .15, -1.1, strap);
+  for (let i = 0; i < 15; i++) box(.012 + Math.sin(i * 17) ** 2 * .09, .003, .004, .19 + Math.sin(i * 12) * .16, -.35 + i * .055, -.968, trim);
   const matrix = new THREE.Matrix4(), orientation = new THREE.Quaternion();
   for (const [material, items] of boxes) {
     const mesh = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), material, items.length);
@@ -93,14 +101,24 @@ export async function build(ctx) {
   dustGeometry.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3));
   const dust = new THREE.Points(dustGeometry, new THREE.PointsMaterial({ color: 0xb9ae9d, size: 0.012, transparent: true, opacity: 0.25, depthWrite: false }));
   if (ctx.world) interior.add(dust);
-  const ambient = new THREE.HemisphereLight(0xede4d4, 0x171d23, 1.65);
-  const key = softShadow(new THREE.DirectionalLight(0xe4eafa, 1.4), ctx.mode === 'low' ? 512 : 1024, 6); key.position.set(-4, 5, 7);
-  const alarm = new THREE.PointLight(0xe0a458, 0, 9, 2);
-  alarm.position.set(2, 2.6, 0.5);
-  const alarmLens = new THREE.Mesh(new THREE.SphereGeometry(0.075, 12, 8), new THREE.MeshStandardMaterial({ color: 0xe0a458, emissive: 0xe0a458, emissiveIntensity: 0 }));
-  alarmLens.position.copy(alarm.position); interior.add(alarmLens, alarm);
-  const rim = new THREE.DirectionalLight(0x8fa3b5, 2.8); rim.position.set(4, 1, 4);
-  group.add(ambient, key, key.target, rim);
+  const ambient = new THREE.HemisphereLight(0x9baab5, 0x15100d, .045);
+  const fixtureMaterial = new THREE.MeshStandardMaterial({ color: 0xd4dacd, emissive: 0xe0d6bd, emissiveIntensity: 1.6, roughness: .45 });
+  for (const x of [-3.2, 2.8]) {
+    const fixtureZ = x < 0 ? 1.4 : -.6;
+    const housing = new THREE.Mesh(new THREE.BoxGeometry(.78, .14, .32), steel); housing.position.set(x, 3.44, fixtureZ); interior.add(housing);
+    const lens = new THREE.Mesh(new THREE.BoxGeometry(.62, .025, .22), fixtureMaterial); lens.position.set(x, 3.36, fixtureZ + .01); lens.layers.enable(1); interior.add(lens);
+    const pool = new THREE.SpotLight(0xe5dbc8, 11, 9, .72, .62, 2); pool.position.set(x, 3.28, fixtureZ + .1); pool.target.position.set(x * .75, .25, -.25);
+    pool.castShadow = ctx.mode !== 'low'; pool.shadow.mapSize.set(512, 512); pool.shadow.bias = -.0001; pool.shadow.normalBias = .025; pool.shadow.radius = 2;
+    interior.add(pool, pool.target);
+  }
+  const screen = new THREE.Mesh(new THREE.PlaneGeometry(.76, .35), new THREE.MeshStandardMaterial({ color: 0x14252b, emissive: 0x6e9eac, emissiveIntensity: .65, roughness: .52 }));
+  screen.position.set(2.05, 1.15, -.65); screen.layers.enable(1); interior.add(screen);
+  const screenLight = new THREE.PointLight(0x8cb2c0, .32, 2.8, 2); screenLight.position.set(2.05, 1.16, -.52); interior.add(screenLight);
+  const alarm = new THREE.PointLight(0xe09a43, 0, 5, 2);
+  alarm.name = 'scripted-alarm-light';
+  alarm.position.set(2, 2.6, -.45);
+  const alarmLens = new THREE.Mesh(new THREE.SphereGeometry(.075, 12, 8), new THREE.MeshStandardMaterial({ color: 0x6a4020, emissive: 0xe09a43, emissiveIntensity: 0, roughness: .3 }));
+  alarmLens.position.copy(alarm.position); interior.add(alarmLens, alarm, ambient);
   alarmLens.layers.enable(1);
   const rubber = hardware(THREE, 'metal', { color: 0x1b2025, roughness: .85, metalness: .08 });
   for (const x of [-3.8, .2, 3.3]) {
@@ -112,17 +130,19 @@ export async function build(ctx) {
     group, still,
     update(t, state) {
       const s = cabinState(state), tm = t;
+      mars.update(tm);
       dust.rotation.y = tm * 0.012;
       dust.position.y = Math.sin(tm * 0.18) * 0.08;
       const outside = ctx.world && state.shot === 'silence';
       interior.visible = !outside;
-      if (outside) camera.userData.focusDistance = 8;
+      camera.userData.focusDistance = outside ? (camera.aspect < .9 ? 27 : 10) : (camera.aspect < .9 ? 13.5 : 8.5);
+      camera.userData.aperture = outside ? .5 : 1.3;
       silence.group.visible = ctx.world ? outside : true;
       const smoke = Number(state.frame?.smoke_pct_alarm) || 0;
       const alarmThreshold = state.alarmThreshold;
-      const inAlarm = Number.isFinite(alarmThreshold) ? smoke >= alarmThreshold : state.alarmed;
+      const inAlarm = Number.isFinite(alarmThreshold) && smoke >= alarmThreshold;
       const alarmGain = inAlarm ? 0.65 + 0.35 * Math.sin(tm * 4.2) ** 2 : 0;
-      alarm.intensity = alarmGain * 6;
+      alarm.intensity = alarmGain * 3.8;
       alarmLens.material.emissiveIntensity = alarmGain * 2;
       const aspect = ctx.size().width / ctx.size().height;
       if (!ctx.world && camera.userData.cabinAspect !== aspect) {
@@ -139,6 +159,7 @@ export async function build(ctx) {
         armFwd: s.pose === 'point' ? 0.6 : 0, roll: s.pose === 'nosource' ? -0.12 : s.pose === 'point' ? -0.04 : 0, browY: s.pose === 'alert' ? 0.9 : 0, beacon: state.alarmed ? 1.2 : 0.2, beaconWarm: 1, thrust: 0.45 });
       flame.group.visible = s.flame;
       flame.update(tm, { ...flame.defaults, space: 1 });
+      flame.group.traverse(o => { if (o.name === 'candle-key') o.visible = s.flame; });
       air.visible = s.flow > 0;
       if (s.flow > 0) for (const item of streaks) {
         const head = ((Number(state.flowTime) || 0) * 0.32 + item.phase) % 1;

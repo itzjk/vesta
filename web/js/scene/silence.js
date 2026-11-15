@@ -1,4 +1,6 @@
-import { hardware } from './materials.js';
+import { softShadow } from './materials.js';
+import { buildShip } from './ship.js';
+import { build as buildMars } from './mars.js';
 import { photoPlanet } from './imagery.js';
 export function signalState(clock = {}, elapsed = -1, alarmed = false) {
   const known = Number.isFinite(clock.heard) && clock.heard > 0;
@@ -13,29 +15,13 @@ export function signalState(clock = {}, elapsed = -1, alarmed = false) {
 
 export async function build({ THREE, camera, mode }) {
   const group = new THREE.Group();
-  const hull = hardware(THREE, 'fabric', { color: 0xc9c6b8, roughness: .64, metalness: .16 });
-  const metal = hardware(THREE, 'metal', { color: 0x7b8792, roughness: .42 });
-  const foil = hardware(THREE, 'metal', { color: 0x9e794c, roughness: .5 });
-  const panel = new THREE.MeshStandardMaterial({ color: 0x303b43, roughness: 0.7, metalness: 0.5 });
-  const ship = new THREE.Group();
-  const cylinder = (r, len, x, material) => {
-    const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 16), material);
-    m.rotation.z = Math.PI / 2; m.position.x = x; ship.add(m); return m;
-  };
-  cylinder(0.15, 0.46, -0.2, hull); cylinder(0.12, 0.29, 0.32, hull);
-  cylinder(0.042, 1, 0, metal); cylinder(0.1, 0.14, -0.51, foil);
-  for (const x of [-0.36, -0.2, -0.04, 0.24, 0.4]) cylinder(0.153, 0.012, x, metal);
-  for (const y of [-0.31, 0.31]) {
-    const array = new THREE.Mesh(new THREE.BoxGeometry(0.57, 0.22, 0.025), panel);
-    array.position.set(0.05, y, 0); ship.add(array);
-    for (let i = 0; i < 5; i++) {
-      const seam = new THREE.Mesh(new THREE.BoxGeometry(0.009, 0.22, 0.027), metal);
-      seam.position.set(-0.19 + i * 0.12, y, 0); ship.add(seam);
-    }
-  }
-  const dish = new THREE.Mesh(new THREE.SphereGeometry(0.13, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2), hull);
-  dish.rotation.z = -0.7; dish.position.set(0.28, 0.24, 0.08); ship.add(dish);
-  ship.rotation.set(0.35, -0.25, -0.08); ship.scale.setScalar(1.25); ship.position.set(-2.5, -1.95, 0); group.add(ship);
+  const vessel = buildShip({ THREE, mode }), ship = vessel.group;
+  ship.rotation.set(.35, -1.05, -.08); ship.scale.setScalar(.26); ship.position.set(-2.5, -1.95, 0); group.add(ship);
+  const sun = softShadow(new THREE.DirectionalLight(0xfff3df, 3.6), mode === 'low' ? 512 : 1024, 6);
+  sun.position.set(-7, 8, 9); sun.target.position.copy(ship.position); sun.shadow.radius = 0;
+  const bounce = new THREE.PointLight(0xb65b35, 2.4, 0, 2); bounce.position.set(-5.9, -.6, -12);
+  group.add(sun, sun.target, bounce);
+  const mars = await buildMars({ THREE, mode, camera, sunDirection: [-4.5, 9.95, 9] }); mars.group.position.set(-5.9, -.6, -12); mars.group.scale.setScalar(2.8); group.add(mars.group);
   const earth = await photoPlanet(THREE, 'earth', mode); earth.scale.setScalar(.34);
   earth.position.set(2.65, -1.85, -0.4); group.add(earth);
   const start = new THREE.Vector3(-1.65, -1.82, 0), end = earth.position.clone();
@@ -50,6 +36,7 @@ export async function build({ THREE, camera, mode }) {
     group,
     update(t, state) {
       if (camera) earth.quaternion.copy(camera.quaternion);
+      vessel.update(t); mars.update(t);
       const s = signalState(state.clock, state.elapsed, state.alarmed);
       pulse.visible = s.visible; reply.visible = s.visible && s.returning;
       pulse.position.copy(curve.getPoint(s.outbound));
