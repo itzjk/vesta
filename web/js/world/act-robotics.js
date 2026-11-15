@@ -1,19 +1,20 @@
-import { createHumanoidInspector, HUMANOID_TIMING } from '../scene/humanoid-inspector.js?v=habitat-20261115-1';
-import { createMaintenanceBay } from '../scene/maintenance-bay.js?v=habitat-20261115-1';
+import { createHumanoidInspector } from '../scene/humanoid-inspector.js?v=crew-kit-20261115-1';
+import { createMaintenanceBay } from '../scene/maintenance-bay.js?v=crew-kit-20261115-1';
 import { ensureInformationPolishStyles } from './information-polish.js?v=habitat-20261115-1';
 import { createInventoryReviewSession, reviewToMarkdown } from '../core/inventory-review.js?v=habitat-20261115-1';
 import { createInventoryReviewPanel } from './inventory-review-panel.js?v=habitat-20261115-1';
 import { openCitation } from './cite.js?v=habitat-20261115-1';
+import { proposeKitMission, createKitMission, kitInputSignature } from './kit-mission.js';
+import { createKitMissionPanel } from './kit-mission-panel.js';
+import { createRecordedReviewPanel } from './recorded-claude-review.js';
 
 if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-robotics]')) {
   for (const file of ['robotics']) {
-    const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL(`../../css/${file}.css?v=habitat-20261115-1`,import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
+    const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL(`../../css/${file}.css?v=crew-kit-20261115-1`,import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
   }
 }
 const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text)el.textContent=text;if(cls)el.className=cls;return el;};
 const meaning={PROVEN:'Nearby evidence',EXTRAPOLATED:'Other or incomplete conditions',NEVER_TESTED:'No source in this collection',NOT_INDEXED:'Material not indexed'};
-const smooth=value=>{const t=Math.max(0,Math.min(1,value));return t*t*(3-2*t);};
-const mix=(a,b,t)=>a.map((value,i)=>value+(b[i]-value)*t);
 
 export async function build(world) {
   ensureInformationPolishStyles();world.host.classList.add('information-polish');
@@ -24,7 +25,9 @@ export async function build(world) {
   let active=false,disposed=false,lastTime=0,changed=0,savedAperture,parkedAt=null;
   let phase='ready',still=false,selected=['pmma','kapton','silicone'],session=null,report=null,generation=0,lastCabin='';
   let focus={material:'pmma',concern:'prevention'},workspaceOpen=false,notice='';
-  const cabinKey=()=>JSON.stringify([world.q.preset,world.q.o2,world.q.p,world.q.g,world.q.gclass]);
+  let kit=null,kitState=null,kitSignature=null,kitFrame=null;
+  let recordedPanel=null;
+  const cabinKey=()=>JSON.stringify([world.q.preset,world.q.habitat,world.q.o2,world.q.p,world.q.g,world.q.gclass]);
   const currentQuestion=()=>report?.questions.find(q=>q.material_id===focus.material&&q.concern===focus.concern);
   const caption=node('section',null,'robotics-caption robotics-work-caption');caption.dataset.stationUi='robotics';caption.hidden=true;
   const targetLabel=node('p','Material inventory → evidence → review requests','robotics-mission-evidence');
@@ -32,12 +35,27 @@ export async function build(world) {
   const selectedResult=node('p',null,'robotics-work-result');
   const locationButton=node('button','Open this question','robotics-question-button');locationButton.type='button';locationButton.dataset.action='review-question';
   locationButton.onclick=()=>{openWorkspace();panel.element.querySelector(`[data-question-id="${focus.material}/${focus.concern}"]`)?.scrollIntoView({block:'nearest'});};
-  caption.append(node('p','LUNAR HABITAT · MATERIAL EVIDENCE','robotics-eyebrow'),node('h1','Make the next review actionable.'),targetLabel,outcome,selectedResult,locationButton,node('p','Real evidence workflow · illustrative robot motion','robotics-caption-scope'));
+  caption.append(node('p','LUNAR HABITAT · CREW SUPPORT','robotics-eyebrow'),node('h1','Prepare the crew review.'),targetLabel,outcome,selectedResult,locationButton,node('p','Evidence analysis + virtual kit staging','robotics-caption-scope'));
+  const kitPanel=createKitMissionPanel({onApprove:approveKit,onCancel:cancelKit,onReset:prepareKit,onDownload:downloadKit,onEvidence:()=>locationButton.click()});
+  const kitCabin=node('p',null,'robotics-kit-cabin');kitCabin.hidden=true;caption.append(kitCabin,kitPanel.element);
   world.host.querySelector('.world-overlay').append(caption);
   const workspace=node('aside',null,'inventory-review-workspace');workspace.hidden=true;workspace.setAttribute('aria-label','Material evidence review workspace');
   const back=node('button','Back to habitat','inventory-review-back');back.type='button';back.onclick=()=>closeWorkspace();
   const panel=createInventoryReviewPanel({db,onRun:run,onCancel:cancel,onReset:reset,onMaterialsChange:ids=>{selected=[...ids];reset('Inventory changed. Run a new review.');},onEvidence:openEvidence,onFocus:locate,onDownload:download});
   workspace.append(back,panel.element);world.host.append(workspace);
+  const recordedSlot=node('details',null,'inventory-recorded-review'),recordedSummary=node('summary','Recorded Claude review · 12 tool calls');
+  recordedSlot.append(recordedSummary,node('p','Loading the recorded external review…'));
+  panel.element.insertBefore(recordedSlot,panel.element.querySelector('.inventory-export'));
+  const recordedAbort=new AbortController();
+  fetch(new URL('../../data/claude-review.json',import.meta.url),{signal:recordedAbort.signal}).then(response=>{
+    if(!response.ok)throw new Error('Recorded review unavailable');return response.json();
+  }).then(record=>{
+    if(disposed)return;
+    recordedPanel=createRecordedReviewPanel({record,db,onEvidence:({id,query})=>{
+      if(guardCabin())openCitation(id,document.activeElement,world,{query:{...query,material:null,concern:'all'}});
+    }});
+    recordedSlot.replaceChildren(recordedSummary,recordedPanel.element);recordedPanel.update(report);
+  }).catch(error=>{if(!disposed&&error.name!=='AbortError')recordedSlot.replaceChildren(recordedSummary,node('p','The recorded Claude review could not be loaded. The current evidence calculation remains available.'));});
   const markers=Object.entries(bay.workTargets||{}).map(([material,target])=>{
     const marker=world.marker(null,{at:target.point,label:`${target.label}: locate evidence`,onClick:()=>locate({material,concern:focus.concern})});
     marker.element.dataset.reviewMaterial=material;return marker;
@@ -45,6 +63,7 @@ export async function build(world) {
   function openWorkspace(){workspaceOpen=true;workspace.hidden=false;world.host.dataset.roboticsWorkspace='true';world.invalidate?.();}
   function closeWorkspace(){workspaceOpen=false;workspace.hidden=true;world.host.dataset.roboticsWorkspace='false';world.invalidate?.();}
   function clearRun(reason){
+    discardKit(reason||'A new evidence review is required.');
     generation++;session?.cancel(reason);session=null;report=null;panel.update(null);notice=reason||'';
     phase='ready';changed=lastTime;lastCabin=cabinKey();refresh();
   }
@@ -52,6 +71,7 @@ export async function build(world) {
   function guardCabin(){if(lastCabin&&lastCabin!==cabinKey()){clearRun('Cabin changed. Previous results cleared; run a new review.');return false;}return true;}
   function refresh(){
     const q=currentQuestion(),target=bay.workTargets?.[focus.material];
+    recordedPanel?.update(report);
     if(!report){const line=panel.element.querySelector('.inventory-cabin');if(line)line.textContent=`Current cabin · ${world.q.o2??'unknown'}% O2 · ${world.q.p??'unknown'} kPa · ${world.q.g??'unknown gravity'}`;}
     targetLabel.textContent=target?`${target.tag} · ${target.label}`:`${db.materials[focus.material]?.label||focus.material} · no scene component`;
     selectedResult.textContent=q?`${q.concern[0].toUpperCase()+q.concern.slice(1)}: ${meaning[q.status]||q.label}`:'The component tags are a concept inventory. Source applicability has to be checked.';
@@ -63,7 +83,10 @@ export async function build(world) {
     locationButton.hidden=!q;
     world.answer?.(report?.status==='complete'?'Select a component to locate its evidence and unresolved questions. The report is ready now.':report?.status==='running'?'Checking source coverage and condition differences for the selected inventory.':'The useful output: cited findings, condition differences and a review request for every material question.');
     world.host.dataset.roboticsPhase=phase;world.host.dataset.roboticsReview=report?.status||'idle';world.host.dataset.roboticsMaterial=focus.material;
-    world.host.dataset.roboticsApproved='false';world.host.dataset.roboticsScanning='false';
+    world.host.dataset.roboticsApproved=String(Boolean(kitState?.approval.granted));world.host.dataset.roboticsScanning='false';
+    world.host.dataset.roboticsKitPhase=kitState?.phase||'unplanned';world.host.dataset.roboticsKitObject=kitState?.virtual_object_state||'docked';
+    caption.classList.toggle('has-kit-task',Boolean(kitState));
+    kitCabin.hidden=!kitState;kitCabin.textContent=kitState?`${kitState.plan.query.o2}% O2 · ${kitState.plan.query.p} kPa · ${kitState.plan.query.g} gravity`:'';
     world.host.dataset.roboticsMotionReady=String(report?.status!=='running');
   }
   async function run(ids=selected){
@@ -89,10 +112,46 @@ export async function build(world) {
     }catch(error){notice=`Could not start review: ${error.message}`;refresh();world.invalidate?.();}
   }
   function cancel(){if(!guardCabin())return;session?.cancel();report=session?.snapshot()||null;panel.update(report);refresh();world.invalidate?.();}
+  function discardKit(reason){
+    kit?.advance({type:'cancel',reason});kit=null;kitState=null;kitSignature=null;kitFrame=null;kitPanel.update(null);
+  }
+  function prepareKit(){
+    if(!guardCabin()||report?.status!=='complete')return;
+    discardKit('A different review question was selected.');
+    const questionId=`${focus.material}/${focus.concern}`;
+    if(!bay.workTargets?.[focus.material])return;
+    try{
+      const plan=proposeKitMission(report,questionId);kitSignature=plan.input_signature;
+      kit=createKitMission(plan);kitState=kit.snapshot();kitPanel.update(kitState);
+      phase='ready';changed=lastTime;refresh();world.invalidate?.();
+    }catch(error){notice=`Kit unavailable: ${error.message}`;refresh();}
+  }
+  function approveKit(){
+    if(!guardCabin()||!kit||report?.status!=='complete')return;
+    try{
+      kitSignature=kitInputSignature(report,`${focus.material}/${focus.concern}`);
+      kitState=kit.advance({type:'approve',inputSignature:kitSignature});kitFrame=lastTime;
+      kitPanel.update(kitState);refresh();world.invalidate?.();
+    }catch(error){cancelKit();notice=error.message;refresh();}
+  }
+  function cancelKit(){
+    if(!kit)return;kitState=kit.advance({type:'cancel',reason:'Virtual task cancelled by the reviewer.'});
+    kitFrame=null;kitPanel.update(kitState);phase='ready';refresh();world.invalidate?.();
+  }
+  function downloadKit(){
+    if(!guardCabin()||!kit||report?.status!=='complete')return;
+    try{
+      kitState=kit.advance({type:'input_changed',inputSignature:kitInputSignature(report,`${focus.material}/${focus.concern}`)});
+      kitPanel.update(kitState);refresh();
+      const result=kit.exportReport();
+      const text=`# VESTA crew review handoff\n\n${result.label}\n\nQuestion: ${result.question_id}\n\nEvidence: ${result.evidence_label}\n\n${result.request.reason}\n\n${result.request.next_step}\n\nVirtual kit: staged at the crew-review fixture. No hardware action or physical test was performed. Crew review is still required.\n\nCollection SHA-256: ${result.collection.digest}\n\n${reviewToMarkdown(report)}`;
+      download({content:text,mime:'text/markdown;charset=utf-8',filename:'vesta-crew-review-handoff.md',report});
+    }catch(error){notice=error.message;refresh();}
+  }
   function locate({material,concern},close=true){
     if(!guardCabin())return;focus={material,concern};
-    if(bay.workTargets?.[material]){phase='inspect';changed=lastTime;}
-    else phase='ready';
+    // Selecting evidence prepares a task; only explicit approval starts motion.
+    phase='ready';changed=lastTime;prepareKit();
     if(close)closeWorkspace();refresh();world.invalidate?.();
   }
   function nextQuestion(){
@@ -117,14 +176,13 @@ export async function build(world) {
   return {
     group,
     camera(){
-      const {width}=stage.size(),compact=width<760,elapsed=Math.max(0,lastTime-changed);
-      const target=bay.workTargets?.[focus.material],progress=phase==='complete'?1:phase==='inspect'?(still?1:smooth(elapsed/HUMANOID_TIMING.approach)):0;
-      const x=target?.point[0]||0,z=target?.point[2]||-.5;
-      // Every camera endpoint lies inside the enclosed module. Movement locates a
-      // selected evidence record; it never delays or implies unperformed analysis.
+      const {width}=stage.size(),compact=width<760;
+      // Keep the pickup and handoff within one view; evidence remains in its own
+      // readable workspace and is never delayed by camera or robot choreography.
       const shift=workspaceOpen&&!compact?1.8:0;
-      if(!compact)return {position:mix([-1.4,1.2,7.4],[Math.max(-3.3,Math.min(3.3,x-.6)),1.0,6.2],progress),target:mix([shift,.15,-.5],[x+shift,.05,z],progress),fov:47};
-      return {position:mix([-1.25,.65,7.3],[Math.max(-2.5,Math.min(2.4,x*.7)),.7,6.5],progress),target:mix([-1.0,-.2,0],[x,-.2,z],progress),fov:52};
+      if(bay.kit)return {position:compact?[2.4,1.8,9]:[2.6,2.0,6.9],target:[.5+shift,-.2,.25],fov:compact?62:50};
+      if(!compact)return {position:[-1.0,1.1,7.8],target:[.7+shift,0,-.4],fov:49};
+      return {position:[.8,.8,8.2],target:[1.2,-.15,0],fov:56};
     },
     actions:()=>[
       {id:'inventory-run',label:()=>report?.status==='running'?'Review running…':'Run evidence review',disabled:()=>!selected.length||report?.status==='running',primary:true,run:()=>run()},
@@ -132,19 +190,23 @@ export async function build(world) {
       {id:'inventory-next',label:'Next review question',disabled:()=>report?.status!=='complete',run:nextQuestion},
       {id:'inventory-download',label:'Save review',disabled:()=>report?.status!=='complete',run:downloadReport}
     ],
-    enter(){active=true;group.visible=true;caption.hidden=false;savedAperture=stage.camera.userData.aperture;guardCabin();lastCabin=cabinKey();refresh();},
-    leave(){active=false;parkedAt=lastTime;group.visible=false;caption.hidden=true;closeWorkspace();if(savedAperture==null)delete stage.camera.userData.aperture;else stage.camera.userData.aperture=savedAperture;},
+    enter(){active=true;group.visible=true;caption.hidden=false;world.setBaseLightScale?.(bay.lightingScale??1);savedAperture=stage.camera.userData.aperture;guardCabin();lastCabin=cabinKey();refresh();},
+    leave(){active=false;parkedAt=lastTime;group.visible=false;caption.hidden=true;world.setBaseLightScale?.(1);closeWorkspace();if(savedAperture==null)delete stage.camera.userData.aperture;else stage.camera.userData.aperture=savedAperture;},
     update(t,state={}){
-      if(!active)return;if(parkedAt!=null){changed+=Math.max(0,t-parkedAt);parkedAt=null;}lastTime=t;
+      if(!active)return;if(parkedAt!=null){changed+=Math.max(0,t-parkedAt);kitFrame=t;parkedAt=null;}lastTime=t;
       still=Boolean(state.reduced||state.reducedMotion||state.capture||world.capture||matchMedia('(prefers-reduced-motion: reduce)').matches);
       guardCabin();stage.camera.userData.aperture=0;
       const target=bay.workTargets?.[focus.material],q=currentQuestion(),elapsed=Math.max(0,t-changed);
-      if(phase==='inspect'&&(still||elapsed>=HUMANOID_TIMING.reach)){phase='complete';refresh();}
-      humanoid.update({phase,elapsed,still,targetPoint:target?.point,workPosition:target?.robotPosition,workYaw:target?.robotYaw});
-      bay.update({phase,elapsed,still,review:{material:focus.material,concern:focus.concern,status:q?.status||null,completed:report?.counts.completed_questions??0,total:selected.length*3,rowId:q?.sources.rows[0]?.id||null,running:report?.status==='running'}});
+      if(kitState?.approval.granted&&kitState.phase!=='complete'){
+        const previous=kitState.phase;
+        kitState=kit.advance({type:'tick',dt:Math.min(.1,Math.max(0,t-(kitFrame??t))),still,inputSignature:kitSignature});kitFrame=t;
+        if(previous!==kitState.phase){kitPanel.update(kitState);refresh();}
+      }
+      humanoid.update({phase,elapsed,still,targetPoint:target?.point,workPosition:target?.robotPosition,workYaw:target?.robotYaw,kitMission:kitState,kitLayout:bay.kit});
+      bay.update({phase,elapsed,still,kitMission:kitState,kitGrip:humanoid.getKitGrip?.(),review:{material:focus.material,concern:focus.concern,status:q?.status||null,completed:report?.counts.completed_questions??0,total:selected.length*3,rowId:q?.sources.rows[0]?.id||null,running:report?.status==='running'}});
       world.vesta?.update?.(still?2:t,{...world.vesta.defaults,x:-4.2,y:-.8,z:2.6,scale:.5,yaw:.55,lookX:.6,armL:.1,armR:.1,idle:0,thrust:0,beacon:.15});
     },
     holograms:()=>[],
-    dispose(){disposed=true;generation++;session?.cancel('Workspace disposed');workspace.removeEventListener('keydown',onKey);panel.dispose();workspace.remove();markers.forEach(m=>m.dispose());humanoid.dispose();bay.dispose();caption.remove();group.removeFromParent();for(const key of ['roboticsPhase','roboticsApproved','roboticsScanning','roboticsMotionReady','roboticsDisposition','roboticsReview','roboticsWorkspace','roboticsMaterial'])delete world.host.dataset[key];}
+    dispose(){disposed=true;generation++;recordedAbort.abort();recordedPanel?.dispose();session?.cancel('Workspace disposed');kit?.advance({type:'cancel',reason:'Workspace disposed'});kitPanel.dispose();workspace.removeEventListener('keydown',onKey);panel.dispose();workspace.remove();markers.forEach(m=>m.dispose());humanoid.dispose();bay.dispose();caption.remove();group.removeFromParent();for(const key of ['roboticsPhase','roboticsApproved','roboticsScanning','roboticsMotionReady','roboticsDisposition','roboticsReview','roboticsWorkspace','roboticsMaterial','roboticsKitPhase','roboticsKitObject'])delete world.host.dataset[key];}
   };
 }

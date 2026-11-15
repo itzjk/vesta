@@ -90,3 +90,23 @@
 }
 
 .inventory-review-back{position:sticky;top:0;z-index:2;width:100%;background:#111b1e}
+
+/* Keep the physical task visible while its readable request remains within reach. */
+.robotics-work-caption.has-kit-task{width:340px;max-height:calc(100dvh - 250px);overflow:auto;overscroll-behavior:contain;pointer-events:auto;padding:3px 8px 8px 0}
+.robotics-work-caption.has-kit-task h1{font-size:25px}
+.robotics-work-caption.has-kit-task>:is(.robotics-mission-evidence,.robotics-work-outcome,.robotics-work-result,.robotics-question-button,.robotics-caption-scope){display:none}
+.robotics-work-caption.has-kit-task .kit-mission-strip{margin-top:14px;background:transparent;padding-left:0;padding-right:0}
+.robotics-kit-cabin{font-size:13px!important;color:#d7c4a4!important;margin-top:8px!important}
+.robotics-kit-cabin[hidden]{display:none}
+@media(max-width:759px){
+ .robotics-work-caption.has-kit-task{top:90px;left:14px;width:calc(100% - 86px);max-width:340px;max-height:calc(100dvh - 245px);background:#101b20ed;padding:10px 12px;box-sizing:border-box}
+ .robotics-work-caption.has-kit-task h1{font-size:21px}
+ .robotics-work-caption.has-kit-task .kit-mission-strip{margin-top:8px;padding:7px 0;background:transparent}
+ .robotics-work-caption.has-kit-task .kit-mission-purpose{display:none}
+ .robotics-work-caption.has-kit-task .kit-mission-scope{font-size:12px!important}
+ .world-host[data-station=robotics]:is([data-robotics-kit-phase=approach],[data-robotics-kit-phase=retrieve],[data-robotics-kit-phase=carry],[data-robotics-kit-phase=place],[data-robotics-kit-phase=handoff]) .robotics-work-caption.has-kit-task{top:auto;bottom:160px;max-height:130px}
+ .world-host[data-station=robotics]:is([data-robotics-kit-phase=approach],[data-robotics-kit-phase=retrieve],[data-robotics-kit-phase=carry],[data-robotics-kit-phase=place],[data-robotics-kit-phase=handoff]) .robotics-work-caption.has-kit-task>:is(h1,.robotics-eyebrow){display:none}
+ .world-host[data-station=robotics][data-robotics-kit-phase=complete] .robotics-work-caption.has-kit-task{top:auto;bottom:160px;max-height:180px;width:calc(100% - 28px);max-width:none}
+ .world-host[data-station=robotics][data-robotics-kit-phase=complete] .robotics-work-caption.has-kit-task>:is(h1,.robotics-eyebrow,.robotics-kit-cabin){display:none}
+ .world-host[data-station=robotics][data-robotics-kit-phase=complete] .kit-mission-eyebrow{display:none}
+}

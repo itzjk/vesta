@@ -1,0 +1,86 @@
+{
+  "schema": "vesta.recorded-model-review/1",
+  "label": "Recorded Claude analysis · external session",
+  "model": "Claude",
+  "mode": "recorded_external_model_review",
+  "editorial_label": "Audited paraphrase of the reviewed Claude answer; not a verbatim quote.",
+  "recorded_at": "2026-11-15T18:41:50.757502+00:00",
+  "reviewed_at": "2026-11-15T18:46:29.168243+00:00",
+  "release": "ef31f41d4148da99b2701a2243e31252fc290e0a",
+  "query": {
+    "o2": 34,
+    "p": 56.5,
+    "g": "moon",
+    "gclass": "partial",
+    "habitat": "lunar-base"
+  },
+  "materials": [
+    "kapton",
+    "pmma",
+    "silicone"
+  ],
+  "collection_digest": "76a9179d7df0736316b21bf6b995b432b39e940303f4d0b776498f58e65df621",
+  "collection_algorithm": "SHA-256",
+  "question_ids": [
+    "kapton/prevention",
+    "kapton/detection",
+    "kapton/suppression",
+    "pmma/prevention",
+    "pmma/detection",
+    "pmma/suppression",
+    "silicone/prevention",
+    "silicone/detection",
+    "silicone/suppression"
+  ],
+  "cited_ids": [
+    "OPERATIONS-054",
+    "OPERATIONS-242",
+    "PSI-25:1",
+    "PSI-99:2"
+  ],
+  "tool_calls": 12,
+  "tools_used": [
+    "check_design",
+    "get_finding",
+    "rank_evidence",
+    "search_evidence"
+  ],
+  "transport": "Claude-directed terminal calls to the local VESTA stdio MCP server.",
+  "summary": "For PMMA, Kapton and silicone at 34% oxygen, 56.5 kPa and lunar gravity, VESTA returned no nearby-evidence questions, six with other or incomplete conditions, and three with no source in the collection. A retrieved NASA summary reports enhanced flammability near lunar gravity without material or atmosphere values; the matching FM2 record describes a planned mode, while the nearest PMMA and silicone rows have inferred or missing pressure.",
+  "review_question": "Which retrieved results, if any, apply to these materials in this lunar cabin, and what evidence would a qualified reviewer need for the unresolved material–concern questions?",
+  "scope": "Recorded interpretation of deterministic VESTA tool outputs, not a live model inside this website. This proposes a human review, not a physical risk ranking, material approval, test procedure or safety clearance. No sensor measurement or robot command occurred in this run.",
+  "evidence_notes": [
+    {
+      "id": "OPERATIONS-054",
+      "exchange": 6,
+      "note": "Summary statement about enhanced flammability near lunar gravity; no material, oxygen or pressure values."
+    },
+    {
+      "id": "OPERATIONS-242",
+      "exchange": 11,
+      "note": "Planned FM2 mode in the retrieved snapshot; no measured material outcome."
+    },
+    {
+      "id": "PSI-25:1",
+      "exchange": 2,
+      "note": "PMMA source row at 22.2% oxygen and microgravity; row pressure unreported, 101.3 kPa facility-inferred by VESTA."
+    },
+    {
+      "id": "PSI-99:2",
+      "exchange": 12,
+      "note": "Silicone source row at approximately 22.1% oxygen; microgravity and separate 1 g comparison outcomes; pressure unreported."
+    }
+  ],
+  "audit": {
+    "method": "Independent replay against the recorded release; JSON response equality, source-record and condition review.",
+    "verified_replay": true,
+    "captured_exchanges": 13,
+    "replayed_exchanges": 13,
+    "tool_calls": 12,
+    "additional_exchange": "tools/list",
+    "transcript_sha256": "9dc4bd34d11871337e2812396e43d3765f4f3caa802b1d58409e8d68f3a50c15",
+    "reviewed_answer_sha256": "15e5a2bf1fa6bf1a6f02b6021e958e70ee4ffb41febaa50331cea4790b683db0",
+    "reviewed_provenance_sha256": "ef60eb9d6bf3ffafeb4b4c3da5dee669b2e956876c0ef9fa5aad9bb6e16b99da",
+    "scope": "Reproducible retrieval and computation, not independent scientific validation. The correction pass added no tool calls. The original initialize response was not stored verbatim."
+  }
+}

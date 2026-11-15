@@ -11,18 +11,39 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
   const unitBox = geo(new T.BoxGeometry(1, 1, 1));
   const unitCylinder = geo(new T.CylinderGeometry(1, 1, 1, 16));
   const unitSphere = geo(new T.SphereGeometry(1, 12, 8));
-  const graphite = mat(0x222b30), deck = mat(0x4a5557), recess = mat(0x121b20);
-  const ceramic = mat(0xb9b7aa, { metalness: .12 }), panel = mat(0x6c7777), copper = mat(0xa4795c, { metalness: .48 });
+  const graphite = mat(0x222b30), deck = mat(0x67716b, {roughness:.94,metalness:.08}), recess = mat(0x121b20);
+  const ceramic = mat(0xa8ab9f, { metalness: .12 }), panel = mat(0x68716c), copper = mat(0xa4795c, { metalness: .48 });
   const steel = mat(0x8b9697, { metalness: .6, roughness: .48 });
   const warm = mat(0xe8ddc5, { emissive: 0xe5d6b5, emissiveIntensity: 1.15, toneMapped: false });
   const blue = mat(0x9bb7c0, { emissive: 0x718f9c, emissiveIntensity: .45 });
   const cueMaterial = mat(0xc69a5c, { emissive: 0xb78243, emissiveIntensity: .3 });
   const ringMaterial = mat(0xd7b478, { emissive: 0xb68d4f, emissiveIntensity: .7 });
+  // Original procedural surface finish: low-frequency panel seams and restrained
+  // grain provide material depth without external textures or shadow-map passes.
+  function surfaceTexture(floor=false){
+    const canvas=document.createElement('canvas');canvas.width=canvas.height=256;
+    const c=canvas.getContext('2d');c.fillStyle=floor?'#727b73':'#c7c8bb';c.fillRect(0,0,256,256);
+    let seed=137;
+    for(let i=0;i<1400;i++){seed=(seed*1664525+1013904223)>>>0;const x=seed%256;seed=(seed*1664525+1013904223)>>>0;const y=seed%256;
+      c.fillStyle=i%2?'rgba(22,30,26,.055)':'rgba(245,237,213,.055)';c.fillRect(x,y,floor?2:1,1);}
+    c.fillStyle=floor?'#45504b':'#8d988e';c.fillRect(0,0,256,2);c.fillRect(0,0,2,256);
+    c.fillStyle=floor?'#929a8d':'#e0dfcc';c.fillRect(3,3,250,1);c.fillRect(3,3,1,250);
+    if(!floor)for(const x of [12,244])for(const y of [12,244]){c.fillStyle='#6c7b73';c.fillRect(x-1,y-1,3,3);}
+    const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;
+    texture.wrapS=texture.wrapT=T.RepeatWrapping;texture.anisotropy=1;textures.add(texture);return texture;
+  }
+  const liner=mat(0xb7b8aa,{map:surfaceTexture(),roughness:.87,metalness:.06});
+  deck.map=surfaceTexture(true);
+  const corner=new T.Shape();corner.moveTo(-.42,-.5);corner.lineTo(.42,-.5);corner.quadraticCurveTo(.5,-.5,.5,-.42);
+  corner.lineTo(.5,.42);corner.quadraticCurveTo(.5,.5,.42,.5);corner.lineTo(-.42,.5);corner.quadraticCurveTo(-.5,.5,-.5,.42);
+  corner.lineTo(-.5,-.42);corner.quadraticCurveTo(-.5,-.5,-.42,-.5);corner.closePath();
+  const beveled=geo(new T.ExtrudeGeometry(corner,{depth:.94,steps:1,bevelEnabled:true,bevelSize:.025,bevelThickness:.03,bevelSegments:1,curveSegments:2}));beveled.translate(0,0,-.47);beveled.scale(1/1.05,1/1.05,1);
   function mesh(shape, finish, size, at, parent = group) {
     const item = new T.Mesh(shape, finish); item.scale.set(...size); item.position.set(...at);
     item.castShadow = item.receiveShadow = false; parent.add(item); return item;
   }
   const box = (size, at, finish = panel, parent = group) => mesh(unitBox, finish, size, at, parent);
+  const rounded = (size, at, finish = panel, parent = group) => mesh(beveled, finish, size, at, parent);
   const cylinder = (radius, length, at, finish = steel, parent = group) => mesh(unitCylinder, finish, [radius, length, radius], at, parent);
   const sphere = (radius, at, finish = steel) => mesh(unitSphere, finish, [radius, radius, radius], at);
   const up = new T.Vector3(0, 1, 0), direction = new T.Vector3();
@@ -45,15 +66,16 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
   // only through the rear viewport; this is a visual set, not a pressure model.
   // All exterior terrain is original illustrative geometry, not a NASA image.
   const rearZ=-3.82,frontZ=10.4;
-  const vaultPositions=[],vaultIndices=[],vaultSegments=32;
+  const vaultPositions=[],vaultUvs=[],vaultIndices=[],vaultSegments=32;
   for(let i=0;i<=vaultSegments;i++){
     const angle=i/vaultSegments*Math.PI,x=5*Math.cos(angle),y=groundY+4.4*Math.sin(angle);
     vaultPositions.push(x,y,rearZ,x,y,frontZ);
+    vaultUvs.push(i/vaultSegments*8,0,i/vaultSegments*8,(frontZ-rearZ)/2.5);
     if(i<vaultSegments){const a=i*2;vaultIndices.push(a,a+1,a+2,a+1,a+3,a+2);}
   }
-  const vault=geo(new T.BufferGeometry());vault.setAttribute('position',new T.Float32BufferAttribute(vaultPositions,3));vault.setIndex(vaultIndices);vault.computeVertexNormals();
+  const vault=geo(new T.BufferGeometry());vault.setAttribute('position',new T.Float32BufferAttribute(vaultPositions,3));vault.setAttribute('uv',new T.Float32BufferAttribute(vaultUvs,2));vault.setIndex(vaultIndices);vault.computeVertexNormals();
   // Inward winding lights the room-facing surface without transparent/double-sided walls.
-  mesh(vault,ceramic,[1,1,1],[0,0,0]);
+  mesh(vault,liner,[1,1,1],[0,0,0]);
   const shell = new T.Shape(); shell.moveTo(-5,groundY); shell.lineTo(5,groundY);
   shell.absellipse(0,groundY,5,4.4,0,Math.PI,false); shell.closePath();
   const forwardBulkhead=geo(new T.ExtrudeGeometry(shell,{depth:.18,bevelEnabled:false,curveSegments:28}));
@@ -74,6 +96,12 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
   for(const x of [-2.9,2.9]){box([.16,.10,12.9],[x,2.10,3.0],graphite);box([.045,.035,12.5],[x,2.015,3.0],warm);}
   // Recessed ceiling service spine and broad floor edges reinforce interior depth.
   box([.65,.045,13.8],[0,2.945,3.25],panel);
+  // Recessed service covers share the room's actual curvature; broad bevels
+  // catch practical lights without adding another foreground structural rib.
+  for(const x of [-4.17,4.17])for(const z of [-.7,2.3,5.3]){
+    const cover=rounded([.11,1.18,2.55],[x,.92,z],panel);cover.rotation.z=x<0?-.36:.36;
+    for(const dz of [-.84,.84])box([.055,.42,.085],[x+(x<0?.10:-.10),.91,z+dz],copper);
+  }
   for(const x of [-4.15,4.15])box([.035,.006,13.9],[x,groundY+.003,3.25],copper);
   group.userData.enclosure={kind:'visual-interior',rearZ,frontZ,halfWidth:5,vaultHeight:4.4,groundY,viewport:'rear-bulkhead-only'};
   const lunar=mat(0x807e75,{roughness:1,metalness:0});
@@ -122,6 +150,75 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
     kapton:targetSpec('Kapton cable tray','HAB-KAPTON-02',[-3.65,.28,-1.025],[-2.65,groundY,-.05],-2.44),
     silicone:targetSpec('Silicone viewport seal','HAB-SILICONE-03',[1.82,.45,-3.32],[.9,groundY,-2.2],2.45)
   });
+  // One bay-owned cartridge represents the selected material's review request.
+  // Three labeled storage cradles are locations, not three duplicated payloads.
+  const frozenPoint=point=>Object.freeze(point);
+  const handleLocal=frozenPoint([0,.205,0]);
+  const slot=(x,material)=>{const position=frozenPoint([x,0,.25]);return Object.freeze({material,position,point:position,handlePosition:frozenPoint([x,.205,.25]),robotPosition:frozenPoint([x-.25,groundY,.85]),robotYaw:Math.PI});};
+  const fixturePoint=frozenPoint([2.05,0,.25]);
+  const kit=Object.freeze({dimensions:frozenPoint([.34,.28,.28]),handleLocal,
+    slots:Object.freeze({pmma:slot(-.45,'pmma'),kapton:slot(.05,'kapton'),silicone:slot(.55,'silicone')}),
+    fixture:Object.freeze({position:fixturePoint,point:fixturePoint,handlePosition:frozenPoint([2.05,.205,.25]),robotPosition:frozenPoint([1.80,groundY,.85]),robotYaw:Math.PI}),
+    dock:Object.freeze({robotPosition:frozenPoint([-2,groundY,1]),robotYaw:.2})});
+  // Central rack and handoff fixture leave the path at z=.85 unobstructed.
+  rounded([1.66,.12,.55],[.05,-.20,.25],graphite);
+  for(const x of [-.65,.75])rounded([.10,1.17,.37],[x,groundY+.585,.25],steel);
+  for(const [id,s] of Object.entries(kit.slots)){
+    rounded([.43,.025,.34],[s.position[0],-.1485,.25],recess);
+    for(const dx of [-.192,.192])box([.025,.12,.31],[s.position[0]+dx,-.08,.25],copper);
+    decal(id==='pmma'?'PMMA':id==='kapton'?'KAPTON':'SILICONE',.41,.10,[s.position[0],-.225,.535]);
+  }
+  rounded([.78,.12,.60],[2.05,-.20,.25],ceramic);
+  rounded([.42,1.17,.38],[2.05,groundY+.585,.25],graphite);
+  rounded([.59,.045,.52],[2.05,groundY+.0225,.25],steel);
+  for(const x of [1.76,2.34])box([.025,.012,.42],[x,-.133,.25],copper);
+  decal('CREW REVIEW',.70,.14,[2.05,-.235,.565]);
+  const payload=new T.Group();payload.name='virtual-review-kit';group.add(payload);
+  rounded([.34,.28,.28],[0,0,0],ceramic,payload);
+  box([.30,.025,.25],[0,.112,0],graphite,payload);
+  for(const x of [-.105,.105])box([.028,.075,.036],[x,.165,0],steel,payload);
+  rounded([.24,.035,.045],[0,.205,0],steel,payload);
+  box([.035,.15,.012],[-.105,-.015,.148],copper,payload);
+  const labelCanvas=document.createElement('canvas');labelCanvas.width=256;labelCanvas.height=64;
+  const labelContext=labelCanvas.getContext('2d'),labelTexture=new T.CanvasTexture(labelCanvas);labelTexture.colorSpace=T.SRGBColorSpace;textures.add(labelTexture);
+  const labelMaterial=new T.MeshBasicMaterial({map:labelTexture,toneMapped:false});materials.add(labelMaterial);
+  const label=mesh(geo(new T.PlaneGeometry(.245,.065)),labelMaterial,[1,1,1],[.025,.016,.148],payload);label.name='kit-material-label';
+  const handle=new T.Object3D();handle.name='kit-handle';handle.position.fromArray(handleLocal);payload.add(handle);handle.updateMatrix();
+  const handleInverse=new T.Matrix4().copy(handle.matrix).invert(),kitMatrix=new T.Matrix4(),bayInverse=new T.Matrix4();
+  const wideCamera=Object.freeze({position:frozenPoint([-1.4,1.2,7.4]),target:frozenPoint([0,.15,-.5]),fov:47});
+  const narrowCamera=Object.freeze({position:frozenPoint([0,1.2,9.6]),target:frozenPoint([0,-.02,.2]),fov:62});
+  const cameraHints=Object.freeze({wide:wideCamera,narrow:narrowCamera,overview:wideCamera,compact:narrowCamera,
+    taskBounds:Object.freeze({min:frozenPoint([-1.2,groundY,-.1]),max:frozenPoint([2.65,1.4,1.5])})});
+  let lastKitMaterial='pmma',paintedKitMaterial=null;
+  function updateKit(state,grip){
+    const material=state?.plan?.material_id;
+    if(Object.hasOwn(kit.slots,material||''))lastKitMaterial=material;
+    if(lastKitMaterial!==paintedKitMaterial){paintedKitMaterial=lastKitMaterial;labelContext.fillStyle='#1b292b';labelContext.fillRect(0,0,256,64);labelContext.fillStyle='#e5dcc5';labelContext.font='600 36px sans-serif';labelContext.textAlign='center';labelContext.textBaseline='middle';labelContext.fillText(lastKitMaterial.toUpperCase(),128,32,240);labelTexture.needsUpdate=true;}
+    const selected=kit.slots[lastKitMaterial];
+    const valid=Boolean(state?.plan_valid&&state.approval?.granted&&state.phase!=='cancelled');
+    const attached=valid&&state.virtual_object_state==='attached';
+    const staged=valid&&state.virtual_object_state==='staged';
+    payload.matrixAutoUpdate=true;
+    if(attached&&grip?.isObject3D){
+      group.updateWorldMatrix(true,false);grip.updateWorldMatrix(true,false);
+      bayInverse.copy(group.matrixWorld).invert();
+      kitMatrix.copy(bayInverse).multiply(grip.matrixWorld).multiply(handleInverse);
+      payload.matrixAutoUpdate=false;payload.matrix.copy(kitMatrix);
+      kitMatrix.decompose(payload.position,payload.quaternion,payload.scale);
+      payload.matrixWorldNeedsUpdate=true;
+    }else{
+      payload.position.fromArray(staged?kit.fixture.position:selected.position);
+      payload.quaternion.identity();payload.scale.set(1,1,1);payload.updateMatrix();
+    }
+    payload.userData.material_id=lastKitMaterial;
+    payload.userData.question_id=state?.plan?.question_id||null;
+    payload.userData.source_ids=state?.plan?.source_ids||null;
+    payload.userData.virtual_object_state=attached&&grip?.isObject3D?'attached':staged?'staged':'docked';
+    payload.userData.grip_unavailable=Boolean(attached&&!grip?.isObject3D);
+    group.userData.kitObject=payload.userData.virtual_object_state;
+    group.userData.kitMaterial=lastKitMaterial;
+  }
+  updateKit(null,null);
   const cuePosition=new T.Vector3(2.65,.28,-1.06);
   const cue=box([.10,.10,.018],cuePosition.toArray(),cueMaterial);cue.name='panel-traceability-target';
   const targetRing=mesh(geo(new T.TorusGeometry(.23,.014,6,36)),ringMaterial,[1,1,1],[2.65,.28,-1.035]);targetRing.name='evidence-target-ring';targetRing.visible=false;
@@ -136,8 +233,8 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
   const routeGeometry=geo(new T.BufferGeometry().setFromPoints([new T.Vector3(-2,groundY+.06,1),new T.Vector3(1.65,groundY+.06,-.05)]));
   const routeMaterial=new T.LineDashedMaterial({color:0xc5a270,dashSize:.18,gapSize:.12,transparent:true,opacity:.45});materials.add(routeMaterial);
   const route=new T.Line(routeGeometry,routeMaterial);route.computeLineDistances();group.add(route);route.visible=false;
-  group.add(new T.HemisphereLight(0xd9e0de,0x3b3028,.75));
-  const key=new T.PointLight(0xf1e2c7,19,14,2);key.position.set(-2.4,2.35,2.2);group.add(key);
+  group.add(new T.HemisphereLight(0xd9e0de,0x3b3028,.35));
+  const key=new T.PointLight(0xf1e2c7,15,14,2);key.position.set(-2.4,2.35,2.2);group.add(key);
   const task=new T.PointLight(0xb7cbd2,9,10,2);task.position.set(3.35,1.8,.5);group.add(task);
 
   // The wall monitor shows the real software tally; it is not a sensor display.
@@ -151,7 +248,7 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
   // texture plane independent so their transforms and live monitor remain updateable.
   const moving = new Set([cue, targetRing, scan]);
   const buckets = new Map();
-  for (const item of group.children) if (item.isMesh && !moving.has(item) && !item.material.map) {
+  for (const item of group.children) if (item.isMesh && !moving.has(item)) {
     if (!buckets.has(item.material)) buckets.set(item.material, []);
     buckets.get(item.material).push(item);
   }
@@ -160,9 +257,10 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
     if (pieces.length < 2) continue;
     const parts = pieces.map(item => { item.updateMatrix(); return (item.geometry.index ? item.geometry.toNonIndexed() : item.geometry.clone()).applyMatrix4(item.matrix); });
     const vertices = parts.reduce((count, part) => count + part.attributes.position.count, 0);
-    const positions = new Float32Array(vertices * 3), normals = new Float32Array(vertices * 3); let offset = 0;
-    for (const part of parts) { positions.set(part.attributes.position.array, offset); normals.set(part.attributes.normal.array, offset); offset += part.attributes.position.array.length; part.dispose(); }
+    const positions = new Float32Array(vertices * 3), normals = new Float32Array(vertices * 3),uvs=new Float32Array(vertices*2); let offset = 0,uvOffset=0;
+    for (const part of parts) { positions.set(part.attributes.position.array, offset); normals.set(part.attributes.normal.array, offset);if(part.attributes.uv)uvs.set(part.attributes.uv.array,uvOffset);uvOffset+=part.attributes.position.count*2; offset += part.attributes.position.array.length; part.dispose(); }
     const shape = geo(new T.BufferGeometry()); shape.setAttribute('position', new T.BufferAttribute(positions, 3)); shape.setAttribute('normal', new T.BufferAttribute(normals, 3));
+    shape.setAttribute('uv',new T.BufferAttribute(uvs,2));
     shape.computeBoundingBox(); shape.computeBoundingSphere(); pieces.forEach(item => group.remove(item));
     const batch = mesh(shape, finish, [1, 1, 1], [0, 0, 0]); batch.name = 'fixed-bay-material-batch';
   }
@@ -200,7 +298,10 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
     c.fillStyle = '#9cb1b8'; c.font = '23px sans-serif'; c.fillText(mission?'Crew review still required':'material–concern questions', 28, 352); screenTexture.needsUpdate = true;
   }
   const sensorPoint = new T.Vector3(), sweepPoint = new T.Vector3();
-  function update({ phase, elapsed = 0, still = false, counts, mission = null, approved = false, sensor = null, scanAt = 4.15, review = null } = {}) {
+  function update({ phase, elapsed = 0, still = false, counts, mission = null, approved = false, sensor = null, scanAt = 4.15, review = null,kitMission=null,kitGrip=null } = {}) {
+    // Actual approved virtual-object choreography precedes the evidence monitor's
+    // early return. It never modifies a scientific result or creates sensor data.
+    updateKit(kitMission,kitGrip);
     if(review&&typeof review==='object'){
       const selected=typeof review.material==='string'&&Object.hasOwn(workTargets,review.material)?workTargets[review.material]:null;paintReview(review,selected);
       targetRing.visible=Boolean(selected);if(selected)targetRing.position.fromArray(selected.point);
@@ -241,5 +342,5 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
   group.traverse(item => { if (item.isMesh) { meshes++; triangles += (item.geometry.index?.count ?? item.geometry.attributes.position.count) / 3; } if (item.isLight) lights++; });
   const stats = Object.freeze({ meshes, authoredMeshes, triangles, lights, shadowMaps: 0, textures: textures.size, externalAssets: 0 });
   group.userData.budget = stats;
-  return { group, stats, cuePosition, workTargets, update, dispose() { group.removeFromParent(); geometries.forEach(item => item.dispose()); materials.forEach(item => item.dispose()); textures.forEach(item => item.dispose()); } };
+  return { group, stats, cuePosition, workTargets,kit,cameraHints,lightingScale:.45, update, dispose() { group.removeFromParent(); geometries.forEach(item => item.dispose()); materials.forEach(item => item.dispose()); textures.forEach(item => item.dispose()); } };
 }

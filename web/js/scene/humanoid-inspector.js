@@ -17,7 +17,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   const geometries = new Set(), materials = new Set(), roundedCache = new Map();
   const geometry = value => { geometries.add(value); return value; };
   const material = (color, extra = {}) => { const m = new T.MeshStandardMaterial({ color, roughness: .48, metalness: .28, ...extra }); materials.add(m); return m; };
-  const shell = material(0xdedbd2, { roughness: .38, metalness: .19 });
+  const shell = material(0xc4c5bd, { roughness: .51, metalness: .24 });
   const graphite = material(0x222a2e, { roughness: .58, metalness: .38 });
   const titanium = material(0x8a9699, { roughness: .31, metalness: .72 });
   const copper = material(0xa56f4c, { roughness: .44, metalness: .58 });
@@ -155,6 +155,9 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     const wrist = pivot(elbow, side > 0 ? 'right-wrist' : 'left-wrist', 0, -.43); hand(wrist, side); return { shoulder, elbow, wrist };
   }
   const leftArm = arm(-1), rightArm = arm(1);
+  // The right hand retains its inspection head. Kit handling uses the free left
+  // palm. This frame represents the cartridge HANDLE, not its centre of mass.
+  const kitGrip = pivot(leftArm.wrist, 'kit-grip', 0, -.105, .025);
   function leg(side) {
     const hip = pivot(group, side > 0 ? 'right-hip' : 'left-hip', side * .17, hipHeight); hinge(hip, .112, .15);
     taperedShell(hip, shell, .53, .115, .087, [0, -.34, .005]); panel(hip, graphite, [.055, .32, .021], [side * .025, -.36, -.083], .01);
@@ -201,8 +204,180 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   const joints = [torso, neck, leftArm.shoulder, leftArm.elbow, leftArm.wrist, rightArm.shoulder, rightArm.elbow, rightArm.wrist];
   const fromPose = joints.map(j => j.quaternion.clone()), poseQuaternion = joints.map(() => new T.Quaternion());
   let previousPhase = null, previousReviewPose = false, fromYaw = .18, disposed = false;
-  function update({ phase = 'ready', elapsed = 0, still = false, targetPoint = null, workPosition = null, workYaw = null } = {}) {
+  const kitDurations = { approach: 2.4, retrieve: .9, carry: 2.6, place: .8, handoff: .6 };
+  const kitDefaultSlots = Object.fromEntries([['pmma', -.45], ['kapton', .05], ['silicone', .55]].map(([id, x]) =>
+    [id, { point: [x, 0, .25], robotPosition: [x - .25, groundY, .85], robotYaw: Math.PI }]));
+  const kitDefaultFixture = { point: [2.05, 0, .25], robotPosition: [1.80, groundY, .85], robotYaw: Math.PI };
+  const finite3 = value => Array.isArray(value) && value.length === 3 && value.every(Number.isFinite);
+  const kitStart = new T.Vector3(), kitSource = new T.Vector3(), kitDestination = new T.Vector3();
+  const pickupHandle = new T.Vector3(), fixtureHandle = new T.Vector3(), handleOffset = new T.Vector3();
+  const requestedGrip = new T.Vector3(), neutralGrip = new T.Vector3(), carryGrip = new T.Vector3(), kitPoint = new T.Vector3();
+  const ikTarget = new T.Vector3(), ikOffset = new T.Vector3(), ikDirection = new T.Vector3(), ikPole = new T.Vector3();
+  const ikUpper = new T.Vector3(), ikLower = new T.Vector3(), ikActual = new T.Vector3();
+  const kitWorldQ = new T.Quaternion(), kitParentQ = new T.Quaternion(), kitInverseQ = new T.Quaternion();
+  const kitDesiredQ = new T.Quaternion(), kitNeutralQ = new T.Quaternion(), kitIdentityQ = new T.Quaternion();
+  let kitActive = false, kitPhase = null, kitStartYaw = .18, kitExitElapsed = null;
+
+  function readKitPoint(record, into, offset) {
+    const point = record?.point ?? record?.position;
+    if (!finite3(point)) return false;
+    into.fromArray(point);
+    if (finite3(record.handlePosition)) into.fromArray(record.handlePosition);
+    else into.add(offset);
+    return true;
+  }
+
+  function baseKitPose(moving, progress, distance) {
+    const envelope = moving ? Math.sin(Math.PI * clamp(progress)) : 0;
+    const gait = progress * Math.PI * Math.max(2, distance / .32);
+    const stride = Math.sin(gait) * .18 * envelope;
+    placeLeg(leftLeg, stride, Math.max(0, Math.sin(gait)) * .06 * envelope);
+    placeLeg(rightLeg, -stride, Math.max(0, -Math.sin(gait)) * .06 * envelope);
+    torso.rotation.set(0, 0, moving ? stride * .025 : 0); neck.rotation.set(0, 0, 0);
+    leftArm.shoulder.rotation.set(.04 + stride * .7, 0, -.07);
+    rightArm.shoulder.rotation.set(.04 - stride * .7, 0, .07);
+    leftArm.elbow.rotation.set(-.12, 0, 0); rightArm.elbow.rotation.set(-.16, 0, 0);
+    leftArm.wrist.rotation.set(0, 0, -.05); rightArm.wrist.rotation.set(0, 0, .05);
+    group.updateWorldMatrix(true, true);
+    kitGrip.getWorldPosition(neutralGrip); group.parent?.worldToLocal(neutralGrip);
+    leftArm.wrist.getWorldQuaternion(kitNeutralQ);
+    if (group.parent) {
+      group.parent.getWorldQuaternion(kitParentQ); kitInverseQ.copy(kitParentQ).invert();
+      kitNeutralQ.premultiply(kitInverseQ);
+    }
+  }
+
+  // Bounded analytic two-link reach: real shoulder/elbow/wrist joints move to the
+  // handle. No detached invisible hand or teleported grip target is used.
+  function poseLeftGrip(point, orientation) {
+    ikOffset.copy(kitGrip.position).applyQuaternion(orientation);
+    ikTarget.copy(point).sub(ikOffset); group.parent?.localToWorld(ikTarget);
+    torso.worldToLocal(ikTarget); ikTarget.sub(leftArm.shoulder.position);
+    const requestedDistance = ikTarget.length();
+    const distance = clamp(requestedDistance, .051, .48 + .43 - .00001);
+    ikDirection.copy(ikTarget).normalize();
+    if (requestedDistance < .00001) ikDirection.set(0, -1, 0);
+    ikPole.set(-1, 0, 0).addScaledVector(ikDirection, ikDirection.x);
+    if (ikPole.lengthSq() < .00001) ikPole.set(0, 0, 1).addScaledVector(ikDirection, -ikDirection.z);
+    ikPole.normalize();
+    const along = (.48 * .48 - .43 * .43 + distance * distance) / (2 * distance);
+    const out = Math.sqrt(Math.max(0, .48 * .48 - along * along));
+    ikUpper.copy(ikDirection).multiplyScalar(along).addScaledVector(ikPole, out);
+    leftArm.shoulder.quaternion.setFromUnitVectors(downward, ikActual.copy(ikUpper).normalize());
+    ikLower.copy(ikDirection).multiplyScalar(distance).sub(ikUpper);
+    kitInverseQ.copy(leftArm.shoulder.quaternion).invert(); ikLower.applyQuaternion(kitInverseQ).normalize();
+    leftArm.elbow.quaternion.setFromUnitVectors(downward, ikLower);
+    leftArm.elbow.updateWorldMatrix(true, true);
+    leftArm.elbow.getWorldQuaternion(kitInverseQ).invert();
+    if (group.parent) group.parent.getWorldQuaternion(kitParentQ); else kitParentQ.identity();
+    kitWorldQ.copy(kitParentQ).multiply(orientation);
+    leftArm.wrist.quaternion.copy(kitInverseQ).multiply(kitWorldQ);
+    group.updateWorldMatrix(true, true);
+    kitGrip.getWorldPosition(ikActual); group.parent?.worldToLocal(ikActual);
+    group.userData.kitGripError = ikActual.distanceTo(point);
+  }
+
+  function updateKit(mission, layout, still) {
+    const stage = mission?.phase;
+    if (!mission?.approval?.granted || !['approved', 'approach', 'retrieve', 'carry', 'place', 'handoff', 'complete'].includes(stage)) return false;
+    const id = mission.plan?.material_id, slot = layout?.slots?.[id] ?? kitDefaultSlots[id];
+    const fixture = layout?.fixture ?? kitDefaultFixture;
+    if (!slot || !finite3(slot.robotPosition) || !finite3(fixture.robotPosition)) return false;
+    handleOffset.fromArray(finite3(layout?.handleLocal) ? layout.handleLocal : [0, .205, 0]);
+    if (!readKitPoint(slot, pickupHandle, handleOffset) || !readKitPoint(fixture, fixtureHandle, handleOffset)) return false;
+    kitSource.fromArray(slot.robotPosition); kitDestination.fromArray(fixture.robotPosition);
+    if (!kitActive) { kitStart.copy(group.position); kitStartYaw = group.rotation.y; }
+    kitActive = true; kitExitElapsed = null;
+    if (stage === 'approved') {
+      group.userData.kitPhase = stage; group.userData.kitApproved = true; group.userData.motionComplete = false;
+      group.updateWorldMatrix(true, true); return true;
+    }
+    const duration = kitDurations[stage] ?? 1;
+    const elapsed = Number.isFinite(mission.phase_elapsed) ? mission.phase_elapsed : 0;
+    const progress = still ? 1 : clamp(Number.isFinite(mission.phase_progress) ? mission.phase_progress : elapsed / duration);
+    const sourceYaw = Number.isFinite(slot.robotYaw) ? slot.robotYaw : Math.PI;
+    const destinationYaw = Number.isFinite(fixture.robotYaw) ? fixture.robotYaw : Math.PI;
+    let walking = false, walkProgress = 0, walkDistance = 0;
+    if (stage === 'approach') {
+      walkProgress = ease((progress - .10) / .82); walkDistance = kitStart.distanceTo(kitSource);
+      group.position.lerpVectors(kitStart, kitSource, walkProgress);
+      const heading = Math.atan2(kitSource.x - kitStart.x, kitSource.z - kitStart.z);
+      const turn = angleMix(kitStartYaw, heading, ease(progress / .14));
+      group.rotation.y = angleMix(turn, sourceYaw, ease((progress - .76) / .24));
+      walking = !still && walkProgress > 0 && walkProgress < 1;
+    } else if (stage === 'retrieve') {
+      group.position.copy(kitSource); group.rotation.y = sourceYaw;
+    } else if (stage === 'carry') {
+      walkProgress = ease((progress - .10) / .80); walkDistance = kitSource.distanceTo(kitDestination);
+      group.position.lerpVectors(kitSource, kitDestination, walkProgress);
+      const heading = Math.atan2(kitDestination.x - kitSource.x, kitDestination.z - kitSource.z);
+      const turn = angleMix(sourceYaw, heading, ease(progress / .16));
+      group.rotation.y = angleMix(turn, destinationYaw, ease((progress - .75) / .25));
+      walking = !still && walkProgress > 0 && walkProgress < 1;
+    } else if (stage === 'handoff' || stage === 'complete') {
+      // The cartridge has already been released onto the crew fixture. Retract
+      // first, then step aside so the completed result remains visible. Pickup,
+      // carry and place transforms are deliberately unchanged by this end pose.
+      const handoffProgress = stage === 'complete' ? 1 : progress;
+      walkProgress = ease((handoffProgress - .30) / .70);
+      walkDistance = Math.hypot(.65, .16);
+      group.position.copy(kitDestination);
+      group.position.x -= .65 * walkProgress; group.position.z += .16 * walkProgress;
+      group.rotation.y = angleMix(destinationYaw, .85, ease((handoffProgress - .12) / .88));
+      walking = !still && walkProgress > 0 && walkProgress < 1;
+    } else {
+      group.position.copy(kitDestination); group.rotation.y = destinationYaw;
+    }
+    baseKitPose(walking, walkProgress, walkDistance);
+    let closed = 0;
+    if (stage !== 'approach') {
+      // Carry close to the left side of the torso; the cartridge remains upright
+      // in the room frame as the body turns. Final transfer frames are identical.
+      carryGrip.set(-.25, 1.755, .45).applyQuaternion(group.quaternion).add(group.position);
+      if (stage === 'retrieve') {
+        const blend = ease(progress);
+        requestedGrip.lerpVectors(neutralGrip, pickupHandle, blend);
+        kitDesiredQ.copy(kitNeutralQ).slerp(kitIdentityQ, blend);
+        closed = ease((progress - .55) / .45);
+      } else if (stage === 'carry') {
+        requestedGrip.lerpVectors(pickupHandle, carryGrip, ease(progress / .18));
+        kitDesiredQ.identity(); closed = 1;
+      } else if (stage === 'place') {
+        requestedGrip.lerpVectors(carryGrip, fixtureHandle, ease(progress));
+        kitDesiredQ.identity(); closed = 1;
+      } else {
+        const blend = stage === 'complete' ? 1 : ease(progress / .38);
+        requestedGrip.lerpVectors(fixtureHandle, neutralGrip, blend);
+        kitDesiredQ.copy(kitIdentityQ).slerp(kitNeutralQ, blend);
+        closed = 1 - ease(progress / .55);
+        if (stage === 'complete') closed = 0;
+      }
+      poseLeftGrip(requestedGrip, kitDesiredQ);
+      neck.rotation.x = -.12; neck.rotation.y = -.18;
+    }
+    for (const finger of fingers) {
+      const curl = finger.side < 0 ? .12 + closed * .72 : .82;
+      finger.base.rotation.set(finger.thumb ? .16 + closed * .08 : curl, finger.thumb ? finger.side * -.30 : 0, finger.spread);
+      finger.tip.rotation.x = finger.thumb ? .30 + closed * .12 : curl * .85;
+    }
+    group.updateWorldMatrix(true, true); optics.emissiveIntensity = .13;
+    group.userData.kitPhase = stage; group.userData.kitApproved = true;
+    group.userData.phase = 'kit-staging'; group.userData.presentationMode = 'virtual-kit-staging';
+    group.userData.motionComplete = stage === 'complete'; group.userData.hardwareConnected = false;
+    kitPhase = stage; return true;
+  }
+
+  function update({ phase = 'ready', elapsed = 0, still = false, targetPoint = null, workPosition = null, workYaw = null, kitMission = null, kitLayout = null } = {}) {
     if (disposed) return;
+    if (updateKit(kitMission, kitLayout, still)) return;
+    if (kitActive) {
+      kitActive = false; kitPhase = null; kitExitElapsed = elapsed;
+      previousPhase = null; group.userData.kitApproved = false; delete group.userData.kitPhase;
+    }
+    // Cancellation resets only virtual staging. The unladen robot visibly returns
+    // via the existing walking pose instead of inheriting a large elapsed value.
+    if (kitExitElapsed !== null && phase === 'ready') elapsed = Math.max(0, elapsed - kitExitElapsed);
+    else if (phase !== 'ready') kitExitElapsed = null;
     if (!HUMANOID_PHASES.includes(phase)) throw new TypeError(`Unknown humanoid inspection phase: ${phase}`);
     if (!Number.isFinite(elapsed)) throw new TypeError('Humanoid phase elapsed time must be finite.');
     for(const [name,value] of [['targetPoint',targetPoint],['workPosition',workPosition]])if(value!=null&&(!Array.isArray(value)||value.length!==3||!value.every(Number.isFinite)))throw new TypeError(`${name} must be a finite [x,y,z] array.`);
@@ -269,7 +444,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   group.traverse(object => { if (object.isMesh) { meshCount++; triangles += (object.geometry.index?.count ?? object.geometry.attributes.position.count) / 3; } });
   const stats = Object.freeze({ meshCount, triangles, authoredPieces, geometries: geometries.size, materials: materials.size, lights: 0, shadowMaps: 0, externalAssets: 0 });
   update({ phase: 'ready', still: true });
-  return { group, update, stats, dispose() {
+  return { group, update, stats, getKitGrip: () => kitGrip, dispose() {
     if (disposed) return; disposed = true; group.removeFromParent();
     geometries.forEach(g => g.dispose()); materials.forEach(m => m.dispose()); geometries.clear(); materials.clear(); roundedCache.clear();
   } };

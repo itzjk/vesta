@@ -49,7 +49,7 @@ export function createMissionBrief({ navigate, run }) {
         ['Verifier','Runs reviewed software cases and exposes source-text checks. These do not independently validate the science.','trust','checks'],
         ['Ranker','Orders findings by relevance to your selected cabin and exposes coverage gaps. Relevance is not a risk score.','evidence','overview'],
         ['Officer','Connects a scripted incident to source-linked decisions and missing evidence.','drill',null],
-        ['Robotics coordinator','Runs a bounded material-inventory review across prevention, detection and suppression, compares source conditions and drafts source-linked requests for human review. The humanoid locates linked concept components.','robotics',null]
+        ['Robotics coordinator','Reviews material evidence, compares conditions and prepares source-linked crew requests. Explicit approval starts a virtual kit retrieval and handoff. A separately labelled, recorded Claude review demonstrates external model reasoning for one exact scenario.','robotics',null]
       ]) {const card=node('article');card.append(node('h3',role),node('p',work),action(`Open ${role.toLowerCase()}`,station,task));pipeline.append(card);}
       body.append(pipeline);
     } else {
@@ -57,7 +57,7 @@ export function createMissionBrief({ navigate, run }) {
       const grid=node('div',null,'mission-facts');
       const existing=node('article'); existing.append(node('span','NASA REFERENCE','mission-number'),node('h3','Robots already work in orbit'),node('p','NASA’s Astrobee platform supports free-flying robotics research aboard the ISS, and the Robonaut project has researched a dexterous humanoid robot there since 2011. Both give this direction a real context.'),link('astrobee'),link('robonaut'),link('operations'));
       const ours=node('article'); ours.append(node('span','WORKING EVIDENCE WORKFLOW','mission-number'),node('h3','Turn gaps into review requests'),node('p','Choose materials and cabin conditions. The deterministic workflow checks prevention, detection and suppression, inspects attributable records, compares conditions and exports a source-linked human-review request. Unknown variables stay unknown; the result is not a validated test procedure or safety clearance.'));
-      const next=node('article'); next.append(node('span','HUMANOID INTERFACE · CONCEPT','mission-number'),node('h3','Locate the component in context'),node('p','The animated humanoid locates linked PMMA, Kapton and silicone components in the concept habitat. Its motion helps explain which component a review concerns; it does not inspect real hardware or supply sensor measurements. No autonomous AI runtime or robot controller is connected.'));
+      const next=node('article'); next.append(node('span','HUMANOID CREW SUPPORT · SIMULATION','mission-number'),node('h3','Prepare the review kit'),node('p','After explicit approval, the humanoid retrieves a labelled virtual kit, carries it to a crew-review fixture and stages it with the selected component’s actual evidence request. The handoff can be saved. Changing the cabin, inventory or question revokes the previous task. This demonstrates a proposed robotic support role; no physical work, sensor measurement or hardware command occurs.'));
       grid.append(existing,ours,next);body.append(grid,action('Enter the habitat','robotics'));
     }
   }

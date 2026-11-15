@@ -1,0 +1,156 @@
+// Presentation only: the host validates approval, current inputs and report export.
+const STATES = Object.freeze({
+  ready: 'Awaiting your approval', approved: 'Approved · ready to move',
+  approach: 'Approaching the kit', retrieve: 'Collecting the virtual kit',
+  carry: 'Carrying the virtual kit', place: 'Placing the virtual kit',
+  handoff: 'Preparing the crew handoff', complete: 'Kit staged · crew review required',
+  cancelled: 'Cancelled · approval cleared'
+});
+const EVIDENCE = Object.freeze({
+  PROVEN: 'Nearby evidence', EXTRAPOLATED: 'Other or incomplete conditions',
+  NEVER_TESTED: 'No source in this collection'
+});
+const RUNNING = new Set(['approved', 'approach', 'retrieve', 'carry', 'place', 'handoff']);
+const DEFAULT_PURPOSE = 'Stage a virtual review kit at the crew-review fixture for the selected component.';
+const node = (tag, text = '', cls = '') => {
+  const element = document.createElement(tag);
+  if (text) element.textContent = text;
+  if (cls) element.className = cls;
+  return element;
+};
+const text = (element, value) => {
+  const next = String(value ?? '');
+  if (element.textContent !== next) element.textContent = next;
+};
+const sourceIds = values => Array.isArray(values)
+  ? [...new Set(values.filter(value => typeof value === 'string' && value.trim()))] : [];
+const titleCase = value => typeof value === 'string' && value
+  ? value[0].toUpperCase() + value.slice(1) : 'Question unavailable';
+
+function ensureStyles() {
+  if (document.querySelector('link[data-kit-mission-styles]')) return;
+  const sheet = node('link'); sheet.rel = 'stylesheet';
+  sheet.href = new URL('../../css/kit-mission.css?v=kit-task-20261115-1', import.meta.url).href;
+  sheet.dataset.kitMissionStyles = ''; document.head.append(sheet);
+}
+
+/**
+ * update receives createKitMission().snapshot() unchanged; null hides the strip.
+ * Action callbacks receive that current snapshot. onEvidence receives
+ * { material, concern, questionId }, then the snapshot. No action runs on update.
+ */
+export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload, onEvidence } = {}) {
+  ensureStyles();
+  let current = null, disposed = false, lastSignature = null, callbackError = '';
+  const cleanups = [];
+  const element = node('section', '', 'kit-mission-strip');
+  element.setAttribute('aria-label', 'Evidence-linked virtual task'); element.hidden = true;
+  const eyebrow = node('p', 'VIRTUAL KIT TASK', 'kit-mission-eyebrow');
+  const heading = node('h3', '', 'kit-mission-title');
+  const evidence = node('p', '', 'kit-mission-evidence');
+  const task = node('p', '', 'kit-mission-phase');
+  task.setAttribute('role', 'status'); task.setAttribute('aria-live', 'polite'); task.setAttribute('aria-atomic', 'true');
+  const purpose = node('p', DEFAULT_PURPOSE, 'kit-mission-purpose');
+  const details = node('details', '', 'kit-mission-details');
+  const summary = node('summary', 'Review request & sources');
+  const reason = node('p', '', 'kit-mission-request');
+  const nextStep = node('p');
+  const count = node('p', '', 'kit-mission-source-count');
+  const rows = node('p', '', 'kit-mission-source-ids');
+  const findings = node('p', '', 'kit-mission-source-ids');
+  const error = node('p', '', 'kit-mission-error'); error.hidden = true;
+  error.setAttribute('role', 'alert');
+  const actions = node('div', '', 'kit-mission-actions');
+  const hasPlan = () => !disposed && current?.schema === 'vesta.virtual-kit-state/1'
+    && current.plan?.schema === 'vesta.virtual-kit-plan/1';
+  const canApprove = () => hasPlan() && current.plan_valid === true && current.phase === 'ready'
+    && current.approval?.granted === false && typeof onApprove === 'function';
+  const canDownload = () => hasPlan() && current.plan_valid === true && current.phase === 'complete'
+    && current.approval?.granted === true && current.successful_staging === true
+    && current.virtual_object_state === 'staged' && typeof onDownload === 'function';
+  function call(callback, ...args) {
+    const savedSignature = current?.plan?.input_signature, savedPhase = current?.phase;
+    const failed = failure => {
+      if (disposed || current?.plan?.input_signature !== savedSignature || current?.phase !== savedPhase) return;
+      callbackError = failure instanceof Error ? failure.message : 'The action could not be completed.';
+      showMessage();
+    };
+    try {
+      const result = callback(...args);
+      if (result && typeof result.then === 'function') result.catch(failed);
+    } catch (failure) { failed(failure); }
+  }
+  const button = (label, id, action, parent = actions) => {
+    const b = node('button', label); b.type = 'button'; b.dataset.kitAction = id;
+    b.addEventListener('click', action); cleanups.push(() => b.removeEventListener('click', action));
+    parent.append(b); return b;
+  };
+  const source = button('Open evidence', 'evidence', () => {
+    if (!hasPlan() || typeof onEvidence !== 'function') return;
+    call(onEvidence, { material: current.plan.material_id, concern: current.plan.concern,
+      questionId: current.plan.question_id }, current);
+  }, details);
+  details.prepend(summary, reason, nextStep, count, rows, findings);
+  const approve = button('Approve virtual task', 'approve', () => {
+    if (canApprove()) call(onApprove, current);
+  }); approve.className = 'kit-mission-primary';
+  const cancel = button('Cancel task', 'cancel', () => {
+    if (hasPlan() && RUNNING.has(current.phase) && typeof onCancel === 'function') call(onCancel, current);
+  });
+  const download = button('Save crew handoff', 'download', () => {
+    if (canDownload()) call(onDownload, current);
+  });
+  const reset = button('Reset task', 'reset', () => {
+    if (hasPlan() && !RUNNING.has(current.phase) && typeof onReset === 'function') call(onReset, current);
+  });
+  const scope = node('p', 'Virtual staging · no physical test. Evidence unchanged.', 'kit-mission-scope');
+  element.append(eyebrow, heading, evidence, purpose, task, actions, error, details, scope);
+
+  function showMessage() {
+    const message = callbackError || current?.revoked_reason || current?.last_rejection || '';
+    text(error, message); error.hidden = !message;
+  }
+  function update(snapshot) {
+    if (disposed) return;
+    if (snapshot?.plan?.input_signature !== current?.plan?.input_signature || snapshot?.phase !== current?.phase) callbackError = '';
+    current = snapshot || null;
+    element.hidden = !hasPlan();
+    if (!hasPlan()) { lastSignature = null; return; }
+    const plan = current.plan;
+    // The signature covers the saved question, source associations and request.
+    // Tick updates preserve every button, disclosure and source node.
+    if (plan.input_signature !== lastSignature) {
+      lastSignature = plan.input_signature;
+      text(heading, `${plan.material || titleCase(plan.material_id)} · ${titleCase(plan.concern)}`);
+      text(evidence, `Evidence · ${EVIDENCE[plan.evidence_status] || 'Status unavailable'}`);
+      text(reason, plan.request?.reason || 'Review request unavailable.');
+      text(nextStep, plan.request?.next_step || ''); nextStep.hidden = !plan.request?.next_step;
+      const rowIds = sourceIds(plan.source_ids?.rows), findingIds = sourceIds(plan.source_ids?.findings);
+      text(summary, `Review request · ${rowIds.length} ${rowIds.length === 1 ? 'row' : 'rows'} · ${findingIds.length} ${findingIds.length === 1 ? 'finding' : 'findings'}`);
+      text(count, `Linked evidence: ${rowIds.length} source ${rowIds.length === 1 ? 'row' : 'rows'} · ${findingIds.length} ${findingIds.length === 1 ? 'finding' : 'findings'}`);
+      text(rows, rowIds.length ? `Row IDs: ${rowIds.join(', ')}` : 'No source row linked.');
+      text(findings, findingIds.length ? `Finding IDs: ${findingIds.join(', ')}` : 'No finding linked.');
+    }
+    const valid = current.plan_valid === true, running = RUNNING.has(current.phase);
+    const staged = valid && current.phase === 'complete' && current.approval?.granted === true
+      && current.successful_staging === true && current.virtual_object_state === 'staged';
+    const phaseLabel = !valid && current.phase === 'ready' ? 'New plan and approval required'
+      : current.phase === 'complete' && !staged ? 'Completion unavailable'
+      : STATES[current.phase] || 'Stage unavailable';
+    text(task, phaseLabel);
+    text(purpose, staged
+      ? 'Crew review required. No physical work is authorized.'
+      : `Bring the ${plan.material || titleCase(plan.material_id)} review kit to the crew console.`);
+    element.dataset.kitPhase = current.phase;
+    approve.hidden = current.phase !== 'ready'; approve.disabled = !canApprove();
+    cancel.hidden = !running; cancel.disabled = !valid || typeof onCancel !== 'function';
+    download.hidden = current.phase !== 'complete'; download.disabled = !canDownload();
+    reset.hidden = running; reset.disabled = typeof onReset !== 'function';
+    source.disabled = typeof onEvidence !== 'function';
+    showMessage();
+  }
+  return { element, update, dispose() {
+    if (disposed) return;
+    disposed = true; cleanups.splice(0).forEach(remove => remove()); current = null; element.remove();
+  } };
+}

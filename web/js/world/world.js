@@ -9,7 +9,7 @@ import { buildHash } from '../router.js';
 import { createGuide } from './guide.js?v=habitat-20261115-1';
 import { createVideoCases } from './cases.js';
 import { build as buildWelcome } from './welcome.js';
-import { createMissionBrief, STATION_AGENTS } from './mission.js?v=habitat-20261115-1';
+import { createMissionBrief, STATION_AGENTS } from './mission.js?v=crew-kit-20261115-1';
 
 if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-welcome]')) {
   const sheet = document.createElement('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/welcome.css?v=2', import.meta.url).href; sheet.dataset.vestaWelcome = ''; document.head.append(sheet);
@@ -200,7 +200,7 @@ export async function createWorld(host, context) {
   }
   skip.onclick = () => navigate(1);
   listen(host, 'wheel', ev => {
-    if (filmActive || cinematic || ev.ctrlKey || editable(ev.target) || ev.target.closest('.world-hologram,.inventory-review-workspace,.world-welcome,.vesta-drill-thread')) return;
+    if (filmActive || cinematic || ev.ctrlKey || editable(ev.target) || ev.target.closest('.world-hologram,.inventory-review-workspace,.robotics-work-caption,.world-welcome,.vesta-drill-thread')) return;
     if (Math.abs(ev.deltaY) < Math.abs(ev.deltaX)) return;
     ev.preventDefault();
     const now = performance.now(); if (now - wheelAt > 200) wheel = 0;
@@ -220,9 +220,9 @@ export async function createWorld(host, context) {
     if (ev.key === 'Home') { ev.preventDefault(); navigate(0); }
     if (ev.key === 'End') { ev.preventDefault(); navigate(STATIONS.length-1); }
   });
-  listen(host, 'pointerdown', ev => { if (cinematic) { if (!ev.target.closest('.world-cinema-exit')) setCinema(false); return; } if (!ev.target.closest('.world-hologram,.inventory-review-workspace,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]')) { document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); holo?.closeAll(); } if (!editable(ev.target) && !ev.target.closest('.world-hologram')) gesture = { x: ev.clientX, y: ev.clientY, id: ev.pointerId }; });
+  listen(host, 'pointerdown', ev => { if (cinematic) { if (!ev.target.closest('.world-cinema-exit')) setCinema(false); return; } if (!ev.target.closest('.world-hologram,.inventory-review-workspace,.robotics-work-caption,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]')) { document.querySelector('.wc-source:not([hidden]) .wc-dismiss')?.click(); holo?.closeAll(); } if (!editable(ev.target) && !ev.target.closest('.world-hologram')) gesture = { x: ev.clientX, y: ev.clientY, id: ev.pointerId }; });
   listen(host, 'pointermove', ev => { const b = canvasHost.getBoundingClientRect(); pointerX = (ev.clientX - b.left) / b.width * 2 - 1; pointerY = 1 - (ev.clientY - b.top) / b.height * 2; });
-  listen(window, 'pointerup', ev => { if (!gesture || gesture.id !== ev.pointerId) return; const dx = ev.clientX - gesture.x, dy = ev.clientY - gesture.y; gesture = null; if (!filmActive && !cinematic && !ev.target.closest?.('.world-hologram,.inventory-review-workspace,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]') && Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.3) navigate(index + (dy < 0 ? 1 : -1)); });
+  listen(window, 'pointerup', ev => { if (!gesture || gesture.id !== ev.pointerId) return; const dx = ev.clientX - gesture.x, dy = ev.clientY - gesture.y; gesture = null; if (!filmActive && !cinematic && !ev.target.closest?.('.world-hologram,.inventory-review-workspace,.robotics-work-caption,.world-marker,[data-world-marker],.drill-marker,.evidence-tool,.world-stations,.world-sheet-toggle,.world-guide,.world-welcome,.vesta-drill-thread,[data-action]') && Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.3) navigate(index + (dy < 0 ? 1 : -1)); });
   listen(host, 'pointercancel', () => { gesture = null; });
   listen(reduced, 'change', () => { if (flight) flight.cut = true; invalidate(); });
   function disposeWorld() {
@@ -289,6 +289,11 @@ export async function createWorld(host, context) {
         get db() { return ctx.db; }, get core() { return ctx.core; }, get q() { return ctx.q; }, get params() { return ctx.params; }, get route() { return ctx.route; }, get capture() { return capture; }, get filmActive() { return filmActive; },
         ui: ctx.ui, setQ: (...a) => ctx.setQ(...a), setParams: (...a) => ctx.setParams(...a), go: (...a) => ctx.go(...a), openSource: (...a) => ctx.openSource(...a), closeSource: ctx.closeSource,
         navigate, invalidate, answer(value) { world.answerValue = value; if (i === index) answer.textContent = String(value || ''); },
+        setBaseLightScale(value=1) {
+          if(i!==index)return;
+          const scale=Number.isFinite(value)?Math.max(0,Math.min(1,value)):1;
+          baseLights.forEach(([light,intensity])=>{light.intensity=intensity*scale;});
+        },
         marker(handle, options = {}) {
           if (handle && !handle.element) { options = handle; handle = options.hologram; }
           const translate = at => Array.isArray(at) ? at.map((n, k) => n + STATIONS[i].origin[k]) : at;
@@ -319,7 +324,7 @@ export async function createWorld(host, context) {
     loader = createStationLoader({
       count: STATIONS.length, stopped: () => disposed, paused: () => warmingStation || host.dataset.flying === 'true' || Boolean(flight && !flight.cut && performance.now() / 1000 - flight.start < 1.2), yieldTurn: capture ? afterPaint : idleTurn,
       async build(i) {
-        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=habitat-20261115-1`), i === 0 || i === 3 ? warmBlanket(false) : null]);
+        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=crew-kit-20261115-1`), i === 0 || i === 3 ? warmBlanket(false) : null]);
         if (disposed) return;
         const priorLights = baseLights.map(([light]) => light.intensity);
         let built;
