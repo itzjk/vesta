@@ -1,6 +1,6 @@
 import { createQuestionTour } from './question-tour.js';
 import { warmBlanket } from '../scene/ship-blanket.js';
-import { cite, configureCitations } from './cite.js';
+import { cite, configureCitations } from './cite.js?v=sebas-20261115-1';
 import { createStationLoader, afterPaint, idleTurn } from './station-loader.js?v=2';
 import { createStage } from '../scene/engine.js?v=2';
 import { build as buildVesta } from '../scene/vesta.js';
@@ -302,7 +302,7 @@ export async function createWorld(host, context) {
     loader = createStationLoader({
       count: STATIONS.length, stopped: () => disposed, paused: () => warmingStation || host.dataset.flying === 'true' || Boolean(flight && !flight.cut && performance.now() / 1000 - flight.start < 1.2), yieldTurn: capture ? afterPaint : idleTurn,
       async build(i) {
-        const [mod] = await Promise.all([import(`./${FILES[i]}.js`), i === 0 || i === 3 ? warmBlanket(false) : null]);
+        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=sebas-20261115-1`), i === 0 || i === 3 ? warmBlanket(false) : null]);
         if (disposed) return;
         const priorLights = baseLights.map(([light]) => light.intensity);
         let built;

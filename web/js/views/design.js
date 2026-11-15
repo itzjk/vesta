@@ -1,4 +1,4 @@
-import { drawMap, mapData, LAYERS, MODEL_NOTE, mountField } from './design-map.js?v=11';
+import { drawMap, mapData, LAYERS, MODEL_NOTE, mountField } from './design-map.js?v=sebas-20261115-1';
 import { renderMatchPanel } from '../ui/matchpanel.js?v=16';
 
 const CONCERNS = ['prevention', 'detection', 'suppression'];

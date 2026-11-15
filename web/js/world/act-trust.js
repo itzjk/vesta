@@ -1,5 +1,6 @@
 import { hardware } from '../scene/materials.js';
 import { loadCases, validateCases, evaluateCase } from './proof.js';
+import { sourceLocator } from '../ui/source-locator.js?v=sebas-20261115-1';
 
 const at = (value, path) => path.split('.').reduce((item, key) => item?.[key], value);
 const count = value => Number.isFinite(value) ? value.toLocaleString('en-US') : 'not reported';
@@ -128,18 +129,20 @@ export async function build(world) {
   body.setAttribute('aria-live', 'polite');
   const controller = new AbortController();
   let alive = true, active = false, tab = 'home', manifest = null, serial = 0;
+  let rejectedSourceRecords = null;
   let casesFile = null, running = false, runSerial = 0, runTimer = null, consoleLayout = null;
   const results = [], marks = [];
   const completed = new Set();
   const buttons = new Map();
   const link = (label, href, download) => {
-    const node = element('a', label, { color: 'var(--earth, #8fa3b5)', display: 'inline-block', padding: '10px 14px 10px 0', minHeight: '44px', boxSizing: 'border-box' });
+    const node = element('a', label, { color: 'var(--ivory, #ede4d4)', display: 'inline-block', padding: '10px 12px', margin: '0 8px 8px 0', minHeight: '44px', boxSizing: 'border-box', border: '1px solid var(--line-strong)', borderRadius: '4px', background: 'rgba(143,163,181,.08)', textDecoration: 'none' });
+    node.className = 'trust-resource-link';
     node.href = href;
     if (download) node.download = download;
     else { node.target = '_blank'; node.rel = 'noopener'; }
     return node;
   };
-  for (const [id, text] of [['checks', 'Checks'], ['report', 'Machines'], ['download', 'Download'], ['api', 'API'], ['assistant', 'Assistant']]) {
+  for (const [id, text] of [['checks', 'Checks'], ['rejected', 'Rejected excerpts'], ['report', 'Machines'], ['download', 'Download'], ['api', 'API'], ['assistant', 'Assistant']]) {
     const button = element('button', text, { font: 'inherit', background: 'none', border: '0', borderBottom: '1px solid var(--line-strong)', padding: '10px 0', minHeight: '44px', color: 'var(--ivory)', cursor: 'pointer' });
     button.type = 'button'; button.dataset.trust = id; button.style.flexShrink = '0';
     button.addEventListener('click', () => show(tab === id ? 'home' : id));
@@ -162,6 +165,24 @@ export async function build(world) {
     manifest = new Set(result.files.map(file => typeof file === 'string' ? file : file.path).filter(path => typeof path === 'string').map(path => path.replace(/^api\/v1\//, '')));
     return manifest;
   }
+  async function rejectionSources() {
+    if (rejectedSourceRecords) return rejectedSourceRecords;
+    const response = await fetch('data/rejected-excerpts.json?v=sebas-20261115-1', { signal: controller.signal });
+    if (!response.ok) throw new Error('Rejected source details did not load.');
+    const audit = await response.json();
+    if (audit.schema !== 'vesta.rejected-excerpts/1' || !Array.isArray(audit.records)) throw new Error('Unrecognized rejected-source report.');
+    const accepted = new Map();
+    for (const record of audit.records) {
+      const rejection = E.verifier?.rejected?.find(item => item.id === record.id);
+      const qualifier = E.verifier?.cut_before_qualifier?.find(item => item.id === record.id);
+      if (!rejection || rejection.quote !== record.quote || rejection.why !== record.why) continue;
+      if (record.why === 'cut_before_qualifier' && qualifier?.after !== record.context_after) continue;
+      if (!record.source?.title || !/^https:\/\//.test(record.source.url ?? '')) continue;
+      accepted.set(record.id, record);
+    }
+    rejectedSourceRecords = accepted;
+    return accepted;
+  }
   async function show(next) {
     tab = next;
     const request = ++serial;
@@ -172,19 +193,32 @@ export async function build(world) {
       body.append(element('p', 'Run the checks or take the evidence with you.'));
     } else if (next === 'checks') {
       renderChecks();
-    } else if (next === 'report') {
-      body.append(element('h2', 'Inside the machines', { fontSize: '24px', margin: '0 0 10px' }));
-      for (const [name, path, unit] of definitions) body.append(element('p', `${name}: ${count(path ? at(E, path) : null)} ${unit}`, { margin: '6px 0' }));
-      body.append(link('Read the build report', 'data/engine.json'));
+    } else if (next === 'report' || next === 'rejected') {
+      body.append(element('h2', next === 'rejected' ? 'Rejected excerpts' : 'Inside the machines', { fontSize: '24px', margin: '0 0 10px' }));
+      if (next === 'report') for (const [name, path, unit] of definitions) body.append(element('p', `${name}: ${count(path ? at(E, path) : null)} ${unit}`, { margin: '6px 0' }));
+      body.append(link('Build report · JSON', 'data/engine.json'));
       body.append(element('p', 'Text matching does not validate interpretation or certify safety.'));
       body.append(element('p', E.verifier?.review_coverage?.scope ?? 'Independent review coverage is not reported in this build.'));
+      body.append(element('p', 'These candidates were rejected and are not part of the accepted evidence.'));
+      let sourceRecords = new Map();
+      try { sourceRecords = await rejectionSources(); }
+      catch (error) {
+        if (error.name !== 'AbortError' && alive && request === serial) body.append(element('p', 'Source details could not be loaded. The rejection records below are from the current build report.'));
+      }
+      if (!alive || request !== serial) return;
       const rejectedRecords = E.verifier?.rejected;
       if (Array.isArray(rejectedRecords)) {
         for (const record of rejectedRecords) {
-          const why = String(record.why ?? record.reason ?? 'not reported').replace(/_/g, ' ');
-          const row = element('p', null, { color: 'var(--ivory-dim)', margin: '12px 0' });
+          const why = record.why === 'cut_before_qualifier' ? 'quote stops before a qualifying statement' : String(record.why ?? record.reason ?? 'not reported').replace(/_/g, ' ');
+          const row = element('section', null, { color: 'var(--ivory-dim)', margin: '16px 0', paddingBottom: '12px', borderBottom: '1px solid var(--line-strong)' });
           row.append(element('b', record.id ?? 'Rejected excerpt'), document.createTextNode(`: ${why}.`));
           if (record.quote) row.append(element('blockquote', `“${record.quote}”`, { margin: '6px 0' }));
+          const sourceRecord = sourceRecords.get(record.id);
+          if (sourceRecord) {
+            row.append(element('p', 'The following qualifier was omitted:', { margin: '8px 0 2px' }));
+            row.append(element('blockquote', sourceRecord.context_after.trim(), { margin: '6px 0' }));
+            row.append(link(sourceRecord.source.title, sourceRecord.source.url), sourceLocator(sourceRecord));
+          } else row.append(element('p', 'Source details unavailable for this rejected candidate.'));
           body.append(row);
         }
       }
@@ -212,11 +246,12 @@ export async function build(world) {
           options.filter(([path]) => listed.has(path)).forEach(([path, text]) => body.append(link(text, 'api/v1/' + path, path)));
           body.append(element('p', 'Rows include individual tests, test days and series. The total is not a count of independent burns.'));
         } else {
-          body.append(link('Open the API index', 'api/v1/index.json'));
-          if (listed.has('engine.json')) body.append(link('Query build counts', 'api/v1/engine.json'));
+          body.append(link('API index · JSON', 'api/v1/index.json'));
+          if (listed.has('engine.json')) body.append(link('Build counts · JSON', 'api/v1/engine.json'));
           const q = world.q ?? {};
           const path = `rank/${q.preset ?? 'lunar-base'}.${q.concern ?? 'prevention'}.json`;
-          if (listed.has(path)) body.append(link('Query this cabin’s evidence', 'api/v1/' + path));
+          if (listed.has(path)) body.append(link('Preset evidence ranking · JSON', 'api/v1/' + path));
+          body.append(element('p', 'Published files for the selected preset and concern; custom cabin changes are evaluated locally.'));
           body.append(element('p', core.text?.SCORE_LABEL ?? ''));
         }
         if (!body.children.length) body.append(element('p', 'This build does not list the requested files.'));
@@ -260,6 +295,7 @@ export async function build(world) {
     const run = button(running ? 'Running…' : results.length ? 'Run again' : 'Run ten cases', startChecks);
     run.dataset.trust = 'start'; run.disabled = running;
     actions.append(run);
+    if (E.verifier?.rejected?.length) actions.append(button(`${count(E.verifier.rejected.length)} rejected excerpts`, () => show('rejected')));
     if (running) actions.append(button('Stop', stopChecks));
     actions.append(link('Read the ten cases', 'data/proof-cases.json'));
     body.append(actions);

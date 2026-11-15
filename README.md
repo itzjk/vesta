@@ -89,6 +89,8 @@ node --test "tests/core/*.test.mjs"
 node tools/check.mjs
 ```
 
+Review the [ten regression scenarios and their expected results](https://github.com/itzjk/vesta/blob/c5ca71deb825e97c7eb5b9d9dd3c090a6c660330/web/data/proof-cases.json) and the [completed release checks for `c5ca71d`](https://github.com/itzjk/vesta/actions/runs/43695794181). These checks verify software behavior and reproducibility; they do not measure predictive accuracy or independently validate the science.
+
 Rebuilding the evidence requires the delivered `data/`, reviewed `research/evidence/` and cached NASA text under `research/raw/`, plus Python 3.9 or newer. The challenge page cache is deliberately not redistributed. A public clone can use committed `web/data/` and `web/api/v1/` without these inputs.
 
 ```sh

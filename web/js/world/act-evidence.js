@@ -1,16 +1,16 @@
 import { buildObservationModel } from './observation-lens.js';
-import { openCitation } from './cite.js';
-import { build as buildField, fieldRows } from '../scene/field.js?v=7';
+import { openCitation } from './cite.js?v=sebas-20261115-1';
+import { build as buildField, fieldRows } from '../scene/field.js?v=sebas-20261115-1';
 import { buildSamples } from '../scene/samples.js';
 import { SAMPLE_NOTES } from '../scene/sample-kit.js';
 import { balanceWorldLight } from '../scene/materials.js';
 import { summarize, axisText } from '../views/investigations.js';
-import { receiptControls } from '../ui/receipt.js';
+import { receiptControls } from '../ui/receipt.js?v=sebas-20261115-1';
 import { media } from './media.js';
 import { G, CONCERNS } from '../core/index.js';
 import { TOL } from '../core/match.js';
 import { css } from '../ui/el.js';
-import { build as buildCoverage } from './coverage.js';
+import { build as buildCoverage } from './coverage.js?v=sebas-20261115-1';
 import { build as buildGapBrief } from '../ui/gapbrief.js';
 import { searchEvidence, cabinMatches, compareInvestigations, guidedAnswer, NO_MATCH } from './ask.js?v=4';
 import { evidenceGuidePose } from './evidence-guide.js';
@@ -32,7 +32,7 @@ export function evidenceState(db, core, q, investigation = null) {
 
 export async function build(world) {
   const { THREE: T, db, core } = world;
-  await Promise.all([css('css/coverage.css'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css')]);
+  await Promise.all([css('css/coverage.css?v=sebas-20261115-1'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css')]);
   const dropletEntry = buildObservationModel({ db, investigationId: 'PSI-69' }).points[0] || null;
   let guidedTask = '', guidedLeft = '', guidedRight = '', citationOpen = false;
   let selectedMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';

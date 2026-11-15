@@ -1,6 +1,7 @@
 import { renderObservationLens } from './observation-lens.js';
 import { el, css } from '../ui/el.js';
 import { getDb, getCore, lookup, loadRawCells } from '../store.js';
+import { sourceLocator } from '../ui/source-locator.js?v=sebas-20261115-1';
 
 let binding = null, active = null, serial = 0;
 const flags = () => new URLSearchParams(location.hash.split('?')[1] || '');
@@ -23,8 +24,9 @@ function findingContent(f, text, db) {
     f.quote ? sentence(f.quote, f.context) : cells,
     src.kind === 'challenge-page' || n.read_in === 'challenge_page' ? el('p.wc-scope', 'Space Apps challenge page, not a NASA technical document.') : null,
     el('p.wc-level', text.level?.(f) || f.evidence_level || text.NOT_IN_SOURCE),
-    el('p.wc-gate', f.gate?.pass === true ? (f.quote ? 'Quote verified word for word.' : 'Cells verified against the PSI table.') : 'This record has not passed the evidence gate.'),
-    sourceLink(src.url, 'Read the original at NASA ↗'),
+    el('p.wc-gate', f.gate?.pass === true ? (f.quote ? 'Quote matches cached source text after normalization.' : 'Cells verified against the PSI table.') : 'This record has not passed the evidence gate.'),
+    sourceLocator(f),
+    sourceLink(src.url, src.kind === 'challenge-page' ? 'Read the original challenge page ↗' : 'Read the original at NASA ↗'),
     el('details.wc-identifiers', el('summary', 'Identifiers and conditions'),
       el('dl.wc-values', field('Finding', f.id), field('Year', src.year), field('Investigation', f.investigation),
         field('Gravity', n.gclass ? text.gravity?.(n.gclass) || n.gclass : text.NOT_IN_SOURCE),
@@ -47,6 +49,7 @@ function rowContent(row, text, db, session) {
   return [
     el('p.wc-kind', 'NASA PSI test row'),
     el('h2.wc-title', { id: 'wc-source-title' }, inv?.name || inv?.full_name || row.investigation || 'Recorded test conditions'),
+    el('p.wc-scope', { style: { overflowWrap: 'anywhere' } }, `${row.table_file || 'Table file not recorded'} · row ${row.row ?? 'not recorded'} · ${row.id}`),
     el('p.wc-level', 'A recorded table row, not a safety certification.'),
     el('dl.wc-values', field('Fuel', row.fuel ?? absent), field('Oxygen', text.oxygen?.(row.o2_percent, absent)),
       field('Oxygen basis', row.o2_basis === 'burner_stream' ? 'Gas fed through the burner, not cabin air' : row.o2_basis || absent),
@@ -171,7 +174,7 @@ async function open(id, trigger, world) {
   const returnTo = active?.panel.contains(trigger) ? active.trigger : trigger;
   close(false);
   const currentSerial = ++serial;
-  await css('css/world.css');
+  await css('css/world.css?v=sebas-20261115-1');
   if (!returnTo.isConnected || currentSerial !== serial) return;
   const session = { id, trigger: returnTo, controller: new AbortController(), inert: [], panel: null };
   const context = world || binding;

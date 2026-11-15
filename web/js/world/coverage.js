@@ -2,6 +2,7 @@ import * as status from '../core/status.js';
 import * as ranking from '../core/rank.js';
 import * as text from '../core/text.js';
 import { CONCERNS } from '../core/index.js';
+import { TOL } from '../core/match.js';
 import { renderMatchPanel } from '../ui/matchpanel.js?v=16';
 import { scorebar } from '../ui/scorebar.js';
 
@@ -47,10 +48,11 @@ export function build(world, { onSelection } = {}) {
   element.setAttribute('aria-label', 'Cabin evidence coverage');
   const header = node('header', null, 'coverage-header');
   const title = node('h2'), answer = node('p', null, 'coverage-answer');
+  const definition = node('p', `Nearby: same gravity class, O₂ ±${TOL.o2} percentage point and pressure ±${TOL.p} kPa, all on one source row for that material-and-concern question.`, 'coverage-definition');
   const conditions = node('p', null, 'coverage-conditions');
   const live = node('p', null, 'coverage-sr');
   live.setAttribute('role', 'status'); live.setAttribute('aria-live', 'polite'); live.setAttribute('aria-atomic', 'true');
-  header.append(title, answer, conditions, live);
+  header.append(title, answer, definition, conditions, live);
   const legend = node('dl', null, 'coverage-legend');
   const totals = {};
   for (const id of Object.keys(symbols)) {
@@ -122,6 +124,7 @@ export function build(world, { onSelection } = {}) {
     if (nearest) {
       const { row, note } = nearest;
       detail.append(node('h4', 'Nearest source-table row'));
+      detail.append(node('p', 'For this material + concern: fewest failed conditions first. Ties use the smallest O₂ gap, then pressure gap, then row ID.', 'coverage-nearest-rule'));
       const rowLine = node('p');
       const pressure = core.text.pressure(row.n.p ?? row.n.p_inferred)
         + (note.includes('pressure_inferred') ? ` (${core.text.reason('pressure_inferred')})` : '');

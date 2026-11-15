@@ -2,6 +2,7 @@ import { el, clear, fmt, button } from './el.js';
 import { chip, tag, levelText, pressureText } from './chip.js';
 import { empty } from './empty.js';
 import { citeLabel } from './cite.js';
+import { sourceLocator } from './source-locator.js?v=sebas-20261115-1';
 import { getDb, lookup, loadRawCells, openSource, closeSource } from '../store.js';
 
 let host = null, backdrop = null, pane = null, body = null, current = null, lastFocus = null;
@@ -67,9 +68,9 @@ function findingView(f, db) {
       el('div.dw-kicker', el('span.t-label', f.quote ? 'Finding' : 'Table finding'), f.pillar ? tag(f.pillar) : null, f.topic ? tag(String(f.topic).replace(/_/g, ' '), { tone: 'dim' }) : null),
       el('h2.dw-title', src.title || f.topic?.replace(/_/g, ' ') || 'NASA finding'),
       el('p.dw-id', f.id),
-      verified === true ? el('div.dw-verified', { title: 'The quote was found verbatim in the cached source text by research/tools/quotecheck.py' }, el('span.dw-check', { 'aria-hidden': 'true' }), f.quote ? 'quote verified' : 'cells verified against the PSI table') : null),
+      verified === true ? el('div.dw-verified', { title: 'The quote matches cached source text after the documented Unicode, punctuation and whitespace normalization in research/tools/quotecheck.py' }, el('span.dw-check', { 'aria-hidden': 'true' }), f.quote ? 'quote verified' : 'cells verified against the PSI table') : null),
     challenge ? el('p.dw-note', 'Space Apps challenge page (not a NASA technical document)') : null,
-    quote, cells,
+    quote, cells, sourceLocator(f, { instrument: true }),
     ctx ? el('p.dw-hint', 'The highlighted words are the quote. The rest of its sentence is shown in dim text.') : null,
     f.claim ? el('section.dw-sec', el('div.dw-kicker', el('span.t-label', 'Claim'), tag('SI-written claim', { tone: 'cream' })), el('p.dw-claim', f.claim)) : null,
     el('section.dw-sec', el('span.t-label', 'Source'),

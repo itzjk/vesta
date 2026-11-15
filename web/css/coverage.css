@@ -4,6 +4,9 @@
 .coverage-wall.coverage-wall h2,.coverage-wall.coverage-wall h3,.coverage-wall.coverage-wall h4,.coverage-wall.coverage-wall p{margin:0}
 .coverage-wall .coverage-header h2{font:600 30px/1.05 var(--display);margin:0 0 8px}
 .coverage-wall .coverage-answer{font-size:22px;line-height:1.15}
+.coverage-wall .coverage-definition{margin-top:8px!important;color:var(--ivory-dim);font-size:14px;line-height:1.4}
+.coverage-wall .coverage-nearest-rule{color:var(--ivory-dim);font-size:14px;line-height:1.4}
+.world-host.information-polish .coverage-wall :is(.coverage-definition,.coverage-nearest-rule){font-size:14px!important;line-height:1.4!important}
 .coverage-wall .coverage-conditions{margin-top:8px!important;color:var(--ivory-dim);font-size:14px}
 .coverage-wall.coverage-wall button,.coverage-wall.coverage-wall a{color:inherit;font:inherit}
 .coverage-wall.coverage-wall button{cursor:pointer;touch-action:manipulation}
@@ -66,7 +69,7 @@
 .coverage-wall .coverage-legend dd{font-size:32px}
 }
 /* A question is open in the narrow panel: the three totals step aside so the answer and its comparison are in view. */
-@container (max-width:759px){.coverage-wall.coverage-wall[data-detail=true] :is(.coverage-legend,.coverage-answer){display:none}
+@container (max-width:759px){.coverage-wall.coverage-wall[data-detail=true] :is(.coverage-legend,.coverage-answer,.coverage-definition){display:none}
 .coverage-wall.coverage-wall[data-detail=true] .coverage-detail h3{margin:4px 0 8px}
 .coverage-wall.coverage-wall[data-detail=true] .coverage-detail h4:first-of-type{margin-top:10px}
 .coverage-wall.coverage-wall[data-detail=true] .coverage-detail .matchpanel{margin-top:10px;padding-top:10px}}

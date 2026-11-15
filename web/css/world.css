@@ -381,6 +381,14 @@ html[data-world=true] body #si-attribution{right:80px;transform:none}
 .world-guide-intro .world-flame-limit{font:400 17px/1.35 var(--font);color:var(--ivory-dim);margin-top:12px!important;padding:0!important;border:0!important}
 .world-host[data-station] .world-guide-intro.world-guide-in-panel{display:block;position:sticky;inset:auto;top:0;box-sizing:border-box;width:auto;max-width:none;max-height:none;margin:0 0 18px;padding:0 0 12px;background:var(--information-surface,#12191b);z-index:2;text-shadow:none}
 .world-guide-in-panel h1{font-size:24px}
+/* Drill scrolls the whole card. Its introductory title must scroll with the evidence,
+   rather than remain above the decision text as a sticky overlay. */
+@media(min-width:760px){
+ .world-host[data-station=drill] .world-drill>.world-guide-intro.world-guide-in-panel{position:static;top:auto;z-index:auto}
+}
+/* The Evidence card also scrolls its title with the selected question, so focus or scroll
+   cannot pin the introduction over source-row explanations. Its close control stays separate. */
+.world-host[data-station=evidence] .evidence-console>.world-guide-intro.world-guide-in-panel{position:static;top:auto;z-index:auto}
 .world-host[data-station=transit] .world-guide .world-guide-intro{left:500px;top:120px;width:min(440px,calc(100% - 620px))}
 .world-host[data-station=evidence] .world-guide .world-guide-intro{top:150px;width:280px}
 .world-host:has(.world-guide-intro) .evidence-rack-caption{visibility:hidden}
@@ -427,3 +435,6 @@ body:has(.wc-source[aria-modal=true]) .world-guide-intro{visibility:hidden!impor
 .world-host[data-film=true] .world-quality,.world-host[data-question-state=running] .world-quality{visibility:hidden;pointer-events:none}
 
 @media(max-width:759px){.world-quality{top:12px;right:64px;padding:8px 6px;font-size:12px}}
+/* The secondary walkthrough occupied the same bottom row as the station actions.
+   Use the desktop top-center gap; question-tour.css retains its narrow-screen hiding rules. */
+.world-host .question-launch-docked{top:16px;bottom:auto;left:50%;transform:translateX(-50%)}

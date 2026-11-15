@@ -1,0 +1,48 @@
+{
+  "schema": "vesta.rejected-excerpts/1",
+  "source_commit": "c5ca71deb825e97c7eb5b9d9dd3c090a6c660330",
+  "records": [
+    {
+      "id": "DETECTION-052",
+      "why": "cut_before_qualifier",
+      "quote": "For typical runs, the particle concentrations were a few million particles / cc and the mass concentrations were 2 to 15 mg/m3",
+      "source": {
+        "kind": "pdf",
+        "id": "PSI-101_SAME-R_Final_Report",
+        "title": "Smoke Aerosol Measurement Experiment Re-flight (SAMER), Final Report, June 2, 2014 (PSI-101, Reports folder)",
+        "url": "https://psi.nasa.gov/geode-py/ws/studies/PSI-101/download?file=683dc530b8656d2315bf508c",
+        "year": 2014,
+        "text_file": "raw/pdf/PSI-101_SAME-R_Final_Report.txt"
+      },
+      "context_after": " however there were runs with fewer particles."
+    },
+    {
+      "id": "OPERATIONS-048",
+      "why": "cut_before_qualifier",
+      "quote": "Completely contrary to normal-gravity behavior, the flame spreads upstream, into the oncoming airflow, in space when the forced-flow velocities are low (Figure 9)",
+      "source": {
+        "kind": "pdf",
+        "id": "NP-2015-10-034-JSC",
+        "title": "A Researcher's Guide to: Combustion Science",
+        "url": "https://www.nasa.gov/wp-content/uploads/2016/05/np-2015-10-034-jsc_combustion_in_reduced_gravity-iss-mini-book-011116-508.pdf",
+        "year": 2015,
+        "text_file": "raw/nasa/researchers-guide-combustion.txt"
+      },
+      "context_after": "; whereas, the flame always spreads downstream, in the buoyant flow direction, in normal gravity, even in the absence of forced flow."
+    },
+    {
+      "id": "OPERATIONS-068",
+      "why": "cut_before_qualifier",
+      "quote": "plastics such as Teflon and Kapton produced very small particles (100- 250 nm diameter of average mass) which are more challenging to detect with light scattering systems",
+      "source": {
+        "kind": "pdf",
+        "id": "20170000248",
+        "title": "Fire Detection Tradeoffs as a Function of Vehicle Parameters",
+        "url": "https://ntrs.nasa.gov/citations/20170000248",
+        "year": 2016,
+        "text_file": "raw/nasa/ntrs-fire-detection-tradeoffs.txt"
+      },
+      "context_after": " whereas silicone rubber and cellulose (representing paper and clothing) produced substantially larger particles (250- 620 nm diameter of average mass)."
+    }
+  ]
+}
