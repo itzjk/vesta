@@ -1,6 +1,7 @@
 import { hardware } from '../scene/materials.js';
 import { loadCases, validateCases, evaluateCase } from './proof.js';
-import { sourceLocator } from '../ui/source-locator.js?v=sebas-20261115-1';
+import { sourceLocator } from '../ui/source-locator.js?v=sebas-20261115-2';
+import { ensureInformationPolishStyles } from './information-polish.js?v=sebas-20261115-2';
 
 const at = (value, path) => path.split('.').reduce((item, key) => item?.[key], value);
 const count = value => Number.isFinite(value) ? value.toLocaleString('en-US') : 'not reported';
@@ -14,6 +15,8 @@ const element = (tag, text, styles = {}) => {
 };
 
 export async function build(world) {
+  ensureInformationPolishStyles();
+  world.host.classList.add('information-polish');
   const { THREE, db, core } = world;
   const E = db.engine ?? {};
   const anchor = [0, -0.6, 0];
@@ -124,6 +127,7 @@ export async function build(world) {
   const nav = element('nav', null, { display: 'flex', flexWrap: 'nowrap', overflowX: 'auto', gap: '16px', marginBottom: '14px', maxWidth: 'calc(100% - 40px)' });
   nav.setAttribute('aria-label', 'Use the evidence');
   const body = element('div', null, { overflowY: 'auto', minHeight: '36px', flexShrink: '1', flexGrow: '1' });
+  body.className = 'trust-content';
   body.tabIndex = 0;
   nav.style.flexShrink = '0';
   body.setAttribute('aria-live', 'polite');
@@ -152,6 +156,7 @@ export async function build(world) {
   consoleContent.append(nav, body);
   consoleEl.append(consoleContent);
   const status = element('p', core.text?.STATUS_LINE ?? '', { fontSize: '18px', color: 'var(--ivory-dim)', margin: '12px 0 0' });
+  status.className = 'trust-status';
   status.style.flexShrink = '0';
   consoleContent.append(status);
 
@@ -167,7 +172,7 @@ export async function build(world) {
   }
   async function rejectionSources() {
     if (rejectedSourceRecords) return rejectedSourceRecords;
-    const response = await fetch('data/rejected-excerpts.json?v=sebas-20261115-1', { signal: controller.signal });
+    const response = await fetch('data/rejected-excerpts.json?v=sebas-20261115-2', { signal: controller.signal });
     if (!response.ok) throw new Error('Rejected source details did not load.');
     const audit = await response.json();
     if (audit.schema !== 'vesta.rejected-excerpts/1' || !Array.isArray(audit.records)) throw new Error('Unrecognized rejected-source report.');
@@ -280,7 +285,16 @@ export async function build(world) {
   if (dataMarker) { dataMarker.element.dataset.trust = 'console'; markerHandles.push(dataMarker); }
   const marksLayer = element('div');
   marksLayer.className = 'trust-proof-marks';
+  marksLayer.hidden = true;
+  marksLayer.dataset.stationUi = 'trust';
   Object.assign(marksLayer.style, { position: 'absolute', inset: '0', pointerEvents: 'none' });
+  const chamberLabels = definitions.map(([name]) => {
+    const label = element('span', name);
+    label.className = 'trust-chamber-label';
+    label.setAttribute('aria-hidden', 'true'); // The existing machine markers carry the accessible names.
+    marksLayer.append(label);
+    return label;
+  });
   (world.overlay ?? world.host)?.append(marksLayer);
   const handles = [consoleHolo];
   const normalAnswer = () => `${count(E.verifier?.quotes_verified)} excerpts matched; ${count(E.verifier?.rejected?.length)} rejected.`;
@@ -411,6 +425,10 @@ export async function build(world) {
       panelCamera.updateProjectionMatrix(); panelCamera.updateMatrixWorld(true);
       const canvas = world.host?.querySelector('.world-canvas');
       const offsetX = canvas?.offsetLeft ?? 0, offsetY = canvas?.offsetTop ?? 0;
+      chamberLabels.forEach((label, i) => {
+        screenPoint.set(xs[i], anchor[1] - .98, .78).add(stationOrigin).project(panelCamera);
+        label.style.transform = `translate(${offsetX + (screenPoint.x + 1) * size.width / 2}px,${offsetY + (1 - screenPoint.y) * size.height / 2}px) translate(-50%, 0)`;
+      });
       const machineCounts = new Map();
       marks.forEach(mark => {
         const i = definitions.findIndex(([name]) => name.toLowerCase() === mark.dataset.machine);

@@ -4,13 +4,13 @@
 
 VESTA lets you set oxygen, pressure and gravity, inspect nearby evidence, and carry the answer back to its original source. Built by **Team Zerack** for NASA Space Apps Challenge 2026, “Flame in Freefall”.
 
-[Enter VESTA](https://itzjk.github.io/vesta/#/brief) · [Watch one question answered in 26 seconds](https://itzjk.github.io/vesta/?question=1#/brief?station=transit) (wide screens) · [Watch the 60-second tour](https://itzjk.github.io/vesta/#/brief?tour=1) · [Open the instrument view](https://itzjk.github.io/vesta/#/design?view=details) · [JSON receipt format](docs/evidence-receipt.md)
+[Enter VESTA](https://itzjk.github.io/vesta/#/brief) · [Watch one condition change in 26.5 seconds](https://itzjk.github.io/vesta/?question=1#/brief?station=transit) · [Watch the 60-second tour](https://itzjk.github.io/vesta/#/brief?tour=1) · [Open the instrument view](https://itzjk.github.io/vesta/#/design?view=details) · [JSON receipt format](docs/evidence-receipt.md)
 
 ## Start with one question
 
 1. Choose a mission cabin in Transit. The opening answer reports coverage for 45 material-and-concern questions, with the matching limits beside it. Enter the cabin when ready.
-2. Open [Evidence](https://itzjk.github.io/vesta/#/design). Use **Coverage**, **Cabin**, **Search**, **Compare** and **Research gaps** to inspect the result, its source rows and the missing measurements; **Search** also offers four guided questions, and each score opens into its six components. **Tested conditions** plots the rows that state ambient oxygen (897 of 1,989), says what is plotted and lists every row behind a shared mark. **Droplet outcomes** plots 260 recorded FLEX droplet results in 2D and in a rotatable 3D view; it is a liquid-droplet example, kept outside cabin-material coverage. Export a research brief as Markdown or JSON.
-3. Choose **Save JSON** to keep an evidence receipt. Reopen it with **Recheck JSON** to compare the saved method, evidence fingerprint and result with the loaded collection. Only an exact match enables **Apply checked cabin**. Files are checked locally.
+2. Open [Evidence](https://itzjk.github.io/vesta/#/design). Use **Coverage**, **Cabin** and **Search** for the main workflow; **Tools** contains the **Evidence register**, **Compare**, **Research gaps** and export actions; **Search** also offers four guided questions, and each score opens into its six components. **Tested conditions** plots the rows that state ambient oxygen (897 of 1,989), says what is plotted and lists every row behind a shared mark. **Droplet outcomes** plots 260 recorded FLEX droplet results in 2D and in a rotatable 3D view; it is a liquid-droplet example, kept outside cabin-material coverage. Export a research brief as Markdown or JSON.
+3. Choose **Tools → Save JSON** to keep an evidence receipt or a reviewer package. Reopen it with **Recheck JSON** to compare the saved method, evidence fingerprint and result with the loaded collection. Only an exact match enables **Apply checked cabin**. Files are checked locally.
 4. Open [Drill](https://itzjk.github.io/vesta/#/incident), start the exercise and step through eight source-linked decisions. The progress thread stays visible; the debrief exports the scripted decision log as one self-contained JSON, and **Recheck decision JSON** runs the same rules on the saved inputs and reports whether the decisions match ([format](docs/decision-replay.md)). Open [Trust](https://itzjk.github.io/vesta/#/engine) to run the ten published cases, including questions that must return no source.
 
 The default experience is one continuous 3D world with named station tabs and visible action buttons. Object markers also open their controls or evidence. The eye button or **H** hides the controls for presenting. The instrument view exposes the tables and technical detail, and remains available without WebGL.
@@ -21,7 +21,7 @@ The default experience is one continuous 3D world with named station tabs and vi
 | --- | --- | --- |
 | Transit | Select a mission cabin and read its opening coverage answer. | Coverage in this collection, with explicit atmosphere limits. |
 | Flame | Compare the Earth and low-momentum space flame illustrations and read NASA's observation. | An illustration, not a combustion simulation. |
-| Evidence | Inspect 45 coverage questions, each with its nearest source row and a strip of what was compared with your cabin and what is never compared; configure a cabin, search verified findings, compare investigations, and export receipts or research gaps. | Coverage under explicit matching rules, with source provenance. |
+| Evidence | Inspect 45 coverage questions, each with up to three nearest source rows and a strip of compared conditions and excluded variables; configure a cabin, filter the complete evidence register, search findings, compare investigations, and export receipts or research gaps. | Coverage under explicit matching rules, with source provenance. |
 | Drill | Step through eight decisions, inspect their support, replay the exercise and export its debrief. | A bounded teaching exercise, not operational flight guidance. |
 | Trust | Execute ten reviewed cases and inspect the build's evidence checks. | Reproducible software checks, not independent scientific certification. |
 | Robotics | Follow a humanoid inspection concept from a scripted observation to a human-approved inspection, and save the record. | A concept simulation of a workflow in a grounded lab. No physical robot, telemetry, locomotion control or autonomous controller is connected. |
@@ -30,7 +30,11 @@ The default experience is one continuous 3D world with named station tabs and vi
 
 **Video cases**, available from every station, pairs original NASA FLEX and Saffire-V footage with the problem, recorded observation, VESTA response and limits. Each case opens an evidence search or the scripted drill. See [video sources and behavior](docs/video-cases.md). Playback starts only on request; source credits remain with the footage.
 
+**One condition · 26.5s** holds station oxygen and pressure fixed while changing gravity from microgravity to one-sixth g. Its counts and changed lamps come from the same coverage rules as the app; it then reveals the variables the method does not compare. **Pause**, **Next** and **Stop** controls are available, with a compact layout and reduced-motion behavior. This illustrates a software comparison, not changing fire physics.
+
 The 60-second tour travels through the first five stations. It can be paused, resumed or skipped. NASA photographs carry their own attribution and remain distinct from the illustrated world.
+
+The [presentation recorder](https://itzjk.github.io/vesta/presentation.html) previews and exports a silent review video or a PNG frame. It composes live 3D frames with editorial cards populated by actual evidence calculations; it is not a recording of the full interface. WebM output is 1280 × 720 with a requested 30 fps, subject to browser performance. No voiceover is provided. Recording starts only on request; review the downloaded video before presenting or sharing it.
 
 ## Read the coverage correctly
 
@@ -48,9 +52,15 @@ The current atmosphere match requires the same gravity class, oxygen within **on
 
 **Quote verified** means an excerpt matched the cached source text. It does not certify VESTA's interpretation. Try [this ventilation citation](https://itzjk.github.io/vesta/#/design?src=S-VENT-01), read its surrounding sentence and follow the original source.
 
+**Tools → Evidence register** separates all 45 material questions, 822 findings and 1,989 source-table rows into explicit counting views. Filter by named material, concern, condition coverage and source type; inspect compared values and open each finding or row at its source. Finding comparisons preserve missing conditions and evidence type. A filtered empty list is not proof of scientific absence.
+
+The register’s **Collection & claims we do not make** section gives source types, publication years, missing dates, row meanings, excluded investigation hits and the limits of VESTA’s claims. Source types count the distinct sources cited by findings, separately from the 22-table inventory. A future-dated source row is retained and flagged rather than silently corrected. Quote-check totals, findings, source rows and material questions remain different units.
+
 ## Keep and reproduce an answer
 
 A [portable evidence receipt](docs/evidence-receipt.md) records the cabin with explicit units, matching method, collection fingerprint, calculated coverage and referenced row snapshots. Rechecking distinguishes a matching result from changes to the method, evidence base or result. A SHA-256 fingerprint detects content differences; it is not an author's signature or an endorsement.
+
+**Save evidence JSON** retains the `vesta.reproduction/1` envelope around the existing `vesta.evidence-receipt/1` receipt. **Save review package** adds the collection summary, limits and all three actual rejected excerpts, including their original source, rejection reason and omitted qualifier. Its separate `vesta.reviewer-package/1` fingerprint covers that entire package. **Recheck JSON** verifies the fingerprint, recomputes the receipt and compares the additional context with the loaded collection and published rejected-source record; altered context cannot inherit a matching receipt’s verification. Existing receipt and reproduction file formats remain supported. Review-package checking needs the published rejected-source file; if it cannot be loaded, it fails explicitly.
 
 The browser, static API and MCP server use the same pure modules in `web/js/core/`. No runtime language model generates the coverage, findings search or scripted drill advice.
 

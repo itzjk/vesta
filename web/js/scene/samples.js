@@ -1,5 +1,6 @@
 import { hardware, tube } from './materials.js';
 import { buildSample } from './sample-kit.js';
+import { lampProgress } from './lamp-sequence.js?v=sebas-20261115-2';
 
 const concerns = ['prevention', 'detection', 'suppression'];
 const states = ['PROVEN', 'EXTRAPOLATED', 'NEVER_TESTED'];
@@ -41,6 +42,7 @@ export async function buildSamples({ THREE, mode = 'high', db }) {
   const selectedMaterials = new Set(ids), lampColor = new THREE.Color();
   let aspect = 1.6, layoutMode = 'default', geometryKey = '', panel = false, selected = null, time = 0, changeAt = 0, stateKey = '', firstCells = true, disposed = false;
   let interactionSurface = null, clickableSurface = null;
+  let sequence = null;
   const markInteractive = () => {};
   function syncInteractionSurface() {
     const next = group.visible && layoutMode === 'compact-wide' ? interactionSurface : null;
@@ -167,14 +169,19 @@ export async function buildSamples({ THREE, mode = 'high', db }) {
     if (!Number.isFinite(t)) throw new Error('samples: update time must be seconds');
     time = t;
     const snap = options.reduced || options.capture, mix = snap ? 1 : smooth((t - changeAt) / .32);
-    for (const [i, l] of lamps.entries()) { l.color.copy(l.from).lerp(l.to, mix); const dim = selectedMaterials.has(l.material) ? 1 : .18; lampColor.copy(l.color).multiplyScalar(dim); bulbs.setColorAt(i, lampColor); }
+    for (const [i, l] of lamps.entries()) {
+      const order = sequence?.lamps.get(`${l.material}:${l.concern}`);
+      const amount = order == null ? mix : lampProgress(sequence.elapsed, order, sequence.snap);
+      l.color.copy(l.from).lerp(l.to, amount); const dim = selectedMaterials.has(l.material) ? 1 : .18; lampColor.copy(l.color).multiplyScalar(dim); bulbs.setColorAt(i, lampColor);
+    }
     if (bulbs.instanceColor) bulbs.instanceColor.needsUpdate = true;
     for (const [index, id] of ids.entries()) {
       const item = samples.get(id);
       const blend = snap ? 1 : smooth((t - item.at) / .42);
       item.holder.position.lerpVectors(item.from, item.to, blend); item.holder.scale.setScalar(THREE.MathUtils.lerp(item.scaleFrom, item.scaleTo, blend));
       const dim = selectedMaterials.has(id) && (!selected || selected === id) ? 1 : .28;
-      item.wash.copy(item.washFrom).lerp(item.washTo, mix); item.light = THREE.MathUtils.lerp(item.lightFrom, item.lightTo, mix);
+      const order = sequence?.materials.get(id), amount = order == null ? mix : lampProgress(sequence.elapsed, order, sequence.snap);
+      item.wash.copy(item.washFrom).lerp(item.washTo, amount); item.light = THREE.MathUtils.lerp(item.lightFrom, item.lightTo, amount);
       compartmentWash.setColorAt(index, lampColor.copy(item.wash).multiplyScalar(selectedMaterials.has(id) ? 1 : .15));
       for (const { m, color, emissive } of item.materials) { m.color.copy(color).multiplyScalar(dim * item.light); if (m.emissive) m.emissive.copy(emissive).add(lampColor.copy(item.wash).multiplyScalar(.18 * dim)); }
     }
@@ -182,6 +189,14 @@ export async function buildSamples({ THREE, mode = 'high', db }) {
   }
   setLayout(); update(0);
   return { group, camera, setLayout, setCells, highlight, pick, focus, anchor, update, materialIds: ids.slice(), kitReady: true,
+    beginSequence(keys) {
+      const known = new Set(lamps.map(lamp => `${lamp.material}:${lamp.concern}`));
+      if (!Array.isArray(keys) || keys.some(key => !known.has(key)) || new Set(keys).size !== keys.length) throw new Error('samples: invalid lamp sequence');
+      const materials = new Map(); keys.forEach((key, index) => { const material = key.split(':')[0]; if (!materials.has(material)) materials.set(material, index); });
+      sequence = { lamps: new Map(keys.map((key, index) => [key, index])), materials, elapsed: 0, snap: false };
+    },
+    advanceSequence(elapsed, snap = false) { if (sequence) { sequence.elapsed = Number.isFinite(elapsed) ? Math.max(0, elapsed) : 0; sequence.snap = snap; } },
+    endSequence() { sequence = null; },
     setVisible(value) { group.visible = !!value; syncInteractionSurface(); },
     dispose() { if (disposed) return; disposed = true; interactionSurface = null; syncInteractionSurface(); washTexture.dispose(); const seen = new Set(); group.traverse(o => { o.shadow?.dispose(); for (const resource of [o.geometry, ...[o.material].flat()]) if (resource && !seen.has(resource)) { seen.add(resource); resource.dispose?.(); } }); group.removeFromParent(); }
   };

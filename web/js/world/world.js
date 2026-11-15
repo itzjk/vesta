@@ -1,12 +1,12 @@
-import { createQuestionTour } from './question-tour.js';
+import { createQuestionTour } from './question-tour.js?v=sebas-20261115-2';
 import { warmBlanket } from '../scene/ship-blanket.js';
-import { cite, configureCitations } from './cite.js?v=sebas-20261115-1';
+import { cite, configureCitations } from './cite.js?v=sebas-20261115-2';
 import { createStationLoader, afterPaint, idleTurn } from './station-loader.js?v=2';
-import { createStage } from '../scene/engine.js?v=2';
+import { createStage } from '../scene/engine.js?v=sebas-20261115-2';
 import { build as buildVesta } from '../scene/vesta.js';
 import { createHolograms } from './holo.js';
 import { buildHash } from '../router.js';
-import { createGuide } from './guide.js';
+import { createGuide } from './guide.js?v=sebas-20261115-2';
 import { createVideoCases } from './cases.js';
 import { build as buildWelcome } from './welcome.js';
 import { createMissionBrief, STATION_AGENTS } from './mission.js';
@@ -26,7 +26,7 @@ export const STATIONS = [
 const FILES = ['act-transit', 'act-flame', 'act-evidence', 'act-drill', 'act-trust', 'act-robotics'];
 const clamp = x => Math.max(0, Math.min(1, x));
 const ease = x => x * x * x * (x * (x * 6 - 15) + 10);
-const editable = target => target?.closest?.('input,textarea,select,button,a,[contenteditable="true"],[role="dialog"]');
+const editable = target => target?.closest?.('input,textarea,select,button,summary,a,[contenteditable="true"],[role="dialog"]');
 export function stationFor(route, params = {}) {
   if (route === 'engine' && params.station === 'robotics') return 5;
   if (route === 'brief') return params.station === 'transit' || params.intro === '1' ? 0 : 1;
@@ -37,6 +37,7 @@ export async function createWorld(host, context) {
   let ctx = context, disposed = false, index = -1, flight, entered = 0, lastTime, sceneCtx, holo, officer, carrier;
   let pendingCut = false, activation = 0, warmingStation = false;
   let loader, requested, initialShown = false, baseLights = [];
+  let performanceProbe;
   let engine, inUpdate = false, citationCleanup, desiredPose, renderedPose, updateOfficer, questionTour;
   let pointerX = 0, pointerY = 0, introTimer, wheel = 0, wheelAt = 0, gesture, cameraOverride, filmActive = false, navigationCut = false, filmPausedAt = null;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -217,7 +218,7 @@ export async function createWorld(host, context) {
   listen(reduced, 'change', () => { if (flight) flight.cut = true; invalidate(); });
   function disposeWorld() {
     if (disposed) return;
-    disposed = true; questionTour?.dispose(); clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); welcome?.dispose(); cases.dispose(); mission.dispose(); guide.dispose(); canvasHost.remove(); overlay.remove(); exitCinema.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world; delete document.documentElement.dataset.cinema;
+    disposed = true; performanceProbe?.dispose(); questionTour?.dispose(); clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); welcome?.dispose(); cases.dispose(); mission.dispose(); guide.dispose(); canvasHost.remove(); overlay.remove(); exitCinema.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world; delete document.documentElement.dataset.cinema;
     for (const key of ['worldAllBuilt', 'worldLoading', 'worldRequested', 'worldEntry', 'worldSettled', 'cinema', 'film', 'filmPaused', 'hologramOpen', 'dockSide', 'flying']) delete host.dataset[key];
     STATIONS.forEach(station => { delete host.dataset[`${station.id}Ready`]; delete host.dataset[`${station.id}Unavailable`]; });
     host.style.removeProperty('--world-dock-width');
@@ -232,6 +233,9 @@ export async function createWorld(host, context) {
       filmActive = value; host.dataset.film = String(value); host.dataset.filmPaused = String(Boolean(paused));
       if (value) { clearTimeout(introTimer); cases.close(); mission.close(); holo?.closeAll(); } invalidate();
     }, get station() { return STATIONS[index]?.id; },
+    get questionPresentation() { return questionTour?.presentation() ?? null; },
+    startQuestion() { return questionTour?.start(); },
+    stopQuestion() { return questionTour?.stop(); },
     get stage() { return engine; }, get camera() { return sceneCtx?.camera; }, get vesta() { return officer; },
     unmount: disposeWorld,
     dispose() { api.unmount(); }
@@ -253,6 +257,10 @@ export async function createWorld(host, context) {
   engine = await createStage(canvasHost, { capture, reducedCuts: true, mode: ctx.params?.still === '1' ? 'still' : undefined });
   if (disposed) { engine.dispose(); return; }
   engine.on('quality', syncQuality); syncQuality();
+  if (new URLSearchParams(location.search).get('perf') === '1') {
+    const { createPerformanceProbe } = await import('./performance-probe.js?v=sebas-20261115-2');
+    if (!disposed) performanceProbe = createPerformanceProbe({ stage: engine, host, station: () => STATIONS[index]?.id });
+  }
   if (engine.mode === 'still') { api.unmount(); ctx.setParams({ view: 'details' }, { replace: true }); return api; }
   await engine.use({ async build(stage) {
     sceneCtx = stage;
@@ -302,7 +310,7 @@ export async function createWorld(host, context) {
     loader = createStationLoader({
       count: STATIONS.length, stopped: () => disposed, paused: () => warmingStation || host.dataset.flying === 'true' || Boolean(flight && !flight.cut && performance.now() / 1000 - flight.start < 1.2), yieldTurn: capture ? afterPaint : idleTurn,
       async build(i) {
-        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=sebas-20261115-1`), i === 0 || i === 3 ? warmBlanket(false) : null]);
+        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=sebas-20261115-2`), i === 0 || i === 3 ? warmBlanket(false) : null]);
         if (disposed) return;
         const priorLights = baseLights.map(([light]) => light.intensity);
         let built;

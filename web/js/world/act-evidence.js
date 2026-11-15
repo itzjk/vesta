@@ -1,20 +1,22 @@
 import { buildObservationModel } from './observation-lens.js';
-import { openCitation } from './cite.js?v=sebas-20261115-1';
-import { build as buildField, fieldRows } from '../scene/field.js?v=sebas-20261115-1';
-import { buildSamples } from '../scene/samples.js';
+import { openCitation } from './cite.js?v=sebas-20261115-2';
+import { build as buildField, fieldRows } from '../scene/field.js?v=sebas-20261115-2';
+import { buildSamples } from '../scene/samples.js?v=sebas-20261115-2';
 import { SAMPLE_NOTES } from '../scene/sample-kit.js';
 import { balanceWorldLight } from '../scene/materials.js';
 import { summarize, axisText } from '../views/investigations.js';
-import { receiptControls } from '../ui/receipt.js?v=sebas-20261115-1';
+import { receiptControls } from '../ui/receipt.js?v=sebas-20261115-2';
 import { media } from './media.js';
 import { G, CONCERNS } from '../core/index.js';
 import { TOL } from '../core/match.js';
 import { css } from '../ui/el.js';
-import { build as buildCoverage } from './coverage.js?v=sebas-20261115-1';
+import { build as buildCoverage } from './coverage.js?v=sebas-20261115-2';
 import { build as buildGapBrief } from '../ui/gapbrief.js';
 import { searchEvidence, cabinMatches, compareInvestigations, guidedAnswer, NO_MATCH } from './ask.js?v=4';
 import { evidenceGuidePose } from './evidence-guide.js';
 import { createRackUI } from './evidence-rack-ui.js';
+import { buildEvidenceRegister } from './evidence-register.js?v=sebas-20261115-2';
+import { renderFindingComparison } from '../ui/matchpanel.js?v=sebas-20261115-2';
 
 const node = (tag, text, cls) => {
   const el = document.createElement(tag);
@@ -32,12 +34,12 @@ export function evidenceState(db, core, q, investigation = null) {
 
 export async function build(world) {
   const { THREE: T, db, core } = world;
-  await Promise.all([css('css/coverage.css?v=sebas-20261115-1'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css')]);
+  await Promise.all([css('css/coverage.css?v=sebas-20261115-2'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css?v=sebas-20261115-2')]);
   const dropletEntry = buildObservationModel({ db, investigationId: 'PSI-69' }).points[0] || null;
   let guidedTask = '', guidedLeft = '', guidedRight = '', citationOpen = false;
   let selectedMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';
   let selectionReady = false;
-  const wall = buildCoverage(world, { onSelection: onCoverageSelection }), gaps = buildGapBrief(world);
+  const wall = buildCoverage(world, { onSelection: onCoverageSelection }), gaps = buildGapBrief(world), evidenceRegister = buildEvidenceRegister(world);
   const stage = world.stage.context || world.stage.ctx || world.stage;
   const host = stage.renderer.domElement.parentElement, root = world.host || host;
   const group = new T.Group(); group.name = 'evidence-room';
@@ -46,7 +48,7 @@ export async function build(world) {
   field.setVisible(false);
   let rack;
   try { rack = await buildSamples({ THREE: T, mode: stage.mode, db }); }
-  catch (error) { field.dispose(); wall.dispose(); gaps.dispose(); throw error; }
+  catch (error) { field.dispose(); wall.dispose(); gaps.dispose(); evidenceRegister.dispose(); throw error; }
   const rackFill = new T.HemisphereLight(0xede4d4, 0x191715, .24);
   group.add(field.group, rack.group, rackFill);
   const balanceLight = balanceWorldLight(world, 0, .1);
@@ -67,6 +69,7 @@ export async function build(world) {
   let investigation = db.invById[world.params?.sel] ? world.params.sel : null, comparison = db.invById[world.params?.compare] ? world.params.compare : null;
   let lastKey = '', lastTime = 0, reaction = -100, highlightedMaterials = null;
   let guideRow = null, savedAperture, savedExposure;
+  let walkthrough = false, walkthroughFit = null;
   const guideTarget = new T.Vector3(), guideScreen = new T.Vector3(), guideHead = new T.Vector3();
   const companion = node('div', null, 'evidence-companion'); companion.hidden = true;
   companion.append(node('span', 'VESTA'), node('small', 'Your evidence guide'));
@@ -211,13 +214,13 @@ export async function build(world) {
       const item = node('li'), trigger = phrase(result.finding.claim, result.finding.id); trigger.dataset.evidenceFinding = result.finding.id;
       const rows = result.psi ? plotted.filter(p => p.row.psi_id === result.psi).length : 0;
       trigger.addEventListener('click', () => { activeFinding = result.finding.id; resultPsi = result.psi ? [result.psi] : []; world.invalidate?.(); });
-      item.append(trigger, node('small', `${core.text.level(result.finding)} · ${rows ? `${rows} linked plotted rows` : 'No linked plotted rows'}`)); list.append(item);
+      item.append(trigger, node('small', `${core.text.level(result.finding)} · ${rows ? `${rows} linked plotted rows` : 'No linked plotted rows'}`)); item.append(renderFindingComparison(result.finding, currentQ, db)); list.append(item);
     }
     container.append(list); host.dataset.evidenceSearchResults = String(results.length); host.dataset.evidenceSearchRows = String(plotted.filter(p => resultPsi.includes(p.row.psi_id)).length);
   }
   function paintPanel() {
     const focusedChoice = panel === 'ask' ? document.activeElement?.dataset.evidenceChoice : null;
-    const title = { overview: 'Cabin evidence', sample: 'Material evidence', ask: 'Search findings', cabin: 'Configure your cabin', compare: 'Compare investigations', receipt: 'Keep the evidence', gaps: 'Research gaps' }[panel];
+    const title = { overview: 'Cabin evidence', sample: 'Material evidence', ask: 'Search findings', cabin: 'Configure your cabin', compare: 'Compare investigations', register: 'Evidence register', receipt: 'Keep the evidence', gaps: 'Research gaps' }[panel];
     const close = node('button', '×', 'evidence-close'); close.type = 'button'; close.setAttribute('aria-label', 'Close evidence console'); close.onclick = () => {
       const trigger = close.matches(':focus-visible') && selectedMaterial && root.querySelector(`[data-sample-material="${selectedMaterial}"]`);
       setPanel(null);
@@ -244,6 +247,7 @@ export async function build(world) {
       if (url) { const source = node('a', 'NASA description of this material'); source.href = url; source.target = '_blank'; source.rel = 'noopener noreferrer'; model.append(source); }
       consoleEl.append(model);
     }
+    if (panel === 'register') { consoleEl.querySelector('h2').remove(); evidenceRegister.update(currentQ); consoleEl.append(evidenceRegister.element); }
     if (panel === 'gaps') { consoleEl.querySelector('h2').remove(); gaps.update(currentQ); consoleEl.append(gaps.element); }
     if (panel === 'ask') {
       const guided = node('section', null, 'evidence-guided');
@@ -349,15 +353,43 @@ export async function build(world) {
     const portrait = width / height < .9;
     const insets = { top: portrait ? 140 : 135, bottom: portrait ? 190 : 120, left: portrait ? 15 : 70, right: portrait ? 15 : 70,
       ...(height < 550 ? { top: 100, bottom: 90, left: 30, right: 80 } : width < 760 ? { top: 160, bottom: 225 } : {}) };
+    if (walkthrough && width >= 1100 && height >= 700) Object.assign(insets, { top: 115, bottom: 110, left: 350, right: 70 });
+    if (walkthrough && width < 760) {
+      const key = [width, height, root.dataset.questionStep, root.dataset.questionUnknowns].join(':');
+      if (walkthroughFit?.key !== key) {
+        const story = root.querySelector('.question-story')?.getBoundingClientRect();
+        const canvas = stage.renderer.domElement.getBoundingClientRect();
+        const bottom = story?.height > 0 ? canvas.bottom - story.top + 10 : height * .38 + 96;
+        walkthroughFit = { key, bottom: Math.max(96, bottom) };
+      }
+      Object.assign(insets, { top: 104, bottom: walkthroughFit.bottom, left: 30, right: 30 });
+    }
     const compact = width < 760 && width - insets.left - insets.right > height - insets.top - insets.bottom;
     if (root.dataset.rackCompact !== String(compact)) root.dataset.rackCompact = String(compact);
     return rack.camera({ aspect: width / height, width, height, panel: !!panel, insets, surface: stage.renderer.domElement, layout: compact ? 'compact-wide' : 'default' });
   }
+  const walkthroughHook = {
+    prepare(query) {
+      walkthrough = true; walkthroughFit = null; setPanel(null); setDisplay('rack');
+      selectedMaterial = hoveredMaterial = null; rack.focus(null, true); rack.highlight(null); rack.endSequence();
+      applyQ(query);
+    },
+    transition(query, keys) { rack.beginSequence(keys); applyQ(query); },
+    frame(seconds, snap) { rack.advanceSequence(seconds, snap); },
+    lampRect(material, concern) {
+      const point = rack.anchor(material, concern); rack.group.localToWorld(point); point.project(stage.camera);
+      if (point.z < -1 || point.z > 1 || !Number.isFinite(point.x + point.y)) return null;
+      const bounds = host.getBoundingClientRect(), x = bounds.left + (point.x + 1) * bounds.width / 2, y = bounds.top + (1 - point.y) * bounds.height / 2;
+      return { left: x - 12, top: y - 12, right: x + 12, bottom: y + 12, width: 24, height: 24 };
+    },
+    clear() { walkthrough = false; walkthroughFit = null; rack.endSequence(); rack.focus(null, true); rack.highlight(null); lastKey = ''; }
+  };
+  world.evidenceWalkthrough = walkthroughHook;
   field.setVisible(false); rack.setVisible(false); group.visible = false; refreshAnswer();
   selectionReady = true;
   return {
     group,
-    actions: () => [...[['overview', 'Coverage'], ['cabin', 'Cabin'], ['ask', 'Search'], ['compare', 'Compare'], ['gaps', 'Research gaps'], ['receipt', 'Save JSON']].map(([id, label]) => ({ id, label, primary: id === 'overview', expanded: () => panel === id && consoleHandle.target > 0, run: () => setPanel(panel === id && consoleHandle.target > 0 ? null : id) })),
+    actions: () => [...[['overview', 'Coverage'], ['cabin', 'Cabin'], ['ask', 'Search'], ['register', 'Evidence register'], ['compare', 'Compare'], ['gaps', 'Research gaps'], ['receipt', 'Save JSON']].map(([id, label]) => ({ id, label, primary: id === 'overview', expanded: () => panel === id && consoleHandle.target > 0, run: () => setPanel(panel === id && consoleHandle.target > 0 ? null : id) })),
       { id: 'conditions', label: 'Tested conditions', expanded: () => sceneMode === 'chart', run: toggleConditions },
       { id: 'outcomes', label: 'Droplet outcomes', disabled: () => !dropletEntry, run: async trigger => {
         if (!dropletEntry) return;
@@ -399,6 +431,7 @@ export async function build(world) {
         lastKey = key; refreshAnswer(); refreshDials();
         if (panel === 'overview' || panel === 'sample') wall.update(currentQ);
         if (panel === 'gaps') gaps.update(currentQ);
+        if (panel === 'register') evidenceRegister.update(currentQ);
       }
       const fixed = state.capture || state.reduced || stage.mode === 'still', lens = cameraPose();
       world.vesta.group.visible = sceneMode === 'rack';
@@ -460,9 +493,10 @@ export async function build(world) {
     holograms() { return []; },
     dispose() {
       active = false; balanceLight(false); panelObserver.disconnect();
+      if (world.evidenceWalkthrough === walkthroughHook) delete world.evidenceWalkthrough;
       root.removeEventListener('pointerdown', outside); window.removeEventListener('keydown', escape);
       window.removeEventListener('vesta:cite', citation);
-      wall.dispose(); gaps.dispose(); field.dispose(); rack.dispose(); rackUI.dispose(); consoleHandle.dispose();
+      wall.dispose(); gaps.dispose(); evidenceRegister.dispose(); field.dispose(); rack.dispose(); rackUI.dispose(); consoleHandle.dispose();
       tools.remove(); companion.remove(); style.remove(); host.classList.remove('evidence-world-active'); delete root.dataset.evidenceDisplay; delete root.dataset.rackCompact;
       const seen = new Set();
       group.traverse(o => { for (const resource of [o.geometry, ...[o.material].flat()]) if (resource && !seen.has(resource)) { seen.add(resource); resource.dispose?.(); } });

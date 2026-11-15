@@ -57,3 +57,34 @@ export function renderMatchPanel(row, cabin, db) {
   }
   return panel;
 }
+
+// Compact reported-condition comparison for finding cards. It deliberately does
+// not turn a summary or model into an experiment, or compare material geometry.
+export function renderFindingComparison(finding, cabin, db) {
+  ensureStyle();
+  const model = matchPanel(finding, cabin, db), wrap = node('section', 'matchpanel finding-comparison');
+  wrap.dataset.findingComparison = finding.id;
+  wrap.setAttribute('aria-label', 'Finding conditions and unmatched variables');
+  const strip = node('ul', 'matchpanel-strip');
+  for (const item of model.compared) {
+    const missingCode = { gravity: 'gravity_not_reported', oxygen: 'o2_not_reported', pressure: 'pressure_not_reported' }[item.key];
+    const unavailable = model.comparison.fail.includes(missingCode);
+    const state = unavailable ? 'not-compared' : item.state;
+    const [symbol, label] = states[state];
+    const chip = node('li', 'matchpanel-chip', `${symbol} ${short[item.key]}`);
+    chip.dataset.matchpanelState = state;
+    chip.title = `${label}: ${item.detail.replace('Row:', 'Finding:')}`;
+    chip.setAttribute('aria-label', `${item.label}: ${unavailable ? 'not reported; comparison unavailable' : label.toLowerCase()}. ${item.detail.replace('Row:', 'Finding:')}`);
+    strip.append(chip);
+  }
+  wrap.append(strip, node('p', 'matchpanel-strip-key', '✓ within tolerance · ≠ different · ∅ condition not reported'));
+  const details = node('details', 'finding-comparison-details'), summary = node('summary', '', 'Compared values & exclusions');
+  details.append(summary);
+  for (const item of model.compared) details.append(node('p', 'matchpanel-value', `${item.label}: ${item.detail.replace('Row:', 'Finding:')}`));
+  details.append(node('p', 'matchpanel-key', model.deltaLegend), node('p', 'matchpanel-excluded', 'Not compared: airflow, geometry, thickness, ignition and suppressant configuration.'));
+  const experimental = ['flight', 'ground_lowg', 'normal_g'].includes(finding.n.work);
+  const material = cabin.material ? (finding.n.material_ids || []).includes(cabin.material) ? 'Selected material is named.' : 'Selected material is not named; no material equivalence is established.' : 'No material selected.';
+  details.append(node('p', 'matchpanel-key', `${experimental ? 'Experimental evidence type' : 'Summary, model or operational evidence; not an experimental row'} · ${material} ${model.warning}`));
+  wrap.append(details);
+  return wrap;
+}

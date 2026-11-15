@@ -1,7 +1,8 @@
 import { createHumanoidInspector } from '../scene/humanoid-inspector.js';
+import { ensureInformationPolishStyles } from './information-polish.js?v=sebas-20261115-2';
 
 if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-robotics]')) {
-  const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL('../../css/robotics.css',import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
+  const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL('../../css/robotics.css?v=sebas-20261115-2',import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
 }
 
 import { advanceInspection, inspectionReport, INSPECTION_STEPS } from './inspection.js';
@@ -19,6 +20,8 @@ const messages={
 const labels={ready:'Begin inspection',observe:'Check cabin evidence',evidence:'Review the proposal',review:'Approve inspection',inspect:'Return to dock',return:'Finish inspection',complete:'Run again'};
 
 export async function build(world) {
+  ensureInformationPolishStyles();
+  world.host.classList.add('information-polish');
   const {THREE:T,stage,db,core}=world, group=new T.Group(); group.name='digital-robotics-lab';
   const materials=new Set(), geometries=new Set();
   const mat=(color,options={})=>{const m=new T.MeshStandardMaterial({color,roughness:.5,metalness:.4,...options});materials.add(m);return m;};
@@ -38,13 +41,15 @@ export async function build(world) {
   const key=new T.PointLight(0xf3dcc0,22,15,2);key.position.set(-2,4,5);group.add(key);
   const rim=new T.PointLight(0x7d9bb0,10,12,2);rim.position.set(4,2,-2);group.add(rim);
   const panel=node('section',null,'robotics-console');panel.setAttribute('aria-label','Robotics agent log');
-  const heading=node('h2','Inspection agents'), description=node('p','Cabin coverage is calculated from VESTA’s evidence collection. Grounded concept lab. Locomotion, freefall anchoring and hardware control are not implemented.','robotics-scope');
+  const heading=node('h2','Inspection agents');
   const log=node('ol',null,'robotics-log');
-  const scope=node('p','Humanoid concept · scripted inspection · human approval required.','robotics-scope');
-  panel.append(heading,scope,description,log);
+  const scope=node('p','Concept demo · scripted inspection · human approval required.','robotics-scope');
+  const limits=node('details',null,'robotics-limits');
+  limits.append(node('summary','What this demo does'),node('p','Cabin evidence is calculated from VESTA’s collection. The inspection is a scripted software concept, with no live camera or connected robot.'),node('p','Locomotion, freefall anchoring and hardware control are not implemented.'));
+  panel.append(heading,scope,log,limits);
   const references=node('nav',null,'robotics-references');references.setAttribute('aria-label','Robotics research context');
   for(const [text,href] of [['NASA Robonaut: humanoid robotics research ↗','https://www.nasa.gov/robonaut2/what-is-a-robonaut/'],['NASA Astrobee: a different, free-flying approach ↗','https://www.nasa.gov/ames/astrobee/']]){const link=node('a',text);link.href=href;link.target='_blank';link.rel='noopener';references.append(link);}panel.append(references);
-  const caption=node('section',null,'robotics-caption');caption.dataset.stationUi='robotics';caption.append(node('h1','Humanoid inspection'),node('p','Humanoid concept · scripted inspection · human approval required.'));caption.hidden=true;world.host.querySelector('.world-overlay').append(caption);
+  const caption=node('section',null,'robotics-caption');caption.dataset.stationUi='robotics';caption.append(node('h1','Humanoid inspection'),node('p','Concept demo · scripted inspection · human approval required.'));caption.hidden=true;world.host.querySelector('.world-overlay').append(caption);
   const holo=world.hologram(panel,{at:[-3,0,1],width:440,dock:'left',manual:true,marker:false,phoneRatio:.28});
   let active=false,phase='ready',lastTime=0,changed=0,savedAperture,lastQ='';
   const coverage=()=>core.status.tally(core.status.cells(world.q,db));
@@ -53,8 +58,8 @@ export async function build(world) {
     log.replaceChildren();
     for(const [name,text,step] of [
       ['Observer','Scripted visual cue; no diagnosis.',1],
-      ['Evidence agent',`${counts.PROVEN} questions with nearby evidence; ${counts.EXTRAPOLATED} under other or incomplete conditions; ${counts.NEVER_TESTED} with no source found in this collection.`,2],
-      ['Coordinator','Proposes a visual inspection; does not command suppression.',3],
+      ['Evidence agent',`VESTA collection: ${counts.PROVEN} questions with nearby evidence · ${counts.EXTRAPOLATED} with other or incomplete support · ${counts.NEVER_TESTED} with no source.`,2],
+      ['Coordinator','Proposes inspection, never suppression.',3],
       ['Human review',report.human_approved?'Inspection approved in this demo.':'Approval required before the inspection step.',4]
     ]){const item=node('li');item.dataset.state=index>=step?'complete':'pending';item.append(node('strong',name),node('span',text));log.append(item);}
     world.answer?.(messages[phase]);

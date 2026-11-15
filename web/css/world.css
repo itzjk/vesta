@@ -379,7 +379,8 @@ html[data-world=true] body #si-attribution{right:80px;transform:none}
 .world-host[data-station] .world-guide .world-guide-intro{display:block;box-sizing:border-box;top:92px;bottom:auto;left:32px;width:min(430px,calc(100% - 180px));max-width:none;max-height:none;padding:0;background:none}
 .world-guide-intro h1{font:600 clamp(24px,2.4vw,34px)/1.15 var(--display);margin:0;text-wrap:balance;color:var(--ivory)}
 .world-guide-intro .world-flame-limit{font:400 17px/1.35 var(--font);color:var(--ivory-dim);margin-top:12px!important;padding:0!important;border:0!important}
-.world-host[data-station] .world-guide-intro.world-guide-in-panel{display:block;position:sticky;inset:auto;top:0;box-sizing:border-box;width:auto;max-width:none;max-height:none;margin:0 0 18px;padding:0 0 12px;background:var(--information-surface,#12191b);z-index:2;text-shadow:none}
+/* Panel introductions belong to the scroll flow; pinning them obscured evidence after focus or scroll. */
+.world-host[data-station] .world-guide-intro.world-guide-in-panel{display:block;position:static;inset:auto;box-sizing:border-box;width:auto;max-width:none;max-height:none;margin:0 0 18px;padding:0 0 12px;background:var(--information-surface,#12191b);z-index:auto;text-shadow:none}
 .world-guide-in-panel h1{font-size:24px}
 /* Drill scrolls the whole card. Its introductory title must scroll with the evidence,
    rather than remain above the decision text as a sticky overlay. */

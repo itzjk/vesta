@@ -1,0 +1,24 @@
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:#0c1012;color:#ede4d4;font:18px/1.45 "Source Sans 3",sans-serif}
+main{max-width:1360px;margin:auto;padding:24px 28px 48px}
+header{margin-bottom:20px}
+header a{color:#c9ad7a;text-decoration:none}
+h1{font-size:30px;font-weight:500;margin:16px 0 4px}
+p{margin:8px 0;color:#c6c4bd}
+.preview{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#0c1012;border:1px solid #c2b79a35}
+.stage{position:absolute;width:1280px;height:720px;left:0;top:0;transform-origin:0 0}
+.stage iframe,.stage canvas{position:absolute;inset:0;width:1280px;height:720px;border:0}
+.stage iframe{pointer-events:none}
+.stage canvas{background:#0c1012;pointer-events:none}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 12px}
+button{min-height:44px;padding:10px 16px;border:1px solid #c2b79a55;border-radius:4px;background:#172023;color:#ede4d4;font:500 16px/1.3 "Source Sans 3",sans-serif;cursor:pointer}
+#record{border-color:#c9ad7a;background:#654331}
+button:disabled{opacity:.45;cursor:default}
+:focus-visible{outline:2px solid #e0b981;outline-offset:3px}
+#status{min-height:26px;color:#ede4d4}
+.format,.record-summary{font-size:14px;color:#aeb6b5}
+details{margin-top:24px;max-width:950px;border-top:1px solid #c2b79a35;padding-top:8px}
+summary{min-height:44px;padding:10px 0;cursor:pointer;color:#c9ad7a}
+details p{font-size:16px}
+@media(max-width:600px){main{padding:16px 12px 32px}h1{font-size:26px}.controls button{flex:1 1 42%}}

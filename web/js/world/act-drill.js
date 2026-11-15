@@ -1,8 +1,8 @@
 import { balanceWorldLight } from '../scene/materials.js';
 import { build as buildCabin } from '../scene/cabin.js';
 import { build as buildDrillThread } from './drill-thread.js';
-import { build as buildDebrief } from './debrief.js';
-import { polishDecisionContent, ensureInformationPolishStyles } from './information-polish.js';
+import { build as buildDebrief } from './debrief.js?v=sebas-20261115-2';
+import { polishDecisionContent, ensureInformationPolishStyles } from './information-polish.js?v=sebas-20261115-2';
 
 const finite = (value, fallback) => value !== null && value !== '' && Number.isFinite(Number(value)) ? Number(value) : fallback;
 const el = (tag, text, className) => {
@@ -61,15 +61,14 @@ export async function build(world) {
   const body = el('div', null, 'drill-body');
   body.append(content, clockLine, assumption, el('small', core.text.SCOPE));
   const truth = el('footer', null, 'drill-truth');
-  truth.append(el('p', 'SIMULATED TELEMETRY · SCRIPTED · NOT A PHYSICS MODEL'),
-    el('p', core.text.STATUS_LINE), el('p', 'Low-momentum flame illustration only.'));
+  truth.append(el('p', core.text.STATUS_LINE));
   const heading = el('header', null, 'drill-heading');
   const closeButton = el('button', '×', 'drill-dismiss'); closeButton.type = 'button'; closeButton.setAttribute('aria-label', 'Close decision evidence'); closeButton.onclick = () => closePanel(true);
   heading.append(title, closeButton);
   const inner = el('div', null, 'drill-inner'); inner.append(heading, controls, body); body.append(truth);
   root.append(inner); hud.append(style);
   const notice = el('p', null, 'drill-notice');
-  notice.append(document.createTextNode('SIMULATED TELEMETRY · SCRIPTED · NOT A PHYSICS MODEL'), el('br'), document.createTextNode('Low-momentum flame illustration only.'));
+  notice.append(document.createTextNode('Scripted telemetry · no physics model'), el('br'), document.createTextNode('Flame: low-momentum illustration.'));
   if (!world.answer) hud.append(answer); hud.append(notice); (world.overlay || world.host).append(hud);
   if (!meta || !frames.length || !db.playbook?.steps?.length) {
     title.textContent = 'The scripted drill is unavailable.';
@@ -79,7 +78,7 @@ export async function build(world) {
   }
   const log = core.officer.run(frames, db, meta);
   const thread = buildDrillThread(world);
-  const debrief = buildDebrief({ ...world, onReplay: () => { reset(); world.overlay.querySelector('[data-station-action=next-decision]')?.focus({ preventScroll: true }); } });
+  const debrief = buildDebrief({ ...world, persistentTelemetryDisclosure: true, onReplay: () => { reset(); world.overlay.querySelector('[data-station-action=next-decision]')?.focus({ preventScroll: true }); } });
   hud.append(thread.element); body.insertBefore(debrief.element, truth);
   const timeline = el('details', null, 'drill-timeline'), timelineTitle = el('summary', 'Eight decision points'), timelineList = el('ol');
   const timelineButtons = log.map((entry, i) => {
@@ -194,6 +193,7 @@ export async function build(world) {
     const entries = fired(), entry = entries.at(-1), done = time >= end, clock = nowClock();
     thread.update({ t: time, shot: outside ? 'silence' : null }); debrief.update({ t: time, shot: outside ? 'silence' : null });
     clockLine.hidden = assumption.hidden = done;
+    truth.hidden = done;
     const key = `${entry?.step || 'standby'}:${done}:${outside}`;
     if (key !== currentKey) { currentKey = key; beatAge = capture || reduced ? 10 : 0; renderContent(entry, done); }
     const coverage = entry?.state === 'NO_SOURCE' ? 'NO_SOURCE' : entry?.coverage?.status || entry?.state || 'SIMULATED';

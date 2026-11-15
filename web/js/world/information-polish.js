@@ -75,6 +75,6 @@ export function ensureInformationPolishStyles(doc = document) {
   const link = doc.createElement('link');
   link.id = id;
   link.rel = 'stylesheet';
-  link.href = new URL('../../css/information-polish.css', import.meta.url).href;
+  link.href = new URL('../../css/information-polish.css?v=sebas-20261115-2', import.meta.url).href;
   doc.head.append(link);
 }

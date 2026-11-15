@@ -17,3 +17,9 @@
 .robotics-console:has(.world-guide-in-panel)>h2{display:none}
 
 .robotics-console.world-hologram{height:calc(100dvh - 170px)}
+.robotics-limits{border-top:1px solid var(--information-rule,var(--line));margin-top:18px;padding-top:6px}
+.robotics-limits>summary{min-height:44px;box-sizing:border-box;padding:10px 0;cursor:pointer;color:var(--ivory-dim);font-size:16px}
+.robotics-limits>summary:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
+.robotics-limits p{margin:12px 0}
+.robotics-console .robotics-log{margin:16px 0}
+.robotics-console .robotics-log li{padding:6px 0 10px 16px}

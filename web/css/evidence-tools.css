@@ -18,3 +18,19 @@
 .evidence-console[data-evidence-panel=ask] .evidence-note{font-size:16px;line-height:1.4}
 .evidence-console>.evidence-close{z-index:5}
 .evidence-console>.world-guide-intro.world-guide-in-panel{padding-right:44px!important}
+
+/* Three primary tasks stay visible; every secondary task remains an ordinary button. */
+.world-host[data-station=evidence] .world-actions[data-tools=true]{max-width:calc(100% - 32px);z-index:8}
+.world-tools{position:relative;flex:none;color:var(--ivory)}
+.world-tools>summary{display:flex;align-items:center;justify-content:center;gap:8px;box-sizing:border-box;min-height:44px;padding:8px 14px;list-style:none;cursor:pointer;font:500 16px/1.25 var(--font);border:1px solid transparent;border-radius:5px}
+.world-tools>summary::-webkit-details-marker{display:none}
+.world-tools>summary::after{content:'▾';color:var(--ivory-dim)}
+.world-tools[open]>summary,.world-tools[data-active=true]>summary{border-color:var(--information-rule,var(--line-strong));background:#ede4d40a}
+.world-tools>summary:focus-visible{outline:2px solid var(--ivory);outline-offset:-3px}
+.world-tools-list{position:absolute;right:0;bottom:calc(100% + 10px);display:grid;grid-template-columns:minmax(0,1fr);gap:4px;width:min(340px,calc(100vw - 32px));max-height:min(420px,calc(100dvh - 220px));box-sizing:border-box;padding:8px;overflow:auto;overscroll-behavior:contain;border:1px solid var(--information-rule,var(--line-strong));border-radius:8px;background:#12191b;box-shadow:0 12px 32px #0007;scrollbar-width:thin}
+.world-host[data-station=evidence] .world-guide .world-actions .world-tools-list>button{width:100%;min-width:0;min-height:44px;white-space:normal;text-align:left;padding:10px 12px;font-size:16px;line-height:1.35}
+@media(max-width:759px){
+ .world-host[data-station=evidence] .world-guide .world-actions[data-tools=true]{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+ .world-host[data-station=evidence] .world-guide .world-actions[data-tools=true]>button{min-width:0;min-height:46px;padding:6px 3px;font-size:14px}
+ .world-tools>summary{min-height:46px;padding:6px;font-size:14px;gap:4px}
+}

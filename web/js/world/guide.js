@@ -4,7 +4,7 @@ const copy = {
   evidence: 'Pick a sample. Inspect its evidence.',
   drill: 'Rehearse a cabin fire.',
   trust: 'Inspect how VESTA checks evidence.',
-  robotics: 'Guide a digital robot. You approve.'
+  robotics: 'Humanoid inspection'
 };
 
 export function createGuide(overlay) {
@@ -17,6 +17,20 @@ export function createGuide(overlay) {
   section.append(intro, actions); overlay.append(section);
   const host = overlay.parentElement;
   let current = [], buttons = [], explanationButton, missionDialog, stationId, context, lastPanel, explanationPending = false, explanationOpen = false;
+  let tools, toolsSummary;
+  const closeTools = (focus = false) => {
+    if (!tools?.open) return;
+    tools.open = false;
+    if (focus) toolsSummary.focus({ preventScroll: true });
+  };
+  const outsideTools = event => { if (tools?.open && !tools.contains(event.target)) closeTools(); };
+  const toolsKeydown = event => {
+    if (event.key === 'Escape' && tools?.open) {
+      event.preventDefault(); event.stopPropagation(); closeTools(true);
+    }
+  };
+  document.addEventListener('pointerdown', outsideTools);
+  section.addEventListener('keydown', toolsKeydown);
   const mission = (topic, button) => {
     overlay.querySelector('.world-mission-toggle')?.click();
     [...document.querySelectorAll('.mission-brief nav button')].find(item => item.textContent === topic)?.click();
@@ -55,7 +69,7 @@ export function createGuide(overlay) {
         ? prior : host.querySelector('.world-hologram[aria-hidden=false]:not([hidden]):not(.wc-source)')
       : null;
     lastPanel = panel;
-    const inPanel = Boolean(panel) && !(['drill', 'trust'].includes(stationId) && host.clientWidth < 760);
+    const inPanel = Boolean(panel);
     const parent = inPanel ? panel : section;
     if (intro.parentElement !== parent) parent.prepend(intro);
     intro.classList.toggle('world-guide-in-panel', inPanel);
@@ -73,6 +87,7 @@ export function createGuide(overlay) {
   }
   return {
     set(station, definitions = []) {
+      closeTools(); tools = toolsSummary = null;
       section.hidden = !copy[station.id];
       section.prepend(intro); context?.remove(); stationId = station.id; lastPanel = null;
       title.textContent = copy[station.id] || '';
@@ -90,8 +105,10 @@ export function createGuide(overlay) {
         button.dataset.stationAction = action.id;
         button.onclick = () => {
           const keyboard = button.matches(':focus-visible');
-          if (action === explanation) { explanationPending = true; explanationButton = button; }
-          action.run(button);
+          const trigger = tools?.contains(button) ? toolsSummary : button;
+          closeTools(trigger === toolsSummary);
+          if (action === explanation) { explanationPending = true; explanationButton = trigger; }
+          action.run(trigger);
           if (action === explanation && keyboard) requestAnimationFrame(() => {
             placeIntroduction();
             lastPanel?.querySelector('[aria-label^=Close],.evidence-close,.drill-dismiss')?.focus();
@@ -104,7 +121,20 @@ export function createGuide(overlay) {
         if (action.primary) button.className = 'world-action-primary';
         return button;
       });
-      actions.replaceChildren(...buttons); this.update();
+      actions.replaceChildren(); delete actions.dataset.tools;
+      if (station.id === 'evidence') {
+        // Keep every action and identifier; secondary tasks use an ordinary disclosure,
+        // with native Tab/Enter behavior rather than an incomplete ARIA menu.
+        const primary = new Set(['overview', 'cabin', 'ask']);
+        tools = document.createElement('details'); tools.className = 'world-tools';
+        toolsSummary = document.createElement('summary'); toolsSummary.textContent = 'Tools';
+        toolsSummary.setAttribute('aria-label', 'More evidence tools');
+        const menu = document.createElement('div'); menu.className = 'world-tools-list';
+        tools.append(toolsSummary, menu);
+        buttons.forEach((button, i) => (primary.has(current[i].id) ? actions : menu).append(button));
+        actions.append(tools); actions.dataset.tools = 'true';
+      } else actions.append(...buttons);
+      this.update();
     },
     update() {
       placeIntroduction();
@@ -114,7 +144,8 @@ export function createGuide(overlay) {
         button.disabled = Boolean(action.disabled?.());
         if (action.expanded) button.setAttribute('aria-expanded', String(Boolean(action.expanded())));
       });
+      if (tools) tools.dataset.active = String([...tools.querySelectorAll('button')].some(button => button.getAttribute('aria-expanded') === 'true'));
     },
-    dispose() { context?.remove(); intro.remove(); section.remove(); }
+    dispose() { document.removeEventListener('pointerdown', outsideTools); section.removeEventListener('keydown', toolsKeydown); context?.remove(); intro.remove(); section.remove(); }
   };
 }

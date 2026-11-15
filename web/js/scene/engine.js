@@ -40,6 +40,7 @@ export async function createStage(host, opts = {}) {
     const frameStart = performance.now();
     module.update?.(time(), state, camera);
     if (optics) optics.render(scene, camera, reduced.matches ? 2 : time(), mode); else renderer.render(scene, camera); const elapsed = performance.now() - frameStart; host.dataset.sceneRenderMs = elapsed.toFixed(3); host.dataset.sceneFrames = String(++rendered);
+    emit('frame', { at: frameStart, renderMs: elapsed, mode, canvas: renderer.domElement });
   }
   function setQuality(value, reason = 'manual') {
     if (!['high', 'low'].includes(value) || disposed || !renderer || mode === 'still') return;
@@ -65,7 +66,7 @@ export async function createStage(host, opts = {}) {
   }
   const stage = {
     get mode() { return mode; },
-    get qualitySelectable() { return ['low', 'high'].includes(qualityFlag); },
+    get qualitySelectable() { return mode !== 'still' && Boolean(renderer); },
     get renderer() { return renderer; },
     setQuality,
     hold() { warming = true; cancelAnimationFrame(raf); },

@@ -78,8 +78,8 @@ export function build(world) {
   });
   button('Evidence: see the gaps', 'evidence', () => world.go(`#/design?${new URLSearchParams({ preset: model?.meta.preset ?? '', mat: '' })}`));
   element.append(style, heading, subtitle, counts, actions, replay, node('p', core.text.STATUS_LINE, 'debrief-limit'),
-    node('h3', 'Earth response delay'), delay, node('h3', 'Review each decision'), decisions,
-    node('p', 'SIMULATED TELEMETRY · SCRIPTED · NOT A PHYSICS MODEL', 'debrief-disclosure'));
+    node('h3', 'Earth response delay'), delay, node('h3', 'Review each decision'), decisions);
+  if (!world.persistentTelemetryDisclosure) element.append(node('p', 'SIMULATED TELEMETRY · SCRIPTED · NOT A PHYSICS MODEL', 'debrief-disclosure'));
   function update(q = world.q) {
     if (disposed) return;
     const state = summarize(model, q); element.hidden = !state?.complete;

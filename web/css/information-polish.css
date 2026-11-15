@@ -259,3 +259,27 @@
     background: #12191bf5;
   }
 }
+
+/* The one telemetry disclosure stays in the scene's available area, clear of the right panel. */
+.world-host.information-polish[data-station=drill] .drill-hud .drill-notice{
+ top:144px!important;bottom:auto!important;left:32px;transform:none;width:max-content;
+ max-width:calc(100% - var(--world-dock-width,0px) - 132px);text-align:left;
+ color:var(--information-secondary);font-size:13px!important;line-height:1.4;
+ padding:6px 10px;border:1px solid var(--information-rule);border-radius:5px;background:#12191bf2
+}
+.world-host.information-polish[data-station=drill] .drill-hud[data-panel-open=true] .drill-notice{top:84px!important}
+.world-host.information-polish[data-question-state=running] .drill-hud{visibility:hidden;pointer-events:none}
+.world-host.information-polish .world-drill .drill-truth p{font-size:14px!important;line-height:1.4!important}
+.trust-chamber-label{position:absolute;top:0;left:0;display:block;padding:4px 8px;border:1px solid #c2b79a60;border-radius:4px;background:#12191bf5;color:#ede4d4;font:500 15px/1.25 var(--font);white-space:nowrap;text-shadow:none;box-shadow:0 3px 12px #0004}
+.world-host.information-polish .trust-console .trust-status{font-size:14px!important;line-height:1.4!important;border-top:1px solid var(--information-rule);padding-top:10px}
+.world-host.information-polish .trust-content h2{font-size:22px!important;line-height:1.25!important}
+.world-host.information-polish .trust-content :is(p,li){line-height:1.5!important}
+@media(max-width:759px){
+ .world-host.information-polish[data-station=drill] .drill-hud .drill-notice{left:16px;top:122px!important;width:calc(100% - 32px);max-width:none;box-sizing:border-box;font-size:12px!important;padding:4px 8px}
+ .world-host.information-polish[data-station=drill] .drill-hud[data-panel-open=true] .drill-notice{top:90px!important;padding:2px 8px;line-height:1.2}
+ .trust-chamber-label{padding:3px 5px;font-size:12px}
+}
+@media(max-width:759px) and (min-height:700px){
+ .world-host.information-polish[data-station=drill] .drill-hud .drill-notice,
+ .world-host.information-polish[data-station=drill] .drill-hud[data-panel-open=true] .drill-notice{top:134px!important}
+}
