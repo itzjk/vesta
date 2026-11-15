@@ -1,13 +1,15 @@
-import { collectionSummary, evidenceRegister, scoreFactors, nearestSourceRows } from '../core/evidence-register.js?v=sebas-20261115-3';
+import { collectionSummary, scoreFactors, nearestSourceRows } from '../core/evidence-register.js?v=expert-20261115-1';
 import * as text from '../core/text.js';
-import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=sebas-20261115-3';
+import { browseEvidence, collectionAvailability, registerQuery } from '../core/evidence-browser.js?v=expert-20261115-1';
+import { cite as sourceCitation } from './cite.js?v=expert-20261115-1';
+import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=expert-20261115-1';
 
 const node = (tag, value, cls) => {
   const el = document.createElement(tag); if (value != null) el.textContent = value; if (cls) el.className = cls; return el;
 };
 function styles() {
   if (document.querySelector('link[data-evidence-register-style]')) return;
-  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/evidence-register.css?v=sebas-20261115-3', import.meta.url).href;
+  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/evidence-register.css?v=expert-20261115-1', import.meta.url).href;
   link.dataset.evidenceRegisterStyle = ''; document.head.append(link);
 }
 const detail = (label, content) => { const el = node('details'); el.append(node('summary', label), content); return el; };
@@ -33,6 +35,16 @@ export function renderCollectionSummary(db) {
     provenance.append(node('h4', 'Excluded investigation search hits'));
     for (const i of m.excluded_investigations) provenance.append(node('p', `${i.id}: ${i.reason}`));
   }
+  const availability = collectionAvailability(db), matrix = node('table', null, 'register-availability');
+  matrix.append(node('caption', `Comparison-field availability · ${availability.total} source rows`));
+  const head = node('tr'); for (const label of ['Normalized field', 'Available', 'Missing']) { const th = node('th', label); th.scope = 'col'; head.append(th); }
+  const thead = node('thead'); thead.append(head); matrix.append(thead); const tbody = node('tbody');
+  for (const [label, value] of [['Gravity class', availability.gravity], ['Ambient oxygen', availability.oxygen], ['Reported pressure', availability.pressure]]) {
+    const row = node('tr'), th = node('th', label); th.scope = 'row'; row.append(th, node('td', String(value)), node('td', String(availability.total - value))); tbody.append(row);
+  }
+  matrix.append(tbody);
+  el.append(matrix, node('p', `${availability.pressure_inferred} rows additionally use facility-inferred pressure. ${availability.complete_reported} rows have all three comparison fields reported; ${availability.complete_inferred} have complete comparison fields using inferred pressure; ${availability.incomplete} remain incomplete. Counts describe field availability, not independent samples or matched cabin conditions.`, 'register-note'));
+  el.append(node('p', 'Ambient oxygen excludes burner-stream values. A recorded condition is not necessarily compatible with your cabin. No pooled fire probability or independent predictive validation is supplied.', 'register-note'));
   el.append(detail('Source types, dates & counting rules', provenance));
   const limits = node('ul'); for (const limit of m.limits) limits.append(node('li', limit));
   el.append(detail('Collection limits', limits));
@@ -44,7 +56,8 @@ export function renderCollectionSummary(db) {
 export function buildEvidenceRegister(world) {
   styles(); const { db } = world;
   let q = { ...world.q }, page = 0, disposed = false, lastQuery = '', model;
-  const filters = { mode: 'questions', material: '', concern: '', coverage: '', sourceType: '' }, size = 12;
+  const initialFilters = { mode: 'questions', material: '', concern: '', coverage: '', sourceType: '', search: '', investigation: '', level: '', conditions: '' };
+  const filters = { ...initialFilters }, size = 12;
   const element = node('section', null, 'evidence-register'); element.dataset.evidenceRegister = '';
   element.setAttribute('aria-label', 'Complete evidence register');
   element.append(node('h3', 'Evidence register'), node('p', 'Inspect the loaded collection. Choose a counting unit, then filter; source rows and findings remain separate.', 'register-note'));
@@ -56,7 +69,7 @@ export function buildEvidenceRegister(world) {
     for (const [value, caption] of options) { const o = node('option', caption); o.value = value; control.append(o); }
     field.append(control); controls.append(field); selectors[key] = control;
     control.addEventListener('change', () => { filters[key] = control.value; page = 0;
-      if (key === 'mode') { filters.coverage = ''; filters.sourceType = ''; selectors.coverage.value = ''; selectors.sourceType.value = ''; }
+      if (key === 'mode') for (const id of ['coverage', 'sourceType', 'investigation', 'level', 'conditions']) { filters[id] = ''; selectors[id].value = ''; }
       paint();
     });
   };
@@ -68,7 +81,17 @@ export function buildEvidenceRegister(world) {
   select('concern', 'Concern / pillar', [['', 'All concerns'], ...[...new Set(['prevention', 'detection', 'suppression', ...db.findings.map(f => f.pillar)])].map(id => [id, text.concern(id)])]);
   select('coverage', 'Condition coverage', [['', 'All coverage'], ['PROVEN', 'Nearby / matching conditions'], ['EXTRAPOLATED', 'Other / incomplete conditions'], ['NEVER_TESTED', 'No source for question'], ['NOT_COUNTED', 'Row not counted']]);
   select('sourceType', 'Source type', [['', 'All source types'], ...[...new Set(['psi-table', ...db.findings.map(f => f.source?.kind || 'not reported')])].sort().map(s => [s, s])]);
-  element.append(controls);
+  select('investigation', 'Investigation', [['', 'All investigations'], ...db.investigations.map(i => [i.psi_id, `${i.psi_id} · ${i.name || i.full_name}`])]);
+  select('level', 'Evidence type', [['', 'All evidence types'], ...[...new Set(db.findings.map(f => f.n.work))].sort().map(id => [id, id.replaceAll('_', ' ')])]);
+  select('conditions', 'Condition completeness', [['', 'All condition records'], ['reported', 'All comparison fields reported'], ['inferred', 'Complete using inferred pressure'], ['missing', 'Missing comparison fields']]);
+  const searchLabel = node('label', 'Search this counting unit'), searchInput = node('input'); searchInput.type = 'search'; searchInput.maxLength = 240; searchInput.setAttribute('aria-label', 'Search evidence register'); searchInput.placeholder = 'Material, finding, source title or row ID';
+  searchInput.oninput = () => { filters.search = searchInput.value; page = 0; paint(); }; searchLabel.append(searchInput);
+  const refine = node('details', null, 'register-refine'); refine.append(node('summary', 'Refine by coverage, source & conditions'));
+  const advanced = node('div', null, 'register-filters');
+  for (const key of ['coverage', 'sourceType', 'investigation', 'level', 'conditions']) advanced.append(selectors[key].parentElement);
+  refine.append(advanced);
+  const reset = node('button', 'Clear filters', 'register-reset'); reset.type = 'button'; reset.onclick = () => setFilters({ mode: filters.mode });
+  element.append(searchLabel, controls, refine, reset);
   const counts = node('p', null, 'register-results'); counts.setAttribute('role', 'status'); counts.setAttribute('aria-live', 'polite');
   const scope = node('p', null, 'register-note'), list = node('ol', null, 'register-list');
   const nav = node('nav', null, 'register-pages'); nav.setAttribute('aria-label', 'Evidence pages');
@@ -76,10 +99,10 @@ export function buildEvidenceRegister(world) {
   prev.onclick = () => { if (page > 0) { page--; paint(); counts.focus({ preventScroll: true }); } };
   next.onclick = () => { if ((page + 1) * size < model.count) { page++; paint(); counts.focus({ preventScroll: true }); } };
   counts.tabIndex = -1; nav.append(prev, position, next); element.append(counts, scope, list, nav);
-  const cite = (parent, label, id) => parent.append(world.cite(label, id));
+  const cite = (parent, label, id, query = q) => parent.append(sourceCitation(label, id, world, { query }));
   function item(entry) {
     const el = node('li', null, 'register-item'); el.dataset.registerId = entry.id;
-    const heading = node('h4'), compareQ = { ...q, material: filters.material || null, concern: filters.concern || q.concern };
+    const heading = node('h4'), compareQ = registerQuery(q, filters);
     if (entry.kind === 'question') {
       const c = entry.cell; heading.textContent = `${db.materials[c.material].label} · ${text.concern(c.concern)}`;
       el.append(heading, node('p', `${text.status(c.status)} · ${c.rows} source rows · ${c.finding_ids.length} findings`, 'register-badge'));
@@ -90,16 +113,14 @@ export function buildEvidenceRegister(world) {
       if (rows.length) el.append(detail(`Nearest ${rows.length} source rows`, body));
       for (const [mode, label] of [['findings', 'Inspect findings'], ['rows', 'Inspect source rows']]) {
         const b = node('button', label); b.type = 'button'; b.onclick = () => {
-          Object.assign(filters, { mode, material: c.material, concern: c.concern, coverage: '', sourceType: '' });
-          for (const [key, value] of Object.entries(filters)) selectors[key].value = value;
-          page = 0; paint(); counts.focus({ preventScroll: true });
+          setFilters({ mode, material: c.material, concern: c.concern }); counts.focus({ preventScroll: true });
         }; el.append(b);
       }
     } else if (entry.kind === 'finding') {
-      const f = entry.record; cite(heading, f.claim || f.title || f.quote || f.id, f.id);
+      const f = entry.record; cite(heading, f.claim || f.title || f.quote || f.id, f.id, compareQ);
       const factors = scoreFactors(f, compareQ, db);
       el.append(heading, node('p', `${entry.sourceType} · ${text.level(f)} · ${text.status(entry.status)} · ${factors.total}/100 relevance`, 'register-badge'));
-      el.append(renderFindingComparison(f, compareQ, db));
+      el.append(node('p', `${f.source?.title || 'Source title not recorded'} · ${f.source?.year || 'year not reported'} · ${f.n.psi_id || 'no PSI investigation linked'}`, 'register-source-title'), renderFindingComparison(f, compareQ, db));
       const score = node('div');
       for (const factor of factors.factors) score.append(node('p', `${text.TERM_LABEL[factor.key] || factor.key}: ${Number(factor.contribution.toFixed(3))} / ${factor.maximum}`));
       score.append(node('p', `Support multiplier ×${factors.multiplier}; rounded total ${factors.total}/100.`), node('p', factors.explanation), node('p', factors.excluded));
@@ -114,8 +135,11 @@ export function buildEvidenceRegister(world) {
   }
   function paint() {
     if (disposed) return;
-    model = evidenceRegister(db, q, filters); page = Math.min(page, Math.max(0, Math.ceil(model.count / size) - 1));
+    model = browseEvidence(db, q, filters); page = Math.min(page, Math.max(0, Math.ceil(model.count / size) - 1));
     selectors.sourceType.disabled = filters.mode === 'questions';
+    selectors.investigation.disabled = filters.mode === 'questions'; selectors.conditions.disabled = filters.mode === 'questions';
+    selectors.level.disabled = filters.mode !== 'findings';
+    refine.firstElementChild.textContent = `Refine by coverage, source & conditions${['coverage','sourceType','investigation','level','conditions'].some(k => filters[k]) ? ' · filters active' : ''}`;
     selectors.coverage.querySelector('option[value="NEVER_TESTED"]').disabled = filters.mode !== 'questions';
     selectors.coverage.querySelector('option[value="NOT_COUNTED"]').disabled = filters.mode !== 'rows';
     const c = model.coverage;
@@ -130,6 +154,11 @@ export function buildEvidenceRegister(world) {
     prev.disabled = page === 0; next.disabled = (page + 1) * size >= model.count;
   }
   function update(nextQ) { const key = JSON.stringify(nextQ); if (disposed || key === lastQuery) return; lastQuery = key; q = { ...nextQ }; page = 0; paint(); }
+  function setFilters(next = {}) {
+    Object.assign(filters, initialFilters, next); page = 0;
+    for (const [key, control] of Object.entries(selectors)) { control.value = filters[key]; if (control.value !== filters[key]) { control.value = ''; filters[key] = ''; } }
+    searchInput.value = filters.search; paint();
+  }
   update(q);
-  return { element, update, dispose() { disposed = true; element.remove(); } };
+  return { element, update, setFilters, dispose() { disposed = true; element.remove(); } };
 }

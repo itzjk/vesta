@@ -1,8 +1,8 @@
 import { el } from './el.js';
-import { sourceLocatorModel } from '../core/source-locator.js?v=sebas-20261115-3';
+import { sourceLocatorModel } from '../core/source-locator.js?v=expert-20261115-1';
 
 let manifestPromise;
-const load = () => manifestPromise ||= fetch(new URL('../../data/source-locators.json?v=sebas-20261115-3', import.meta.url))
+const load = () => manifestPromise ||= fetch(new URL('../../data/source-locators.json?v=expert-20261115-1', import.meta.url))
   .then(response => { if (!response.ok) throw new Error('Locator manifest unavailable'); return response.json(); })
   .catch(error => { manifestPromise = null; throw error; });
 const digest = async quote => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(quote)))].map(byte => byte.toString(16).padStart(2, '0')).join('');

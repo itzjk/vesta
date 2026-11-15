@@ -1,12 +1,13 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { advanceInspection, inspectionReport, INSPECTION_STEPS } from '../../web/js/world/inspection.js';
+import { advanceInspection, advanceInspectionClock, settleInspectionPose, buildInspectionMission, inspectionReport, INSPECTION_STEPS, INSPECTION_DWELL } from '../../web/js/world/inspection.js';
 import { buildIndex, presetPoint } from '../../web/js/core/index.js';
 import { cells, tally } from '../../web/js/core/status.js';
 import { stationFor } from '../../web/js/world/world.js';
 import { stationHash } from '../../web/js/world/welcome.js';
 import { parseHash } from '../../web/js/router.js';
+import { HUMANOID_TIMING } from '../../web/js/scene/humanoid-inspector.js';
 
 test('inspection cannot pass human review through an ordinary advance', () => {
   let phase='ready';
@@ -102,4 +103,48 @@ test('report snapshots validated counts only; missing or invalid evidence never 
   }
   const zero = inspectionReport(q, { PROVEN: 0, EXTRAPOLATED: 0, NEVER_TESTED: 0 }, 'evidence');
   assert.equal(zero.evidence_scope.total, 0);
+});
+
+test('continuous mission clocks stop at review and cannot bypass approval or shorten physical choreography', () => {
+  let phase=advanceInspection('ready');
+  phase=advanceInspectionClock(phase,INSPECTION_DWELL.observe);assert.equal(phase,'evidence');
+  phase=advanceInspectionClock(phase,INSPECTION_DWELL.evidence);assert.equal(phase,'review');
+  for(const elapsed of [0,999,Infinity,NaN,-1])assert.equal(advanceInspectionClock(phase,elapsed),'review');
+  assert.equal(advanceInspection(phase,'next'),'review');phase=advanceInspection(phase,'approve');
+  assert.equal(advanceInspectionClock(phase,HUMANOID_TIMING.inspection-.01),'inspect');
+  phase=advanceInspectionClock(phase,HUMANOID_TIMING.inspection);assert.equal(phase,'return');
+  assert.equal(advanceInspectionClock(phase,HUMANOID_TIMING.return-.01),'return');
+  phase=advanceInspectionClock(phase,HUMANOID_TIMING.return);assert.equal(phase,'complete');
+  assert.equal(advanceInspectionClock('invented-phase',999),'ready');
+  assert.equal(advanceInspectionClock('inspect',NaN),'inspect');
+});
+
+test('crew mission follows actual PMMA coverage and source identities but never grants work clearance', () => {
+  const raw=Object.fromEntries(['tests','findings','investigations','presets'].map(name=>[name,JSON.parse(fs.readFileSync(new URL(`../../web/data/${name}.json`,import.meta.url),'utf8'))]));
+  const db=buildIndex(raw);
+  for(const preset of ['station','lunar-base']){
+    const q=presetPoint(db,preset,'detection','nomex'),original={...q};
+    const mission=buildInspectionMission(q,db),actual=cells({...q,material:'pmma',concern:'prevention'},db).find(cell=>cell.material==='pmma'&&cell.concern==='prevention');
+    assert.deepEqual(q,original);assert.equal(mission.question.status,actual.status);
+    assert.deepEqual(mission.question.nearby_row_ids,actual.hit_ids||[]);
+    assert.ok(db.testById[mission.nearest_source.id]);assert.equal(mission.crew_work_authorized,false);
+    const report=inspectionReport(q,mission.counts,'complete',mission,{reducedMotion:true});
+    assert.equal(report.mission.source_status,actual.status);assert.equal(report.mission.crew_work_authorized,false);
+    assert.equal(report.mission.sensor_measurements,null);assert.equal(report.mission.motion_mode,'reduced-motion-poses');
+    assert.equal(report.mission.visual_pass_recorded,true);assert.equal(report.hardware_connected,false);
+    assert.match(report.result,/crew review still required/i);
+    if(preset==='lunar-base'){assert.equal(report.mission.disposition,'EVIDENCE_GAP_REVIEW_REQUIRED');assert.deepEqual(report.mission.nearby_row_ids,[]);}
+  }
+  const reducedDb=buildIndex({...raw,tests:db.tests.filter(row=>row.n.material_id!=='pmma')});
+  const mission=buildInspectionMission(presetPoint(db,'station','prevention','pmma'),reducedDb);
+  assert.equal(mission.nearest_source,null);assert.deepEqual(mission.question.nearby_row_ids,[]);assert.equal(mission.disposition,'EVIDENCE_GAP_REVIEW_REQUIRED');
+});
+
+test('still-mode completion needs explicit approval and cannot wait for a missing animation frame',()=>{
+  for(const phase of ['observe','evidence','review'])assert.equal(settleInspectionPose(phase),'review');
+  assert.equal(settleInspectionPose('ready'),'ready');
+  assert.equal(settleInspectionPose(advanceInspection('review','next')),'review');
+  assert.equal(settleInspectionPose(advanceInspection('review','approve')),'complete');
+  assert.equal(settleInspectionPose(advanceInspection('inspect','reset')),'ready');
+  assert.equal(settleInspectionPose('not-a-phase'),'ready');
 });

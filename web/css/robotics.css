@@ -1,12 +1,22 @@
 .world-host[data-station=robotics] .world-canvas{height:100%!important;width:100%!important;left:0!important}
 .world-host[data-station=robotics] .world-guide .world-guide-intro{display:none!important}
-.robotics-caption{position:absolute;top:110px;left:32px;width:390px;max-width:calc(100% - 64px);color:var(--ivory);isolation:isolate;text-shadow:0 1px 2px #05090b,0 2px 10px #05090be6}
+.robotics-caption{position:absolute;top:110px;left:32px;width:410px;max-width:calc(100% - 64px);color:var(--ivory);isolation:isolate;text-shadow:0 1px 2px #05090b,0 2px 10px #05090be6}
 .robotics-caption::before{content:"";position:absolute;inset:-25px -65px -30px -32px;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#0d171aeb 0%,#0d171ad9 64%,#0d171a70 83%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 18%,#000 80%,transparent 100%)}
 .robotics-caption[hidden]{display:none}
 .robotics-caption h1{font:600 36px/1.1 var(--display);margin:0 0 10px}
 .robotics-caption p{font:400 17px/1.4 var(--font);margin:0;max-width:360px;color:var(--ivory-dim)}
 .robotics-caption .robotics-bridge{font-size:15px;max-width:390px;color:#d5c4a2;margin-bottom:6px}
 .robotics-caption .robotics-caption-scope{font-size:14px}
+.robotics-caption .robotics-eyebrow{font-size:12px;letter-spacing:.11em;color:#cbb58c;margin-bottom:9px}
+.robotics-caption .robotics-mission-evidence{font-size:16px;color:#ede0c7;margin-top:13px;padding-left:10px;border-left:2px solid #ad895a;max-width:365px;white-space:pre-line}
+.robotics-caption .robotics-handoff{font-size:23px;color:#e9c18e;margin-top:14px}
+.robotics-caption .robotics-caption-scope{margin-top:10px}
+.robotics-evidence{border:1px solid #c2b79a35;border-radius:5px;padding:14px 16px;margin-top:16px;background:#111d22}
+.robotics-evidence h3{font-size:15px;font-weight:500;color:var(--ivory-dim);margin:0 0 8px}
+.robotics-evidence p{font-size:16px;line-height:1.45;margin:10px 0}
+.robotics-evidence .robotics-evidence-status{font-size:21px;color:#e2c297}
+.robotics-evidence .robotics-evidence-limit{font-size:14px;color:var(--ivory-dim)}
+.robotics-evidence a,.robotics-evidence button{display:inline-flex;max-width:100%;min-height:44px;align-items:center;text-align:left}
 .robotics-references{display:grid;gap:14px;margin-top:20px}
 .robotics-references a{font:400 16px/1.45 var(--font)}
 .world-host[data-station=robotics][data-hologram-open=true] .robotics-caption{display:none}
@@ -37,5 +47,12 @@
  .robotics-caption h1{font-size:25px}
  .robotics-caption p{font-size:14px;line-height:1.4;max-width:310px}
  .robotics-caption .robotics-bridge{font-size:13px;max-width:350px}
+ .robotics-caption .robotics-eyebrow{font-size:10px;margin-bottom:5px}
+ .robotics-caption .robotics-mission-evidence{font-size:13px;margin-top:8px;max-width:300px}
+ .robotics-caption .robotics-caption-scope{font-size:12px;margin-top:7px}
+ .robotics-caption .robotics-handoff{font-size:20px;margin-top:8px}
+ .robotics-caption .robotics-bridge,.robotics-caption .robotics-handoff{display:none}
+ .world-host[data-station=robotics] .question-launch-docked{display:none}
+ .world-host[data-station=robotics][data-hologram-open=true] :is(.world-guide>.world-actions,.world-answer){display:none!important}
  .world-host[data-station=robotics]:is([data-robotics-phase=inspect],[data-robotics-phase=return]) .robotics-caption{display:none}
 }

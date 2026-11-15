@@ -8,3 +8,10 @@
 .register-pages{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}.register-results{font-weight:600}.register-cabin{border-left:2px solid #bd9c6a;padding-left:12px}.register-empty{padding:18px 0}.evidence-register :focus-visible,.evidence-collection :focus-visible{outline:2px solid #d6b77f;outline-offset:3px}
 @media(max-width:480px){.register-filters{grid-template-columns:1fr}.register-item h4{font-size:15px}.register-counts{gap:4px 8px}}
 .world-host .evidence-console[data-evidence-panel="register"]>.world-guide-intro{display:none!important}
+
+.evidence-workspace .register-note,.evidence-workspace .register-badge{font-size:15px;line-height:1.5;opacity:1;color:#c7c9c2}
+.evidence-workspace .register-filters{grid-template-columns:repeat(3,minmax(0,1fr));margin:12px 0;gap:14px}.evidence-workspace .register-filters label{margin:0;font-size:15px}
+.evidence-workspace .register-item h4{font-size:20px;line-height:1.45}.evidence-workspace .register-item .world-cite{font:inherit;text-align:left}
+.register-reset{min-height:44px;padding:8px 14px;background:#252d31;color:#f1e5cd;border:1px solid #a38c65;font:inherit;cursor:pointer}
+.register-source-title{color:#d4c9b8;font-size:15px}.register-availability{width:100%;border-collapse:collapse;margin:24px 0 12px;font-size:16px}.register-availability caption{text-align:left;font-weight:600;margin-bottom:10px}.register-availability th,.register-availability td{padding:10px;border-bottom:1px solid #8e7a5b55;text-align:right}.register-availability th:first-child{text-align:left}.register-availability tbody th{font-weight:400}
+@media(max-width:759px){.evidence-workspace .register-filters{grid-template-columns:1fr}.evidence-workspace .register-item h4{font-size:18px}.register-availability{font-size:14px}.register-availability th,.register-availability td{padding:8px 5px}}

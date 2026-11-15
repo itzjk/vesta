@@ -1,7 +1,10 @@
 import { hardware } from '../scene/materials.js';
-import { loadCases, validateCases, evaluateCase } from './proof.js';
-import { sourceLocator } from '../ui/source-locator.js?v=sebas-20261115-3';
-import { ensureInformationPolishStyles } from './information-polish.js?v=sebas-20261115-3';
+import { loadCases, evaluateCase } from './proof.js';
+import { createProofSession } from './proof-session.js?v=expert-20261115-1';
+import { createProofReport, renderRejectedExcerpts } from './trust-report.js?v=expert-20261115-1';
+import { cite as contextualCite } from './cite.js?v=expert-20261115-1';
+import { sourceLocator } from '../ui/source-locator.js?v=expert-20261115-1';
+import { ensureInformationPolishStyles } from './information-polish.js?v=expert-20261115-1';
 
 const at = (value, path) => path.split('.').reduce((item, key) => item?.[key], value);
 const count = value => Number.isFinite(value) ? value.toLocaleString('en-US') : 'not reported';
@@ -130,11 +133,10 @@ export async function build(world) {
   body.className = 'trust-content';
   body.tabIndex = 0;
   nav.style.flexShrink = '0';
-  body.setAttribute('aria-live', 'polite');
   const controller = new AbortController();
   let alive = true, active = false, tab = 'home', manifest = null, serial = 0;
   let rejectedSourceRecords = null;
-  let casesFile = null, running = false, runSerial = 0, runTimer = null, consoleLayout = null;
+  let casesFile = null, running = false, consoleLayout = null;
   const results = [], marks = [];
   const completed = new Set();
   const buttons = new Map();
@@ -149,13 +151,13 @@ export async function build(world) {
   for (const [id, text] of [['checks', 'Checks'], ['rejected', 'Rejected excerpts'], ['report', 'Machines'], ['download', 'Download'], ['api', 'API'], ['assistant', 'Assistant']]) {
     const button = element('button', text, { font: 'inherit', background: 'none', border: '0', borderBottom: '1px solid var(--line-strong)', padding: '10px 0', minHeight: '44px', color: 'var(--ivory)', cursor: 'pointer' });
     button.type = 'button'; button.dataset.trust = id; button.style.flexShrink = '0';
-    button.addEventListener('click', () => show(tab === id ? 'home' : id));
+    button.addEventListener('click', () => show(id));
     buttons.set(id, button); nav.append(button);
   }
   const consoleContent = element('div', null, { display: 'flex', flexDirection: 'column', height: '100%', minHeight: '0' });
   consoleContent.append(nav, body);
   consoleEl.append(consoleContent);
-  const status = element('p', core.text?.STATUS_LINE ?? '', { fontSize: '18px', color: 'var(--ivory-dim)', margin: '12px 0 0' });
+  const status = element('p', 'Evidence checks are not a safety certification.', { fontSize: '18px', color: 'var(--ivory-dim)', margin: '12px 0 0' });
   status.className = 'trust-status';
   status.style.flexShrink = '0';
   consoleContent.append(status);
@@ -172,7 +174,7 @@ export async function build(world) {
   }
   async function rejectionSources() {
     if (rejectedSourceRecords) return rejectedSourceRecords;
-    const response = await fetch('data/rejected-excerpts.json?v=sebas-20261115-3', { signal: controller.signal });
+    const response = await fetch('data/rejected-excerpts.json?v=expert-20261115-1', { signal: controller.signal });
     if (!response.ok) throw new Error('Rejected source details did not load.');
     const audit = await response.json();
     if (audit.schema !== 'vesta.rejected-excerpts/1' || !Array.isArray(audit.records)) throw new Error('Unrecognized rejected-source report.');
@@ -198,35 +200,20 @@ export async function build(world) {
       body.append(element('p', 'Run the checks or take the evidence with you.'));
     } else if (next === 'checks') {
       renderChecks();
-    } else if (next === 'report' || next === 'rejected') {
-      body.append(element('h2', next === 'rejected' ? 'Rejected excerpts' : 'Inside the machines', { fontSize: '24px', margin: '0 0 10px' }));
-      if (next === 'report') for (const [name, path, unit] of definitions) body.append(element('p', `${name}: ${count(path ? at(E, path) : null)} ${unit}`, { margin: '6px 0' }));
-      body.append(link('Build report · JSON', 'data/engine.json'));
+    } else if (next === 'report') {
+      body.append(element('h2', 'Inside the machines', { fontSize: '24px', margin: '0 0 10px' }));
+      for (const [name, path, unit] of definitions) body.append(element('p', `${name}: ${count(path ? at(E, path) : null)} ${unit}`, { margin: '6px 0' }));
       body.append(element('p', 'Text matching does not validate interpretation or certify safety.'));
       body.append(element('p', E.verifier?.review_coverage?.scope ?? 'Independent review coverage is not reported in this build.'));
-      body.append(element('p', 'These candidates were rejected and are not part of the accepted evidence.'));
+      body.append(button('Inspect rejected excerpts', () => show('rejected')));
+      const advanced = element('details'); advanced.append(element('summary', 'Advanced: build report'), link('Build report · JSON', 'data/engine.json', 'vesta-engine.json')); body.append(advanced);
+    } else if (next === 'rejected') {
+      body.append(element('h2', 'Rejected excerpts'), element('p', 'Loading the omitted context and source links…'));
       let sourceRecords = new Map();
       try { sourceRecords = await rejectionSources(); }
-      catch (error) {
-        if (error.name !== 'AbortError' && alive && request === serial) body.append(element('p', 'Source details could not be loaded. The rejection records below are from the current build report.'));
-      }
+      catch { /* Render each real rejection with an explicit unavailable source state. */ }
       if (!alive || request !== serial) return;
-      const rejectedRecords = E.verifier?.rejected;
-      if (Array.isArray(rejectedRecords)) {
-        for (const record of rejectedRecords) {
-          const why = record.why === 'cut_before_qualifier' ? 'quote stops before a qualifying statement' : String(record.why ?? record.reason ?? 'not reported').replace(/_/g, ' ');
-          const row = element('section', null, { color: 'var(--ivory-dim)', margin: '16px 0', paddingBottom: '12px', borderBottom: '1px solid var(--line-strong)' });
-          row.append(element('b', record.id ?? 'Rejected excerpt'), document.createTextNode(`: ${why}.`));
-          if (record.quote) row.append(element('blockquote', `“${record.quote}”`, { margin: '6px 0' }));
-          const sourceRecord = sourceRecords.get(record.id);
-          if (sourceRecord) {
-            row.append(element('p', 'The following qualifier was omitted:', { margin: '8px 0 2px' }));
-            row.append(element('blockquote', sourceRecord.context_after.trim(), { margin: '6px 0' }));
-            row.append(link(sourceRecord.source.title, sourceRecord.source.url), sourceLocator(sourceRecord));
-          } else row.append(element('p', 'Source details unavailable for this rejected candidate.'));
-          body.append(row);
-        }
-      }
+      body.replaceChildren(renderRejectedExcerpts({ records: E.verifier?.rejected ?? [], sources: sourceRecords, locator: sourceLocator, rawLink: link }));
     } else if (next === 'assistant') {
       const site = new URL('.', location.href.split('#')[0]).href;
       body.append(element('p', 'Run from a clone of the repository. A browser cannot start a local stdio server.'));
@@ -267,11 +254,12 @@ export async function build(world) {
     }
     if (active) world.invalidate?.();
   }
-  const consoleHolo = world.hologram(consoleEl, { at: [2.7, -0.2, 0.6], width: 420, dock: 'right', marker: false });
+  const consoleHolo = world.hologram(consoleEl, { at: [2.7, -0.2, 0.6], width: 420, dock: 'right', marker: false, phoneRatio: .72, phoneBottom: 64 });
   consoleHolo.close();
   const markerHandles = [];
   definitions.forEach(([name], i) => {
     const marker = world.marker?.(consoleHolo, { at: [xs[i], 0.35, 0.55], label: i === 3 ? 'Run the checks' : `${name}: inspect the machine`, onClick() {
+      if (i === 3) { openChecks(); return; }
       const next = i === 3 ? 'checks' : 'report';
       if (consoleHolo.target && tab === next) consoleHolo.close();
       else { show(next); consoleHolo.requested = true; consoleHolo.open(); }
@@ -298,85 +286,45 @@ export async function build(world) {
   (world.overlay ?? world.host)?.append(marksLayer);
   const handles = [consoleHolo];
   const normalAnswer = () => `${count(E.verifier?.quotes_verified)} excerpts matched; ${count(E.verifier?.rejected?.length)} rejected.`;
-  const summaryAnswer = () => `${results.filter(r => r.pass).length}/${casesFile.cases.length} evidence checks passed.`;
+  const summaryAnswer = () => `${results.length}/${casesFile?.cases.length ?? 10} cases checked · ${results.filter(r => r.pass).length} passed · ${results.filter(r => !r.pass).length} failed.`;
   const button = (label, action) => {
     const node = element('button', label, { font: 'inherit', padding: '10px 12px', cursor: 'pointer', minHeight: '44px' });
     node.type = 'button'; node.addEventListener('click', action); return node;
   };
-  function renderChecks() {
-    body.replaceChildren(element('h2', 'Run the checks', { fontSize: '24px', margin: '0 0 10px' }));
-    const actions = element('div', null, { display: 'flex', flexWrap: 'wrap', gap: '12px' });
-    const run = button(running ? 'Running…' : results.length ? 'Run again' : 'Run ten cases', startChecks);
-    run.dataset.trust = 'start'; run.disabled = running;
-    actions.append(run);
-    if (E.verifier?.rejected?.length) actions.append(button(`${count(E.verifier.rejected.length)} rejected excerpts`, () => show('rejected')));
-    if (running) actions.append(button('Stop', stopChecks));
-    actions.append(link('Read the ten cases', 'data/proof-cases.json'));
-    body.append(actions);
-    if (casesFile) body.append(element('p', `${results.length}/${casesFile.cases.length} checked`, { margin: '8px 0' }));
-    const list = element('div'); list.dataset.trust = 'results';
-    for (const result of [...results].reverse()) {
-      const row = element('details', null, { margin: '10px 0', borderBottom: '1px solid var(--line-strong)' });
-      row.dataset.proofId = result.id; row.dataset.pass = String(result.pass);
-      if (running && result === results.at(-1)) row.open = true;
-      const summary = element('summary', `${result.pass ? '✓ PASS' : '× FAIL'} · ${core.text.status(result.actual.status)}`, { cursor: 'pointer', padding: '8px 0', fontSize: '18px' });
-      row.append(summary, element('p', result.question));
-      const reviewed = casesFile.cases.find(c => c.id === result.id);
-      if (reviewed.without_findings?.length) row.append(element('p', 'Counterfactual check: source support removed for this case only.'));
-      row.append(element('p', reviewed.rationale));
-      const preset = db.presetById[result.cabin.preset];
-      row.append(element('p', `${preset.label}: ${core.text.oxygen(result.cabin.o2)}, ${core.text.pressure(result.cabin.p)}, ${result.cabin.g_label}.`));
-      if (result.result.step) row.append(element('p', 'SIMULATED TELEMETRY · SCRIPTED · NOT A PHYSICS MODEL'));
-      row.append(element('p', `Expected: ${core.text.status(result.expected.status)}. VESTA: ${core.text.status(result.actual.status, result.actual.qualifier)}.`));
-      row.append(element('p', result.answer));
-      if (result.actual.coverage) row.append(element('p', `${core.text.status(result.actual.coverage)}: ${core.text.statusMeaning(result.actual.coverage)}`));
-      for (const reason of result.actual.reasons ?? []) row.append(element('p', core.text.reasonSentence(reason, { q: result.cabin, n: db, delta: result.result.nearest?.delta ?? result.result.delta })));
-      if (result.actual.gap) row.append(element('p', core.text.reasonSentence(result.actual.gap, { q: result.cabin, n: db })));
-      if (result.limits) row.append(element('p', result.limits));
-      for (const id of result.refs.slice(0, 2)) row.append(world.cite(db.findingById[id]?.quote ?? db.testById[id]?.fuel ?? 'Open the test row', id));
-      if (!result.pass) row.append(element('p', `Mismatch: ${result.mismatches.join(', ')}`));
-      list.append(row);
-    }
-    body.append(list);
-  }
-  function stopChecks() {
-    runSerial++; clearTimeout(runTimer); runTimer = null; running = false;
-    if (active && results.length && casesFile) world.answer?.(summaryAnswer());
-    if (tab === 'checks') renderChecks();
-  }
-  async function startChecks() {
-    if (running) return;
-    const id = ++runSerial;
-    running = true; results.length = 0; completed.clear(); marks.splice(0).forEach(mark => mark.remove());
-    renderChecks();
-    try {
-      casesFile ??= await loadCases({ signal: controller.signal });
-      const cases = validateCases(casesFile);
-      if (!alive || !active || id !== runSerial) return;
-      const step = () => {
-        if (!alive || !active || id !== runSerial) return;
-        const c = cases[results.length];
-        let result;
-        try { result = evaluateCase(c, db, core); }
-        catch (error) { result = { id: c.id, machine: c.machine, question: c.question, cabin: core.index.designPoint(c.cabin, db), expected: c.expected, actual: { status: 'UNAVAILABLE' }, answer: error.message, result: {}, refs: [], pass: false, mismatches: ['execution'] }; }
-        results.push(result); completed.add(result.machine);
-        const mark = element('span', result.pass ? '✓' : '×', { position: 'absolute', color: result.pass ? '#b9d7c6' : '#e3957c', fontSize: '22px', lineHeight: '1', textShadow: '0 0 12px currentColor' });
+  const checksReport = createProofReport({ db, core, cite: (label, id, query) => contextualCite(label, id, world, { query }), onRun: startChecks,
+    onStop: stopChecks, onRejected: () => show('rejected'), rawLink: link });
+  const proofSession = createProofSession({
+    load: () => loadCases({ signal: controller.signal }),
+    evaluate: c => evaluateCase(c, db, core),
+    onChange(state) {
+      casesFile = state.file; running = ['loading', 'running'].includes(state.phase);
+      if (!state.results.length) { completed.clear(); marks.splice(0).forEach(mark => mark.remove()); }
+      results.splice(0, results.length, ...state.results);
+      for (const result of results.slice(marks.length)) {
+        completed.add(result.machine);
+        const mark = element('span', result.pass ? '✓' : '×', { position: 'absolute', color: result.pass ? '#d6b57d' : '#e3957c', fontSize: '22px', lineHeight: '1', textShadow: '0 0 12px currentColor' });
         mark.dataset.proofMark = result.id; mark.dataset.machine = result.machine;
         mark.setAttribute('aria-hidden', 'true'); marksLayer.append(mark); marks.push(mark);
-        world.answer?.(`${results.length}/${cases.length}: ${core.text.status(result.actual.status)}. ${result.pass ? 'Check passed.' : 'Check failed.'}`);
-        if (tab === 'checks') renderChecks();
+      }
+      checksReport.update(state);
+      if (active) {
+        world.answer?.(state.phase === 'loading' ? 'Loading the reviewed expected outcomes…'
+          : state.phase === 'error' ? 'Checks unavailable. Open the results to retry.' : summaryAnswer());
         world.invalidate?.();
-        if (results.length < cases.length) runTimer = setTimeout(step, world.capture ? 0 : 700);
-        else { running = false; world.answer?.(summaryAnswer()); if (tab === 'checks') renderChecks(); }
-      };
-      step();
-    } catch (error) {
-      if (id !== runSerial || error.name === 'AbortError') return;
-      running = false;
-      body.replaceChildren(element('p', error.message), button('Retry loading the cases', startChecks));
-      world.answer?.('Checks unavailable. Open the console to retry.');
-      world.invalidate?.();
+      }
     }
+  });
+  function renderChecks() {
+    body.replaceChildren(checksReport.element); checksReport.update(proofSession.snapshot());
+  }
+  function stopChecks() { proofSession.stop(); }
+  function startChecks() {
+    if (running || !alive || !active) return;
+    show('checks'); return proofSession.run();
+  }
+  function openChecks() {
+    show('checks'); consoleHolo.requested = true; consoleHolo.open();
+    if (!running && !results.length) startChecks();
   }
   const isInspecting = () => world.host?.dataset.hologramOpen === 'true' || consoleHolo.target > 0;
   const camera = (t = 0) => {
@@ -397,7 +345,7 @@ export async function build(world) {
   show('checks');
   return {
     group, anchor, camera,
-    actions: () => [['checks', 'Run checks'], ['download', 'Download data'], ['api', 'Query the API'], ['assistant', 'Connect an assistant']].map(([id, label]) => ({ id, label, primary: id === 'checks', expanded: () => tab === id && consoleHolo.target > 0, run() { if (tab === id && consoleHolo.target) consoleHolo.close(); else { show(id); consoleHolo.requested = true; consoleHolo.open(); } } })),
+    actions: () => [['checks', () => running ? 'Checks running' : results.length ? 'Check results' : 'Run checks'], ['rejected', 'Rejected excerpts'], ['download', 'Download data'], ['api', 'Query the API'], ['assistant', 'Connect an assistant']].map(([id, label]) => ({ id, label, primary: id === 'checks', expanded: () => tab === id && consoleHolo.target > 0, run() { if (id === 'checks') openChecks(); else if (tab === id && consoleHolo.target) consoleHolo.close(); else { show(id); consoleHolo.requested = true; consoleHolo.open(); } } })),
     enter() { active = true; group.visible = true; marksLayer.hidden = false; world.answer?.(results.length && casesFile ? summaryAnswer() : normalAnswer()); },
     leave() { delete world.camera.userData.focusDistance; delete world.camera.userData.aperture; active = false; group.visible = false; marksLayer.hidden = true; stopChecks(); consoleHolo.close(); },
     update(t, state = {}) {
@@ -411,7 +359,7 @@ export async function build(world) {
         consoleLayout = layoutKey;
         const style = getComputedStyle(consoleEl);
         const padding = parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
-        const height = `${Math.max(120, (phone ? viewHeight * 0.42 : viewHeight - 170) - padding - 4)}px`;
+        const height = `${Math.max(120, (phone ? Math.min(viewHeight - 64, viewHeight * 0.72) : viewHeight - 170) - padding - 4)}px`;
         consoleContent.style.maxHeight = height; consoleContent.style.height = height;
       }
       marksLayer.hidden = world.host?.dataset.cinema === 'true' || document.documentElement.dataset.cinema === 'true' || world.filmActive === true || world.host?.dataset.flying === 'true';
@@ -464,7 +412,7 @@ export async function build(world) {
     },
     holograms() { return handles; },
     dispose() {
-      alive = false; stopChecks(); controller.abort(); serial++;
+      alive = false; proofSession.dispose(); controller.abort(); serial++;
       markerHandles.forEach(marker => marker.dispose()); marksLayer.remove();
       handles.forEach(handle => handle?.dispose?.());
       group.removeFromParent();

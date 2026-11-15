@@ -1,5 +1,5 @@
 export const HUMANOID_PHASES = Object.freeze(['ready', 'observe', 'evidence', 'review', 'inspect', 'return', 'complete']);
-export const HUMANOID_TIMING = Object.freeze({ approach: 3.4, reach: 4.15, inspection: 6, retract: .65, return: 4.05 });
+export const HUMANOID_TIMING = Object.freeze({ approach: 3.4, reach: 4.15, inspection: 8, retract: .65, return: 4.05 });
 const clamp = (x, low = 0, high = 1) => Math.max(low, Math.min(high, x));
 const ease = value => { const x = clamp(value); return x * x * (3 - 2 * x); };
 const angleMix = (a, b, t) => a + Math.atan2(Math.sin(b - a), Math.cos(b - a)) * t;
@@ -113,7 +113,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     cylinder(neck, graphite, .063, .018, [side * .163, .222, -.015], 'x');
     cylinder(neck, titanium, .041, .023, [side * .17, .222, -.015], 'x');
   }
-  const sensorTarget = new T.Vector3(2.65, groundY + 1.71, -1.12); let sensorOrigin;
+  const sensorTarget = new T.Vector3(2.65, groundY + 1.71, -1.025); let sensorOrigin;
   const fingers = [];
   function hand(wrist, side) {
     panel(wrist, graphite, [.145, .14, .075], [0, -.055, 0], .025);
@@ -136,6 +136,12 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
       panel(wrist, graphite, [.095, .082, .055], [0, -.07, .072], .020, 'wrist-inspection-camera');
       cylinder(wrist, titanium, .027, .017, [0, -.117, .073]); cylinder(wrist, optics, .020, .019, [0, -.123, .073]);
       sensorOrigin = pivot(wrist, 'inspection-sensor-origin', 0, -.135, .073); pivot(sensorOrigin, 'inspection-sensor-aim', 0, -1, 0);
+      // A visible handheld inspection head gives the approved gesture a purpose.
+      // It illustrates tool use only: this model produces no optical measurement.
+      panel(wrist, graphite, [.11, .20, .11], [0, -.15, .025], .025, 'inspection-tool-grip');
+      panel(wrist, shell, [.19, .075, .14], [0, -.28, .025], .022, 'inspection-tool-head');
+      panel(wrist, optics, [.13, .012, .085], [0, -.324, .025], .004, 'inspection-tool-aperture');
+      sensorOrigin.position.set(0, -.335, .025);
     }
   }
   function arm(side) {
@@ -224,7 +230,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     const posed = still ? 1 : ease(age / (phase === 'return' ? HUMANOID_TIMING.retract : .45));
     joints.forEach((j, i) => j.quaternion.slerpQuaternions(fromPose[i], poseQuaternion[i].copy(j.quaternion), posed));
     for (const finger of fingers) {
-      const open = phase === 'review' && finger.side < 0, curl = open ? .08 : phase === 'inspect' && finger.side > 0 ? .28 : .36;
+      const open = phase === 'review' && finger.side < 0, curl = finger.side > 0 ? .82 : open ? .08 : .36;
       finger.base.rotation.set(finger.thumb ? .16 : curl, finger.thumb ? finger.side * -.30 : 0, finger.spread); finger.tip.rotation.x = finger.thumb ? .35 : curl * .85;
     }
     group.updateWorldMatrix(true, true); targetWorld.copy(sensorTarget); group.parent?.localToWorld(targetWorld);
@@ -236,11 +242,11 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     }
     if (reach) {
       rightArm.elbow.getWorldQuaternion(parentQuaternion).invert();
-      const sweep = still ? 0 : Math.sin(clamp((age - HUMANOID_TIMING.reach) / 1.85) * Math.PI * 2) * .055;
-      // Account for the camera's small offset from the wrist pivot. Two bounded
-      // corrections align the optical axis without a scene-wide solve or allocation.
-      for (let correction = 0; correction < 2; correction++) {
-        rightArm.wrist.updateWorldMatrix(true, true); sensorOrigin.getWorldPosition(sensorPosition); localTarget.copy(targetWorld);
+      const sweep = still ? 0 : Math.sin(Math.max(0, age - HUMANOID_TIMING.reach) * 1.6) * .34;
+      // First align from the wrist, then correct the handheld head's offset twice.
+      // This stays bounded and uses no scene-wide solve or per-frame allocation.
+      for (let correction = 0; correction < 3; correction++) {
+        rightArm.wrist.updateWorldMatrix(true, true); (correction ? sensorOrigin : rightArm.wrist).getWorldPosition(sensorPosition); localTarget.copy(targetWorld);
         localTarget.y += sweep; localTarget.sub(sensorPosition).normalize().applyQuaternion(parentQuaternion);
         aimQuaternion.setFromUnitVectors(downward, localTarget); rightArm.wrist.quaternion.slerp(aimQuaternion, reach);
       }

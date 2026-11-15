@@ -1,7 +1,7 @@
 // A bounded, procedural set for the software inspection concept. No external assets,
 // shadow maps, telemetry feeds or physical sensor model are used here.
 export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
-  const group = new T.Group(); group.name = 'spacecraft-maintenance-bay';
+  const group = new T.Group(); group.name = 'lunar-crew-support-habitat';
   const geometries = new Set(), materials = new Set(), textures = new Set();
   const geo = value => { geometries.add(value); return value; };
   const mat = (color, options = {}) => {
@@ -41,77 +41,76 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
     return mesh(geo(new T.PlaneGeometry(width, height)), finish, [1, 1, 1], at);
   }
 
-  // Raised, segmented deck and service-wall structure give the room a human scale.
-  // The subfloor is recessed: coplanar deck/base faces caused distant z-fighting.
-  box([9.4, .16, 6.2], [0, groundY - .13, -.25], graphite);
-  for (const x of [-2.3, 2.3]) for (const z of [-1.8, 1.2]) box([4.5, .025, 2.95], [x, groundY - .0125, z], deck);
-  for (const z of [.55, .95, 1.35]) box([1.3, .006, .10], [-2, groundY + .003, z], recess);
-  box([9.4, 4.65, .22], [0, .88, -3.3], graphite);
-  for (const x of [-3.55, -1.25, 1.05, 3.35]) {
-    box([2.08, 2.8, .10], [x, .35, -3.12], ceramic);
-    box([2.08, .7, .15], [x, 2.15, -3.08], panel);
-    box([.075, 4.5, .28], [x - 1.13, .85, -2.98], steel);
-    for (const y of [-.7, 1.38]) box([1.8, .025, .04], [x, y, -3.045], graphite);
-  }
-  for (const x of [-4.63, 4.63]) {
-    box([.18, 4.6, 5.9], [x, .85, -.25], panel);
-    box([.28, .16, 5.7], [x, 2.96, -.25], steel);
-    box([.30, .20, 5.7], [x, groundY + .17, -.25], graphite);
-  }
-  for (const z of [-2.8, .2, 2.5]) box([9.2, .14, .20], [0, 2.95, z], steel);
-  for (const x of [-2.7, .7]) {
-    box([2.1, .14, .40], [x, 2.76, -.35], graphite);
-    box([1.85, .025, .28], [x, 2.67, -.35], warm);
-  }
-  // Fixed practical lights, without expensive real-time shadow maps.
-  group.add(new T.HemisphereLight(0xd9e0de, 0x3b3028, .65));
-  const key = new T.PointLight(0xf1e2c7, 17, 13, 2); key.position.set(-2.4, 2.35, 2.2); group.add(key);
-  const task = new T.PointLight(0xb7cbd2, 8, 8, 2); task.position.set(3.35, 1.8, .5); group.add(task);
-
-  // Handrails and protected cable conduits are geometry, not wall illustrations.
-  pipe([-3.9, -.28, -2.84], [-3.9, .95, -2.84], .055, copper);
-  pipe([-.3, -.28, -2.84], [-.3, .95, -2.84], .055, copper);
-  for (const x of [-3.9, -.3]) for (const y of [-.28, .95]) pipe([x, y, -3.04], [x, y, -2.84], .055, copper);
-  for (const y of [1.92, 2.10]) {
-    pipe([-4.1, y, -2.82], [1.55, y, -2.82], .045, graphite);
-    pipe([1.55, y, -2.82], [1.55, y, -1.76], .045, graphite);
-    pipe([1.55, y, -1.76], [2.65, y, -1.76], .045, graphite);
-    for (const x of [-3.2, -1.6, 0]) box([.065, .16, .10], [x, y, -2.80], steel);
-  }
-
-  // Dock and a supported maintenance cabinet share the robot's actual choreography coordinates.
-  cylinder(.85, .08, [-2, groundY - .038, 1], graphite);
-  const dockRing = mesh(geo(new T.TorusGeometry(.76, .018, 8, 48)), blue, [1, 1, 1], [-2, groundY + .012, 1]); dockRing.rotation.x = -Math.PI / 2;
-  for (const x of [-2.6, -1.4]) box([.13, 2.40, .20], [x, groundY + 1.2, .35], graphite);
-  box([1.35, .17, .24], [-2, groundY + 2.38, .35], ceramic);
-  for (const x of [-2.55, -1.45]) box([.17, .018, .42], [x, groundY + .005, .92], copper);
-  decal('DOCK 01', 1.05, .26, [-2, groundY + 2.39, .49]);
-  box([1.86, 2.72, 1.1], [2.65, -.05, -1.8], graphite);
-  box([1.68, 2.52, .07], [2.65, -.05, -1.205], ceramic);
-  for (const x of [1.87, 3.43]) box([.075, 2.5, .10], [x, -.05, -1.15], steel);
-  for (const y of [-.98, -.85, -.72]) box([1.25, .06, .025], [2.65, y, -1.15], recess);
-  box([1.3, .83, .065], [2.65, .28, -1.14], panel);
-  for (const x of [2.12, 3.18]) for (const y of [-.03, .59]) sphere(.028, [x, y, -1.08], steel);
-  box([.1, .45, .13], [3.35, .33, -1.06], copper);
-  decal('SERVICE 02', 1.25, .25, [2.65, 1.10, -1.14]);
-  const cuePosition = new T.Vector3(2.65, .28, -1.12);
-  const cue = sphere(.065, cuePosition.toArray(), cueMaterial); cue.name = 'scripted-equipment-cue';
-  const targetRing = mesh(geo(new T.TorusGeometry(.23, .018, 8, 40)), ringMaterial, [1, 1, 1], [2.65, .28, -1.06]);
-  targetRing.visible = false;
-  const scan = box([.60, .012, .012], [2.65, .28, -1.045], blue); scan.visible = false;
-  const beamGeometry = geo(new T.BufferGeometry()); beamGeometry.setAttribute('position', new T.BufferAttribute(new Float32Array(6), 3));
-  const beamMaterial = new T.LineBasicMaterial({ color: 0xa7c7ce, transparent: true, opacity: .45, depthWrite: false }); materials.add(beamMaterial);
-  const beam = new T.Line(beamGeometry, beamMaterial); group.add(beam); beam.visible = false;
-  const routeGeometry = geo(new T.BufferGeometry().setFromPoints([new T.Vector3(-2, groundY + .09, 1), new T.Vector3(1.65, groundY + .09, -.05)]));
-  const routeMaterial = new T.LineDashedMaterial({ color: 0xc5a270, dashSize: .18, gapSize: .12, transparent: true, opacity: .6 }); materials.add(routeMaterial);
-  const route = new T.Line(routeGeometry, routeMaterial); route.computeLineDistances(); group.add(route); route.visible = false;
+  // A pressure-module arch, lunar viewing port and distinct crew/service zones.
+  // All exterior terrain is original illustrative geometry, not a NASA image.
+  const shell = new T.Shape(); shell.moveTo(-5,groundY); shell.lineTo(5,groundY);
+  shell.absellipse(0,groundY,5,4.4,0,Math.PI,false); shell.closePath();
+  const port = new T.Path(); port.moveTo(-1.85,-.45); port.lineTo(-1.85,2.05);
+  port.quadraticCurveTo(-1.85,2.23,-1.67,2.23); port.lineTo(1.67,2.23);
+  port.quadraticCurveTo(1.85,2.23,1.85,2.05); port.lineTo(1.85,-.45); port.closePath(); shell.holes.push(port);
+  mesh(geo(new T.ExtrudeGeometry(shell,{depth:.18,bevelEnabled:false,curveSegments:28})),ceramic,[1,1,1],[0,0,-3.82]);
+  box([10.2,.16,7.4],[0,groundY-.13,-.15],graphite);
+  for(const x of [-3.35,0,3.35])for(const z of [-1.9,1.65])box([3.26,.025,3.45],[x,groundY-.0125,z],deck);
+  const archShape=geo(new T.TorusGeometry(5,.045,6,48,Math.PI));
+  // The near shell is cut away so a foreground rib cannot hide the inspection.
+  for(const z of [-3.1,-1.8])mesh(archShape,steel,[1,.88,1],[0,groundY,z]);
+  for(const x of [-4.98,4.98])box([.16,1.35,7.2],[x,groundY+.675,-.15],graphite);
+  for(const x of [-2.9,2.9]){box([.16,.12,5.7],[x,2.10,-.35],graphite);box([.045,.035,5.3],[x,2.015,-.35],warm);}
+  const lunar=mat(0x807e75,{roughness:1,metalness:0});
+  const terrain=geo(new T.PlaneGeometry(22,15,24,16));terrain.rotateX(-Math.PI/2);
+  const terrainPositions=terrain.attributes.position;
+  for(let i=0;i<terrainPositions.count;i++){const x=terrainPositions.getX(i),z=terrainPositions.getZ(i);terrainPositions.setY(i,.22*Math.sin(x*.8+z*.4)+.16*Math.cos(z*1.1)+.05*Math.sin(x*3.5-z));}
+  terrain.computeVertexNormals();mesh(terrain,lunar,[1,1,1],[0,groundY-.1,-12.2]);
+  const ridge=new T.Shape();ridge.moveTo(-12,-3);
+  for(const [x,y] of [[-12,0],[-10,.6],[-8,.25],[-6,1.1],[-4,.55],[-1,.85],[1,.38],[3,1.2],[5,.3],[8,.8],[12,.1]])ridge.lineTo(x,y);
+  ridge.lineTo(12,-3);ridge.closePath();mesh(geo(new T.ExtrudeGeometry(ridge,{depth:1.1,bevelEnabled:false})),lunar,[1,1,1],[0,-.4,-11.8]);
+  const rock=geo(new T.DodecahedronGeometry(1,0));
+  for(const [x,z,r] of [[-2.6,-6.3,.3],[1.8,-6.7,.22],[3.4,-8,.5],[-4,-9,.42],[.3,-9.6,.18]])mesh(rock,lunar,[r,r*.55,r*.8],[x,groundY+.03,z]);
+  for(const x of [-1.96,1.96])box([.16,2.9,.28],[x,.88,-3.56],graphite);
+  for(const y of [-.55,2.35])box([4.08,.16,.28],[0,y,-3.56],graphite);
+  pipe([-1.87,-.34,-3.36],[1.87,-.34,-3.36],.055,copper);
+  // Sealed airlock with handrails; a separate desk is the crew's work area.
+  mesh(geo(new T.CircleGeometry(1.13,32)),panel,[1,1,1],[-3.55,-.05,-3.55]);
+  mesh(geo(new T.TorusGeometry(1.13,.095,8,40)),graphite,[1,1,1],[-3.55,-.05,-3.47]);
+  mesh(geo(new T.CircleGeometry(.29,24)),blue,[1,1,1],[-3.55,.24,-3.44]);
+  for(const x of [-4.25,-2.85])pipe([x,-.25,-3.31],[x,.45,-3.31],.055,copper);
+  decal('AIRLOCK',1.35,.32,[-3.55,1.25,-3.49]);
+  for(const x of [3.3,4.45])box([.12,.8,.12],[x,groundY+.4,1.95],graphite);
+  box([1.55,.12,.85],[3.88,groundY+.88,1.95],ceramic);
+  box([.9,.58,.1],[3.88,groundY+1.24,2.15],graphite);box([.78,.45,.025],[3.88,groundY+1.25,2.22],blue);
+  cylinder(.28,.08,[3.88,groundY+.56,2.78],graphite);cylinder(.045,.52,[3.88,groundY+.26,2.78],steel);
+  decal('CREW WORK ZONE',1.45,.28,[3.88,groundY+1.72,2.22]);
+  // A tagged concept PMMA panel replaces the unexplained alarm cabinet.
+  box([1.95,.12,1.12],[2.65,-.48,-1.65],ceramic);
+  for(const x of [1.85,3.45])box([.13,.86,.80],[x,groundY+.43,-1.65],graphite);
+  box([1.38,1.16,.10],[2.65,.28,-1.19],graphite);box([1.22,1.02,.035],[2.65,.28,-1.115],blue);
+  for(const x of [2.02,3.28])box([.04,1.15,.035],[x,.28,-1.07],copper);
+  decal('HAB-PMMA-01',1.38,.30,[2.65,1.05,-1.10]);
+  const cuePosition=new T.Vector3(2.65,.28,-1.06);
+  const cue=box([.10,.10,.018],cuePosition.toArray(),cueMaterial);cue.name='panel-traceability-target';
+  const targetRing=mesh(geo(new T.TorusGeometry(.23,.014,6,36)),ringMaterial,[1,1,1],[2.65,.28,-1.035]);targetRing.visible=false;
+  const scan=box([.82,.014,.012],[2.65,.28,-1.025],blue);scan.visible=false;
+  const beamGeometry=geo(new T.BufferGeometry());beamGeometry.setAttribute('position',new T.BufferAttribute(new Float32Array(6),3));
+  const beamMaterial=new T.LineBasicMaterial({color:0xa7c7ce,transparent:true,opacity:.4,depthWrite:false});materials.add(beamMaterial);
+  const beam=new T.Line(beamGeometry,beamMaterial);group.add(beam);beam.visible=false;
+  cylinder(.8,.065,[-2,groundY-.030,1],graphite);
+  const dockRing=mesh(geo(new T.TorusGeometry(.73,.015,6,40)),blue,[1,1,1],[-2,groundY+.012,1]);dockRing.rotation.x=-Math.PI/2;
+  for(const x of [-2.5,-1.5])box([.1,.018,.36],[x,groundY+.01,.88],copper);
+  decal('ROBOT DOCK',1.2,.24,[-2,groundY+.24,.1]);
+  const routeGeometry=geo(new T.BufferGeometry().setFromPoints([new T.Vector3(-2,groundY+.06,1),new T.Vector3(1.65,groundY+.06,-.05)]));
+  const routeMaterial=new T.LineDashedMaterial({color:0xc5a270,dashSize:.18,gapSize:.12,transparent:true,opacity:.45});materials.add(routeMaterial);
+  const route=new T.Line(routeGeometry,routeMaterial);route.computeLineDistances();group.add(route);route.visible=false;
+  group.add(new T.HemisphereLight(0xd9e0de,0x3b3028,.75));
+  const key=new T.PointLight(0xf1e2c7,19,14,2);key.position.set(-2.4,2.35,2.2);group.add(key);
+  const task=new T.PointLight(0xb7cbd2,9,10,2);task.position.set(3.35,1.8,.5);group.add(task);
 
   // The wall monitor shows the real software tally; it is not a sensor display.
   const screenCanvas = document.createElement('canvas'); screenCanvas.width = 512; screenCanvas.height = 384;
   const screenContext = screenCanvas.getContext('2d'), screenTexture = new T.CanvasTexture(screenCanvas); screenTexture.colorSpace = T.SRGBColorSpace; textures.add(screenTexture);
   const screenMaterial = new T.MeshBasicMaterial({ map: screenTexture, toneMapped: false }); materials.add(screenMaterial);
-  box([1.6, 1.28, .14], [-.6, .38, -2.89], graphite);
-  mesh(geo(new T.PlaneGeometry(1.42, 1.06)), screenMaterial, [1, 1, 1], [-.6, .38, -2.80]);
+  box([1.6, 1.28, .14], [-.6, .38, -2.69], graphite);
+  box([.16, .95, .16], [-.6, groundY + .48, -2.76], steel);
+  mesh(geo(new T.PlaneGeometry(1.42, 1.06)), screenMaterial, [1, 1, 1], [-.6, .38, -2.60]);
   // Fixed opaque pieces share a draw submission. Keep the moving cue/scan and every
   // texture plane independent so their transforms and live monitor remain updateable.
   const moving = new Set([cue, targetRing, scan]);
@@ -132,22 +131,27 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
     const batch = mesh(shape, finish, [1, 1, 1], [0, 0, 0]); batch.name = 'fixed-bay-material-batch';
   }
   let screenKey = '';
-  function paintMonitor(phase, counts) {
+  function paintMonitor(phase, counts, mission) {
     const show = ['evidence', 'review', 'inspect', 'return', 'complete'].includes(phase);
-    const key = JSON.stringify([show, counts]); if (key === screenKey) return; screenKey = key;
+    const key = JSON.stringify([phase, counts, mission?.question, mission?.nearest_source?.id]); if (key === screenKey) return; screenKey = key;
     const c = screenContext; c.fillStyle = '#101c22'; c.fillRect(0, 0, 512, 384);
-    c.fillStyle = '#b8cad0'; c.font = '500 27px sans-serif'; c.fillText('VESTA COLLECTION', 28, 49);
+    c.fillStyle = '#b8cad0'; c.font = '500 27px sans-serif'; c.fillText('HAB-PMMA-01 / EVIDENCE', 28, 49);
     c.fillStyle = '#e8e3d6';
     if (!show) { c.font = '32px sans-serif'; c.fillText('Awaiting evidence', 28, 179); }
-    else for (const [i, [key, label]] of [['PROVEN', 'nearby'], ['EXTRAPOLATED', 'other / incomplete'], ['NEVER_TESTED', 'no source']].entries()) {
+    else if (mission) {
+      c.font='500 34px sans-serif';c.fillText(({PROVEN:'Nearby evidence',EXTRAPOLATED:'Other conditions',NEVER_TESTED:'No source'})[mission.question?.status]||'Unavailable',28,122);
+      c.font='25px sans-serif';c.fillText(`${mission.question?.nearby_row_ids?.length??0} nearby source rows`,28,182);
+      c.font='22px sans-serif';c.fillText(`Nearest: ${mission.nearest_source?.id||'unavailable'}`,28,238);
+      c.fillStyle='#d4b17b';c.font='26px sans-serif';c.fillText(phase==='complete'?'VISUAL PASS LOGGED':'HUMAN REVIEW',28,298);
+    } else for (const [i, [key, label]] of [['PROVEN', 'nearby'], ['EXTRAPOLATED', 'other / incomplete'], ['NEVER_TESTED', 'no source']].entries()) {
       c.font = '500 48px sans-serif'; c.fillText(String(counts?.[key] ?? '—'), 28, 122 + i * 77);
       c.font = '25px sans-serif'; c.fillText(label, 125, 117 + i * 77);
     }
-    c.fillStyle = '#9cb1b8'; c.font = '23px sans-serif'; c.fillText('material–concern questions', 28, 352); screenTexture.needsUpdate = true;
+    c.fillStyle = '#9cb1b8'; c.font = '23px sans-serif'; c.fillText(mission?'Crew review still required':'material–concern questions', 28, 352); screenTexture.needsUpdate = true;
   }
   const sensorPoint = new T.Vector3(), sweepPoint = new T.Vector3();
-  function update({ phase, elapsed = 0, still = false, counts, approved = false, sensor = null, scanAt = 4.15 } = {}) {
-    paintMonitor(phase, counts);
+  function update({ phase, elapsed = 0, still = false, counts, mission = null, approved = false, sensor = null, scanAt = 4.15 } = {}) {
+    paintMonitor(phase, counts, mission);
     const visible = phase !== 'ready'; targetRing.visible = visible;
     const pulse = still ? 1 : .5 + .5 * Math.sin(elapsed * 3.2);
     const highlighting = phase === 'observe';
@@ -159,7 +163,7 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
     const scanning = phase === 'inspect' && approved && (still || elapsed >= scanAt);
     scan.visible = scanning; beam.visible = scanning && Boolean(sensor);
     if (scanning) {
-      scan.position.y = cuePosition.y + (still ? .06 : Math.sin((elapsed - scanAt) * 2.2) * .23);
+      scan.position.y = cuePosition.y + (still ? .06 : Math.sin((elapsed - scanAt) * 1.6) * .34);
       if (sensor) {
         group.updateWorldMatrix(true, false); sensor.updateWorldMatrix(true, false);
         group.worldToLocal(sensor.getWorldPosition(sensorPoint)); sweepPoint.copy(scan.position);

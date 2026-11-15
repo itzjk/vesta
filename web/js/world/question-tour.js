@@ -1,6 +1,6 @@
-import { QUESTION_SECONDS, QUESTION_STEPS, questionStep, questionTime, questionMotion, questionReveal } from './question-timeline.js?v=sebas-20261115-3';
-import { buildQuestionModel } from './question-model.js?v=sebas-20261115-3';
-import { LAMP_STAGGER } from '../scene/lamp-sequence.js?v=sebas-20261115-3';
+import { QUESTION_SECONDS, QUESTION_STEPS, questionStep, questionTime, questionMotion, questionReveal } from './question-timeline.js?v=expert-20261115-1';
+import { buildQuestionModel } from './question-model.js?v=expert-20261115-1';
+import { LAMP_STAGGER } from '../scene/lamp-sequence.js?v=expert-20261115-1';
 
 const node = (tag, className, text) => {
   const el = document.createElement(tag); el.className = className;
@@ -12,7 +12,7 @@ const requested = () => new URLSearchParams(location.search).get('question') ===
 const labels = { PROVEN: 'Nearby', EXTRAPOLATED: 'Other conditions', NEVER_TESTED: 'No source' };
 
 export function createQuestionTour({ host, overlay, api, context, world, invalidate }) {
-  const sheet = node('link', ''); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/question-tour.css?v=sebas-20261115-3', import.meta.url).href;
+  const sheet = node('link', ''); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/question-tour.css?v=expert-20261115-1', import.meta.url).href;
   document.head.append(sheet);
   const controller = new AbortController(), signal = controller.signal;
   const large = matchMedia('(min-width:1100px) and (min-height:700px)');

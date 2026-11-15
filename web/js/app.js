@@ -4,7 +4,7 @@ import { answer } from './ui/answer.js';
 import { panel } from './ui/panel.js';
 import { chip, reason, tag, useText, statusWord, levelText, pressureText, statusLine, legend } from './ui/chip.js';
 import { cite, citeLabel } from './ui/cite.js';
-import { drawer } from './ui/drawer.js?v=sebas-20261115-3';
+import { drawer } from './ui/drawer.js?v=expert-20261115-1';
 import { triad } from './ui/triad.js';
 import { scorebar } from './ui/scorebar.js';
 import { rangebar } from './ui/rangebar.js';
@@ -13,7 +13,7 @@ import { empty } from './ui/empty.js';
 import { download, downloadJson, downloadCsv, downloadText } from './ui/download.js';
 import { vesta, vestaMark } from './ui/vesta.js';
 import { ROUTES, SHARED, GLOBAL, parseHash, buildHash, readQ as readQLocal, patchQ, withSticky, write } from './router.js';
-import { createWorld } from './world/world.js?v=sebas-20261115-3';
+import { createWorld } from './world/world.js?v=expert-20261115-1';
 import { loadDb, getDb, getCore, setOpener, openSource, closeSource, lookup } from './store.js';
 
 export const ui = { el, svg, css, clear, fmt, button, still, answer, panel, chip, reason, tag, statusLine, legend, cite, citeLabel, drawer, openSource, closeSource, triad, scorebar, rangebar, spark, empty,
@@ -108,7 +108,7 @@ async function mount(route, ctx, token) {
   view.dataset.view = route;
   const file = ROUTES.find(r => r.id === route).file;
   let mod = null;
-  try { mod = await import(`./views/${file}?v=sebas-20261115-3`); }
+  try { mod = await import(`./views/${file}?v=expert-20261115-1`); }
   catch (e) { console.warn(`VESTA: views/${file} did not load: ${e && e.message}`); }
   if (token !== mounted.token) return;
   if (!mod || typeof mod.mount !== 'function') { placeholder(); return; }

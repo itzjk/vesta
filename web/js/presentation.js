@@ -1,5 +1,5 @@
-import { buildQuestionModel } from './world/question-model.js?v=sebas-20261115-3';
-import { createReproduction, recheckReproduction } from './core/reproduction.js?v=sebas-20261115-3';
+import { buildQuestionModel } from './world/question-model.js?v=expert-20261115-1';
+import { createReproduction, recheckReproduction } from './core/reproduction.js?v=expert-20261115-1';
 
 const WIDTH = 1280, HEIGHT = 720, FPS = 30, BITRATE = 6_000_000;
 const SUBMISSION_SECONDS = 28, RECORDING_LIMIT_MS = 29_000;

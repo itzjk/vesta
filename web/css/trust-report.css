@@ -1,0 +1,41 @@
+.trust-check-report,.trust-rejected-report{color:var(--ivory);font-family:var(--font-body,'Source Sans 3',sans-serif)}
+.world-host .trust-console .trust-check-summary{font-weight:600!important;font-size:18px!important;line-height:1.4!important;margin:8px 0}
+.trust-check-report progress{display:block;width:100%;height:6px;margin:8px 0 12px;accent-color:#c59a65}
+.trust-check-actions{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.trust-check-actions button{min-height:44px;padding:8px 12px;font:inherit;color:var(--ivory);background:#182126;border:1px solid #a9b3ad66;cursor:pointer}
+.trust-check-actions button:first-child{background:#68432f;border-color:#b58a62}
+.trust-check-actions button:disabled{opacity:.7;cursor:default}
+.world-host .trust-console :is(.trust-report-scope,.trust-case-verdict){font-size:14px!important;line-height:1.4!important;color:#c2c5bc}
+.trust-check-results,.trust-rejected-report>ol{list-style:none;padding:0;margin:12px 0}
+.trust-check-result,.trust-rejected-excerpt{border-top:1px solid #a9b3ad66;padding:18px 0 10px;margin:0}
+.world-host .trust-console :is(.trust-check-result h3,.trust-rejected-excerpt h3){font-size:19px!important;line-height:1.3!important;margin:5px 0 10px}
+.world-host .trust-console .trust-rejected-excerpt h4{font-size:15px!important;line-height:1.4!important;margin:14px 0 5px;color:#d6b57d}
+.trust-check-report details,.trust-rejected-report details{margin:12px 0}
+.trust-check-report summary,.trust-rejected-report summary{min-height:44px;padding:10px 0;box-sizing:border-box;cursor:pointer}
+.trust-check-report :is(button,a,summary):focus-visible,.trust-rejected-report :is(button,a,summary):focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
+.trust-check-report table{width:100%;table-layout:fixed;border-collapse:collapse;margin:16px 0;overflow-wrap:anywhere}
+.trust-check-report caption{text-align:left;font-weight:600;margin-bottom:8px}
+.world-host .trust-console .trust-check-report :is(th,td){font-size:14px!important;line-height:1.45!important;text-align:left;vertical-align:top;padding:8px 5px;border-bottom:1px solid #a9b3ad55}
+.trust-check-report th:first-child{width:24%}
+.trust-case-sources :is(a,button){min-height:44px;white-space:normal;overflow-wrap:anywhere}
+.trust-check-result .trust-case-verdict{color:#d6b57d!important;letter-spacing:.03em}
+.trust-check-error,.trust-check-result[data-pass=false] .trust-case-verdict{color:#f2b29c!important}
+.trust-report-limit{padding-left:10px;border-left:2px solid #c59a65}
+.trust-rejected-excerpt blockquote{margin:6px 0;padding-left:12px;border-left:2px solid #77838a;overflow-wrap:anywhere}
+.trust-rejected-excerpt .trust-omitted-qualifier{border-color:#d6b57d;color:#eee0c3}
+.trust-rejected-excerpt .trust-resource-link{display:block;margin:8px 0!important;overflow-wrap:anywhere}
+.trust-check-report [hidden]{display:none!important}
+.world-host[data-station=trust][data-hologram-open=true] :is(.trust-proof-marks,.question-launch-docked,.world-film,.world-case-toggle){visibility:hidden!important;pointer-events:none!important}
+.world-host[data-station=trust] .trust-console>.world-guide-in-panel{display:none!important}
+.world-host .trust-console .trust-case-cabin{font-size:15px!important;line-height:1.4!important;color:#c6c8bf;margin:8px 0}
+.world-host .trust-console .trust-case-verdict{margin:0 0 4px}
+@media(max-width:759px){
+ .world-host[data-station=trust][data-hologram-open=true] .world-guide>.world-actions{display:none!important}
+ .world-host[data-station=trust][data-hologram-open=true] .world-answer{display:none!important}
+ .world-host[data-station=trust] .trust-console .trust-content{overscroll-behavior:contain}
+ .world-host[data-station=trust] .trust-console .trust-status{margin-top:8px!important;padding-top:6px!important}
+ .world-host .trust-console .trust-check-summary{font-size:16px!important;margin:0 0 8px}
+ .trust-check-actions{margin:4px 0 8px;gap:6px}
+ .world-host .trust-console .trust-check-actions button{font-size:15px!important;padding:6px 10px}
+ .trust-check-result{padding-top:12px}
+}

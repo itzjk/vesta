@@ -1,7 +1,9 @@
 import { renderObservationLens } from './observation-lens.js';
 import { el, css } from '../ui/el.js';
 import { getDb, getCore, lookup, loadRawCells } from '../store.js';
-import { sourceLocator } from '../ui/source-locator.js?v=sebas-20261115-3';
+import { sourceLocator } from '../ui/source-locator.js?v=expert-20261115-1';
+import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=expert-20261115-1';
+import { scoreFactors } from '../core/evidence-register.js?v=expert-20261115-1';
 
 let binding = null, active = null, serial = 0;
 const flags = () => new URLSearchParams(location.hash.split('?')[1] || '');
@@ -15,9 +17,12 @@ const sentence = (quote, context) => el('blockquote.wc-sentence',
   el('mark', quote),
   context?.after ? el('span.wc-context', (/^[.,;:!?)\u201d"']/.test(context.after.trimStart()) ? '' : ' ') + context.after.trim()) : null);
 
-function findingContent(f, text, db) {
+function findingContent(f, text, db, q) {
   const n = f.n || {}, src = f.source || {};
   const cells = f.cells?.length ? el('dl.wc-values', f.cells.map(c => field(c.column, c.raw))) : null;
+  const comparison = q ? renderFindingComparison(f, q, db) : null;
+  if (comparison) comparison.querySelector('details').open = true;
+  const factors = q ? scoreFactors(f, q, db) : null;
   return [
     el('p.wc-kind', f.quote ? 'Quoted evidence' : 'NASA PSI table cells'),
     el('h2.wc-title', { id: 'wc-source-title' }, src.title || f.title || 'NASA evidence'),
@@ -27,6 +32,12 @@ function findingContent(f, text, db) {
     el('p.wc-gate', f.gate?.pass === true ? (f.quote ? 'Quote matches cached source text after normalization.' : 'Cells verified against the PSI table.') : 'This record has not passed the evidence gate.'),
     sourceLocator(f),
     sourceLink(src.url, src.kind === 'challenge-page' ? 'Read the original challenge page ↗' : 'Read the original at NASA ↗'),
+    q ? el('section.wc-query-comparison', el('h3', 'Compared with this cabin'),
+      el('p', `${text.oxygen(q.o2)} · ${text.pressure(q.p)} · ${q.g_label || text.gravity(q.gclass)}`),
+      el('p', `Relevance question: ${q.material ? db.materials[q.material]?.label || q.material : 'all materials'} · ${text.concern(q.concern)}.`), comparison,
+      el('details.wc-identifiers', el('summary', `${factors.total}/100 relevance · inspect actual factors`),
+        el('dl.wc-values', factors.factors.map(x => field(text.TERM_LABEL?.[x.key] || x.key, `${Number(x.contribution.toFixed(3))} / ${x.maximum}`))),
+        el('p', `Support multiplier ×${factors.multiplier}. ${factors.explanation}`), el('p.wc-scope', factors.excluded))) : null,
     el('details.wc-identifiers', el('summary', 'Identifiers and conditions'),
       el('dl.wc-values', field('Finding', f.id), field('Year', src.year), field('Investigation', f.investigation),
         field('Gravity', n.gclass ? text.gravity?.(n.gclass) || n.gclass : text.NOT_IN_SOURCE),
@@ -36,7 +47,7 @@ function findingContent(f, text, db) {
   ];
 }
 
-function rowContent(row, text, db, session) {
+function rowContent(row, text, db, session, q) {
   const inv = db.invById?.[row.psi_id], n = row.n || {}, absent = text.NOT_IN_TABLE || 'not in the table';
   const raw = el('div.wc-raw', el('p', 'Loading the original table cells…'));
   loadRawCells().then(all => {
@@ -47,7 +58,7 @@ function rowContent(row, text, db, session) {
       : el('p', 'The raw cells of this row are unavailable in the evidence base.'));
   }, () => { if (active === session) raw.replaceChildren(el('p', 'The original table cells could not be loaded.')); });
   return [
-    el('p.wc-kind', 'NASA PSI test row'),
+    el('p.wc-kind', 'NASA PSI source-table row'),
     el('h2.wc-title', { id: 'wc-source-title' }, inv?.name || inv?.full_name || row.investigation || 'Recorded test conditions'),
     el('p.wc-scope', { style: { overflowWrap: 'anywhere' } }, `${row.table_file || 'Table file not recorded'} · row ${row.row ?? 'not recorded'} · ${row.id}`),
     el('p.wc-level', 'A recorded table row, not a safety certification.'),
@@ -58,6 +69,7 @@ function rowContent(row, text, db, session) {
     n.p_inferred != null ? el('p.wc-scope', `Pressure is not reported in the table. The facility-based inference is ${text.pressure?.(n.p_inferred)}.`) : null,
     n.p_inferred_source ? el('section', sentence(n.p_inferred_source.quote, n.p_inferred_source.context),
       el('p.wc-scope', n.p_inferred_source.assumption), sourceLink(n.p_inferred_source.url, 'Read the NASA facility evidence ↗')) : null,
+    q ? renderMatchPanel(row, q, db) : null,
     renderObservationLens({ row, db, text, cite }),
     Object.entries(row.outcomes || {}).length ? el('section', el('h3', 'What the table recorded'), el('dl.wc-values',
       Object.entries(row.outcomes).map(([key, value]) => field(key.replace(/_/g, ' '), value?.value == null ? value?.raw ?? absent : `${value.value}${value.unit ? ' ' + value.unit : ''}`)))) : null,
@@ -170,14 +182,22 @@ function lock(session) {
   }
 }
 
-async function open(id, trigger, world) {
-  const returnTo = active?.panel.contains(trigger) ? active.trigger : trigger;
+async function open(id, trigger, world, citationOptions = {}) {
+  const parent = active?.panel.contains(trigger) ? active : null;
+  const returnTo = parent ? parent.trigger : trigger;
   close(false);
   const currentSerial = ++serial;
-  await css('css/world.css?v=sebas-20261115-3');
+  await css('css/world.css?v=expert-20261115-1');
   if (!returnTo.isConnected || currentSerial !== serial) return;
   const session = { id, trigger: returnTo, controller: new AbortController(), inert: [], panel: null };
-  const context = world || binding;
+  const context = world || parent?.context || binding;
+  const query = citationOptions.query || parent?.query || context?.q;
+  session.context = context; session.query = query ? { ...query } : null;
+  const focusedEvidence = Boolean(returnTo.closest('.evidence-workspace')) || context?.station === 'evidence';
+  if (focusedEvidence) {
+    await css('css/evidence-workspace.css?v=expert-20261115-1');
+    if (!returnTo.isConnected || currentSerial !== serial) return;
+  }
   const db = context?.db || getDb(), text = context?.core?.text || getCore().text || {};
   session.invalidate = context?.invalidate;
   const hit = lookup(id, db) || (db?.invById?.[id] ? { kind: 'investigation', record: db.invById[id] } : AGGREGATES.has(id) ? { kind: 'aggregate' } : null);
@@ -185,15 +205,15 @@ async function open(id, trigger, world) {
   session.panel = panel;
   active = session;
   const dismiss = el('button.wc-dismiss', { type: 'button', onclick: () => close() }, 'Close evidence ×');
-  panel.append(dismiss, el('div.wc-content', (hit?.kind === 'finding' ? findingContent(hit.finding, text, db)
-    : hit?.kind === 'row' ? rowContent(hit.row, text, db, session)
+  panel.append(dismiss, el('div.wc-content', (hit?.kind === 'finding' ? findingContent(hit.finding, text, db, session.query)
+    : hit?.kind === 'row' ? rowContent(hit.row, text, db, session, session.query)
       : hit?.kind === 'config' ? configContent(hit.record)
         : hit?.kind === 'investigation' ? investigationContent(hit.record, text, db)
           : hit?.kind === 'aggregate' ? aggregateContent(id, context, text, db)
         : [el('h2.wc-title', { id: 'wc-source-title' }, 'Evidence unavailable'), el('p', 'No record with this identifier is in VESTA’s evidence base. Nothing is inferred.'), el('details.wc-identifiers', el('summary', 'Identifier'), el('p', id))]).filter(Boolean)));
   returnTo.setAttribute('aria-expanded', 'true');
   dispatchEvent(new CustomEvent('vesta:cite', { detail: { open: true, id } }));
-  if (context?.hologram && context.stage?.mode !== 'still') {
+  if (!focusedEvidence && context?.hologram && context.stage?.mode !== 'still') {
     try {
       const camera = context.camera || context.stage?.camera;
       const point = camera && context.THREE ? new context.THREE.Vector3(0, 0, -4).applyQuaternion(camera.quaternion).add(camera.position) : null;
@@ -212,6 +232,7 @@ async function open(id, trigger, world) {
   }
   if (!panel.isConnected) {
     const shell = el('dialog.wc-shell', { 'aria-label': 'Evidence hologram', oncancel: event => { event.preventDefault(); close(); } }, panel);
+    if (focusedEvidence) { shell.classList.add('evidence-source-shell'); dismiss.textContent = returnTo.closest('.evidence-workspace') ? '← Back to evidence' : '← Back to the 3D collection'; }
     session.shell = shell; document.body.append(shell); shell.showModal();
     shell.addEventListener('click', event => { if (event.target === shell) close(); });
   } else lock(session);
@@ -240,10 +261,10 @@ export function configureCitations(world) {
   return () => { if (binding === world) { close(false); binding = null; } };
 }
 
-export function cite(text, id, world) {
+export function cite(text, id, world, options = {}) {
   const sid = String(id ?? '');
   const phrase = el('button.world-cite', { type: 'button', 'aria-haspopup': 'dialog', 'aria-expanded': 'false', data: { cite: sid },
-    onclick: event => { event.preventDefault(); event.stopPropagation(); open(sid, phrase, world); } }, text);
+    onclick: event => { event.preventDefault(); event.stopPropagation(); open(sid, phrase, world, options); } }, text);
   return phrase;
 }
 

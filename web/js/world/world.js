@@ -1,12 +1,12 @@
-import { createQuestionTour } from './question-tour.js?v=sebas-20261115-3';
+import { createQuestionTour } from './question-tour.js?v=expert-20261115-1';
 import { warmBlanket } from '../scene/ship-blanket.js';
-import { cite, configureCitations } from './cite.js?v=sebas-20261115-3';
+import { cite, configureCitations } from './cite.js?v=expert-20261115-1';
 import { createStationLoader, afterPaint, idleTurn } from './station-loader.js?v=2';
-import { createStage } from '../scene/engine.js?v=sebas-20261115-3';
+import { createStage } from '../scene/engine.js?v=expert-20261115-1';
 import { build as buildVesta } from '../scene/vesta.js';
-import { createHolograms } from './holo.js';
+import { createHolograms } from './holo.js?v=expert-20261115-1';
 import { buildHash } from '../router.js';
-import { createGuide } from './guide.js?v=sebas-20261115-3';
+import { createGuide } from './guide.js?v=expert-20261115-1';
 import { createVideoCases } from './cases.js';
 import { build as buildWelcome } from './welcome.js';
 import { createMissionBrief, STATION_AGENTS } from './mission.js';
@@ -35,7 +35,7 @@ export function stationFor(route, params = {}) {
 
 export async function createWorld(host, context) {
   let ctx = context, disposed = false, index = -1, flight, entered = 0, lastTime, sceneCtx, holo, officer, carrier;
-  let pendingCut = false, activation = 0, warmingStation = false;
+  let pendingCut = false, activation = 0, warmingStation = false, pendingEvidenceQuestion = null;
   let loader, requested, initialShown = false, baseLights = [];
   let performanceProbe;
   let engine, inUpdate = false, citationCleanup, desiredPose, renderedPose, updateOfficer, questionTour;
@@ -114,6 +114,7 @@ export async function createWorld(host, context) {
   function navigate(value, options = {}) {
     const next = typeof value === 'string' ? STATIONS.findIndex(s => s.id === value) : value;
     if (next < 0 || next >= STATIONS.length || disposed) return;
+    pendingEvidenceQuestion = next === 2 ? options.evidenceQuestion ?? null : null;
     cases.close(); mission.close(); holo?.closeAll(); navigationCut = Boolean(options.cut);
     if (!options.fromHash) {
       const params = { ...ctx.params, station: next === 0 ? 'transit' : null, intro: null };
@@ -123,14 +124,21 @@ export async function createWorld(host, context) {
     }
     activate(next, options.cut);
   }
+  function deliverEvidenceQuestion(next) {
+    if (next !== 2 || !pendingEvidenceQuestion || !acts[next]?.requestQuestion) return;
+    const question = pendingEvidenceQuestion;
+    pendingEvidenceQuestion = null;
+    acts[next].requestQuestion(question);
+  }
   function handles(i) { return acts[i]?.holograms?.() || []; }
   function activate(next, cut = false) {
     if (disposed) return;
+    if (next !== 2) pendingEvidenceQuestion = null;
     if (warmingStation) { pendingCut = cut; showLoading(next); return; }
     pendingCut = cut;
     if (!sceneCtx || loader?.states[next] !== 'ready') { activation++; showLoading(next); if (loader) loader.ensure(next); return; }
     requested = next; host.dataset.worldRequested = STATIONS[next].id;
-    if (next === index) { loading.hidden = true; host.dataset.worldLoading = 'false'; welcomeHost.hidden = next !== 0; return; }
+    if (next === index) { loading.hidden = true; host.dataset.worldLoading = 'false'; welcomeHost.hidden = next !== 0; deliverEvidenceQuestion(next); return; }
     loading.hidden = true; host.dataset.worldLoading = 'false';
     const shouldWarm = initialShown && !cut && !capture && !reduced.matches;
     if (!initialShown) { cut = true; initialShown = true; host.dataset.worldEntry = STATIONS[next].id; }
@@ -169,6 +177,7 @@ export async function createWorld(host, context) {
     ] : next === 4 ? [{ id: 'inspect-trust', label: 'Open the data console', primary: true, run: () => holo.openStation() }] : []);
     guide.set(s, actions);
     if (!capture && !filmActive) acts[next]?.ready?.();
+    deliverEvidenceQuestion(next);
     if (shouldWarm) {
       const token = ++activation, currentFlight = flight;
       warmingStation = true; syncQuality(); engine.hold(); loading.hidden = false; host.dataset.worldLoading = 'true'; loading.textContent = `Preparing ${s.label} cabin…`;
@@ -258,7 +267,7 @@ export async function createWorld(host, context) {
   if (disposed) { engine.dispose(); return; }
   engine.on('quality', syncQuality); syncQuality();
   if (new URLSearchParams(location.search).get('perf') === '1') {
-    const { createPerformanceProbe } = await import('./performance-probe.js?v=sebas-20261115-3');
+    const { createPerformanceProbe } = await import('./performance-probe.js?v=expert-20261115-1');
     if (!disposed) performanceProbe = createPerformanceProbe({ stage: engine, host, station: () => STATIONS[index]?.id });
   }
   if (engine.mode === 'still') { api.unmount(); ctx.setParams({ view: 'details' }, { replace: true }); return api; }
@@ -310,7 +319,7 @@ export async function createWorld(host, context) {
     loader = createStationLoader({
       count: STATIONS.length, stopped: () => disposed, paused: () => warmingStation || host.dataset.flying === 'true' || Boolean(flight && !flight.cut && performance.now() / 1000 - flight.start < 1.2), yieldTurn: capture ? afterPaint : idleTurn,
       async build(i) {
-        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=sebas-20261115-3`), i === 0 || i === 3 ? warmBlanket(false) : null]);
+        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=expert-20261115-1`), i === 0 || i === 3 ? warmBlanket(false) : null]);
         if (disposed) return;
         const priorLights = baseLights.map(([light]) => light.intensity);
         let built;

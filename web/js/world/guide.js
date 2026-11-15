@@ -4,7 +4,7 @@ const copy = {
   evidence: 'Pick a sample. Inspect its evidence.',
   drill: 'Rehearse a cabin fire.',
   trust: 'Inspect how VESTA checks evidence.',
-  robotics: 'Humanoid inspection'
+  robotics: 'Lunar crew support'
 };
 
 export function createGuide(overlay) {
@@ -40,7 +40,7 @@ export function createGuide(overlay) {
   function stationExplanation(station, definitions) {
     const action = id => definitions.find(item => item.id === id);
     if (station === 'flame') return action('source');
-    if (station === 'robotics' && action('agents')) return { ...action('agents'), label: 'Concept & limits' };
+    if (station === 'robotics' && action('agents')) return { ...action('agents'), label: 'Mission brief' };
     if (station === 'drill') {
       const evidence = action('decision-evidence');
       return evidence && { ...evidence, label: 'Evidence & limits', run(button) {

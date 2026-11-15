@@ -1,6 +1,6 @@
 import { createOptics } from './optics.js?v=2';
 import { imageEnvironment } from './imagery.js';
-import { createFrameBudget } from './frame-budget.js?v=sebas-20261115-3';
+import { createFrameBudget } from './frame-budget.js?v=expert-20261115-1';
 
 let active;
 const flags = () => new URLSearchParams(location.hash.split('?')[1] || '');

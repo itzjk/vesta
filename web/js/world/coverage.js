@@ -3,8 +3,8 @@ import * as ranking from '../core/rank.js';
 import * as text from '../core/text.js';
 import { CONCERNS } from '../core/index.js';
 import { TOL } from '../core/match.js';
-import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=sebas-20261115-3';
-import { nearestSourceRows, scoreFactors } from '../core/evidence-register.js?v=sebas-20261115-3';
+import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=expert-20261115-1';
+import { nearestSourceRows, scoreFactors } from '../core/evidence-register.js?v=expert-20261115-1';
 import { scorebar } from '../ui/scorebar.js';
 
 const defaults = { status, rank: ranking, text };
@@ -42,7 +42,7 @@ export function scoreExplanation(entry, rank = ranking) {
   return { sum, multiplier: entry.f.n.support === 'direct' ? 1 : rank.PARTIAL_SUPPORT, total: entry.total };
 }
 
-export function build(world, { onSelection } = {}) {
+export function build(world, { onSelection, onInspectAll } = {}) {
   const { db, core = defaults } = world;
   let q = world.q, model, selected = null, disposed = false, lastQuery = '';
   const element = node('section', null, 'coverage-wall');
@@ -143,8 +143,14 @@ export function build(world, { onSelection } = {}) {
         detail.append(alternatives);
       }
     } else detail.append(sentence, node('p', 'No source-table row for this question in VESTA’s collection.', 'coverage-empty'), renderMatchPanel(null, q, db));
+    const browse = node('div', null, 'coverage-browse-all');
+    if (onInspectAll) for (const [mode, count, label] of [['findings', cell.finding_ids.length, 'findings'], ['rows', cell.rows, 'source rows']]) {
+      const button = node('button', mode === 'rows' ? 'Inspect source-row register' : `Inspect all ${count} ${label}`); button.type = 'button';
+      button.onclick = () => onInspectAll({ mode, material, concern }); browse.append(button);
+    }
+    detail.append(browse);
     if (findings.length) {
-      detail.append(node('h4', 'Best-matching findings'));
+      detail.append(node('h4', `Top ${findings.length} of ${cell.finding_ids.length} relevant findings`));
       const list = node('ul', null, 'coverage-findings');
       for (const entry of findings) {
         const { f, total } = entry;
