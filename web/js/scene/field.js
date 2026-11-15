@@ -1,8 +1,13 @@
 import { TOL, match } from '../core/match.js';
 import { cells } from '../core/status.js';
+import { plottedSummary, markGroups } from '../core/field-inspect.js';
+import { css } from '../ui/el.js';
+import { openSource } from '../store.js';
+import { cite } from '../world/cite.js';
 export const still = 'assets/scene/field.jpg';
 const planes = [{ key: '0g', label: '0 g · microgravity', z: 4.5 }, { key: 'moon', label: '1/6 g · Moon', z: 1.5 }, { key: 'mars', label: '3/8 g · Mars', z: -1.5 }, { key: '1g', label: '1 g · Earth', z: -4.5 }];
 const KPA_PER_PSI = 6.894757293;
+const PICK_RADIUS_PX = 44 / 2;
 export function fieldRows(db) {
   return db.tests.filter(r => r.n?.o2 != null).map(r => ({ row: r, p: r.n.p ?? r.n.p_inferred ?? null, o2: r.n.o2,
     plane: r.n.gclass === 'micro' ? '0g' : r.n.gclass === 'normal' ? '1g' : r.gravity === '1/6 g' ? 'moon' : r.gravity === '3/8 g' ? 'mars' : 'unknown',
@@ -16,6 +21,7 @@ export function nearestSolid(db, q) {
   })[0] || null;
 }
 export async function build(ctx) {
+  await css('css/field-inspect.css?v=1');
   const { THREE: T, camera, renderer } = ctx;
   const group = new T.Group(), instrument = new T.Group(), host = renderer.domElement.parentElement;
   group.name = 'tested-conditions'; group.add(instrument);
@@ -75,10 +81,24 @@ html[data-view-mode=details] #view .field-instrument .field-key{font-size:16px;l
   const legend = make('div', 'field-key');
   for (const text of [`◆ Your cabin · rust = matching rows (±${TOL.o2} pp O₂, ±${TOL.p} kPa)`, '● Cabin materials · ◇ Model fuels', 'Hollow = inferred / absent pressure', 'Source-table rows; overlaps share a mark', 'Coverage, not safety']) legend.append(make('span', '', text));
   const hover = make('div', 'field-row-readout'); hover.hidden = true;
-  overlay.append(style, heading, tabs, chart, caption, legend, hover); host.append(overlay);
+  const inspectTools = make('div', 'field-inspect-tools');
+  const aboutButton = make('button', '', 'What is plotted?'), browseButton = make('button', '', 'Choose a mark');
+  for (const button of [aboutButton, browseButton]) { button.type = 'button'; button.setAttribute('aria-expanded', 'false'); }
+  inspectTools.append(aboutButton, browseButton);
+  const inspectPanel = make('section', 'field-inspect-panel'); inspectPanel.hidden = true;
+  inspectPanel.setAttribute('aria-label', 'Inspect plotted rows');
+  const inspectClose = make('button', 'field-inspect-close', 'Back to plot'), inspectTitle = make('h3', '');
+  inspectClose.type = 'button'; inspectTitle.tabIndex = -1;
+  const inspectBody = make('div', 'field-inspect-body'); inspectPanel.append(inspectClose, inspectTitle, inspectBody);
+  overlay.append(style, heading, tabs, chart, caption, legend, hover, inspectTools, inspectPanel); host.append(overlay);
+  for (const element of [inspectTools, inspectPanel]) for (const type of ['pointerdown', 'pointerup', 'click', 'wheel', 'keydown']) element.addEventListener(type, event => {
+    event.stopPropagation();
+    if (type === 'keydown' && event.key === 'Escape' && !inspectPanel.hidden) { event.preventDefault(); closeInspection(); }
+  });
   for (const type of ['pointerdown', 'pointerup', 'wheel', 'keydown']) tabs.addEventListener(type, e => { if (type !== 'keydown' || e.key !== 'Escape') e.stopPropagation(); });
   available.addEventListener('pointerdown', e => e.stopPropagation());
   const invalidate = () => ctx.invalidate ? ctx.invalidate() : ctx.set?.({});
+  let externalLayersKey = null, localLayers = null, inspectMode = null, inspectReturn = null, selectedMark = null, pointerStart = null;
   let selectedGravity = null, gravity = '0g', stateNow, data = [], visibleRows = [], priorDb, cacheKey = '', layoutKey = '', active = true;
   let marks, hitRows = new Set(), selectedIds = [], highlightEmpty = false, shown = [], hovered = null, bounds;
   let oMin = 10, oMax = 42, pMin = 2, pMax = 80;
@@ -99,6 +119,83 @@ html[data-view-mode=details] #view .field-instrument .field-key{font-size:16px;l
     invalidate();
   }
   function clearHover() { hovered = null; hover.hidden = true; }
+  const number = value => Number(value).toLocaleString('en-US', { maximumFractionDigits: 6 });
+  const groupLabel = entry => {
+    const p = entry.rows[0];
+    return `${number(p.o2)}% O₂ · ${p.p > 0 ? `${number(p.p / KPA_PER_PSI)} psia` : 'pressure not stated'} · ${entry.rows.length} row${entry.rows.length === 1 ? '' : 's'}`;
+  };
+  const selectableRows = () => visibleRows.filter(p => !highlightEmpty && (!selectedIds.length || selectedIds.includes(p.row.psi_id)));
+  function closeInspection(focus = true) {
+    inspectMode = null; inspectPanel.hidden = true; delete overlay.dataset.inspectOpen;
+    aboutButton.setAttribute('aria-expanded', 'false'); browseButton.setAttribute('aria-expanded', 'false');
+    if (focus) (inspectReturn || browseButton).focus({ preventScroll: true });
+    invalidate();
+  }
+  function openInspection(mode, entry = null, trigger = null) {
+    inspectMode = mode; selectedMark = entry?.key || selectedMark; inspectReturn = trigger || browseButton;
+    inspectPanel.hidden = false; overlay.dataset.inspectOpen = 'true'; aboutButton.setAttribute('aria-expanded', String(mode === 'about')); browseButton.setAttribute('aria-expanded', String(mode === 'rows'));
+    paintInspection(); inspectTitle.focus({ preventScroll: true }); invalidate();
+  }
+  function paintInspection() {
+    if (!inspectMode || !stateNow) return;
+    inspectBody.replaceChildren();
+    if (inspectMode === 'about') {
+      inspectTitle.textContent = 'What is plotted?';
+      const summary = plottedSummary(stateNow.db, data), micro = summary.gravity['0g'] || 0;
+      inspectBody.append(make('p', '', `${number(summary.plotted)} of ${number(summary.loaded)} source-table rows have normalized ambient O₂; ${number(summary.excluded)} are outside this plot. Rows are not replicates.`),
+        make('p', '', `${number(micro)} plotted rows are microgravity. Pressure: ${number(summary.reported)} reported, ${number(summary.inferred)} facility-inferred, ${number(summary.missing)} not stated.`),
+);
+      const filters = make('fieldset', 'field-layer-filters'); filters.append(make('legend', '', 'Visible layers'));
+      for (const [key, label] of [['solid', 'Solid'], ['droplet', 'Droplet'], ['gas', 'Gas']]) {
+        const button = make('button', '', label); button.type = 'button'; button.dataset.fieldLayer = key;
+        button.setAttribute('aria-pressed', String(shown.includes(key)));
+        button.onclick = () => {
+          localLayers = shown.includes(key) ? shown.filter(layer => layer !== key) : [...shown, key];
+          cacheKey = ''; update(lastTime, stateNow); paintInspection(); inspectBody.querySelector(`[data-field-layer=${key}]`)?.focus({ preventScroll: true }); invalidate();
+        };
+        filters.append(button);
+      }
+      inspectBody.append(filters, make('p', '', readout.textContent), make('p', '', 'Circles: solid cabin materials. Diamonds: model fuels. Hollow marks: inferred or absent pressure. Source-table rows may overlap.'), make('p', '', 'Empty gravity tabs are collection gaps, not a broken plot or proof of safety. Rows are table records, not independent experiments; replicate counts and uncertainty are not established. Overlapping rows share a mark.'), make('p', '', `${number(visibleRows.length)} rows currently visible at ${planes.find(p => p.key === gravity)?.label || gravity}. Counts above describe the whole plotted subset before layer filters.`));
+      return;
+    }
+    inspectTitle.textContent = 'Rows at this mark';
+    const groups = markGroups(selectableRows()), select = make('select', 'field-mark-select'), label = make('label', '', `Choose a mark (${number(groups.length)} positions)`);
+    select.setAttribute('aria-label', 'Plotted mark');
+    for (const entry of groups) { const option = make('option', '', groupLabel(entry)); option.value = entry.key; select.append(option); }
+    const entry = groups.find(g => g.key === selectedMark) || groups[0]; selectedMark = entry?.key || null;
+    if (entry) select.value = entry.key;
+    select.onchange = () => { selectedMark = select.value; paintInspection(); inspectBody.querySelector('select')?.focus({ preventScroll: true }); };
+    label.append(select); inspectBody.append(label);
+    if (!entry) { inspectBody.append(make('p', '', 'No plotted rows in the current gravity, layer and investigation selection.')); return; }
+    inspectBody.append(make('p', 'field-mark-context', 'Shared coordinates do not make these rows replicates. Inspect fuels, flow and outcomes.'));
+    const list = make('ol', 'field-mark-rows');
+    for (const p of entry.rows) {
+      const row = p.row, li = make('li', ''); li.dataset.fieldRow = row.id;
+      const text = `${row.investigation} · ${row.fuel || 'fuel not stated'} · ${row.test_label || row.id}`;
+      const source = ctx.world ? cite('Inspect recorded row', row.id) : make('button', '', 'Inspect recorded row');
+      if (!ctx.world) { source.type = 'button'; source.onclick = () => openSource(row.id); }
+      source.dataset.fieldSource = row.id; source.setAttribute('aria-label', `Inspect row ${row.id}: ${text}`);
+      li.append(make('p', '', text), make('small', '', `${row.table_file} · row ${row.row} · ${row.n.p == null ? row.n.p_inferred == null ? 'pressure not stated' : 'pressure inferred' : 'pressure reported'}`), source);
+      const url = stateNow.db.invById[row.psi_id]?.psi_url;
+      if (/^https:\/\//i.test(url || '')) { const link = make('a', '', 'Original PSI record ↗'); link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.setAttribute('aria-label', `Original PSI record for ${row.id}`); li.append(link); }
+      list.append(li);
+    }
+    inspectBody.append(list);
+  }
+  aboutButton.onclick = () => openInspection('about', null, aboutButton);
+  browseButton.onclick = () => openInspection('rows', null, browseButton);
+  inspectClose.onclick = () => closeInspection();
+  function pointerDown(event) { pointerStart = [event.clientX, event.clientY]; }
+  function pointerUp(event) {
+    if (!active || !group.visible || !bounds || !pointerStart || Math.hypot(event.clientX - pointerStart[0], event.clientY - pointerStart[1]) > 6) return;
+    pointerStart = null;
+    const rect = renderer.domElement.getBoundingClientRect(), hit = pick((event.clientX - rect.left) / rect.width * 2 - 1, 1 - (event.clientY - rect.top) / rect.height * 2);
+    if (!hit) return;
+    const entry = markGroups(selectableRows()).find(g => g.rows.some(p => p.row.id === hit.id));
+    if (entry?.rows.length > 1) { event.stopImmediatePropagation(); event.preventDefault(); openInspection('rows', entry); }
+  }
+  renderer.domElement.addEventListener('pointerdown', pointerDown, true);
+  renderer.domElement.addEventListener('pointerup', pointerUp, true);
   function populate(db) {
     data = fieldRows(db); priorDb = db; cacheKey = ''; layoutKey = '';
     const definitions = [...planes, ...(data.some(p => p.plane === 'unknown') ? [{ key: 'unknown', label: 'Unknown gravity' }] : [])];
@@ -141,7 +238,7 @@ html[data-view-mode=details] #view .field-instrument .field-key{font-size:16px;l
   }
   function refresh(state) {
     const q = state.q; gravity = selectedGravity || (buttons.has(q.g) ? q.g : '0g');
-    shown = state.show || ['solid', 'droplet', 'gas']; selectedIds = state.highlightInvestigations || [state.investigation, state.comparison].filter(Boolean); highlightEmpty = !!state.highlightEmpty;
+    shown = localLayers || state.show || ['solid', 'droplet', 'gas']; selectedIds = state.highlightInvestigations || [state.investigation, state.comparison].filter(Boolean); highlightEmpty = !!state.highlightEmpty;
     hitRows = new Set(data.filter(p => p.row.n.counts && match(p.row.n, q, state.db.base).fail.length === 0).map(p => p.row.id));
     visibleRows = data.filter(p => p.plane === gravity && shown.includes(p.layer));
     const selected = p => !selectedIds.length && !highlightEmpty || selectedIds.includes(p.row.psi_id);
@@ -152,6 +249,7 @@ html[data-view-mode=details] #view .field-instrument .field-key{font-size:16px;l
     readout.textContent = `Your cabin: ${Number.isFinite(q.o2) ? `${q.o2}% O₂` : 'oxygen not set'} · ${Number.isFinite(q.p) ? `${(q.p / KPA_PER_PSI).toFixed(1)} psia` : 'pressure not set'} · ${q.g_label || q.g || 'gravity not set'}`;
     const coverage = cells(q, state.db), proven = coverage.filter(c => c.status === 'PROVEN').length;
     caption.replaceChildren(document.createTextNode(`${level}: ${visibleRows.length} rows shown${selectedIds.length || highlightEmpty ? `, ${represented} in the selection` : ''}. `), make('strong', '', `${matching} counting rows within cabin tolerance.`));
+    legend.firstChild.textContent = ctx.world && innerWidth < 760 && innerHeight <= 700 ? `Rust: gravity + O₂ ±${TOL.o2} pp + pressure ±${TOL.p} kPa` : `◆ Your cabin · rust = matching rows (±${TOL.o2} pp O₂, ±${TOL.p} kPa)`;
     legend.lastChild.textContent = `${proven} of ${coverage.length} material questions nearby. Coverage, not safety.`;
     empty.hidden = represented > 0;
     emptyTitle.textContent = visibleRows.length ? 'No rows in this selection' : `No plotted rows at ${level.split(' · ')[0]}`;
@@ -161,6 +259,7 @@ html[data-view-mode=details] #view .field-instrument .field-key{font-size:16px;l
     available.textContent = `View ${populated === '0g' ? 'microgravity' : planes.find(p => p.key === populated)?.label || populated} rows`;
     available.onclick = () => selectGravity(populated);
     axes(q); clearHover(); layoutKey = '';
+    if (inspectMode) paintInspection();
     host.dataset.fieldRows = String(data.length); host.dataset.fieldVisibleRows = String(visibleRows.length); host.dataset.fieldMatches = String(matching); host.dataset.fieldGravity = gravity; host.dataset.fieldMinPointPx = '9';
   }
   function fitCabin(at) {
@@ -199,6 +298,8 @@ html[data-view-mode=details] #view .field-instrument .field-key{font-size:16px;l
   function update(t, state) {
     if (!state.db || !state.q) return;
     lastTime = t; stateNow = state;
+    const nextLayersKey = JSON.stringify(state.show || null);
+    if (nextLayersKey !== externalLayersKey) { localLayers = null; externalLayersKey = nextLayersKey; }
     if (priorDb !== state.db) populate(state.db);
     const key = JSON.stringify([state.q, selectedGravity, state.show, state.investigation, state.comparison, state.highlightInvestigations, state.highlightEmpty]);
     if (key !== cacheKey) { refresh(state); cacheKey = key; }
@@ -246,12 +347,10 @@ html[data-view-mode=details] #view .field-instrument .field-key{font-size:16px;l
     instrument.updateWorldMatrix(false, true);
     host.dataset.fieldCabin = cabin.position.toArray().map(n => n.toFixed(3)).join(','); host.dataset.fieldCamera = camera.position.toArray().map(n => n.toFixed(3)).join(',');
   }
-  return { group, still, update, selectGravity,
-    get gravity() { return gravity; },
-    pick(nx, ny) {
+  function pick(nx, ny) {
       if (!active || !group.visible || !bounds) return null;
       const px = (nx + 1) * bounds.hostWidth / 2 - bounds.left, py = (1 - ny) * bounds.hostHeight / 2 - bounds.top;
-      let best = null, distance = 18;
+      let best = null, distance = PICK_RADIUS_PX;
       for (const p of visibleRows) {
         if (highlightEmpty || selectedIds.length && !selectedIds.includes(p.row.psi_id)) continue;
         const at = point(p), x = p.p != null && p.p > 0 ? at.x * bounds.width : bounds.width + (bounds.hostWidth < 760 ? 23 : 38);
@@ -263,8 +362,11 @@ html[data-view-mode=details] #view .field-instrument .field-key{font-size:16px;l
       const duplicates = visibleRows.filter(p => p.p === best.p && p.o2 === best.o2 && p.layer === best.layer && (p.row.n.p == null) === (best.row.n.p == null)).length;
       hover.textContent = `${best.row.investigation} · ${best.row.fuel || 'fuel not stated'} · ${best.o2}% O₂ · ${best.p == null ? 'pressure not stated' : `${(best.p / KPA_PER_PSI).toFixed(1)} psia${best.row.n.p == null ? ', inferred' : ''}`} · ${duplicates} overlapping row${duplicates === 1 ? '' : 's'}`;
       return { id: best.row.id, kind: 'test', row: best.row };
-    },
-    setVisible(value) { active = value; group.visible = value; overlay.hidden = !value; if (!value) clearHover(); },
+    }
+  return { group, still, update, selectGravity,
+    get gravity() { return gravity; },
+    pick,
+    setVisible(value) { active = value; group.visible = value; overlay.hidden = !value; if (!value) { clearHover(); closeInspection(false); } },
     focusPosition(out, rowId = null) {
       const row = rowId && data.find(p => p.row.id === rowId);
       if (row && bounds) {
@@ -275,6 +377,7 @@ html[data-view-mode=details] #view .field-instrument .field-key{font-size:16px;l
     },
     get rows() { return data; },
     dispose() {
+      renderer.domElement.removeEventListener('pointerdown', pointerDown, true); renderer.domElement.removeEventListener('pointerup', pointerUp, true);
       overlay.remove(); instrument.traverse(object => { for (const item of [object.geometry, ...[object.material].flat()]) if (item && !disposed.has(item)) { item.dispose(); disposed.add(item); } });
     }
   };

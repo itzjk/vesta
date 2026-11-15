@@ -47,7 +47,7 @@
 
 @container (min-width:760px){.coverage-wall.coverage-wall[data-detail=true] .coverage-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 .coverage-wall .coverage-detail{border-left:1px solid var(--line);padding-left:24px}
-.coverage-wall .coverage-matrix button{height:32px}
+.coverage-wall .coverage-matrix button{height:44px}
 .coverage-wall .coverage-legend>div{display:grid;grid-template-columns:auto 1fr;column-gap:12px}
 .coverage-wall .coverage-legend dd{grid-row:1/3;align-self:center;margin:0}
 .coverage-wall .coverage-legend dt{align-self:end}
@@ -75,3 +75,19 @@
 .coverage-wall .coverage-legend>div{display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:12px}
 .coverage-wall .coverage-legend dd{grid-row:1/3;align-self:center;margin:0;font-size:32px}
 .coverage-wall .coverage-legend dt{align-self:end}}
+.coverage-wall .coverage-score-why{margin-top:8px}
+.coverage-wall .coverage-score-why summary{min-height:44px;padding:10px 0;cursor:pointer;font-size:15px}
+.coverage-wall .coverage-score-why .scorebar{margin:6px 0 12px}
+.coverage-wall .coverage-score-why .scorebar-slot{border-radius:0}
+.coverage-wall .coverage-score-why .scorebar-track{height:10px}
+.coverage-wall .coverage-score-parts{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;margin:12px 0;font-size:15px;line-height:1.4}
+.coverage-wall .coverage-score-parts dt,.coverage-wall .coverage-score-parts dd{margin:0;overflow-wrap:anywhere}
+.coverage-wall .coverage-score-parts dd{text-align:right;font-variant-numeric:tabular-nums}
+.coverage-wall .coverage-score-formula{font-size:16px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;padding:10px 0;border-top:1px solid var(--line)}
+.coverage-wall .coverage-score-note,.coverage-wall .coverage-score-terms p{font-size:14px;line-height:1.4;color:var(--ivory-dim)}
+.coverage-wall .coverage-score-terms p{margin:8px 0!important}
+.evidence-console[data-evidence-panel=sample]:has(.coverage-score-why[open]) .world-guide-intro.world-guide-in-panel{position:static!important}
+@media(max-width:759px){
+ .coverage-wall .coverage-score-parts{font-size:14px;line-height:1.3;gap:2px 12px;margin:8px 0}
+ .coverage-wall .coverage-score-formula{padding:8px 0}
+}

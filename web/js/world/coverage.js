@@ -3,6 +3,7 @@ import * as ranking from '../core/rank.js';
 import * as text from '../core/text.js';
 import { CONCERNS } from '../core/index.js';
 import { renderMatchPanel } from '../ui/matchpanel.js?v=16';
+import { scorebar } from '../ui/scorebar.js';
 
 const defaults = { status, rank: ranking, text };
 const symbols = { PROVEN: '●', EXTRAPOLATED: '↗', NEVER_TESTED: '×' };
@@ -32,6 +33,11 @@ export function question(material, concern, q, db, core = defaults) {
   const candidates = cell.finding_ids.map(id => db.findingById[id]).filter(Boolean);
   return { cell, nearest: core.status.nearestRow(material, concern, q, db),
     findings: core.rank.rank(candidates, { ...q, material, concern }, db).slice(0, 3) };
+}
+
+export function scoreExplanation(entry, rank = ranking) {
+  const sum = Object.values(entry.parts).reduce((value, part) => value + part, 0);
+  return { sum, multiplier: entry.f.n.support === 'direct' ? 1 : rank.PARTIAL_SUPPORT, total: entry.total };
 }
 
 export function build(world, { onSelection } = {}) {
@@ -95,6 +101,7 @@ export function build(world, { onSelection } = {}) {
 
   function paintDetail(focus = false) {
     if (!selected) return;
+    const expanded = new Set([...detail.querySelectorAll('[data-score-finding][open]')].map(el => el.dataset.scoreFinding));
     const { material, concern } = selected;
     const { cell, nearest, findings } = question(material, concern, q, db, core);
     const back = node('button', '← All questions', 'coverage-back'); back.type = 'button';
@@ -106,12 +113,11 @@ export function build(world, { onSelection } = {}) {
     detail.replaceChildren(back, heading, state);
     if (cell.status === 'NEVER_TESTED') {
       detail.append(node('p', `${core.text.status(cell.status)}. ${core.text.cellSentence(cell, db.materials[material].label, db)}`, 'coverage-empty'));
-      detail.append(renderMatchPanel(null, q, db));
+      detail.append(renderMatchPanel(null, q, db), node('p', 'No finding is available for this question, so no relevance score is calculated.', 'coverage-score-note'));
       detail.hidden = false; detail.scrollTop = 0; element.dataset.detail = 'true';
       if (focus) heading.focus({ preventScroll: true });
       return;
     }
-    // The comparison comes first: the row and what matched are what a reader checks at a glance; the sentence follows.
     const sentence = node('p', core.text.cellSentence(cell, db.materials[material].label, db));
     if (nearest) {
       const { row, note } = nearest;
@@ -126,11 +132,32 @@ export function build(world, { onSelection } = {}) {
     if (findings.length) {
       detail.append(node('h4', 'Best-matching findings'));
       const list = node('ul', null, 'coverage-findings');
-      for (const { f, total } of findings) {
+      for (const entry of findings) {
+        const { f, total } = entry;
         const li = node('li'), phrase = node('p');
         cited(phrase, f.claim || f.title || f.quote, f.id);
         li.append(phrase, node('p', `${total}/100 relevance · ${core.text.level(f)}`, 'coverage-finding-meta'));
-        list.append(li);
+        const why = node('details', null, 'coverage-score-why'); why.dataset.scoreFinding = f.id; why.open = expanded.has(f.id);
+        why.append(node('summary', 'Why this score + coverage'));
+        const terms = core.text.terms(entry, { ...q, material, concern });
+        const bar = scorebar(entry, { small: true, meaning: false, weights: core.rank.W, sentences: Object.fromEntries(terms.map(term => [term.key, term.sentence])) });
+        for (const slot of bar.querySelectorAll('[tabindex]')) slot.removeAttribute('tabindex');
+        why.append(bar);
+        const values = node('dl', null, 'coverage-score-parts');
+        for (const term of terms.filter(term => term.key !== 'support')) {
+          const value = entry.parts[term.key], dd = node('dd', `${Number(value.toFixed(6))} / ${term.max}`); dd.title = String(value);
+          values.append(node('dt', term.label), dd);
+        }
+        const calculation = scoreExplanation(entry, core.rank), formula = node('p', null, 'coverage-score-formula');
+        formula.textContent = `round(${Number(calculation.sum.toFixed(6))} × ${calculation.multiplier}) = ${total}/100`;
+        formula.title = `Unrounded component sum: ${calculation.sum}. Support multiplier: ${calculation.multiplier}.`;
+        formula.dataset.scoreSum = String(calculation.sum); formula.dataset.scoreMultiplier = String(calculation.multiplier); formula.dataset.scoreTotal = String(total);
+        const arithmetic = node('div', null, 'coverage-score-calculation'); arithmetic.append(values, formula);
+        why.append(arithmetic, node('p', `Support: ${f.n.support === 'direct' ? 'direct' : 'partial'}. Values shown to six decimals; the total uses unrounded parts.`, 'coverage-score-note'));
+        const explanation = node('details', null, 'coverage-score-terms'); explanation.append(node('summary', 'Component explanations'));
+        for (const term of terms) explanation.append(node('p', `${term.label}: ${term.sentence}`));
+        why.append(explanation, node('p', `Relevance ranks findings. Coverage checks source rows against gravity, oxygen and pressure. A higher score adds no tested conditions.`, 'coverage-score-note'));
+        li.append(why); list.append(li);
       }
       detail.append(list, node('p', core.text.SCORE_LABEL, 'coverage-limit'));
     } else detail.append(node('p', 'No verified finding in VESTA’s collection names this material and concern. The source-table row above is the available evidence.', 'coverage-empty'));
@@ -167,7 +194,7 @@ export function build(world, { onSelection } = {}) {
 
   function update(nextQ) {
     if (disposed) return;
-    const key = JSON.stringify([nextQ.preset, nextQ.o2, nextQ.p, nextQ.gclass, nextQ.g_label]);
+    const key = JSON.stringify([nextQ.preset, nextQ.o2, nextQ.p, nextQ.gclass, nextQ.g_label, nextQ.habitat]);
     if (key === lastQuery) return;
     lastQuery = key;
     q = { ...nextQ }; model = coverage(q, db, core);

@@ -1,0 +1,20 @@
+.evidence-console .evidence-guided{margin:0 0 20px;padding-bottom:16px;border-bottom:1px solid #ede4d433}
+.evidence-console .evidence-guided-answer p{margin:10px 0}
+.evidence-console .evidence-guided-context,.evidence-console .evidence-guided-trace{font-size:15px;color:#c0b7a8;overflow-wrap:anywhere}
+.evidence-console .evidence-guided-result{font-weight:600}
+.evidence-console .evidence-guided-sources{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px}
+.evidence-console .evidence-guided-sources .world-cite{min-height:44px;display:inline-flex;align-items:center;font-size:16px}
+.evidence-console .evidence-quick-actions{display:flex;flex-wrap:wrap;gap:6px}
+.evidence-console .evidence-quick-actions button{min-height:44px;padding:8px;font-size:16px}
+.evidence-console[data-evidence-panel=ask] :is(p,summary,label,select){overflow-wrap:anywhere}
+.world-host[data-station=evidence] .world-actions:has([data-station-action=outcomes]){max-width:calc(100% - 24px)}
+.world-host[data-station=evidence] .world-actions:has([data-station-action=outcomes]) button{padding:8px 12px}
+@media(max-width:759px){
+ .world-host[data-station=evidence] .world-guide .world-actions:has([data-station-action=outcomes]){grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+ .world-host[data-station=evidence] .world-guide .world-actions:has([data-station-action=outcomes])>button{font-size:13px;padding:6px 2px;min-height:46px;line-height:1.3;grid-column:auto}
+}
+
+
+.evidence-console[data-evidence-panel=ask] .evidence-note{font-size:16px;line-height:1.4}
+.evidence-console>.evidence-close{z-index:5}
+.evidence-console>.world-guide-intro.world-guide-in-panel{padding-right:44px!important}

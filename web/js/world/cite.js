@@ -1,3 +1,4 @@
+import { renderObservationLens } from './observation-lens.js';
 import { el, css } from '../ui/el.js';
 import { getDb, getCore, lookup, loadRawCells } from '../store.js';
 
@@ -54,6 +55,7 @@ function rowContent(row, text, db, session) {
     n.p_inferred != null ? el('p.wc-scope', `Pressure is not reported in the table. The facility-based inference is ${text.pressure?.(n.p_inferred)}.`) : null,
     n.p_inferred_source ? el('section', sentence(n.p_inferred_source.quote, n.p_inferred_source.context),
       el('p.wc-scope', n.p_inferred_source.assumption), sourceLink(n.p_inferred_source.url, 'Read the NASA facility evidence ↗')) : null,
+    renderObservationLens({ row, db, text, cite }),
     Object.entries(row.outcomes || {}).length ? el('section', el('h3', 'What the table recorded'), el('dl.wc-values',
       Object.entries(row.outcomes).map(([key, value]) => field(key.replace(/_/g, ' '), value?.value == null ? value?.raw ?? absent : `${value.value}${value.unit ? ' ' + value.unit : ''}`)))) : null,
     sourceLink(inv?.psi_url, 'Open the original PSI record ↗'),
@@ -195,7 +197,7 @@ async function open(id, trigger, world) {
       const at = point ? point.toArray().map((value, i) => value - (context.origin?.[i] || 0)) : [0, 0, 0];
       session.suspended = context.citationPanels?.(trigger) || [];
       session.suspended.forEach(handle => handle.close?.());
-      session.handle = await context.hologram(panel, { at, face: true, width: innerWidth < 760 ? innerWidth - 36 : 690, source: true, keepPosition: true });
+      session.handle = await context.hologram(panel, { at, face: true, width: innerWidth < 760 ? innerWidth - 36 : 690, source: true, phoneRatio: hit?.row?.psi_id === 'PSI-69' ? .70 : undefined, keepPosition: true });
       if (active !== session || currentSerial !== serial) { session.handle?.dispose?.(); return; }
       session.handle?.open?.();
       context.invalidate?.();
@@ -210,13 +212,13 @@ async function open(id, trigger, world) {
     session.shell = shell; document.body.append(shell); shell.showModal();
     shell.addEventListener('click', event => { if (event.target === shell) close(); });
   } else lock(session);
+  panel.addEventListener('keydown', event => event.stopPropagation(), { signal: session.controller.signal });
   const options = { capture: true, signal: session.controller.signal };
   document.addEventListener('keydown', event => {
     if (active !== session) return;
     if (event.key === 'Escape') { event.preventDefault(); event.stopImmediatePropagation(); close(); return; }
-    event.stopPropagation();
     if (event.key !== 'Tab') return;
-    const stops = [...panel.querySelectorAll('a[href],button,summary,[tabindex="0"]')].filter(node => node.getClientRects().length && !node.disabled && !node.closest('[inert]'));
+    const stops = [...panel.querySelectorAll('a[href],button,input,select,textarea,summary,[tabindex="0"]')].filter(node => node.getClientRects().length && !node.disabled && !node.closest('[inert]'));
     const index = stops.indexOf(document.activeElement);
     if (event.shiftKey ? index <= 0 : index < 0 || index === stops.length - 1) {
       event.preventDefault(); (event.shiftKey ? stops.at(-1) || panel : stops[0] || panel).focus({ preventScroll: true });
@@ -241,3 +243,5 @@ export function cite(text, id, world) {
     onclick: event => { event.preventDefault(); event.stopPropagation(); open(sid, phrase, world); } }, text);
   return phrase;
 }
+
+export { open as openCitation };

@@ -1,4 +1,6 @@
-import { build as buildField, fieldRows } from '../scene/field.js?v=6';
+import { buildObservationModel } from './observation-lens.js';
+import { openCitation } from './cite.js';
+import { build as buildField, fieldRows } from '../scene/field.js?v=7';
 import { buildSamples } from '../scene/samples.js';
 import { SAMPLE_NOTES } from '../scene/sample-kit.js';
 import { balanceWorldLight } from '../scene/materials.js';
@@ -10,7 +12,7 @@ import { TOL } from '../core/match.js';
 import { css } from '../ui/el.js';
 import { build as buildCoverage } from './coverage.js';
 import { build as buildGapBrief } from '../ui/gapbrief.js';
-import { searchEvidence, cabinMatches, compareInvestigations, NO_MATCH } from './ask.js?v=3';
+import { searchEvidence, cabinMatches, compareInvestigations, guidedAnswer, NO_MATCH } from './ask.js?v=4';
 import { evidenceGuidePose } from './evidence-guide.js';
 import { createRackUI } from './evidence-rack-ui.js';
 
@@ -30,7 +32,9 @@ export function evidenceState(db, core, q, investigation = null) {
 
 export async function build(world) {
   const { THREE: T, db, core } = world;
-  await Promise.all([css('css/coverage.css'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1')]);
+  await Promise.all([css('css/coverage.css'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css')]);
+  const dropletEntry = buildObservationModel({ db, investigationId: 'PSI-69' }).points[0] || null;
+  let guidedTask = '', guidedLeft = '', guidedRight = '', citationOpen = false;
   let selectedMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';
   let selectionReady = false;
   const wall = buildCoverage(world, { onSelection: onCoverageSelection }), gaps = buildGapBrief(world);
@@ -110,11 +114,11 @@ export async function build(world) {
     lastKey = ''; world.invalidate?.();
     if (panel === 'ask') consoleEl.querySelector('input')?.focus({ preventScroll: true });
   }
-  const outside = event => { if (active && panel && !consoleEl.contains(event.target) && !tools.contains(event.target) && !event.target.closest('.world-marker,.world-guide,.field-instrument')) setPanel(null); };
+  const outside = event => { if (active && panel && !citationOpen && !consoleEl.contains(event.target) && !tools.contains(event.target) && !event.target.closest('.world-marker,.world-guide,.field-instrument')) setPanel(null); };
   const escape = event => { if (active && event.key === 'Escape') { if (panel) { event.stopPropagation(); setPanel(null); } else if (sceneMode === 'chart') { event.stopPropagation(); setDisplay('rack'); } } };
-  const citation = event => { if (active && event.detail?.open) setPanel(null); };
+  const citation = event => { if (!active) return; citationOpen = Boolean(event.detail?.open); if (citationOpen && panel !== 'ask') setPanel(null); };
   root.addEventListener('pointerdown', outside); window.addEventListener('keydown', escape); window.addEventListener('vesta:cite', citation);
-  const panelObserver = new MutationObserver(() => { if (active && panel && !consoleHandle.target) setPanel(null); else if (active && !panel && consoleHandle.target) setPanel('overview'); });
+  const panelObserver = new MutationObserver(() => { if (citationOpen) return; if (active && panel && !consoleHandle.target) setPanel(null); else if (active && !panel && consoleHandle.target) setPanel('overview'); });
   panelObserver.observe(consoleEl, { attributes: true, attributeFilter: ['hidden', 'aria-hidden'] });
   const pickRay = new T.Raycaster();
   const plotted = fieldRows(db);
@@ -199,8 +203,9 @@ export async function build(world) {
     results = searchEvidence(db, search, currentQ); resultPsi = [...new Set(results.map(r => r.psi).filter(Boolean))];
     const container = consoleEl.querySelector('[data-search-results]'); if (!container) return;
     container.replaceChildren();
-    if (!search.trim()) { container.append(node('p', 'Search verified findings using a topic or a condition. Try one of the questions above.', 'evidence-note')); return; }
+    if (!search.trim()) { container.append(node('p', 'Search verified findings using a topic or a condition. Try oxygen, ventilation or cool flame.', 'evidence-note')); return; }
     container.append(node('p', results.length ? `${results.length} verified ${results.length === 1 ? 'finding' : 'findings'}` : NO_MATCH));
+    if (!results.length) container.append(node('p', 'Try oxygen or ventilation, or fewer terms. A search miss is separate from material coverage.', 'evidence-note'));
     const list = node('ol', null, 'evidence-results');
     for (const result of results) {
       const item = node('li'), trigger = phrase(result.finding.claim, result.finding.id); trigger.dataset.evidenceFinding = result.finding.id;
@@ -211,7 +216,8 @@ export async function build(world) {
     container.append(list); host.dataset.evidenceSearchResults = String(results.length); host.dataset.evidenceSearchRows = String(plotted.filter(p => resultPsi.includes(p.row.psi_id)).length);
   }
   function paintPanel() {
-    const title = { overview: 'Cabin evidence', sample: 'Material evidence', ask: 'Search the evidence', cabin: 'Configure your cabin', compare: 'Compare investigations', receipt: 'Keep the evidence', gaps: 'Research gaps' }[panel];
+    const focusedChoice = panel === 'ask' ? document.activeElement?.dataset.evidenceChoice : null;
+    const title = { overview: 'Cabin evidence', sample: 'Material evidence', ask: 'Search findings', cabin: 'Configure your cabin', compare: 'Compare investigations', receipt: 'Keep the evidence', gaps: 'Research gaps' }[panel];
     const close = node('button', '×', 'evidence-close'); close.type = 'button'; close.setAttribute('aria-label', 'Close evidence console'); close.onclick = () => {
       const trigger = close.matches(':focus-visible') && selectedMaterial && root.querySelector(`[data-sample-material="${selectedMaterial}"]`);
       setPanel(null);
@@ -240,14 +246,39 @@ export async function build(world) {
     }
     if (panel === 'gaps') { consoleEl.querySelector('h2').remove(); gaps.update(currentQ); consoleEl.append(gaps.element); }
     if (panel === 'ask') {
-      const input = node('input'); input.type = 'search'; input.placeholder = 'ventilation, oxygen 34, cool flame'; input.value = search; input.setAttribute('aria-label', 'Ask the evidence'); input.maxLength = 240;
+      const guided = node('section', null, 'evidence-guided');
+      guided.append(selector('Guided question', 'guided-task', [['', 'Choose a question'], ['nearby', 'Nearby evidence for this material'], ['rank', 'Why this finding ranks first'], ['compare', 'Compare investigations'], ['missing', 'Missing evidence']], guidedTask, value => { guidedTask = value; paintPanel(); }));
+      if (guidedTask) {
+        const response = guidedAnswer(db, currentQ, guidedTask, { leftId: guidedLeft, rightId: guidedRight });
+        const answer = node('div', null, 'evidence-guided-answer'); answer.dataset.guidedAnswer = guidedTask; answer.setAttribute('aria-live', 'polite');
+        answer.append(node('h3', { nearby: 'Does this material have nearby evidence?', rank: 'Why does this finding rank first?', compare: 'Compare these investigations', missing: 'What evidence is missing?' }[guidedTask]), node('p', response.context, 'evidence-guided-context'), node('p', response.result, 'evidence-guided-result'));
+        if (response.sources.length) {
+          const sources = node('p', null, 'evidence-guided-sources'); sources.append(node('span', 'Sources: '));
+          for (const id of response.sources.slice(0, 5)) sources.append(phrase(id, id));
+          answer.append(sources);
+        }
+        const explanation = node('details'); explanation.dataset.guidedExplanation = '';
+        explanation.append(node('summary', 'Explain this answer'), node('p', response.trace, 'evidence-guided-trace'));
+        for (const line of response.explanation) explanation.append(node('p', line));
+        explanation.append(node('p', response.scope, 'evidence-note')); answer.append(explanation); guided.append(answer);
+        if (guidedTask === 'compare') {
+          const options = [['', 'Choose an investigation'], ...db.investigations.map(i => [i.psi_id, `${i.psi_id}: ${i.name || i.full_name}`])];
+          guided.append(selector('First investigation', 'guided-left', options, guidedLeft, value => { guidedLeft = value; if (guidedRight === value) guidedRight = ''; paintPanel(); }), selector('Second investigation', 'guided-right', options.filter(([id]) => !id || id !== guidedLeft), guidedRight, value => { guidedRight = value; paintPanel(); }));
+        } else {
+          const context = node('details'); context.open = !currentQ.material; context.append(node('summary', 'Choose material and concern'));
+          context.append(selector('Material', 'guided-material', [['', 'Choose a material'], ...Object.entries(db.materials).map(([id, m]) => [id, m.label])], currentQ.material, material => { applyQ({ material }); paintPanel(); }), selector('Concern', 'guided-concern', CONCERNS.map(id => [id, core.text.concern(id)]), currentQ.concern, concern => { applyQ({ concern }); paintPanel(); }));
+          guided.append(context);
+        }
+      }
+      const input = node('input'); input.type = 'search'; input.placeholder = 'oxygen, ventilation, cool flame'; input.value = search; input.setAttribute('aria-label', 'Search findings'); input.maxLength = 240;
       input.oninput = () => { search = input.value; activeFinding = null; renderResults(); world.invalidate?.(); };
       const resultList = node('div'); resultList.dataset.searchResults = ''; resultList.setAttribute('aria-live', 'polite');
       const suggestions = node('div', null, 'evidence-quick-actions');
       for (const [label, query] of [['Ventilation', 'ventilation'], ['34% oxygen', 'oxygen 34'], ['Cool flames', 'cool flame']]) {
         const button = node('button', label); button.type = 'button'; button.onclick = () => { search = query; input.value = query; activeFinding = null; renderResults(); world.invalidate?.(); }; suggestions.append(button);
       }
-      consoleEl.append(node('p', 'Choose a topic or type your own. Each result opens its source and limits.', 'evidence-note'), input, suggestions, resultList); renderResults();
+      const label = node('label'); label.append(node('span', 'Search findings'), input);
+      consoleEl.append(guided, label, node('p', 'Word search over loaded verified findings. Open a result for its source.', 'evidence-note'), suggestions, resultList); renderResults();
     }
     if (panel === 'cabin') {
       consoleEl.append(selector('Cabin preset', 'preset', [['custom', 'Custom cabin'], ...db.presets.map(p => [p.id, p.short || p.label])], currentQ.preset, preset => { applyQ({ preset }); paintPanel(); }), dial('Oxygen', 'o2', 0, 100, .1), dial('Pressure', 'p', 1, 550, .1), gravityControl());
@@ -297,6 +328,7 @@ export async function build(world) {
     const scope = node('details'); scope.hidden = panel === 'overview'; scope.append(node('summary', 'Evidence scope'), node('p', core.text.STATUS_LINE, 'evidence-note'), node('p', `${plotted.length} source-table rows have a single ambient oxygen value. A row can represent a day, series or dataset. Research samples are illustrative; a coverage lamp does not certify a material or a cabin.`, 'evidence-note'));
     const link = node('a', 'Instrument view'); link.href = `#/design?view=details&preset=custom&o2=${currentQ.o2}&p=${currentQ.p}&g=${currentQ.g}&concern=${currentQ.concern}&mat=${currentQ.material || ''}`; scope.append(link); consoleEl.append(scope);
     refreshAnswer();
+    if (focusedChoice) consoleEl.querySelector(`[data-evidence-choice="${focusedChoice}"]`)?.focus({ preventScroll: true });
   }
   function layout() {
     const { width, height } = stage.size(), camera = stage.camera;
@@ -326,13 +358,28 @@ export async function build(world) {
   return {
     group,
     actions: () => [...[['overview', 'Coverage'], ['cabin', 'Cabin'], ['ask', 'Search'], ['compare', 'Compare'], ['gaps', 'Research gaps'], ['receipt', 'Save JSON']].map(([id, label]) => ({ id, label, primary: id === 'overview', expanded: () => panel === id && consoleHandle.target > 0, run: () => setPanel(panel === id && consoleHandle.target > 0 ? null : id) })),
-      { id: 'conditions', label: 'Tested conditions', expanded: () => sceneMode === 'chart', run: toggleConditions }],
+      { id: 'conditions', label: 'Tested conditions', expanded: () => sceneMode === 'chart', run: toggleConditions },
+      { id: 'outcomes', label: 'Droplet outcomes', disabled: () => !dropletEntry, run: async trigger => {
+        if (!dropletEntry) return;
+        setPanel(null);
+        await openCitation(dropletEntry.id, trigger, world);
+        const lens = root.querySelector('.observation-lens') || document.querySelector('.observation-lens');
+        const explore = lens?.querySelector('details');
+        if (explore) {
+          explore.open = true; await new Promise(resolve => requestAnimationFrame(resolve));
+          const plot = lens.querySelector('.ol-plot'), pane = lens.closest('.wc-source');
+          if (plot && pane) {
+            const bounds = pane.getBoundingClientRect(), scale = bounds.height ? pane.clientHeight / bounds.height : 1;
+            pane.scrollTop += (plot.getBoundingClientRect().top - bounds.top) * scale - 64;
+          }
+        }
+      } }],
     ready() { setPanel(null); setDisplay('rack'); },
     search(query) { search = query; activeFinding = null; setPanel('ask'); },
     camera: cameraPose,
     enter() {
       if (!active) { savedAperture = stage.camera.userData.aperture; savedExposure = stage.renderer.toneMappingExposure; }
-      active = true; balanceLight(true); currentQ = world.q; group.visible = true; tools.hidden = false; companion.hidden = false;
+      active = true; citationOpen = false; balanceLight(true); currentQ = world.q; group.visible = true; tools.hidden = false; companion.hidden = false;
       guideRow = null; reaction = -100; host.classList.add('evidence-world-active'); panel = null; consoleHandle.close();
       wall.clearSelection(false); setDisplay('rack'); lastKey = ''; refreshAnswer();
     },
@@ -340,7 +387,7 @@ export async function build(world) {
       delete stage.camera.userData.focusDistance;
       if (savedAperture == null) delete stage.camera.userData.aperture; else stage.camera.userData.aperture = savedAperture;
       stage.renderer.toneMappingExposure = savedExposure ?? .85; balanceLight(false);
-      active = false; group.visible = false; tools.hidden = true; companion.hidden = true; rackUI.element.hidden = true;
+      active = false; citationOpen = false; group.visible = false; tools.hidden = true; companion.hidden = true; rackUI.element.hidden = true;
       rack.setVisible(false); field.setVisible(false); world.vesta.group.visible = true;
       host.classList.remove('evidence-world-active'); delete root.dataset.evidenceDisplay; setPanel(null);
     },
