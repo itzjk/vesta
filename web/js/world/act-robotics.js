@@ -2,19 +2,19 @@ import { createHumanoidInspector } from '../scene/humanoid-inspector.js?v=trust-
 import { createMaintenanceBay } from '../scene/maintenance-bay.js?v=question-lab-20261115-3';
 import { ensureInformationPolishStyles } from './information-polish.js?v=habitat-20261115-1';
 import { createInventoryReviewSession, reviewToMarkdown } from '../core/inventory-review.js?v=pressure-basis-20261115-1';
-import { createInventoryReviewPanel } from './inventory-review-panel.js?v=question-lab-20261115-3';
+import { createInventoryReviewPanel } from './inventory-review-panel.js?v=lab-actions-20261115-1';
 import { openCitation } from './cite.js?v=habitat-20261115-1';
 import { proposeKitMission, createKitMission, kitInputSignature } from './kit-mission.js?v=crew-workspace-20261115-1';
-import { createKitMissionPanel } from './kit-mission-panel.js?v=review-workbench-20261115-1';
+import { createKitMissionPanel } from './kit-mission-panel.js?v=lab-actions-20261115-1';
 import { createRecordedReviewPanel } from './recorded-claude-review.js';
 import { createHabitatCamera, createHabitatGesture, habitatKeyInput } from './habitat-camera.js?v=trust-explore-20261115-1';
 import { requestedReviewSelection, chooseReviewFocus } from './review-selection.js?v=question-lab-20261115-3';
-import { spaceLabRecord } from './space-lab-record.js?v=question-lab-20261115-3';
-import { createSpaceLabPanel } from './space-lab-panel.js?v=question-lab-20261115-3';
+import { spaceLabRecord } from './space-lab-record.js?v=lab-actions-20261115-1';
+import { createSpaceLabPanel } from './space-lab-panel.js?v=lab-actions-20261115-1';
 
 if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-robotics]')) {
   for (const file of ['robotics']) {
-    const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL(`../../css/${file}.css?v=trust-explore-20261115-1`,import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
+    const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL(`../../css/${file}.css?v=lab-actions-20261115-1`,import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
   }
 }
 const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text)el.textContent=text;if(cls)el.className=cls;return el;};
@@ -67,6 +67,7 @@ export async function build(world) {
   let phase='ready',still=false,selected=['pmma','kapton','silicone'],session=null,report=null,generation=0,lastCabin='';
   let focus={material:'pmma',concern:'prevention'},workspaceOpen=false,notice='',cameraView='overview',workRegion=null,cameraCache=null;
   let focusExplicit=false,pendingReviewQuestion=null;
+  let preparing=false,showTask=false,viewError='';
   const initialQuestion=requestedReviewSelection({material:world.q.material,concern:world.q.concern},db.materials,selected);
   if(initialQuestion){focus=initialQuestion.focus;selected=initialQuestion.materials;focusExplicit=true;}
   let kit=null,kitState=null,kitSignature=null,kitFrame=null;
@@ -77,15 +78,21 @@ export async function build(world) {
   const cabinKey=()=>JSON.stringify([world.q.preset,world.q.habitat,world.q.o2,world.q.p,world.q.g,world.q.gclass]);
   const currentQuestion=()=>report?.questions.find(q=>q.material_id===focus.material&&q.concern===focus.concern);
   const caption=node('section',null,'robotics-caption robotics-work-caption');caption.dataset.stationUi='robotics';caption.hidden=true;
+  const labError=node('p',null,'robotics-lab-error');labError.hidden=true;labError.setAttribute('role','alert');
   const targetLabel=node('p','Material inventory → evidence → review requests','robotics-mission-evidence');
   const outcome=node('p','Check which materials have applicable NASA source evidence for this cabin, then prepare a human review request.','robotics-work-outcome');
   const selectedResult=node('p',null,'robotics-work-result');
   const locationButton=node('button','Open this question','robotics-question-button');locationButton.type='button';locationButton.dataset.action='review-question';
   locationButton.onclick=()=>{openWorkspace();panel.element.querySelector(`[data-question-id="${focus.material}/${focus.concern}"]`)?.scrollIntoView({block:'nearest'});};
-  caption.append(node('p','SPACE LAB · ROBOTICS CONCEPT','robotics-eyebrow'),node('h1','Bring evidence to the lab bench.'),node('p','Choose a question → review records → approve staging','robotics-lab-path'),targetLabel,outcome,selectedResult,locationButton,node('p','Evidence analysis + virtual kit staging','robotics-caption-scope'));
+  caption.append(labError,node('p','SPACE LAB · ROBOTICS CONCEPT','robotics-eyebrow'),node('h1','Bring evidence to the lab bench.'),node('p','Question → source evidence → optional crew handoff','robotics-lab-path'),targetLabel,outcome,selectedResult,locationButton,node('p','Evidence analysis + virtual kit staging','robotics-caption-scope'));
+  const labProgress=node('section',null,'robotics-lab-progress');labProgress.hidden=true;
+  const progressQuestion=node('h3'),progressText=node('p'),progressCancel=node('button','Cancel review');progressCancel.type='button';progressCancel.onclick=cancel;
+  progressText.setAttribute('role','status');progressText.setAttribute('aria-live','polite');labProgress.append(progressQuestion,progressText,progressCancel);caption.append(labProgress);
+  const labPanel=createSpaceLabPanel({onSource:openEvidence,onPrepare:showHandoff});caption.append(labPanel.element);
+  const answerButton=node('button','Back to lab answer','robotics-question-button');answerButton.type='button';answerButton.hidden=true;
+  answerButton.onclick=()=>{showTask=false;refresh();caption.scrollTop=0;labPanel.focus();};caption.append(answerButton);
   const kitPanel=createKitMissionPanel({onApprove:approveKit,onCancel:cancelKit,onReset:prepareKit,onDownload:downloadKit,onEvidence:openKitEvidence});
   const kitCabin=node('p',null,'robotics-kit-cabin');kitCabin.hidden=true;caption.append(kitCabin,kitPanel.element);
-  const labPanel=createSpaceLabPanel({onSource:openEvidence});caption.append(labPanel.element);
   const imageCredit=node('details',null,'robotics-image-credit');
   const earthSource=node('a','NASA/NOAA/GSFC/Suomi NPP/VIIRS/Norman Kuring');
   earthSource.href='https://images.nasa.gov/details/GSFC_20171208_Archive_e001386';earthSource.target='_blank';earthSource.rel='noopener noreferrer';
@@ -95,12 +102,14 @@ export async function build(world) {
   const workspace=node('aside',null,'inventory-review-workspace');workspace.hidden=true;workspace.setAttribute('aria-label','Material evidence review workspace');
   const back=node('button','Back to habitat','inventory-review-back');back.type='button';back.onclick=()=>{
     if(report?.status==='complete'&&cameraView==='explore')setExplore(false);
-    closeWorkspace();
+    if(report?.status==='complete')showTask=false;
+    closeWorkspace();refresh();caption.scrollTop=0;
   };
-  const panel=createInventoryReviewPanel({db,onRun:run,onCancel:cancel,onReset:reset,onMaterialsChange:ids=>{selected=[...ids];if(!selected.includes(focus.material))focusExplicit=false;reset('Inventory changed. Run a new review.');},onEvidence:openEvidence,onFocus:locate,onDownload:download});
+  const panel=createInventoryReviewPanel({db,onRun:ids=>run(ids,{stayInLab:false}),onCancel:cancel,onReset:reset,onMaterialsChange:ids=>{selected=[...ids];if(!selected.includes(focus.material))focusExplicit=false;reset('Inventory changed. Run a new review.');},onEvidence:openEvidence,onFocus:locate,onDownload:download});
   if(initialQuestion)panel.setMaterials(selected);
   const questionNotice=node('p',null,'inventory-intro');questionNotice.hidden=true;questionNotice.setAttribute('role','status');
-  workspace.append(back,questionNotice,panel.element);world.host.append(workspace);
+  const workspaceError=node('p',null,'robotics-lab-error');workspaceError.hidden=true;workspaceError.setAttribute('role','alert');
+  workspace.append(back,workspaceError,questionNotice,panel.element);world.host.append(workspace);
   const explorer=node('section',null,'robotics-explorer');explorer.hidden=true;explorer.setAttribute('aria-label','Explore habitat camera');
   const cameraButtons=node('div',null,'robotics-camera-buttons');
   function cameraButton(label,action,title){const b=node('button',label);b.type='button';b.onclick=action;if(title)b.title=title;cameraButtons.append(b);return b;}
@@ -131,7 +140,7 @@ export async function build(world) {
   };
   objectTask.onclick=()=>{
     if(!guardCabin()||!objectSelection||objectSelection==='crew'||report?.status!=='complete'||kitRunning())return;
-    const material=objectSelection;objectSelection=null;setExplore(false);locate({material,concern:'prevention'});
+    const material=objectSelection;objectSelection=null;setExplore(false);locate({material,concern:'prevention'});showHandoff();
   };
   objectCard.append(objectTitle,objectText,objectActions);world.host.append(objectCard);
   const recordedSlot=node('details',null,'inventory-recorded-review'),recordedSummary=node('summary','Recorded Claude review · 12 tool calls');
@@ -145,15 +154,29 @@ export async function build(world) {
     recordedPanel=createRecordedReviewPanel({record,db,onEvidence:({id,query})=>{
       if(guardCabin())openCitation(id,document.activeElement,world,{query:{...query,material:null,concern:'all'}});
     }});
-    recordedSlot.replaceChildren(recordedSummary,recordedPanel.element);recordedPanel.update(report);
+    recordedSlot.replaceChildren(recordedSummary,recordedPanel.element);if(workspaceOpen)recordedPanel.update(report);
   }).catch(error=>{if(!disposed&&error.name!=='AbortError')recordedSlot.replaceChildren(recordedSummary,node('p','The recorded Claude review could not be loaded. The current evidence calculation remains available.'));});
   const markers=Object.entries(bay.workTargets||{}).map(([material,target])=>{
     const marker=world.marker(null,{at:target.point,label:`${target.label}: review actions`,onClick:()=>openObject(material)});
     marker.element.dataset.reviewMaterial=material;return marker;
   });
-  function openWorkspace(){workspaceOpen=true;workspace.hidden=false;world.host.dataset.roboticsWorkspace='true';releasePointers();syncExplorer();syncObject();world.invalidate?.();}
+  function presentationError(error){
+    viewError=`The review view could not be updated: ${error?.message||String(error)}. Try opening the full review again or run a new review.`;
+    for(const target of [labError,workspaceError]){target.textContent=viewError;target.hidden=false;}
+  }
+  function updateInventory(){
+    if(!workspaceOpen)return;
+    try{
+      panel.update(report);recordedPanel?.update(report);
+      if(viewError.startsWith('The review view could not be updated:')){
+        viewError='';for(const target of [labError,workspaceError]){target.textContent='';target.hidden=true;}
+      }
+    }catch(error){presentationError(error);}
+  }
+  function openWorkspace(){workspaceOpen=true;workspace.hidden=false;world.host.dataset.roboticsWorkspace='true';updateInventory();releasePointers();syncExplorer();syncObject();world.invalidate?.();}
   function closeWorkspace(){workspaceOpen=false;workspace.hidden=true;world.host.dataset.roboticsWorkspace='false';syncExplorer();syncObject();world.invalidate?.();}
   function kitRunning(){return ['approved','approach','retrieve','carry','place','handoff'].includes(kitState?.phase);}
+  function reviewBusy(){return preparing||report?.status==='running';}
   function openObject(id){if(!active||!guardCabin()||!['crew',...Object.keys(bay.kit.slots)].includes(id))return;objectSelection=id;objectPicker.value=id;syncObject();objectTitle.focus({preventScroll:true});world.invalidate?.();}
   function syncObject(){
     objectCard.hidden=!active||workspaceOpen||!objectSelection;if(objectCard.hidden)return;
@@ -164,7 +187,7 @@ export async function build(world) {
       :q?`${q.label||meaning[q.status]}. Open the exact source comparison, or prepare this question’s virtual handoff for separate approval.`
         :`Check ${label} against this cabin’s oxygen, pressure and gravity. This starts a new material review and replaces any current task; it does not move the robot.`;
     objectEvidence.textContent=crew?'Open review workspace':q?'Open source comparison':`Review ${label} only`;
-    objectEvidence.disabled=report?.status==='running'||(!q&&!crew&&kitRunning());
+    objectEvidence.disabled=reviewBusy()||(!q&&!crew&&kitRunning());
     objectTask.textContent='Prepare robot task';objectTask.hidden=crew||!q;objectTask.disabled=kitRunning()||report?.status!=='complete';
   }
   function syncExplorer(){
@@ -237,7 +260,7 @@ export async function build(world) {
   }
   function clearRun(reason){
     discardKit(reason||'A new evidence review is required.');
-    generation++;session?.cancel(reason);session=null;report=null;panel.update(null);notice=reason||'';
+    generation++;preparing=false;viewError='';session?.cancel(reason);session=null;report=null;updateInventory();notice=reason||'';
     phase='ready';changed=lastTime;lastCabin=cabinKey();refresh();
   }
   function reset(reason='Review cleared. Select materials to start again.'){clearRun(reason);}
@@ -245,16 +268,22 @@ export async function build(world) {
   function refresh(){
     const q=currentQuestion(),target=bay.workTargets?.[focus.material];
     const labResult=report?.status==='complete'?spaceLabRecord(db,q,report.input.query):null;
-    labPanel.update(labResult);caption.classList.toggle('has-lab-result',Boolean(labResult));
+    labPanel.update(labResult,{handoffAvailable:Boolean(target),handoffReady:Boolean(kitState?.plan_valid)});
+    labPanel.element.hidden=!labResult||showTask;
+    caption.classList.toggle('has-lab-result',Boolean(labResult)&&!showTask);
+    caption.classList.toggle('has-lab-progress',reviewBusy());
+    caption.classList.toggle('has-lab-error',Boolean(viewError||report?.status==='error'));
+    labProgress.hidden=!reviewBusy();progressQuestion.textContent=`${db.materials[focus.material]?.label||focus.material} · ${focus.concern}`;
+    progressText.textContent=preparing?'Preparing the source collection…':`Checking source evidence · ${report?.counts.completed_questions??0} / ${report?.counts.questions??selected.length*3} inventory questions reviewed.`;
+    const visibleError=viewError||(report?.status==='error'?`Review failed: ${report.error}. Run the review again to retry.`:'');
+    for(const target of [labError,workspaceError]){target.textContent=visibleError;target.hidden=!visibleError;}
+    answerButton.hidden=!showTask;
     questionNotice.hidden=!focusExplicit;
     if(focusExplicit)questionNotice.textContent=`Selected question: ${db.materials[focus.material]?.label||focus.material} · ${focus.concern}. ${report?.status==='complete'?'Report scope':'Next review'}: ${selected.length} ${selected.length===1?'material':'materials'} × 3 concerns. This question stays in focus.${target?'':' No virtual kit is modelled for this material; evidence review and export remain available.'}`;
-    back.textContent=report?.status==='complete'&&kitState?.phase==='ready'
-      ? 'View robot task · approval required'
-      : report?.status==='complete' ? kitState ? 'View robot & review kit' : 'View lab result' : 'Back to habitat';
-    recordedPanel?.update(report);
+    back.textContent=report?.status==='complete'?'View lab answer':'Back to habitat';
     if(!report){const line=panel.element.querySelector('.inventory-cabin');if(line)line.textContent=`Current cabin · ${world.q.o2??'unknown'}% O2 · ${world.q.p??'unknown'} kPa · ${world.q.g??'unknown gravity'}`;}
     targetLabel.textContent=target?`${target.tag} · ${target.label}`:`${db.materials[focus.material]?.label||focus.material} · no scene component`;
-    selectedResult.textContent=q?`${q.concern[0].toUpperCase()+q.concern.slice(1)}: ${meaning[q.status]||q.label}`:'The component tags are a concept inventory. Source applicability has to be checked.';
+    selectedResult.textContent=q?`${q.concern[0].toUpperCase()+q.concern.slice(1)}: ${q.label||meaning[q.status]}`:`Selected question: ${db.materials[focus.material]?.label||focus.material} · ${focus.concern}`;
     if(report?.status==='complete')outcome.textContent=`${report.counts.completed_questions} questions reviewed · ${report.requests.length} review requests ready.`;
     else if(report?.status==='running')outcome.textContent=`${report.counts.completed_questions} / ${report.counts.questions} questions reviewed · ${report.progress.completed} / ${report.progress.total} operations completed.`;
     else if(report?.status==='cancelled')outcome.textContent='Review cancelled. Partial results cannot be exported as a completed review.';
@@ -265,49 +294,78 @@ export async function build(world) {
     world.host.dataset.roboticsPhase=phase;world.host.dataset.roboticsReview=report?.status||'idle';world.host.dataset.roboticsMaterial=focus.material;
     world.host.dataset.roboticsApproved=String(Boolean(kitState?.approval.granted));world.host.dataset.roboticsScanning='false';
     world.host.dataset.roboticsKitPhase=kitState?.phase||'unplanned';world.host.dataset.roboticsKitObject=kitState?.virtual_object_state||'docked';
-    caption.classList.toggle('has-kit-task',Boolean(kitState));
-    kitCabin.hidden=!kitState;kitCabin.textContent=kitState?`${kitState.plan.query.o2}% O2 · ${kitState.plan.query.p} kPa · ${kitState.plan.query.g} gravity`:'';
-    world.host.dataset.roboticsMotionReady=String(report?.status!=='running');
+    caption.classList.toggle('has-kit-task',showTask&&Boolean(kitState));
+    kitPanel.element.hidden=!showTask||!kitState;
+    kitCabin.hidden=!showTask||!kitState;kitCabin.textContent=kitState?`${kitState.plan.query.o2}% O2 · ${kitState.plan.query.p} kPa · ${kitState.plan.query.g} gravity`:'';
+    world.host.dataset.roboticsMotionReady=String(!reviewBusy());
     world.host.dataset.roboticsView=cameraView;
     world.host.dataset.roboticsViewTarget=cameraView==='work'&&workRegion?`${workRegion.material}/${workRegion.kind}`:'';
     syncObject();syncExplorer();
   }
-  async function run(ids=selected){
-    if(disposed)return;clearRun('');selected=[...ids];panel.setMaterials(selected);const token=generation;
+  async function run(ids=selected,{stayInLab=true}={}){
+    if(disposed||reviewBusy())return;
+    clearRun('');selected=[...ids];panel.setMaterials(selected);
+    // The primary lab action answers the question on screen. A broader inventory
+    // report may still include other questions; its review queue never steals focus.
+    if(stayInLab){
+      if(!selected.includes(focus.material)&&selected.length)focus={material:selected[0],concern:focus.concern};
+      focusExplicit=true;showTask=false;if(cameraView==='explore')setExplore(false);closeWorkspace();caption.scrollTop=0;
+    }else openWorkspace();
+    const token=generation,query={...world.q},requestedCabin=cabinKey();preparing=true;refresh();world.invalidate?.();
     try{
-      session=createInventoryReviewSession({db,query:{...world.q},materials:selected,onEvent:()=>{
-        if(token!==generation||disposed)return;
-        report=session.snapshot();panel.update(report);refresh();world.invalidate?.();
-      }});
-      report=session.snapshot();panel.update(report);openWorkspace();
-      // Release the UI after the immutable collection snapshot before calculating
-      // its receipt. This is a scheduling boundary, not staged analysis progress.
+      // Paint the selected question and cancellation control before the bounded,
+      // synchronous collection snapshot. No artificial progress or minimum delay.
       await new Promise(resolve=>setTimeout(resolve,0));
       if(token!==generation||disposed)return;
-      const result=await session.run();
+      if(requestedCabin!==cabinKey()){clearRun('Cabin changed. Run a new review.');return;}
+      session=createInventoryReviewSession({db,query,materials:selected,onEvent:()=>{
+        if(token!==generation||disposed)return;
+        // Core observers deliberately cannot throw into the scientific workflow.
+        // Catch here so a view failure remains visible instead of being swallowed.
+        try{report=session.snapshot();updateInventory();refresh();world.invalidate?.();}
+        catch(error){presentationError(error);world.invalidate?.();}
+      }});
+      report=session.snapshot();updateInventory();
+      const job=session.run();preparing=false;refresh();
+      const result=await job;
       if(token!==generation||disposed)return;
-      report=result;panel.update(report);
+      report=result;updateInventory();
       if(result.status==='complete'){
         const nextFocus=chooseReviewFocus(result,focus,focusExplicit);
-        if(nextFocus){locate(nextFocus,false,nextFocus.explicit);if(focusExplicit)panel.focusQuestion(`${focus.material}/${focus.concern}`,{expandSources:true});}
+        if(nextFocus)locate(nextFocus,false,nextFocus.explicit);
+        // Detailed source inspection is an explicit action. The initial result
+        // is the lab answer, not an expanded wall of comparison records.
+        if(stayInLab&&active){closeWorkspace();caption.scrollTop=0;labPanel.focus();}
       }
       refresh();world.invalidate?.();
-    }catch(error){notice=`Could not start review: ${error.message}`;refresh();world.invalidate?.();}
+    }catch(error){
+      if(token!==generation||disposed)return;
+      preparing=false;session?.cancel('Presentation or startup failure');report=session?.snapshot()||null;
+      viewError=`Could not complete review: ${error.message}. Run the review again to retry.`;
+      updateInventory();try{refresh();}catch(renderError){presentationError(renderError);}world.invalidate?.();
+    }
   }
-  function cancel(){if(!guardCabin())return;session?.cancel();report=session?.snapshot()||null;panel.update(report);refresh();world.invalidate?.();}
+  function cancel(){if(!guardCabin())return;if(preparing){clearRun('Review cancelled. Run again when ready.');world.invalidate?.();return;}session?.cancel();report=session?.snapshot()||null;updateInventory();refresh();world.invalidate?.();}
   function discardKit(reason){
-    kit?.advance({type:'cancel',reason});kit=null;kitState=null;kitSignature=null;kitFrame=null;kitPanel.update(null);
+    kit?.advance({type:'cancel',reason});kit=null;kitState=null;kitSignature=null;kitFrame=null;showTask=false;kitPanel.update(null);
+  }
+  function showHandoff(){
+    if(!guardCabin()||report?.status!=='complete'||!bay.workTargets?.[focus.material])return;
+    if(cameraView==='explore')setExplore(false);closeWorkspace();
+    if(!kitState?.plan_valid)prepareKit();else {showTask=true;refresh();}
+    caption.scrollTop=0;
   }
   function prepareKit(){
     if(!guardCabin()||report?.status!=='complete')return;
+    viewError='';
     discardKit('A different review question was selected.');
     const questionId=`${focus.material}/${focus.concern}`;
     if(!bay.workTargets?.[focus.material])return;
     try{
       const plan=proposeKitMission(report,questionId);kitSignature=plan.input_signature;
       kit=createKitMission(plan);kitState=kit.snapshot();kitPanel.update(kitState);
-      phase='ready';changed=lastTime;refresh();world.invalidate?.();
-    }catch(error){notice=`Kit unavailable: ${error.message}`;refresh();}
+      showTask=true;phase='ready';changed=lastTime;refresh();world.invalidate?.();
+    }catch(error){viewError=`Crew handoff unavailable: ${error.message}`;refresh();}
   }
   function approveKit(){
     if(!guardCabin()||!kit||report?.status!=='complete')return;
@@ -315,7 +373,7 @@ export async function build(world) {
       kitSignature=kitInputSignature(report,`${focus.material}/${focus.concern}`);
       kitState=kit.advance({type:'approve',inputSignature:kitSignature});kitFrame=lastTime;
       kitPanel.update(kitState);refresh();world.invalidate?.();
-    }catch(error){cancelKit();notice=error.message;refresh();}
+    }catch(error){cancelKit();viewError=error.message;refresh();}
   }
   function cancelKit(){
     if(!kit)return;kitState=kit.advance({type:'cancel',reason:'Virtual task cancelled by the reviewer.'});
@@ -329,14 +387,15 @@ export async function build(world) {
       const result=kit.exportReport();
       const text=`# VESTA crew review handoff\n\n${result.label}\n\nQuestion: ${result.question_id}\n\nEvidence: ${result.evidence_label}\n\n${result.request.reason}\n\n${result.request.next_step}\n\nVirtual kit: staged at the crew-review fixture. No hardware action or physical test was performed. Crew review is still required.\n\nCollection SHA-256: ${result.collection.digest}\n\n${reviewToMarkdown(report)}`;
       download({content:text,mime:'text/markdown;charset=utf-8',filename:'vesta-crew-review-handoff.md',report});
-    }catch(error){notice=error.message;refresh();}
+    }catch(error){viewError=error.message;refresh();}
   }
   function locate({material,concern},close=true,explicit=true){
     if(!guardCabin())return;
     if(workRegion&&workRegion.material!==material){cameraView='overview';workRegion=null;}
     focus={material,concern};focusExplicit=explicit;
-    // Selecting evidence prepares a task; only explicit approval starts motion.
-    phase='ready';changed=lastTime;prepareKit();
+    // Selecting an answer does not prepare or approve a task. Handoff preparation
+    // is a separate deliberate step after its evidence and limits are visible.
+    discardKit('A different review question was selected.');phase='ready';changed=lastTime;
     if(close)closeWorkspace();refresh();world.invalidate?.();
   }
   function applyRequestedQuestion(request){
@@ -346,8 +405,7 @@ export async function build(world) {
     else if(changedQuestion)discardKit('A different review question was selected; any earlier task approval is cleared.');
     focus=next.focus;focusExplicit=true;selected=next.materials;panel.setMaterials(selected);
     if(workRegion&&workRegion.material!==focus.material){cameraView='overview';workRegion=null;}
-    openWorkspace();refresh();
-    if(report?.status==='complete')panel.focusQuestion(`${focus.material}/${focus.concern}`,{expandSources:true});
+    showTask=false;if(cameraView==='explore')setExplore(false);closeWorkspace();refresh();caption.scrollTop=0;
     world.invalidate?.();return true;
   }
   function nextQuestion(){
@@ -389,8 +447,8 @@ export async function build(world) {
       return cameraCache.frame;
     },
     actions:()=>[
-      {id:'inventory-run',label:()=>report?.status==='running'?'Reviewing lab evidence…':'Run lab review',disabled:()=>!selected.length||report?.status==='running',primary:true,run:()=>run()},
-      {id:'inventory-workspace',label:()=>report?.status==='complete'?'Review results':'Materials & method',expanded:()=>workspaceOpen,run:()=>workspaceOpen?closeWorkspace():openWorkspace()},
+      {id:'inventory-run',label:()=>reviewBusy()?'Reviewing lab evidence…':'Run lab review',disabled:()=>!selected.length||reviewBusy(),primary:true,run:()=>run()},
+      {id:'inventory-workspace',label:()=>report?.status==='complete'?'Full inventory review':'Materials & method',expanded:()=>workspaceOpen,run:()=>workspaceOpen?closeWorkspace():openWorkspace()},
       {id:'inventory-view',label:()=>cameraView==='work'?'Overview':stage.size().width<760&&bay.workTargets?.[focus.material]?`Inspect ${db.materials[focus.material]?.label||focus.material} ${kitState?.phase==='complete'?'handoff':'pickup'}`:'Work view',run:toggleCameraView},
       {id:'inventory-explore',label:()=>cameraView==='explore'?'Exit Explore':'Explore base',run:()=>setExplore(cameraView!=='explore')},
       {id:'inventory-next',label:'Next review question',disabled:()=>report?.status!=='complete',run:nextQuestion},

@@ -142,3 +142,46 @@
  .robotics-object-card h2{font-size:20px}
  .robotics-object-card p{font-size:13px}
 }
+
+/* A primary lab run stays with the scene. The selected answer precedes optional
+   task controls; the long inventory workspace is an explicit secondary view. */
+.robotics-lab-path{font-size:14px!important;margin:10px 0!important;color:#e2c394!important}
+.robotics-lab-error{color:#ffd0ab!important;background:#2e1c16;border-left:3px solid #e8a16b;padding:10px!important;margin:0 0 10px!important;font:400 14px/1.45 var(--font)!important}
+.robotics-lab-error[hidden],.robotics-lab-progress[hidden],.space-lab-result[hidden]{display:none!important}
+.robotics-lab-progress{pointer-events:auto;padding:12px;background:#111c21f2}
+.robotics-lab-progress h3{font:600 20px/1.25 var(--font);margin:0 0 8px}
+.robotics-lab-progress p{font-size:15px;margin:0 0 10px}
+.robotics-lab-progress button{min-height:44px;padding:8px 12px;background:transparent;color:#eed7b0;border:1px solid #ae956d;font:500 14px/1.3 var(--font);cursor:pointer}
+.robotics-work-caption:is(.has-lab-result,.has-lab-progress,.has-lab-error){width:350px;max-height:calc(100dvh - 240px);overflow:auto;overscroll-behavior:contain;pointer-events:auto;padding:0 8px 8px 0;scroll-padding:8px}
+.robotics-work-caption:is(.has-lab-result,.has-lab-progress)>:is(h1,.robotics-eyebrow,.robotics-lab-path,.robotics-mission-evidence,.robotics-work-outcome,.robotics-work-result,.robotics-question-button,.robotics-caption-scope){display:none}
+.robotics-work-caption.has-kit-task>:is(h1,.robotics-eyebrow,.robotics-lab-path,.robotics-kit-cabin){display:none}
+.robotics-work-caption.has-kit-task>.robotics-question-button[data-action=review-question]{display:none}
+.robotics-work-caption.has-kit-task>.robotics-question-button:not([data-action]):not([hidden]){display:block;margin:0 0 6px;padding:4px 0}
+.robotics-work-caption.has-kit-task .kit-mission-eyebrow{display:none}
+.robotics-work-caption.has-kit-task .kit-mission-strip{margin-top:0}
+.space-lab-result{color:#eee6d8;background:#10191df2;padding:12px;pointer-events:auto}
+.space-lab-result h3{font:600 21px/1.2 var(--font);margin:0 0 8px}
+.space-lab-result p{font-size:14px!important;line-height:1.4!important;margin:7px 0!important;max-width:none}
+.space-lab-result .sl-verdict{color:#f0cf93;font-weight:600!important}
+.space-lab-result .sl-counts{font-variant-numeric:tabular-nums;color:#e4e1d7}
+.space-lab-result .sl-difference{color:#e7dfd0}
+.space-lab-result .sl-scope{font-size:12px!important;color:#c3c5bf}
+.space-lab-result .sl-section{text-transform:uppercase;font-size:12px!important;letter-spacing:.05em;color:#d8ba87}
+.space-lab-result .sl-actions{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.space-lab-result button{min-height:44px;padding:8px 10px;background:#28332e;border:1px solid #b49b6b;color:#f1e1c8;cursor:pointer;font:500 14px/1.3 var(--font)}
+.space-lab-result button[hidden]{display:none}
+.space-lab-result button:disabled{opacity:.65;cursor:default}
+.space-lab-result summary{min-height:44px;box-sizing:border-box;padding:10px 0;cursor:pointer;font:500 14px/1.4 var(--font);color:#eed7b0}
+.space-lab-result details{border-top:1px solid #b49b6b66;margin-top:10px}
+.space-lab-result dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:8px 0}
+.space-lab-result dl div{min-width:0}
+.space-lab-result dt{font:400 12px/1.3 var(--font);overflow-wrap:anywhere;color:#c9c3b8}
+.space-lab-result dd{font:500 17px/1.3 var(--font);margin:4px 0;overflow-wrap:anywhere;white-space:pre-wrap}
+.space-lab-result :is(button,summary):focus-visible,.robotics-lab-progress button:focus-visible{outline:2px solid #e4ba78;outline-offset:3px}
+@media(max-width:759px){
+ .robotics-work-caption:is(.has-lab-result,.has-lab-progress,.has-lab-error){top:auto!important;bottom:174px;left:14px;width:calc(100% - 28px);max-width:none;max-height:min(280px,calc(100dvh - 290px));background:#101b20f5;padding:8px 12px;box-sizing:border-box}
+ .space-lab-result{padding:0;background:transparent}
+ .space-lab-result h3{font-size:19px;margin-bottom:5px}
+ .space-lab-result .sl-actions{gap:6px;margin:8px 0}
+ .space-lab-result .sl-actions button{flex:1 1 auto;padding:7px 8px}
+}

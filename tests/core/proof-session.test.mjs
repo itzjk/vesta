@@ -25,6 +25,7 @@ test('one start evaluates actual reviewed cases once and retains their results a
   const before = JSON.stringify(db), h = setup(), { done } = await h.begin();
   assert.equal(await h.session.run(), false, 'A second click cannot overlap the run');
   assert.equal(h.session.snapshot().phase, 'running'); assert.equal(h.session.snapshot().completed, 0);
+  assert.equal(h.session.snapshot().runNumber, 1, 'A blocked overlapping click does not count as another run');
   for (let i = 0; i < 10; i++) { await h.tick(); assert.equal(h.session.snapshot().completed, i + 1); }
   assert.equal(await done, true); const result = h.session.snapshot();
   assert.equal(result.phase, 'complete'); assert.equal(result.passed, 10); assert.equal(result.failed, 0);
@@ -47,7 +48,7 @@ test('stop retains checked cases and cancels work; explicit rerun starts afresh 
   assert.equal(h.queue.size, 0); assert.equal(h.session.snapshot().phase, 'stopped'); assert.equal(h.session.snapshot().completed, 3);
   const next = h.session.run(); assert.equal(h.session.snapshot().completed, 0);
   for (let i = 0; i < 10; i++) await h.tick();
-  assert.equal(await next, true); assert.equal(h.loads, 1); assert.equal(h.session.snapshot().completed, 10); h.session.dispose();
+  assert.equal(await next, true); assert.equal(h.session.snapshot().runNumber, 2); assert.equal(h.loads, 1); assert.equal(h.session.snapshot().completed, 10); h.session.dispose();
 });
 
 test('incorrect expectations and execution failures are reported as failures without suppressing later checks', async () => {
@@ -86,4 +87,70 @@ test('expert comparison exposes all actual assertions and distinguishes partial 
   assert.match(proofComparisons(lunar).find(f => f.key === 'reasons').comparison, /additional reasons are allowed/);
   const failed = evaluateCase({ ...file.cases[0], expected: { ...file.cases[0].expected, hits: 17 } }, db);
   assert.equal(proofComparisons(failed).find(f => f.key === 'hits').pass, false);
+});
+
+test('a failed first UI update cannot strand the session busy or reject the Run action', async () => {
+  let broken = true, failures = 0;
+  const h = setup({ onChange() { if (broken) throw new Error('Detached view'); }, onError() { failures++; } });
+  assert.equal(await h.session.run(), false);
+  assert.equal(h.session.snapshot().phase, 'error');
+  assert.match(h.session.snapshot().error, /could not be displayed/);
+  assert.equal(h.session.snapshot().completed, 0); assert.equal(h.queue.size, 0); assert.equal(h.loads, 0);
+  assert.equal(failures, 1);
+  broken = false;
+  const { done } = await h.begin(); for (let i = 0; i < 10; i++) await h.tick();
+  assert.equal(await done, true); assert.equal(h.session.snapshot().passed, 10); h.session.dispose();
+});
+
+test('a result renderer failure preserves actual evaluations, allows retry and contains a failing error view', async () => {
+  let broken = true, failures = 0;
+  const h = setup({ onChange(state) { if (broken && state.completed >= 3) throw new Error('Source view unavailable'); },
+    onError() { failures++; throw new Error('Fallback view unavailable'); } });
+  const { done } = await h.begin(); for (let i = 0; i < 3; i++) await h.tick();
+  assert.equal(await done, false); const interrupted = h.session.snapshot();
+  assert.equal(interrupted.phase, 'error'); assert.equal(interrupted.completed, 3);
+  assert.equal(interrupted.passed, 3); assert.equal(interrupted.failed, 0, 'A presentation failure is not a failed scientific assertion');
+  assert.equal(h.queue.size, 0); assert.equal(failures, 1);
+  broken = false; const retry = h.session.run();
+  for (let i = 0; i < 10; i++) await h.tick();
+  assert.equal(await retry, true); assert.equal(h.session.snapshot().passed, 10); h.session.dispose();
+});
+
+test('cancel settles a hung load immediately and its late response cannot replace a new run', async () => {
+  let resolveOld, oldSignal, loads = 0;
+  const h = setup({ load: ({ signal }) => {
+    if (++loads === 1) { oldSignal = signal; return new Promise(resolve => { resolveOld = resolve; }); }
+    return Promise.resolve(file);
+  } });
+  const old = h.session.run(); assert.equal(h.session.stop(), true);
+  assert.equal(oldSignal.aborted, true); assert.equal(await old, false);
+  const { done } = await h.begin();
+  resolveOld({ schema: 'wrong', cases: [] }); await Promise.resolve();
+  assert.equal(h.session.snapshot().phase, 'running'); assert.equal(h.session.snapshot().file, file);
+  for (let i = 0; i < 10; i++) await h.tick();
+  assert.equal(await done, true); assert.equal(h.session.snapshot().passed, 10); h.session.dispose();
+});
+
+test('a timed-out load is retryable without fabricated results even if the loader ignores abort', async () => {
+  const deadlines = new Map(); let sequence = 0, loads = 0, oldSignal, resolveOld;
+  const h = setup({ load: ({ signal }) => {
+    if (++loads === 1) { oldSignal = signal; return new Promise(resolve => { resolveOld = resolve; }); }
+    return Promise.resolve(file);
+  }, setLoadTimer: fn => { deadlines.set(++sequence, fn); return sequence; }, clearLoadTimer: id => deadlines.delete(id) });
+  const done = h.session.run(); deadlines.values().next().value();
+  assert.equal(await done, false); assert.equal(oldSignal.aborted, true);
+  assert.equal(h.session.snapshot().phase, 'error'); assert.match(h.session.snapshot().error, /timed out/);
+  assert.equal(h.session.snapshot().completed, 0); assert.equal(deadlines.size, 0);
+  const { done: retry } = await h.begin(); resolveOld({ schema: 'wrong', cases: [] }); await Promise.resolve();
+  for (let i = 0; i < 10; i++) await h.tick();
+  assert.equal(await retry, true); assert.equal(h.session.snapshot().passed, 10); assert.equal(deadlines.size, 0); h.session.dispose();
+});
+
+test('a rejected fetch has an explicit retry path and no cached failure', async () => {
+  let loads = 0;
+  const h = setup({ load: async () => { if (++loads === 1) throw new Error('Network unavailable'); return file; } });
+  assert.equal(await h.session.run(), false); assert.equal(h.session.snapshot().phase, 'error');
+  assert.equal(h.session.snapshot().file, null); assert.equal(h.session.snapshot().passed, 0);
+  const { done } = await h.begin(); for (let i = 0; i < 10; i++) await h.tick();
+  assert.equal(await done, true); assert.equal(loads, 2); assert.equal(h.session.snapshot().passed, 10); h.session.dispose();
 });

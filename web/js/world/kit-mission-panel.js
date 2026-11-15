@@ -1,6 +1,6 @@
 // Presentation only: the host validates approval, current inputs and report export.
 const STATES = Object.freeze({
-  ready: 'Awaiting your approval', approved: 'Approved · ready to move',
+  ready: 'Awaiting approval · stage this virtual kit for crew review', approved: 'Approved · ready to move',
   approach: 'Approaching the kit', retrieve: 'Collecting the virtual kit',
   carry: 'Carrying the virtual kit', place: 'Placing the virtual kit',
   handoff: 'Preparing the crew handoff', complete: 'Review package ready · virtual kit staged',
@@ -94,13 +94,16 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
     call(onEvidence, { material: current.plan.material_id, concern: current.plan.concern,
       questionId: current.plan.question_id }, current);
   });
-  details.prepend(summary, conditions, reason, nextStep, count, rows, findings);
+  details.prepend(summary, evidence, coverage, purpose, conditions, reason, nextStep, count, rows, findings);
   const approve = button('Approve & run animation', 'approve', () => {
     if (canApprove()) call(onApprove, current);
   }); approve.className = 'kit-mission-primary';
   const cancel = button('Cancel task', 'cancel', () => {
     if (hasPlan() && RUNNING.has(current.phase) && typeof onCancel === 'function') call(onCancel, current);
   });
+  // Put the deliberate approval/cancel action before secondary source controls.
+  // Source comparisons remain available without occupying the first task view.
+  actions.insertBefore(approve,source);actions.insertBefore(cancel,source);
   const download = button('Save handoff package', 'download', () => {
     if (canDownload()) call(onDownload, current);
   });
@@ -116,7 +119,7 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
   actions.insertBefore(reset, download);
   const scope = node('p', 'Simulated task · evidence unchanged.', 'kit-mission-scope');
   const fullScope = node('p', '', 'kit-mission-source-ids');details.append(fullScope);
-  element.append(eyebrow, heading, evidence, coverage, purpose, task, actions, motionNote, error, details, scope);
+  element.append(eyebrow, heading, task, actions, scope, motionNote, error, details);
 
   function showMessage() {
     const message = callbackError || current?.revoked_reason || current?.last_rejection || '';

@@ -1,7 +1,7 @@
 import { hardware } from '../scene/materials.js';
 import { loadCases, evaluateCase } from './proof.js';
-import { createProofSession } from './proof-session.js?v=habitat-20261115-1';
-import { createProofReport, renderRejectedExcerpts } from './trust-report.js?v=trust-explore-20261115-1';
+import { createProofSession } from './proof-session.js?v=lab-actions-20261115-1';
+import { createProofReport, renderRejectedExcerpts } from './trust-report.js?v=lab-actions-20261115-1';
 import { cite as contextualCite } from './cite.js?v=habitat-20261115-1';
 import { sourceLocator } from '../ui/source-locator.js?v=habitat-20261115-1';
 import { ensureInformationPolishStyles } from './information-polish.js?v=habitat-20261115-1';
@@ -139,7 +139,7 @@ export async function build(world) {
   const controller = new AbortController();
   let alive = true, active = false, tab = 'home', manifest = null, serial = 0;
   let rejectedSourceRecords = null;
-  let casesFile = null, running = false, consoleLayout = null;
+  let casesFile = null, running = false, checksReady = false, consoleLayout = null;
   const results = [], marks = [];
   const completed = new Set();
   const buttons = new Map();
@@ -311,8 +311,19 @@ export async function build(world) {
   const checksReport = createProofReport({ db, core, cite: (label, id, query) => contextualCite(label, id, world, { query }), onRun: startChecks,
     onStop: stopChecks, onRejected: () => show('rejected'), rawLink: link });
   const proofSession = createProofSession({
-    load: () => loadCases({ signal: controller.signal }),
+    load: ({ signal }) => loadCases({ signal }),
     evaluate: c => evaluateCase(c, db, core),
+    onError(state) {
+      running = false;
+      if (!alive || !active) return;
+      // This fallback does not depend on the failed result-card renderer or GPU.
+      if (tab === 'checks') {
+        const message = element('p', state.error || 'Checks interrupted. Retry checks.');
+        message.setAttribute('role', 'alert');
+        body.replaceChildren(message, button('Retry checks', startChecks)); body.scrollTop = 0;
+      }
+      world.answer?.('Checks interrupted. Retry is available.');
+    },
     onChange(state) {
       casesFile = state.file; running = ['loading', 'running'].includes(state.phase);
       if (!state.results.length) { completed.clear(); marks.splice(0).forEach(mark => mark.remove()); }
@@ -336,8 +347,14 @@ export async function build(world) {
   }
   function stopChecks() { proofSession.stop(); }
   function startChecks() {
-    if (running || !alive || !active) return;
-    show('checks'); return proofSession.run();
+    if (running || !alive) return;
+    if (!active || !checksReady || world.host?.dataset.worldLoading === 'true' || world.host?.dataset.flying === 'true') {
+      checksReady = false; checksReport.setReady(false); world.answer?.('Preparing Trust. Checks will be available when the cabin is ready.'); return false;
+    }
+    if (!body.contains(checksReport.element)) body.replaceChildren(checksReport.element);
+    // Keep the actual result visible after a rerun from deep inside a case.
+    body.scrollTop = 0; consoleEl.scrollTop = 0;
+    return proofSession.run();
   }
   function openChecks(run = true) {
     show('checks'); consoleHolo.requested = true; consoleHolo.open();
@@ -362,14 +379,16 @@ export async function build(world) {
   show('checks');
   return {
     group, anchor, camera,
-    actions: () => [['checks', () => running ? 'Checks running' : results.length ? 'Check results' : 'Run checks'], ['tools', 'Sources & tools'], ['rejected', 'Rejected excerpts'], ['download', 'Download data'], ['api', 'Query the API'], ['assistant', 'Connect an assistant']].map(([id, label]) => ({ id, label, primary: id === 'checks', expanded: () => tab === id && consoleHolo.target > 0, run(trigger) { if (id === 'checks') openChecks(!trigger?.hasAttribute('data-station-explain')); else if (tab === id && consoleHolo.target) consoleHolo.close(); else { show(id); consoleHolo.requested = true; consoleHolo.open(); } } })),
-    enter() { active = true; group.visible = true; marksLayer.hidden = false; world.answer?.(results.length && casesFile ? summaryAnswer() : normalAnswer()); show('checks'); },
+    actions: () => [['checks', () => !checksReady ? 'Preparing Trust…' : running ? 'Checks running' : results.length ? 'Check results' : 'Run checks'], ['tools', 'Sources & tools'], ['rejected', 'Rejected excerpts'], ['download', 'Download data'], ['api', 'Query the API'], ['assistant', 'Connect an assistant']].map(([id, label]) => ({ id, label, primary: id === 'checks', disabled: () => id === 'checks' && (!checksReady || running), expanded: () => tab === id && consoleHolo.target > 0, run(trigger) { if (id === 'checks') openChecks(!trigger?.hasAttribute('data-station-explain')); else if (tab === id && consoleHolo.target) consoleHolo.close(); else { show(id); consoleHolo.requested = true; consoleHolo.open(); } } })),
+    enter() { active = true; checksReady = false; checksReport.setReady(false); group.visible = true; marksLayer.hidden = false; world.answer?.(results.length && casesFile ? summaryAnswer() : normalAnswer()); show('checks'); },
     // Activation closes station panels after enter(); ready() is the existing
     // hook for presenting a workbench without starting its checks.
     ready() { if (active) { consoleHolo.requested = true; consoleHolo.open(); } },
-    leave() { delete world.camera.userData.focusDistance; delete world.camera.userData.aperture; active = false; group.visible = false; marksLayer.hidden = true; stopChecks(); consoleHolo.close(); },
+    leave() { delete world.camera.userData.focusDistance; delete world.camera.userData.aperture; active = false; checksReady = false; checksReport.setReady(false); group.visible = false; marksLayer.hidden = true; stopChecks(); consoleHolo.close(); },
     update(t, state = {}) {
       if (!active) return;
+      const available = world.host?.dataset.worldLoading !== 'true' && world.host?.dataset.flying !== 'true';
+      if (available !== checksReady) { checksReady = available; checksReport.setReady(available); }
       const reduced = state.reducedMotion ?? matchMedia('(prefers-reduced-motion: reduce)').matches;
       const size = world.stage.size();
       const phone = (world.host?.clientWidth ?? size.width) < 760;

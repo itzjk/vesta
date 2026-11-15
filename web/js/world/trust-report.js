@@ -1,10 +1,10 @@
-import { proofComparisons } from './proof-session.js?v=habitat-20261115-1';
+import { proofComparisons } from './proof-session.js?v=lab-actions-20261115-1';
 
 const node = (tag, text, cls = '') => { const n = document.createElement(tag); if (text != null) n.textContent = text; if (cls) n.className = cls; return n; };
 const details = (label, content) => { const d = node('details'); d.append(node('summary', label), content); return d; };
 export function ensureTrustReportStyles() {
   if (document.querySelector('link[data-trust-report]')) return;
-  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/trust-report.css?v=trust-explore-20261115-1', import.meta.url).href;
+  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/trust-report.css?v=lab-actions-20261115-1', import.meta.url).href;
   link.dataset.trustReport = ''; document.head.append(link);
 }
 const fieldNames = { status: 'Outcome', qualifier: 'Pressure qualifier', hits: 'Nearby source rows', rows: 'Relevant source rows', reasons: 'Reasons', coverage: 'Condition coverage', gap: 'Evidence gap', protocol: 'Conditional fallback', rule: 'Rule' };
@@ -28,7 +28,7 @@ export function createProofReport({ db, core, cite, onRun, onStop, onRejected, r
   const button = (label, fn) => { const b = node('button', label); b.type = 'button'; b.onclick = fn; actions.append(b); return b; };
   const run = button('Run checks', onRun); run.dataset.trust = 'start';
   const stop = button('Stop', onStop); stop.hidden = true;
-  const explanation = node('p', 'Software checks, not scientific validation or safety certification.', 'trust-report-scope');
+  const explanation = node('p', 'PASS = expected software behavior. No safety verdict.', 'trust-report-scope');
   const scopeContent = node('div');
   scopeContent.append(node('h3', 'Checked here'), node('p', 'Ten fixed cases compare the loaded software with reviewed expected outcomes: nearby rows, inferred pressure, different cabin conditions, missing evidence, and unsupported-answer refusals. One case removes two sources from a separate index to check that their rule is revoked.'));
   scopeContent.append(node('h3', 'Not checked here'), node('p', 'These cases do not rerun the source-text verification, validate every finding, measure fire behavior, or establish whether an experiment applies to a real spacecraft. They use their own stated cabins; your selected cabin is unchanged.'));
@@ -40,13 +40,25 @@ export function createProofReport({ db, core, cite, onRun, onStop, onRejected, r
   advancedContent.prepend(rejectionButton);
   const advanced = details('Source-text audit & case file', advancedContent);
   const error = node('p', '', 'trust-check-error'); error.hidden = true;
-  element.append(title, purpose, actions, summary, meaning, progress, explanation, error, scopeDetails, list, advanced);
+  element.append(title, purpose, summary, actions, progress, error, explanation, list, meaning, scopeDetails, advanced);
   const cards = new Map();
+  let ready = false, latestState = null;
+  function updateControls(state) {
+    const busy = ['loading', 'running'].includes(state.phase);
+    run.disabled = busy || !ready;
+    run.textContent = !ready ? 'Preparing Trust…' : busy ? 'Running…' : state.results.length || state.phase === 'complete' ? 'Run again' : state.phase === 'error' ? 'Retry checks' : 'Run checks';
+  }
   function resultCard(result, reviewed, ordinal) {
     const row = node('li', null, 'trust-check-result'); row.dataset.proofId = result.id; row.dataset.pass = String(result.pass);
     const disclosure = node('details', null, 'trust-case-details');
     const heading = node('summary', null, 'trust-case-heading');
-    heading.append(node('span', result.pass ? 'PASS' : 'FAIL', 'trust-case-verdict'), node('span', `${ordinal}. ${result.question}`, 'trust-case-question'));
+    const label = node('span', null, 'trust-case-question');
+    label.append(node('span', `${ordinal}. ${result.question}`));
+    const observed = [core.text.status(result.actual.status)];
+    if (result.actual.hits != null) observed.push(`${result.actual.hits} nearby rows`);
+    if (result.actual.qualifier === 'pressure_inferred') observed.push('pressure inferred');
+    label.append(node('span', observed.join(' · '), 'trust-case-observed'));
+    heading.append(node('span', result.pass ? 'PASS' : 'FAIL', 'trust-case-verdict'), label);
     disclosure.append(heading);
     // Success is a compact, inspectable result; a failure exposes its evidence immediately.
     disclosure.open = !result.pass;
@@ -88,20 +100,24 @@ export function createProofReport({ db, core, cite, onRun, onStop, onRejected, r
   }
   function update(state) {
     const busy = ['loading', 'running'].includes(state.phase);
-    run.disabled = busy; run.textContent = busy ? 'Running…' : state.results.length || state.phase === 'complete' ? 'Run again' : 'Run checks';
+    latestState = state; updateControls(state);
     stop.hidden = !busy; progress.max = state.total; progress.value = state.completed;
-    progress.hidden = !busy; purpose.hidden = state.results.length > 0;
-    summary.textContent = state.phase === 'idle' ? '10 fixed cases · checked against this loaded collection'
+    progress.hidden = !busy; purpose.hidden = state.phase !== 'idle';
+    title.hidden = state.results.length > 0;
+    summary.textContent = state.phase === 'idle' ? '10 software checks · this loaded collection'
       : state.phase === 'loading' ? 'Loading the reviewed expected outcomes…'
-      : state.phase === 'error' ? 'Checks unavailable. Retry to load the reviewed cases.'
-      : `${state.completed} of ${state.total} checked · ${state.passed} passed · ${state.failed} failed${state.phase === 'stopped' ? ' · stopped' : state.phase === 'complete' ? ' · complete' : ''}.`;
+      : state.phase === 'error' ? `Checks interrupted · ${state.completed} of ${state.total} evaluated`
+      : state.phase === 'complete' ? `Run ${state.runNumber} complete · ${state.passed}/${state.total} passed${state.failed ? ` · ${state.failed} failed` : ''}`
+      : `${state.completed} of ${state.total} checked · ${state.passed} passed · ${state.failed} failed${state.phase === 'stopped' ? ' · stopped' : ''}.`;
     meaning.textContent = state.phase === 'complete'
-      ? state.failed ? 'Some results differ from the expected behavior. Open the failed cases before relying on this build.' : 'The software reproduced all expected outcomes, including refusals when support is missing. PASS means expected behavior, not that a material is safe.'
+      ? state.failed ? 'Some results differ from the expected behavior. Open the failed cases before relying on this build.' : 'PASS means the expected software behavior was reproduced, including refusals. It does not mean a material is safe.'
       : state.phase === 'stopped' ? 'This run is incomplete. The cases below retain their actual results; unchecked cases have no verdict.'
       : '';
     meaning.hidden = !meaning.textContent;
     element.dataset.checkPhase = state.phase; error.hidden = !state.error; error.textContent = state.error || '';
     if (!state.results.length && cards.size) { cards.clear(); list.replaceChildren(); }
+    // An error state must still render if a particular case view caused the failure.
+    if (state.phase === 'error') return;
     state.results.forEach((result, i) => {
       if (cards.has(result.id)) return;
       const reviewed = state.file.cases.find(c => c.id === result.id), card = resultCard(result, reviewed, i + 1); cards.set(result.id, card); list.append(card);
@@ -109,7 +125,7 @@ export function createProofReport({ db, core, cite, onRun, onStop, onRejected, r
     // Existing nodes (including expanded comparisons and focused source buttons)
     // survive progress updates and tab changes, including the final completion.
   }
-  return { element, update };
+  return { element, update, setReady(value) { ready = Boolean(value); if (latestState) updateControls(latestState); } };
 }
 
 export function renderRejectedExcerpts({ records, sources, locator, rawLink }) {

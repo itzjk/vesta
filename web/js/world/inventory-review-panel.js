@@ -234,7 +234,8 @@ export function createInventoryReviewPanel({ db, onRun, onCancel, onReset, onEvi
       error.hidden = !report.error; error.textContent = report.error || '';
       counts.hidden = report.questions.length === 0;
       counts.textContent = `${report.status === 'complete' ? '' : 'Coverage checked: '}${report.counts.PROVEN} nearby · ${report.counts.EXTRAPOLATED} other conditions · ${report.counts.NEVER_TESTED} no source · ${report.counts.NOT_INDEXED} material not indexed.`;
-      if (report.status === 'complete' && previous?.status !== 'complete') exports.open = true;
+      // An answer is the result; export controls remain a deliberate secondary
+      // action rather than expanding above every completed question.
       report.questions.forEach(updateQuestion);
       queue.hidden = !report.priority.length;
       if (report.priority.length && !queueList.children.length) for (const p of report.priority) {
@@ -256,6 +257,10 @@ export function createInventoryReviewPanel({ db, onRun, onCancel, onReset, onEvi
     const view = cards.get(questionId);
     if (!view?.outer.isConnected) return false;
     if (expandSources) { view.evidence.open = true; view.rowComparison.expand(); }
+    // The containing workspace has a sticky Back control. Its actual height may
+    // wrap on a phone, so reserve that measured space before scrolling a title.
+    const scroller=element.closest('.inventory-review-workspace'),back=scroller?.querySelector('.inventory-review-back');
+    if(scroller&&back)scroller.style.scrollPaddingTop=`${Math.ceil(back.getBoundingClientRect().height)+14}px`;
     view.title.focus({ preventScroll: true });
     view.title.scrollIntoView({ block: 'start', behavior: 'auto' });
     return true;
