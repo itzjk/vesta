@@ -1,6 +1,6 @@
 import { receiptQuery } from '../core/receipt.js';
-import { createReproduction, recheckReproduction, MAX_REPRODUCTION_BYTES, DIGEST_DESCRIPTION } from '../core/reproduction.js?v=sebas-20261115-2';
-import { createReviewerPackage, recheckReviewerPackage, REVIEWER_SCHEMA } from '../core/reviewer-package.js?v=sebas-20261115-2';
+import { createReproduction, recheckReproduction, MAX_REPRODUCTION_BYTES, DIGEST_DESCRIPTION } from '../core/reproduction.js?v=sebas-20261115-3';
+import { createReviewerPackage, recheckReviewerPackage, REVIEWER_SCHEMA } from '../core/reviewer-package.js?v=sebas-20261115-3';
 import { downloadJson } from './download.js';
 
 export function receiptControls({ db, getQuery, onReplay } = {}) {

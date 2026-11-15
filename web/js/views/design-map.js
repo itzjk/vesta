@@ -238,7 +238,7 @@ export function mountField(ui, host, ctx) {
     nearest.replaceChildren();
     if(near) nearest.append(e('span', 'Closest solid row by oxygen and pressure, across gravity planes: '),ui.cite(near.row.id,{label:'source'}), e('span',` · cabin minus row: ${number(q.o2-near.o2)} oxygen percentage points, ${number((q.p-near.p)/6.894757293)} psia · ${near.row.gravity || near.row.n.gclass}. Proximity is not a coverage match.`));
   }
-  Promise.all([import('../scene/engine.js?v=sebas-20261115-2'),import('../scene/field.js?v=sebas-20261115-2')]).then(async([engine,field])=>{
+  Promise.all([import('../scene/engine.js?v=sebas-20261115-3'),import('../scene/field.js?v=sebas-20261115-3')]).then(async([engine,field])=>{
     if(disposed)return; helpers=field;
     const rows=field.fieldRows(ctx.db);
     select.append(e('option',{value:''},`Choose one of ${rows.length} real test rows`),...rows.map(p=>e('option',{value:p.row.id},`${p.row.investigation} · ${p.row.fuel || 'fuel not stated'} · ${number(p.o2)} % oxygen · ${number(p.p/6.894757293)} psia · ${p.row.gravity || 'gravity not stated'} · ${p.row.id}`)));

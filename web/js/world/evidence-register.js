@@ -1,13 +1,13 @@
-import { collectionSummary, evidenceRegister, scoreFactors, nearestSourceRows } from '../core/evidence-register.js?v=sebas-20261115-2';
+import { collectionSummary, evidenceRegister, scoreFactors, nearestSourceRows } from '../core/evidence-register.js?v=sebas-20261115-3';
 import * as text from '../core/text.js';
-import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=sebas-20261115-2';
+import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=sebas-20261115-3';
 
 const node = (tag, value, cls) => {
   const el = document.createElement(tag); if (value != null) el.textContent = value; if (cls) el.className = cls; return el;
 };
 function styles() {
   if (document.querySelector('link[data-evidence-register-style]')) return;
-  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/evidence-register.css?v=sebas-20261115-2', import.meta.url).href;
+  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/evidence-register.css?v=sebas-20261115-3', import.meta.url).href;
   link.dataset.evidenceRegisterStyle = ''; document.head.append(link);
 }
 const detail = (label, content) => { const el = node('details'); el.append(node('summary', label), content); return el; };

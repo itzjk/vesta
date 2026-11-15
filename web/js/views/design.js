@@ -1,5 +1,5 @@
-import { drawMap, mapData, LAYERS, MODEL_NOTE, mountField } from './design-map.js?v=sebas-20261115-2';
-import { renderMatchPanel } from '../ui/matchpanel.js?v=sebas-20261115-2';
+import { drawMap, mapData, LAYERS, MODEL_NOTE, mountField } from './design-map.js?v=sebas-20261115-3';
+import { renderMatchPanel } from '../ui/matchpanel.js?v=sebas-20261115-3';
 
 const CONCERNS = ['prevention', 'detection', 'suppression'];
 const GRAVITY = [['0g', '0 g'], ['moon', '1/6 g'], ['mars', '3/8 g'], ['1g', '1 g']];

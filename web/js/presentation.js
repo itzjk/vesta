@@ -1,17 +1,19 @@
-import { buildQuestionModel } from './world/question-model.js?v=sebas-20261115-2';
-import { createReproduction, recheckReproduction } from './core/reproduction.js?v=sebas-20261115-2';
+import { buildQuestionModel } from './world/question-model.js?v=sebas-20261115-3';
+import { createReproduction, recheckReproduction } from './core/reproduction.js?v=sebas-20261115-3';
 
 const WIDTH = 1280, HEIGHT = 720, FPS = 30, BITRATE = 6_000_000;
+const SUBMISSION_SECONDS = 28, RECORDING_LIMIT_MS = 29_000;
 const TAIL = { source: 5, recheck: 4.5, refusal: 4.5, robotics: 7, end: 2.5 };
 const $ = id => document.getElementById(id);
 const canvas = $('presentation'), ctx = canvas.getContext('2d', { alpha: false });
 const iframe = $('source'), preview = $('preview'), record = $('record'), stop = $('stop');
 const download = $('download'), frame = $('frame'), status = $('status'), summary = $('record-summary');
+const format = $('story-format'), quality = $('quality');
 const scene = document.createElement('canvas'); scene.width = WIDTH; scene.height = HEIGHT;
 const sceneContext = scene.getContext('2d', { alpha: false });
 let generation = 0, run = null, unsubscribe = null, recorder = null, stream = null;
 let chunks = [], videoURL = null, videoBlob = null, completed = false, videoComplete = false, lastFrame = 0, drawing = false;
-let prepared = null, savedFrames = 0, recordedStart = 0;
+let prepared = null, savedFrames = 0, recordedStart = 0, recordedStop = 0, recordingDeadline = null, videoMode = 'submission';
 const mime = typeof MediaRecorder === 'undefined' ? null
   : ['video/webm;codecs=vp8', 'video/webm;codecs=vp9', 'video/webm'].find(type => MediaRecorder.isTypeSupported(type));
 const canRecord = Boolean(mime && canvas.captureStream);
@@ -89,6 +91,48 @@ function drawTour(snapshot) {
   }
   footer();
 }
+function samePreparedQuery(snapshot) {
+  const expected = prepared.bundle.receipt.query;
+  return JSON.stringify(queryFrom(snapshot)) === JSON.stringify([expected.oxygen_percent, expected.pressure_kpa, expected.gravity, expected.gravity_class, expected.material_id, expected.concern]);
+}
+function drawSubmission(seconds, snapshot) {
+  let phase;
+  if (seconds < 12) {
+    if (!snapshot || snapshot.state !== 'running') throw new Error('The actual evidence walkthrough is unavailable.');
+    const changed = snapshot.query.gravity_class === prepared.model.after.gclass;
+    phase = changed ? 'contrast' : 'question';
+    backdrop();
+    heading(changed ? 'Change gravity only.' : 'Can this evidence transfer?', changed ? `O₂ ${snapshot.query.oxygen_percent}% · ${snapshot.query.pressure_kpa} kPa stay fixed` : 'PMMA · fire prevention');
+    const value = changed ? `${prepared.model.counts.before.PROVEN} → ${snapshot.coverage.PROVEN}` : String(snapshot.coverage.PROVEN);
+    line(value, 48, 535, 74, '#ede4d4', 500);
+    line(`of ${snapshot.total} questions have nearby evidence`, 48, 580, 34, '#ede4d4');
+    line(changed ? 'Microgravity → lunar gravity · VESTA collection' : 'Microgravity · VESTA collection', 48, 625, 30, '#c9ad7a');
+  } else if (seconds < 18) {
+    phase = 'source';
+    if (!samePreparedQuery(snapshot)) throw new Error('The displayed cabin does not match the prepared source and recheck.');
+    backdrop(.62); heading('Trace the source.');
+    wrap(prepared.source.title, 48, 315, 1120, 40, 3);
+    line(`Source row ${prepared.source.id}`, 48, 475, 30, '#c9ad7a');
+    line('A source is not a matching lunar test.', 48, 605, 34, '#ede4d4');
+  } else if (seconds < 24) {
+    if (!samePreparedQuery(snapshot)) throw new Error('The displayed cabin changed during the actual recheck proof.');
+    const altered = seconds >= 21;
+    phase = altered ? 'refusal' : 'recheck';
+    backdrop(.68); heading(altered ? 'Edited record? Refused.' : 'Recheck the saved result.');
+    line(altered ? prepared.refused.status : prepared.checked.status, 48, 355, 62, altered ? '#e8b080' : '#ede4d4', 500);
+    line(altered ? 'Oxygen edited · saved fingerprint unchanged' : 'Exported JSON · recomputed locally', 48, 420, 32, '#c6c4bd');
+    line('Software consistency, not scientific validation.', 48, 605, 30, '#c9ad7a');
+  } else {
+    phase = 'end';
+    backdrop(.48); line('VESTA', 48, 195, 94, '#ede4d4', 500);
+    line('Explore the evidence.', 48, 263, 46, '#ede4d4');
+    line('itzjk.github.io/vesta', 48, 335, 38, '#c9ad7a');
+    line('Team Zerack · prototype', 48, 570, 30, '#c6c4bd');
+    line('Evidence coverage is not safety.', 48, 618, 32, '#ede4d4');
+  }
+  footer('VESTA collection · editorial presentation');
+  return phase;
+}
 function drawTail(phase) {
   backdrop(['source', 'recheck', 'refusal'].includes(phase) ? .62 : phase === 'end' ? .25 : 0);
   if (phase === 'source') {
@@ -139,9 +183,26 @@ function onFrame(event) {
   try {
     run.drawAt = now; copyScene(event.canvas);
     const snapshot = run.app.world.questionPresentation;
+    if (run.storyStartedAt == null) {
+      // Preparing the tour can synchronously render before its snapshot exists.
+      // Capture starts only on a fresh, actual opening-question frame.
+      if (snapshot?.state !== 'running' || snapshot.phase !== 'question') throw new Error('The opening question frame was missed. Retry the story in Light 3D.');
+      run.storyStartedAt = now;
+      if (!run.withRecording) status.textContent = 'Preview running. Record restarts the story from the beginning.';
+    }
+    if (run.mode === 'submission') {
+      const seconds = (now - run.storyStartedAt) / 1000;
+      if (snapshot && ['stopped', 'error', 'unavailable'].includes(snapshot.state)) throw new Error('The live walkthrough stopped before completion.');
+      run.shown.add(drawSubmission(seconds, snapshot)); savedFrames++; frame.disabled = false;
+      if (run.withRecording && !recorder) recorderStart(run.mode);
+      if (seconds >= SUBMISSION_SECONDS) {
+        const full = ['question', 'contrast', 'source', 'recheck', 'refusal', 'end'].every(phase => run.shown.has(phase));
+        finish(full ? '28-second story complete. Verify encoded duration and playback before submission.' : 'Capture skipped a story beat. This file is partial; retry in Light 3D.', full);
+      }
+      return;
+    }
     if (snapshot?.state === 'done' && run.tailAt == null) {
-      const expected = prepared.bundle.receipt.query;
-      if (JSON.stringify(queryFrom(snapshot)) !== JSON.stringify([expected.oxygen_percent, expected.pressure_kpa, expected.gravity, expected.gravity_class, expected.material_id, expected.concern])) throw new Error('The walkthrough query changed. This prepared recheck cannot be presented as its result.');
+      if (!samePreparedQuery(snapshot)) throw new Error('The walkthrough query changed. This prepared recheck cannot be presented as its result.');
       run.tailAt = now;
     }
     if (run.tailAt == null) {
@@ -154,6 +215,7 @@ function onFrame(event) {
       drawTail(phase);
     }
     savedFrames++; frame.disabled = false;
+    if (run.withRecording && !recorder) recorderStart(run.mode);
   } catch (error) { finish(`Stopped: ${error.message} A partial recording may be available.`, false); }
   finally { drawing = false; }
 }
@@ -166,8 +228,8 @@ async function waitFor(predicate, token, timeout = 45000) {
   }
   throw new Error('The 3D scene did not become ready. Open VESTA directly to check WebGL support, then retry.');
 }
-async function prepare(token) {
-  const url = new URL('index.html#/design?preset=station&view=simple&quality=high', location.href);
+async function prepare(token, selectedQuality) {
+  const url = new URL(`index.html#/design?preset=station&view=simple&quality=${selectedQuality}`, location.href);
   url.searchParams.set('presentation', String(token));
   iframe.src = url.href;
   const app = await waitFor(() => {
@@ -185,52 +247,63 @@ async function prepare(token) {
   if (checked.status !== 'MATCH' || refused.status !== 'HASH_MISMATCH') throw new Error('The actual local reproduction/refusal checks did not produce the expected outcomes. No proof sequence will be invented.');
   const row = app.db.testById[model.nearestId], investigation = row && app.db.invById[row.psi_id];
   if (!row) throw new Error('The actual source row is unavailable.');
-  prepared = { bundle, checked, refused, source: { id: row.id, title: investigation?.name || row.investigation || row.psi_id, url: row.psi_url || investigation?.psi_url || null } };
+  prepared = { model, bundle, checked, refused, source: { id: row.id, title: investigation?.name || row.investigation || row.psi_id, url: row.psi_url || investigation?.psi_url || null } };
   return app;
 }
-function recorderStart() {
+function recorderStart(mode) {
+  videoMode = mode; recordedStop = 0;
   chunks = []; download.disabled = true; stream = canvas.captureStream(FPS);
   recorder = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: BITRATE });
   recorder.ondataavailable = event => { if (event.data.size) chunks.push(event.data); };
   recorder.onerror = event => finish(`Recording stopped: ${event.error?.message || 'encoder error'}`, false);
   recorder.onstop = () => {
+    clearTimeout(recordingDeadline); recordingDeadline = null;
     stream?.getTracks().forEach(track => track.stop()); stream = null;
     if (videoURL) URL.revokeObjectURL(videoURL);
     videoBlob = new Blob(chunks, { type: recorder.mimeType || mime }); chunks = [];
-    videoComplete = completed;
+    const elapsed = (recordedStop - recordedStart) / 1000;
+    videoComplete = completed && (videoMode !== 'submission' || elapsed < 30);
     videoURL = videoBlob.size ? URL.createObjectURL(videoBlob) : null;
     download.disabled = !videoURL;
-    summary.textContent = videoURL ? `${videoComplete ? 'Complete story' : 'Partial recording'} · ${(videoBlob.size / 1_000_000).toFixed(1)} MB · ${((performance.now() - recordedStart) / 1000).toFixed(1)}s elapsed · requested ${FPS} fps · ${savedFrames} composed frames. Actual encoded timing must be reviewed.` : 'No video data was produced.';
-    recorder = null; preview.disabled = false; record.disabled = !canRecord;
+    summary.textContent = videoURL ? `${videoComplete ? 'Complete story' : 'Partial recording'} · ${videoMode} · ${(videoBlob.size / 1_000_000).toFixed(1)} MB · ${elapsed.toFixed(1)}s capture elapsed · requested ${FPS} fps · ${savedFrames} composed frames. Verify the encoded file is no longer than 30s before using it as the submission demo.` : 'No video data was produced.';
+    recorder = null; preview.disabled = false; record.disabled = !canRecord; format.disabled = quality.disabled = false;
   };
   recordedStart = performance.now(); recorder.start(1000);
+  status.textContent = 'Recording the actual scene. Keep this page visible.';
+  // Independent wall-clock budget also stops a stalled scene; this is not an encoded-duration claim.
+  if (mode === 'submission') recordingDeadline = setTimeout(() => finish('Recording stopped at the 29-second budget. Review this partial file before use.', false), RECORDING_LIMIT_MS);
 }
 async function begin(withRecording) {
   if (recorder) return;
   finish('', false); const token = ++generation;
+  const mode = format.value, selectedQuality = quality.value === 'high' ? 'high' : 'low';
   preview.disabled = record.disabled = true; stop.disabled = false;
+  format.disabled = quality.disabled = true;
   status.textContent = 'Preparing the live scene and checking the real JSON round trip…';
   savedFrames = 0; completed = false;
   try {
-    const app = await prepare(token);
+    const app = await prepare(token, selectedQuality);
     if (generation !== token) return;
-    run = { app, drawAt: -Infinity, tailAt: null, robotics: false };
-    unsubscribe = app.world.stage.on('frame', onFrame); lastFrame = performance.now();
-    if (withRecording) recorderStart();
+    run = { app, mode, withRecording, shown: new Set(), storyStartedAt: null, drawAt: -Infinity, tailAt: null, robotics: false };
     if (!app.world.startQuestion()) throw new Error('The live walkthrough could not start.');
+    // startQuestion may invalidate/render synchronously while initializing.
+    // Subscribe afterward, and never overwrite a cancellation/error state.
+    if (generation !== token || !run) return;
+    unsubscribe = app.world.stage.on('frame', onFrame); lastFrame = performance.now();
     stop.focus({ preventScroll: true });
-    status.textContent = withRecording ? 'Recording the actual scene. Keep this page visible.' : 'Preview running. Record restarts the story from the beginning.';
+    status.textContent = 'Waiting for the first live question frame…';
     record.disabled = withRecording || !canRecord;
   } catch (error) { if (generation === token) finish(error.message, false); }
 }
 function finish(message, full) {
   generation++; completed = full;
+  clearTimeout(recordingDeadline); recordingDeadline = null;
   const prior = run; run = null;
   unsubscribe?.(); unsubscribe = null;
   prior?.app.world?.stopQuestion?.();
   iframe.src = 'about:blank';
-  if (recorder?.state === 'recording') recorder.stop();
-  else { stream?.getTracks().forEach(track => track.stop()); stream = null; preview.disabled = false; record.disabled = !canRecord; }
+  if (recorder?.state === 'recording') { recordedStop = performance.now(); recorder.stop(); }
+  else { stream?.getTracks().forEach(track => track.stop()); stream = null; preview.disabled = false; record.disabled = !canRecord; format.disabled = quality.disabled = false; }
   stop.disabled = true;
   if (message) status.textContent = message;
 }
@@ -238,7 +311,7 @@ function save(url, name) { const link = document.createElement('a'); link.href =
 preview.addEventListener('click', () => begin(false));
 record.addEventListener('click', () => begin(true));
 stop.addEventListener('click', () => finish('Stopped. Any recorded portion is available as a partial review file.', false));
-download.addEventListener('click', () => { if (videoURL) save(videoURL, `vesta-presentation-${videoComplete ? 'review' : 'partial'}.webm`); });
+download.addEventListener('click', () => { if (videoURL) save(videoURL, `vesta-presentation-${videoMode}-${videoComplete ? 'complete' : 'partial'}.webm`); });
 frame.addEventListener('click', () => canvas.toBlob(blob => {
   if (!blob) { status.textContent = 'PNG export failed.'; return; }
   const url = URL.createObjectURL(blob); save(url, 'vesta-presentation-frame.png'); setTimeout(() => URL.revokeObjectURL(url), 1000);

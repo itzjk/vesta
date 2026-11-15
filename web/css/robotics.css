@@ -1,14 +1,18 @@
 .world-host[data-station=robotics] .world-canvas{height:100%!important;width:100%!important;left:0!important}
 .world-host[data-station=robotics] .world-guide .world-guide-intro{display:none!important}
-.robotics-caption{position:absolute;top:110px;left:32px;width:390px;max-width:calc(100% - 64px);color:var(--ivory)}
+.robotics-caption{position:absolute;top:110px;left:32px;width:390px;max-width:calc(100% - 64px);color:var(--ivory);isolation:isolate;text-shadow:0 1px 2px #05090b,0 2px 10px #05090be6}
+.robotics-caption::before{content:"";position:absolute;inset:-25px -65px -30px -32px;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#0d171aeb 0%,#0d171ad9 64%,#0d171a70 83%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 18%,#000 80%,transparent 100%)}
 .robotics-caption[hidden]{display:none}
 .robotics-caption h1{font:600 36px/1.1 var(--display);margin:0 0 10px}
 .robotics-caption p{font:400 17px/1.4 var(--font);margin:0;max-width:360px;color:var(--ivory-dim)}
+.robotics-caption .robotics-bridge{font-size:15px;max-width:390px;color:#d5c4a2;margin-bottom:6px}
+.robotics-caption .robotics-caption-scope{font-size:14px}
 .robotics-references{display:grid;gap:14px;margin-top:20px}
 .robotics-references a{font:400 16px/1.45 var(--font)}
 .world-host[data-station=robotics][data-hologram-open=true] .robotics-caption{display:none}
 @media(max-width:759px){
  .robotics-caption{top:100px;left:20px;max-width:calc(100% - 40px)}
+ .robotics-caption::before{inset:-16px -28px -20px -20px}
  .robotics-caption h1{font-size:26px;margin-bottom:6px}
  .robotics-caption p{font-size:16px;line-height:1.35}
  .world-host[data-station=robotics] .world-answer{max-height:none;overflow:visible;bottom:180px}
@@ -23,3 +27,15 @@
 .robotics-limits p{margin:12px 0}
 .robotics-console .robotics-log{margin:16px 0}
 .robotics-console .robotics-log li{padding:6px 0 10px 16px}
+.world-host[data-station=robotics] .world-actions button:disabled{opacity:.65}
+.world-host[data-station=robotics][data-robotics-phase=review] .world-action-primary{border-color:#d6b57d;background:#674a32}
+@media(max-width:759px){
+ .world-host[data-station=robotics] .world-guide .world-actions{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+ .world-host[data-station=robotics] .world-guide .world-actions>button{grid-column:span 2;min-width:0;min-height:44px;padding:6px 4px;font-size:13px;line-height:1.25}
+ .world-host[data-station=robotics] .world-guide .world-actions>button:nth-child(-n+2){grid-column:span 3;min-height:48px}
+ .world-host[data-station=robotics] .world-answer{bottom:180px;max-height:66px;font-size:16px;line-height:1.35;background:#0e171be8;border-radius:4px}
+ .robotics-caption h1{font-size:25px}
+ .robotics-caption p{font-size:14px;line-height:1.4;max-width:310px}
+ .robotics-caption .robotics-bridge{font-size:13px;max-width:350px}
+ .world-host[data-station=robotics]:is([data-robotics-phase=inspect],[data-robotics-phase=return]) .robotics-caption{display:none}
+}

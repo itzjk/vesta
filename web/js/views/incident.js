@@ -619,7 +619,7 @@ function build(root, ctx) {
   }
   async function mountScene() {
     try {
-      const [engine, cabin] = await Promise.all([import('../scene/engine.js?v=sebas-20261115-2'), import('../scene/cabin.js')]);
+      const [engine, cabin] = await Promise.all([import('../scene/engine.js?v=sebas-20261115-3'), import('../scene/cabin.js')]);
       if (dead) return;
       const stage = await engine.createStage(N.sceneHost, { capture: !!ctx.capture, time: S.t, still: 'assets/scene/cabin.jpg' });
       if (dead) { stage.dispose(); return; }

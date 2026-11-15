@@ -3,8 +3,8 @@ import * as ranking from '../core/rank.js';
 import * as text from '../core/text.js';
 import { CONCERNS } from '../core/index.js';
 import { TOL } from '../core/match.js';
-import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=sebas-20261115-2';
-import { nearestSourceRows, scoreFactors } from '../core/evidence-register.js?v=sebas-20261115-2';
+import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=sebas-20261115-3';
+import { nearestSourceRows, scoreFactors } from '../core/evidence-register.js?v=sebas-20261115-3';
 import { scorebar } from '../ui/scorebar.js';
 
 const defaults = { status, rank: ranking, text };

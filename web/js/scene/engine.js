@@ -1,5 +1,6 @@
 import { createOptics } from './optics.js?v=2';
 import { imageEnvironment } from './imagery.js';
+import { createFrameBudget } from './frame-budget.js?v=sebas-20261115-3';
 
 let active;
 const flags = () => new URLSearchParams(location.hash.split('?')[1] || '');
@@ -22,6 +23,8 @@ export async function createStage(host, opts = {}) {
   const qualityFlag = f.get('quality') || new URLSearchParams(location.search).get('quality');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let mode = opts.mode || (f.get('still') === '1' || reduced.matches && !opts.reducedCuts ? 'still' : qualityFlag === 'low' ? 'low' : 'high');
+  const frameBudget = createFrameBudget({ explicitQuality: Boolean(opts.mode || qualityFlag), capture, still: mode === 'still' });
+  const worldHost = host.closest('.world-host');
   const picture = document.createElement('img');
   picture.className = 'scene-still'; picture.alt = ''; picture.hidden = true;
   host.hidden = false; host.classList.add('scene-host'); host.append(picture);
@@ -30,6 +33,7 @@ export async function createStage(host, opts = {}) {
   const size = () => ({ width: Math.max(1, host.clientWidth), height: Math.max(1, host.clientHeight) });
   const time = () => capture ? Number(opts.time ?? flags().get('t') ?? 2) || 0 : (performance.now() - epoch) / 1000;
   function fallback() {
+    frameBudget.reset();
     mode = 'still'; host.dataset.sceneMode = mode; cancelAnimationFrame(raf);
     if (renderer) renderer.domElement.hidden = true;
     const src = module?.still || opts.still;
@@ -43,7 +47,9 @@ export async function createStage(host, opts = {}) {
     emit('frame', { at: frameStart, renderMs: elapsed, mode, canvas: renderer.domElement });
   }
   function setQuality(value, reason = 'manual') {
-    if (!['high', 'low'].includes(value) || disposed || !renderer || mode === 'still') return;
+    if (!['high', 'low'].includes(value)) return;
+    if (reason === 'manual') frameBudget.manual();
+    if (disposed || !renderer || mode === 'still') return;
     mode = value;
     renderer.shadowMap.enabled = value === 'high';
     host.dataset.sceneMode = value; host.dataset.sceneQualityReason = reason;
@@ -51,12 +57,26 @@ export async function createStage(host, opts = {}) {
   }
   function loop(now) {
     raf = 0;
-    if (disposed || !visible || document.hidden || mode === 'still' || capture || warming) return;
-    render(); raf = requestAnimationFrame(loop);
+    if (disposed || !visible || document.hidden || mode === 'still' || capture || warming) { frameBudget.reset(); return; }
+    render();
+    // Only regular RAF intervals enter this policy; eager invalidate/resume renders
+    // and station preparation never count as evidence of sustained frame pacing.
+    const owner = worldHost?.dataset;
+    const decision = frameBudget.sample({ at: now, mode, capture, visible,
+      hidden: document.hidden || host.hidden || Boolean(worldHost?.hidden), warming,
+      loading: owner?.worldLoading === 'true', flying: owner?.flying === 'true' || host.dataset.flying === 'true',
+      settled: Boolean(module && renderer) && picture.hidden && (worldHost ? owner.worldSettled === 'true' : true),
+      context: worldHost ? owner.station : serial });
+    if (decision) {
+      host.dataset.sceneBudget = JSON.stringify(decision.stats);
+      setQuality(decision.mode, decision.reason);
+    }
+    raf = requestAnimationFrame(loop);
   }
   function resume() { cancelAnimationFrame(raf); if (!disposed && visible && !document.hidden) { render(); if (mode !== 'still' && !capture) raf = requestAnimationFrame(loop); } }
   function resize(restart = true) {
     if (disposed || !renderer || !camera) return;
+    frameBudget.reset();
     const { width, height } = size(), bounds = host.getBoundingClientRect();
     const ratio = Math.min(mode === 'low' ? 1 : 1.5, devicePixelRatio || 1); host.dataset.scenePixelRatio = String(ratio);
     renderer.setPixelRatio(ratio);
@@ -68,11 +88,12 @@ export async function createStage(host, opts = {}) {
     get mode() { return mode; },
     get qualitySelectable() { return mode !== 'still' && Boolean(renderer); },
     get renderer() { return renderer; },
+    get frameBudget() { return frameBudget.snapshot(); },
     setQuality,
-    hold() { warming = true; cancelAnimationFrame(raf); },
+    hold() { frameBudget.reset(); warming = true; cancelAnimationFrame(raf); },
     async warm(prepare, restore) {
       if (disposed || !renderer || !module) return;
-      warming = true; cancelAnimationFrame(raf);
+      frameBudget.reset(); warming = true; cancelAnimationFrame(raf);
       const started = performance.now(), previous = renderer.getRenderTarget(), opacity = renderer.domElement.style.opacity;
       renderer.domElement.style.opacity = '0';
       try {
@@ -86,12 +107,13 @@ export async function createStage(host, opts = {}) {
         }
         host.dataset.sceneWarmMs = (performance.now() - started).toFixed(3);
       } finally {
-        renderer.setRenderTarget(previous); restore?.(); warming = false;
+        renderer.setRenderTarget(previous); restore?.(); warming = false; frameBudget.reset();
         if (!disposed) resume();
         renderer.domElement.style.opacity = opacity;
       }
     },
     async use(sceneModule, initial = {}) {
+      frameBudget.reset();
       const id = ++serial;
       if (module) { module.dispose?.(); scene?.remove(module.group); release(module.group); module = null; }
       state = { ...initial }; picture.hidden = true; epoch = performance.now();
@@ -120,10 +142,10 @@ export async function createStage(host, opts = {}) {
     }
   };
   active = stage;
-  const observer = new ResizeObserver(resize), intersection = new IntersectionObserver(entries => { visible = entries[0]?.isIntersecting !== false; resume(); });
+  const observer = new ResizeObserver(resize), intersection = new IntersectionObserver(entries => { frameBudget.reset(); visible = entries[0]?.isIntersecting !== false; resume(); });
   observer.observe(host); intersection.observe(host);
-  listen(document, 'visibilitychange', () => { if (document.hidden) frozen = performance.now(); else if (frozen) { epoch += performance.now() - frozen; frozen = 0; } resume(); });
-  listen(reduced, 'change', () => { if (reduced.matches && !opts.reducedCuts) fallback(); else resume(); });
+  listen(document, 'visibilitychange', () => { frameBudget.reset(); if (document.hidden) frozen = performance.now(); else if (frozen) { epoch += performance.now() - frozen; frozen = 0; } resume(); });
+  listen(reduced, 'change', () => { frameBudget.reset(); if (reduced.matches && !opts.reducedCuts) fallback(); else resume(); });
   try {
     THREE = await import('../../vendor/three/three.module.js');
     if (disposed) return stage;

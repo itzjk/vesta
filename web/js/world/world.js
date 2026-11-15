@@ -1,12 +1,12 @@
-import { createQuestionTour } from './question-tour.js?v=sebas-20261115-2';
+import { createQuestionTour } from './question-tour.js?v=sebas-20261115-3';
 import { warmBlanket } from '../scene/ship-blanket.js';
-import { cite, configureCitations } from './cite.js?v=sebas-20261115-2';
+import { cite, configureCitations } from './cite.js?v=sebas-20261115-3';
 import { createStationLoader, afterPaint, idleTurn } from './station-loader.js?v=2';
-import { createStage } from '../scene/engine.js?v=sebas-20261115-2';
+import { createStage } from '../scene/engine.js?v=sebas-20261115-3';
 import { build as buildVesta } from '../scene/vesta.js';
 import { createHolograms } from './holo.js';
 import { buildHash } from '../router.js';
-import { createGuide } from './guide.js?v=sebas-20261115-2';
+import { createGuide } from './guide.js?v=sebas-20261115-3';
 import { createVideoCases } from './cases.js';
 import { build as buildWelcome } from './welcome.js';
 import { createMissionBrief, STATION_AGENTS } from './mission.js';
@@ -258,7 +258,7 @@ export async function createWorld(host, context) {
   if (disposed) { engine.dispose(); return; }
   engine.on('quality', syncQuality); syncQuality();
   if (new URLSearchParams(location.search).get('perf') === '1') {
-    const { createPerformanceProbe } = await import('./performance-probe.js?v=sebas-20261115-2');
+    const { createPerformanceProbe } = await import('./performance-probe.js?v=sebas-20261115-3');
     if (!disposed) performanceProbe = createPerformanceProbe({ stage: engine, host, station: () => STATIONS[index]?.id });
   }
   if (engine.mode === 'still') { api.unmount(); ctx.setParams({ view: 'details' }, { replace: true }); return api; }
@@ -310,7 +310,7 @@ export async function createWorld(host, context) {
     loader = createStationLoader({
       count: STATIONS.length, stopped: () => disposed, paused: () => warmingStation || host.dataset.flying === 'true' || Boolean(flight && !flight.cut && performance.now() / 1000 - flight.start < 1.2), yieldTurn: capture ? afterPaint : idleTurn,
       async build(i) {
-        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=sebas-20261115-2`), i === 0 || i === 3 ? warmBlanket(false) : null]);
+        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=sebas-20261115-3`), i === 0 || i === 3 ? warmBlanket(false) : null]);
         if (disposed) return;
         const priorLights = baseLights.map(([light]) => light.intensity);
         let built;

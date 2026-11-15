@@ -2,7 +2,7 @@ import { el, clear, fmt, button } from './el.js';
 import { chip, tag, levelText, pressureText } from './chip.js';
 import { empty } from './empty.js';
 import { citeLabel } from './cite.js';
-import { sourceLocator } from './source-locator.js?v=sebas-20261115-2';
+import { sourceLocator } from './source-locator.js?v=sebas-20261115-3';
 import { getDb, lookup, loadRawCells, openSource, closeSource } from '../store.js';
 
 let host = null, backdrop = null, pane = null, body = null, current = null, lastFocus = null;

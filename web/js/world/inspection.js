@@ -10,15 +10,23 @@ export function advanceInspection(phase, event = 'next') {
 }
 
 export function inspectionReport(q, counts, phase) {
-  const valid = counts && ['PROVEN', 'EXTRAPOLATED', 'NEVER_TESTED'].every(key => Number.isInteger(counts[key]) && counts[key] >= 0);
+  const keys = ['PROVEN', 'EXTRAPOLATED', 'NEVER_TESTED'];
+  const numeric = counts && !Array.isArray(counts) && keys.every(key => Number.isSafeInteger(counts[key]) && counts[key] >= 0);
+  const total = numeric ? keys.reduce((sum, key) => sum + counts[key], 0) : null;
+  const valid = numeric && Number.isSafeInteger(total);
+  const currentPhase = INSPECTION_STEPS.includes(phase) ? phase : 'ready';
   return {
     type: 'vesta-digital-inspection', version: 1, mode: 'software-concept',
     signal: { origin: 'scripted-demo', observation: 'Visual cue at an equipment bay; cause unknown.' },
-    cabin: { preset: q.preset, oxygen_percent: q.o2, pressure_kpa: q.p, gravity: q.g },
-    evidence: valid ? { ...counts } : null,
-    phase, human_approved: ['inspect', 'return', 'complete'].includes(phase),
+    cabin: { preset: q?.preset ?? null, oxygen_percent: q?.o2 ?? null, pressure_kpa: q?.p ?? null, gravity: q?.g ?? null },
+    evidence: valid ? Object.fromEntries(keys.map(key => [key, counts[key]])) : null,
+    evidence_scope: { unit: 'material-concern questions', total: valid ? total : null,
+      meaning: 'Coverage in the loaded VESTA collection, not fire probability or cabin safety.' },
+    visualization: { motion: 'scripted-choreography', scan: 'illustrative-no-sensor-data', target: 'equipment-bay',
+      physics_model: false, freefall_anchoring: false },
+    phase: currentPhase, human_approved: ['inspect', 'return', 'complete'].includes(currentPhase),
     proposed_action: 'Visual inspection only',
-    result: phase === 'complete' ? 'Demonstration completed; no hardware action or safety conclusion.' : 'Demonstration in progress.',
+    result: currentPhase === 'complete' ? 'Demonstration completed; no hardware action or safety conclusion.' : 'Demonstration in progress.',
     hardware_connected: false
   };
 }

@@ -1,7 +1,7 @@
 import { hardware } from '../scene/materials.js';
 import { loadCases, validateCases, evaluateCase } from './proof.js';
-import { sourceLocator } from '../ui/source-locator.js?v=sebas-20261115-2';
-import { ensureInformationPolishStyles } from './information-polish.js?v=sebas-20261115-2';
+import { sourceLocator } from '../ui/source-locator.js?v=sebas-20261115-3';
+import { ensureInformationPolishStyles } from './information-polish.js?v=sebas-20261115-3';
 
 const at = (value, path) => path.split('.').reduce((item, key) => item?.[key], value);
 const count = value => Number.isFinite(value) ? value.toLocaleString('en-US') : 'not reported';
@@ -172,7 +172,7 @@ export async function build(world) {
   }
   async function rejectionSources() {
     if (rejectedSourceRecords) return rejectedSourceRecords;
-    const response = await fetch('data/rejected-excerpts.json?v=sebas-20261115-2', { signal: controller.signal });
+    const response = await fetch('data/rejected-excerpts.json?v=sebas-20261115-3', { signal: controller.signal });
     if (!response.ok) throw new Error('Rejected source details did not load.');
     const audit = await response.json();
     if (audit.schema !== 'vesta.rejected-excerpts/1' || !Array.isArray(audit.records)) throw new Error('Unrecognized rejected-source report.');

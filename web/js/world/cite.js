@@ -1,7 +1,7 @@
 import { renderObservationLens } from './observation-lens.js';
 import { el, css } from '../ui/el.js';
 import { getDb, getCore, lookup, loadRawCells } from '../store.js';
-import { sourceLocator } from '../ui/source-locator.js?v=sebas-20261115-2';
+import { sourceLocator } from '../ui/source-locator.js?v=sebas-20261115-3';
 
 let binding = null, active = null, serial = 0;
 const flags = () => new URLSearchParams(location.hash.split('?')[1] || '');
@@ -174,7 +174,7 @@ async function open(id, trigger, world) {
   const returnTo = active?.panel.contains(trigger) ? active.trigger : trigger;
   close(false);
   const currentSerial = ++serial;
-  await css('css/world.css?v=sebas-20261115-2');
+  await css('css/world.css?v=sebas-20261115-3');
   if (!returnTo.isConnected || currentSerial !== serial) return;
   const session = { id, trigger: returnTo, controller: new AbortController(), inert: [], panel: null };
   const context = world || binding;
