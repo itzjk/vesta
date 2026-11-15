@@ -1,8 +1,11 @@
 import { rank } from './rank.js'; import { cell, findingStatus } from './status.js';
 import { clock } from './clock.js'; import { slug } from './index.js';
 
+export const OFFICER_VERSION = 'vesta.deterministic-officer/1';
+
 const OPS = { '==': (a, b) => a === b, '!=': (a, b) => a !== b, '>': (a, b) => a > b, '>=': (a, b) => a >= b, '<': (a, b) => a < b, '<=': (a, b) => a <= b };
 const holds = (when, fr) => when.every(([k, op, v]) => fr[k] !== undefined && OPS[op](fr[k], v));
+export const matchesConditions = holds;
 const basisOf = w => ['flight', 'ground_lowg', 'normal_g'].includes(w) ? 'experiment' : w === 'operations' ? 'operations' : 'summary';
 
 export function run(frames, db, meta) {

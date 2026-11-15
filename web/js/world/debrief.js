@@ -1,4 +1,5 @@
 import { createDrillModel, basisKey, evidenceIds, node } from './drill-thread.js';
+import { replayControls } from '../ui/replay.js';
 
 export function summarize(model, q) {
   if (!model) return null;
@@ -66,13 +67,8 @@ export function build(world) {
   const actions = node('div', null, 'debrief-actions');
   const button = (label, action, fn) => { const b = node('button', label); b.type = 'button'; b.dataset.debrief = action; b.onclick = fn; actions.append(b); return b; };
   let disposed = false, lastComplete = false;
-  const urls = new Set();
-  const download = button('Download decision log', 'download', () => {
-    if (!model) return;
-    const log = core.officer.decisionLog(model.frames, db, model.meta);
-    const url = URL.createObjectURL(new Blob([JSON.stringify(log, null, 2) + '\n'], { type: 'application/json' })); urls.add(url);
-    const a = node('a'); a.href = url; a.download = `${model.meta.id || 'vesta'}-decisions.json`; element.append(a); a.click(); a.remove();
-  }); download.disabled = !model;
+  const replay = replayControls({ db, getInput: () => ({ frames: model.frames, meta: model.meta }) });
+  if (!model) for (const b of replay.querySelectorAll('button')) b.disabled = true;
   button('Run again', 'replay', () => {
     if (!model) return;
     const q = { t: model.frames[0].t, shot: null, play: null, paused: '1' };
@@ -81,7 +77,7 @@ export function build(world) {
     else world.setQ(q);
   });
   button('Evidence: see the gaps', 'evidence', () => world.go(`#/design?${new URLSearchParams({ preset: model?.meta.preset ?? '', mat: '' })}`));
-  element.append(style, heading, subtitle, counts, actions, node('p', core.text.STATUS_LINE, 'debrief-limit'),
+  element.append(style, heading, subtitle, counts, actions, replay, node('p', core.text.STATUS_LINE, 'debrief-limit'),
     node('h3', 'Earth response delay'), delay, node('h3', 'Review each decision'), decisions,
     node('p', 'SIMULATED TELEMETRY · SCRIPTED · NOT A PHYSICS MODEL', 'debrief-disclosure'));
   function update(q = world.q) {
@@ -94,5 +90,5 @@ export function build(world) {
     lastComplete = state.complete;
   }
   update();
-  return { element, update, focus() { heading.focus({ preventScroll: true }); }, dispose() { disposed = true; for (const url of urls) URL.revokeObjectURL(url); urls.clear(); element.remove(); } };
+  return { element, update, focus() { heading.focus({ preventScroll: true }); }, dispose() { disposed = true; element.remove(); } };
 }

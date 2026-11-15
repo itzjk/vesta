@@ -112,11 +112,14 @@ export async function build(world) {
   }
 
   function closePanel(focus = false) { panelOpen = false; h.close?.(); evidenceMarker.setAttribute('aria-expanded', 'false'); if (focus) evidenceMarker.focus({ preventScroll: true }); }
-  function togglePanel() {
+  // focus: true when a person opens the panel (focus moves to its close button). The station opens it by itself on
+  // arrival with focus: false, so the arrow keys keep travelling between stations instead of stopping on a button.
+  function togglePanel(focus = true) {
     if (panelOpen && h.target > 0) { closePanel(true); return; }
     world.closeSource?.(); panelOpen = true; renderContent(fired().at(-1), time >= end); h.toggle ? h.toggle() : h.open?.();
     evidenceMarker.setAttribute('aria-expanded', 'true');
-    closeButton.focus({ preventScroll: true }); world.invalidate?.();
+    if (focus) closeButton.focus({ preventScroll: true });
+    world.invalidate?.();
   }
   const phrase = (text, id) => id ? world.cite(String(text), id) : el('span', text);
   const nowClock = () => core.clock.clock(meta, time - t0, shifted, db);
@@ -239,7 +242,7 @@ export async function build(world) {
       { id: 'decision-evidence', label: 'Decision evidence', expanded: () => panelOpen && h.target > 0, run: () => togglePanel() },
       { id: 'restart-drill', label: 'Restart', run: () => reset() }
     ],
-    ready() { if (!panelOpen) togglePanel(); },
+    ready() { if (!panelOpen) togglePanel(false); },
     enter() {
       balanceLight(true); active = true; hud.hidden = false; world.answer?.(answer.textContent); previousTick = null; if (scenery) scenery.group.visible = true; closePanel();
       if (!capture && params?.play === '1' && params?.paused == null) run();

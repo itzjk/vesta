@@ -2,6 +2,7 @@ import * as status from '../core/status.js';
 import * as ranking from '../core/rank.js';
 import * as text from '../core/text.js';
 import { CONCERNS } from '../core/index.js';
+import { renderMatchPanel } from '../ui/matchpanel.js?v=16';
 
 const defaults = { status, rank: ranking, text };
 const symbols = { PROVEN: '●', EXTRAPOLATED: '↗', NEVER_TESTED: '×' };
@@ -105,25 +106,23 @@ export function build(world, { onSelection } = {}) {
     detail.replaceChildren(back, heading, state);
     if (cell.status === 'NEVER_TESTED') {
       detail.append(node('p', `${core.text.status(cell.status)}. ${core.text.cellSentence(cell, db.materials[material].label, db)}`, 'coverage-empty'));
+      detail.append(renderMatchPanel(null, q, db));
       detail.hidden = false; detail.scrollTop = 0; element.dataset.detail = 'true';
       if (focus) heading.focus({ preventScroll: true });
       return;
     }
-    detail.append(node('p', core.text.cellSentence(cell, db.materials[material].label, db)));
+    // The comparison comes first: the row and what matched are what a reader checks at a glance; the sentence follows.
+    const sentence = node('p', core.text.cellSentence(cell, db.materials[material].label, db));
     if (nearest) {
-      const { row, fail, note, delta } = nearest;
+      const { row, note } = nearest;
       detail.append(node('h4', 'Nearest source-table row'));
       const rowLine = node('p');
       const pressure = core.text.pressure(row.n.p ?? row.n.p_inferred)
         + (note.includes('pressure_inferred') ? ` (${core.text.reason('pressure_inferred')})` : '');
       cited(rowLine, `${db.invById[row.psi_id]?.name || row.investigation || 'Recorded conditions'}: ${core.text.oxygen(row.n.o2)}, ${pressure}, ${core.text.gravity(row.n.gclass)}.`, row.id);
       detail.append(rowLine);
-      const differences = [...fail, ...note].map(code => core.text.reasonSentence(code, { q, delta, n: db }));
-      if (!fail.length) differences.unshift('Same gravity class; oxygen and pressure are within VESTA’s tolerances.');
-      const explanation = node('p', null, 'coverage-differences');
-      cited(explanation, `${fail.length ? 'Differences:' : 'Matched parameters:'} ${differences.join(' ')}`, row.id); detail.append(explanation);
-      detail.append(node('p', 'Not matched: airflow, geometry, thickness, ignition and suppressant configuration. A match does not establish safety.', 'coverage-limit'));
-    } else detail.append(node('p', 'No source-table row for this question in VESTA’s collection.', 'coverage-empty'));
+      detail.append(renderMatchPanel(row, q, db), sentence);
+    } else detail.append(sentence, node('p', 'No source-table row for this question in VESTA’s collection.', 'coverage-empty'), renderMatchPanel(null, q, db));
     if (findings.length) {
       detail.append(node('h4', 'Best-matching findings'));
       const list = node('ul', null, 'coverage-findings');

@@ -1,0 +1,8 @@
+.world-loading{position:absolute;right:100px;bottom:100px;max-width:min(440px,calc(100% - 64px));margin:0;padding:12px 16px;background:#111617ed;color:var(--ivory,#ede4d4);border-left:2px solid var(--amber,#bd9a64);font:400 16px/1.4 var(--font,system-ui);pointer-events:none}
+.world-loading[hidden]{display:none}
+.world-host[data-world-loading=true] .world-guide{visibility:hidden}
+@media(max-width:759px){
+ .world-loading{left:16px;right:16px;bottom:112px;max-width:none;font-size:14px}
+ .world-host[data-world-loading=true] .world-welcome{top:86px;bottom:182px;left:16px;width:calc(100% - 32px);max-height:none}
+ .world-host[data-world-loading=true] .world-welcome .vesta-welcome-nav{display:flex}
+}

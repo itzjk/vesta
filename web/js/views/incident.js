@@ -1,4 +1,5 @@
-
+import { createDecisionRecord, MAX_RECORD_BYTES } from '../core/replay.js';
+import { replayControls } from '../ui/replay.js';
 export const TELEMETRY_SCHEMA = 'vesta.telemetry/1';
 export const DECISION_LOG_SCHEMA = 'vesta.decision-log/1';
 
@@ -26,6 +27,7 @@ export function parseTelemetry(text) {
   const src = String(text ?? '').replace(/^﻿/, '');
   const bad = (line, field, detail) => ({ ok: false, line, field, detail, message: telemetryError(line, field) });
   const body = src.trim();
+  if (/"schema"\s*:\s*"vesta\.decision-log\//.test(body.slice(0, 300))) return bad(1, 'schema', 'Use Recheck decision JSON for an exported decision log.');
   if (!body) return bad(1, 'schema', 'The file is empty.');
   const items = [];
   if (body[0] === '[') {
@@ -209,22 +211,23 @@ function build(root, ctx) {
   N.source = h('div.inc-source');
   const right = ui.panel('THE SILENCE', [N.delays, N.track, N.readouts, N.houston, N.decided, N.source], { class: 'inc-right' });
 
-  N.btnRun = ui.button('RUN', { action: 'play', onClick: () => (S.playing ? pause() : run()), title: 'Run or pause (Space)' });
-  N.btnStep = ui.button('STEP', { action: 'step', onClick: () => stepTo(+1), title: 'Next step (right arrow)' });
-  N.btnReset = ui.button('RESET', { action: 'reset', onClick: reset, title: 'Back to standby' });
+  N.btnRun = ui.button('RUN', { action: 'play', onClick: () => (S.playing ? pause() : run()), title: 'Run the scripted drill or pause playback (Space)' });
+  N.btnStep = ui.button('STEP', { action: 'step', onClick: () => stepTo(+1), title: 'Advance to the next scripted decision (right arrow)' });
+  N.btnReset = ui.button('RESET', { action: 'reset', onClick: reset, title: 'Restart the loaded drill from standby without changing its telemetry' });
+  for (const b of [N.btnRun, N.btnStep, N.btnReset]) b.setAttribute('aria-label', b.title);
   N.now = h('span.inc-now');
   N.scrubFill = h('div.inc-scrub-fill'); N.scrubKnob = h('div.inc-scrub-knob'); N.scrubMarks = h('div.inc-scrub-marks');
   N.scrub = h('div.inc-scrub', { role: 'slider', tabindex: '0', 'aria-label': 'Scenario time', title: 'Drag to move through the replay' }, h('div.inc-scrub-rail'), N.scrubFill, N.scrubMarks, N.scrubKnob);
   N.endLabel = h('span.inc-end');
   N.speed = h('span.inc-speed');
-  N.file = h('input.inc-file', { type: 'file', accept: '.jsonl,.json,.ndjson,application/json,text/plain', hidden: true, data: { telemetryInput: '' } });
+  N.file = h('input.inc-file', { type: 'file', accept: '.jsonl,.json,.ndjson,application/json,text/plain', hidden: true, 'aria-label': 'Choose vesta.telemetry/1 frames, not an exported decision log', data: { telemetryInput: '' } });
   N.msg = h('div.inc-msg', { role: 'status', hidden: true });
   const bar = h('div.inc-transport',
     h('div.inc-buttons', N.btnReset, N.btnRun, N.btnStep),
     N.now, N.scrub, N.endLabel, N.speed,
     h('div.inc-buttons',
-      ui.button('Export log', { action: 'export-json', small: true, onClick: exportLog, title: 'Download the decision log (vesta.decision-log/1)' }),
-      ui.button('Load telemetry .jsonl', { action: 'load-telemetry', small: true, onClick: () => N.file.click(), title: 'Run the same officer on your own vesta.telemetry/1 file' }), N.file));
+      ui.button('Load telemetry frames', { action: 'load-telemetry', small: true, onClick: () => N.file.click(), title: 'Replace drill input with your vesta.telemetry/1 JSONL frames. To recheck an exported log, use Recheck decision JSON.' }), N.file));
+  const replay = replayControls({ db, getInput: () => ({ frames: S.frames, meta }) });
   const wrap = h('div.inc', { data: { incident: '', presentation: simple ? 'simple' : 'details' } });
   if (simple) {
     const intro = ui.answer('What do you do when Earth cannot answer yet?', S.started ? text.incidentAnswer(meta, S.t - S.t0, shifted(), db) : 'Every scripted decision needs evidence. Run the drill to see what happens.', { class: 'inc-simple-intro' });
@@ -246,8 +249,10 @@ function build(root, ctx) {
         h('div.inc-simple-clock-source', finding(meta.comm?.one_way_finding) ? cite(meta.comm.one_way_finding, { label: 'source' }) : null)),
       h('section.inc-simple-progress', { 'aria-label': 'Drill progress' }, N.simpleDots,
         h('div.inc-simple-actions', N.simpleRun, N.simpleStepButton, N.simpleTrust)),
+      h('div.inc-input-actions', N.btnReset, bar.querySelector('[data-action="load-telemetry"]'), N.file),
       h('footer.inc-simple-disclosures', N.simpleSimulation, h('p', text.STATUS_LINE ?? 'STATUS = EVIDENCE COVERAGE, NOT A SAFETY CERTIFICATION')), N.msg);
   } else wrap.append(left, centre, right, bar, N.msg);
+  wrap.append(replay);
   root.append(wrap);
 
   let leftKey = null;
@@ -410,7 +415,7 @@ function build(root, ctx) {
   function stepView(e, idx) {
     const noSrc = e.state === 'NO_SOURCE';
     const line = noSrc ? say(e.protocol ? 'no_source' : 'no_protocol') : say(e.say);
-    const ack = ui.button('ACK', { small: true, action: 'ack', data: { vestaNext: '' }, onClick: acknowledge, title: 'Acknowledge and go on' });
+    const ack = ui.button('ACK', { small: true, action: 'ack', data: { vestaNext: '' }, onClick: acknowledge, title: 'Acknowledge this decision and continue the scripted drill' });
     let tri;
     try { tri = ui.triad(e, db, { strikeAfter: S.playing && !still ? 800 : 0, limits: false, actions: noSrc ? null : [e.rule_id ? h('span.inc-rule', `rule ${e.rule_id}`) : null, ack], noSourceLine: text.NO_SOURCE_LINE }); }
     catch (err) { console.error('VESTA incident: triad failed', err); tri = h('div.triad', h('p', e.action ?? '')); }
@@ -443,7 +448,7 @@ function build(root, ctx) {
       h('p.inc-end-line', { data: { endLine: '' } },
         `${n} ${n === 1 ? 'decision' : 'decisions'}${heardKnown ? ' before Earth heard the alarm (maximum delay)' : ''}. ${d.experiment} from experiments, ${d.summary} from NASA summaries, ${d.operations} from ISS operations, ${d.no_source} with no source, handled by the ISS procedure.`),
       h('div.inc-end-actions',
-        ui.button('Export log', { action: 'export-json', onClick: exportLog }),
+        ui.button('Export decision log', { action: 'export-json', onClick: exportLog, title: 'Download the full drill with telemetry, method and source evidence' }),
         ui.button('Run again', { action: 'play', onClick: () => { reset(); run(); } }),
         ui.button('See this cabin in Design mode', { onClick: () => ctx.go?.(`#/design?preset=${encodeURIComponent(meta.preset ?? '')}`) })));
   }
@@ -630,7 +635,7 @@ function build(root, ctx) {
       console.warn('VESTA cabin unavailable:', error.message);
     }
   }
-  function render() { if (dead) return; renderCentre(); renderLeft(); renderSilence(); renderTransport(); if (simple) renderSimple(); sceneStage?.set(sceneState()); }
+  function render() { if (dead) return; renderCentre(); renderLeft(); renderSilence(); renderTransport(); if (simple) renderSimple(); for (const b of wrap.querySelectorAll('button[title]')) if (!b.hasAttribute('aria-label')) b.setAttribute('aria-label', b.title); sceneStage?.set(sceneState()); }
 
   function loop(now) {
     raf = 0; if (dead || !S.playing) return;
@@ -683,12 +688,11 @@ function build(root, ctx) {
     writeHash({ t: null, paused: null, play: null, step: null });
     centreKey = leftKey = null; showMsg(null); render();
   }
-  const exportObject = () => decisionLog({ db, meta, frames: S.frames, log: S.log, core, source: S.user ? { kind: 'user file', file: S.user.name, frames: S.frames.length } : null });
-  function exportLog() {
-    const obj = exportObject(), name = `${S.user ? 'user-telemetry' : meta.id}.decision-log.json`;
-    try { ui.downloadJson ? ui.downloadJson(name, obj) : ui.download(name, JSON.stringify(obj, null, 2) + '\n', 'application/json'); wrap.dataset.exported = String(obj.steps.length); }
+  const exportObject = () => createDecisionRecord(S.frames, db, meta);
+  async function exportLog() {
+    const name = `${S.user ? 'user-telemetry' : meta.id}.decision-log.json`;
+    try { const obj = await exportObject(); ui.downloadJson ? ui.downloadJson(name, obj) : ui.download(name, JSON.stringify(obj, null, 2) + '\n', 'application/json'); wrap.dataset.exported = String(obj.steps.length); return obj; }
     catch (e) { showMsg(`The log could not be downloaded: ${e.message}`, true); }
-    return obj;
   }
   function showMsg(msg, isError) { N.msg.hidden = !msg; N.msg.textContent = msg ?? ''; N.msg.dataset.error = isError ? '1' : '0'; wrap.dataset.error = msg && isError ? '1' : '0'; }
   function loadText(body, name) {
@@ -703,10 +707,11 @@ function build(root, ctx) {
   }
   N.file.addEventListener('change', () => {
     const file = N.file.files && N.file.files[0]; if (!file) return;
+    if (file.size > MAX_RECORD_BYTES) { showMsg('Choose telemetry smaller than 16 MB. Nothing runs.', true); N.file.value = ''; return; }
     file.text().then(body => loadText(body, file.name), e => showMsg(`The file could not be read: ${e.message}`, true)).finally(() => { N.file.value = ''; });
   });
   wrap.addEventListener('dragover', e => { if (e.dataTransfer?.types?.includes('Files')) e.preventDefault(); });
-  wrap.addEventListener('drop', e => { const file = e.dataTransfer?.files?.[0]; if (!file) return; e.preventDefault(); file.text().then(body => loadText(body, file.name), e => showMsg(`The file could not be read: ${e.message}`, true)); });
+  wrap.addEventListener('drop', e => { const file = e.dataTransfer?.files?.[0]; if (!file) return; e.preventDefault(); if (file.size > MAX_RECORD_BYTES) { showMsg('Choose telemetry smaller than 16 MB. Nothing runs.', true); return; } file.text().then(body => loadText(body, file.name), e => showMsg(`The file could not be read: ${e.message}`, true)); });
 
   const scrubAt = ev => { const r = N.scrub.getBoundingClientRect(); return S.tMin + Math.min(1, Math.max(0, (ev.clientX - r.left) / (r.width || 1))) * (S.tMax - S.tMin); };
   N.scrub.addEventListener('pointerdown', ev => {

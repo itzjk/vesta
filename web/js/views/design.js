@@ -1,4 +1,5 @@
 import { drawMap, mapData, LAYERS, MODEL_NOTE, mountField } from './design-map.js?v=11';
+import { renderMatchPanel } from '../ui/matchpanel.js?v=16';
 
 const CONCERNS = ['prevention', 'detection', 'suppression'];
 const GRAVITY = [['0g', '0 g'], ['moon', '1/6 g'], ['mars', '3/8 g'], ['1g', '1 g']];
@@ -179,7 +180,8 @@ export function mount(root, ctx) {
       row ? claim(row.id, e('strong', `${row.investigation}, ${row.fuel}${row.fuel_form ? ' ' + row.fuel_form : ''}`),
         e('span', ` · ${short(row.n.o2)} % O2 · ${T.pressure(row.n.p ?? row.n.p_inferred)}${row.n.p == null && row.n.p_inferred != null ? ' inferred' : ''}`),
         c.nearest ? e('span.design-delta', ' · ', `${c.nearest.delta.o2 == null ? 'oxygen not stated' : signed(c.nearest.delta.o2) + ' points O2'}, ${c.nearest.delta.p == null ? 'pressure not stated' : signed(c.nearest.delta.p) + ' kPa'} (cabin minus test)`) : null,
-        e('span.design-row-source', ` · ${row.table_file} · row ${row.row} `), cite(row.id)) : e('p', 'No source-table row for this material and concern in VESTA’s collection. Model-fuel rows are not treated as nearby cabin-material evidence.'));
+        e('span.design-row-source', ` · ${row.table_file} · row ${row.row} `), cite(row.id)) : e('p', 'No source-table row for this material and concern in VESTA’s collection. Model-fuel rows are not treated as nearby cabin-material evidence.'),
+      renderMatchPanel(row, q, db));
     const ranks = db.findings.some(f => f.pillar === q.concern) ? core.rank.rank(db.findings, q, db) : [];
     concernSelect.value = q.concern; rankedCount.textContent = `Top ${Math.min(ranks.length, 25)} of ${ranks.length}`;
     rankedList.replaceChildren(...ranks.slice(0, 25).map((entry, i) => {

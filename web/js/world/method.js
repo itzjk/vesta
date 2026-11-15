@@ -50,6 +50,7 @@ export function renderMethod({ action, onTopic }) {
   section.append(coverage);
 
   const ranking = node('details', null, 'method-detail');
+  ranking.open = true; // the weights are what a technical reader looks for first: shown without a click
   ranking.append(node('summary', 'Relevance weights and scoring limits'), node('p', SCORE_LABEL, 'method-limit'));
   const table = node('table', null, 'method-weights');
   table.append(node('caption', 'Maximum contribution to the finding relevance score'));

@@ -1,24 +1,9 @@
+import { blanketCanvas } from './ship-blanket.js';
 const TAU = Math.PI * 2;
 const hash = n => { const s = Math.sin(n * 127.1 + 61.7) * 43758.5453; return s - Math.floor(s); };
 
 function blanketMap(THREE, low) {
-  const size = low ? 256 : 512, canvas = document.createElement('canvas');
-  canvas.width = canvas.height = size;
-  const ctx = canvas.getContext('2d'), image = ctx.createImageData(size, size);
-  const folds = Array.from({ length: 64 }, (_, i) => {
-    const a = hash(i * 8 + 2) * TAU;
-    return { x: hash(i * 8) * size, y: hash(i * 8 + 1) * size, cosine: Math.cos(a), sine: Math.sin(a), length: 15 + hash(i * 8 + 3) * size * .3, width: 1 + hash(i * 8 + 4) * 3, strength: (hash(i * 8 + 5) - .5) * 130 };
-  });
-  for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
-    let value = 128 + (hash(x + y * size) - .5) * 13;
-    for (const fold of folds) {
-      const dx = (x - fold.x + size * 1.5) % size - size * .5, dy = (y - fold.y + size * 1.5) % size - size * .5, u = dx * fold.cosine + dy * fold.sine, v = -dx * fold.sine + dy * fold.cosine;
-      value += fold.strength * Math.exp(-v * v / (fold.width * fold.width) - u * u / (fold.length * fold.length));
-    }
-    const p = (y * size + x) * 4;
-    image.data[p] = image.data[p + 1] = image.data[p + 2] = value; image.data[p + 3] = 255;
-  }
-  ctx.putImageData(image, 0, 0);
+  const canvas = blanketCanvas(low);
   const texture = new THREE.CanvasTexture(canvas);
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping; texture.repeat.set(7, 2); texture.anisotropy = low ? 2 : 8;
   return texture;

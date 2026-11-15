@@ -1,3 +1,6 @@
+import { warmBlanket } from '../scene/ship-blanket.js';
+import { cite, configureCitations } from './cite.js';
+import { createStationLoader, afterPaint } from './station-loader.js';
 import { createStage } from '../scene/engine.js';
 import { build as buildVesta } from '../scene/vesta.js';
 import { createHolograms } from './holo.js';
@@ -6,6 +9,10 @@ import { createGuide } from './guide.js';
 import { createVideoCases } from './cases.js';
 import { build as buildWelcome } from './welcome.js';
 import { createMissionBrief, STATION_AGENTS } from './mission.js';
+
+if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-welcome]')) {
+  const sheet = document.createElement('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/welcome.css?v=2', import.meta.url).href; sheet.dataset.vestaWelcome = ''; document.head.append(sheet);
+}
 
 export const STATIONS = [
   { id: 'transit', route: 'brief', origin: [0, 0, 0], position: [0, 1.2, 19], target: [0, 0, 0], label: 'Transit' },
@@ -27,6 +34,7 @@ export function stationFor(route, params = {}) {
 
 export async function createWorld(host, context) {
   let ctx = context, disposed = false, index = -1, flight, entered = 0, lastTime, sceneCtx, holo, officer, carrier;
+  let loader, requested, initialShown = false, baseLights = [];
   let engine, inUpdate = false, citationCleanup, desiredPose, renderedPose, updateOfficer;
   let pointerX = 0, pointerY = 0, introTimer, wheel = 0, wheelAt = 0, gesture, cameraOverride, filmActive = false, navigationCut = false, filmPausedAt = null;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -37,6 +45,19 @@ export async function createWorld(host, context) {
   host.classList.add('world-host');
   host.dataset.cinema = 'false'; host.dataset.film = 'false'; host.dataset.hologramOpen = 'false';
   document.documentElement.dataset.world = 'true';
+  host.dataset.worldAllBuilt = 'false'; host.dataset.worldLoading = 'true';
+  const loadingSheet = document.createElement('link'); loadingSheet.rel = 'stylesheet'; loadingSheet.href = new URL('../../css/world-loading.css', import.meta.url).href;
+  if (!document.querySelector('link[data-vesta-world-loading]')) { loadingSheet.dataset.vestaWorldLoading = ''; document.head.append(loadingSheet); }
+  const loading = document.createElement('p'); loading.className = 'world-loading'; loading.setAttribute('role', 'status'); loading.setAttribute('aria-live', 'polite'); overlay.append(loading);
+  const entryStation = () => ctx.route === 'brief' && !ctx.params.station && !ctx.params.src && !capture ? 0 : stationFor(ctx.route, ctx.params);
+  requested = entryStation();
+  function showLoading(next) {
+    requested = next; loader?.request(next);
+    const unavailable = loader?.states[next] === 'unavailable';
+    loading.hidden = false; host.dataset.worldLoading = 'true'; host.dataset.worldRequested = STATIONS[next].id;
+    loading.textContent = unavailable ? `${STATIONS[next].label} is unavailable. Choose another station or Instrument view.` : `Loading ${STATIONS[next].label} cabin… You can choose your cabin or another station.`;
+    welcomeHost.hidden = next !== 0;
+  }
   const nav = document.createElement('nav'); nav.className = 'world-stations'; nav.setAttribute('aria-label', 'World stations');
   const live = document.createElement('span'); live.className = 'world-live'; live.setAttribute('aria-live', 'polite');
   const skip = document.createElement('button'); skip.className = 'world-skip'; skip.textContent = 'Enter the cabin'; skip.hidden = true;
@@ -54,6 +75,8 @@ export async function createWorld(host, context) {
   const guide = createGuide(overlay);
   const welcomeHost = document.createElement('div'); welcomeHost.className = 'world-welcome'; welcomeHost.dataset.stationUi = 'transit'; welcomeHost.hidden = true; overlay.append(welcomeHost);
   let welcome, welcomeKey = '';
+  function syncWelcome() { const key = JSON.stringify(ctx.q); if (welcome && key !== welcomeKey) { welcomeKey = key; welcome.update(ctx.q); } }
+  showLoading(requested);
   const cases = createVideoCases({ onEvidence(query) { navigate(2); acts[2]?.search?.(query); }, onDrill() { navigate(3); } });
   const caseButton = document.createElement('button'); caseButton.type = 'button'; caseButton.className = 'world-case-toggle'; caseButton.textContent = 'Video cases'; caseButton.onclick = () => { holo?.closeAll(); cases.open(caseButton); }; overlay.append(caseButton);
   const mission = createMissionBrief({ navigate, run(station,id) { const i=STATIONS.findIndex(s=>s.id===station); const action=acts[i]?.actions?.().find(action=>action.id===id); if(action && !action.expanded?.()) action.run(); } });
@@ -83,10 +106,17 @@ export async function createWorld(host, context) {
   }
   function handles(i) { return acts[i]?.holograms?.() || []; }
   function activate(next, cut = false) {
-    if (!sceneCtx || next === index) return;
+    if (disposed) return;
+    if (!sceneCtx || loader?.states[next] !== 'ready') { showLoading(next); return; }
+    requested = next; host.dataset.worldRequested = STATIONS[next].id;
+    if (next === index) { loading.hidden = true; host.dataset.worldLoading = 'false'; welcomeHost.hidden = next !== 0; return; }
+    loading.hidden = true; host.dataset.worldLoading = 'false';
+    if (!initialShown) { cut = true; initialShown = true; host.dataset.worldEntry = STATIONS[next].id; }
+
     clearTimeout(introTimer); cameraOverride = null;
     const prior = index, s = STATIONS[next], t = performance.now() / 1000;
     if (prior >= 0) { acts[prior]?.leave?.(s.id); handles(prior).forEach(h => h.close?.()); }
+    baseLights.forEach(([light, intensity]) => { light.intensity = intensity; });
     index = next; entered = t;
     const framing = typeof acts[next]?.camera === 'function' ? acts[next].camera(0) : acts[next]?.camera;
     const target = new sceneCtx.THREE.Vector3(...(framing?.target || s.target));
@@ -148,16 +178,13 @@ export async function createWorld(host, context) {
   function disposeWorld() {
     if (disposed) return;
     disposed = true; clearTimeout(introTimer); citationCleanup?.(); listeners.forEach(fn => fn()); engine?.dispose(); holo?.dispose(); acts.forEach(a => a?.dispose?.()); welcome?.dispose(); cases.dispose(); mission.dispose(); guide.dispose(); canvasHost.remove(); overlay.remove(); host.classList.remove('world-host'); delete document.documentElement.dataset.world; delete document.documentElement.dataset.cinema;
-    for (const key of ['cinema', 'film', 'filmPaused', 'hologramOpen', 'dockSide', 'flying']) delete host.dataset[key];
+    for (const key of ['worldAllBuilt', 'worldLoading', 'worldRequested', 'worldEntry', 'worldSettled', 'cinema', 'film', 'filmPaused', 'hologramOpen', 'dockSide', 'flying']) delete host.dataset[key];
+    STATIONS.forEach(station => { delete host.dataset[`${station.id}Ready`]; delete host.dataset[`${station.id}Unavailable`]; });
     host.style.removeProperty('--world-dock-width');
   }
   if (ctx.signal) listen(ctx.signal, 'abort', disposeWorld, { once: true });
-  let citeModule;
-  try { citeModule = await import('./cite.js'); } catch { citeModule = null; }
-  if (disposed) return { unmount: disposeWorld };
-  engine = await createStage(canvasHost, { capture, reducedCuts: true, mode: ctx.params?.still === '1' ? 'still' : undefined });
   const api = {
-    update(next) { const priorRoute = ctx.route; ctx = next; if (sceneCtx && !(index === 0 && ctx.route === 'brief' && priorRoute === 'brief' && !ctx.params.station && !ctx.params.intro)) { const nextIndex = stationFor(ctx.route, ctx.params); if (priorRoute !== ctx.route && nextIndex === index) acts[index]?.enter?.(STATIONS[index].id); else activate(nextIndex, navigationCut); navigationCut = false; } invalidate(); },
+    update(next) { const priorRoute = ctx.route; ctx = next; syncWelcome(); if (!(index === 0 && ctx.route === 'brief' && priorRoute === 'brief' && !ctx.params.station && !ctx.params.intro)) { const nextIndex = initialShown ? stationFor(ctx.route, ctx.params) : entryStation(); if (priorRoute !== ctx.route && nextIndex === index) acts[index]?.enter?.(STATIONS[index].id); else activate(nextIndex, navigationCut); navigationCut = false; } invalidate(); },
     navigate, invalidate, setCinema, setFilm(value, options = {}) {
       const now = performance.now() / 1000, paused = value && options.paused;
       if (paused && filmPausedAt == null) filmPausedAt = now;
@@ -169,7 +196,21 @@ export async function createWorld(host, context) {
     unmount: disposeWorld,
     dispose() { api.unmount(); }
   };
-  if (disposed) { engine.dispose(); return api; }
+  async function start() {
+  if (disposed) return;
+  const welcomeWorld = {
+    get db() { return ctx.db; }, get core() { return ctx.core; }, get q() { return ctx.q; },
+    setQ: (...args) => ctx.setQ(...args), go: (...args) => ctx.go(...args), navigate,
+    cite(text, id) {
+      return cite(text, id, welcomeWorld);
+    }, invalidate
+  };
+  welcome = buildWelcome(welcomeWorld); welcomeKey = JSON.stringify(ctx.q); welcomeHost.append(welcome.element); welcomeHost.hidden = requested !== 0;
+  warmBlanket(innerWidth < 760 || navigator.hardwareConcurrency <= 4 || navigator.deviceMemory <= 4);
+  await afterPaint();
+  if (disposed) return;
+  engine = await createStage(canvasHost, { capture, reducedCuts: true, mode: ctx.params?.still === '1' ? 'still' : undefined });
+  if (disposed) { engine.dispose(); return; }
   if (engine.mode === 'still') { api.unmount(); ctx.setParams({ view: 'details' }, { replace: true }); return api; }
   await engine.use({ async build(stage) {
     sceneCtx = stage;
@@ -182,7 +223,7 @@ export async function createWorld(host, context) {
     const rim = new THREE.DirectionalLight(0x8fa3b5, 2); rim.position.set(4, 2, -2); group.add(rim);
     holo = createHolograms({ ...stage, host, size: () => ({ width: host.clientWidth, height: host.clientHeight }), viewSize: () => ({ ...stage.size(), left: canvasHost.offsetLeft, top: canvasHost.offsetTop }), onChange: invalidate, scene: group, reduced: reduced.matches, capture, projector(out) { carrier.updateMatrixWorld(true); return officer.locate('beacon', renderedPose || officer.defaults, reduced.matches ? 2 : lastTime || 0, out); } });
     for (let i = 0; i < STATIONS.length; i++) {
-      const root = new THREE.Group(); root.position.fromArray(STATIONS[i].origin); group.add(root); roots.push(root);
+      const root = new THREE.Group(); root.position.fromArray(STATIONS[i].origin); group.add(root); roots.push(root); root.visible = false;
       const world = {
         THREE, stage: { ...stage, scene: root, set: patch => { Object.assign(world.state, patch); invalidate(); }, on: (...args) => engine.on(...args) },
         root, citationPanels(trigger) { return holo.handles.filter(h => h.target > 0 && !h.options.source && h.options.station === STATIONS[index]?.id); }, origin: STATIONS[i].origin, station: STATIONS[i].id, camera, host, overlay, vesta: officer, vestaPose: {}, state: {},
@@ -210,22 +251,44 @@ export async function createWorld(host, context) {
         }
       };
       world.cite = (text, id) => {
-        if (citeModule?.cite) return citeModule.cite(text, id, world);
-        const b = document.createElement('button'); b.className = 'world-cite'; b.textContent = text; b.onclick = () => ctx.openSource(id); return b;
+        return cite(text, id, world);
       };
       world.stage.context = world.stage;
       worlds.push(world);
-      try {
-        const mod = await import(`./${FILES[i]}.js`); const act = await mod.build(world); acts[i] = act;
-        if (act.group && act.group.parent !== root) root.add(act.group);
-        handles(i).forEach(h => h.close?.());
-      } catch (error) {
-        host.dataset[`${STATIONS[i].id}Unavailable`] = 'true';
-        console.warn(`VESTA ${STATIONS[i].id} unavailable: ${error.message}`);
-      }
     }
-    citationCleanup = citeModule?.configureCitations?.({ ...worlds[0], stage, hologram: holo.hologram });
-    welcome = buildWelcome(worlds[0]); welcomeHost.append(welcome.element);
+    baseLights = group.children.filter(item => item.isLight).map(light => [light, light.intensity]);
+    loader = createStationLoader({
+      count: STATIONS.length, stopped: () => disposed, yieldTurn: afterPaint,
+      async build(i) {
+        const [mod] = await Promise.all([import(`./${FILES[i]}.js`), i === 0 || i === 3 ? warmBlanket(stage.mode === 'low') : null]);
+        if (disposed) return;
+        const priorLights = baseLights.map(([light]) => light.intensity);
+        let built;
+        try { baseLights.forEach(([light, intensity]) => { light.intensity = intensity; }); built = mod.build(worlds[i]); }
+        finally { baseLights.forEach(([light], j) => { light.intensity = priorLights[j]; }); }
+        const act = await built;
+        if (disposed) { act?.dispose?.(); return; }
+        acts[i] = act;
+        if (act.group && act.group.parent !== roots[i]) roots[i].add(act.group);
+        handles(i).forEach(h => h.close?.());
+      },
+      changed(i, state, error) {
+        host.dataset[`${STATIONS[i].id}Ready`] = String(state === 'ready');
+        host.dataset.worldAllBuilt = String(loader.complete);
+        host.dataset.worldSettled = String(loader.settled);
+        if (state === 'unavailable') {
+          roots[i].visible = false; host.dataset[`${STATIONS[i].id}Unavailable`] = 'true';
+          console.warn(`VESTA ${STATIONS[i].id} unavailable: ${error.message}`);
+          if (i === requested) showLoading(i);
+        }
+        if (state === 'ready' && i === requested && !capture) activate(i, true);
+      }
+    });
+    Object.setPrototypeOf(welcomeWorld, worlds[0]);
+    citationCleanup = configureCitations({ ...worlds[0], stage, hologram: holo.hologram });
+    await loader.ensure(requested);
+    if (capture) { await loader.prepare(); activate(requested, true); }
+    else if (loader.states[requested] === 'ready') activate(requested, true);
     listen(window, 'vesta:cite', event => { if (!event.detail.open) invalidate(); });
     engine.on('pick', hit => {
       if (!hit) return;
@@ -233,8 +296,6 @@ export async function createWorld(host, context) {
       const trigger = worlds[index].cite('Read the selected test row', hit.id);
       trigger.classList.add('world-picked-source'); overlay.append(trigger); trigger.click();
     });
-    const initial = stationFor(ctx.route, ctx.params);
-    activate(ctx.route === 'brief' && !ctx.params.station && !ctx.params.src && !capture ? 0 : initial, true);
     let lastFrame, totalFrame = 0, frameCount = 0;
     return { group, pick(x, y) { return acts[index]?.pick?.(x, y); }, update(t) {
       inUpdate = true;
@@ -262,7 +323,7 @@ export async function createWorld(host, context) {
       if (camera.aspect < .9) camera.fov = Math.max(44, camera.fov);
       camera.updateProjectionMatrix();
       const motionT = reduced.matches ? 2 : t;
-      officer.group.visible = index !== 0;
+      officer.group.visible = index > 0;
       officer.update(motionT, { ...officer.defaults, x: -1.7, idle: 1, thrust: .65, beacon: .3, beaconWarm: 1, yaw: .15 + pointerX * .1, lookX: pointerX * .6, lookY: pointerY * .5, blink: Math.max(0, 1 - Math.abs((motionT % 5.8) - 4.7) / .14), ...worlds[index]?.vestaPose });
       acts.forEach((act, i) => {
         const active = i === index;
@@ -303,7 +364,7 @@ export async function createWorld(host, context) {
       }
       holo.update(motionT, dt);
       guide.update();
-      if (index === 0) { const key = JSON.stringify(ctx.q); if (key !== welcomeKey) { welcomeKey = key; welcome.update(ctx.q); } }
+      if (index === 0) syncWelcome();
       if (!capture && lastFrame != null) { totalFrame += frameStarted - lastFrame; frameCount++; host.dataset.worldFrameMs = (totalFrame / frameCount).toFixed(2); }
       lastFrame = frameStarted;
       inUpdate = false;
@@ -312,6 +373,10 @@ export async function createWorld(host, context) {
   } });
   if (engine.mode === 'still') fallback('WebGL unavailable');
   listen(canvasHost, 'webglcontextlost', () => fallback('WebGL context lost'), true);
+  if (!disposed && !capture) { await afterPaint(); if (!disposed) loader?.prepare(); }
+  }
+  const started = start().catch(error => { console.warn('VESTA world unavailable:', error.message); fallback('World unavailable'); });
+  if (capture) await started;
   return api;
 }
 export const mount = createWorld;

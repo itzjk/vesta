@@ -65,4 +65,8 @@
 .coverage-wall .coverage-legend dt{font-size:14px}
 .coverage-wall .coverage-legend dd{font-size:32px}
 }
-
+/* A question is open in the narrow panel: the three totals step aside so the answer and its comparison are in view. */
+@container (max-width:759px){.coverage-wall.coverage-wall[data-detail=true] :is(.coverage-legend,.coverage-answer){display:none}
+.coverage-wall.coverage-wall[data-detail=true] .coverage-detail h3{margin:4px 0 8px}
+.coverage-wall.coverage-wall[data-detail=true] .coverage-detail h4:first-of-type{margin-top:10px}
+.coverage-wall.coverage-wall[data-detail=true] .coverage-detail .matchpanel{margin-top:10px;padding-top:10px}}
