@@ -6,7 +6,8 @@
 .kit-mission-strip .kit-mission-eyebrow{font-size:12px!important;letter-spacing:.07em!important;color:#c5b69a!important;margin-bottom:5px!important}
 .kit-mission-strip .kit-mission-evidence{color:#e3bd8c!important}
 .kit-mission-strip .kit-mission-phase{font-weight:600!important;margin-top:9px!important}
-.kit-mission-strip .kit-mission-purpose{color:#c6ceca!important}
+.kit-mission-strip .kit-mission-purpose{font-size:14px!important;color:#c6ceca!important;white-space:pre-line}
+.kit-mission-strip .kit-mission-coverage{font-size:14px!important;font-variant-numeric:tabular-nums!important;color:#c6ceca!important}
 .kit-mission-strip .kit-mission-actions{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 8px}
 .kit-mission-strip button{font:500 15px/1.35 var(--font,sans-serif)!important;letter-spacing:0;min-width:44px;min-height:44px;max-width:100%;padding:8px 11px;border:1px solid #9ba99c8c;border-radius:4px;color:#f1e9d9;background:transparent;white-space:normal;text-align:left;cursor:pointer;touch-action:manipulation}
 .kit-mission-strip button:hover:not(:disabled){background:#2b383d;border-color:#d2c5ac}
@@ -24,7 +25,9 @@
 .kit-mission-strip .kit-mission-error{border-left:2px solid #dbab78;padding-left:9px;color:#f1c699!important}
 .kit-mission-strip .kit-mission-motion-note{font-size:14px!important;color:#e3bd8c!important}
 @media(max-width:759px){
- .kit-mission-strip{padding:8px 12px}
+ .kit-mission-strip{padding:8px 12px;display:flex;flex-direction:column}
+ .kit-mission-strip .kit-mission-purpose{order:1}
+ .kit-mission-strip :is(.kit-mission-details,.kit-mission-scope){order:2}
  .kit-mission-strip .kit-mission-eyebrow{display:none}
  .kit-mission-strip .kit-mission-title{font-size:16px!important;line-height:1.3!important;margin-bottom:3px!important}
  .kit-mission-strip .kit-mission-phase{font-size:14px!important;line-height:1.3!important;margin:0 0 4px!important}

@@ -103,10 +103,11 @@
 .robotics-kit-cabin{font-size:13px!important;color:#d7c4a4!important;margin-top:8px!important}
 .robotics-kit-cabin[hidden]{display:none}
 @media(max-width:759px){
- .robotics-work-caption.has-kit-task{top:auto!important;bottom:120px;left:14px;width:calc(100% - 28px);max-width:none;max-height:min(190px,34dvh);background:#101b20ed;padding:8px 12px;box-sizing:border-box;scroll-padding:8px}
+ .robotics-work-caption.has-kit-task{top:auto!important;bottom:174px;left:14px;width:calc(100% - 28px);max-width:none;max-height:min(190px,34dvh);background:#101b20ed;padding:8px 12px;box-sizing:border-box;scroll-padding:8px}
  .robotics-work-caption.has-kit-task>:is(h1,.robotics-eyebrow,.robotics-kit-cabin){display:none}
  .robotics-work-caption.has-kit-task .kit-mission-strip{margin-top:0;padding:0;background:transparent;border-top:0;border-bottom:0}
  .robotics-work-caption.has-kit-task .kit-mission-scope{font-size:12px!important}
  .world-host[data-station=robotics]:is([data-robotics-kit-phase=approved],[data-robotics-kit-phase=approach],[data-robotics-kit-phase=retrieve],[data-robotics-kit-phase=carry],[data-robotics-kit-phase=place],[data-robotics-kit-phase=handoff]) .robotics-work-caption.has-kit-task{max-height:146px}
  .world-host[data-station=robotics] .world-actions :is([data-station-action=inventory-next],[data-station-action=inventory-download]){display:none}
+ .world-host[data-station=robotics] .world-actions [data-station-action=inventory-view]{grid-column:1/-1;min-height:44px}
 }

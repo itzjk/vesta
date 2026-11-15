@@ -12,7 +12,6 @@ const EVIDENCE = Object.freeze({
 });
 const RUNNING = new Set(['approved', 'approach', 'retrieve', 'carry', 'place', 'handoff']);
 const PHASE_STEP = Object.freeze({ approach: 1, retrieve: 2, carry: 3, place: 4, handoff: 5 });
-const DEFAULT_PURPOSE = 'Stage a virtual review kit at the crew-review fixture for the selected component.';
 const node = (tag, text = '', cls = '') => {
   const element = document.createElement(tag);
   if (text) element.textContent = text;
@@ -31,7 +30,7 @@ const titleCase = value => typeof value === 'string' && value
 function ensureStyles() {
   if (document.querySelector('link[data-kit-mission-styles]')) return;
   const sheet = node('link'); sheet.rel = 'stylesheet';
-  sheet.href = new URL('../../css/kit-mission.css?v=crew-workspace-20261115-1', import.meta.url).href;
+  sheet.href = new URL('../../css/kit-mission.css?v=review-workbench-20261115-1', import.meta.url).href;
   sheet.dataset.kitMissionStyles = ''; document.head.append(sheet);
 }
 
@@ -52,7 +51,8 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
   const evidence = node('p', '', 'kit-mission-evidence');
   const task = node('p', '', 'kit-mission-phase');
   task.setAttribute('role', 'status'); task.setAttribute('aria-live', 'polite'); task.setAttribute('aria-atomic', 'true');
-  const purpose = node('p', DEFAULT_PURPOSE, 'kit-mission-purpose');
+  const purpose = node('p', '', 'kit-mission-purpose');
+  const coverage = node('p', '', 'kit-mission-coverage');
   const details = node('details', '', 'kit-mission-details');
   const summary = node('summary', 'Review request & sources');
   const conditions = node('p', '', 'kit-mission-conditions');
@@ -89,21 +89,22 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
     b.addEventListener('click', action); cleanups.push(() => b.removeEventListener('click', action));
     parent.append(b); return b;
   };
-  const source = button('Open evidence', 'evidence', () => {
-    if (!hasPlan() || typeof onEvidence !== 'function') return;
+  const source = button('Open source comparison', 'evidence', () => {
+    if (!hasPlan() || current.plan_valid !== true || typeof onEvidence !== 'function') return;
     call(onEvidence, { material: current.plan.material_id, concern: current.plan.concern,
       questionId: current.plan.question_id }, current);
-  }, details);
-  details.prepend(summary, evidence, conditions, reason, nextStep, count, rows, findings);
+  });
+  details.prepend(summary, conditions, reason, nextStep, count, rows, findings);
   const approve = button('Approve & run animation', 'approve', () => {
     if (canApprove()) call(onApprove, current);
   }); approve.className = 'kit-mission-primary';
   const cancel = button('Cancel task', 'cancel', () => {
     if (hasPlan() && RUNNING.has(current.phase) && typeof onCancel === 'function') call(onCancel, current);
   });
-  const download = button('Save review package', 'download', () => {
+  const download = button('Save handoff package', 'download', () => {
     if (canDownload()) call(onDownload, current);
   });
+  download.title = 'Selected-question handoff plus the full inventory evidence report.';
   const reset = button('Prepare replay', 'reset', () => {
     if (hasPlan() && !RUNNING.has(current.phase) && typeof onReset === 'function') {
       details.open = false;
@@ -115,7 +116,7 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
   actions.insertBefore(reset, download);
   const scope = node('p', 'Simulated task · evidence unchanged.', 'kit-mission-scope');
   const fullScope = node('p', '', 'kit-mission-source-ids');details.append(fullScope);
-  element.append(eyebrow, heading, purpose, task, actions, motionNote, error, details, scope);
+  element.append(eyebrow, heading, evidence, coverage, purpose, task, actions, motionNote, error, details, scope);
 
   function showMessage() {
     const message = callbackError || current?.revoked_reason || current?.last_rejection || '';
@@ -134,13 +135,22 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
     if (plan.input_signature !== lastSignature) {
       lastSignature = plan.input_signature;
       text(heading, `${plan.material || titleCase(plan.material_id)} · ${titleCase(plan.concern)}`);
-      text(evidence, `Evidence · ${EVIDENCE[plan.evidence_status] || 'Status unavailable'}`);
+      text(evidence, `Evidence · ${plan.evidence_label || EVIDENCE[plan.evidence_status] || 'Status unavailable'}`);
       text(conditions, `Saved cabin: ${plan.query?.o2 ?? 'unavailable'}% oxygen · ${plan.query?.p ?? 'unavailable'} kPa · gravity: ${plan.query?.g ?? 'unavailable'}.`);
       text(reason, plan.request?.reason || 'Review request unavailable.');
       text(nextStep, plan.request?.next_step || ''); nextStep.hidden = !plan.request?.next_step;
       const rowIds = sourceIds(plan.source_ids?.rows), findingIds = sourceIds(plan.source_ids?.findings);
+      const totalRows = Number.isInteger(plan.evidence_cell?.rows) ? plan.evidence_cell.rows : null;
+      const nearbyRows = sourceIds(plan.source_ids?.nearby_rows).length;
+      text(coverage, `${totalRows == null ? 'Unknown number of' : totalRows} indexed rows · ${nearbyRows} nearby`);
+      const difference = plan.request?.condition_differences?.find(item => item.record_id && item.detail);
+      text(purpose, difference
+        ? `${difference.record_kind === 'finding' ? 'Finding' : 'Row'} ${difference.record_id}\n${difference.detail.replace(/^Row: /, 'Source: ')}`
+        : plan.evidence_status === 'NEVER_TESTED'
+          ? 'No row or finding answers this question in the loaded collection. The request is to locate an attributable source.'
+          : 'Review the source assumptions and the variables outside matching: airflow, geometry, thickness, ignition and suppressant.');
       text(summary, 'Evidence & review request');
-      text(count, `Linked evidence: ${rowIds.length} source ${rowIds.length === 1 ? 'row' : 'rows'} · ${findingIds.length} ${findingIds.length === 1 ? 'finding' : 'findings'}`);
+      text(count, `Selected for inspection: ${rowIds.length} source ${rowIds.length === 1 ? 'row' : 'rows'} · ${findingIds.length} ${findingIds.length === 1 ? 'finding' : 'findings'}. Up to three of each; not the entire evidence set.`);
       text(rows, rowIds.length ? `Row IDs: ${rowIds.join(', ')}` : 'No source row linked.');
       text(findings, findingIds.length ? `Finding IDs: ${findingIds.join(', ')}` : 'No finding linked.');
       text(fullScope, plan.scope || 'Illustrative virtual task. No hardware control, sensor measurements or physical tests.');
@@ -153,8 +163,6 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
       : STATES[current.phase] || 'Stage unavailable';
     const step = PHASE_STEP[current.phase];
     text(task, step ? `${step}/5 · ${phaseLabel}` : phaseLabel);
-    const reviewReason = String(plan.request?.reason || 'Review the linked sources and unresolved conditions.');
-    text(purpose, reviewReason.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim() || reviewReason);
     element.dataset.kitPhase = current.phase;
     const reduced = motionPreference?.matches || current.motion_mode === 'reduced-motion-poses';
     text(approve, reduced ? 'Approve & show final pose' : 'Approve & run animation');
@@ -167,12 +175,13 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
     download.hidden = current.phase !== 'complete'; download.disabled = !canDownload();
     reset.hidden = running || (valid && current.phase === 'ready'); reset.disabled = typeof onReset !== 'function';
     text(reset, staged ? 'Prepare replay' : 'Prepare new task');
-    reset.classList.toggle('kit-mission-primary', staged);
-    source.disabled = typeof onEvidence !== 'function';
+    reset.classList.remove('kit-mission-primary');
+    source.classList.toggle('kit-mission-primary', staged);
+    source.disabled = !valid || typeof onEvidence !== 'function';
     showMessage();
     // Keep keyboard focus on a usable control when a deliberate action changes phase.
     if ([approve, cancel, reset].includes(focused) && focused.hidden) {
-      const nextControl = [approve, cancel, reset].find(control => !control.hidden && !control.disabled);
+      const nextControl = [approve, cancel, source, reset, download].find(control => !control.hidden && !control.disabled);
       nextControl?.focus({ preventScroll: true });
     }
   }

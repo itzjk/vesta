@@ -1,4 +1,5 @@
 import { reviewToMarkdown, reviewToCsv } from '../core/inventory-review.js?v=habitat-20261115-1';
+import { createRowComparison } from './row-comparison.js?v=review-workbench-20261115-1';
 
 const node = (tag, text, className = '') => {
   const element = document.createElement(tag);
@@ -110,8 +111,12 @@ export function createInventoryReviewPanel({ db, onRun, onCancel, onReset, onEvi
     const removals = [];
     const outer = node('section', null, 'inventory-question'); outer.dataset.questionId = q.id;
     const title = node('h3', `${q.material} · ${concernName(q.concern)}`), verdict = node('p', q.label, 'inventory-verdict');
+    title.tabIndex = -1;
     const numbers = node('p', '', 'inventory-source-count'), description = node('p', '', 'inventory-question-description');
     const evidence = disclosure('Inspect evidence and condition differences'), sourceBody = node('div', null, 'inventory-source-list'); evidence.append(sourceBody);
+    const rowComparison = createRowComparison({ db, onOpen: typeof onEvidence === 'function'
+      ? rowId => onEvidence({ material: q.material_id, concern: q.concern, rowId }) : null });
+    rowComparison.element.hidden = true; evidence.insertBefore(rowComparison.element, sourceBody);
     const request = disclosure('Draft request for human review'), requestBody = node('div'); request.append(requestBody);
     outer.append(title, verdict, numbers, description, evidence, request);
     if (['pmma', 'kapton', 'silicone'].includes(q.material_id)) {
@@ -119,7 +124,7 @@ export function createInventoryReviewPanel({ db, onRun, onCancel, onReset, onEvi
       locate.disabled = typeof onFocus !== 'function'; locate.className = 'inventory-locate';
       outer.insertBefore(locate, evidence);
     }
-    const view = { outer, verdict, numbers, description, evidence, sourceBody, request, requestBody, removals, sourceKey: '', requestKey: '' };
+    const view = { outer, title, verdict, numbers, description, evidence, sourceBody, rowComparison, request, requestBody, removals, sourceKey: '', requestKey: '' };
     cards.set(q.id, view); results.append(outer); return view;
   }
   function updateQuestion(q) {
@@ -134,6 +139,7 @@ export function createInventoryReviewPanel({ db, onRun, onCancel, onReset, onEvi
     const sourceKey = JSON.stringify([q.sources, q.comparisons, hasInspected]);
     if (sourceKey !== view.sourceKey) {
       view.sourceKey = sourceKey;
+      view.rowComparison.update(q.sources.rows.map(source => source.id), { ...report.input.query, material: q.material_id, concern: q.concern });
       // A question acquires sources once and comparisons once. Keep every existing
       // button/details node when comparisons arrive, so a reader never loses focus.
       let message = view.sourceBody.querySelector('.inventory-source-message');
@@ -195,7 +201,7 @@ export function createInventoryReviewPanel({ db, onRun, onCancel, onReset, onEvi
     d.append(input, output, exact); item.append(d); return item;
   }
   function clearResults() {
-    for (const view of cards.values()) view.removals.splice(0).forEach(remove => remove());
+    for (const view of cards.values()) { view.rowComparison.dispose(); view.removals.splice(0).forEach(remove => remove()); }
     cards.clear(); traceNodes.clear(); results.replaceChildren(); trace.replaceChildren(); queueList.replaceChildren();
   }
   function update(next) {
@@ -242,6 +248,15 @@ export function createInventoryReviewPanel({ db, onRun, onCancel, onReset, onEvi
     }
     refreshControls();
   }
+  function focusQuestion(questionId, { expandSources = true } = {}) {
+    if (disposed || !report?.questions.some(q => q.id === questionId)) return false;
+    const view = cards.get(questionId);
+    if (!view?.outer.isConnected) return false;
+    if (expandSources) { view.evidence.open = true; view.rowComparison.expand(); }
+    view.title.focus({ preventScroll: true });
+    view.title.scrollIntoView({ block: 'start', behavior: 'auto' });
+    return true;
+  }
   update(null);
-  return { element, update, dispose() { if (disposed) return; disposed = true; clearResults(); cleanups.splice(0).forEach(remove => remove()); report = null; element.remove(); } };
+  return { element, update, focusQuestion, dispose() { if (disposed) return; disposed = true; clearResults(); cleanups.splice(0).forEach(remove => remove()); report = null; element.remove(); } };
 }

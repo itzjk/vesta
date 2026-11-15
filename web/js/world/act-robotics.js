@@ -2,19 +2,55 @@ import { createHumanoidInspector } from '../scene/humanoid-inspector.js?v=crew-w
 import { createMaintenanceBay } from '../scene/maintenance-bay.js?v=crew-workspace-20261115-1';
 import { ensureInformationPolishStyles } from './information-polish.js?v=habitat-20261115-1';
 import { createInventoryReviewSession, reviewToMarkdown } from '../core/inventory-review.js?v=habitat-20261115-1';
-import { createInventoryReviewPanel } from './inventory-review-panel.js?v=habitat-20261115-1';
+import { createInventoryReviewPanel } from './inventory-review-panel.js?v=review-workbench-20261115-1';
 import { openCitation } from './cite.js?v=habitat-20261115-1';
 import { proposeKitMission, createKitMission, kitInputSignature } from './kit-mission.js?v=crew-workspace-20261115-1';
-import { createKitMissionPanel } from './kit-mission-panel.js?v=crew-workspace-20261115-1';
+import { createKitMissionPanel } from './kit-mission-panel.js?v=review-workbench-20261115-1';
 import { createRecordedReviewPanel } from './recorded-claude-review.js';
 
 if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-robotics]')) {
   for (const file of ['robotics']) {
-    const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL(`../../css/${file}.css?v=crew-workspace-20261115-1`,import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
+    const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL(`../../css/${file}.css?v=review-workbench-20261115-1`,import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
   }
 }
 const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text)el.textContent=text;if(cls)el.className=cls;return el;};
 const meaning={PROVEN:'Nearby evidence',EXTRAPOLATED:'Other or incomplete conditions',NEVER_TESTED:'No source in this collection',NOT_INDEXED:'Material not indexed'};
+
+// Pure framing calculation. View choice never reads or advances a task, and the
+// work camera is fixed across its phases rather than following the robot.
+export function roboticsCameraFrame({width=1280,height=720,view='overview',workspaceOpen=false,hints={},region=null}={}){
+  const compact=width<760,shift=workspaceOpen&&!compact?1.8:0;
+  if(view!=='work')return {position:compact?[0,1.8,9.6]:[-.9,1.05,6.2],target:[(compact?0:-.5)+shift,compact?-2.2:.1,-.25],fov:compact?70:50};
+  const task=hints.task||{position:[.6,.85,4.6],target:[.5,.15,0],fov:47};
+  const bounds=hints.taskBounds||{min:[-1.9,-1.43,-.6],max:[2.3,1.4,.6]};
+  // Work view concentrates on the upper body, hands and both work surfaces.
+  // Overview remains available for the full humanoid and environmental context.
+  const point=region?.point||[.9,0,.25];
+  // On a phone, a deliberate pickup/handoff inspection focuses on the hands and
+  // work surface. Fitting the whole room would put the camera outside its wall.
+  const low=compact?[point[0]-.82,-.28,point[2]-.42]:[bounds.min[0],Math.max(bounds.min[1],-.42),bounds.min[2]];
+  const high=compact?[point[0]+.82,.62,point[2]+.42]:bounds.max;
+  const center=low.map((n,i)=>(n+high[i])/2),aspect=Math.max(.20,width/Math.max(1,height));
+  const fov=compact?62:task.fov,tangent=Math.tan(fov*Math.PI/360);
+  const direction=task.position.map((n,i)=>n-task.target[i]),length=Math.hypot(...direction);
+  const back=direction.map(n=>n/length),right=[back[2],0,-back[0]],rightLength=Math.hypot(...right);
+  right.forEach((n,i)=>right[i]=n/rightLength);
+  const up=[back[1]*right[2]-back[2]*right[1],back[2]*right[0]-back[0]*right[2],back[0]*right[1]-back[1]*right[0]];
+  const dot=(a,b)=>a.reduce((sum,n,i)=>sum+n*b[i],0);
+  let halfWidth=0,halfHeight=0,depth=0;
+  for(const x of [low[0],high[0]])for(const y of [low[1],high[1]])for(const z of [low[2],high[2]]){
+    const delta=[x-center[0],y-center[1],z-center[2]];
+    halfWidth=Math.max(halfWidth,Math.abs(dot(delta,right)));halfHeight=Math.max(halfHeight,Math.abs(dot(delta,up)));depth=Math.max(depth,Math.abs(dot(delta,back)));
+  }
+  const left=compact?14:Math.min(380,width*.30),rightInset=compact?48:76;
+  const top=compact?82:98,bottom=compact?Math.min(326,height*.55):122;
+  const usableX=Math.max(.30,(width-left-rightInset)/width),usableY=Math.max(.25,(height-top-bottom)/height);
+  const distance=Math.max(3.1,halfWidth/(tangent*aspect*usableX),halfHeight/(tangent*usableY))*1.06+depth;
+  const offsetX=(left-rightInset)/width*distance*tangent*aspect,offsetY=(bottom-top)/height*distance*tangent;
+  const target=center.map((n,i)=>n-right[i]*offsetX-up[i]*offsetY);
+  const position=target.map((n,i)=>n+back[i]*distance);target[0]+=shift;
+  return {position,target,fov};
+}
 
 export async function build(world) {
   ensureInformationPolishStyles();world.host.classList.add('information-polish');
@@ -25,7 +61,7 @@ export async function build(world) {
   group.userData.resourceBudget={bay:bay.stats,humanoid:humanoid.stats};
   let active=false,disposed=false,lastTime=0,changed=0,savedAperture,parkedAt=null;
   let phase='ready',still=false,selected=['pmma','kapton','silicone'],session=null,report=null,generation=0,lastCabin='';
-  let focus={material:'pmma',concern:'prevention'},workspaceOpen=false,notice='';
+  let focus={material:'pmma',concern:'prevention'},workspaceOpen=false,notice='',cameraView='overview',workRegion=null,cameraCache=null;
   let kit=null,kitState=null,kitSignature=null,kitFrame=null;
   let recordedPanel=null;
   const cabinKey=()=>JSON.stringify([world.q.preset,world.q.habitat,world.q.o2,world.q.p,world.q.g,world.q.gclass]);
@@ -37,7 +73,7 @@ export async function build(world) {
   const locationButton=node('button','Open this question','robotics-question-button');locationButton.type='button';locationButton.dataset.action='review-question';
   locationButton.onclick=()=>{openWorkspace();panel.element.querySelector(`[data-question-id="${focus.material}/${focus.concern}"]`)?.scrollIntoView({block:'nearest'});};
   caption.append(node('p','LUNAR HABITAT · CREW SUPPORT','robotics-eyebrow'),node('h1','Prepare the crew review.'),targetLabel,outcome,selectedResult,locationButton,node('p','Evidence analysis + virtual kit staging','robotics-caption-scope'));
-  const kitPanel=createKitMissionPanel({onApprove:approveKit,onCancel:cancelKit,onReset:prepareKit,onDownload:downloadKit,onEvidence:()=>locationButton.click()});
+  const kitPanel=createKitMissionPanel({onApprove:approveKit,onCancel:cancelKit,onReset:prepareKit,onDownload:downloadKit,onEvidence:openKitEvidence});
   const kitCabin=node('p',null,'robotics-kit-cabin');kitCabin.hidden=true;caption.append(kitCabin,kitPanel.element);
   const imageCredit=node('details',null,'robotics-image-credit');
   const earthSource=node('a','NASA/NOAA/GSFC/Suomi NPP/VIIRS/Norman Kuring');
@@ -68,6 +104,21 @@ export async function build(world) {
   });
   function openWorkspace(){workspaceOpen=true;workspace.hidden=false;world.host.dataset.roboticsWorkspace='true';world.invalidate?.();}
   function closeWorkspace(){workspaceOpen=false;workspace.hidden=true;world.host.dataset.roboticsWorkspace='false';world.invalidate?.();}
+  function openKitEvidence(request){
+    if(disposed||!guardCabin()||!kitState?.plan_valid)return;
+    const questionId=request?.questionId||kitState.plan.question_id;
+    if(questionId!==kitState.plan.question_id)return;
+    openWorkspace();panel.focusQuestion(questionId,{expandSources:true});
+  }
+  function toggleCameraView(){
+    cameraView=cameraView==='overview'?'work':'overview';
+    if(cameraView==='work'){
+      const staged=kitState?.phase==='complete'&&kitState?.virtual_object_state==='staged';
+      const spot=staged?bay.kit.fixture:bay.kit.slots[focus.material];
+      workRegion={point:[...(spot?.point||spot?.position||[.9,0,.25])],material:focus.material,kind:staged?'handoff':'pickup'};
+    }
+    world.host.dataset.roboticsView=cameraView;world.host.dataset.roboticsViewTarget=cameraView==='work'&&workRegion?`${workRegion.material}/${workRegion.kind}`:'';world.invalidate?.();
+  }
   function clearRun(reason){
     discardKit(reason||'A new evidence review is required.');
     generation++;session?.cancel(reason);session=null;report=null;panel.update(null);notice=reason||'';
@@ -97,6 +148,8 @@ export async function build(world) {
     caption.classList.toggle('has-kit-task',Boolean(kitState));
     kitCabin.hidden=!kitState;kitCabin.textContent=kitState?`${kitState.plan.query.o2}% O2 · ${kitState.plan.query.p} kPa · ${kitState.plan.query.g} gravity`:'';
     world.host.dataset.roboticsMotionReady=String(report?.status!=='running');
+    world.host.dataset.roboticsView=cameraView;
+    world.host.dataset.roboticsViewTarget=cameraView==='work'&&workRegion?`${workRegion.material}/${workRegion.kind}`:'';
   }
   async function run(ids=selected){
     if(disposed)return;clearRun('');selected=[...ids];const token=generation;
@@ -158,7 +211,9 @@ export async function build(world) {
     }catch(error){notice=error.message;refresh();}
   }
   function locate({material,concern},close=true){
-    if(!guardCabin())return;focus={material,concern};
+    if(!guardCabin())return;
+    if(workRegion&&workRegion.material!==material){cameraView='overview';workRegion=null;}
+    focus={material,concern};
     // Selecting evidence prepares a task; only explicit approval starts motion.
     phase='ready';changed=lastTime;prepareKit();
     if(close)closeWorkspace();refresh();world.invalidate?.();
@@ -185,19 +240,19 @@ export async function build(world) {
   return {
     group,
     camera(){
-      const {width}=stage.size(),compact=width<760;
-      // Keep the pickup and handoff within one view; evidence remains in its own
-      // readable workspace and is never delayed by camera or robot choreography.
-      const shift=workspaceOpen&&!compact?1.8:0;
-      if(bay.kit)return {position:compact?[0,1.8,9.6]:[-.9,1.05,6.2],target:[(compact?0:-.5)+shift,compact?-2.2:.1,-.25],fov:compact?70:50};
-      if(!compact)return {position:[-1.0,1.1,7.8],target:[.7+shift,0,-.4],fov:49};
-      return {position:[.8,.8,8.2],target:[1.2,-.15,0],fov:56};
+      const {width,height}=stage.size();
+      // Framing changes only on an explicit view choice, resize or workspace toggle.
+      if(!cameraCache||cameraCache.width!==width||cameraCache.height!==height||cameraCache.view!==cameraView||cameraCache.workspaceOpen!==workspaceOpen||cameraCache.region!==workRegion){
+        cameraCache={width,height,view:cameraView,workspaceOpen,region:workRegion,frame:roboticsCameraFrame({width,height,view:cameraView,workspaceOpen,hints:bay.cameraHints,region:workRegion})};
+      }
+      return cameraCache.frame;
     },
     actions:()=>[
       {id:'inventory-run',label:()=>report?.status==='running'?'Review running…':'Run evidence review',disabled:()=>!selected.length||report?.status==='running',primary:true,run:()=>run()},
       {id:'inventory-workspace',label:()=>report?.status==='complete'?'Review results':'Materials & method',expanded:()=>workspaceOpen,run:()=>workspaceOpen?closeWorkspace():openWorkspace()},
+      {id:'inventory-view',label:()=>cameraView==='work'?'Overview':stage.size().width<760?`Inspect ${db.materials[focus.material]?.label||focus.material} ${kitState?.phase==='complete'?'handoff':'pickup'}`:'Work view',run:toggleCameraView},
       {id:'inventory-next',label:'Next review question',disabled:()=>report?.status!=='complete',run:nextQuestion},
-      {id:'inventory-download',label:'Save review',disabled:()=>report?.status!=='complete',run:downloadReport}
+      {id:'inventory-download',label:'Save full inventory',disabled:()=>report?.status!=='complete',run:downloadReport}
     ],
     enter(){active=true;group.visible=true;caption.hidden=false;world.setBaseLightScale?.(bay.lightingScale??1);savedAperture=stage.camera.userData.aperture;guardCabin();lastCabin=cabinKey();refresh();},
     leave(){active=false;parkedAt=lastTime;group.visible=false;caption.hidden=true;world.setBaseLightScale?.(1);closeWorkspace();if(savedAperture==null)delete stage.camera.userData.aperture;else stage.camera.userData.aperture=savedAperture;},
@@ -216,6 +271,6 @@ export async function build(world) {
       world.vesta?.update?.(still?2:t,{...world.vesta.defaults,x:-2.65,y:-1,z:1.25,scale:.4,yaw:.55,lookX:.6,armL:.1,armR:.1,idle:0,thrust:0,beacon:.15});
     },
     holograms:()=>[],
-    dispose(){disposed=true;generation++;recordedAbort.abort();recordedPanel?.dispose();session?.cancel('Workspace disposed');kit?.advance({type:'cancel',reason:'Workspace disposed'});kitPanel.dispose();workspace.removeEventListener('keydown',onKey);panel.dispose();workspace.remove();markers.forEach(m=>m.dispose());humanoid.dispose();bay.dispose();caption.remove();group.removeFromParent();for(const key of ['roboticsPhase','roboticsApproved','roboticsScanning','roboticsMotionReady','roboticsDisposition','roboticsReview','roboticsWorkspace','roboticsMaterial','roboticsKitPhase','roboticsKitObject'])delete world.host.dataset[key];}
+    dispose(){disposed=true;generation++;recordedAbort.abort();recordedPanel?.dispose();session?.cancel('Workspace disposed');kit?.advance({type:'cancel',reason:'Workspace disposed'});kitPanel.dispose();workspace.removeEventListener('keydown',onKey);panel.dispose();workspace.remove();markers.forEach(m=>m.dispose());humanoid.dispose();bay.dispose();caption.remove();group.removeFromParent();for(const key of ['roboticsPhase','roboticsApproved','roboticsScanning','roboticsMotionReady','roboticsDisposition','roboticsReview','roboticsWorkspace','roboticsMaterial','roboticsKitPhase','roboticsKitObject','roboticsView','roboticsViewTarget'])delete world.host.dataset[key];}
   };
 }

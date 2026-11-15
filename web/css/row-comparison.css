@@ -1,0 +1,26 @@
+.row-comparison{color:var(--ir-ink,#f0e9dc);min-width:0;border-block:1px solid var(--ir-rule,#6c797566);margin:12px 0;padding:10px 0;overflow-wrap:anywhere}
+.row-comparison>summary{min-height:44px;cursor:pointer;font-weight:600;color:var(--ir-accent,#e4b68a);padding:8px 0}
+.row-comparison [hidden]{display:none!important}
+.row-comparison :is(button,a,summary,label){min-height:44px}
+.row-comparison :focus-visible,.inventory-question>h3:focus{outline:2px solid var(--ir-accent,#e4b68a);outline-offset:4px}
+.row-comparison .row-comparison-choices{display:flex;flex-wrap:wrap;gap:8px 16px;border:0;padding:0;margin:8px 0 12px;min-width:0}
+.row-comparison .row-comparison-choices label{display:flex;align-items:center;gap:8px;cursor:pointer}
+.row-comparison .row-comparison-choices input{width:20px;height:20px;min-width:20px;accent-color:#e4b68a}
+.row-comparison .row-comparison-actions{display:grid;grid-template-columns:repeat(var(--row-comparison-columns,3),minmax(0,1fr));gap:8px;margin:8px 0 16px}
+.row-comparison .row-comparison-actions button{min-width:0;min-height:44px;padding:8px;white-space:normal}
+.row-comparison .row-comparison-sources{display:grid;grid-template-columns:repeat(var(--row-comparison-columns,3),minmax(0,1fr));gap:16px;margin:12px 0 20px}
+.row-comparison .row-comparison-sources>section{min-width:0;padding-bottom:8px;border-bottom:1px solid var(--ir-rule,#6c797566)}
+.row-comparison .row-comparison-sources a{display:flex;align-items:center;color:#eed7b7;text-underline-offset:3px;padding:6px 0}
+.row-comparison .row-comparison-dimension{border-top:1px solid var(--ir-rule,#6c797566);padding:12px 0}
+.row-comparison .row-comparison-dimension h5{font:600 16px/1.45 var(--font-body,system-ui);margin:0 0 4px}
+.row-comparison .row-comparison-state{color:#e4b68a;font-weight:500}
+.row-comparison .row-comparison-values{display:grid;grid-template-columns:repeat(var(--row-comparison-columns,3),minmax(0,1fr));gap:12px;margin:8px 0}
+.row-comparison .row-comparison-values>div{min-width:0}
+.row-comparison .row-comparison-values :is(dt,dd){margin:0}
+.row-comparison .row-comparison-values dt{font-size:14px;color:#bbc3bf;margin-bottom:4px}
+.row-comparison .row-comparison-values dd{color:#f0e9dc}
+.row-comparison .row-comparison-basis{display:block;color:#c0c5c0;font:400 14px/1.45 var(--font-body,system-ui);margin:4px 0}
+.row-comparison .row-comparison-note{color:#c0c5c0;font-size:14px;line-height:1.45}
+.row-comparison .row-comparison-context{margin-top:12px}
+.row-comparison .row-comparison-values details{margin-top:8px}
+@media(max-width:759px){.row-comparison .row-comparison-values{grid-template-columns:1fr;gap:10px}.row-comparison .row-comparison-values>div{display:grid;grid-template-columns:minmax(85px,.6fr) minmax(0,1.4fr);gap:10px}.row-comparison .row-comparison-sources{grid-template-columns:1fr;gap:10px}.row-comparison .row-comparison-choices{gap:4px 12px}}
