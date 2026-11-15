@@ -4,7 +4,8 @@ const node = (tag, text, cls) => { const el = document.createElement(tag); if (t
 const references = {
   fire: ['NASA: Fire safety in space', 'https://microdevices.jpl.nasa.gov/capabilities/in-situ-instruments-tls/spacecraft-fire/'],
   saffire: ['NASA: The Saffire experiments', 'https://www.nasa.gov/centers-and-facilities/glenn/flame-burns-out-on-nasas-long-running-spacecraft-fire-experiment/'],
-  astrobee: ['NASA: Astrobee robotics', 'https://www.nasa.gov/directorates/stmd/astrobee/'],
+  astrobee: ['NASA: Astrobee robotics', 'https://www.nasa.gov/ames/astrobee/'],
+  robonaut: ['NASA: What is a Robonaut?', 'https://www.nasa.gov/robonaut2/what-is-a-robonaut/'],
   operations: ['NASA: Lessons from Astrobee operations', 'https://ntrs.nasa.gov/citations/20240009306']
 };
 export const STATION_AGENTS = {
@@ -54,9 +55,9 @@ export function createMissionBrief({ navigate, run }) {
     } else {
       body.append(node('p','Our vision is to give robotic assistants an evidence trail people can inspect. Explore that idea as an interactive software experience.','mission-lead'));
       const grid=node('div',null,'mission-facts');
-      const existing=node('article'); existing.append(node('span','NASA REFERENCE','mission-number'),node('h3','Robots already work in orbit'),node('p','NASA’s Astrobee platform supports free-flying robotics research aboard the ISS. Its cameras, autonomy and research payloads provide a real context for this direction.'),link('astrobee'),link('operations'));
+      const existing=node('article'); existing.append(node('span','NASA REFERENCE','mission-number'),node('h3','Robots already work in orbit'),node('p','NASA’s Astrobee platform supports free-flying robotics research aboard the ISS, and the Robonaut project has researched a dexterous humanoid robot there since 2011. Both give this direction a real context.'),link('astrobee'),link('robonaut'),link('operations'));
       const ours=node('article'); ours.append(node('span','VESTA DIGITAL CONCEPT','mission-number'),node('h3','Make the decision visible'),node('p','A scripted observation enters the workflow. The evidence agent checks your cabin, the coordinator proposes a visual inspection, and a person approves the next step.'));
-      const next=node('article'); next.append(node('span','POSSIBLE APPLICATIONS','mission-number'),node('h3','Inspect, document, explain'),node('p','Explore equipment inspection, source-linked mission records and crew training. The animated robot illustrates the workflow; it is not a connected flight system.'));
+      const next=node('article'); next.append(node('span','POSSIBLE APPLICATIONS','mission-number'),node('h3','Inspect, document, explain'),node('p','Explore equipment inspection, source-linked mission records and crew training. The animated humanoid illustrates the workflow; it is not a connected flight system.'));
       grid.append(existing,ours,next);body.append(grid,action('Enter the robotics lab','robotics'));
     }
   }
