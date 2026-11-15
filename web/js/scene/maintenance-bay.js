@@ -1,116 +1,212 @@
 import { nasaTexture, NASA_TEXTURES } from './imagery.js';
 
-// A bounded procedural set with one already-bundled, credited NASA Earth photograph.
-// No shadow maps, telemetry feeds or physical sensor model are used here.
+// A bounded procedural interior with an existing, credited NASA Earth photograph. No
+// shadow maps, telemetry feeds or physical sensor model are used here. Surface labels are
+// drawn by this file; every status shown on the console is supplied by the caller.
+const KIT_MATERIALS = ['pmma', 'kapton', 'silicone'];
+const KIT_INK = { pmma: '#7fb6c8', kapton: '#d9a13f', silicone: '#d8765e' };
+const STATUS_TEXT = { PROVEN: 'Nearby evidence', EXTRAPOLATED: 'Other conditions', NEVER_TESTED: 'No source' };
+
 export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
   const group = new T.Group(); group.name = 'lunar-crew-support-habitat';
   let disposed = false;
+  const g = groundY, HALF_PI = Math.PI / 2, RIB = 1.55;
   const geometries = new Set(), materials = new Set(), textures = new Set();
   const geo = value => { geometries.add(value); return value; };
-  const mat = (color, options = {}) => {
-    const value = new T.MeshStandardMaterial({ color, roughness: .72, metalness: .22, ...options });
-    materials.add(value); return value;
+  const keep = value => { materials.add(value); return value; };
+  const mat = (color, options = {}) => keep(new T.MeshStandardMaterial({ color, roughness: .72, metalness: .22, ...options }));
+  function drawn(width, height, paint, repeat = false) {
+    const canvas = document.createElement('canvas'); canvas.width = width; canvas.height = height;
+    const context = canvas.getContext('2d'); paint(context, width, height);
+    const texture = new T.CanvasTexture(canvas); texture.colorSpace = T.SRGBColorSpace; texture.anisotropy = 4;
+    if (repeat) texture.wrapS = texture.wrapT = T.RepeatWrapping;
+    textures.add(texture); return { texture, context };
+  }
+
+  // Wall panels, deck plates, equipment labels and terrain marks are original
+  // drawings. The separately loaded Earth disc uses the credited archival photo.
+  const wallSkin = drawn(256, 256, (c, w, h) => {
+    c.fillStyle = '#a5a295'; c.fillRect(0, 0, w, h);
+    const shade = c.createLinearGradient(0, 0, 0, h); shade.addColorStop(0, '#ffffff2e'); shade.addColorStop(.55, '#ffffff00'); shade.addColorStop(1, '#00000036');
+    c.fillStyle = shade; c.fillRect(0, 0, w, h);
+    c.fillStyle = '#55544d'; c.fillRect(0, 0, w, 6); c.fillRect(0, 0, 6, h);
+    c.fillStyle = '#ffffff33'; c.fillRect(6, 6, w - 6, 2); c.fillRect(6, 6, 2, h - 6);
+    c.fillStyle = '#4b4a44'; for (const [x, y] of [[24, 24], [w - 16, 24], [24, h - 16], [w - 16, h - 16]]) { c.beginPath(); c.arc(x, y, 4, 0, 7); c.fill(); }
+    c.fillStyle = '#7f7d72'; c.fillRect(w * .5 - 36, h - 42, 72, 12);
+  }, true).texture;
+  const deckSkin = drawn(256, 256, (c, w, h) => {
+    c.fillStyle = '#3b464a'; c.fillRect(0, 0, w, h);
+    c.fillStyle = '#2b3438'; for (let row = 0, y = 14; y < h; y += 22, row++) for (let x = 10 + (row % 2) * 11; x < w; x += 22) c.fillRect(x, y, 8, 3);
+    c.fillStyle = '#1a2226'; c.fillRect(0, 0, w, 5); c.fillRect(0, 0, 5, h);
+    c.fillStyle = '#ffffff1c'; c.fillRect(5, 5, w - 5, 2); c.fillRect(5, 5, 2, h - 5);
+  }, true).texture;
+  const A = 1024, P = {
+    bench: [0, 0, 416, 368], benchTop: [0, 368, 416, 160], console: [0, 528, 416, 272],
+    kitPmma: [416, 0, 256, 210], kitKapton: [416, 210, 256, 210], kitSilicone: [416, 420, 256, 210], kitTop: [416, 630, 256, 170],
+    locker: [672, 0, 256, 512], skin: [936, 8, 80, 80], light: [936, 104, 80, 80],
+    deck: [672, 512, 352, 114], bag: [912, 800, 112, 112],
+    tagPmma: [0, 912, 264, 56], tagKapton: [264, 912, 264, 56], tagSilicone: [0, 968, 264, 56], tagDock: [264, 968, 264, 56], tagAirlock: [528, 992, 264, 32]
   };
+  const kitRegion = id => `kit${id[0].toUpperCase()}${id.slice(1)}`;
+  const atlasSkin = drawn(A, A, c => {
+    const rect = (x, y, w, h, fill) => { c.fillStyle = fill; c.fillRect(x, y, w, h); };
+    const text = (value, x, y, size, fill = '#e9e1cd', align = 'left', weight = 600) => { c.fillStyle = fill; c.font = `${weight} ${size}px sans-serif`; c.textAlign = align; c.textBaseline = 'middle'; c.fillText(value, x, y); };
+    const door = (x, y, w, h, fill = '#35434a') => { rect(x, y, w, h, '#12191d'); rect(x + 3, y + 3, w - 6, h - 6, fill); rect(x + 3, y + 3, w - 6, 3, '#ffffff26'); rect(x + 3, y + h - 8, w - 6, 5, '#00000045'); };
+    const pull = (x, y, w) => { rect(x, y, w, 8, '#0c1215'); rect(x, y, w, 2, '#b6c1c2'); };
+    const lamp = (x, y, fill, r = 5) => { c.fillStyle = fill; c.beginPath(); c.arc(x, y, r, 0, 7); c.fill(); };
+    rect(0, 0, A, A, '#2a353b');
+    { // Kit staging bench, the face towards the room: its sign and one bay per material.
+      const [x, y, w, h] = P.bench; rect(x, y, w, h, '#1f292e'); rect(x, y, w, 76, '#11181c');
+      text('MATERIAL REVIEW KITS', x + w / 2, y + 30, 30, '#ece4cf', 'center'); text('one kit per material question', x + w / 2, y + 58, 16, '#9db0b4', 'center', 400);
+      for (const [i, id] of KIT_MATERIALS.entries()) {
+        const cx = x + 80 + i * 128; rect(cx - 56, y + 88, 112, 40, '#11181c'); rect(cx - 56, y + 88, 10, 40, KIT_INK[id]); text(id.toUpperCase(), cx + 4, y + 109, id.length > 6 ? 19 : 22, '#e9e1cd', 'center');
+        door(cx - 58, y + 138, 116, 150); pull(cx - 30, y + 158, 60); rect(cx - 40, y + 214, 46, 26, '#c9c2b0'); lamp(cx + 34, y + 228, '#86d3ad', 4);
+      }
+      rect(x + 10, y + 298, w - 20, 60, '#161e22'); for (let i = 0; i < 4; i++) rect(x + 24, y + 310 + i * 11, w - 48, 5, '#0a0f12');
+    }
+    { // Bench top: one recessed cradle per kit.
+      const [x, y, w, h] = P.benchTop; rect(x, y, w, h, '#b6b2a4'); rect(x, y, w, 4, '#ffffff40'); rect(x, y + h - 6, w, 6, '#00000030');
+      for (let i = 0; i < 3; i++) { const cx = x + 80 + i * 128; rect(cx - 57, y + 34, 114, 92, '#8f8b7e'); rect(cx - 52, y + 39, 104, 82, '#2a343a'); }
+    }
+    { // Crew-review console, the face towards the room.
+      const [x, y, w] = P.console; rect(x, y, w, 272, '#1f292e'); rect(x, y, w, 58, '#11181c'); text('CREW REVIEW STATION', x + w / 2, y + 30, 29, '#ece4cf', 'center');
+      door(x + 10, y + 68, 194, 150); door(x + 212, y + 68, 194, 150); pull(x + 72, y + 90, 70); pull(x + 274, y + 90, 70); rect(x + 28, y + 150, 80, 34, '#c9c2b0'); rect(x + 230, y + 150, 80, 34, '#c9c2b0');
+      rect(x + 10, y + 228, w - 20, 34, '#11181c'); for (let i = 0; i < 14; i++) rect(x + 24 + i * 27, y + 238, 14, 14, '#0a0f12');
+    }
+    for (const id of KIT_MATERIALS) {
+      const [x, y, w, h] = P[kitRegion(id)]; rect(x, y, w, h, '#d9d4c5'); rect(x, y, w, 46, KIT_INK[id]); rect(x, y + 46, w, 3, '#00000030'); rect(x, y + h - 16, w, 16, '#8f8b7e');
+      text(id.toUpperCase(), x + w / 2, y + 104, id.length > 6 ? 42 : 52, '#182024', 'center', 700); text('REVIEW KIT', x + w / 2, y + 160, 24, '#4a4f4c', 'center');
+    }
+    { const [x, y, w, h] = P.kitTop; rect(x, y, w, h, '#d9d4c5'); rect(x + 14, y + 14, w - 28, h - 28, '#c5c0b1'); rect(x + 30, y + 62, w - 60, 46, '#2a343a'); }
+    { // Wall stowage locker.
+      const [x, y, w, h] = P.locker; rect(x, y, w, h, '#222d32');
+      for (let row = 0; row < 4; row++) {
+        const dy = y + 8 + row * 125; door(x + 8, dy, w - 16, 119, row % 2 ? '#39474d' : '#33414a'); pull(x + 88, dy + 20, 80);
+        rect(x + 24, dy + 64, 84, 34, '#c9c2b0'); text(`STOW ${'ABCD'[row]}${row + 1}`, x + 66, dy + 82, 16, '#1d262a', 'center'); lamp(x + w - 40, dy + 80, row === 1 ? '#d2a94e' : '#86d3ad', 4);
+      }
+    }
+    { const [x, y, w, h] = P.skin; rect(x - 8, y - 8, w + 16, h + 16, '#263137'); rect(x, y, w, h, '#2c383e'); }
+    { const [x, y, w, h] = P.light; rect(x - 8, y - 8, w + 16, h + 16, '#b3b0a3'); }
+    { // Console deck: the marked cradle where a kit is staged, and a keyboard under the screen.
+      const [x, y, w, h] = P.deck; rect(x, y, w, h, '#b6b2a4'); rect(x, y, w, 3, '#ffffff40'); rect(x, y + h - 5, w, 5, '#00000030');
+      rect(x + 150, y + 56, 168, 46, '#2a343a'); for (let row = 0; row < 3; row++) for (let key = 0; key < 12; key++) rect(x + 157 + key * 13, y + 62 + row * 13, 9, 9, '#8d999b');
+      const cx = x + 47.5, cy = y + 50; c.strokeStyle = '#b8792e'; c.lineWidth = 4; c.strokeRect(cx - 40, cy - 34, 80, 68); rect(cx - 26, cy - 38, 52, 8, '#b6b2a4'); rect(cx - 26, cy + 30, 52, 8, '#b6b2a4'); text('KIT', cx, cy, 18, '#8a8474', 'center');
+    }
+    { const [x, y, w, h] = P.bag; rect(x, y, w, h, '#cfcabb'); rect(x, y, w, 5, '#ffffff50'); rect(x + 18, y, 9, h, '#3d6f95'); rect(x + w - 27, y, 9, h, '#3d6f95'); rect(x + 38, y + 40, 36, 26, '#f0ead9'); rect(x + 42, y + 48, 28, 3, '#55606a'); rect(x + 42, y + 56, 20, 3, '#55606a'); }
+    for (const [key, value] of [['tagPmma', 'HAB-PMMA-01'], ['tagKapton', 'HAB-KAPTON-02'], ['tagSilicone', 'HAB-SILICONE-03'], ['tagDock', 'ROBOT DOCK'], ['tagAirlock', 'AIRLOCK']]) {
+      const [x, y, w, h] = P[key]; rect(x, y, w, h, '#141c20'); rect(x + 3, y + 3, w - 6, h - 6, '#1d282d'); text(value, x + w / 2, y + h / 2 + 1, h > 40 ? 26 : 20, '#e3dcc8', 'center');
+    }
+  }).texture;
+  const moonSkin = drawn(512, 256, (c, w, h) => {
+    const sun = c.createLinearGradient(0, 0, 0, h); sun.addColorStop(0, '#b3b2ab'); sun.addColorStop(1, '#8d8c86'); c.fillStyle = sun; c.fillRect(0, 0, w, h);
+    let seed = 11; const next = () => (seed = seed * 16807 % 2147483647) / 2147483647;
+    for (let i = 0; i < 46; i++) {
+      const x = next() * w, y = next() * h, r = 4 + next() * 20; c.fillStyle = '#6f6e6a'; c.beginPath(); c.ellipse(x, y, r, r * .42, 0, 0, 7); c.fill();
+      c.strokeStyle = '#cfcdc5'; c.lineWidth = 1.5; c.beginPath(); c.ellipse(x, y + 1, r, r * .42, 0, .2, 2.9); c.stroke();
+    }
+  }).texture;
+  const shadeSkin = drawn(64, 64, c => { const fade = c.createRadialGradient(32, 32, 4, 32, 32, 32); fade.addColorStop(0, '#000000b0'); fade.addColorStop(.6, '#00000070'); fade.addColorStop(1, '#00000000'); c.fillStyle = fade; c.fillRect(0, 0, 64, 64); }).texture;
+
+
   const unitBox = geo(new T.BoxGeometry(1, 1, 1));
   const unitCylinder = geo(new T.CylinderGeometry(1, 1, 1, 16));
-  const unitSphere = geo(new T.SphereGeometry(1, 12, 8));
-  const graphite = mat(0x222b30), deck = mat(0x67716b, {roughness:.94,metalness:.08}), recess = mat(0x121b20);
-  const ceramic = mat(0xa8ab9f, { metalness: .12 }), panel = mat(0x68716c), copper = mat(0xa4795c, { metalness: .48 });
-  const steel = mat(0x8b9697, { metalness: .6, roughness: .48 });
-  const warm = mat(0xe8ddc5, { emissive: 0xe5d6b5, emissiveIntensity: 1.15, toneMapped: false });
-  const blue = mat(0x9bb7c0, { emissive: 0x718f9c, emissiveIntensity: .45 });
+  const graphite = mat(0x1d262a), trim = mat(0x566267, { metalness: .35 });
+  const steel = mat(0x8b9697, { metalness: .6, roughness: .46 }), copper = mat(0xa4795c, { metalness: .48 });
+  const wall = mat(0xffffff, { map: wallSkin, roughness: .86, metalness: .04 });
+  const deck = mat(0xffffff, { map: deckSkin, roughness: .78, metalness: .3 });
+  const equipment = mat(0xffffff, { map: atlasSkin, emissive: 0xffffff, emissiveMap: atlasSkin, emissiveIntensity: .2, roughness: .6, metalness: .2 });
+  const glow = mat(0xfff3dc, { emissive: 0xffe9c4, emissiveIntensity: 1.0, toneMapped: false });
+  const acrylic = mat(0xa9cbd6, { emissive: 0x4d7482, emissiveIntensity: .35, roughness: .12, metalness: .1, transparent: true, opacity: .45 });
+  const amber = mat(0xd39a35, { emissive: 0x9a6418, emissiveIntensity: .35, roughness: .5 });
+  const gasket = mat(0xb9573f, { roughness: .9, metalness: 0 });
+  const regolith = keep(new T.MeshBasicMaterial({ map: moonSkin })), farHills = keep(new T.MeshBasicMaterial({ color: 0xa3a29c })), nearHills = keep(new T.MeshBasicMaterial({ color: 0x77766f }));
+  const shade = keep(new T.MeshBasicMaterial({ map: shadeSkin, transparent: true, depthWrite: false }));
+  const space = keep(new T.MeshBasicMaterial({ color: 0x020305 }));
+
   const cueMaterial = mat(0xc69a5c, { emissive: 0xb78243, emissiveIntensity: .3 });
   const ringMaterial = mat(0xd7b478, { emissive: 0xb68d4f, emissiveIntensity: .7 });
-  // Original procedural surface finish: low-frequency panel seams and restrained
-  // grain provide material depth without external textures or shadow-map passes.
-  function surfaceTexture(floor=false){
-    const canvas=document.createElement('canvas');canvas.width=canvas.height=256;
-    const c=canvas.getContext('2d');c.fillStyle=floor?'#727b73':'#c7c8bb';c.fillRect(0,0,256,256);
-    let seed=137;
-    for(let i=0;i<1400;i++){seed=(seed*1664525+1013904223)>>>0;const x=seed%256;seed=(seed*1664525+1013904223)>>>0;const y=seed%256;
-      c.fillStyle=i%2?'rgba(22,30,26,.055)':'rgba(245,237,213,.055)';c.fillRect(x,y,floor?2:1,1);}
-    c.fillStyle=floor?'#45504b':'#8d988e';c.fillRect(0,0,256,2);c.fillRect(0,0,2,256);
-    c.fillStyle=floor?'#929a8d':'#e0dfcc';c.fillRect(3,3,250,1);c.fillRect(3,3,1,250);
-    if(!floor)for(const x of [12,244])for(const y of [12,244]){c.fillStyle='#6c7b73';c.fillRect(x-1,y-1,3,3);}
-    const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;
-    texture.wrapS=texture.wrapT=T.RepeatWrapping;texture.anisotropy=1;textures.add(texture);return texture;
-  }
-  const liner=mat(0xb7b8aa,{map:surfaceTexture(),roughness:.87,metalness:.06});
-  deck.map=surfaceTexture(true);
-  const corner=new T.Shape();corner.moveTo(-.42,-.5);corner.lineTo(.42,-.5);corner.quadraticCurveTo(.5,-.5,.5,-.42);
-  corner.lineTo(.5,.42);corner.quadraticCurveTo(.5,.5,.42,.5);corner.lineTo(-.42,.5);corner.quadraticCurveTo(-.5,.5,-.5,.42);
-  corner.lineTo(-.5,-.42);corner.quadraticCurveTo(-.5,-.5,-.42,-.5);corner.closePath();
-  const beveled=geo(new T.ExtrudeGeometry(corner,{depth:.94,steps:1,bevelEnabled:true,bevelSize:.025,bevelThickness:.03,bevelSegments:1,curveSegments:2}));beveled.translate(0,0,-.47);beveled.scale(1/1.05,1/1.05,1);
+  const sweep = mat(0x9bb7c0, { emissive: 0x718f9c, emissiveIntensity: .45 });
+
   function mesh(shape, finish, size, at, parent = group) {
     const item = new T.Mesh(shape, finish); item.scale.set(...size); item.position.set(...at);
     item.castShadow = item.receiveShadow = false; parent.add(item); return item;
   }
-  const box = (size, at, finish = panel, parent = group) => mesh(unitBox, finish, size, at, parent);
-  const rounded = (size, at, finish = panel, parent = group) => mesh(beveled, finish, size, at, parent);
+  const box = (size, at, finish = trim, parent = group) => mesh(unitBox, finish, size, at, parent);
   const cylinder = (radius, length, at, finish = steel, parent = group) => mesh(unitCylinder, finish, [radius, length, radius], at, parent);
-  const sphere = (radius, at, finish = steel) => mesh(unitSphere, finish, [radius, radius, radius], at);
   const up = new T.Vector3(0, 1, 0), direction = new T.Vector3();
   function pipe(a, b, radius, finish) {
     const start = new T.Vector3(...a), end = new T.Vector3(...b);
-    const item = cylinder(radius, start.distanceTo(end), start.add(end).multiplyScalar(.5).toArray(), finish);
-    item.quaternion.setFromUnitVectors(up, direction.subVectors(new T.Vector3(...b), new T.Vector3(...a)).normalize());
+    const item = cylinder(radius, start.distanceTo(end), start.clone().add(end).multiplyScalar(.5).toArray(), finish);
+    item.quaternion.setFromUnitVectors(up, direction.subVectors(end, start).normalize());
     return item;
   }
-  function decal(text, width, height, at, color = '#d8d2c3') {
-    const canvas = document.createElement('canvas'); canvas.width = 512; canvas.height = 128;
-    const context = canvas.getContext('2d'); context.fillStyle = '#1c282d'; context.fillRect(0, 0, 512, 128);
-    context.fillStyle = color; context.font = '500 54px sans-serif'; context.textAlign = 'center'; context.textBaseline = 'middle'; context.fillText(text, 256, 64);
-    const texture = new T.CanvasTexture(canvas); texture.colorSpace = T.SRGBColorSpace; textures.add(texture);
-    const finish = new T.MeshBasicMaterial({ map: texture, toneMapped: false }); materials.add(finish);
-    return mesh(geo(new T.PlaneGeometry(width, height)), finish, [1, 1, 1], at);
+  function region(shape, name, from = 0, count = shape.attributes.uv.count) {
+    const [x, y, w, h] = P[name], uv = shape.attributes.uv;
+    for (let i = from; i < from + count; i++) uv.setXY(i, (x + uv.getX(i) * w) / A, 1 - (y + (1 - uv.getY(i)) * h) / A);
+    return shape;
   }
+  // A box whose six faces each show one region of the equipment atlas.
+  function tbox(size, at, faces = {}, parent = group) {
+    const shape = geo(new T.BoxGeometry(...size));
+    ['px', 'nx', 'py', 'ny', 'pz', 'nz'].forEach((face, index) => region(shape, faces[face] || faces.all || 'skin', index * 4, 4));
+    return mesh(shape, equipment, [1, 1, 1], at, parent);
+  }
+  function plate(name, width, height, at, turn = 0, flat = false) {
+    const item = mesh(region(geo(new T.PlaneGeometry(width, height)), name), equipment, [1, 1, 1], at);
+    if (flat) item.rotation.x = -HALF_PI; else item.rotation.y = turn;
+    return item;
+  }
+  const ground = (width, depth, x, z) => { mesh(geo(new T.PlaneGeometry(width, depth)), shade, [1, 1, 1], [x, g + .004, z]).rotation.x = -HALF_PI; };
 
   // A continuous interior envelope contains every camera pose. The Moon is visible
   // only through the rear viewport; this is a visual set, not a pressure model.
-  // Terrain is original illustrative geometry. The distant Earth is a static,
-  // archival hemisphere photograph: neither a live view nor a sky-position model.
-  const rearZ=-3.82,frontZ=10.4;
-  const vaultPositions=[],vaultUvs=[],vaultIndices=[],vaultSegments=32;
-  for(let i=0;i<=vaultSegments;i++){
-    const angle=i/vaultSegments*Math.PI,x=5*Math.cos(angle),y=groundY+4.4*Math.sin(angle);
-    vaultPositions.push(x,y,rearZ,x,y,frontZ);
-    vaultUvs.push(i/vaultSegments*8,0,i/vaultSegments*8,(frontZ-rearZ)/2.5);
-    if(i<vaultSegments){const a=i*2;vaultIndices.push(a,a+1,a+2,a+1,a+3,a+2);}
+  // Exterior terrain is illustrative geometry; Earth is an archival NASA photo, not a live view or sky-position model.
+  const rearZ = -3.82, frontZ = 10.4;
+  const vaultPositions = [], vaultUvs = [], vaultIndices = [], vaultSegments = 32;
+  for (let i = 0; i <= vaultSegments; i++) {
+    const angle = i / vaultSegments * Math.PI, x = 5 * Math.cos(angle), y = g + 4.4 * Math.sin(angle);
+    vaultPositions.push(x, y, rearZ, x, y, frontZ); vaultUvs.push(i / vaultSegments * 8, rearZ / RIB, i / vaultSegments * 8, frontZ / RIB);
+    if (i < vaultSegments) { const a = i * 2; vaultIndices.push(a, a + 1, a + 2, a + 1, a + 3, a + 2); }
   }
-  const vault=geo(new T.BufferGeometry());vault.setAttribute('position',new T.Float32BufferAttribute(vaultPositions,3));vault.setAttribute('uv',new T.Float32BufferAttribute(vaultUvs,2));vault.setIndex(vaultIndices);vault.computeVertexNormals();
+  const vault = geo(new T.BufferGeometry()); vault.setAttribute('position', new T.Float32BufferAttribute(vaultPositions, 3));
+  vault.setAttribute('uv', new T.Float32BufferAttribute(vaultUvs, 2)); vault.setIndex(vaultIndices); vault.computeVertexNormals();
   // Inward winding lights the room-facing surface without transparent/double-sided walls.
-  mesh(vault,liner,[1,1,1],[0,0,0]);
-  const shell = new T.Shape(); shell.moveTo(-5,groundY); shell.lineTo(5,groundY);
-  shell.absellipse(0,groundY,5,4.4,0,Math.PI,false); shell.closePath();
-  const forwardBulkhead=geo(new T.ExtrudeGeometry(shell,{depth:.18,bevelEnabled:false,curveSegments:28}));
-  mesh(forwardBulkhead,ceramic,[1,1,1],[0,0,frontZ]);
-  const port = new T.Path(); port.moveTo(-1.85,-.45); port.lineTo(-1.85,2.05);
-  port.quadraticCurveTo(-1.85,2.23,-1.67,2.23); port.lineTo(1.67,2.23);
-  port.quadraticCurveTo(1.85,2.23,1.85,2.05); port.lineTo(1.85,-.45); port.closePath(); shell.holes.push(port);
-  mesh(geo(new T.ExtrudeGeometry(shell,{depth:.18,bevelEnabled:false,curveSegments:28})),ceramic,[1,1,1],[0,0,rearZ]);
-  box([10.2,.16,14.4],[0,groundY-.13,3.3],graphite);
-  for(const x of [-3.35,0,3.35])for(const z of [-2.0,1.5,5.0,8.5])box([3.26,.025,3.42],[x,groundY-.0125,z],deck);
-  const archShape=geo(new T.TorusGeometry(5,.045,6,48,Math.PI));
-  // Structural ribs stay behind the task; no foreground rib crosses the robot/tool.
-  for(const z of [-3.1,-1.8])mesh(archShape,steel,[1,.88,1],[0,groundY,z]);
-  for(const x of [-4.5,4.5]){
-    box([.48,.68,13.9],[x,groundY+.34,3.25],graphite);
-    box([.50,.045,13.9],[x,groundY+.70,3.25],steel);
+  mesh(vault, wall, [1, 1, 1], [0, 0, 0]);
+  const panelUv = shape => { const uv = shape.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) / 1.25, (uv.getY(i) - g) / 1.25); return shape; };
+  const shell = new T.Shape(); shell.moveTo(-5, g); shell.lineTo(5, g);
+  shell.absellipse(0, g, 5, 4.4, 0, Math.PI, false); shell.closePath();
+  mesh(panelUv(geo(new T.ExtrudeGeometry(shell, { depth: .18, bevelEnabled: false, curveSegments: 28 }))), wall, [1, 1, 1], [0, 0, frontZ]);
+  const port = new T.Path(); port.moveTo(-1.85, -.45); port.lineTo(-1.85, 2.05);
+  port.quadraticCurveTo(-1.85, 2.23, -1.67, 2.23); port.lineTo(1.67, 2.23);
+  port.quadraticCurveTo(1.85, 2.23, 1.85, 2.05); port.lineTo(1.85, -.45); port.closePath(); shell.holes.push(port);
+  mesh(panelUv(geo(new T.ExtrudeGeometry(shell, { depth: .18, bevelEnabled: false, curveSegments: 28 }))), wall, [1, 1, 1], [0, 0, rearZ]);
+  box([10.2, .16, 14.4], [0, g - .13, 3.3], graphite);
+  const deckShape = geo(new T.PlaneGeometry(9.5, 14.2)); deckShape.rotateX(-HALF_PI);
+  { const uv = deckShape.attributes.uv; for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * 7.6, uv.getY(i) * 11.36); }
+  mesh(deckShape, deck, [1, 1, 1], [0, g, 3.29]);
+  // Structural ribs follow the vault; none of them crosses the work in front of the robot.
+  const arch = geo(new T.TorusGeometry(5, .05, 6, 32, Math.PI));
+  for (let z = -3.1; z < 9.6; z += RIB) mesh(arch, trim, [1, .88, 1], [0, g, z]);
+  for (const x of [-4.5, 4.5]) { box([.48, .46, 13.9], [x, g + .23, 3.25], trim); box([.50, .04, 13.9], [x, g + .48, 3.25], steel); }
+  for (const x of [-4.15, 4.15]) box([.035, .006, 13.9], [x, g + .003, 3.25], copper);
+  // A marked aisle gives the open deck in front of the row a purpose.
+  for (const x of [-1.75, 1.75]) box([.05, .006, 8.2], [x, g + .003, 5.0], amber);
+  for (const z of [1.6, 3.4, 5.2, 7.0]) box([3.45, .006, .04], [0, g + .003, z], trim);
+  // Ceiling: a service spine and a row of light panels between the ribs.
+  box([.4, .04, 13.8], [0, 2.945, 3.25], trim);
+  for (let z = -2.33; z < 9; z += RIB) for (const side of [-1, 1]) {
+    box([1.14, .05, 1.04], [side * 2.512, 2.322, z], trim).rotation.z = side * -.48;
+    box([1.0, .035, .9], [side * 2.5, 2.3, z], glow).rotation.z = side * -.48;
   }
-  for(const x of [-2.9,2.9]){box([.16,.10,12.9],[x,2.10,3.0],graphite);box([.045,.035,12.5],[x,2.015,3.0],warm);}
-  // Recessed ceiling service spine and broad floor edges reinforce interior depth.
-  box([.65,.045,13.8],[0,2.945,3.25],panel);
-  // Recessed service covers share the room's actual curvature; broad bevels
-  // catch practical lights without adding another foreground structural rib.
-  for(const x of [-4.17,4.17])for(const z of [-.7,2.3,5.3]){
-    const cover=rounded([.11,1.18,2.55],[x,.92,z],panel);cover.rotation.z=x<0?-.36:.36;
-    for(const dz of [-.84,.84])box([.055,.42,.085],[x+(x<0?.10:-.10),.91,z+dz],copper);
-  }
-  for(const x of [-4.15,4.15])box([.035,.006,13.9],[x,groundY+.003,3.25],copper);
-  group.userData.enclosure={kind:'visual-interior',rearZ,frontZ,halfWidth:5,vaultHeight:4.4,groundY,viewport:'rear-bulkhead-only'};
+  group.userData.enclosure = { kind: 'visual-interior', rearZ, frontZ, halfWidth: 5, vaultHeight: 4.4, groundY: g, viewport: 'rear-bulkhead-only' };
+
+  // Outside the viewport: black sky, the archival Earth photo and illustrative regolith.
+  mesh(geo(new T.PlaneGeometry(44, 20)), space, [1, 1, 1], [0, 4, -19.2]);
   const earthMaterial = new T.MeshBasicMaterial({ color: 0xffffff, toneMapped: false }); materials.add(earthMaterial);
   const earth = mesh(geo(new T.CircleGeometry(1.05, 48)), earthMaterial, [1, 1, 1], [-1, 1.25, -14]);
   earth.name = 'archival-earth-through-viewport'; earth.visible = false;
+  // Draw the photo after the opaque room while retaining normal depth occlusion.
+  earth.renderOrder = 2;
   earth.userData = { nasa_id: NASA_TEXTURES.earth.id, credit: NASA_TEXTURES.earth.credit,
     source: `https://images.nasa.gov/details/${NASA_TEXTURES.earth.id}`,
     projection: 'cropped orthographic photograph', scenic: true, live: false };
@@ -122,218 +218,222 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
     texture.anisotropy = 1; textures.add(texture); earthMaterial.map = texture;
     earthMaterial.needsUpdate = true; earth.visible = true; group.userData.earthImage.state = 'ready'; return true;
   }).catch(() => { if (!disposed) group.userData.earthImage.state = 'unavailable'; return false; });
-  const lunar=mat(0x807e75,{roughness:1,metalness:0});
-  const terrain=geo(new T.PlaneGeometry(22,15,24,16));terrain.rotateX(-Math.PI/2);
-  const terrainPositions=terrain.attributes.position;
-  for(let i=0;i<terrainPositions.count;i++){const x=terrainPositions.getX(i),z=terrainPositions.getZ(i);terrainPositions.setY(i,.22*Math.sin(x*.8+z*.4)+.16*Math.cos(z*1.1)+.05*Math.sin(x*3.5-z));}
-  terrain.computeVertexNormals();mesh(terrain,lunar,[1,1,1],[0,groundY-.1,-12.2]);
-  const ridge=new T.Shape();ridge.moveTo(-12,-3);
-  for(const [x,y] of [[-12,0],[-10,.6],[-8,.25],[-6,1.1],[-4,.55],[-1,.85],[1,.38],[3,1.2],[5,.3],[8,.8],[12,.1]])ridge.lineTo(x,y);
-  ridge.lineTo(12,-3);ridge.closePath();mesh(geo(new T.ExtrudeGeometry(ridge,{depth:1.1,bevelEnabled:false})),lunar,[1,1,1],[0,-.4,-11.8]);
-  const rock=geo(new T.DodecahedronGeometry(1,0));
-  for(const [x,z,r] of [[-2.6,-6.3,.3],[1.8,-6.7,.22],[3.4,-8,.5],[-4,-9,.42],[.3,-9.6,.18]])mesh(rock,lunar,[r,r*.55,r*.8],[x,groundY+.03,z]);
-  for(const x of [-1.96,1.96])box([.16,2.9,.28],[x,.88,-3.56],graphite);
-  for(const y of [-.55,2.35])box([4.08,.16,.28],[0,y,-3.56],graphite);
-  pipe([-1.87,-.34,-3.36],[1.87,-.34,-3.36],.055,copper);
-  // Sealed airlock with handrails; a separate desk is the crew's work area.
-  mesh(geo(new T.CircleGeometry(1.13,32)),panel,[1,1,1],[-3.55,-.05,-3.55]);
-  mesh(geo(new T.TorusGeometry(1.13,.095,8,40)),graphite,[1,1,1],[-3.55,-.05,-3.47]);
-  mesh(geo(new T.CircleGeometry(.29,24)),blue,[1,1,1],[-3.55,.24,-3.44]);
-  for(const x of [-4.25,-2.85])pipe([x,-.25,-3.31],[x,.45,-3.31],.055,copper);
-  decal('AIRLOCK',1.35,.32,[-3.55,1.25,-3.49]);
-  for(const x of [3.3,4.45])box([.12,.8,.12],[x,groundY+.4,1.95],graphite);
-  box([1.55,.12,.85],[3.88,groundY+.88,1.95],ceramic);
-  box([.9,.58,.1],[3.88,groundY+1.24,2.15],graphite);box([.78,.45,.025],[3.88,groundY+1.25,2.22],blue);
-  cylinder(.28,.08,[3.88,groundY+.56,2.78],graphite);cylinder(.045,.52,[3.88,groundY+.26,2.78],steel);
-  decal('CREW WORK ZONE',1.45,.28,[3.88,groundY+1.72,2.22]);
-  // A tagged concept PMMA panel replaces the unexplained alarm cabinet.
-  box([1.95,.12,1.12],[2.65,-.48,-1.65],ceramic);
-  for(const x of [1.85,3.45])box([.13,.86,.80],[x,groundY+.43,-1.65],graphite);
-  box([1.38,1.16,.10],[2.65,.28,-1.19],graphite);box([1.22,1.02,.035],[2.65,.28,-1.115],blue);
-  for(const x of [2.02,3.28])box([.04,1.15,.035],[x,.28,-1.07],copper);
-  decal('HAB-PMMA-01',1.38,.30,[2.65,1.05,-1.10]);
+  const terrain = geo(new T.PlaneGeometry(22, 15, 24, 16)); terrain.rotateX(-HALF_PI);
+  const terrainPositions = terrain.attributes.position;
+  for (let i = 0; i < terrainPositions.count; i++) { const x = terrainPositions.getX(i), z = terrainPositions.getZ(i); terrainPositions.setY(i, .22 * Math.sin(x * .8 + z * .4) + .16 * Math.cos(z * 1.1) + .05 * Math.sin(x * 3.5 - z)); }
+  terrain.computeVertexNormals(); mesh(terrain, regolith, [1, 1, 1], [0, g - .1, -12.2]);
+  const hills = (points, depth, finish, at) => {
+    const outline = new T.Shape(); outline.moveTo(-13, -3); for (const [x, y] of points) outline.lineTo(x, y); outline.lineTo(13, -3); outline.closePath();
+    mesh(geo(new T.ExtrudeGeometry(outline, { depth, bevelEnabled: false })), finish, [1, 1, 1], at);
+  };
+  hills([[-13, 0], [-10, .6], [-8, .25], [-6, 1.1], [-4, .55], [-1, .85], [1, .38], [3, 1.2], [5, .3], [8, .8], [13, .1]], 1.1, farHills, [0, -.35, -14.6]);
+  hills([[-13, .1], [-9, .38], [-7, .15], [-4.5, .5], [-2, .2], [0, .42], [2.5, .12], [4.5, .5], [7, .2], [9.5, .4], [13, .1]], .8, nearHills, [0, -1.0, -9.6]);
+  const rock = geo(new T.DodecahedronGeometry(1, 0));
+  for (const [x, z, r] of [[-2.6, -6.3, .3], [1.8, -6.7, .22], [3.4, -8, .5], [-4, -9, .42], [.3, -9.6, .18]]) mesh(rock, nearHills, [r, r * .55, r * .8], [x, g + .03, z]);
+  // Viewport frame, its handrail and the silicone seal around the pane.
+  for (const x of [-1.96, 1.96]) box([.16, 2.9, .28], [x, .88, -3.56], graphite);
+  for (const y of [-.55, 2.35]) box([4.08, .16, .28], [0, y, -3.56], graphite);
+  for (const x of [-1.8, 1.8]) box([.055, 2.62, .05], [x, .89, -3.68], gasket);
+  for (const y of [-.4, 2.18]) box([3.6, .055, .05], [0, y, -3.68], gasket);
+  pipe([-1.87, -.72, -3.36], [1.87, -.72, -3.36], .045, copper);
+  plate('tagSilicone', .66, .14, [2.52, .30, -3.73]);
+  // Sealed airlock on the rear bulkhead.
+  mesh(geo(new T.CircleGeometry(1.13, 40)), trim, [1, 1, 1], [-3.55, -.05, -3.6]);
+  mesh(geo(new T.TorusGeometry(1.13, .095, 8, 40)), graphite, [1, 1, 1], [-3.55, -.05, -3.56]);
+  mesh(geo(new T.TorusGeometry(.42, .04, 6, 28)), steel, [1, 1, 1], [-3.55, -.05, -3.5]);
+  mesh(geo(new T.CircleGeometry(.24, 24)), acrylic, [1, 1, 1], [-3.55, .52, -3.52]);
+  pipe([-3.97, -.05, -3.5], [-3.13, -.05, -3.5], .03, steel);
+  for (const x of [-4.3, -2.8]) pipe([x, -.35, -3.42], [x, .45, -3.42], .045, copper);
+  plate('tagAirlock', .9, .11, [-3.55, 1.28, -3.6]);
+  // Stowage along both walls and cargo bags by the forward lockers.
+  for (const z of [-1.9, -.6, .7, 2.0]) tbox([.8, 2.5, 1.25], [-4.1, g + 1.25, z], { px: 'locker' });
+  for (const z of [-2.45, -1.2]) tbox([.8, 2.5, 1.25], [4.1, g + 1.25, z], { nx: 'locker' });
+  for (const [x, y, z] of [[-3.25, .21, 3.5], [-3.2, .63, 3.55], [-3.3, .21, 4.25]]) tbox([.62, .42, .56], [x, g + y, z], { all: 'bag' });
+
+  // The kit mission happens along one row that faces the room: a staging bench with one
+  // labelled review kit per material, and the crew-review console that receives a kit. The
+  // humanoid works from behind the row, facing the room. These numbers are its contract:
+  // a kit is carried by its top handle, and "position" is the centre of a kit at rest.
+  const ROW = .25, STAND = ROW - .6, handleLocal = Object.freeze([0, .205, 0]);
+  const rest = (x, extra = {}) => {
+    const position = Object.freeze([x, 0, ROW]);
+    return Object.freeze({ position, point: position, handlePosition: Object.freeze([x, .205, ROW]), robotPosition: Object.freeze([x + .25, g, STAND]), robotYaw: 0, ...extra });
+  };
+  const kit = Object.freeze({
+    dimensions: Object.freeze([.34, .28, .28]), handleLocal,
+    slots: Object.freeze({ pmma: rest(.9, { material: 'pmma' }), kapton: rest(1.35, { material: 'kapton' }), silicone: rest(1.8, { material: 'silicone' }) }),
+    fixture: rest(-1.25),
+    dock: Object.freeze({ robotPosition: Object.freeze([2.9, g, -1.5]), robotYaw: -.35 })
+  });
+  group.userData.kitLayout = kit;
+  tbox([1.46, 1.29, .56], [1.35, g + .645, ROW], { pz: 'bench', py: 'benchTop' });
+  tbox([1.85, 1.29, .57], [-.575, g + .645, ROW + .035], { pz: 'console', py: 'deck' });
+  for (const spot of [...Object.values(kit.slots), kit.fixture]) for (const side of [-.192, .192]) box([.025, .05, .31], [spot.position[0] + side, -.115, ROW], copper);
+  const kits = {};
+  for (const id of KIT_MATERIALS) {
+    const label = kitRegion(id), item = tbox(kit.dimensions, kit.slots[id].position, { pz: label, nz: label, py: 'kitTop', all: 'light' });
+    item.userData.live = true; item.name = `review-kit-${id}`;
+    for (const x of [-.105, .105]) box([.028, .075, .036], [x, .165, 0], steel, item);
+    box([.24, .035, .045], [0, .205, 0], graphite, item);
+    const handle = new T.Object3D(); handle.name = 'kit-handle'; handle.position.fromArray(handleLocal); item.add(handle);
+    kits[id] = item;
+  }
+  // The console screen shows the caller's real tally and task state; it is not a sensor display.
+  const screenTilt = -.14;
+  box([1.16, .68, .07], [-.3, .24, .055], graphite).rotation.x = screenTilt;
+  box([.14, .12, .10], [-.3, -.10, .05], trim);
+  const screen = drawn(640, 360, c => { c.fillStyle = '#101c22'; c.fillRect(0, 0, 640, 360); });
+  const screenMaterial = keep(new T.MeshBasicMaterial({ map: screen.texture, toneMapped: false }));
+  const screenPlane = mesh(geo(new T.PlaneGeometry(1.08, .6)), screenMaterial, [1, 1, 1], [-.3, .24, .096]); screenPlane.rotation.x = screenTilt; screenPlane.userData.live = true;
+  cylinder(.8, .065, [2.9, g - .030, -1.5], graphite);
+  const dockRing = mesh(geo(new T.TorusGeometry(.73, .015, 6, 40)), sweep, [1, 1, 1], [2.9, g + .012, -1.5]); dockRing.rotation.x = -HALF_PI;
+  for (const x of [2.4, 3.4]) box([.1, .018, .36], [x, g + .01, -1.62], copper);
+  plate('tagDock', 1.1, .23, [2.9, g + .006, -.48], 0, true);
+
   // Illustrative material-linked components, not measured or flight-certified hardware.
   // Their evidence/status is supplied by the review engine; geometry creates no data.
-  box([1.25,.62,.10],[-3.65,.28,-1.17],graphite);
-  for(const y of [-.05,.61])box([1.3,.055,.22],[-3.65,y,-1.10],steel);
-  for(const y of [.16,.28,.40])pipe([-4.15,y,-1.07],[-3.15,y,-1.07],.025,copper);
-  for(const y of [0,.5])pipe([-4.55,y,-1.17],[-4.15,y,-1.17],.045,steel);
-  decal('KAPTON CABLE',1.30,.28,[-3.65,.83,-1.07]);
-  for(const x of [-1.82,1.82])box([.045,2.55,.035],[x,.86,-3.33],recess);
-  for(const y of [-.42,2.14])box([3.66,.045,.035],[0,y,-3.33],recess);
-  decal('SILICONE SEAL',1.45,.28,[2.70,.85,-3.30]);
-  const targetSpec=(label,tag,point,robotPosition,robotYaw)=>Object.freeze({label,tag,point:Object.freeze(point),robotPosition:Object.freeze(robotPosition),robotYaw});
-  const workTargets=Object.freeze({
-    pmma:targetSpec('PMMA work-zone panel','HAB-PMMA-01',[2.65,.28,-1.025],[1.65,groundY,-.05],2.44),
-    kapton:targetSpec('Kapton cable tray','HAB-KAPTON-02',[-3.65,.28,-1.025],[-2.65,groundY,-.05],-2.44),
-    silicone:targetSpec('Silicone viewport seal','HAB-SILICONE-03',[1.82,.45,-3.32],[.9,groundY,-2.2],2.45)
+  tbox([.9, 1.0, 1.2], [3.95, g + .5, .35], { nx: 'locker' });
+  box([.035, .8, .9], [3.52, .20, .35], acrylic);
+  for (const z of [-.12, .82]) box([.05, .86, .05], [3.52, .20, z], copper);
+  box([.06, .05, 1.0], [3.52, .625, .35], copper);
+  plate('tagPmma', .66, .14, [3.49, .79, .35], -HALF_PI);
+  box([1.7, .10, .20], [3.1, .92, -3.68], steel);
+  for (const y of [.99, 1.03, 1.07]) pipe([2.28, y, -3.62], [3.92, y, -3.62], .022, amber);
+  pipe([3.5, .97, -3.66], [3.5, .52, -3.66], .03, amber);
+  tbox([.42, .36, .14], [3.5, .40, -3.71]);
+  plate('tagKapton', .66, .14, [3.0, .72, -3.73]);
+  const targetSpec = (label, tag, point, robotPosition, robotYaw) => Object.freeze({ label, tag, point: Object.freeze(point), robotPosition: Object.freeze(robotPosition), robotYaw });
+  const workTargets = Object.freeze({
+    pmma: targetSpec('PMMA work-zone panel', 'HAB-PMMA-01', [3.50, .25, .35], [2.70, g, .35], HALF_PI),
+    kapton: targetSpec('Kapton cable tray', 'HAB-KAPTON-02', [3.0, .95, -3.60], [2.45, g, -2.75], 2.58),
+    silicone: targetSpec('Silicone viewport seal', 'HAB-SILICONE-03', [1.80, .45, -3.64], [.95, g, -2.45], 2.52)
   });
-  // One bay-owned cartridge represents the selected material's review request.
-  // Three labeled storage cradles are locations, not three duplicated payloads.
-  const frozenPoint=point=>Object.freeze(point);
-  const handleLocal=frozenPoint([0,.205,0]);
-  const slot=(x,material)=>{const position=frozenPoint([x,0,.25]);return Object.freeze({material,position,point:position,handlePosition:frozenPoint([x,.205,.25]),robotPosition:frozenPoint([x-.25,groundY,.85]),robotYaw:Math.PI});};
-  const fixturePoint=frozenPoint([2.05,0,.25]);
-  const kit=Object.freeze({dimensions:frozenPoint([.34,.28,.28]),handleLocal,
-    slots:Object.freeze({pmma:slot(-.45,'pmma'),kapton:slot(.05,'kapton'),silicone:slot(.55,'silicone')}),
-    fixture:Object.freeze({position:fixturePoint,point:fixturePoint,handlePosition:frozenPoint([2.05,.205,.25]),robotPosition:frozenPoint([1.80,groundY,.85]),robotYaw:Math.PI}),
-    dock:Object.freeze({robotPosition:frozenPoint([-2,groundY,1]),robotYaw:.2})});
-  // Central rack and handoff fixture leave the path at z=.85 unobstructed.
-  rounded([1.66,.12,.55],[.05,-.20,.25],graphite);
-  for(const x of [-.65,.75])rounded([.10,1.17,.37],[x,groundY+.585,.25],steel);
-  for(const [id,s] of Object.entries(kit.slots)){
-    rounded([.43,.025,.34],[s.position[0],-.1485,.25],recess);
-    for(const dx of [-.192,.192])box([.025,.12,.31],[s.position[0]+dx,-.08,.25],copper);
-    decal(id==='pmma'?'PMMA':id==='kapton'?'KAPTON':'SILICONE',.41,.10,[s.position[0],-.225,.535]);
-  }
-  rounded([.78,.12,.60],[2.05,-.20,.25],ceramic);
-  rounded([.42,1.17,.38],[2.05,groundY+.585,.25],graphite);
-  rounded([.59,.045,.52],[2.05,groundY+.0225,.25],steel);
-  for(const x of [1.76,2.34])box([.025,.012,.42],[x,-.133,.25],copper);
-  decal('CREW REVIEW',.70,.14,[2.05,-.235,.565]);
-  const payload=new T.Group();payload.name='virtual-review-kit';group.add(payload);
-  rounded([.34,.28,.28],[0,0,0],ceramic,payload);
-  box([.30,.025,.25],[0,.112,0],graphite,payload);
-  for(const x of [-.105,.105])box([.028,.075,.036],[x,.165,0],steel,payload);
-  rounded([.24,.035,.045],[0,.205,0],steel,payload);
-  box([.035,.15,.012],[-.105,-.015,.148],copper,payload);
-  const labelCanvas=document.createElement('canvas');labelCanvas.width=256;labelCanvas.height=64;
-  const labelContext=labelCanvas.getContext('2d'),labelTexture=new T.CanvasTexture(labelCanvas);labelTexture.colorSpace=T.SRGBColorSpace;textures.add(labelTexture);
-  const labelMaterial=new T.MeshBasicMaterial({map:labelTexture,toneMapped:false});materials.add(labelMaterial);
-  const label=mesh(geo(new T.PlaneGeometry(.245,.065)),labelMaterial,[1,1,1],[.025,.016,.148],payload);label.name='kit-material-label';
-  const handle=new T.Object3D();handle.name='kit-handle';handle.position.fromArray(handleLocal);payload.add(handle);handle.updateMatrix();
-  const handleInverse=new T.Matrix4().copy(handle.matrix).invert(),kitMatrix=new T.Matrix4(),bayInverse=new T.Matrix4();
-  const wideCamera=Object.freeze({position:frozenPoint([-1.4,1.2,7.4]),target:frozenPoint([0,.15,-.5]),fov:47});
-  const narrowCamera=Object.freeze({position:frozenPoint([0,1.2,9.6]),target:frozenPoint([0,-.02,.2]),fov:62});
-  const cameraHints=Object.freeze({wide:wideCamera,narrow:narrowCamera,overview:wideCamera,compact:narrowCamera,
-    taskBounds:Object.freeze({min:frozenPoint([-1.2,groundY,-.1]),max:frozenPoint([2.65,1.4,1.5])})});
-  let lastKitMaterial='pmma',paintedKitMaterial=null;
-  function updateKit(state,grip){
-    const material=state?.plan?.material_id;
-    if(Object.hasOwn(kit.slots,material||''))lastKitMaterial=material;
-    if(lastKitMaterial!==paintedKitMaterial){paintedKitMaterial=lastKitMaterial;labelContext.fillStyle='#1b292b';labelContext.fillRect(0,0,256,64);labelContext.fillStyle='#e5dcc5';labelContext.font='600 36px sans-serif';labelContext.textAlign='center';labelContext.textBaseline='middle';labelContext.fillText(lastKitMaterial.toUpperCase(),128,32,240);labelTexture.needsUpdate=true;}
-    const selected=kit.slots[lastKitMaterial];
-    const valid=Boolean(state?.plan_valid&&state.approval?.granted&&state.phase!=='cancelled');
-    const attached=valid&&state.virtual_object_state==='attached';
-    const staged=valid&&state.virtual_object_state==='staged';
-    payload.matrixAutoUpdate=true;
-    if(attached&&grip?.isObject3D){
-      group.updateWorldMatrix(true,false);grip.updateWorldMatrix(true,false);
-      bayInverse.copy(group.matrixWorld).invert();
-      kitMatrix.copy(bayInverse).multiply(grip.matrixWorld).multiply(handleInverse);
-      payload.matrixAutoUpdate=false;payload.matrix.copy(kitMatrix);
-      kitMatrix.decompose(payload.position,payload.quaternion,payload.scale);
-      payload.matrixWorldNeedsUpdate=true;
-    }else{
-      payload.position.fromArray(staged?kit.fixture.position:selected.position);
-      payload.quaternion.identity();payload.scale.set(1,1,1);payload.updateMatrix();
-    }
-    payload.userData.material_id=lastKitMaterial;
-    payload.userData.question_id=state?.plan?.question_id||null;
-    payload.userData.source_ids=state?.plan?.source_ids||null;
-    payload.userData.virtual_object_state=attached&&grip?.isObject3D?'attached':staged?'staged':'docked';
-    payload.userData.grip_unavailable=Boolean(attached&&!grip?.isObject3D);
-    group.userData.kitObject=payload.userData.virtual_object_state;
-    group.userData.kitMaterial=lastKitMaterial;
-  }
-  updateKit(null,null);
-  const cuePosition=new T.Vector3(2.65,.28,-1.06);
-  const cue=box([.10,.10,.018],cuePosition.toArray(),cueMaterial);cue.name='panel-traceability-target';
-  const targetRing=mesh(geo(new T.TorusGeometry(.23,.014,6,36)),ringMaterial,[1,1,1],[2.65,.28,-1.035]);targetRing.name='evidence-target-ring';targetRing.visible=false;
-  const scan=box([.82,.014,.012],[2.65,.28,-1.025],blue);scan.visible=false;
-  const beamGeometry=geo(new T.BufferGeometry());beamGeometry.setAttribute('position',new T.BufferAttribute(new Float32Array(6),3));
-  const beamMaterial=new T.LineBasicMaterial({color:0xa7c7ce,transparent:true,opacity:.4,depthWrite:false});materials.add(beamMaterial);
-  const beam=new T.Line(beamGeometry,beamMaterial);group.add(beam);beam.visible=false;
-  cylinder(.8,.065,[-2,groundY-.030,1],graphite);
-  const dockRing=mesh(geo(new T.TorusGeometry(.73,.015,6,40)),blue,[1,1,1],[-2,groundY+.012,1]);dockRing.rotation.x=-Math.PI/2;
-  for(const x of [-2.5,-1.5])box([.1,.018,.36],[x,groundY+.01,.88],copper);
-  decal('ROBOT DOCK',1.2,.24,[-2,groundY+.24,.1]);
-  const routeGeometry=geo(new T.BufferGeometry().setFromPoints([new T.Vector3(-2,groundY+.06,1),new T.Vector3(1.65,groundY+.06,-.05)]));
-  const routeMaterial=new T.LineDashedMaterial({color:0xc5a270,dashSize:.18,gapSize:.12,transparent:true,opacity:.45});materials.add(routeMaterial);
-  const route=new T.Line(routeGeometry,routeMaterial);route.computeLineDistances();group.add(route);route.visible=false;
-  group.add(new T.HemisphereLight(0xd9e0de,0x3b3028,.35));
-  const key=new T.PointLight(0xf1e2c7,15,14,2);key.position.set(-2.4,2.35,2.2);group.add(key);
-  const task=new T.PointLight(0xb7cbd2,9,10,2);task.position.set(3.35,1.8,.5);group.add(task);
+  const ringTurn = { pmma: HALF_PI, kapton: 0, silicone: 0 };
+  const cuePosition = new T.Vector3(3.49, .25, .35);
+  const cue = box([.018, .10, .10], cuePosition.toArray(), cueMaterial); cue.name = 'panel-traceability-target'; cue.userData.live = true;
+  const targetRing = mesh(geo(new T.TorusGeometry(.23, .014, 6, 36)), ringMaterial, [1, 1, 1], [3.47, .25, .35]); targetRing.name = 'evidence-target-ring'; targetRing.rotation.y = HALF_PI; targetRing.visible = false; targetRing.userData.live = true;
+  const scan = box([.012, .014, .82], [3.47, .25, .35], sweep); scan.visible = false; scan.userData.live = true;
+  const beamGeometry = geo(new T.BufferGeometry()); beamGeometry.setAttribute('position', new T.BufferAttribute(new Float32Array(6), 3));
+  const beamMaterial = keep(new T.LineBasicMaterial({ color: 0xa7c7ce, transparent: true, opacity: .4, depthWrite: false }));
+  const beam = new T.Line(beamGeometry, beamMaterial); group.add(beam); beam.visible = false;
+  const routeGeometry = geo(new T.BufferGeometry().setFromPoints([new T.Vector3(2.9, g + .06, -1.5), new T.Vector3(2.7, g + .06, .35)]));
+  const routeMaterial = keep(new T.LineDashedMaterial({ color: 0xc5a270, dashSize: .18, gapSize: .12, transparent: true, opacity: .45 }));
+  const route = new T.Line(routeGeometry, routeMaterial); route.computeLineDistances(); group.add(route); route.visible = false;
+  ground(2.9, 1.7, -.575, .3); ground(2.4, 1.7, 1.35, .27); ground(1.9, 3.5, 3.95, -1.8); ground(2.0, 2.3, 3.9, .35); ground(1.9, 6.6, -4.05, .05);
+  group.add(new T.HemisphereLight(0xd9e0de, 0x3b3028, .4));
+  const key = new T.PointLight(0xf4e4c8, 26, 13, 2); key.position.set(.4, 2.1, 2.4); group.add(key);
+  const task = new T.PointLight(0xbfd2d8, 14, 9, 2); task.position.set(2.2, 1.7, -.9); group.add(task);
 
-  // The real-tally monitor sits on the solid rear-right wall, leaving the viewport
-  // open. Its screen is not a sensor display and creates no evidence of its own.
-  const screenCanvas = document.createElement('canvas'); screenCanvas.width = 512; screenCanvas.height = 384;
-  const screenContext = screenCanvas.getContext('2d'), screenTexture = new T.CanvasTexture(screenCanvas); screenTexture.colorSpace = T.SRGBColorSpace; textures.add(screenTexture);
-  const screenMaterial = new T.MeshBasicMaterial({ map: screenTexture, toneMapped: false }); materials.add(screenMaterial);
-  box([1.6, 1.20, .14], [2.95, 1.58, -3.34], graphite);
-  box([.16, .58, .16], [2.95, 1.00, -3.40], steel);
-  mesh(geo(new T.PlaneGeometry(1.42, 1.06)), screenMaterial, [1, 1, 1], [2.95, 1.58, -3.25]);
-  // Fixed opaque pieces share a draw submission. Keep the moving cue/scan and every
-  // texture plane independent so their transforms and live monitor remain updateable.
-  const moving = new Set([cue, targetRing, scan]);
+  // Fixed opaque pieces share a draw submission per finish. Kits, cue, ring and the
+  // screen stay independent so their transforms and live texture remain updateable.
+  let authoredMeshes = 0; group.traverse(item => { if (item.isMesh) authoredMeshes++; });
   const buckets = new Map();
-  for (const item of group.children) if (item.isMesh && !moving.has(item)) {
+  for (const item of group.children) if (item.isMesh && !item.userData.live) {
     if (!buckets.has(item.material)) buckets.set(item.material, []);
     buckets.get(item.material).push(item);
   }
-  let authoredMeshes = 0; group.traverse(item => { if (item.isMesh) authoredMeshes++; });
   for (const [finish, pieces] of buckets) {
     if (pieces.length < 2) continue;
     const parts = pieces.map(item => { item.updateMatrix(); return (item.geometry.index ? item.geometry.toNonIndexed() : item.geometry.clone()).applyMatrix4(item.matrix); });
     const vertices = parts.reduce((count, part) => count + part.attributes.position.count, 0);
-    const positions = new Float32Array(vertices * 3), normals = new Float32Array(vertices * 3),uvs=new Float32Array(vertices*2); let offset = 0,uvOffset=0;
-    for (const part of parts) { positions.set(part.attributes.position.array, offset); normals.set(part.attributes.normal.array, offset);if(part.attributes.uv)uvs.set(part.attributes.uv.array,uvOffset);uvOffset+=part.attributes.position.count*2; offset += part.attributes.position.array.length; part.dispose(); }
-    const shape = geo(new T.BufferGeometry()); shape.setAttribute('position', new T.BufferAttribute(positions, 3)); shape.setAttribute('normal', new T.BufferAttribute(normals, 3));
-    shape.setAttribute('uv',new T.BufferAttribute(uvs,2));
+    const positions = new Float32Array(vertices * 3), normals = new Float32Array(vertices * 3), uvs = new Float32Array(vertices * 2); let offset = 0;
+    for (const part of parts) {
+      positions.set(part.attributes.position.array, offset * 3); normals.set(part.attributes.normal.array, offset * 3);
+      if (part.attributes.uv) uvs.set(part.attributes.uv.array, offset * 2);
+      offset += part.attributes.position.count; part.dispose();
+    }
+    const shape = geo(new T.BufferGeometry()); shape.setAttribute('position', new T.BufferAttribute(positions, 3));
+    shape.setAttribute('normal', new T.BufferAttribute(normals, 3)); shape.setAttribute('uv', new T.BufferAttribute(uvs, 2));
     shape.computeBoundingBox(); shape.computeBoundingSphere(); pieces.forEach(item => group.remove(item));
-    const batch = mesh(shape, finish, [1, 1, 1], [0, 0, 0]); batch.name = 'fixed-bay-material-batch';
+    mesh(shape, finish, [1, 1, 1], [0, 0, 0]).name = 'fixed-bay-material-batch';
   }
+
   let screenKey = '';
-  function paintReview(review,target){
-    const validCounts=Number.isSafeInteger(review.completed)&&Number.isSafeInteger(review.total)&&review.completed>=0&&review.total>=review.completed;
-    const status=({PROVEN:'Nearby evidence',EXTRAPOLATED:'Other conditions',NEVER_TESTED:'No source'})[review.status]||'Awaiting result';
-    const rowId=typeof review.rowId==='string'&&review.rowId.trim()?review.rowId:null;
-    const key=JSON.stringify(['review',review.material,review.concern,status,validCounts?review.completed:null,validCounts?review.total:null,rowId,review.running===true]);
-    if(key===screenKey)return;screenKey=key;
-    const c=screenContext;c.fillStyle='#101c22';c.fillRect(0,0,512,384);
-    c.fillStyle='#b8cad0';c.font='500 25px sans-serif';c.fillText(target?.tag||'MATERIAL EVIDENCE',28,49);
-    c.fillStyle='#e8e3d6';c.font='500 34px sans-serif';c.fillText(status,28,122);
-    c.font='26px sans-serif';c.fillText(validCounts?`${review.completed} / ${review.total} checks reviewed`:'Review count unavailable',28,181);
-    c.font='24px sans-serif';c.fillText(`${typeof review.material==='string'?review.material:'Unknown material'} / ${typeof review.concern==='string'?review.concern:'unavailable'}`,28,234);
-    c.font='22px sans-serif';c.fillText(rowId?`Source row: ${rowId}`:'No source row linked',28,284,456);
-    c.fillStyle='#d4b17b';c.font='23px sans-serif';c.fillText(review.running===true?'Evidence review running':status==='Awaiting result'?'Record unavailable':'Showing computed record',28,352);screenTexture.needsUpdate=true;
+  function show(key, title, lines, foot) {
+    const next = JSON.stringify(key); if (next === screenKey) return; screenKey = next;
+    const c = screen.context; c.fillStyle = '#101c22'; c.fillRect(0, 0, 640, 360); c.textAlign = 'left'; c.textBaseline = 'alphabetic';
+    c.fillStyle = '#b8cad0'; c.font = '500 32px sans-serif'; c.fillText(title, 34, 50, 572);
+    c.fillStyle = '#31454d'; c.fillRect(34, 68, 572, 2);
+    let y = 124;
+    for (const [value, size = 30, color = '#e8e3d6', weight = 400] of lines) { c.fillStyle = color; c.font = `${weight} ${size}px sans-serif`; c.fillText(value, 34, y, 572); y += size + 18; }
+    c.fillStyle = '#d4b17b'; c.font = '26px sans-serif'; c.fillText(foot, 34, 336, 572); screen.texture.needsUpdate = true;
+  }
+  function paintReview(review, target) {
+    const validCounts = Number.isSafeInteger(review.completed) && Number.isSafeInteger(review.total) && review.completed >= 0 && review.total >= review.completed;
+    const status = STATUS_TEXT[review.status] || 'Awaiting result';
+    const rowId = typeof review.rowId === 'string' && review.rowId.trim() ? review.rowId : null;
+    show(['review', review.material, review.concern, status, validCounts ? review.completed : null, validCounts ? review.total : null, rowId, review.running === true],
+      target?.tag || 'MATERIAL EVIDENCE', [[status, 46, '#e8e3d6', 600], [validCounts ? `${review.completed} / ${review.total} checks reviewed` : 'Review count unavailable'],
+        [`${typeof review.material === 'string' ? review.material : 'Unknown material'} / ${typeof review.concern === 'string' ? review.concern : 'unavailable'}`, 28], [rowId ? `Source row: ${rowId}` : 'No source row linked', 26]],
+      review.running === true ? 'Evidence review running' : status === 'Awaiting result' ? 'Record unavailable' : 'Showing computed record');
+  }
+  // A kit only leaves its cradle for a current, approved task. Everything else draws it at rest.
+  const kitState = mission => mission.plan_valid === true && mission.approval?.granted === true && mission.phase !== 'cancelled' && ['attached', 'staged'].includes(mission.virtual_object_state) ? mission.virtual_object_state : 'docked';
+  // The kit screen repeats what the caller's task state and plan say; no line is invented here.
+  function paintKit(mission) {
+    const plan = mission.plan, state = kitState(mission), granted = mission.approval?.granted === true, tag = workTargets[plan.material_id].tag;
+    const where = state === 'staged' ? 'Kit staged for crew review' : state === 'attached' ? 'Kit in transit'
+      : mission.phase === 'cancelled' ? 'Task cancelled · kit at rest' : granted ? 'Kit requested' : 'Kit at rest · approval required';
+    const label = typeof plan.evidence_label === 'string' && plan.evidence_label.trim() ? plan.evidence_label : STATUS_TEXT[plan.evidence_status] || 'Evidence status unavailable';
+    const q = plan.query || {}, cabin = [q.o2 != null && `${q.o2}% O2`, q.p != null && `${q.p} kPa`, q.g != null && `${q.g} gravity`].filter(Boolean).join(' · ');
+    const question = typeof plan.question_id === 'string' ? plan.question_id : `${plan.material_id} / ${plan.concern ?? 'unavailable'}`;
+    show(['kit', plan.material_id, question, state, mission.phase === 'cancelled', granted, label, cabin], `CREW REVIEW · ${tag}`,
+      [[where, 44, '#e8e3d6', 600], [question, 30], [`Evidence: ${label}`, 30, state === 'staged' ? '#e9c18e' : '#e8e3d6'], [cabin || 'Cabin not supplied', 26, '#b8cad0']],
+      state === 'staged' ? 'Virtual kit · crew review required' : 'Illustrative robot motion · no sensor data');
   }
   function paintMonitor(phase, counts, mission) {
-    const show = ['evidence', 'review', 'inspect', 'return', 'complete'].includes(phase);
-    const key = JSON.stringify([phase, counts, mission?.question, mission?.nearest_source?.id]); if (key === screenKey) return; screenKey = key;
-    const c = screenContext; c.fillStyle = '#101c22'; c.fillRect(0, 0, 512, 384);
-    c.fillStyle = '#b8cad0'; c.font = '500 27px sans-serif'; c.fillText('HAB-PMMA-01 / EVIDENCE', 28, 49);
-    c.fillStyle = '#e8e3d6';
-    if (!show) { c.font = '32px sans-serif'; c.fillText('Awaiting evidence', 28, 179); }
-    else if (mission) {
-      c.font='500 34px sans-serif';c.fillText(({PROVEN:'Nearby evidence',EXTRAPOLATED:'Other conditions',NEVER_TESTED:'No source'})[mission.question?.status]||'Unavailable',28,122);
-      c.font='25px sans-serif';c.fillText(`${mission.question?.nearby_row_ids?.length??0} nearby source rows`,28,182);
-      c.font='22px sans-serif';c.fillText(`Nearest: ${mission.nearest_source?.id||'unavailable'}`,28,238);
-      c.fillStyle='#d4b17b';c.font='26px sans-serif';c.fillText(phase==='complete'?'VISUAL PASS LOGGED':'HUMAN REVIEW',28,298);
-    } else for (const [i, [key, label]] of [['PROVEN', 'nearby'], ['EXTRAPOLATED', 'other / incomplete'], ['NEVER_TESTED', 'no source']].entries()) {
-      c.font = '500 48px sans-serif'; c.fillText(String(counts?.[key] ?? '—'), 28, 122 + i * 77);
-      c.font = '25px sans-serif'; c.fillText(label, 125, 117 + i * 77);
+    const active = ['evidence', 'review', 'inspect', 'return', 'complete'].includes(phase);
+    const lines = !active ? [['Awaiting evidence', 34]]
+      : mission ? [[STATUS_TEXT[mission.question?.status] || 'Unavailable', 46, '#e8e3d6', 600], [`${mission.question?.nearby_row_ids?.length ?? 0} nearby source rows`], [`Nearest: ${mission.nearest_source?.id || 'unavailable'}`, 26], [phase === 'complete' ? 'VISUAL PASS LOGGED' : 'HUMAN REVIEW', 26, '#d4b17b']]
+        : [['PROVEN', 'nearby'], ['EXTRAPOLATED', 'other / incomplete'], ['NEVER_TESTED', 'no source']].map(([id, label]) => [`${counts?.[id] ?? '—'}   ${label}`, 34]);
+    show(['monitor', phase, counts, mission?.question, mission?.nearest_source?.id], 'HAB-PMMA-01 / EVIDENCE', lines, mission ? 'Crew review still required' : 'material–concern questions');
+  }
+  const kitMatrix = new T.Matrix4(), handleInverse = new T.Matrix4().makeTranslation(-handleLocal[0], -handleLocal[1], -handleLocal[2]);
+  // docked: in its cradle. attached: hanging from the humanoid's grip by its handle. staged: seated on the console.
+  function placeKits(mission, grip) {
+    const id = mission && typeof mission === 'object' && KIT_MATERIALS.includes(mission.plan?.material_id) ? mission.plan.material_id : null;
+    const state = id ? kitState(mission) : 'docked';
+    for (const name of KIT_MATERIALS) {
+      const item = kits[name], active = name === id; item.name = active ? 'virtual-review-kit' : `review-kit-${name}`;
+      item.matrixAutoUpdate = true;
+      if (active && state === 'attached' && grip?.isObject3D) {
+        // The grip's world pose is brought into the bay's own frame, then moved from the handle to the kit centre.
+        grip.updateWorldMatrix(true, false); group.updateWorldMatrix(true, false);
+        kitMatrix.copy(group.matrixWorld).invert().multiply(grip.matrixWorld).multiply(handleInverse);
+        // Preserve the full inverse-parent matrix, including scale/shear.
+        item.matrixAutoUpdate = false; item.matrix.copy(kitMatrix);
+        kitMatrix.decompose(item.position, item.quaternion, item.scale); item.matrixWorldNeedsUpdate = true;
+      } else {
+        // A missing grip cannot leave a stale carried pose suspended in the room.
+        item.position.fromArray(active && state === 'staged' ? kit.fixture.position : kit.slots[name].position);
+        item.quaternion.identity(); item.scale.set(1, 1, 1); item.updateMatrix();
+      }
+      item.userData.virtual_object_state = active && state === 'attached' && grip?.isObject3D ? 'attached' : active && state === 'staged' ? 'staged' : 'docked';
+      item.userData.grip_unavailable = Boolean(active && state === 'attached' && !grip?.isObject3D);
+      item.userData.material_id = name; item.userData.question_id = active ? mission.plan.question_id || null : null; item.userData.source_ids = active ? mission.plan.source_ids || null : null;
     }
-    c.fillStyle = '#9cb1b8'; c.font = '23px sans-serif'; c.fillText(mission?'Crew review still required':'material–concern questions', 28, 352); screenTexture.needsUpdate = true;
+    group.userData.kit = { material: id, state: id ? state : null };
+    return id;
   }
   const sensorPoint = new T.Vector3(), sweepPoint = new T.Vector3();
-  function update({ phase, elapsed = 0, still = false, counts, mission = null, approved = false, sensor = null, scanAt = 4.15, review = null,kitMission=null,kitGrip=null } = {}) {
-    // Actual approved virtual-object choreography precedes the evidence monitor's
-    // early return. It never modifies a scientific result or creates sensor data.
-    updateKit(kitMission,kitGrip);
-    if(review&&typeof review==='object'){
-      const selected=typeof review.material==='string'&&Object.hasOwn(workTargets,review.material)?workTargets[review.material]:null;paintReview(review,selected);
-      targetRing.visible=Boolean(selected);if(selected)targetRing.position.fromArray(selected.point);
-      targetRing.scale.setScalar(1);ringMaterial.emissiveIntensity=.55;cueMaterial.emissiveIntensity=.12;
+  function update({ phase, elapsed = 0, still = false, counts, mission = null, approved = false, sensor = null, scanAt = 4.15, review = null, kitMission = null, kitGrip = null } = {}) {
+    // The kit is placed first, so no early return below can leave it behind.
+    const planned = placeKits(kitMission, kitGrip);
+    if (review && typeof review === 'object') {
+      const selected = typeof review.material === 'string' && Object.hasOwn(workTargets, review.material) ? workTargets[review.material] : null;
+      if (planned) paintKit(kitMission); else paintReview(review, selected);
+      targetRing.visible = Boolean(selected);
+      if (selected) { targetRing.position.fromArray(selected.point); targetRing.rotation.y = ringTurn[review.material]; }
+      targetRing.scale.setScalar(1); ringMaterial.emissiveIntensity = .55; cueMaterial.emissiveIntensity = .12;
       // Motion points to an already computed record. No laser, sensor sweep or fake work progress.
-      scan.visible=beam.visible=route.visible=false;
-      group.userData.phase=phase;group.userData.scanning=false;group.userData.sensorData=false;
-      group.userData.reviewMaterial=selected?review.material:null;group.userData.dataWorkRunning=review.running===true;
+      scan.visible = beam.visible = route.visible = false;
+      group.userData.phase = phase; group.userData.scanning = false; group.userData.sensorData = false;
+      group.userData.reviewMaterial = selected ? review.material : null; group.userData.dataWorkRunning = review.running === true;
       return;
     }
-    delete group.userData.reviewMaterial;delete group.userData.dataWorkRunning;
-    targetRing.position.set(2.65,.28,-1.035);
-    paintMonitor(phase, counts, mission);
+    delete group.userData.reviewMaterial; delete group.userData.dataWorkRunning;
+    targetRing.position.set(3.47, .25, .35); targetRing.rotation.y = HALF_PI;
+    if (planned) paintKit(kitMission); else paintMonitor(phase, counts, mission);
     const visible = phase !== 'ready'; targetRing.visible = visible;
     const pulse = still ? 1 : .5 + .5 * Math.sin(elapsed * 3.2);
     const highlighting = phase === 'observe';
@@ -357,9 +457,15 @@ export function createMaintenanceBay({ THREE: T, groundY = -1.43 } = {}) {
     group.userData.phase = phase; group.userData.scanning = scanning;
     group.userData.sensorData = false;
   }
+  placeKits(null, null); paintMonitor('ready', null, null);
+  // Suggested cameras for the station controller. Every one lies inside the enclosure.
+  const view = (position, target, fov) => Object.freeze({ position: Object.freeze(position), target: Object.freeze(target), fov });
+  const wide = view([-.9, .8, 5.4], [-.1, .2, -.2], 47), narrow = view([.2, 1.0, 7.2], [.2, 1.0, 0], 52);
+  const cameraHints = Object.freeze({ wide, narrow, overview: wide, compact: narrow, task: view([.6, .85, 4.6], [.5, .15, 0], 47),
+    taskBounds: Object.freeze({ min: Object.freeze([-1.9, g, -.6]), max: Object.freeze([2.3, 1.4, .6]) }) });
   let meshes = 0, triangles = 0, lights = 0;
   group.traverse(item => { if (item.isMesh) { meshes++; triangles += (item.geometry.index?.count ?? item.geometry.attributes.position.count) / 3; } if (item.isLight) lights++; });
   const stats = Object.freeze({ meshes, authoredMeshes, triangles, lights, shadowMaps: 0, textures: textures.size + 1, externalAssets: 1 });
   group.userData.budget = stats;
-  return { group, stats, cuePosition, workTargets,kit,cameraHints,earthReady,lightingScale:.45, update, dispose() { if (disposed) return; disposed = true; group.removeFromParent(); geometries.forEach(item => item.dispose()); materials.forEach(item => item.dispose()); textures.forEach(item => item.dispose()); } };
+  return { group, stats, cuePosition, workTargets, kit, cameraHints, earthReady, lightingScale: .6, update, dispose() { if (disposed) return; disposed = true; group.removeFromParent(); geometries.forEach(item => item.dispose()); materials.forEach(item => item.dispose()); textures.forEach(item => item.dispose()); } };
 }

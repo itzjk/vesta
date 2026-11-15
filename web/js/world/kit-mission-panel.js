@@ -3,7 +3,7 @@ const STATES = Object.freeze({
   ready: 'Awaiting your approval', approved: 'Approved · ready to move',
   approach: 'Approaching the kit', retrieve: 'Collecting the virtual kit',
   carry: 'Carrying the virtual kit', place: 'Placing the virtual kit',
-  handoff: 'Preparing the crew handoff', complete: 'Kit staged · crew review required',
+  handoff: 'Preparing the crew handoff', complete: 'Review package ready · virtual kit staged',
   cancelled: 'Cancelled · approval cleared'
 });
 const EVIDENCE = Object.freeze({
@@ -31,7 +31,7 @@ const titleCase = value => typeof value === 'string' && value
 function ensureStyles() {
   if (document.querySelector('link[data-kit-mission-styles]')) return;
   const sheet = node('link'); sheet.rel = 'stylesheet';
-  sheet.href = new URL('../../css/kit-mission.css?v=earth-task-20261115-1', import.meta.url).href;
+  sheet.href = new URL('../../css/kit-mission.css?v=crew-workspace-20261115-1', import.meta.url).href;
   sheet.dataset.kitMissionStyles = ''; document.head.append(sheet);
 }
 
@@ -47,7 +47,7 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
   const motionPreference = typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion: reduce)') : null;
   const element = node('section', '', 'kit-mission-strip');
   element.setAttribute('aria-label', 'Evidence-linked virtual task'); element.hidden = true;
-  const eyebrow = node('p', 'VIRTUAL KIT TASK', 'kit-mission-eyebrow');
+  const eyebrow = node('p', 'EVIDENCE-LINKED ROBOTICS', 'kit-mission-eyebrow');
   const heading = node('h3', '', 'kit-mission-title');
   const evidence = node('p', '', 'kit-mission-evidence');
   const task = node('p', '', 'kit-mission-phase');
@@ -101,7 +101,7 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
   const cancel = button('Cancel task', 'cancel', () => {
     if (hasPlan() && RUNNING.has(current.phase) && typeof onCancel === 'function') call(onCancel, current);
   });
-  const download = button('Save crew handoff', 'download', () => {
+  const download = button('Save review package', 'download', () => {
     if (canDownload()) call(onDownload, current);
   });
   const reset = button('Prepare replay', 'reset', () => {
@@ -113,7 +113,8 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
   });
   reset.title = 'Reset this task, then approve it again before any movement.';
   actions.insertBefore(reset, download);
-  const scope = node('p', 'Virtual staging · no physical test. Evidence unchanged.', 'kit-mission-scope');
+  const scope = node('p', 'Simulated task · evidence unchanged.', 'kit-mission-scope');
+  const fullScope = node('p', '', 'kit-mission-source-ids');details.append(fullScope);
   element.append(eyebrow, heading, purpose, task, actions, motionNote, error, details, scope);
 
   function showMessage() {
@@ -142,6 +143,7 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
       text(count, `Linked evidence: ${rowIds.length} source ${rowIds.length === 1 ? 'row' : 'rows'} · ${findingIds.length} ${findingIds.length === 1 ? 'finding' : 'findings'}`);
       text(rows, rowIds.length ? `Row IDs: ${rowIds.join(', ')}` : 'No source row linked.');
       text(findings, findingIds.length ? `Finding IDs: ${findingIds.join(', ')}` : 'No finding linked.');
+      text(fullScope, plan.scope || 'Illustrative virtual task. No hardware control, sensor measurements or physical tests.');
     }
     const valid = current.plan_valid === true, running = RUNNING.has(current.phase);
     const staged = valid && current.phase === 'complete' && current.approval?.granted === true
@@ -151,9 +153,8 @@ export function createKitMissionPanel({ onApprove, onCancel, onReset, onDownload
       : STATES[current.phase] || 'Stage unavailable';
     const step = PHASE_STEP[current.phase];
     text(task, step ? `${step}/5 · ${phaseLabel}` : phaseLabel);
-    text(purpose, staged
-      ? 'Crew review required. No physical work is authorized.'
-      : `Bring the ${plan.material || titleCase(plan.material_id)} review kit to the crew console.`);
+    const reviewReason = String(plan.request?.reason || 'Review the linked sources and unresolved conditions.');
+    text(purpose, reviewReason.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim() || reviewReason);
     element.dataset.kitPhase = current.phase;
     const reduced = motionPreference?.matches || current.motion_mode === 'reduced-motion-poses';
     text(approve, reduced ? 'Approve & show final pose' : 'Approve & run animation');

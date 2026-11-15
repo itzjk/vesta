@@ -1,16 +1,16 @@
-import { createHumanoidInspector } from '../scene/humanoid-inspector.js?v=earth-task-20261115-1';
-import { createMaintenanceBay } from '../scene/maintenance-bay.js?v=earth-task-20261115-1';
+import { createHumanoidInspector } from '../scene/humanoid-inspector.js?v=crew-workspace-20261115-1';
+import { createMaintenanceBay } from '../scene/maintenance-bay.js?v=crew-workspace-20261115-1';
 import { ensureInformationPolishStyles } from './information-polish.js?v=habitat-20261115-1';
 import { createInventoryReviewSession, reviewToMarkdown } from '../core/inventory-review.js?v=habitat-20261115-1';
 import { createInventoryReviewPanel } from './inventory-review-panel.js?v=habitat-20261115-1';
 import { openCitation } from './cite.js?v=habitat-20261115-1';
-import { proposeKitMission, createKitMission, kitInputSignature } from './kit-mission.js?v=earth-task-20261115-1';
-import { createKitMissionPanel } from './kit-mission-panel.js?v=earth-task-20261115-1';
+import { proposeKitMission, createKitMission, kitInputSignature } from './kit-mission.js?v=crew-workspace-20261115-1';
+import { createKitMissionPanel } from './kit-mission-panel.js?v=crew-workspace-20261115-1';
 import { createRecordedReviewPanel } from './recorded-claude-review.js';
 
 if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-robotics]')) {
   for (const file of ['robotics']) {
-    const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL(`../../css/${file}.css?v=earth-task-20261115-1`,import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
+    const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href=new URL(`../../css/${file}.css?v=crew-workspace-20261115-1`,import.meta.url).href;sheet.dataset.vestaRobotics='';document.head.append(sheet);
   }
 }
 const node=(tag,text,cls)=>{const el=document.createElement(tag);if(text)el.textContent=text;if(cls)el.className=cls;return el;};
@@ -189,7 +189,7 @@ export async function build(world) {
       // Keep the pickup and handoff within one view; evidence remains in its own
       // readable workspace and is never delayed by camera or robot choreography.
       const shift=workspaceOpen&&!compact?1.8:0;
-      if(bay.kit)return {position:compact?[0,1.8,9.6]:[.8,1.6,7.4],target:[(compact?0:-.4)+shift,compact?-2.2:-.15,-.25],fov:compact?70:52};
+      if(bay.kit)return {position:compact?[0,1.8,9.6]:[-.9,1.05,6.2],target:[(compact?0:-.5)+shift,compact?-2.2:.1,-.25],fov:compact?70:50};
       if(!compact)return {position:[-1.0,1.1,7.8],target:[.7+shift,0,-.4],fov:49};
       return {position:[.8,.8,8.2],target:[1.2,-.15,0],fov:56};
     },
@@ -213,7 +213,7 @@ export async function build(world) {
       }
       humanoid.update({phase,elapsed,still,targetPoint:target?.point,workPosition:target?.robotPosition,workYaw:target?.robotYaw,kitMission:kitState,kitLayout:bay.kit});
       bay.update({phase,elapsed,still,kitMission:kitState,kitGrip:humanoid.getKitGrip?.(),review:{material:focus.material,concern:focus.concern,status:q?.status||null,completed:report?.counts.completed_questions??0,total:selected.length*3,rowId:q?.sources.rows[0]?.id||null,running:report?.status==='running'}});
-      world.vesta?.update?.(still?2:t,{...world.vesta.defaults,x:-4.2,y:-.8,z:2.6,scale:.5,yaw:.55,lookX:.6,armL:.1,armR:.1,idle:0,thrust:0,beacon:.15});
+      world.vesta?.update?.(still?2:t,{...world.vesta.defaults,x:-2.65,y:-1,z:1.25,scale:.4,yaw:.55,lookX:.6,armL:.1,armR:.1,idle:0,thrust:0,beacon:.15});
     },
     holograms:()=>[],
     dispose(){disposed=true;generation++;recordedAbort.abort();recordedPanel?.dispose();session?.cancel('Workspace disposed');kit?.advance({type:'cancel',reason:'Workspace disposed'});kitPanel.dispose();workspace.removeEventListener('keydown',onKey);panel.dispose();workspace.remove();markers.forEach(m=>m.dispose());humanoid.dispose();bay.dispose();caption.remove();group.removeFromParent();for(const key of ['roboticsPhase','roboticsApproved','roboticsScanning','roboticsMotionReady','roboticsDisposition','roboticsReview','roboticsWorkspace','roboticsMaterial','roboticsKitPhase','roboticsKitObject'])delete world.host.dataset[key];}

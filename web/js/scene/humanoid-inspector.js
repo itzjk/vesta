@@ -224,6 +224,16 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   const kitWorldQ = new T.Quaternion(), kitParentQ = new T.Quaternion(), kitInverseQ = new T.Quaternion();
   const kitDesiredQ = new T.Quaternion(), kitNeutralQ = new T.Quaternion(), kitIdentityQ = new T.Quaternion();
   let kitActive = false, kitPhase = null, kitStartYaw = .18, kitExitElapsed = null;
+  // Adopt the bay's dock once when this scene is initialized; subsequent returns
+  // walk to it. This changes placement, never approval or the task's data work.
+  let dockYaw = .18, dockPlaced = false;
+  function applyDock(layout) {
+    const spot = layout?.dock;
+    if (!finite3(spot?.robotPosition)) return;
+    dock.fromArray(spot.robotPosition); if (Number.isFinite(spot.robotYaw)) dockYaw = spot.robotYaw;
+    if (dockPlaced) return;
+    dockPlaced = true; group.position.copy(dock); group.rotation.y = dockYaw; from.copy(dock); target.copy(dock); fromYaw = kitStartYaw = dockYaw;
+  }
 
   function readKitPoint(record, into, offset) {
     const point = record?.point ?? record?.position;
@@ -252,6 +262,166 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
       group.parent.getWorldQuaternion(kitParentQ); kitInverseQ.copy(kitParentQ).invert();
       kitNeutralQ.premultiply(kitInverseQ);
     }
+  }
+
+  // Contact-aware presentation gait. Stance targets stay fixed in the station
+  // frame; a lifted swing foot moves to its next foothold. This is kinematic
+  // choreography, not a balance, friction, force or lunar-locomotion simulation.
+  const footLocal = new T.Vector3(), footDirection = new T.Vector3(), footPole = new T.Vector3();
+  const footUpper = new T.Vector3(), footLower = new T.Vector3(), footScratch = new T.Vector3();
+  const footInverse = new T.Quaternion(), footDesired = new T.Quaternion(), footParent = new T.Quaternion();
+  const footYawQ = new T.Quaternion(), footUp = new T.Vector3(0, 1, 0), shadowTurn = new T.Quaternion().setFromAxisAngle(new T.Vector3(1, 0, 0), -Math.PI / 2);
+  const footPlan = { key: '', steps: 0, left: [], right: [] };
+  const footState = { left: { stance: true, step: 0, anchor: [0, 0, 0], lift: 0 }, right: { stance: true, step: 0, anchor: [0, 0, 0], lift: 0 } };
+  const footPose = { position: new T.Vector3(), yaw: 0 }, footTarget = new T.Vector3();
+  function resetKitFeet() {
+    pelvis.position.y = hipHeight + .035; leftLeg.hip.position.y = rightLeg.hip.position.y = hipHeight;
+    for (const [side, leg] of [[-1, leftLeg], [1, rightLeg]]) {
+      leg.hip.rotation.set(0, 0, 0); leg.knee.rotation.set(0, 0, 0); leg.ankle.rotation.set(0, 0, 0);
+      leg.contact.position.set(side * .17, .002, .085); leg.contact.rotation.set(-Math.PI / 2, 0, 0);
+    }
+  }
+  function separateFoot(point, other, side, yaw, clearance) {
+    const dx = point.x - other.x, dz = point.z - other.z, squared = dx * dx + dz * dz;
+    if (squared >= clearance * clearance) return;
+    const ax = side * Math.cos(yaw), az = -side * Math.sin(yaw), along = dx * ax + dz * az;
+    const shift = -along + Math.sqrt(along * along + clearance * clearance - squared);
+    point.x += ax * shift; point.z += az * shift;
+  }
+  function clearFootprint(point, yaw, other, otherYaw, side) {
+    // Conservative sole rectangles include toe and heel. Route a swing around
+    // the planted shoe rather than letting two differently rotated feet cross.
+    const ax = [Math.cos(yaw), -Math.sin(yaw)], az = [Math.sin(yaw), Math.cos(yaw)];
+    const bx = [Math.cos(otherYaw), -Math.sin(otherYaw)], bz = [Math.sin(otherYaw), Math.cos(otherYaw)];
+    const dx = point.x + az[0] * .085 - other.x - bz[0] * .085;
+    const dz = point.z + az[1] * .085 - other.z - bz[1] * .085;
+    let shift = Infinity;
+    for (const axis of [ax, az, bx, bz]) {
+      const dot = (a, b) => a[0] * b[0] + a[1] * b[1];
+      const radius = .103 * (Math.abs(dot(axis, ax)) + Math.abs(dot(axis, bx))) + .203 * (Math.abs(dot(axis, az)) + Math.abs(dot(axis, bz))) + .006;
+      const projected = dx * axis[0] + dz * axis[1];
+      if (Math.abs(projected) >= radius) return;
+      const travel = side * dot(axis, ax);
+      if (Math.abs(travel) > 1e-6) shift = Math.min(shift, (travel > 0 ? radius - projected : -radius - projected) / travel);
+    }
+    if (Number.isFinite(shift)) { point.x += side * ax[0] * shift; point.z += side * ax[1] * shift; }
+  }
+  function queueFoot(info, point, yaw, lift) {
+    info.anchor[0] = point.x; info.anchor[1] = point.y; info.anchor[2] = point.z; info.yaw = yaw; info.lift = lift;
+  }
+  function pathRoot(stage, p, sourceYaw, destinationYaw, out) {
+    if (stage === 'approach') {
+      const walk = ease((p - .10) / .82), heading = Math.atan2(kitSource.x - kitStart.x, kitSource.z - kitStart.z);
+      out.position.lerpVectors(kitStart, kitSource, walk);
+      out.yaw = angleMix(angleMix(kitStartYaw, heading, ease(p / .14)), sourceYaw, ease((p - .76) / .24));
+    } else if (stage === 'carry') {
+      const walk = ease((p - .10) / .80), heading = Math.atan2(kitDestination.x - kitSource.x, kitDestination.z - kitSource.z);
+      out.position.lerpVectors(kitSource, kitDestination, walk);
+      out.yaw = angleMix(angleMix(sourceYaw, heading, ease(p / .16)), destinationYaw, ease((p - .75) / .25));
+    } else {
+      const walk = ease((p - .30) / .70); out.position.copy(kitDestination);
+      out.position.x -= .65 * walk; out.position.z += .16 * walk;
+      out.yaw = angleMix(destinationYaw, .85, ease((p - .12) / .88));
+    }
+    return out;
+  }
+  function footAt(side, root) {
+    const point = new T.Vector3(side * .17, ankleHeight, 0);
+    point.applyAxisAngle(footUp, root.yaw).add(root.position);
+    return { point, yaw: root.yaw };
+  }
+  function plantLeg(leg, desired, yaw, lift, info) {
+    // Three-dimensional two-link IK allows the pelvis to turn over a planted
+    // foot. The ankle cancels the chain rotation so the sole stays horizontal.
+    footInverse.copy(group.quaternion).invert();
+    footLocal.copy(desired).sub(group.position).applyQuaternion(footInverse).sub(leg.hip.position);
+    const requested = footLocal.length(), distance = clamp(requested, .04, upperLeg + lowerLeg - .00001);
+    footDirection.copy(footLocal).normalize();
+    footPole.set(0, 0, 1).addScaledVector(footDirection, -footDirection.z).normalize();
+    const along = (upperLeg * upperLeg - lowerLeg * lowerLeg + distance * distance) / (2 * distance);
+    const bend = Math.sqrt(Math.max(0, upperLeg * upperLeg - along * along));
+    footUpper.copy(footDirection).multiplyScalar(along).addScaledVector(footPole, bend);
+    leg.hip.quaternion.setFromUnitVectors(downward, footScratch.copy(footUpper).normalize());
+    footLower.copy(footDirection).multiplyScalar(distance).sub(footUpper);
+    footInverse.copy(leg.hip.quaternion).invert(); footLower.applyQuaternion(footInverse).normalize();
+    leg.knee.quaternion.setFromUnitVectors(downward, footLower);
+    leg.knee.updateWorldMatrix(true, true); leg.knee.getWorldQuaternion(footInverse).invert();
+    footYawQ.setFromAxisAngle(footUp, yaw); footDesired.copy(footYawQ);
+    if (group.parent) { group.parent.getWorldQuaternion(footParent); footDesired.premultiply(footParent); }
+    leg.ankle.quaternion.copy(footInverse).multiply(footDesired);
+    // Contact shadow follows the same planted/swing anchor, not the moving body.
+    footScratch.set(0, -ankleHeight + .002, .085).applyQuaternion(footYawQ).add(desired).sub(group.position);
+    footInverse.copy(group.quaternion).invert(); leg.contact.position.copy(footScratch).applyQuaternion(footInverse);
+    leg.contact.quaternion.copy(footInverse).multiply(footYawQ).multiply(shadowTurn); leg.contact.visible = lift < .012;
+    info.reachError = Math.max(0, requested - distance); info.anchor[0] = desired.x; info.anchor[1] = desired.y; info.anchor[2] = desired.z; info.lift = lift;
+  }
+  function applyKitFeet(stage, p, sourceYaw, destinationYaw, still) {
+    const movingPhase = ['approach', 'carry', 'handoff'].includes(stage) && !still;
+    resetKitFeet();
+    if (!movingPhase) {
+      for (const [name, side, leg] of [['left', -1, leftLeg], ['right', 1, rightLeg]]) {
+        footTarget.set(side * .17, ankleHeight, 0).applyQuaternion(group.quaternion).add(group.position);
+        footState[name].stance = true; footState[name].step = 0;
+        queueFoot(footState[name], footTarget, group.rotation.y, 0);
+      }
+    } else {
+      // A small pelvic compression gives the existing legs room to bend. The
+      // torso/arms do not move, so payload and hand trajectories are unchanged.
+      const compression = .055 * Math.sin(Math.PI * p);
+      pelvis.position.y -= compression; leftLeg.hip.position.y -= compression; rightLeg.hip.position.y -= compression;
+      const distance = stage === 'approach' ? kitStart.distanceTo(kitSource) : stage === 'carry' ? kitSource.distanceTo(kitDestination) : Math.hypot(.65, .16);
+      const key = [stage, kitStart.x, kitStart.z, kitSource.x, kitSource.z, kitDestination.x, kitDestination.z, kitStartYaw, sourceYaw, destinationYaw].join(':');
+      if (footPlan.key !== key) {
+        footPlan.key = key; footPlan.steps = Math.max(4, Math.ceil((distance + .35) / .70) * 2);
+        footPlan.left.length = footPlan.right.length = 0;
+        for (let i = 0; i <= footPlan.steps; i++) {
+          // Land slightly ahead of the pelvis, letting the body pass over the
+          // fixed stance foot. The final two footholds both use the end pose.
+          const at = i === 0 ? 0 : i >= footPlan.steps - 1 ? 1 : Math.min(1, (i + .5) / footPlan.steps);
+          pathRoot(stage, at, sourceYaw, destinationYaw, footPose);
+          footPlan.left.push(footAt(-1, footPose)); footPlan.right.push(footAt(1, footPose));
+          if (i > 0) {
+            const leftMoves = i % 2 === 1, moving = leftMoves ? footPlan.left[i] : footPlan.right[i];
+            const planted = leftMoves ? footPlan.right[i - 1] : footPlan.left[i - 1];
+            separateFoot(moving.point, planted.point, leftMoves ? -1 : 1, moving.yaw, .275);
+            clearFootprint(moving.point, moving.yaw, planted.point, planted.yaw, leftMoves ? -1 : 1);
+          }
+        }
+      }
+      const scaled = clamp(p) * footPlan.steps, step = Math.min(footPlan.steps, Math.floor(scaled) + 1), fraction = p >= 1 ? 1 : scaled - Math.floor(scaled);
+      for (const [name, side, leg] of [['left', -1, leftLeg], ['right', 1, rightLeg]]) {
+        const swings = (step % 2 === 1) === (side < 0), landing = footPlan[name];
+        let prior = step - (swings ? 2 : 1); if (prior < 0) prior = 0;
+        const a = landing[prior], b = swings ? landing[step] : a, blend = swings ? ease(fraction) : 0;
+        const lift = swings ? .07 * Math.sin(Math.PI * fraction) ** 2 : 0;
+        footTarget.lerpVectors(a.point, b.point, blend); footTarget.y += lift;
+        if (swings) {
+          const planted = footPlan[name === 'left' ? 'right' : 'left'][step - 1];
+          separateFoot(footTarget, planted.point, side, angleMix(a.yaw, b.yaw, blend), .26);
+          clearFootprint(footTarget, angleMix(a.yaw, b.yaw, blend), planted.point, planted.yaw, side);
+        }
+        footState[name].stance = !swings || fraction >= 1; footState[name].step = prior;
+        queueFoot(footState[name], footTarget, angleMix(a.yaw, b.yaw, blend), lift);
+      }
+    }
+    // Keep both leg targets reachable during a turning step. Compression only
+    // moves the pelvic/hip assembly; the torso and all hand trajectories stay fixed.
+    let compression = hipHeight - leftLeg.hip.position.y;
+    if (movingPhase) for (const [name, side] of [['left', -1], ['right', 1]]) {
+      const anchor = footState[name].anchor;
+      footScratch.set(side * .17, hipHeight, 0).applyQuaternion(group.quaternion).add(group.position);
+      const horizontal = Math.hypot(anchor[0] - footScratch.x, anchor[2] - footScratch.z);
+      const down = Math.sqrt(Math.max(.01, (upperLeg + lowerLeg - .001) ** 2 - horizontal * horizontal));
+      compression = Math.max(compression, footScratch.y - anchor[1] - down);
+    }
+    compression = clamp(compression, 0, .12);
+    pelvis.position.y = hipHeight + .035 - compression; leftLeg.hip.position.y = rightLeg.hip.position.y = hipHeight - compression;
+    for (const [name, leg] of [['left', leftLeg], ['right', rightLeg]]) {
+      const info = footState[name]; footTarget.fromArray(info.anchor); plantLeg(leg, footTarget, info.yaw, info.lift, info);
+    }
+    group.userData.pelvicCompression = compression;
+    group.userData.footContacts = footState; group.userData.gaitModel = 'kinematic-stance-swing-no-force-model';
+    group.updateWorldMatrix(true, true);
   }
 
   // Bounded analytic two-link reach: real shoulder/elbow/wrist joints move to the
@@ -336,11 +506,12 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
       group.position.copy(kitDestination); group.rotation.y = destinationYaw;
     }
     baseKitPose(walking, walkProgress, walkDistance);
+    applyKitFeet(stage, progress, sourceYaw, destinationYaw, still);
     let closed = 0;
     if (stage !== 'approach') {
       // Carry close to the left side of the torso; the cartridge remains upright
       // in the room frame as the body turns. Final transfer frames are identical.
-      carryGrip.set(-.25, 1.755, .45).applyQuaternion(group.quaternion).add(group.position);
+      carryGrip.set(-.30, 1.80, .30).applyQuaternion(group.quaternion).add(group.position);
       if (stage === 'retrieve') {
         const blend = ease(progress);
         requestedGrip.lerpVectors(neutralGrip, pickupHandle, blend);
@@ -376,7 +547,10 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
 
   function update({ phase = 'ready', elapsed = 0, still = false, targetPoint = null, workPosition = null, workYaw = null, kitMission = null, kitLayout = null } = {}) {
     if (disposed) return;
+    applyDock(kitLayout);
     if (updateKit(kitMission, kitLayout, still)) return;
+    resetKitFeet();
+    delete group.userData.footContacts;
     if (kitActive) {
       kitActive = false; kitPhase = null; kitExitElapsed = elapsed;
       previousPhase = null; group.userData.kitApproved = false; delete group.userData.kitPhase;
@@ -401,11 +575,11 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
       target.copy(destination); previousPhase = phase; previousReviewPose=reviewPose; previousPoint.copy(sensorTarget);
     }
     const delay = phase === 'return' ? HUMANOID_TIMING.retract : 0;
-    const travelAge = Math.max(0, age - delay), duration = showingWork || phase === 'return' ? HUMANOID_TIMING.approach : .9;
-    const distance = from.distanceTo(target), progress = still ? 1 : ease(travelAge / duration); group.position.lerpVectors(from, target, progress);
+    const travelAge = Math.max(0, age - delay), distance = from.distanceTo(target), duration = showingWork || phase === 'return' ? HUMANOID_TIMING.approach : Math.max(.9, distance / 1.15);
+    const progress = still ? 1 : ease(travelAge / duration); group.position.lerpVectors(from, target, progress);
     const moving = distance > .05 && travelAge > 0 && progress < 1 && !still;
     const selectedYaw=workYaw??(reviewPose?Math.atan2(sensorTarget.x-workPoint.x,sensorTarget.z-workPoint.z):2.44);
-    const arrivalYaw = showingWork ? selectedYaw : phase === 'observe' || phase === 'evidence' ? 1.20 : phase === 'review' ? .32 : .18;
+    const arrivalYaw = showingWork ? selectedYaw : phase === 'observe' || phase === 'evidence' ? 1.20 : phase === 'review' ? .32 : dockYaw;
     const travelYaw = distance > .05 ? Math.atan2(target.x - from.x, target.z - from.z) : fromYaw;
     const routeYaw = angleMix(travelYaw, arrivalYaw, ease((progress - .72) / .28));
     group.rotation.y = still ? arrivalYaw : age < delay ? fromYaw : angleMix(fromYaw, moving ? routeYaw : arrivalYaw, ease(travelAge / .55));
