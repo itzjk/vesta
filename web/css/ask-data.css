@@ -21,3 +21,11 @@
 .ask-data .ad-chip-open{min-height:36px;border-color:#c5a56d;color:#c5a56d;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .ad-supports{color:#c9c2b4}
 .ask-data :is(button,input):focus-visible{outline:2px solid #efd296;outline-offset:3px}
+.ad-typed{margin:10px 0 18px;padding:0 0 16px;border-bottom:1px solid #c5a56d66}
+.ask-data .ad-typed-label{display:block;color:#ede4d4;font-weight:600}
+.ad-typed-row{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin-top:6px}
+.ask-data .ad-typed-input{flex:1 1 260px;width:auto;margin:0}
+.ask-data .ad-ask{min-height:44px;padding:8px 16px;border:1px solid #c5a56d;background:#c5a56d;color:#05080a;font:600 16px/1.4 var(--font,sans-serif);cursor:pointer}
+.ask-data .ad-ask:hover{background:#efd296}
+.ask-data .ad-open{margin-top:12px;background:transparent;color:#c5a56d}
+.ask-data .ad-open:hover{background:#c5a56d22}

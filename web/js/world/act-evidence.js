@@ -23,7 +23,7 @@ import { createQuestionNote, questionNoteMarkdown, questionNoteMatches, question
 import { download } from '../ui/download.js';
 import { createOutcomePanel } from './outcome-panel.js?v=motion-20261115-3';
 import { createGravityContrastPanel } from './gravity-contrast-panel.js?v=motion-20261115-3';
-import { createAskDataPanel } from './ask-data-panel.js?v=ask-20261115-1';
+import { createAskDataPanel } from './ask-data-panel.js?v=ask-typed-20261115-2';
 
 const node = (tag, text, cls) => {
   const el = document.createElement(tag);
@@ -48,7 +48,7 @@ export async function build(world) {
   let selectionReady = false, pendingQuestion = null, pendingTool = null;
   const outcomePanel = createOutcomePanel({ db, onSource: (id, trigger) => openCitation(id, trigger || document.activeElement, world) });
   const gravityPanel = createGravityContrastPanel({ db, onSource: (id, trigger) => openCitation(id, trigger || document.activeElement, world) });
-  const askDataPanel = createAskDataPanel({ onSource: (id, trigger) => openCitation(id, trigger || document.activeElement, world) });
+  const askDataPanel = createAskDataPanel({ db, getQuery: () => world.q, onSource: (id, trigger) => openCitation(id, trigger || document.activeElement, world) });
   const wall = buildCoverage(world, { onSelection: onCoverageSelection, onInspectAll: openRegister, onSaveReview: saveQuestionReview, onPrepareCrew: prepareCrewReview }), gaps = buildGapBrief(world), evidenceRegister = buildEvidenceRegister(world);
   const stage = world.stage.context || world.stage.ctx || world.stage;
   const host = stage.renderer.domElement.parentElement, root = world.host || host;

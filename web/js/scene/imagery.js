@@ -2,6 +2,8 @@ export const NASA_TEXTURES = Object.freeze({
   candle: { path: 'candle-pair.jpg', id: 'GRC-1998-C-00485', title: 'Candle in normal gravity and microgravity', credit: 'NASA Glenn Research Center' },
   mars: { path: 'mars.jpg', id: 'PIA04304', title: 'The Target', credit: 'NASA/USGS', crop: [164, 145, 968, 968] },
   earth: { path: 'earth.jpg', id: 'GSFC_20171208_Archive_e001386', title: 'Most Amazing High Definition Image of Earth, Blue Marble 2012', credit: 'NASA/NOAA/GSFC/Suomi NPP/VIIRS/Norman Kuring', crop: [86, 86, 1108, 1108] },
+  marsGlobe: { path: 'mars-globe.jpg', id: 'USGS MDIM 2.1', title: 'Mars Viking Colorized Global Mosaic 232m', credit: 'NASA Ames / USGS Astrogeology Science Center' },
+  earthGlobe: { path: 'earth-globe.jpg', id: 'Visible Earth 73909', title: 'Blue Marble: Next Generation with Topography and Bathymetry (December)', credit: 'NASA Earth Observatory / Reto Stöckli' },
   stars: { path: 'stars.jpg', id: 'PIA12066', title: 'Star Field in the Constellation Cepheus', credit: 'NASA/JPL/MPS/DLR/IDA' }
 });
 
@@ -24,6 +26,21 @@ export async function photoPlanet(THREE, name, mode = 'high') {
   };
   const planet = new THREE.Mesh(new THREE.SphereGeometry(1, mode === 'low' ? 40 : 64, 40), material);
   planet.userData.nasa_id = NASA_TEXTURES[name].id;
+  return planet;
+}
+
+const GLOBES = Object.freeze({ mars: { texture: 'marsGlobe', period: 100, tilt: .44, start: 1.9 }, earth: { texture: 'earthGlobe', period: 70, tilt: .41, start: 3.4 } });
+
+// Full-globe equirectangular map on ordinary sphere UVs. spin(t) turns the body about its own tilted axis.
+// The engine passes a fixed t in capture mode, and prefers-reduced-motion holds the starting longitude.
+export async function globePlanet(THREE, name, mode = 'high') {
+  const globe = GLOBES[name], entry = NASA_TEXTURES[globe.texture], texture = await nasaTexture(THREE, globe.texture);
+  texture.wrapS = THREE.RepeatWrapping; texture.userData.projection = 'equirectangular global map';
+  const planet = new THREE.Mesh(new THREE.SphereGeometry(1, mode === 'low' ? 40 : 64, 40), new THREE.MeshBasicMaterial({ map: texture }));
+  planet.rotation.order = 'ZYX'; planet.rotation.set(0, globe.start, globe.tilt);
+  planet.userData.nasa_id = entry.id; planet.userData.credit = entry.credit;
+  const reduced = typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  planet.userData.spin = t => { planet.rotation.y = globe.start + (reduced?.matches ? 0 : (Number(t) || 0) * Math.PI * 2 / globe.period); };
   return planet;
 }
 

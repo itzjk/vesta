@@ -185,3 +185,16 @@
  .space-lab-result .sl-actions{gap:6px;margin:8px 0}
  .space-lab-result .sl-actions button{flex:1 1 auto;padding:7px 8px}
 }
+
+/* Phone (<=480px): the Space lab toolbar keeps every action in one horizontally
+   scrollable row, and the kit handoff card uses the height that row frees. */
+@media(max-width:480px){
+ .world-host[data-station=robotics] .world-guide .world-actions{display:flex!important;flex-wrap:nowrap!important;gap:4px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scroll-padding-inline:8px}
+ .world-host[data-station=robotics] .world-guide .world-actions>button,.world-host[data-station=robotics] .world-guide .world-actions>button:nth-child(-n+2){flex:0 0 auto!important;min-width:44px;min-height:44px!important;padding:8px 12px;font-size:14px;line-height:1.25;white-space:nowrap!important}
+ .world-host[data-station=robotics] .world-guide .world-actions>:is([data-station-explain],[data-station-action=inventory-next],[data-station-action=inventory-download]):not([hidden]){display:block!important}
+ .world-host[data-station=robotics] .robotics-work-caption.has-kit-task{bottom:128px;max-height:min(300px,42dvh)}
+ .world-host[data-station=robotics]:is([data-robotics-kit-phase=approved],[data-robotics-kit-phase=approach],[data-robotics-kit-phase=retrieve],[data-robotics-kit-phase=carry],[data-robotics-kit-phase=place],[data-robotics-kit-phase=handoff]) .robotics-work-caption.has-kit-task{max-height:146px}
+ .robotics-work-caption.has-kit-task .kit-mission-strip .kit-mission-actions{flex-wrap:wrap}
+ .robotics-work-caption.has-kit-task .kit-mission-strip .kit-mission-actions>button{flex:1 1 auto;min-width:0;max-width:100%;min-height:44px;height:auto;white-space:normal;overflow-wrap:anywhere}
+ .world-host[data-station=robotics] .robotics-work-caption:is(.has-lab-result,.has-lab-progress,.has-lab-error){bottom:128px}
+}

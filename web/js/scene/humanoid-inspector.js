@@ -17,13 +17,15 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   const geometries = new Set(), materials = new Set(), roundedCache = new Map();
   const geometry = value => { geometries.add(value); return value; };
   const material = (color, extra = {}) => { const m = new T.MeshStandardMaterial({ color, roughness: .48, metalness: .28, ...extra }); materials.add(m); return m; };
-  const shell = material(0xd6d4cb, { roughness: .82, metalness: .03 });
+  const shell = material(0xc6c5bd, { roughness: .88, metalness: .03 });
+  // Second, darker shell tone for abdomen, cuffs and midsoles: a two-tone suit, not one white casting.
+  const slate = material(0x566065, { roughness: .78, metalness: .12 });
   const rubber = material(0x14181a, { roughness: .94, metalness: 0 });
-  const graphite = material(0x222a2e, { roughness: .58, metalness: .38 });
-  const titanium = material(0x8a9699, { roughness: .31, metalness: .72 });
-  const copper = material(0xa56f4c, { roughness: .44, metalness: .58 });
+  const graphite = material(0x222a2e, { roughness: .68, metalness: .34 });
+  const titanium = material(0x7f8a8d, { roughness: .44, metalness: .68 });
+  const copper = material(0xa56f4c, { roughness: .52, metalness: .52 });
   const glass = material(0x0c161c, { roughness: .1, metalness: .55 });
-  const signal = material(0xc2a46e, { emissive: 0xc79242, emissiveIntensity: .24, roughness: .3 });
+  const signal = material(0xc2a46e, { emissive: 0xc79242, emissiveIntensity: .24, roughness: .42 });
   const optics = material(0x7eabb7, { emissive: 0x6e9aa9, emissiveIntensity: .13, roughness: .2, metalness: .3 });
   const contactMaterial = new T.MeshBasicMaterial({ color: 0x080b0c, transparent: true, opacity: .29, depthWrite: false }); materials.add(contactMaterial);
   const sphereGeometry = geometry(new T.SphereGeometry(1, 16, 10));
@@ -74,6 +76,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     const curve = new T.CatmullRomCurve3(points.map(p => new T.Vector3(...p)));
     mesh(parent, geometry(new T.TubeGeometry(curve, 10, radius, 5, false)), graphite, [1, 1, 1]);
   }
+  const seamRing = (parent, radius, y, z, depth = .78, finish = graphite, width = .007) => mesh(parent, cylinderGeometry, finish, [radius, width, radius * depth + .001], 0, y, z);
   function taperedShell(parent, finish, length, top, bottom, xyz, depth = .78) {
     const profile = [[0, -.5], [bottom * .65, -.49], [bottom, -.43], [top, .32], [top * .94, .45], [top * .6, .5], [0, .5]];
     return mesh(parent, geometry(new T.LatheGeometry(profile.map(([r, y]) => new T.Vector2(r, y * length)), 16)), finish, [1, 1, depth], ...xyz);
@@ -106,9 +109,13 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   panel(torso, titanium, [.038, .26, .025], [0, .43, .194], .01);
   panel(torso, signal, [.07, .016, .018], [.17, .53, .199], .006);
   for (const side of [-1, 1]) for (let i = 0; i < 3; i++) {
-    const rib = panel(torso, shell, [.19, .052, .055], [side * .18, .08 + i * .053, .143], .018); rib.rotation.z = side * .13;
+    const rib = panel(torso, slate, [.19, .052, .055], [side * .18, .08 + i * .053, .143], .018); rib.rotation.z = side * .13;
   }
+  panel(torso, slate, [.30, .05, .05], [0, .245, .155], .018, 'abdomen-band');
+  cylinder(torso, slate, .118, .05, [0, .695, -.01]); cylinder(torso, graphite, .096, .03, [0, .728, -.01]);
   panel(torso, graphite, [.43, .50, .19], [0, .34, -.22], .06, 'utility-pack');
+  panel(torso, shell, [.31, .11, .15], [0, .615, -.215], .045, 'pack-crown');
+  for (const side of [-1, 1]) panel(torso, signal, [.010, .085, .012], [side * .219, .47, -.20], .004);
   panel(torso, shell, [.38, .43, .055], [0, .35, -.333], .04);
   for (let i = 0; i < 5; i++) panel(torso, graphite, [.24, .018, .014], [0, .28 + i * .043, -.365], .005);
   panel(torso, copper, [.20, .028, .018], [0, .155, -.365], .007);
@@ -117,8 +124,8 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     cable(torso, [[side * .17, .52, -.27], [side * .30, .67, -.22], [side * .42, .64, -.06]], .014);
   }
   const neck = pivot(torso, 'articulated-head', 0, .745);
-  bellows(neck, .074, .12, [0, .012, 0], 3); cylinder(neck, titanium, .078, .018, [0, .062, 0]);
-  ellipsoid(neck, shell, [.168, .205, .161], [0, .245, -.003]);
+  bellows(neck, .080, .12, [0, .012, 0], 3); cylinder(neck, titanium, .082, .016, [0, .062, 0]);
+  ellipsoid(neck, shell, [.160, .205, .161], [0, .245, -.003]);
   // Cheek and jaw surfaces clarify the adult head silhouette without changing
   // the articulated head frame, eye line, shoulder reach or any grip endpoint.
   for (const side of [-1, 1]) {
@@ -127,19 +134,22 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   }
   panel(neck, shell, [.17, .065, .065], [0, .115, .11], .023, 'lower-face-shell');
   // One dark wrap-around band that follows the head shell instead of a flat bar.
-  mesh(neck, geometry(new T.SphereGeometry(1, 14, 5, Math.PI / 2 - 1.2, 2.4, 1.13, .78)), glass, [.174, .211, .168], 0, .245, -.003, 'sensor-visor');
+  mesh(neck, geometry(new T.SphereGeometry(1, 14, 5, Math.PI / 2 - 1.2, 2.4, 1.13, .78)), glass, [.166, .211, .168], 0, .245, -.003, 'sensor-visor');
   panel(neck, optics, [.046, .012, .009], [.065, .242, .17], .004);
   cylinder(neck, titanium, .020, .012, [-.09, .242, .17], 'z'); cylinder(neck, glass, .013, .014, [-.09, .242, .177], 'z');
   panel(neck, signal, [.011, .011, .009], [-.116, .242, .178], .003);
   for (const side of [-1, 1]) {
-    cylinder(neck, graphite, .063, .018, [side * .163, .222, -.015], 'x');
-    cylinder(neck, titanium, .041, .023, [side * .17, .222, -.015], 'x');
+    cylinder(neck, graphite, .060, .018, [side * .155, .222, -.015], 'x');
+    cylinder(neck, titanium, .036, .023, [side * .162, .222, -.015], 'x');
   }
   const defaultSensorTarget = new T.Vector3(2.65, groundY + 1.71, -1.025), sensorTarget = defaultSensorTarget.clone(); let sensorOrigin;
   const fingers = [];
   function hand(wrist, side) {
     panel(wrist, graphite, [.145, .14, .075], [0, -.055, 0], .025);
     panel(wrist, shell, [.138, .115, .023], [0, -.05, .042], .018); cylinder(wrist, titanium, .057, .04, [0, .025, 0]);
+    // Glove cues: a cuff above the palm, a padded knuckle guard and a thumb mound.
+    cylinder(wrist, slate, .066, .022, [0, .005, 0]); panel(wrist, slate, [.142, .032, .034], [0, -.108, .026], .014);
+    mesh(wrist, smallSphere, graphite, [.030, .036, .030], side * -.066, -.04, .004);
     for (let i = 0; i < 4; i++) {
       const x = (i - 1.5) * .034, length = [.075, .086, .081, .065][i];
       const base = pivot(wrist, `${side > 0 ? 'right' : 'left'}-finger-${i + 1}`, x, -.125, 0); base.rotation.z = (i - 1.5) * -.055;
@@ -168,16 +178,18 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   }
   function arm(side) {
     const shoulder = pivot(torso, side > 0 ? 'right-shoulder' : 'left-shoulder', side * .425, .63, 0);
-    hinge(shoulder, .118, .19);
+    hinge(shoulder, .106, .19);
     // Rounded cap over the joint, a dark sleeve, then a separate upper-arm shell,
     // so the shoulder reads as three zones instead of one block.
-    ellipsoid(shoulder, shell, [.142, .116, .148], [side * .022, .04, .004]);
+    ellipsoid(shoulder, shell, [.126, .104, .134], [side * .016, .034, .004]);
     bellows(shoulder, .09, .11, [0, -.10, 0]);
-    taperedShell(shoulder, shell, .30, .104, .084, [0, -.285, 0], .88); panel(shoulder, graphite, [.034, .21, .02], [0, -.29, -.069], .007);
+    taperedShell(shoulder, shell, .30, .104, .084, [0, -.285, 0], .88); seamRing(shoulder, .0975, -.30, 0, .88); panel(shoulder, signal, [.010, .05, .012], [side * .099, -.24, 0], .004);
+    panel(shoulder, graphite, [.034, .21, .02], [0, -.29, -.069], .007);
     const elbow = pivot(shoulder, side > 0 ? 'right-elbow' : 'left-elbow', 0, -.48);
     // Forearm is fuller below the elbow and ends in a cuff over a wrist sleeve.
     hinge(elbow, .080, .16); taperedShell(elbow, shell, .30, .093, .064, [0, -.215, .004]);
-    panel(elbow, graphite, [.05, .19, .021], [0, -.21, -.068], .008); cylinder(elbow, shell, .073, .028, [0, -.35, .004]);
+    panel(elbow, graphite, [.05, .19, .021], [0, -.21, -.068], .008); cylinder(elbow, slate, .073, .028, [0, -.35, .004]);
+    seamRing(elbow, .0855, -.17, .004); seamRing(elbow, .0745, -.27, .004);
     bellows(elbow, .058, .075, [0, -.40, 0], 3);
     const wrist = pivot(elbow, side > 0 ? 'right-wrist' : 'left-wrist', 0, -.43); hand(wrist, side); return { shoulder, elbow, wrist };
   }
@@ -188,12 +200,15 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   function leg(side) {
     const hip = pivot(group, side > 0 ? 'right-hip' : 'left-hip', side * .17, hipHeight); hinge(hip, .112, .15);
     taperedShell(hip, shell, .53, .139, .102, [0, -.34, .005], .86); panel(hip, graphite, [.055, .32, .021], [side * .025, -.36, -.083], .01);
+    seamRing(hip, .1255, -.34, .005, .86); seamRing(hip, .1105, -.50, .005, .86, slate, .03);
     const knee = pivot(hip, side > 0 ? 'right-knee' : 'left-knee', 0, -upperLeg); hinge(knee, .088, .17);
     panel(knee, shell, [.16, .15, .065], [0, -.007, .084], .032);
     taperedShell(knee, graphite, .50, .078, .054, [0, -.34, -.015]); taperedShell(knee, shell, .43, .083, .058, [0, -.32, .041], .45);
+    seamRing(knee, .0800, -.25, .041, .45); seamRing(knee, .0670, -.42, .041, .45);
     panel(knee, copper, [.022, .11, .012], [side * .058, -.17, .079], .005);
     const ankle = pivot(knee, side > 0 ? 'right-ankle' : 'left-ankle', 0, -lowerLeg); hinge(ankle, .061, .145);
-    panel(ankle, graphite, [.195, .075, .395], [0, -.060, .085], .027, 'segmented-sole');
+    panel(ankle, rubber, [.208, .042, .41], [0, -.0765, .085], .018, 'segmented-sole');
+    panel(ankle, slate, [.19, .034, .385], [0, -.042, .085], .015, 'midsole');
     panel(ankle, shell, [.18, .075, .24], [0, -.008, .15], .032, 'toe-shell');
     panel(ankle, shell, [.15, .095, .14], [0, .006, -.035], .028, 'heel-shell');
     panel(ankle, graphite, [.185, .018, .014], [0, -.012, .13], .005);

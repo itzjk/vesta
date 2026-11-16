@@ -439,3 +439,12 @@ body:has(.wc-source[aria-modal=true]) .world-guide-intro{visibility:hidden!impor
 /* The secondary walkthrough occupied the same bottom row as the station actions.
    Use the desktop top-center gap; question-tour.css retains its narrow-screen hiding rules. */
 .world-host .question-launch-docked{top:16px;bottom:auto;left:50%;transform:translateX(-50%)}
+
+/* Phone (<=480px): in the Evidence station the docked "One condition" launch
+   moves off the headline into the empty wall left of the rack, and steps aside
+   while a chart, panel or dialog owns the screen. */
+@media(max-width:480px){
+ .world-host[data-station=evidence] .world-overlay>.question-launch-docked{top:162px!important;bottom:auto!important;left:10px!important;right:auto!important;transform:none!important;box-sizing:border-box;width:98px;max-width:98px!important;min-height:44px;padding:5px 6px!important;font-size:13px!important;line-height:1.25!important;white-space:normal;text-align:center;background:#111617e6}
+ .world-host[data-station=evidence]:is([data-evidence-display=chart],[data-hologram-open=true]) .world-overlay>.question-launch-docked,
+ body:has(dialog[open]) .world-host[data-station=evidence] .world-overlay>.question-launch-docked{visibility:hidden!important;pointer-events:none!important}
+}
