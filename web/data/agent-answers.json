@@ -1,0 +1,338 @@
+{
+ "schema": "vesta.recorded-agent-answers/1",
+ "label": "Recorded answers from Team Zerack's agents",
+ "mode": "recorded",
+ "note": "Written by AI agents from the files of this repository, then checked by a separate auditor agent that recomputed every number. Recorded on 2026-11-15; not a live model.",
+ "answers": [
+  {
+   "id": "q01",
+   "question": "Has PMMA been tested for fire near the atmosphere of a lunar habitat (34% oxygen, 56.5 kPa, 1/6 g)?",
+   "answer": "No source-table row in this collection matches that atmosphere. Of 90 PMMA rows, all 90 are microgravity and none is at 1/6 g. The 41 rows that state oxygen span 14.2 to 22.2 percent, never 34, and no row states or infers a pressure below 101.3 kPa, against 56.5. The nearest row, PSI-25:1, is 22.2 percent O2 at an inferred 101.3 kPa. The lunar-gravity table here covers Mylar, Ultem and Nomex, not PMMA.",
+   "limits": "This covers only the rows and documents in this collection, so absence here does not mean NASA never studied PMMA at lunar gravity, and nothing here describes the safety of any material or atmosphere.",
+   "citations": [
+    {
+     "id": "PSI-25:1",
+     "kind": "source_row",
+     "supports": "Nearest PMMA row: microgravity, 22.2% O2, pressure inferred as 101.3 kPa (not measured in the row), 11.8 points O2 and 44.8 kPa from the lunar-base point."
+    },
+    {
+     "id": "status.cell('pmma','prevention',presetPoint(db,'lunar-base','prevention','pmma'),db)",
+     "kind": "computed",
+     "supports": "Status EXTRAPOLATED with reasons gravity_never_tested, o2_outside, pressure_outside over 90 PMMA prevention rows."
+    },
+    {
+     "id": "buildIndex().rowsByMaterial.pmma",
+     "kind": "computed",
+     "supports": "90 PMMA rows, all gclass micro, 0 partial; 41 with stated O2 spanning 14.2 to 22.2; db.base.partial_rows is 0 for every material."
+    },
+    {
+     "id": "20130010991",
+     "kind": "nasa_document",
+     "supports": "Evaluating Material Flammability in Microgravity and Martian Gravity Compared to the NASA Standard Normal Gravity Test (NTRS 20130010991): lunar-gravity limiting oxygen is tabulated for Mylar G, Ultem 1000 and Nomex HT90-40 only."
+    }
+   ]
+  },
+  {
+   "id": "q02",
+   "question": "What do the NASA rows say about how gravity changes how far a material burns?",
+   "answer": "In this collection, burn length at both gravity levels is read from one source table, SAFFIRE-II (PSI-99), nine rows. Eight are comparable: five burned further in normal gravity, none further in microgravity, three the same; one is not comparable. Only two rows give numbers at both levels: PSI-99:2 records about 0 in microgravity against 7.6 cm in normal gravity, while PSI-99:3 records about 0 at both. The other comparisons rely on the word \"Complete\", read as the full 29 cm sample length.",
+   "limits": "Nine samples from one experiment, comparing microgravity with normal gravity only; no row in this collection tests the Moon or Mars, and the pattern does not rate any material or support a general law.",
+   "citations": [
+    {
+     "id": "gravityContrast().summary",
+     "kind": "computed",
+     "supports": "9 samples; 8 comparable; 5 further_normal, 0 further_micro, 3 same, 1 not_comparable; numbers_only comparable 2 (1 differ, 1 same)"
+    },
+    {
+     "id": "PSI-99:2",
+     "kind": "source_row",
+     "supports": "Microgravity burn length recorded as about 0, normal gravity 7.6 cm; compared on numbers at both levels"
+    },
+    {
+     "id": "PSI-99:3",
+     "kind": "source_row",
+     "supports": "Both gravity levels recorded as about 0; compared as same on numbers"
+    },
+    {
+     "id": "PSI-99:1",
+     "kind": "source_row",
+     "supports": "Microgravity about 0, normal gravity recorded as Complete; comparison rests on the word, sample length 29 cm"
+    },
+    {
+     "id": "PSI-99:7",
+     "kind": "source_row",
+     "supports": "Microgravity entry 5 cm & 0 (note 2) is a compound entry, so the row is not comparable"
+    }
+   ]
+  },
+  {
+   "id": "q03",
+   "question": "At what ambient oxygen do droplet flames stop going out on their own in the FLEX tests?",
+   "answer": "In this collection's FLEX droplet table, extinction last appears at 30% ambient oxygen, in two methanol source-table rows, PSI-69:30 and PSI-69:45. All 9 rows above 30%, every one at 34%, ended in disruption or completion, none in extinction. Extinction shares fall as oxygen rises: 103 of 115 rows at 18% or less, 63 of 91 over 18% to 22%, and 20 of 59 over 22% to 30%. These are counts, not a sharp threshold.",
+   "limits": "These are liquid-droplet source-table rows in microgravity, not cabin-material results; only one NASA table is read, rows above 30% are few (9, all at 34%) and fuel and diluent mixes differ, so absence of extinction there is not a measured limit.",
+   "citations": [
+    {
+     "id": "PSI-69:30",
+     "kind": "source_row",
+     "supports": "Methanol row at 30% oxygen with test_end recorded as extinction, the highest oxygen with extinction in this table."
+    },
+    {
+     "id": "PSI-69:45",
+     "kind": "source_row",
+     "supports": "Second methanol row at 30% oxygen with test_end recorded as extinction."
+    },
+    {
+     "id": "PSI-69:20",
+     "kind": "source_row",
+     "supports": "Methanol row at 34% oxygen with test_end recorded as completion, one of the 9 rows above 30% (the other 8 are disruption)."
+    },
+    {
+     "id": "oxygen-limit.js describe()",
+     "kind": "computed",
+     "supports": "Counts of extinction by oxygen band: 103/115, 63/91, 20/59 and 0/9 for 18% or less, over 18-22%, over 22-30% and over 30%, from 274 countable rows."
+    },
+    {
+     "id": "oxygen-limit.js limitRows()",
+     "kind": "computed",
+     "supports": "274 countable PSI-69 rows with 0 exclusions; the maximum oxygen among extinction rows is 30 and 9 rows lie above it."
+    }
+   ]
+  },
+  {
+   "id": "q04",
+   "question": "What did NASA measure about material flammability at lunar and Martian gravity?",
+   "answer": "One NASA report, held outside the source-table rows, lists limiting oxygen for three materials. Lunar-gravity MOC* was 14.1, 19.9 and 19.9 percent O2 for Mylar G, Ultem 1000 and Nomex HT90-40, against 20.0, 23.0 and 22.1 at 1g. Martian MOC* was 17.0, 21.1 and 19.0. Stated lunar margins were -5.75, -2.8 and -2.35, and recomputing them agreed. In this collection, 0 of 1,989 source-table rows are at partial gravity.",
+   "limits": "The values come from three materials in drop-tower tests whose low-g criterion (flame survival over the drop time) differs from the 1g criterion (NASA-STD-6001 Test 1 burn length), so they are report values, not source-table rows or a cabin rating, and nothing here says any material or atmosphere is safe.",
+   "citations": [
+    {
+     "id": "20130010991",
+     "kind": "nasa_document",
+     "supports": "Evaluating Material Flammability in Microgravity and Martian Gravity Compared to the NASA Standard Normal Gravity Test (NTRS 20130010991), Table I: MOC and ULOI values at 1g, Martian, lunar and 0g for Mylar G, Ultem 1000 and Nomex HT90-40, and the stated lunar and Martian margins."
+    },
+    {
+     "id": "partialg.js partialGravity(sources,{rows}).items[].levels[].margin",
+     "kind": "computed",
+     "supports": "Recomputed margins equal the stated ones (agrees true for all 9 Martian, lunar and 0g material cells); lunar MOC 14.1/19.9/19.9, Martian MOC 17.0/21.1/19.0."
+    },
+    {
+     "id": "partialg.js partialGravity(...).counts",
+     "kind": "computed",
+     "supports": "counts: materials 3, gravities 4, lunar 3, Martian 3, collection_rows 1989, partial_rows 0."
+    },
+    {
+     "id": "S-LIMIT-02",
+     "kind": "finding",
+     "supports": "Finding that in low-flow microgravity or partial gravity some materials are flammable at lower oxygen concentrations than in normal gravity."
+    }
+   ]
+  },
+  {
+   "id": "q05",
+   "question": "For the space station cabin, which questions have nearby evidence, and what is assumed about pressure?",
+   "answer": "For the station preset (21% O2, 101.4 kPa, microgravity), 3 of 45 material-by-concern questions have nearby source-table rows in this collection, all for prevention: PMMA with 16 rows, SIBAL with 6, Nomex with 2. All 24 matched rows carry a facility-inferred pressure of 101.3 kPa, assumed as the nominal glovebox value; none reports a measured pressure. Another 21 questions have no source in this collection. Limits: rows are source-table rows within 1 O2 point and 5 kPa tolerances, not independent experiments, and a match is coverage, not a safety finding.",
+   "limits": "Counts hold only for the station preset values in presets.json and VESTA's matching tolerances. They describe evidence coverage in this collection, not what NASA has studied or whether any cabin material is safe. The 21 questions with no source mean absent from this collection. No NTRS document in partialg-sources.json bears on this question, so none is cited.",
+   "citations": [
+    {
+     "id": "PSI-25:10",
+     "kind": "source_row",
+     "supports": "PMMA prevention row matching the station point (21% O2, microgravity) with pressure_kpa null and p_inferred 101.3 kPa"
+    },
+    {
+     "id": "PSI-25:124",
+     "kind": "source_row",
+     "supports": "SIBAL prevention row among the 6 nearby rows, pressure facility-inferred"
+    },
+    {
+     "id": "PSI-25:24",
+     "kind": "source_row",
+     "supports": "Nomex prevention row among the 2 nearby rows, pressure facility-inferred"
+    },
+    {
+     "id": "status.cells + status.tally",
+     "kind": "computed",
+     "supports": "45 questions: 3 PROVEN (nearby rows), 21 EXTRAPOLATED, 21 NEVER_TESTED for the station preset"
+    },
+    {
+     "id": "assumption-audit.pressureAudit",
+     "kind": "computed",
+     "supports": "24 nearby rows across 3 questions: 0 reported, 24 facility-inferred, 0 unknown; inference source A Researcher's Guide to: Combustion Science, assumption nominal glovebox pressure"
+    }
+   ]
+  },
+  {
+   "id": "q06",
+   "question": "Which cabin materials have no source at all in this collection for fire suppression?",
+   "answer": "Of 15 cabin materials in this collection, 8 have no suppression-tagged source-table row. Seven of them also have no suppression finding: Kapton, Teflon, lampwick, Pyrell, dibutyl phthalate, PMMA plus Nomex, and silicone rubber. Their 96 source-table rows are tagged only prevention or detection, for example PSI-101:1 (Kapton, detection). The eighth, silicone, has 26 rows tagged only prevention or detection (for example PSI-99:1, prevention) and one suppression finding, SAFFIRE-028, a normal-gravity ground test that names silicone in its text but is not linked to a material id. The other seven materials do have suppression rows; PMMA has 48, including PSI-26:2, and SOLIDS-008 is the only suppression finding linked to a material id.",
+   "limits": "No source means absent from this collection, not unstudied by NASA; the 8 materials still have rows for other concerns, and the seven others being present says nothing about adequacy. The status cells count silicone as never tested because they link findings by material id only; SAFFIRE-028 is a ground-test finding, not a cabin-material suppression result in microgravity. Liquid-droplet findings are excluded as cabin-material results.",
+   "citations": [
+    {
+     "id": "cells/tally",
+     "kind": "computed",
+     "supports": "cells() over 15 materials for concern suppression gave 8 NEVER_TESTED cells (reason no_row_no_finding), 7 EXTRAPOLATED, 0 PROVEN; tally() confirms"
+    },
+    {
+     "id": "PSI-101:1",
+     "kind": "source_row",
+     "supports": "Kapton row, pillars list detection only (Kapton has 30 rows, 0 suppression)"
+    },
+    {
+     "id": "PSI-99:1",
+     "kind": "source_row",
+     "supports": "Silicone row, pillars list prevention only (26 rows, 0 suppression)"
+    },
+    {
+     "id": "PSI-26:2",
+     "kind": "source_row",
+     "supports": "PMMA row tagged suppression; PMMA has 48 such rows, the contrast case"
+    },
+    {
+     "id": "SOLIDS-008",
+     "kind": "finding",
+     "supports": "only suppression finding with a material id (pmma); no finding links any of the 8 materials"
+    }
+   ]
+  },
+  {
+   "id": "q07",
+   "question": "What would one test campaign at the lunar cabin conditions add, and what would still be missing?",
+   "answer": "At the lunar-base cabin (1/6 g, 34% O2, 8.2 psia), 0 of 45 material-and-concern questions have a nearby source-table row. One campaign stating all three conditions would give a nearby row to 23 of 45, across 15 materials. Still missing: 22 questions with no source row of any kind, 21 absent from this collection and 1 (PMMA detection) with findings but no test row. This collection holds 0 partial-gravity rows among 1,989.",
+   "limits": "Counted from source-table rows with VESTA's matching rule; a new nearby row would add coverage, not a result, and it says nothing about whether any material or cabin atmosphere is acceptable. The NASA lunar-gravity table (NTRS 20130010991) lies outside this collection and is not matched.",
+   "citations": [
+    {
+     "id": "status.tally(status.cells(presetPoint(db,'lunar-base'),db))",
+     "kind": "computed",
+     "supports": "0 PROVEN (nearby), 24 EXTRAPOLATED, 21 NEVER_TESTED, 45 questions in total"
+    },
+    {
+     "id": "nextExperiments(presetPoint(db,'lunar-base'),db).campaign",
+     "kind": "computed",
+     "supports": "23 of 45 questions would gain a nearby row, across 15 materials, if rows state gravity, oxygen and pressure"
+    },
+    {
+     "id": "nextExperiments(...).firstSource",
+     "kind": "computed",
+     "supports": "22 questions need a first source row: 21 no_source, 1 finding_without_rows"
+    },
+    {
+     "id": "SAFFIRE-051",
+     "kind": "finding",
+     "supports": "the finding behind PMMA detection that has no test row"
+    },
+    {
+     "id": "SOLIDS-095",
+     "kind": "finding",
+     "supports": "the second finding behind PMMA detection that has no test row"
+    },
+    {
+     "id": "partialGravity(partialg-sources.json,{rows:db.tests}).counts",
+     "kind": "computed",
+     "supports": "partial_rows 0 of collection_rows 1989"
+    }
+   ]
+  },
+  {
+   "id": "q08",
+   "question": "What evidence does the collection hold for Nomex?",
+   "answer": "In this collection, Nomex has 9 source-table rows, all microgravity: PSI-25:23 to PSI-25:25 (BASS-II) and six BASS rows from PSI-26:14 to PSI-26:58, plus one PMMA-and-Nomex row, PSI-99:7. Among the nine Nomex rows, only PSI-25:23 and PSI-25:24 carry numeric outcomes; PSI-99:7 records a burn time of 140 s, with the Nomex spread rate printed as n/a. Findings SOLIDS-045 and SAFFIRE-101 report samples that did not ignite; SOLIDS-018 reports a 2 cm sample that burned. One NASA table prints Nomex HT90-40 ULOI as 23.5 at 1g and 23.0 at 0g. Detection has no rows.",
+   "limits": "All rows are ISS or Cygnus flight rows with sparse conditions; for the nine ISS rows pressure is not recorded and is inferred (101.3 kPa), and PSI-99:7 has no pressure at all. Absence means absent from this collection, not unstudied.",
+   "citations": [
+    {
+     "id": "PSI-25:23",
+     "kind": "source_row",
+     "supports": "BASS-II Nomex row, microgravity, 22.2% O2, with numeric final O2, CO2 and CO outcomes (PSI-25:24 likewise; PSI-25:25 has none)"
+    },
+    {
+     "id": "PSI-26:14",
+     "kind": "source_row",
+     "supports": "First of six BASS Nomex rows (PSI-26:14, 24, 25, 39, 57, 58), microgravity, no numeric O2 or outcomes recorded"
+    },
+    {
+     "id": "PSI-99:7",
+     "kind": "source_row",
+     "supports": "SAFFIRE-II row for PMMA and Nomex, material id pmma-nomex, 22.1% O2 approximate, Nomex spread rate printed as n/a"
+    },
+    {
+     "id": "SOLIDS-045",
+     "kind": "finding",
+     "supports": "The three Nomex samples tested in BASS-II did not ignite (SAFFIRE-101 gives the same for Saffire VI; SOLIDS-018 reports a 2 cm Nomex III sample that did burn at 15 cm/s)"
+    },
+    {
+     "id": "Evaluating Material Flammability in Microgravity and Martian Gravity Compared to the NASA Standard Normal Gravity Test (NTRS 20130010991)",
+     "kind": "nasa_document",
+     "supports": "Table I prints Nomex HT90-40 1g ULOI 23.5 and 0g ULOI 23.0, at 14.7 psia, from partialg-sources.json"
+    },
+    {
+     "id": "buildIndex().rowsByMaterial['nomex'] and status.cell('nomex', concern)",
+     "kind": "computed",
+     "supports": "9 Nomex rows, all gclass micro; pmma-nomex has 1 row; prevention PROVEN with 9 rows, suppression EXTRAPOLATED with 6 rows, detection NEVER_TESTED with 0 rows"
+    }
+   ]
+  },
+  {
+   "id": "q09",
+   "question": "Which recorded conditions does VESTA show but not use when it decides a row is nearby?",
+   "answer": "VESTA calls a row nearby using only gravity class, oxygen within 1.0 point and pressure within 5.0 kPa. At the station preset (21% O2, 101.4 kPa, microgravity) it finds 24 nearby source-table rows; all 24 have pressure inferred from a nominal glovebox assumption (101.3 kPa), not recorded in the row. All 24 also record fan, air or flow-restrictor settings, which have no unit and are not compared. Specimen size is recorded in 22 rows and a thickness named in the size text in 9, for example PSI-25:21 (1 cm wide, 200 micron thick PMMA). A size such as PSI-25:6 (2 cm; 0.1 mm PMMA film) is recorded but not named as a thickness. Recorded flow velocity and ignition entries appear in 0 of the 24.",
+   "limits": "Counts are for the station preset and the prevention concern only; the spacecraft, lunar-base, rover and mars-base presets have 0 nearby rows here, and fields are recorded text in this collection, not tested for effect on any outcome. \"Named thickness\" means the size text itself says thick.",
+   "citations": [
+    {
+     "id": "PSI-25:6",
+     "kind": "source_row",
+     "supports": "Nearby PMMA row recording specimen form film, size 2 cm; 0.1 mm, flow restrictor 2, and fan and air display readings with no unit, none used in matching."
+    },
+    {
+     "id": "PSI-25:124",
+     "kind": "source_row",
+     "supports": "One of 6 nearby sibal rows; all 6 carry setting entries and none has a named thickness."
+    },
+    {
+     "id": "PSI-25:24",
+     "kind": "source_row",
+     "supports": "One of 2 nearby nomex rows; both carry setting entries and neither records a specimen size."
+    },
+    {
+     "id": "match.js match()",
+     "kind": "computed",
+     "supports": "The nearby test compares only gravity class, O2 (TOL 1.0) and pressure (TOL 5.0 kPa); fail reasons are gravity, o2 and pressure only."
+    },
+    {
+     "id": "status.cell + row-context.questionContext",
+     "kind": "computed",
+     "supports": "Station preset, prevention: pmma 16, sibal 6, nomex 2 nearby rows, total 24; setting 24, size 22, thickness 9, flow 0, ignition 0."
+    }
+   ]
+  },
+  {
+   "id": "q10",
+   "question": "How good is the oxygen model for droplet extinction, compared with simple baselines?",
+   "answer": "In this collection's FLEX droplet table, 224 dated source-table rows were held out one test day at a time (66 days). A logistic model on oxygen and fuel got 179 right. The majority baseline got 150, the same-fuel majority 128, and a single oxygen cut 164. Against the majority baseline the gap is +12.9 points (+2.5 to +23.4). Against the oxygen cut it is +6.7 points (−2.5 to +16.1), which includes zero.",
+   "limits": "This is an internal check on one liquid-droplet table; test-day rows are not independent, 50 undated rows are left out, and the result says nothing about cabin materials.",
+   "citations": [
+    {
+     "id": "PSI-69:19",
+     "kind": "source_row",
+     "supports": "One of nine source-table rows above 30% oxygen (34%); its recorded ending is disruption, and none of the nine ended in extinction."
+    },
+    {
+     "id": "PSI-69:1",
+     "kind": "source_row",
+     "supports": "First of the 274 countable PSI-69 source-table rows that the model and baselines were scored on."
+    },
+    {
+     "id": "oxygenLimit(tests).evaluation",
+     "kind": "computed",
+     "supports": "224 held-out rows over 66 test days; correct counts 179 (model), 150 (majority), 128 (same-fuel majority), 164 (oxygen threshold); Brier 0.150 versus 0.226 for majority."
+    },
+    {
+     "id": "checkLines(evaluation) gap-majority and gap-threshold",
+     "kind": "computed",
+     "supports": "Model minus majority +12.9 points (+2.5 to +23.4); model minus oxygen threshold +6.7 points (−2.5 to +16.1), interval includes zero; 4,000 day-level resamples."
+    },
+    {
+     "id": "describe(tests)",
+     "kind": "computed",
+     "supports": "Extinction counts by oxygen band across 274 counted rows: 103/115 at 18% or less, 63/91 over 18 to 22%, 20/59 over 22 to 30%, 0/9 over 30%."
+    }
+   ]
+  }
+ ]
+}

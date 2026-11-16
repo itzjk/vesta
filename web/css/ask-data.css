@@ -1,0 +1,23 @@
+.ask-data{color:#ede4d4;font:400 16px/1.5 var(--font,sans-serif);overflow-wrap:anywhere;min-width:0;max-width:100%;margin:0 0 24px;padding:14px 14px 18px;border:1px solid #c5a56d66;background:#0b0f12}
+.ask-data *{box-sizing:border-box}
+.ask-data h3{font-size:24px;line-height:1.2;margin:0 0 6px;color:#ede4d4}
+.ask-data h4{font-size:18px;line-height:1.3;margin:0 0 8px;color:#ede4d4}
+.ask-data p{font-size:16px!important;line-height:1.5!important;margin:6px 0}
+.ask-data .ad-label{color:#c5a56d;font-weight:600;letter-spacing:.02em}
+.ask-data .ad-note,.ask-data .ad-count{color:#c9c2b4}
+.ask-data .ad-filter{display:block;width:100%;min-height:44px;margin:10px 0 4px;padding:8px 12px;border:1px solid #c5a56d;background:#05080a;color:#ede4d4;font:400 16px/1.4 var(--font,sans-serif)}
+.ask-data .ad-filter::placeholder{color:#a79f90}
+.ad-questions{list-style:none;margin:10px 0;padding:0;display:grid;gap:8px}
+.ask-data .ad-question{display:block;width:100%;min-height:44px;padding:9px 12px;border:1px solid #c5a56d66;background:transparent;color:#ede4d4;font:500 16px/1.4 var(--font,sans-serif);text-align:left;cursor:pointer}
+.ask-data .ad-question:hover{border-color:#c5a56d}
+.ask-data .ad-question[aria-pressed="true"]{border-color:#c5a56d;background:#c5a56d22;box-shadow:inset 3px 0 0 #c5a56d}
+.ad-answer:empty{display:none}
+.ad-answer{margin-top:14px;padding:12px 14px;border-left:3px solid #c5a56d;background:#11171b}
+.ask-data .ad-limits{color:#e3cfa3}
+.ask-data .ad-cites-head{color:#c5a56d;font-weight:600;margin-top:12px}
+.ad-cites{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:8px}
+.ad-cite{display:grid;gap:4px;justify-items:start;font-size:16px}
+.ask-data .ad-chip{display:inline-block;max-width:100%;padding:3px 9px;border:1px solid #c5a56d66;border-radius:999px;color:#ede4d4;background:#05080a;font:500 16px/1.4 var(--font,sans-serif)}
+.ask-data .ad-chip-open{min-height:36px;border-color:#c5a56d;color:#c5a56d;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.ad-supports{color:#c9c2b4}
+.ask-data :is(button,input):focus-visible{outline:2px solid #efd296;outline-offset:3px}

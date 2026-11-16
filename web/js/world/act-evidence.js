@@ -23,6 +23,7 @@ import { createQuestionNote, questionNoteMarkdown, questionNoteMatches, question
 import { download } from '../ui/download.js';
 import { createOutcomePanel } from './outcome-panel.js?v=motion-20261115-3';
 import { createGravityContrastPanel } from './gravity-contrast-panel.js?v=motion-20261115-3';
+import { createAskDataPanel } from './ask-data-panel.js?v=ask-20261115-1';
 
 const node = (tag, text, cls) => {
   const el = document.createElement(tag);
@@ -47,6 +48,7 @@ export async function build(world) {
   let selectionReady = false, pendingQuestion = null, pendingTool = null;
   const outcomePanel = createOutcomePanel({ db, onSource: (id, trigger) => openCitation(id, trigger || document.activeElement, world) });
   const gravityPanel = createGravityContrastPanel({ db, onSource: (id, trigger) => openCitation(id, trigger || document.activeElement, world) });
+  const askDataPanel = createAskDataPanel({ onSource: (id, trigger) => openCitation(id, trigger || document.activeElement, world) });
   const wall = buildCoverage(world, { onSelection: onCoverageSelection, onInspectAll: openRegister, onSaveReview: saveQuestionReview, onPrepareCrew: prepareCrewReview }), gaps = buildGapBrief(world), evidenceRegister = buildEvidenceRegister(world);
   const stage = world.stage.context || world.stage.ctx || world.stage;
   const host = stage.renderer.domElement.parentElement, root = world.host || host;
@@ -151,7 +153,7 @@ export async function build(world) {
     if (!next || next === 'overview') wall.clearSelection(false);
     if (panel) { paintPanel(); if (!consoleHandle.target) consoleHandle.toggle ? consoleHandle.toggle() : consoleHandle.open(); } else consoleHandle.close();
     lastKey = ''; world.invalidate?.();
-    if (panel === 'ask') consoleEl.querySelector('input')?.focus({ preventScroll: true });
+    if (panel === 'ask') consoleEl.querySelector('input[type="search"]')?.focus({ preventScroll: true });
   }
   const outside = event => { if (active && panel && !citationOpen && !consoleEl.contains(event.target) && !tools.contains(event.target) && !event.target.closest('.world-marker,.world-guide,.field-instrument')) setPanel(null); };
   const escape = event => { if (active && event.key === 'Escape') { if (panel) { event.stopPropagation(); setPanel(null); } else if (sceneMode === 'chart') { event.stopPropagation(); setDisplay('rack'); } } };
@@ -272,6 +274,7 @@ export async function build(world) {
       const sections = node('details', null, 'evidence-question-tools'); sections.append(node('summary', 'More evidence tools'), nav); consoleEl.append(sections);
     } else consoleEl.append(nav);
     if (panel === 'prediction') consoleEl.append(gravityPanel.element, outcomePanel.element);
+    if (panel === 'ask') consoleEl.append(askDataPanel.element);
     if (panel === 'collection') { consoleEl.querySelector('h2').textContent = 'Collection & limits'; consoleEl.append(renderCollectionSummary(db)); }
     if (panel === 'method') {
       consoleEl.querySelector('h2').textContent = 'Method, ranking & validation limits';
@@ -571,7 +574,7 @@ export async function build(world) {
       if (world.evidenceWalkthrough === walkthroughHook) delete world.evidenceWalkthrough;
       root.removeEventListener('pointerdown', outside); window.removeEventListener('keydown', escape);
       window.removeEventListener('vesta:cite', citation);
-      outcomePanel.dispose?.(); gravityPanel.dispose(); wall.dispose(); gaps.dispose(); evidenceRegister.dispose(); field.dispose(); rack.dispose(); rackUI.dispose(); consoleHandle.dispose();
+      outcomePanel.dispose?.(); gravityPanel.dispose(); askDataPanel.dispose(); wall.dispose(); gaps.dispose(); evidenceRegister.dispose(); field.dispose(); rack.dispose(); rackUI.dispose(); consoleHandle.dispose();
       tools.remove(); companion.remove(); style.remove(); host.classList.remove('evidence-world-active'); delete root.dataset.evidenceDisplay; delete root.dataset.rackCompact;
       const seen = new Set();
       group.traverse(o => { for (const resource of [o.geometry, ...[o.material].flat()]) if (resource && !seen.has(resource)) { seen.add(resource); resource.dispose?.(); } });
