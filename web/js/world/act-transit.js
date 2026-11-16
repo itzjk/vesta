@@ -37,7 +37,7 @@ export async function build(world) {
   skip.addEventListener('click', advance);
   panel.append(title, sentence, skip);
   const credits = document.createElement('p');
-  for (const name of ['mars', 'earth', 'stars']) { const entry = NASA_TEXTURES[name], link = document.createElement('a'); link.href = `https://images.nasa.gov/details/${entry.id}`; link.target = '_blank'; link.rel = 'noopener'; link.textContent = `${entry.title}, ${entry.credit}`; credits.append(link, document.createElement('br')); } panel.append(credits);
+  for (const name of ['marsGlobe', 'earthGlobe', 'stars']) { const entry = NASA_TEXTURES[name], link = document.createElement('a'); link.href = entry.url || `https://images.nasa.gov/details/${entry.id}`; link.target = '_blank'; link.rel = 'noopener'; link.textContent = `${entry.title}, ${entry.credit}`; credits.append(link, document.createElement('br')); } panel.append(credits);
   const holo = world.hologram(panel, { at: [.5, 1.25, 6.7], label: 'Read the communication observation and image credits', width: 440 });
   let active = false, started;
   const api = {
