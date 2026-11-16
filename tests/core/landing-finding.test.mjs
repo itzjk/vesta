@@ -4,9 +4,11 @@ import fs from 'node:fs';
 import { buildIndex, presetPoint, designPoint } from '../../web/js/core/index.js';
 import * as status from '../../web/js/core/status.js';
 import { pressureAudit } from '../../web/js/core/assumption-audit.js';
+import { TOL } from '../../web/js/core/match.js';
+import { sensitivity } from '../../web/js/core/tolerance-sensitivity.js';
 
 const read = name => fs.readFileSync(new URL(`../../${name}`, import.meta.url), 'utf8');
-const raw = Object.fromEntries(['tests', 'findings', 'presets', 'investigations'].map(name => [name, JSON.parse(read(`web/data/${name}.json`))]));
+const raw = Object.fromEntries(['tests', 'findings', 'presets', 'investigations', 'tables', 'rules', 'sources', 'meta'].filter(name => fs.existsSync(new URL(`../../web/data/${name}.json`, import.meta.url))).map(name => [name, JSON.parse(read(`web/data/${name}.json`))]));
 const db = buildIndex(raw), html = read('web/index.html'), readme = read('README.md');
 const lunar = presetPoint(db, 'lunar-base'), cells = status.cells(lunar, db), counts = status.tally(cells);
 
@@ -18,20 +20,73 @@ test('the static landing finding states exactly what the loaded collection compu
   assert.ok(html.includes(`<b>${counts.PROVEN} of ${cells.length}</b>`));
 });
 
-test('the four landing counts and the example row match the data', () => {
-  const tests = raw.tests.tests, findings = raw.findings.findings;
-  for (const [n, label] of [[db.investigations.length, 'NASA PSI investigations'], [tests.length.toLocaleString('en-US'), 'source-table rows'],
-    [findings.length, 'findings from NASA sources'], [cells.length, 'material-and-concern questions']])
-    assert.ok(html.includes(`<li><b>${n}</b>${label}</li>`), `${n} ${label}`);
-  const row = db.testById['PSI-25:1'];
-  assert.deepEqual([row.investigation, row.fuel, row.o2_percent, row.pressure_kpa, row.gravity], ['BASS-II', 'PMMA', 22.2, null, 'microgravity']);
-  assert.ok(html.includes('BASS-II, table row PSI-25:1. PMMA film, 22.2% oxygen, microgravity, <b>pressure not in the table</b>'));
-  assert.ok(html.includes(db.invById['PSI-25'].psi_url));
+const en = n => n.toLocaleString('en-US');
+const para = id => html.match(new RegExp(`<p id="${id}">(.*?)</p>`, 's'))?.[1] ?? '';
+const lead = html.slice(html.indexOf('<section id="lead"'), html.indexOf('</section>') + 10);
+const station = presetPoint(db, 'station'), stationCells = status.cells(station, db), stationCounts = status.tally(stationCells);
+
+test('the terms line defines the questions and "nearby" from the shipped rules', () => {
+  const materials = Object.keys(db.materials).length;
+  assert.equal(materials * status.CONCERNS.length, cells.length);
+  assert.ok(para('lead-terms').includes(`<b>${cells.length} questions</b> = ${materials} cabin materials × ${status.CONCERNS.join(', ')}.`));
+  assert.ok(para('lead-terms').includes(`same gravity class, oxygen within ${TOL.o2} percentage point and pressure within ${TOL.p} kPa, on one source row.`));
+});
+
+test('the gap line counts rows by gravity class and the lunar count at 1x, 2x and 4x', () => {
+  const tests = raw.tests.tests, by = cls => db.tests.filter(r => (r.n.gclass ?? null) === cls).length;
+  const classes = new Set(db.tests.map(r => r.n.gclass ?? null));
+  assert.deepEqual([...classes].sort(), [null, 'micro'].sort(), 'the sentence names every gravity class present');
+  assert.equal(by('micro') + by(null) + by('partial'), tests.length);
+  assert.ok(para('lead-gap').includes(`of ${en(tests.length)} source-table rows in ${db.investigations.length} NASA PSI investigations, ${en(by('micro'))} are microgravity, ${by(null)} state no gravity and ${by('partial')} are partial gravity.`));
+  assert.equal(by('partial'), 0);
+  const s = sensitivity(db, [1, 2, 4]), moon = s.presets.find(p => p.id === 'lunar-base');
+  assert.equal(moon.counts[0], counts.PROVEN, 'the 1x column is the shipped tally');
+  assert.ok(para('lead-gap').includes(`does not change the lunar count: ${moon.counts.map((n, i) => `${n} at ${s.tolerances[i].scale}×`).join(', ')}.`));
+  assert.ok(moon.fixed && moon.reachable === 0);
+});
+
+test('the station line is the computed tally and pressure audit', () => {
+  const audit = pressureAudit(stationCells, db);
+  assert.ok(para('lead-station').includes(`a station cabin (${station.o2}% O2, ${station.p} kPa, ${station.g_label}) has <b>${stationCounts.PROVEN} of ${stationCells.length}</b> questions with nearby rows. They rest on ${audit.nearby} row matches, of which ${audit.reported} report pressure`));
+  assert.ok(stationCounts.PROVEN > 0 && audit.reported === 0 && audit.inferred === audit.nearby);
+});
+
+test('the static table shows three real rows that count as nearby for the station cabin', () => {
+  const audit = pressureAudit(stationCells, db);
+  const hits = new Set(stationCells.filter(c => c.status === 'PROVEN').flatMap(c => c.hit_ids));
+  const table = lead.match(/<table id="lead-rows">(.*?)<\/table>/s)[1];
+  assert.ok(table.includes(`Three of those ${audit.nearby} rows, as recorded.`));
+  const rows = [...table.matchAll(/<tr><td><a href="([^"]+)" rel="noopener">([^<]+)<\/a><\/td><td>([^<]*)<\/td><td>([^<]*)<\/td><td>([^<]*)<\/td><td>([^<]*)<\/td><td>([^<]*)<\/td><\/tr>/g)];
+  assert.equal(rows.length, 3);
+  assert.equal(new Set(rows.map(r => r[2])).size, 3);
+  assert.equal((table.match(/<tr>/g) ?? []).length, 4, 'one header row and three data rows, nothing unparsed');
+  for (const [, url, id, investigation, material, oxygen, pressure, gravity] of rows) {
+    const row = db.testById[id];
+    assert.ok(row && hits.has(id), `${id} is a nearby row for the station cabin`);
+    assert.deepEqual([investigation, material, oxygen, gravity], [row.investigation, row.fuel, `${row.o2_percent}%`, row.gravity]);
+    assert.equal(row.pressure_kpa, null);
+    assert.equal(pressure, 'not in the table');
+    assert.equal(url, db.invById[row.psi_id].psi_url);
+    assert.match(url, /^https:\/\/psi\.nasa\.gov\//);
+  }
+});
+
+test('the landing offers one primary action and the slides, with no script and no external asset', () => {
+  assert.ok(lead.includes('<a class="cta" href="#/design">Check your cabin</a>'));
+  const slides = (read('web/presentation/index.html').match(/<section class="slide/g) ?? []).length;
+  assert.ok(lead.includes(`<a href="presentation/">See the ${slides} slides</a>`));
+  assert.equal((lead.match(/class="cta"/g) ?? []).length, 1);
+  assert.doesNotMatch(lead, /<script|<img|<link|url\(|@import|style="/i);
+  for (const [, href] of lead.matchAll(/href="([^"]+)"/g)) assert.match(href, /^(#\/design|presentation\/|https:\/\/psi\.nasa\.gov\/)/);
+  assert.match(html, /<style>html\[data-ready\] #lead\{display:none\}#lead\{position:fixed;inset:0;[^}]*overflow:auto/);
+  assert.ok(lead.includes('Rows are table records, not independent experiments. “No source” means absent from this collection, not unstudied by NASA.'));
+  assert.doesNotMatch(lead.replace(/not a safety rating|fire-safety questions/g, ''), /\bsafe|\bproven\b|validated|certified|never tested/i);
+  const words = lead.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).length;
+  assert.ok(words <= 260, `the block stays short enough for one screen: ${words} words`);
 });
 
 test('the README one-condition contrast is computed, not asserted', () => {
-  const station = presetPoint(db, 'station');
-  const micro = status.cells(station, db), moon = status.cells(designPoint({ preset: 'custom', o2: station.o2, p: station.p, g: 'moon' }, db), db);
+  const micro = stationCells, moon = status.cells(designPoint({ preset: 'custom', o2: station.o2, p: station.p, g: 'moon' }, db), db);
   const audit = pressureAudit(micro, db);
   assert.ok(readme.includes(`microgravity gives ${status.tally(micro).PROVEN} of ${micro.length} questions nearby evidence (all ${audit.inferred} matching rows rely on an assumed facility pressure); at 1/6 g it gives ${status.tally(moon).PROVEN}.`));
   assert.equal(audit.reported, 0);

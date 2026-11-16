@@ -18,15 +18,26 @@
 <link rel="stylesheet" href="css/components.css?v=11">
 <link rel="stylesheet" href="css/world.css?v=habitat-20261115-1">
 <link rel="stylesheet" href="css/si-mark.css?v=2">
-<style>html[data-ready] #lead{display:none}#lead{position:fixed;inset:0;z-index:2;overflow:auto;box-sizing:border-box;padding:7vh max(20px,calc(50vw - 430px));background:#02040a;color:#ede4d4;font:20px/1.45 "Source Sans 3",system-ui,sans-serif}#lead h1{font:600 clamp(30px,4.4vw,52px)/1.08 "Barlow Condensed",system-ui,sans-serif;margin:0 0 18px}#lead b{color:#fff}#lead ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 28px;padding:0;margin:18px 0}#lead li b{font-size:28px;display:block}#lead .row{border-left:3px solid #c5a56d;padding:4px 0 4px 14px;margin:18px 0;font-size:17px}#lead a{color:#c9d6e2}</style>
+<style>html[data-ready] #lead{display:none}#lead{position:fixed;inset:0;z-index:2;overflow:auto;box-sizing:border-box;padding:4vh max(18px,calc(50vw - 480px));background:#02040a;color:#ede4d4;font:16px/1.4 "Source Sans 3",system-ui,sans-serif}#lead h1{font:600 clamp(27px,3.6vw,44px)/1.08 "Barlow Condensed",system-ui,sans-serif;margin:0 0 10px}#lead b{color:#fff}#lead p{margin:0 0 8px}#lead a{color:#c9d6e2}#lead .scroll{overflow-x:auto;margin:10px 0}#lead table{border-collapse:collapse;width:100%;font-size:14px}#lead caption{text-align:left;color:#b9ae9c;padding-bottom:3px}#lead th,#lead td{text-align:left;padding:3px 12px 3px 0;border-bottom:1px solid #2a3140}#lead th{color:#c5a56d;font-weight:600}#lead .go{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin:12px 0 10px}#lead .cta{background:#c5a56d;color:#02040a;font-weight:700;text-decoration:none;padding:9px 20px;border-radius:4px}#lead .limits{font-size:14px;color:#b9ae9c;margin:0}@media (max-width:600px){#lead{font-size:15px;padding-top:18px;padding-bottom:18px}#lead table{font-size:13px}#lead th,#lead td{padding-right:8px}}</style>
 </head>
 <body>
 <section id="lead" aria-label="What VESTA found">
   <h1>For a lunar habitat, <b>0 of 45</b> fire-safety questions have NASA evidence at nearby conditions.</h1>
   <p id="lead-finding">For a lunar habitat (34% O2, 56.5 kPa, 1/6 g), 0 of 45 material-and-concern questions have a NASA source row at nearby conditions. 24 have evidence only at other conditions and 21 have no source in this collection.</p>
-  <ul><li><b>24</b>NASA PSI investigations</li><li><b>1,989</b>source-table rows</li><li><b>822</b>findings from NASA sources</li><li><b>45</b>material-and-concern questions</li></ul>
-  <p class="row">One real row, as recorded: BASS-II, table row PSI-25:1. PMMA film, 22.2% oxygen, microgravity, <b>pressure not in the table</b>. VESTA labels the facility pressure it assumes instead of hiding it. <a href="https://psi.nasa.gov/physci/repo/data/investigations/PSI-25" rel="noopener">Open the NASA PSI record</a></p>
-  <p>Set a cabin, open any question, and follow each answer back to its NASA row. Coverage in this collection, not a safety rating.</p>
+  <p id="lead-terms"><b>45 questions</b> = 15 cabin materials × prevention, detection, suppression. <b>Nearby</b> = same gravity class, oxygen within 1 percentage point and pressure within 5 kPa, on one source row.</p>
+  <p id="lead-gap"><b>Why the zero is a data gap, not a narrow window:</b> of 1,989 source-table rows in 24 NASA PSI investigations, 1,981 are microgravity, 8 state no gravity and 0 are partial gravity. Widening both limits does not change the lunar count: 0 at 1×, 0 at 2×, 0 at 4×.</p>
+  <p id="lead-station"><b>Where the collection does reach:</b> a station cabin (21% O2, 101.4 kPa, 0 g) has <b>3 of 45</b> questions with nearby rows. They rest on 24 row matches, of which 0 report pressure; VESTA labels the facility pressure it assumes.</p>
+  <div class="scroll"><table id="lead-rows">
+    <caption>Three of those 24 rows, as recorded. Each id opens its NASA PSI investigation.</caption>
+    <thead><tr><th>Row</th><th>Investigation</th><th>Material</th><th>Oxygen</th><th>Pressure</th><th>Gravity</th></tr></thead>
+    <tbody>
+    <tr><td><a href="https://psi.nasa.gov/physci/repo/data/investigations/PSI-25" rel="noopener">PSI-25:10</a></td><td>BASS-II</td><td>PMMA</td><td>21%</td><td>not in the table</td><td>microgravity</td></tr>
+    <tr><td><a href="https://psi.nasa.gov/physci/repo/data/investigations/PSI-25" rel="noopener">PSI-25:124</a></td><td>BASS-II</td><td>SIBAL</td><td>20.8%</td><td>not in the table</td><td>microgravity</td></tr>
+    <tr><td><a href="https://psi.nasa.gov/physci/repo/data/investigations/PSI-25" rel="noopener">PSI-25:24</a></td><td>BASS-II</td><td>Nomex</td><td>21%</td><td>not in the table</td><td>microgravity</td></tr>
+    </tbody>
+  </table></div>
+  <p class="go"><a class="cta" href="#/design">Check your cabin</a><a href="presentation/">See the 7 slides</a></p>
+  <p class="limits">Coverage in this collection, not a safety rating. Rows are table records, not independent experiments. “No source” means absent from this collection, not unstudied by NASA.</p>
 </section>
 <div id="viewport">
   <div id="stage" data-state="loading">

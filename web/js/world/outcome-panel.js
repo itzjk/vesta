@@ -1,5 +1,6 @@
 import { modelRows } from '../core/outcome-model.js?v=flex-frame-20261115-1';
 import { FRAME_LABEL, frameSummary, fuelBreakdown } from '../core/outcome-summary.js?v=flex-frame-20261115-1';
+import { OXYGEN_LIMIT, oxygenLimit, cellText } from '../core/oxygen-limit.js?v=oxygen-limit-20261115-1';
 
 // One lazy worker per loaded index, shared by mounted views; no CPU model work
 // runs on the animation thread. Source rows cross the boundary only once.
@@ -46,20 +47,24 @@ const fields = [
 const make = (tag, text, cls) => { const node = document.createElement(tag); if (text != null) node.textContent = text; if (cls) node.className = cls; return node; };
 const readable = value => String(value).replaceAll('_', ' ');
 
-/** Explicit-run, table-only model view. onSource receives the original source-row ID. */
+/** Extinction-by-oxygen table first, then the model check, then the nearest-test lookup. onSource receives the original source-row ID. */
 export function createOutcomePanel({ db, onSource } = {}) {
   if (!db || !Array.isArray(db.tests)) throw new TypeError('The FLEX table view requires loaded source rows.');
   if (!document.querySelector('link[data-vesta-outcome-panel]')) {
-    const sheet = make('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/outcome-panel.css?v=flex-frame-20261115-1', import.meta.url).href;
+    const sheet = make('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/outcome-panel.css?v=oxygen-limit-20261115-1', import.meta.url).href;
     sheet.dataset.vestaOutcomePanel = ''; document.head.append(sheet);
   }
-  const element = make('section', null, 'outcome-panel'); element.setAttribute('aria-label', 'FLEX droplet table model');
-  const title = make('h3', 'How did similar FLEX droplet tests end?');
+  const element = make('section', null, 'outcome-panel'); element.setAttribute('aria-label', 'FLEX droplet tests: extinction by ambient oxygen');
+  const title = make('h3', 'How often did FLEX droplet flames go out, by ambient oxygen?');
+  // Lead block: counts from the NASA table first, then the one model check. Filled when the view is first shown.
+  const oxygen = make('section', null, 'op-oxygen'); oxygen.setAttribute('aria-label', 'Extinction share by oxygen band');
+  const oxygenLead = make('p', 'Counting the recorded test endings…', 'op-oxygen-lead'); oxygenLead.setAttribute('aria-live', 'polite'); oxygen.append(oxygenLead);
+  const lookupTitle = make('h4', 'Nearest recorded tests (secondary lookup)', 'op-lookup-title');
   const frame = make('div', null, 'op-frame'), frameLabel = make('p', FRAME_LABEL, 'op-frame-label'), frameLine = make('p', 'Held-out results load in the background when this view opens.', 'op-frame-line');
   frameLine.setAttribute('aria-live', 'polite'); frame.append(frameLabel, frameLine);
   const fuelTable = make('div', null, 'op-fuels'); fuelTable.hidden = true;
-  const scope = make('p', 'One NASA table · methanol/heptane droplets · microgravity. Not a cabin-material, lunar-gravity or safety prediction.', 'op-limit');
-  const caveat = make('p', 'A same-fuel neighbour vote describes the loaded table. Vote fractions are not calibrated probabilities.', 'op-limit');
+  const scope = make('p', OXYGEN_LIMIT.scope, 'op-limit');
+  const caveat = make('p', 'Look up the recorded tests closest to a set of pre-test inputs. A same-fuel neighbour vote describes the loaded table; vote fractions are not calibrated probabilities.', 'op-limit');
   const form = make('form', null, 'op-form'), controls = new Map();
   const fuelLabel = make('label', 'Recorded fuel'), fuel = make('select'); fuelLabel.append(fuel); form.append(fuelLabel);
   const usable = modelRows(db.tests).rows;
@@ -80,8 +85,8 @@ export function createOutcomePanel({ db, onSource } = {}) {
   const result = make('section', null, 'op-result'); result.hidden = true; result.setAttribute('aria-label', 'Same-table neighbour vote');
   const auditDownload = make('button', 'Download validation report'); auditDownload.type = 'button'; auditDownload.hidden = true;
   const evaluation = make('section', null, 'op-evaluation'); evaluation.hidden = true; evaluation.setAttribute('aria-label', 'Held-out test-day evaluation');
-  const method = make('details', null, 'op-method'); method.append(make('summary', 'Method and limits'), make('p', 'Inputs are recorded pre-test oxygen, pressure, carbon dioxide, helium and initial droplet diameter. Only neighbours of the same recorded fuel vote. Post-test measurements are excluded from inputs.'), make('p', 'The separate evaluation holds out whole test days. Scaling and k are chosen from training days only. The majority baseline always answers the most common end state in those training days. This is internal validation on one table, not independent scientific validation or evidence that the model transfers to another experiment.'), make('p', 'Within each same-fuel input range does not mean a tested combination. Unrecorded configuration differences and small classes remain limitations. Do not interpret the vote as a confidence, probability, fire risk or safety verdict.'));
-  element.append(title, frame, fuelTable, scope, caveat, form, example, exampleSource, status, result, evaluation, auditDownload, method);
+  const method = make('details', null, 'op-method'); method.append(make('summary', 'Method and limits'), make('p', 'Extinction table: every FLEX droplet row with a recorded end state is counted once. Oxygen bands were fixed before outcomes were counted, with inclusive upper edges. Intervals are 95% Wilson score intervals. The logistic regression is fitted by Newton steps in this page and checked by holding out one known test day at a time; it is offered only if it gets more held-out tests right, with a lower Brier score, than both the overall and the same-fuel majority.'), make('p', 'Nearest-test lookup: inputs are recorded pre-test oxygen, pressure, carbon dioxide, helium and initial droplet diameter. Only neighbours of the same recorded fuel vote. Post-test measurements are excluded from inputs.'), make('p', 'The separate evaluation holds out whole test days. Scaling and k are chosen from training days only. The majority baseline always answers the most common end state in those training days. This is internal validation on one table, not independent scientific validation or evidence that the model transfers to another experiment.'), make('p', 'Within each same-fuel input range does not mean a tested combination. Unrecorded configuration differences and small classes remain limitations. Do not interpret the vote as a confidence, probability, fire risk or safety verdict.'));
+  element.append(title, scope, oxygen, lookupTitle, frame, fuelTable, caveat, form, example, exampleSource, status, result, evaluation, auditDownload, method);
   let disposed = false, busy = false, sequence = 0, inputExample = null, workerService = null, latestExport = null;
   const cleanups = [];
   const listen = (node, type, fn) => { node.addEventListener(type, fn); cleanups.push(() => node.removeEventListener(type, fn)); };
@@ -111,6 +116,29 @@ export function createOutcomePanel({ db, onSource } = {}) {
     const anchor = make('a'); anchor.href = url; anchor.download = 'vesta-flex-validation-report.json'; anchor.hidden = true;
     document.body.append(anchor); anchor.click(); anchor.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
   });
+  let counted = false;
+  function showOxygen() {
+    if (disposed || counted) return; counted = true;
+    let view; try { view = oxygenLimit(db.tests); } catch { oxygenLead.textContent = 'The extinction table could not be calculated from the loaded rows.'; return; }
+    oxygenLead.textContent = view.lead;
+    if (!view.table.rows) return;
+    const wrap = make('div', null, 'op-fuels op-oxygen-table'), table = make('table'), thead = make('thead'), head = make('tr'), body = make('tbody');
+    table.append(make('caption', `Tests ending in extinction / tests in the band · share (95% Wilson interval). ${view.definition}`));
+    ['Diluent', 'Fuel', ...view.table.bands.map(band => `Oxygen ${band.label.toLowerCase()}`)].forEach((text, i) => { const cell = make('th', text); cell.scope = 'col'; if (i > 1) cell.className = 'op-num'; head.append(cell); });
+    thead.append(head);
+    for (const item of view.table.lines) {
+      const pooled = item.fuel === 'All fuels', row = make('tr', null, pooled ? 'op-pooled' : null), name = make('th', pooled ? item.diluent_label : ''); name.scope = 'row';
+      if (!pooled) name.setAttribute('aria-label', item.diluent_label);
+      row.append(name, make('td', item.fuel));
+      for (const cell of item.cells) row.append(make('td', cellText(cell), 'op-num'));
+      body.append(row);
+    }
+    table.append(thead, body); wrap.append(table);
+    const model = make('p', view.model_line, view.model_ships ? 'op-model' : 'op-model op-weakness');
+    oxygen.append(wrap, make('p', 'Oxygen bands were fixed before outcomes were counted. Diluent groups are separate rows; only the first group pools them.', 'op-note'), model);
+    if (view.model_ships && view.model_detail) oxygen.append(make('p', view.model_detail, 'op-note'));
+    oxygen.append(make('p', view.limits, 'op-limit'));
+  }
   function showFrame(value) {
     const summary = frameSummary(value), breakdown = fuelBreakdown(value);
     frameLabel.textContent = summary.label;
@@ -189,10 +217,10 @@ export function createOutcomePanel({ db, onSource } = {}) {
     finally { if (!disposed && id === sequence) { busy = false; run.disabled = !usable.length; fuel.disabled = false; exampleButton.disabled = !usable.length; for (const input of controls.values()) input.disabled = false; form.setAttribute('aria-busy', 'false'); } }
   });
   run.disabled = !usable.length; exampleButton.disabled = !usable.length; if (usable.length) loadExample();
-  if (!usable.length) frameLine.textContent = 'No usable rows are loaded for this table.';
+  if (!usable.length) { showOxygen(); frameLine.textContent = 'No usable rows are loaded for this table.'; }
   else if (typeof IntersectionObserver === 'function') {
-    watcher = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { watcher?.disconnect(); watcher = null; loadFrame(); } });
+    watcher = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { watcher?.disconnect(); watcher = null; showOxygen(); loadFrame(); } });
     watcher.observe(element);
-  } else frameLine.textContent = 'Held-out results appear after the first run.';
+  } else { showOxygen(); frameLine.textContent = 'Held-out results appear after the first run.'; }
   return { element, dispose() { if (disposed) return; disposed = true; sequence++; watcher?.disconnect(); watcher = null; workerService?.release(); workerService = null; cleanups.splice(0).forEach(remove => remove()); element.remove(); } };
 }

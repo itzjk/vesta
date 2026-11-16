@@ -70,7 +70,7 @@ test('empty, missing or single-day validation yields no figures rather than inve
 test('the panel and worker render the summary without typed-in results', () => {
   const panel = read('../../web/js/world/outcome-panel.js'), worker = read('../../web/js/world/outcome-worker.js'), summary = read('../../web/js/core/outcome-summary.js');
   assert.match(panel, /frameSummary\(value\)/); assert.match(panel, /fuelBreakdown\(value\)/);
-  assert.ok(panel.indexOf('element.append(title, frame, fuelTable,') > 0, 'the framing leads the panel');
+  assert.ok(/element\.append\(title, scope, oxygen, lookupTitle, frame, fuelTable,/.test(panel), 'the extinction table leads; the neighbour-vote framing still heads the lookup');
   assert.match(worker, /query == null/);
   const f = frameSummary(report).figures;
   for (const source of [panel, summary]) for (const n of new Set([f.rows, f.answered, f.correct, f.baseline_correct, f.answered_baseline_correct]))

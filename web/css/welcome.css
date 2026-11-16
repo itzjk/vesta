@@ -83,3 +83,23 @@
 .vesta-welcome :is(.vesta-welcome-nav,.vesta-welcome-edit)>summary{min-height:36px;padding:7px 0}
 .vesta-welcome.vesta-welcome>.question-launch{margin-top:8px}
 .world-host[data-station=transit] .world-welcome{padding:14px 16px}
+/* Real rows strip: one mark per source-table row of the selected question; filled marks are nearby for this cabin. About 52 px tall for 90 rows. */
+.vesta-welcome .vesta-welcome-rows{margin:4px 0}
+.vesta-welcome .vesta-welcome-rows-caption{font:400 12px/16px var(--font);color:var(--ivory)}
+.vesta-welcome .vesta-welcome-rows-marks{display:flex;flex-wrap:wrap;gap:2px;margin:3px 0}
+.vesta-welcome .vesta-welcome-rows-mark{flex:none;display:block;width:6px;height:7px;border:1px solid var(--ivory-faint);border-radius:1px;background:transparent;opacity:.55;transition:background-color .28s ease,border-color .28s ease,opacity .28s ease}
+.vesta-welcome .vesta-welcome-rows-mark[data-state=near]{background:var(--amber);border-color:var(--amber);opacity:1}
+.vesta-welcome .vesta-welcome-rows-legend{display:flex;flex-wrap:wrap;gap:0 14px;font:400 11px/14px var(--mono);color:var(--ivory-dim)}
+.vesta-welcome .vesta-welcome-rows-key{display:inline-flex;align-items:center;gap:5px}
+@media(prefers-reduced-motion:reduce){.vesta-welcome .vesta-welcome-rows-mark{transition:none}}
+/* Room for the strip: the panel keeps its earlier height in a 720 px window, so "Explore all stations" stays in view. */
+.vesta-welcome .vesta-welcome-result,.world-host[data-station=transit] .world-welcome .vesta-welcome-result{margin-bottom:6px}
+.vesta-welcome .vesta-welcome-source{margin:6px 0;padding-top:6px}
+.vesta-welcome .vesta-welcome-review{min-height:44px;padding:8px 16px}
+.vesta-welcome.vesta-welcome>.question-launch{margin-top:6px}
+.world-host[data-station=transit] .world-welcome{padding:10px 16px}
+@media(min-width:760px){.vesta-welcome :is(.vesta-welcome-nav,.vesta-welcome-edit)>summary{min-height:32px;padding:5px 0}}
+@media(max-width:759px){
+ html[data-world=true] .world-host[data-station=transit] .world-welcome{padding:11px 14px}
+ .vesta-welcome .vesta-welcome-rows-mark{width:5px}
+}

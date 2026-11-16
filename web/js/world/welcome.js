@@ -55,6 +55,19 @@ export function nearestSource(q, db, core) {
       pressure(row.pressure_kpa, 'pressure not in the table'), row.gravity || 'gravity not in the table'].join(' · ') };
 }
 
+// Every source-table row of the selected question, in table order, marked nearby or not for this cabin.
+// The row set and the nearby set both come from the core cell, so the strip cannot disagree with the coverage answer.
+export function questionRows(q, db, core) {
+  const choice = reviewQuestion(q, db);
+  if (!choice || !validPoint(q) || !db?.rowsByMaterial || !db.findings || !core?.status?.cell) return null;
+  const cell = core.status.cell(choice.material, choice.concern, q, db), lit = new Set(cell.hit_ids || []);
+  const rows = (db.rowsByMaterial[choice.material] || []).filter(r => r?.id && r.n?.pillars?.includes(choice.concern));
+  if (!rows.length || rows.length !== cell.rows || [...lit].some(id => !rows.some(r => r.id === id))) return null;
+  const marks = rows.map(r => ({ id: r.id, nearby: lit.has(r.id) })), nearby = marks.filter(m => m.nearby).length;
+  return { key: `${choice.material}/${choice.concern}`, total: marks.length, nearby, marks,
+    caption: `${marks.length} NASA table ${marks.length === 1 ? 'row' : 'rows'} for this question: ${nearby} nearby for this cabin` };
+}
+
 export function stationHash(id, q) {
   const station = stations.find(s => s.id === id);
   if (!station) return null;
@@ -83,7 +96,7 @@ export function build(world) {
   if (!document.querySelector('link[data-vesta-welcome]')) {
     const sheet = node('link');
     sheet.rel = 'stylesheet';
-    sheet.href = new URL('../../css/welcome.css?v=welcome-finding-20261115-1', import.meta.url).href;
+    sheet.href = new URL('../../css/welcome.css?v=welcome-rows-20261115-1', import.meta.url).href;
     sheet.dataset.vestaWelcome = '';
     document.head.append(sheet);
   }
@@ -137,7 +150,35 @@ export function build(world) {
   const questionEdit = node('details', 'vesta-welcome-edit'); questionEdit.append(node('summary', '', 'Change material or question'), questionControls);
   const review = node('button', 'vesta-welcome-review', 'Review this question'); review.type = 'button';
   review.dataset.welcomeReview = '';
-  source.append(selectedQuestion, sourceLabel, sourceRow, sourceConditions);
+  // Real rows strip: one mark per source-table row of the selected question. One summary for assistive technology, no tab stops.
+  const strip = node('div', 'vesta-welcome-rows'), stripCaption = node('p', 'vesta-welcome-rows-caption'), stripMarks = node('div', 'vesta-welcome-rows-marks');
+  const stripLegend = node('p', 'vesta-welcome-rows-legend');
+  for (const [state, text] of [['near', 'nearby conditions'], ['other', 'other conditions']]) {
+    const key = node('span', 'vesta-welcome-rows-key'), swatch = node('span', 'vesta-welcome-rows-mark'); swatch.dataset.state = state;
+    key.append(swatch, text); stripLegend.append(key);
+  }
+  stripMarks.setAttribute('role', 'img');
+  stripCaption.setAttribute('aria-hidden', 'true'); stripLegend.setAttribute('aria-hidden', 'true');
+  strip.append(stripCaption, stripMarks, stripLegend);
+  let stripKey = null, stripNodes = [];
+  function updateStrip(q) {
+    const data = questionRows(q, world.db, world.core);
+    strip.hidden = !data;
+    if (!data) { stripKey = null; stripNodes = []; stripMarks.replaceChildren(); stripCaption.textContent = ''; return; }
+    // Same question: keep the marks and only switch their state, so a cabin change is a transition, not a redraw.
+    if (data.key !== stripKey || stripNodes.length !== data.marks.length) {
+      stripNodes = data.marks.map(() => node('span', 'vesta-welcome-rows-mark'));
+      stripMarks.replaceChildren(...stripNodes); stripKey = data.key;
+    }
+    data.marks.forEach((mark, i) => {
+      const label = `Row ${mark.id} · ${mark.nearby ? 'nearby conditions' : 'other conditions'}`;
+      stripNodes[i].dataset.state = mark.nearby ? 'near' : 'other'; stripNodes[i].dataset.row = mark.id;
+      stripNodes[i].title = label; stripNodes[i].setAttribute('aria-label', label);
+    });
+    stripCaption.textContent = data.caption;
+    stripMarks.setAttribute('aria-label', `${data.caption}.`);
+  }
+  source.append(selectedQuestion, strip, sourceLabel, sourceRow, sourceConditions);
   // Keep this a direct child: the existing gravity walkthrough inserts its launcher before it.
   const nav = node('details', 'vesta-welcome-nav');
   nav.setAttribute('aria-label', 'Explore VESTA stations');
@@ -180,6 +221,7 @@ export function build(world) {
       title.textContent = available.length ? 'Coverage unavailable for this cabin.' : 'Cabin evidence unavailable.';
     }
     conditions.hidden = coverage.hidden = meaning.hidden = !lead;
+    updateStrip(q);
     const row = nearestSource(q, world.db, world.core);
     sourceRow.replaceChildren();
     sourceLabel.textContent = row ? (row.nearby ? 'Nearest NASA source row · nearby conditions' : 'Nearest NASA source row · other conditions') : 'No source row for this question in this collection.';

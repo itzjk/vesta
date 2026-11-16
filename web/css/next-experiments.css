@@ -1,0 +1,22 @@
+/* "What a reviewer could request next": one disclosure below the coverage legend. */
+.coverage-wall.coverage-wall:has(> .next-experiments){grid-template-rows:auto auto auto minmax(0,1fr) auto}
+.coverage-wall .next-experiments{min-width:0;border-bottom:1px solid var(--line);padding:0 0 6px}
+.coverage-wall .next-experiments>summary{min-height:44px;display:list-item;padding:10px 0;cursor:pointer;font-size:16px;line-height:1.3;color:var(--amber)}
+.coverage-wall .next-experiments>summary:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.coverage-wall .next-experiments-body{max-height:min(38vh,340px);overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--ivory-faint) transparent;padding:0 4px 8px 0}
+.coverage-wall .next-experiments-body p{margin:6px 0!important;font-size:15px;line-height:1.4;max-width:78ch;overflow-wrap:anywhere}
+.coverage-wall .next-experiments-body .next-experiments-lead{font-size:17px;font-weight:600;color:var(--ivory)}
+.coverage-wall .next-experiments-body :is(.next-experiments-materials,.next-experiments-note,.next-experiments-row){color:var(--ivory-dim)}
+.coverage-wall .next-experiments-body h3{margin:12px 0 4px;font-size:15px;font-weight:600;color:var(--ivory)}
+.coverage-wall .next-experiments-list{margin:0;padding:0 0 0 22px;display:grid;gap:8px}
+.coverage-wall .next-experiments-list>li{padding:6px 0;border-top:1px solid var(--line)}
+.coverage-wall .next-experiments-question{margin:0!important}
+.coverage-wall .next-experiments-question button{min-height:32px;padding:4px 8px;background:transparent;border:1px solid var(--line-strong);border-radius:2px;color:var(--ivory);font:inherit;font-weight:600;text-align:left;cursor:pointer}
+.coverage-wall .next-experiments-question button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.coverage-wall .next-experiments-differences{margin:4px 0 0;padding:0 0 0 18px;font-size:15px;line-height:1.4}
+.coverage-wall .next-experiments-body .next-experiments-limits{margin-top:12px!important;font-size:13px;line-height:1.4;color:var(--ivory-faint)}
+/* A question is open, or the wall is embedded as a single-sample panel: the list steps aside with the totals. */
+.coverage-wall.coverage-wall[data-detail=true] .next-experiments,.evidence-console[data-evidence-panel=sample] .next-experiments{display:none}
+/* Contexts where the wall scrolls with its page: no inner scroll box. */
+.evidence-workspace .coverage-wall .next-experiments,.world-host.information-polish .evidence-console .coverage-wall .next-experiments{margin-bottom:18px}
+.evidence-workspace .coverage-wall .next-experiments-body{max-height:none;overflow:visible}
