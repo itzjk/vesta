@@ -23,6 +23,7 @@ import { createQuestionNote, questionNoteMarkdown, questionNoteMatches, question
 import { download } from '../ui/download.js';
 import { createOutcomePanel } from './outcome-panel.js?v=motion-20261115-3';
 import { createGravityContrastPanel } from './gravity-contrast-panel.js?v=motion-20261115-3';
+import { createSuitAirPanel } from './suit-air-panel.js?v=suitair-20261115-2';
 import { createAskDataPanel } from './ask-data-panel.js?v=ask-typed-20261115-2';
 
 const node = (tag, text, cls) => {
@@ -274,6 +275,7 @@ export async function build(world) {
       const sections = node('details', null, 'evidence-question-tools'); sections.append(node('summary', 'More evidence tools'), nav); consoleEl.append(sections);
     } else consoleEl.append(nav);
     if (panel === 'prediction') consoleEl.append(gravityPanel.element, outcomePanel.element);
+    if (panel === 'prediction') gravityPanel.element.after(createSuitAirPanel({ db }));
     if (panel === 'ask') consoleEl.append(askDataPanel.element);
     if (panel === 'collection') { consoleEl.querySelector('h2').textContent = 'Collection & limits'; consoleEl.append(renderCollectionSummary(db)); }
     if (panel === 'method') {
