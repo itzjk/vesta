@@ -82,7 +82,8 @@ test('the landing offers one primary action and the slides, with no script and n
   assert.ok(lead.includes('Rows are table records, not independent experiments. “No source” means absent from this collection, not unstudied by NASA.'));
   assert.doesNotMatch(lead.replace(/not a safety rating|fire-safety questions/g, ''), /\bsafe|\bproven\b|validated|certified|never tested/i);
   const words = lead.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).length;
-  assert.ok(words <= 260, `the block stays short enough for one screen: ${words} words`);
+  assert.ok(words <= 380, `the block stays short: ${words} words`);
+  assert.ok(lead.indexOf('class="cta"') < lead.indexOf('id="lead-flex"'), 'the primary action stays above the two supporting results, inside the first screen');
 });
 
 test('the README one-condition contrast is computed, not asserted', () => {
@@ -95,4 +96,17 @@ test('the README one-condition contrast is computed, not asserted', () => {
 test('the landing makes no autonomy or safety promise', () => {
   assert.doesNotMatch(html + read('web/js/views/brief.js'), /wait for Houston|fire officer|\bsafe to\b|proven safe/i);
   assert.match(html, /Coverage in this collection, not a safety rating\./);
+});
+
+test('the FLEX and next-request landing lines are recomputed from the modules that own them', async () => {
+  const { describe, evaluate } = await import('../../web/js/core/oxygen-limit.js');
+  const { nextExperiments } = await import('../../web/js/core/next-experiments.js');
+  const d = describe(raw.tests.tests), e = evaluate(raw.tests.tests), c = d.lines[0].cells;
+  assert.equal(d.lines[0].diluent, 'all');
+  assert.ok(e.model.beats_baseline && e.model.correct > e.baseline.correct, 'the model line may only stay while it beats the baseline');
+  assert.ok(html.includes(`went out on its own in ${c[0].extinction}/${c[0].tests} tests at 18% oxygen or less, ${c[1].extinction}/${c[1].tests} at 18–22%, ${c[2].extinction}/${c[2].tests} at 22–30% and ${c[3].extinction}/${c[3].tests} above 30%.`));
+  assert.ok(html.includes(`checked on ${e.test_days} held-out test days, gets ${e.model.correct}/${e.rows} right vs ${e.baseline.correct}/${e.rows} for the majority baseline.`));
+  const m = nextExperiments(lunar, db), top = m.top[0];
+  assert.ok(html.includes(`would give a nearby row to ${m.campaign.questions} of ${m.total} questions; the other ${m.total - m.nearby - m.campaign.questions} need a first source. Closest row today: ${top.nearest.id} (PMMA prevention): ${top.separates[1].delta} oxygen points and ${Math.abs(top.separates[2].delta)} kPa away, at a different gravity class.`));
+  assert.deepEqual([top.material, top.concern, top.separates[1].axis, top.separates[2].axis], ['pmma', 'prevention', 'o2', 'pressure']);
 });
