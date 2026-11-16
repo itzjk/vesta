@@ -82,7 +82,7 @@ test('the landing offers one primary action and the slides, with no script and n
   assert.ok(lead.includes('Rows are table records, not independent experiments. “No source” means absent from this collection, not unstudied by NASA.'));
   assert.doesNotMatch(lead.replace(/not a safety rating|fire-safety questions/g, ''), /\bsafe|\bproven\b|validated|certified|never tested/i);
   const words = lead.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).length;
-  assert.ok(words <= 460, `the block stays short: ${words} words`);
+  assert.ok(words <= 500, `the block stays short: ${words} words`);
   assert.ok(lead.indexOf('class="cta"') < lead.indexOf('id="lead-flex"'), 'the primary action stays above the two supporting results, inside the first screen');
 });
 
@@ -138,4 +138,11 @@ test('the zero is not only gravity: the lunar oxygen and pressure in microgravit
   const { evaluate } = await import('../../web/js/core/oxygen-limit.js');
   const e = evaluate(raw.tests.tests);
   assert.equal(JSON.stringify(e.uncertainty).includes('"includes_zero":true'), html.includes('the gain over that cut is not statistically clear'));
+});
+
+test('the cabin-to-oxygen-band sentence is read from the FLEX table, for the two presets it names', async () => {
+  const { describe, bandOf } = await import('../../web/js/core/oxygen-limit.js');
+  const d = describe(raw.tests.tests), cell = o2 => { const id = bandOf(o2); const key = typeof id === 'string' ? id : id.id; return d.lines[0].cells.find(c => c.band === key); };
+  const station = presetPoint(db, 'station'), s = cell(station.o2), l = cell(lunar.o2);
+  assert.ok(html.includes(`<b>For your cabin:</b> station air (${station.o2}% oxygen) sits in the band where ${s.extinction}/${s.tests} went out; the lunar habitat’s ${lunar.o2}% sits in the band where ${l.extinction}/${l.tests} did.`));
 });
