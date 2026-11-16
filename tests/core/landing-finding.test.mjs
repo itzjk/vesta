@@ -155,7 +155,7 @@ test('the gravity line is rebuilt from the Saffire-II rows and sits after the "W
   assert.equal(s.samples, raw.tests.tests.filter(r => r.psi_id === 'PSI-99').length);
   assert.ok(s.comparable > 0 && s.differ + s.same === s.comparable && s.comparable + s.not_comparable === s.samples);
   assert.match(para('lead-gravity'), /samples from one experiment support no general law\.$/);
-  assert.ok(lead.indexOf('id="lead-gap"') < lead.indexOf('id="lead-gravity"') && lead.indexOf('id="lead-gravity"') < lead.indexOf('id="lead-outside"'));
+  // position is asserted in the README/order test below: both gravity results now follow the finding directly
   assert.doesNotMatch(para('lead-gravity'), /Moon|Mars|lunar|trend|predict/i);
 });
 
@@ -170,5 +170,15 @@ test('the lunar-gravity line is rebuilt from web/data/partialg-sources.json and 
   assert.ok(sentence.includes(`<a href="https://ntrs.nasa.gov/citations/${doc.ntrs_id}" rel="noopener">${doc.title}</a>`));
   assert.ok(sentence.includes(`a ${sources.table.materials[0].label} upward limiting oxygen index of ${row('moon')}% at lunar gravity against ${row('earth')}% at Earth gravity`));
   assert.equal(landingSentence(partialGravity({ ...sources, table: { ...sources.table, rows: sources.table.rows.filter(r => r.gravity !== 'moon') } })), null, 'no lunar quote, no sentence');
-  assert.ok(lead.indexOf('id="lead-next"') < lead.indexOf('id="lead-partialg"') && lead.indexOf('id="lead-partialg"') < lead.indexOf('class="limits"'));
+  // position is asserted in the README/order test below: both gravity results now follow the finding directly
+});
+
+test('README states the two gravity results with the sentences their modules produce', async () => {
+  const g = await import('../../web/js/core/gravity-contrast.js'), p = await import('../../web/js/core/partialg.js');
+  const view = g.gravityContrast({ tests: raw.tests.tests, investigations: raw.investigations.investigations, tables: raw.tables?.tables ?? [] });
+  const s = g.landingSentence(view.summary);
+  assert.ok(readme.includes(s[0].toUpperCase() + s.slice(1)));
+  const model = p.partialGravity(JSON.parse(read('web/data/partialg-sources.json')), { rows: raw.tests.tests });
+  assert.ok(readme.includes(p.landingSentence(model).replace(/<[^>]+>/g, '')));
+  assert.ok(lead.indexOf('id="lead-finding"') < lead.indexOf('id="lead-gravity"') && lead.indexOf('id="lead-gravity"') < lead.indexOf('id="lead-partialg"') && lead.indexOf('id="lead-partialg"') < lead.indexOf('id="lead-terms"'));
 });

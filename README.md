@@ -6,6 +6,8 @@
 
 VESTA lets you set oxygen, pressure and gravity, inspect nearby evidence, and carry the answer back to its original source. Built by **Team Zerack** for NASA Space Apps Challenge 2026, “Flame in Freefall”.
 
+> **What the data says about gravity.** In Saffire-II, 5 of 8 comparable samples burned a different length in microgravity than in normal gravity (“Complete” read as the full sample length; 2 of 9 give a number at both levels). Nine samples from one experiment support no general law. At lunar gravity: NASA’s Evaluating Material Flammability in Microgravity and Martian Gravity Compared to the NASA Standard Normal Gravity Test tabulates a Mylar G upward limiting oxygen index of 15.6% at lunar gravity against 21.2% at Earth gravity, under different limit criteria, outside the PSI tables. In the app (Evidence → FLEX model and Coverage) each sample and each value is shown with its NASA row or document; the 274 recorded FLEX droplet tests can be replayed mark by mark, by oxygen band.
+
 [Enter VESTA](https://itzjk.github.io/vesta/#/brief) · [Watch one condition change in 26.5 seconds](https://itzjk.github.io/vesta/?question=1#/brief?station=transit) · [Watch the 60-second tour](https://itzjk.github.io/vesta/#/brief?tour=1) · [Open the instrument view](https://itzjk.github.io/vesta/#/design?view=details) · [JSON receipt format](docs/evidence-receipt.md)
 
 ## Start with one question
