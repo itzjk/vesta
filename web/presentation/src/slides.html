@@ -79,11 +79,31 @@ sub{font-size:.62em;vertical-align:-.18em;line-height:0}
 #s5 .side,#s6 .steps li{font-size:26px}
 .tag{display:inline-block;font-size:24px;line-height:1.3;color:#f3ecdc;border:1px solid #c5a56d;padding:10px 16px}
 
+/* 6 */
+#s6 .fixed,#s7 .fixed{top:176px;font-size:26px;line-height:1.3;color:#d9d1bf}
+#s4 .bars{top:346px}#s4 .row{margin-bottom:20px}
+#s6 .bars{top:236px;width:900px}
+#s6 .bar{width:700px;height:80px}#s6 .zero{height:80px}
+#s6 .row{margin-bottom:22px}#s6 .row .g{font-size:30px}
+#s6 .legend{left:56px;top:432px;gap:30px}
+#s6 .note{top:496px;right:auto;width:880px;font-size:26px;line-height:1.3;color:#d9d1bf}
+.fixed .q{color:#f6dfae}
+
 /* 7 */
-.cols{top:196px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.cols .card{font-size:30px;line-height:1.26;padding:24px 28px}
-.cols li{list-style:none;position:relative;padding-left:28px;margin-bottom:16px}
-.cols li::before{content:"";position:absolute;left:0;top:14px;width:10px;height:10px;background:#c5a56d}
+.vbars{position:absolute;left:56px;top:262px;width:640px;height:270px;display:flex;justify-content:space-between;align-items:flex-end}
+.vb{width:148px;display:flex;flex-direction:column;align-items:center}
+.vb .v{font-family:Georgia,"P052","Liberation Serif",serif;font-size:36px;line-height:1;margin-bottom:10px;color:#f3ecdc}
+.vb .col{width:120px;background:#c5a56d}
+.vb .col.empty{background:none;border-top:3px dashed #f3ecdc}
+.vb .x{font-size:24px;line-height:1;color:#d9d1bf;margin-top:14px;white-space:nowrap}
+.check{position:absolute;left:740px;top:262px;width:484px;padding:22px 26px}
+.check .k{margin-bottom:16px}
+.hb{margin-bottom:20px}
+.hb b{display:inline-block;width:172px;font-family:Georgia,"P052","Liberation Serif",serif;font-weight:400;font-size:40px;line-height:1;color:#f6dfae}
+.hb span{font-size:26px;color:#f3ecdc}
+.hb i{display:block;height:14px;background:#c5a56d;margin-top:8px}
+.hb.base b{color:#f3ecdc}.hb.base i{background:#56646d}
+.check em{display:block;font-size:24px;line-height:1.25}
 .links{top:572px;display:flex;gap:56px;font-size:34px;color:#f6dfae;white-space:nowrap}
 .links span{border-bottom:2px solid #c5a56d;padding-bottom:3px}
 </style></head><body>
@@ -130,7 +150,7 @@ sub{font-size:.62em;vertical-align:-.18em;line-height:0}
 <section class="s" id="s4">
   <div class="top"><span>NASA SPACE APPS 2026 / FLAME IN FREEFALL</span><span class="n">4 / 7</span></div>
   <h1>Change only gravity: questions with a nearby row <b class="nw">go 3 → 0.</b></h1>
-  <p class="body fixed">Held fixed: 21% O<sub>2</sub> · 101.4 kPa · same 45 questions.<br>Every row in this collection with a gravity value is microgravity.</p>
+  <p class="body fixed">Held fixed: 21% O<sub>2</sub> · 101.4 kPa · same 45 questions.<br><span class="q">All 1,981 rows with a gravity value are microgravity: the lunar 0 is a data gap, and it stays 0 at 1×, 2× and 4× tolerance.</span></p>
   <div class="bars">
     <div class="row"><div class="g">0 g</div><div class="bar"><div class="near" style="width:66.7px">3</div><div class="other" style="width:466.7px">21</div><div class="none" style="width:466.6px">21</div></div></div>
     <div class="row"><div class="g short">1/6 g</div><div class="zero">0</div><div class="bar"><div class="other" style="width:533.4px">24</div><div class="none" style="width:466.6px">21</div></div></div>
@@ -157,33 +177,34 @@ sub{font-size:.62em;vertical-align:-.18em;line-height:0}
 
 <section class="s" id="s6">
   <div class="top"><span>NASA SPACE APPS 2026 / FLAME IN FREEFALL</span><span class="n">6 / 7</span></div>
-  <h1>A virtual robot acts <b>only after a person approves.</b></h1>
-  <div class="shot" style="left:56px;top:176px;width:507px;height:409px"><img src="../capture-robot-handoff.jpg" alt="" style="width:1856px;left:-32px;top:-160px"></div>
-  <div class="shot" style="left:573px;top:176px;width:225px;height:409px"><img src="../capture-robot-handoff.jpg" alt="" style="width:1856px;left:-623px;top:-275px"></div>
-  <p class="cap" style="left:56px;top:598px">App capture: the completed state, after approval.</p>
-  <div class="side" style="left:822px;top:176px;width:402px">
-    <ol class="steps">
-      <li>The review finds a gap: PMMA prevention, 0 of 90 rows nearby.</li>
-      <li>A person approves the virtual staging.</li>
-      <li>The handoff package (question + source rows) is saved for crew review.</li>
-    </ol>
-    <span class="tag">Simulation: no hardware, sensors or autonomy</span>
+  <h1>The action: one test campaign <b class="nw">moves 23 of 45.</b></h1>
+  <p class="body fixed">Rows at the lunar cabin's conditions (1/6 g · 34% O<sub>2</sub> · 56.5 kPa) for the 15 materials.</p>
+  <div class="bars">
+    <div class="row"><div class="g short">Today</div><div class="zero">0</div><div class="bar"><div class="other" style="width:357.8px">23</div><div class="none" style="width:342.2px">22</div></div></div>
+    <div class="row"><div class="g">After</div><div class="bar"><div class="near" style="width:357.8px">23</div><div class="none" style="width:342.2px">22</div></div></div>
   </div>
+  <div class="legend"><span><i style="background:#f3ecdc"></i>nearby row</span><span><i style="background:#c5a56d"></i>rows at other conditions</span><span><i style="background:#27333b;border:1px solid #56646d"></i>needs a first source</span></div>
+  <p class="body note">A request list for reviewers: not a test protocol, not a predicted result. In the app, a person approves it and a virtual robot stages the review kit.</p>
+  <div class="shot" style="left:976px;top:236px;width:248px;height:262px"><img src="../capture-robot-handoff.jpg" alt="" style="width:1856px;left:-612px;top:-275px"></div>
+  <p class="cap" style="left:976px;top:510px;width:248px;line-height:1.25;color:#f3ecdc">Simulation: no hardware, sensors or autonomy</p>
   <div class="bot"><span>TEAM ZERACK · VESTA</span><span class="si">SI-assisted visuals</span></div>
 </section>
 
 <section class="s" id="s7">
   <div class="top"><span>NASA SPACE APPS 2026 / FLAME IN FREEFALL</span><span class="n">7 / 7</span></div>
-  <h1>Recompute every number. <b>Know the limits.</b></h1>
-  <div class="body cols">
-    <div class="card"><span class="k">REPRODUCIBLE</span><ul>
-      <li>Open data, open code.</li>
-      <li>Every row opens its NASA table line.</li>
-      <li>Claude review: a recording of 12 read-only calls, not a live model.</li></ul></div>
-    <div class="card"><span class="k">LIMITS</span><ul>
-      <li>Evidence coverage, not fire behavior.</li>
-      <li>“No source” = absent from this collection.</li>
-      <li>k-NN outcome vote: 134/212 vs 143/212 baseline. No advantage.</li></ul></div>
+  <h1>FLEX droplets: <b>less oxygen, more extinction.</b></h1>
+  <p class="body fixed">274 tests from one NASA table: how many ended in extinction, by ambient O<sub>2</sub>.<br><span class="q">Liquid droplets in microgravity, not cabin materials.</span></p>
+  <div class="vbars">
+    <div class="vb"><span class="v">103/115</span><div class="col" style="height:170.2px"></div><span class="x">18% or less</span></div>
+    <div class="vb"><span class="v">63/91</span><div class="col" style="height:131.5px"></div><span class="x">18 – 22%</span></div>
+    <div class="vb"><span class="v">20/59</span><div class="col" style="height:64.4px"></div><span class="x">22 – 30%</span></div>
+    <div class="vb"><span class="v">0/9</span><div class="col empty" style="height:6px"></div><span class="x">over 30%</span></div>
+  </div>
+  <div class="card check">
+    <span class="k">HELD-OUT CHECK</span>
+    <div class="hb"><b>179/224</b><span>oxygen + fuel model</span><i style="width:335.6px"></i></div>
+    <div class="hb base"><b>150/224</b><span>majority baseline</span><i style="width:281.3px"></i></div>
+    <em>224 dated tests, each test day held out in turn. A check on this table, not a cabin prediction.</em>
   </div>
   <div class="body links"><span>itzjk.github.io/vesta</span><span>github.com/itzjk/vesta</span></div>
   <div class="bot"><span>TEAM ZERACK · VESTA</span><span class="si">SI-assisted visuals</span></div>

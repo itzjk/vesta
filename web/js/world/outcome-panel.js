@@ -1,6 +1,6 @@
 import { modelRows } from '../core/outcome-model.js?v=flex-frame-20261115-1';
 import { FRAME_LABEL, frameSummary, fuelBreakdown } from '../core/outcome-summary.js?v=flex-frame-20261115-1';
-import { OXYGEN_LIMIT, oxygenLimit, cellText } from '../core/oxygen-limit.js?v=oxygen-limit-20261115-1';
+import { OXYGEN_LIMIT, oxygenLimit, cellText } from '../core/oxygen-limit.js?v=oxygen-limit-20261115-2';
 
 // One lazy worker per loaded index, shared by mounted views; no CPU model work
 // runs on the animation thread. Source rows cross the boundary only once.
@@ -46,12 +46,31 @@ const fields = [
 ];
 const make = (tag, text, cls) => { const node = document.createElement(tag); if (text != null) node.textContent = text; if (cls) node.className = cls; return node; };
 const readable = value => String(value).replaceAll('_', ' ');
+// The SVG namespace is read from a parsed <svg> element, so no address is written in this file.
+let svgSpace = null;
+const svgNamespace = () => { if (!svgSpace) { const holder = document.createElement('template'); holder.innerHTML = '<svg></svg>'; svgSpace = holder.content.firstChild.namespaceURI; } return svgSpace; };
+const shape = (tag, attrs, text) => { const node = document.createElementNS(svgNamespace(), tag); for (const [key, value] of Object.entries(attrs)) node.setAttribute(key, typeof value === 'number' ? String(Math.round(value * 10) / 10) : value); if (text != null) node.textContent = text; return node; };
+/** Inline SVG bar chart drawn only from the bandChart() geometry of the module output. */
+function drawBands(chart) {
+  const figure = make('figure', null, 'op-chart'), svg = shape('svg', { viewBox: `0 0 ${chart.width} ${chart.height}`, role: 'img', 'aria-label': `${chart.title}. ${chart.description}` });
+  for (const tick of chart.ticks) svg.append(shape('line', { x1: chart.plot.left, x2: chart.plot.right, y1: tick.y, y2: tick.y, class: tick.value ? 'op-chart-grid' : 'op-chart-axis' }), shape('text', { x: chart.plot.left - 6, y: tick.y + 4, 'text-anchor': 'end', class: 'op-chart-tick' }, tick.text));
+  for (const bar of chart.bars) {
+    if (bar.whisker) { const w = bar.whisker;
+      svg.append(shape('rect', { x: bar.x, y: bar.y, width: bar.width, height: Math.max(bar.height, 1), class: 'op-chart-bar' }),
+        shape('path', { d: [`M${w.x} ${w.y_low}V${w.y_high}`, `M${w.x - w.cap} ${w.y_low}h${w.cap * 2}`, `M${w.x - w.cap} ${w.y_high}h${w.cap * 2}`].join('').replace(/\d+\.\d{2,}/g, n => (+n).toFixed(1)), class: 'op-chart-whisker' })); }
+    svg.append(shape('text', { x: bar.centre, y: bar.text_y, 'text-anchor': 'middle', class: 'op-chart-count' }, bar.share_text ? `${bar.count_text} · ${bar.share_text}` : bar.count_text),
+      shape('text', { x: bar.centre, y: chart.label_y, 'text-anchor': 'middle', class: 'op-chart-label' }, bar.label));
+  }
+  svg.append(shape('text', { x: (chart.plot.left + chart.plot.right) / 2, y: chart.label_y + 20, 'text-anchor': 'middle', class: 'op-chart-tick' }, 'Ambient oxygen band (% by volume)'));
+  figure.append(svg, make('figcaption', `${chart.axis_title}, all diluents and fuels pooled. Bars: share of tests in the band. Whiskers: 95% Wilson interval. Printed: tests ending in extinction / tests in the band.`));
+  return figure;
+}
 
 /** Extinction-by-oxygen table first, then the model check, then the nearest-test lookup. onSource receives the original source-row ID. */
 export function createOutcomePanel({ db, onSource } = {}) {
   if (!db || !Array.isArray(db.tests)) throw new TypeError('The FLEX table view requires loaded source rows.');
   if (!document.querySelector('link[data-vesta-outcome-panel]')) {
-    const sheet = make('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/outcome-panel.css?v=oxygen-limit-20261115-1', import.meta.url).href;
+    const sheet = make('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/outcome-panel.css?v=oxygen-limit-20261115-2', import.meta.url).href;
     sheet.dataset.vestaOutcomePanel = ''; document.head.append(sheet);
   }
   const element = make('section', null, 'outcome-panel'); element.setAttribute('aria-label', 'FLEX droplet tests: extinction by ambient oxygen');
@@ -85,7 +104,7 @@ export function createOutcomePanel({ db, onSource } = {}) {
   const result = make('section', null, 'op-result'); result.hidden = true; result.setAttribute('aria-label', 'Same-table neighbour vote');
   const auditDownload = make('button', 'Download validation report'); auditDownload.type = 'button'; auditDownload.hidden = true;
   const evaluation = make('section', null, 'op-evaluation'); evaluation.hidden = true; evaluation.setAttribute('aria-label', 'Held-out test-day evaluation');
-  const method = make('details', null, 'op-method'); method.append(make('summary', 'Method and limits'), make('p', 'Extinction table: every FLEX droplet row with a recorded end state is counted once. Oxygen bands were fixed before outcomes were counted, with inclusive upper edges. Intervals are 95% Wilson score intervals. The logistic regression is fitted by Newton steps in this page and checked by holding out one known test day at a time; it is offered only if it gets more held-out tests right, with a lower Brier score, than both the overall and the same-fuel majority.'), make('p', 'Nearest-test lookup: inputs are recorded pre-test oxygen, pressure, carbon dioxide, helium and initial droplet diameter. Only neighbours of the same recorded fuel vote. Post-test measurements are excluded from inputs.'), make('p', 'The separate evaluation holds out whole test days. Scaling and k are chosen from training days only. The majority baseline always answers the most common end state in those training days. This is internal validation on one table, not independent scientific validation or evidence that the model transfers to another experiment.'), make('p', 'Within each same-fuel input range does not mean a tested combination. Unrecorded configuration differences and small classes remain limitations. Do not interpret the vote as a confidence, probability, fire risk or safety verdict.'));
+  const method = make('details', null, 'op-method'); method.append(make('summary', 'Method and limits'), make('p', 'A chart repeats the pooled row of the table. Extinction table: every FLEX droplet row with a recorded end state is counted once. Oxygen bands were fixed before outcomes were counted, with inclusive upper edges. Intervals are 95% Wilson score intervals. The logistic regression is fitted by Newton steps in this page and checked by holding out one known test day at a time; it is offered only if it gets more held-out tests right, with a lower Brier score, than both the overall and the same-fuel majority.'), make('p', 'Nearest-test lookup: inputs are recorded pre-test oxygen, pressure, carbon dioxide, helium and initial droplet diameter. Only neighbours of the same recorded fuel vote. Post-test measurements are excluded from inputs.'), make('p', 'The separate evaluation holds out whole test days. Scaling and k are chosen from training days only. The majority baseline always answers the most common end state in those training days. This is internal validation on one table, not independent scientific validation or evidence that the model transfers to another experiment.'), make('p', 'Within each same-fuel input range does not mean a tested combination. Unrecorded configuration differences and small classes remain limitations. Do not interpret the vote as a confidence, probability, fire risk or safety verdict.'));
   element.append(title, scope, oxygen, lookupTitle, frame, fuelTable, caveat, form, example, exampleSource, status, result, evaluation, auditDownload, method);
   let disposed = false, busy = false, sequence = 0, inputExample = null, workerService = null, latestExport = null;
   const cleanups = [];
@@ -134,9 +153,15 @@ export function createOutcomePanel({ db, onSource } = {}) {
       body.append(row);
     }
     table.append(thead, body); wrap.append(table);
+    if (view.chart) oxygen.append(drawBands(view.chart));
     const model = make('p', view.model_line, view.model_ships ? 'op-model' : 'op-model op-weakness');
     oxygen.append(wrap, make('p', 'Oxygen bands were fixed before outcomes were counted. Diluent groups are separate rows; only the first group pools them.', 'op-note'), model);
     if (view.model_ships && view.model_detail) oxygen.append(make('p', view.model_detail, 'op-note'));
+    if (view.checks.length) {
+      const checks = make('ul', null, 'op-checks'); checks.setAttribute('aria-label', 'Checks on the model result');
+      for (const item of view.checks) checks.append(make('li', item.text, item.plain ? 'op-weakness' : null));
+      oxygen.append(make('h4', 'How sure is that result?', 'op-checks-title'), checks);
+    }
     oxygen.append(make('p', view.limits, 'op-limit'));
   }
   function showFrame(value) {

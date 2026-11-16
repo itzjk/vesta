@@ -10,6 +10,7 @@ import { pressureDependence, pressureDependenceText, pressureAudit, pressureAudi
 import { createQuestionNote } from '../core/question-note.js?v=question-lab-20261115-3';
 import { questionSummary } from '../core/question-summary.js?v=flex-review-20261115-1';
 import { createNextExperimentsPanel } from './next-experiments-panel.js';
+import { rowContext, questionContext, HEADING as RECORDED_HEADING } from '../core/row-context.js?v=row-context-20261115-1';
 
 const defaults = { status, rank: ranking, text };
 const symbols = { PROVEN: '●', EXTRAPOLATED: '↗', NEVER_TESTED: '×' };
@@ -37,7 +38,7 @@ export function headline(q, db, core = defaults) {
 export function question(material, concern, q, db, core = defaults) {
   const cell = core.status.cell(material, concern, q, db);
   const candidates = cell.finding_ids.map(id => db.findingById[id]).filter(Boolean);
-  return { cell, pressureDependence: pressureDependence(cell, db), nearest: core.status.nearestRow(material, concern, q, db), nearestRows: nearestSourceRows(material, concern, q, db),
+  return { cell, pressureDependence: pressureDependence(cell, db), nearest: core.status.nearestRow(material, concern, q, db), nearestRows: nearestSourceRows(material, concern, q, db), recorded: questionContext(material, concern, q, db, core),
     summary: questionSummary(cell, db, { material: db.materials[material]?.label || material, concern: core.text.concern(concern), cabin: db.presetById[q.preset]?.label || 'this cabin' }),
     findings: core.rank.rank(candidates, { ...q, material, concern }, db).slice(0, 3) };
 }
@@ -102,6 +103,12 @@ export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepar
     parent.append(world.cite(phrase, id));
   }
 
+  function recordedFields(row) {
+    const list = node('dl', null, 'coverage-score-parts'); list.dataset.recordedRow = row.id;
+    for (const item of rowContext(row).fields) list.append(node('dt', item.label), node('dd', item.text));
+    return list;
+  }
+
   function closeDetail(focus = true) {
     const previous = selected; selected = null; detail.hidden = true;
     onSelection?.(null);
@@ -114,7 +121,7 @@ export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepar
     if (!selected) return;
     const expanded = new Set([...detail.querySelectorAll('[data-score-finding][open]')].map(el => el.dataset.scoreFinding));
     const { material, concern } = selected;
-    const { cell, pressureDependence: dependence, nearest, nearestRows, findings, summary } = question(material, concern, q, db, core);
+    const { cell, pressureDependence: dependence, nearest, nearestRows, findings, summary, recorded } = question(material, concern, q, db, core);
     const back = node('button', '← All questions', 'coverage-back'); back.type = 'button';
     back.dataset.coverageBack = ''; back.onclick = () => closeDetail();
     const point = { ...q, material, concern };
@@ -175,12 +182,16 @@ export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepar
       cited(rowLine, `${row.id} · ${db.invById[row.psi_id]?.name || row.investigation || 'Recorded conditions'}: ${core.text.oxygen(row.n.o2)}, ${pressure}, ${core.text.gravity(row.n.gclass)}.`, row.id);
       detail.append(rowLine);
       detail.append(renderMatchPanel(row, q, db), ordering);
+      const recordedLine = node('p', recorded.sentence, 'coverage-nearest-rule'); recordedLine.dataset.recordedSummary = recorded.scope;
+      detail.append(node('h4', RECORDED_HEADING), recordedLine, recordedFields(row));
+      if (recorded.note) detail.append(node('p', recorded.note, 'coverage-score-note'));
       if (nearestRows.length > 1) {
         const alternatives = node('details', null, 'coverage-nearest-list');
         alternatives.append(node('summary', `Next ${nearestRows.length - 1} nearest source rows`));
         for (const next of nearestRows.slice(1)) {
           const line = node('p'); cited(line, `${next.row.id} · ${next.row.investigation || 'Source row'} · ${next.fail.length} unmatched conditions`, next.row.id);
-          alternatives.append(line, renderMatchPanel(next.row, q, db));
+          const label = node('p', null, 'coverage-nearest-rule'); label.append(node('strong', RECORDED_HEADING));
+          alternatives.append(line, renderMatchPanel(next.row, q, db), label, recordedFields(next.row));
         }
         alternatives.append(node('p', 'These are source rows, not necessarily independent tests. The order describes matching-rule differences, not physical similarity.', 'coverage-score-note'));
         detail.append(alternatives);

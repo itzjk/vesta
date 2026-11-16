@@ -77,7 +77,7 @@ test('the landing offers one primary action and the slides, with no script and n
   assert.ok(lead.includes(`<a href="presentation/">See the ${slides} slides</a>`));
   assert.equal((lead.match(/class="cta"/g) ?? []).length, 1);
   assert.doesNotMatch(lead, /<script|<img|<link|url\(|@import|style="/i);
-  for (const [, href] of lead.matchAll(/href="([^"]+)"/g)) assert.match(href, /^(#\/design|presentation\/|https:\/\/psi\.nasa\.gov\/)/);
+  for (const [, href] of lead.matchAll(/href="([^"]+)"/g)) assert.match(href, /^(#\/design|presentation\/|https:\/\/psi\.nasa\.gov\/|https:\/\/ntrs\.nasa\.gov\/citations\/\d+$)/);
   assert.match(html, /<style>html\[data-ready\] #lead\{display:none\}#lead\{position:fixed;inset:0;[^}]*overflow:auto/);
   assert.ok(lead.includes('Rows are table records, not independent experiments. “No source” means absent from this collection, not unstudied by NASA.'));
   assert.doesNotMatch(lead.replace(/not a safety rating|fire-safety questions/g, ''), /\bsafe|\bproven\b|validated|certified|never tested/i);
@@ -109,4 +109,23 @@ test('the FLEX and next-request landing lines are recomputed from the modules th
   const m = nextExperiments(lunar, db), top = m.top[0];
   assert.ok(html.includes(`would give a nearby row to ${m.campaign.questions} of ${m.total} questions; the other ${m.total - m.nearby - m.campaign.questions} need a first source. Closest row today: ${top.nearest.id} (PMMA prevention): ${top.separates[1].delta} oxygen points and ${Math.abs(top.separates[2].delta)} kPa away, at a different gravity class.`));
   assert.deepEqual([top.material, top.concern, top.separates[1].axis, top.separates[2].axis], ['pmma', 'prevention', 'o2', 'pressure']);
+});
+
+test('the outside-the-tables line counts NTRS snapshot records by title and links only stored titles and URLs', async () => {
+  const { outsideCollection, featured } = await import('../../web/js/core/outside-collection.js');
+  const index = JSON.parse(read('research/ntrs-index.json'));
+  const out = outsideCollection({ index, sources: raw.sources, findings: raw.findings }), n = out.counts.snapshot, pick = featured(out);
+  assert.ok(n.total > 0 && n.admitted > 0 && n.listed > 0 && n.admitted + n.listed === n.total);
+  assert.equal(pick.admitted.length, 1);
+  assert.equal(pick.listed.length, 1);
+  const link = r => `<a href="${r.url}" rel="noopener">${r.title}</a>`;
+  assert.equal(para('lead-outside'), `<b>Outside:</b> PSI tables are microgravity by design. Our NTRS snapshot lists ${n.total} NASA titles naming Moon, Mars, partial or normal gravity. VESTA quotes ${n.admitted}: ${link(pick.admitted[0])}; ${n.listed} are unread: ${link(pick.listed[0])}.`);
+  for (const r of [...pick.admitted, ...pick.listed]) {
+    const stored = index.find(row => String(row.id) === r.id);
+    assert.deepEqual([r.title, r.url], [stored.title, stored.url], 'verbatim from research/ntrs-index.json');
+  }
+  assert.ok(raw.sources.sources.some(s => String(s.id) === pick.admitted[0].id && s.finding_ids.length > 0), 'the quoted example is a source of findings');
+  assert.ok(!raw.sources.sources.some(s => String(s.id) === pick.listed[0].id), 'the unread example is not a source');
+  assert.ok(lead.indexOf('id="lead-gap"') < lead.indexOf('id="lead-outside"') && lead.indexOf('id="lead-outside"') < lead.indexOf('id="lead-station"'));
+  assert.ok(!db.tests.some(r => (r.n.gclass ?? null) === 'partial'), 'the sentence stays only while the tables hold no partial-gravity row');
 });
