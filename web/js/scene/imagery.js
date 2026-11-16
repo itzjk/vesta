@@ -29,7 +29,7 @@ export async function photoPlanet(THREE, name, mode = 'high') {
   return planet;
 }
 
-const GLOBES = Object.freeze({ mars: { texture: 'marsGlobe', period: 100, tilt: .44, start: 1.9, haze: 0xd9895c }, earth: { texture: 'earthGlobe', period: 70, tilt: .41, start: 3.4, haze: 0x6fa8ff } });
+const GLOBES = Object.freeze({ mars: { texture: 'marsGlobe', period: 100, tilt: .44, start: 1.9 }, earth: { texture: 'earthGlobe', period: 70, tilt: .41, start: 3.4 } });
 
 // Full-globe equirectangular map on ordinary sphere UVs. spin(t) turns the body about its own tilted axis.
 // The engine passes a fixed t in capture mode, and prefers-reduced-motion holds the starting longitude.
@@ -39,9 +39,6 @@ export async function globePlanet(THREE, name, mode = 'high') {
   const planet = new THREE.Mesh(new THREE.SphereGeometry(1, mode === 'low' ? 40 : 64, 40), new THREE.MeshBasicMaterial({ map: texture }));
   planet.rotation.order = 'ZYX'; planet.rotation.set(0, globe.start, globe.tilt);
   planet.userData.nasa_id = entry.id; planet.userData.credit = entry.credit;
-  // A thin limb haze: a slightly larger back-facing shell, drawn additively. It is a visual cue, not an atmosphere model.
-  const haze = new THREE.Mesh(new THREE.SphereGeometry(1.035, 32, 20), new THREE.MeshBasicMaterial({ color: globe.haze, transparent: true, opacity: .16, side: THREE.BackSide, blending: THREE.AdditiveBlending, depthWrite: false }));
-  haze.userData.decorative = true; planet.add(haze);
   const reduced = typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion: reduce)') : null;
   planet.userData.spin = t => { planet.rotation.y = globe.start + (reduced?.matches ? 0 : (Number(t) || 0) * Math.PI * 2 / globe.period); };
   return planet;
