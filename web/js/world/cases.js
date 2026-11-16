@@ -25,7 +25,7 @@ export const VIDEO_CASES = [
 
 const node = (tag, text, className) => { const el = document.createElement(tag); if (text != null) el.textContent = text; if (className) el.className = className; return el; };
 
-export function createVideoCases({ onEvidence, onDrill }) {
+export function createVideoCases({ onEvidence, onDrill, onModel }) {
   const dialog = node('dialog', null, 'world-cases'); dialog.setAttribute('aria-labelledby', 'world-cases-title');
   const header = node('header'), heading = node('h2', 'Watch the problem. Inspect the response.'); heading.id = 'world-cases-title';
   const dismiss = node('button', 'Close'); dismiss.type = 'button'; dismiss.setAttribute('aria-label', 'Close video cases');
@@ -68,7 +68,14 @@ export function createVideoCases({ onEvidence, onDrill }) {
     const evidence = node('button', 'Explore the evidence'), drill = node('button', 'Try the scripted drill'); evidence.type = drill.type = 'button';
     evidence.onclick = () => { close(); onEvidence(item.query); };
     drill.onclick = () => { close(); onDrill(); };
-    actions.append(evidence, drill); explanation.append(actions); body.append(figure, explanation);
+    actions.append(evidence, drill);
+    if (item.id === 'cool-flame' && onModel) {
+      const model = node('button', 'Explore the FLEX table model'); model.type = 'button';
+      model.onclick = () => { close(); onModel(); };
+      actions.append(model);
+      explanation.append(node('p', 'The FLEX table model explores archived droplet-test end states. This footage provides context; it is not synchronized to a table row or used as model input.', 'world-case-limit'));
+    }
+    explanation.append(actions); body.append(figure, explanation);
   }
   dismiss.onclick = close;
   const cancel = event => { event.preventDefault(); close(); };

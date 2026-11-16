@@ -8,6 +8,7 @@ import { nearestSourceRows, scoreFactors } from '../core/evidence-register.js?v=
 import { scorebar } from '../ui/scorebar.js';
 import { pressureDependence, pressureDependenceText, pressureAudit, pressureAuditText, PRESSURE_DEPENDENCE_SCOPE } from '../core/assumption-audit.js';
 import { createQuestionNote } from '../core/question-note.js?v=question-lab-20261115-3';
+import { questionSummary } from '../core/question-summary.js?v=flex-review-20261115-1';
 
 const defaults = { status, rank: ranking, text };
 const symbols = { PROVEN: '●', EXTRAPOLATED: '↗', NEVER_TESTED: '×' };
@@ -36,6 +37,7 @@ export function question(material, concern, q, db, core = defaults) {
   const cell = core.status.cell(material, concern, q, db);
   const candidates = cell.finding_ids.map(id => db.findingById[id]).filter(Boolean);
   return { cell, pressureDependence: pressureDependence(cell, db), nearest: core.status.nearestRow(material, concern, q, db), nearestRows: nearestSourceRows(material, concern, q, db),
+    summary: questionSummary(cell, db, { material: db.materials[material]?.label || material, concern: core.text.concern(concern), cabin: db.presetById[q.preset]?.label || 'this cabin' }),
     findings: core.rank.rank(candidates, { ...q, material, concern }, db).slice(0, 3) };
 }
 
@@ -110,19 +112,27 @@ export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepar
     if (!selected) return;
     const expanded = new Set([...detail.querySelectorAll('[data-score-finding][open]')].map(el => el.dataset.scoreFinding));
     const { material, concern } = selected;
-    const { cell, pressureDependence: dependence, nearest, nearestRows, findings } = question(material, concern, q, db, core);
+    const { cell, pressureDependence: dependence, nearest, nearestRows, findings, summary } = question(material, concern, q, db, core);
     const back = node('button', '← All questions', 'coverage-back'); back.type = 'button';
     back.dataset.coverageBack = ''; back.onclick = () => closeDetail();
     const point = { ...q, material, concern };
     const heading = node('h3', `${db.materials[material].label} · ${core.text.concern(concern)}`);
     heading.tabIndex = -1;
-    const state = node('p', `${symbols[cell.status]} ${core.text.status(cell.status, cell.qualifier)}`, 'coverage-state');
+    const state = node('p', `${symbols[cell.status]} ${summary.answer}`, 'coverage-state coverage-summary-answer');
     state.dataset.coverageStatus = cell.status;
     const cabinLine = node('p', `${db.presetById[q.preset]?.label || 'Custom cabin'} · ${core.text.oxygen(q.o2)} · ${core.text.pressure(q.p)} · ${q.g_label || core.text.gravity(q.gclass)}`, 'coverage-question-cabin');
-    const meaning = node('p', cell.status === 'PROVEN' ? 'Nearby source conditions exist. This does not establish material safety.'
-      : cell.status === 'EXTRAPOLATED' ? 'Relevant evidence exists; its conditions differ or are incomplete.'
-        : 'No source addresses this material and concern in VESTA’s collection.', 'coverage-question-meaning');
-    detail.replaceChildren(back, heading, cabinLine, state, meaning);
+    const quick = node('section', null, 'coverage-question-summary');quick.setAttribute('aria-label','Question answer');
+    quick.append(state);
+    // Count + pressure assumption (or the actual coverage gap) remain visible.
+    // The longer method text stays available below without repeating the answer.
+    for(const [index,line] of summary.lines.slice(0,2).entries()){
+      const text=node('p',line,'coverage-summary-line');
+      if(cell.status==='PROVEN'&&index===1){text.classList.add('coverage-pressure-basis');text.dataset.pressureReported=String(dependence.reported);text.dataset.pressureInferred=String(dependence.inferred);}
+      quick.append(text);
+    }
+    const next=node('p',null,'coverage-summary-next');next.append(node('strong','Next: '),document.createTextNode(summary.next));
+    quick.append(next,node('p','Coverage, not safety.','coverage-summary-scope'));
+    detail.replaceChildren(back, heading, cabinLine, quick);
     const reviewActions = node('div', null, 'coverage-review-actions'), reviewStatus = node('p', null, 'coverage-review-status');
     reviewStatus.setAttribute('role', 'status'); reviewStatus.setAttribute('aria-live', 'polite'); reviewStatus.hidden = true;
     for (const [label, action, id] of [['Save question review', onSaveReview, 'save'], ['Prepare crew review', onPrepareCrew, 'crew']]) {
@@ -134,23 +144,24 @@ export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepar
     }
     detail.append(reviewActions, reviewStatus);
     const limits = node('details', null, 'coverage-question-limits');
-    limits.append(node('summary', 'Limits & next human review'));
-    try { const note = createQuestionNote(db, point); limits.append(node('p', note.next_review), node('p', note.limits[1]), node('p', 'The saved note is derived text. Keep the evidence JSON separately for replay.')); }
+    limits.append(node('summary', 'Method & limits'));
+    for(const line of summary.lines.slice(2))limits.append(node('p',line));
+    try { const note = createQuestionNote(db, point); if(summary.lines.length<3)limits.append(node('p', note.limits[1])); limits.append(node('p', 'The saved note is derived text. Keep the evidence JSON separately for replay.')); }
     catch { limits.append(node('p', 'Complete the cabin conditions before preparing a review note.')); }
     detail.append(limits);
     if (dependence.nearby) {
       const basis = node('p', `${pressureDependenceText(dependence)} ${PRESSURE_DEPENDENCE_SCOPE}`, 'coverage-nearest-rule coverage-pressure-basis');
       basis.dataset.pressureReported = String(dependence.reported); basis.dataset.pressureInferred = String(dependence.inferred);
-      detail.append(basis);
+      limits.append(basis);
     }
     if (cell.status === 'NEVER_TESTED') {
-      detail.append(node('p', `${core.text.status(cell.status)}. ${core.text.cellSentence(cell, db.materials[material].label, db)}`, 'coverage-empty'));
-      detail.append(renderMatchPanel(null, q, db), node('p', 'No finding is available for this question, so no relevance score is calculated.', 'coverage-score-note'));
+      limits.append(renderMatchPanel(null, q, db), node('p', 'No finding is available for this question, so no relevance score is calculated.', 'coverage-score-note'));
       detail.hidden = false; detail.scrollTop = 0; element.dataset.detail = 'true';
       if (focus) heading.focus({ preventScroll: true });
       return;
     }
     const sentence = node('p', core.text.cellSentence(cell, db.materials[material].label, db));
+    limits.append(sentence);
     if (nearest) {
       const { row, note } = nearest;
       detail.append(node('h4', 'Source & compared conditions'));
@@ -161,7 +172,7 @@ export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepar
         + (note.includes('pressure_inferred') ? ` (${core.text.reason('pressure_inferred')})` : '');
       cited(rowLine, `${row.id} · ${db.invById[row.psi_id]?.name || row.investigation || 'Recorded conditions'}: ${core.text.oxygen(row.n.o2)}, ${pressure}, ${core.text.gravity(row.n.gclass)}.`, row.id);
       detail.append(rowLine);
-      detail.append(renderMatchPanel(row, q, db), sentence, ordering);
+      detail.append(renderMatchPanel(row, q, db), ordering);
       if (nearestRows.length > 1) {
         const alternatives = node('details', null, 'coverage-nearest-list');
         alternatives.append(node('summary', `Next ${nearestRows.length - 1} nearest source rows`));
@@ -172,7 +183,7 @@ export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepar
         alternatives.append(node('p', 'These are source rows, not necessarily independent tests. The order describes matching-rule differences, not physical similarity.', 'coverage-score-note'));
         detail.append(alternatives);
       }
-    } else detail.append(sentence, node('p', 'No source-table row for this question in VESTA’s collection.', 'coverage-empty'), renderMatchPanel(null, q, db));
+    } else detail.append(node('p', 'No source-table row for this question in VESTA’s collection.', 'coverage-empty'), renderMatchPanel(null, q, db));
     const browse = node('div', null, 'coverage-browse-all');
     if (onInspectAll) for (const [mode, count, label] of [['findings', cell.finding_ids.length, 'findings'], ['rows', cell.rows, 'source rows']]) {
       const button = node('button', mode === 'rows' ? 'Inspect source-row register' : `Inspect all ${count} ${label}`); button.type = 'button';

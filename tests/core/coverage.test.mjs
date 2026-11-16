@@ -5,6 +5,7 @@ import { buildIndex, designPoint, presetPoint } from '../../web/js/core/index.js
 import * as status from '../../web/js/core/status.js';
 import { rank } from '../../web/js/core/rank.js';
 import { coverage, headline, question } from '../../web/js/world/coverage.js';
+import { questionSummary } from '../../web/js/core/question-summary.js';
 
 const raw = Object.fromEntries(['tests', 'findings', 'presets', 'investigations'].map(name =>
   [name, JSON.parse(fs.readFileSync(new URL(`../../web/data/${name}.json`, import.meta.url), 'utf8'))]));
@@ -67,4 +68,34 @@ test('empty data produces an honest zero denominator, no manufactured questions 
   assert.deepEqual(wall.counts, { PROVEN: 0, EXTRAPOLATED: 0, NEVER_TESTED: 0 });
   assert.equal(question('missing', 'suppression', lunar, empty).nearest, null);
   assert.deepEqual(question('missing', 'suppression', lunar, empty).findings, []);
+});
+
+test('selected-question summary uses the current cabin and keeps its actual pressure dependency', () => {
+  const q=presetPoint(db,'station'),before=JSON.stringify(q);
+  const detail=question('pmma','prevention',q,db);
+  assert.deepEqual(detail.summary,questionSummary(detail.cell,db,{material:db.materials.pmma.label,concern:'Prevention',cabin:db.presetById.station.label}));
+  assert.equal(detail.summary.status,'PROVEN');
+  assert.match(detail.summary.lines[0],/^16 source-table rows/);
+  assert.match(detail.summary.lines[1],/pressure is assumed from the facility, not reported/);
+  assert.match(detail.summary.next,/assumed pressure/);
+  assert.equal(detail.pressureDependence.inferred,16);assert.equal(JSON.stringify(q),before);
+});
+
+test('switching to Lunar or a custom cabin recomputes the plain answer without reusing a Station verdict', () => {
+  const detail=question('pmma','prevention',lunar,db);
+  assert.equal(detail.summary.status,'EXTRAPOLATED');assert.ok(detail.summary.answer.includes(db.presetById['lunar-base'].label));
+  assert.match(detail.summary.lines[1],/no row at this gravity class/);
+  assert.equal((detail.cell.hit_ids||[]).length,0);
+  const custom=designPoint({preset:'custom',o2:21,p:101.4,g:'0g'},db);
+  const changed=question('pmma','prevention',custom,db);
+  assert.equal(changed.summary.status,changed.cell.status);assert.match(changed.summary.answer,/this cabin/);
+  assert.notEqual(changed.summary.answer,detail.summary.answer);
+});
+
+test('an unfilled question remains collection-scoped and does not borrow a nearby row or finding', () => {
+  const detail=question('kapton','prevention',lunar,db);
+  assert.equal(detail.summary.status,'NEVER_TESTED');assert.equal(detail.summary.answer,'No source in this collection.');
+  assert.match(detail.summary.lines[1],/does not mean NASA never studied/);
+  assert.match(detail.summary.next,/attributable source/);
+  assert.equal(detail.nearest,null);assert.deepEqual(detail.findings,[]);
 });

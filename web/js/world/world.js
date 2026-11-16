@@ -7,7 +7,7 @@ import { build as buildVesta } from '../scene/vesta.js';
 import { createHolograms } from './holo.js?v=habitat-20261115-1';
 import { buildHash } from '../router.js';
 import { createGuide } from './guide.js?v=question-lab-20261115-3';
-import { createVideoCases } from './cases.js';
+import { createVideoCases } from './cases.js?v=flex-review-20261115-1';
 import { build as buildWelcome } from './welcome.js?v=question-lab-20261115-3';
 import { createMissionBrief, STATION_AGENTS } from './mission.js?v=crew-workspace-20261115-1';
 
@@ -35,7 +35,7 @@ export function stationFor(route, params = {}) {
 
 export async function createWorld(host, context) {
   let ctx = context, disposed = false, index = -1, flight, entered = 0, lastTime, sceneCtx, holo, officer, carrier;
-  let pendingCut = false, activation = 0, warmingStation = false, pendingEvidenceQuestion = null, pendingRoboticsQuestion = null;
+  let pendingCut = false, activation = 0, warmingStation = false, pendingEvidenceQuestion = null, pendingRoboticsQuestion = null, pendingEvidenceTool = null;
   let loader, requested, initialShown = false, baseLights = [];
   let performanceProbe;
   let engine, inUpdate = false, citationCleanup, desiredPose, renderedPose, updateOfficer, questionTour;
@@ -96,7 +96,7 @@ export async function createWorld(host, context) {
   let welcome, welcomeKey = '';
   function syncWelcome() { const key = JSON.stringify(ctx.q); if (welcome && key !== welcomeKey) { welcomeKey = key; welcome.update(ctx.q); } }
   showLoading(requested);
-  const cases = createVideoCases({ onEvidence(query) { navigate(2); acts[2]?.search?.(query); }, onDrill() { navigate(3); } });
+  const cases = createVideoCases({ onEvidence(query) { navigate(2, { evidenceTool: { panel: 'ask', query } }); }, onModel() { navigate(2, { evidenceTool: { panel: 'prediction' } }); }, onDrill() { navigate(3); } });
   const caseButton = document.createElement('button'); caseButton.type = 'button'; caseButton.className = 'world-case-toggle'; caseButton.textContent = 'Video cases'; caseButton.onclick = () => { holo?.closeAll(); cases.open(caseButton); }; overlay.append(caseButton);
   const mission = createMissionBrief({ navigate, run(station,id) { const i=STATIONS.findIndex(s=>s.id===station); const action=acts[i]?.actions?.().find(action=>action.id===id); if(action && !action.expanded?.()) action.run(); } });
   const missionButton=document.createElement('button');missionButton.type='button';missionButton.className='world-mission-toggle';missionButton.textContent='Mission';missionButton.setAttribute('aria-label','Why VESTA: problem, method, agents and robotics');missionButton.onclick=()=>mission.open('problem',missionButton);
@@ -115,6 +115,7 @@ export async function createWorld(host, context) {
     const next = typeof value === 'string' ? STATIONS.findIndex(s => s.id === value) : value;
     if (next < 0 || next >= STATIONS.length || disposed) return;
     pendingEvidenceQuestion = next === 2 ? options.evidenceQuestion ?? null : null;
+    pendingEvidenceTool = next === 2 ? options.evidenceTool ?? null : null;
     pendingRoboticsQuestion = next === 5 ? options.roboticsQuestion ?? null : null;
     cases.close(); mission.close(); holo?.closeAll(); navigationCut = Boolean(options.cut);
     if (!options.fromHash) {
@@ -126,10 +127,15 @@ export async function createWorld(host, context) {
     activate(next, options.cut);
   }
   function deliverEvidenceQuestion(next) {
-    if (next !== 2 || !pendingEvidenceQuestion || !acts[next]?.requestQuestion) return;
-    const question = pendingEvidenceQuestion;
-    pendingEvidenceQuestion = null;
-    acts[next].requestQuestion(question);
+    if (next !== 2) return;
+    if (pendingEvidenceQuestion && acts[next]?.requestQuestion) {
+      const question = pendingEvidenceQuestion; pendingEvidenceQuestion = null;
+      acts[next].requestQuestion(question);
+    }
+    if (pendingEvidenceTool && acts[next]?.requestTool) {
+      const tool = pendingEvidenceTool; pendingEvidenceTool = null;
+      acts[next].requestTool(tool);
+    }
   }
   function deliverRoboticsQuestion(next) {
     if (next !== 5 || !pendingRoboticsQuestion || !acts[next]?.requestQuestion) return;
@@ -140,7 +146,7 @@ export async function createWorld(host, context) {
   function handles(i) { return acts[i]?.holograms?.() || []; }
   function activate(next, cut = false) {
     if (disposed) return;
-    if (next !== 2) pendingEvidenceQuestion = null;
+    if (next !== 2) { pendingEvidenceQuestion = null; pendingEvidenceTool = null; }
     if (next !== 5) pendingRoboticsQuestion = null;
     if (warmingStation) { pendingCut = cut; showLoading(next); return; }
     pendingCut = cut;
@@ -202,7 +208,7 @@ export async function createWorld(host, context) {
             carrier.position.copy(currentFlight.fromCarrier); renderedPose = { ...currentFlight.fromPose };
           });
         } catch (error) { console.warn('VESTA cabin warm-up unavailable:', error.message); currentFlight.start = performance.now() / 1000; }
-        finally { if (token === activation) { warmingStation = false; loading.hidden = true; host.dataset.worldLoading = 'false'; syncQuality(); if (requested !== index) activate(requested, pendingCut); } }
+        finally { if (token === activation) { warmingStation = false; loading.hidden = true; host.dataset.worldLoading = 'false'; syncQuality(); if (requested !== index) activate(requested, pendingCut); else { deliverEvidenceQuestion(index); deliverRoboticsQuestion(index); } } }
       });
     }
     invalidate();
@@ -299,7 +305,7 @@ export async function createWorld(host, context) {
         root, citationPanels(trigger) { return holo.handles.filter(h => h.target > 0 && !h.options.source && h.options.station === STATIONS[index]?.id); }, origin: STATIONS[i].origin, station: STATIONS[i].id, camera, host, overlay, vesta: officer, vestaPose: {}, state: {},
         get db() { return ctx.db; }, get core() { return ctx.core; }, get q() { return ctx.q; }, get params() { return ctx.params; }, get route() { return ctx.route; }, get capture() { return capture; }, get filmActive() { return filmActive; },
         ui: ctx.ui, setQ: (...a) => ctx.setQ(...a), setParams: (...a) => ctx.setParams(...a), go: (...a) => ctx.go(...a), openSource: (...a) => ctx.openSource(...a), closeSource: ctx.closeSource,
-        navigate, invalidate, answer(value) { world.answerValue = value; if (i === index) answer.textContent = String(value || ''); },
+        navigate, invalidate, showVideoCases(trigger) { holo?.closeAll(); cases.open(trigger); }, answer(value) { world.answerValue = value; if (i === index) answer.textContent = String(value || ''); },
         setBaseLightScale(value=1) {
           if(i!==index)return;
           const scale=Number.isFinite(value)?Math.max(0,Math.min(1,value)):1;
@@ -335,7 +341,7 @@ export async function createWorld(host, context) {
     loader = createStationLoader({
       count: STATIONS.length, stopped: () => disposed, paused: () => warmingStation || host.dataset.flying === 'true' || Boolean(flight && !flight.cut && performance.now() / 1000 - flight.start < 1.2), yieldTurn: capture ? afterPaint : idleTurn,
       async build(i) {
-        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=lab-actions-20261115-1`), i === 0 || i === 3 ? warmBlanket(false) : null]);
+        const [mod] = await Promise.all([import(`./${FILES[i]}.js?v=flex-review-20261115-1`), i === 0 || i === 3 ? warmBlanket(false) : null]);
         if (disposed) return;
         const priorLights = baseLights.map(([light]) => light.intensity);
         let built;
