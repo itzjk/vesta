@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>VESTA — slide sources (seven 1280×720 sections)</title>
+<style>
+/* Source of vesta-slide-1..7.png. Each <section> is one 1280x720 slide. No web fonts, no external requests.
+   Every number is recomputed from web/data with web/js/core (see the speaker notes in ../index.html). */
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#05080a}
+body{width:1280px;font-family:Arial,"Liberation Sans",Helvetica,sans-serif;color:#f3ecdc}
+.s{position:relative;width:1280px;height:720px;overflow:hidden;background:radial-gradient(1200px 700px at 78% 30%,#18222a 0%,#0e151a 55%,#0a0f13 100%)}
+.top,.bot{position:absolute;left:56px;right:56px;display:flex;justify-content:space-between;align-items:center;font-size:24px;line-height:1;letter-spacing:.04em;color:#c5a56d;white-space:nowrap}
+.top{top:40px}.bot{bottom:34px;color:#b9b2a2}
+.si{font-size:24px;letter-spacing:0;color:#f3ecdc;background:#05080a;border:1px solid #5d5441;padding:7px 14px}
+.n{color:#b9b2a2}
+h1{position:absolute;left:56px;right:56px;top:96px;font-family:Georgia,"P052","Liberation Serif",serif;font-weight:400;font-size:50px;line-height:1.14;color:#f3ecdc}
+h1 b{font-weight:400;color:#c5a56d}
+.nw{white-space:nowrap}
+.serif{font-family:Georgia,"P052","Liberation Serif",serif}
+.amber{color:#c5a56d}.muted{color:#b9b2a2}
+.body{position:absolute;left:56px;right:56px}
+sub{font-size:.62em;vertical-align:-.18em;line-height:0}
+
+/* 1 */
+#s1{background:radial-gradient(900px 620px at 76% 48%,#1c1611 0%,#120e0b 55%,#0b0907 100%)}
+#s1 .word{position:absolute;left:56px;top:100px;font-size:38px;letter-spacing:.3em;color:#c5a56d;white-space:nowrap}
+#s1 .word span{font-family:Arial,"Liberation Sans",Helvetica,sans-serif;font-size:24px;letter-spacing:.04em;color:#b9b2a2;margin-left:10px}
+#s1 .big{position:absolute;left:50px;top:156px;font-size:228px;line-height:.98;white-space:nowrap}
+#s1 .big span{font-size:112px;color:#f3ecdc}#s1 .big .z{font-size:228px;color:#c5a56d}
+#s1 .claim{position:absolute;left:56px;top:404px;width:700px;font-size:41px;line-height:1.2}
+#s1 .cond{position:absolute;left:56px;top:574px;font-size:26px;color:#d9d1bf;white-space:nowrap}
+#s1 img{position:absolute;left:742px;top:106px;width:520px;height:485px;-webkit-mask-image:radial-gradient(closest-side,#000 68%,transparent 100%);mask-image:radial-gradient(closest-side,#000 68%,transparent 100%)}
+
+/* 2 */
+.cmp{position:absolute;left:56px;right:56px;top:196px;border-collapse:collapse;width:1168px;font-size:34px}
+.cmp th{font-size:24px;font-weight:400;letter-spacing:.06em;text-align:left;color:#c5a56d;padding:0 22px 14px}
+.cmp td{padding:13px 22px;border-top:1px solid #3a444b;vertical-align:middle;line-height:1.15}
+.cmp td:first-child{color:#b9b2a2;font-size:28px;width:200px}
+.cmp td:nth-child(2){width:540px}
+.cmp td:nth-child(3){background:rgba(197,165,109,.11);color:#f6dfae}
+.cmp small{display:block;font-size:24px;color:#b9b2a2;margin-top:4px}
+#s2 .rule{top:566px;font-size:26px;line-height:1.3;color:#d9d1bf}
+
+/* 3 */
+.nums{position:absolute;left:56px;right:56px;top:196px;display:flex;justify-content:space-between}
+.nums div{font-size:28px;color:#b9b2a2;line-height:1.2}
+.nums b{display:block;font-family:Georgia,"P052","Liberation Serif",serif;font-weight:400;font-size:104px;line-height:1;color:#f3ecdc;margin-bottom:8px}
+.nums .hot b{color:#c5a56d}
+.defs{top:402px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.card{border:1px solid #4a4638;background:rgba(5,8,10,.55);padding:24px 28px;font-size:28px;line-height:1.3}
+.card .k{display:block;font-size:24px;letter-spacing:.06em;color:#c5a56d;margin-bottom:10px}
+.card em{font-style:normal;color:#b9b2a2}
+
+/* 4 */
+#s4 .fixed{top:226px;font-size:26px;line-height:1.3;color:#d9d1bf}
+.bars{position:absolute;left:56px;top:312px;width:1168px}
+.row{display:flex;align-items:center;margin-bottom:26px}
+.row .g{width:168px;font-size:34px}
+.row .g.short{width:100px}
+.bar{display:flex;width:1000px;height:92px}
+.bar div{display:flex;align-items:center;justify-content:center;font-size:44px;font-family:Georgia,"P052","Liberation Serif",serif;border-right:3px solid #0e151a}
+.near{background:#f3ecdc;color:#12171b}
+.other{background:#c5a56d;color:#16120a}
+.none{background:#27333b;color:#f3ecdc;border:1px solid #56646d}
+.zero{width:60px;height:92px;display:flex;align-items:center;justify-content:center;font-size:44px;font-family:Georgia,"P052","Liberation Serif",serif;color:#f3ecdc;border:2px dashed #f3ecdc;margin-right:8px}
+.legend{position:absolute;left:224px;top:566px;display:flex;gap:44px;font-size:26px;color:#d9d1bf;white-space:nowrap}
+.legend i{display:inline-block;width:24px;height:24px;margin-right:12px;vertical-align:-3px}
+
+/* 5, 6 */
+.shot{position:absolute;overflow:hidden;border:1px solid #6b5f45;background:#0b1013}
+.shot img{position:absolute;display:block;max-width:none}
+.side{position:absolute;font-size:30px;line-height:1.28}
+.side .k{display:block;font-size:24px;letter-spacing:.06em;color:#c5a56d;margin-bottom:6px}
+.side p{margin-bottom:22px}
+.side .q{color:#f6dfae}
+.steps{list-style:none;counter-reset:st}
+.steps li{counter-increment:st;position:relative;padding-left:58px;margin-bottom:24px;font-size:30px;line-height:1.25}
+.steps li::before{content:counter(st);position:absolute;left:0;top:-2px;width:40px;height:40px;border:1px solid #c5a56d;color:#c5a56d;font-size:26px;line-height:38px;text-align:center}
+.shot .mark{position:absolute;border:3px solid #e0a53a}
+.cap{position:absolute;font-size:24px;color:#b9b2a2}
+#s5 .side,#s6 .steps li{font-size:26px}
+.tag{display:inline-block;font-size:24px;line-height:1.3;color:#f3ecdc;border:1px solid #c5a56d;padding:10px 16px}
+
+/* 7 */
+.cols{top:196px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cols .card{font-size:30px;line-height:1.26;padding:24px 28px}
+.cols li{list-style:none;position:relative;padding-left:28px;margin-bottom:16px}
+.cols li::before{content:"";position:absolute;left:0;top:14px;width:10px;height:10px;background:#c5a56d}
+.links{top:572px;display:flex;gap:56px;font-size:34px;color:#f6dfae;white-space:nowrap}
+.links span{border-bottom:2px solid #c5a56d;padding-bottom:3px}
+</style></head><body>
+
+<section class="s" id="s1">
+  <div class="top"><span>NASA SPACE APPS 2026 / FLAME IN FREEFALL</span><span class="n">1 / 7</span></div>
+  <div class="word serif">VESTA<span>an evidence-coverage checker</span></div>
+  <div class="big serif"><span class="z">0</span><span> of 45</span></div>
+  <p class="claim serif">fire questions for a lunar habitat have a NASA test row at nearby conditions in our collection.</p>
+  <p class="cond">34% O<sub>2</sub> · 56.5 kPa · 1/6 g &nbsp;—&nbsp; 1,989 rows, none at partial gravity</p>
+  <img src="../vesta-mascot.png" alt="">
+  <div class="bot"><span>TEAM ZERACK</span><span class="si">SI-assisted visuals</span></div>
+</section>
+
+<section class="s" id="s2">
+  <div class="top"><span>NASA SPACE APPS 2026 / FLAME IN FREEFALL</span><span class="n">2 / 7</span></div>
+  <h1>A fire result belongs to <b>its own conditions.</b></h1>
+  <table class="cmp">
+    <tr><th></th><th>IN THE 288 CABIN-MATERIAL ROWS</th><th>LUNAR HABITAT</th></tr>
+    <tr><td>Gravity</td><td>microgravity<small>288 of 288 rows</small></td><td>1/6 g<small>0 rows</small></td></tr>
+    <tr><td>Oxygen</td><td>14.2 – 22.2%<small>79 of 288 rows report it</small></td><td>34%</td></tr>
+    <tr><td>Pressure</td><td>not in the row<small>0 of 288 rows report it</small></td><td>56.5 kPa</td></tr>
+  </table>
+  <p class="body rule">Nearby = same gravity class, O<sub>2</sub> within ±1 point, pressure within ±5 kPa.<br>Flow and geometry are not compared.</p>
+  <div class="bot"><span>TEAM ZERACK · VESTA</span><span class="si">SI-assisted visuals</span></div>
+</section>
+
+<section class="s" id="s3">
+  <div class="top"><span>NASA SPACE APPS 2026 / FLAME IN FREEFALL</span><span class="n">3 / 7</span></div>
+  <h1>One collection, <b>every row linked to its source.</b></h1>
+  <div class="nums">
+    <div><b>24</b>NASA investigations</div>
+    <div><b>22</b>source tables</div>
+    <div class="hot"><b>1,989</b>source-table rows</div>
+    <div><b>822</b>quoted findings</div>
+  </div>
+  <div class="body defs">
+    <div class="card"><span class="k">A ROW IS</span>one line of a NASA table: 1,866 single tests, 123 test days, series or index lines. <em>Not independent experiments.</em></div>
+    <div class="card"><span class="k">A QUESTION IS</span>one material × one concern. 15 materials × 3 concerns = 45: prevention, detection, suppression.</div>
+  </div>
+  <div class="bot"><span>TEAM ZERACK · VESTA</span><span class="si">SI-assisted visuals</span></div>
+</section>
+
+<section class="s" id="s4">
+  <div class="top"><span>NASA SPACE APPS 2026 / FLAME IN FREEFALL</span><span class="n">4 / 7</span></div>
+  <h1>Change only gravity: questions with a nearby row <b class="nw">go 3 → 0.</b></h1>
+  <p class="body fixed">Held fixed: 21% O<sub>2</sub> · 101.4 kPa · same 45 questions.<br>Every row in this collection with a gravity value is microgravity.</p>
+  <div class="bars">
+    <div class="row"><div class="g">0 g</div><div class="bar"><div class="near" style="width:66.7px">3</div><div class="other" style="width:466.7px">21</div><div class="none" style="width:466.6px">21</div></div></div>
+    <div class="row"><div class="g short">1/6 g</div><div class="zero">0</div><div class="bar"><div class="other" style="width:533.4px">24</div><div class="none" style="width:466.6px">21</div></div></div>
+  </div>
+  <div class="legend"><span><i style="background:#f3ecdc"></i>nearby (dashed 0 = none)</span><span><i style="background:#c5a56d"></i>other conditions</span><span><i style="background:#27333b;border:1px solid #56646d"></i>no source in this collection</span></div>
+  <div class="bot"><span>TEAM ZERACK · VESTA</span><span class="si">SI-assisted visuals</span></div>
+</section>
+
+<section class="s" id="s5">
+  <div class="top"><span>NASA SPACE APPS 2026 / FLAME IN FREEFALL</span><span class="n">5 / 7</span></div>
+  <h1>One real NASA row: <b>the pressure is not in the table.</b></h1>
+  <div class="shot" style="left:56px;top:176px;width:918px;height:316px"><img src="../capture-source-row.jpg" alt="" style="width:1728px;left:-227px;top:-362px"><div class="mark" style="left:4px;top:130px;width:640px;height:42px"></div></div>
+  <div class="side" style="left:998px;top:176px;width:226px">
+    <p style="margin-bottom:0"><span class="k">ROW PSI-25:1 BASS-II</span><span class="nw">PMMA film ·</span> <span class="nw">22.2% O<sub>2</sub> ·</span> microgravity</p>
+  </div>
+  <div class="side" style="left:56px;top:512px;width:570px">
+    <p style="margin-bottom:0"><span class="k">PRESSURE</span>Not in the table. <span class="q">101.3 kPa assumed</span> from a NASA facility guide, and labelled so.</p>
+  </div>
+  <div class="side" style="left:654px;top:512px;width:570px">
+    <p style="margin-bottom:0"><span class="k">STATION CASE (SLIDE 4)</span>All 24 nearby row matches behind those 3 questions rest on that assumption.</p>
+  </div>
+  <div class="bot"><span>TEAM ZERACK · VESTA</span><span class="si">SI-assisted visuals</span></div>
+</section>
+
+<section class="s" id="s6">
+  <div class="top"><span>NASA SPACE APPS 2026 / FLAME IN FREEFALL</span><span class="n">6 / 7</span></div>
+  <h1>A virtual robot acts <b>only after a person approves.</b></h1>
+  <div class="shot" style="left:56px;top:176px;width:507px;height:409px"><img src="../capture-robot-handoff.jpg" alt="" style="width:1856px;left:-32px;top:-160px"></div>
+  <div class="shot" style="left:573px;top:176px;width:225px;height:409px"><img src="../capture-robot-handoff.jpg" alt="" style="width:1856px;left:-623px;top:-275px"></div>
+  <p class="cap" style="left:56px;top:598px">App capture: the completed state, after approval.</p>
+  <div class="side" style="left:822px;top:176px;width:402px">
+    <ol class="steps">
+      <li>The review finds a gap: PMMA prevention, 0 of 90 rows nearby.</li>
+      <li>A person approves the virtual staging.</li>
+      <li>The handoff package (question + source rows) is saved for crew review.</li>
+    </ol>
+    <span class="tag">Simulation: no hardware, sensors or autonomy</span>
+  </div>
+  <div class="bot"><span>TEAM ZERACK · VESTA</span><span class="si">SI-assisted visuals</span></div>
+</section>
+
+<section class="s" id="s7">
+  <div class="top"><span>NASA SPACE APPS 2026 / FLAME IN FREEFALL</span><span class="n">7 / 7</span></div>
+  <h1>Recompute every number. <b>Know the limits.</b></h1>
+  <div class="body cols">
+    <div class="card"><span class="k">REPRODUCIBLE</span><ul>
+      <li>Open data, open code.</li>
+      <li>Every row opens its NASA table line.</li>
+      <li>Claude review: a recording of 12 read-only calls, not a live model.</li></ul></div>
+    <div class="card"><span class="k">LIMITS</span><ul>
+      <li>Evidence coverage, not fire behavior.</li>
+      <li>“No source” = absent from this collection.</li>
+      <li>k-NN outcome vote: 134/212 vs 143/212 baseline. No advantage.</li></ul></div>
+  </div>
+  <div class="body links"><span>itzjk.github.io/vesta</span><span>github.com/itzjk/vesta</span></div>
+  <div class="bot"><span>TEAM ZERACK · VESTA</span><span class="si">SI-assisted visuals</span></div>
+</section>
+</body></html>
