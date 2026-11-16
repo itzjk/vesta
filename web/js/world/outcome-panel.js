@@ -1,6 +1,7 @@
 import { modelRows } from '../core/outcome-model.js?v=flex-frame-20261115-1';
 import { FRAME_LABEL, frameSummary, fuelBreakdown } from '../core/outcome-summary.js?v=flex-frame-20261115-1';
-import { OXYGEN_LIMIT, oxygenLimit, cellText } from '../core/oxygen-limit.js?v=oxygen-limit-20261115-2';
+import { OXYGEN_LIMIT, oxygenLimit, cellText } from '../core/oxygen-limit.js?v=replay-20261115-2';
+import { createFlexReplay } from './flex-replay-panel.js?v=flex-replay-20261115-1';
 
 // One lazy worker per loaded index, shared by mounted views; no CPU model work
 // runs on the animation thread. Source rows cross the boundary only once.
@@ -70,7 +71,7 @@ function drawBands(chart) {
 export function createOutcomePanel({ db, onSource } = {}) {
   if (!db || !Array.isArray(db.tests)) throw new TypeError('The FLEX table view requires loaded source rows.');
   if (!document.querySelector('link[data-vesta-outcome-panel]')) {
-    const sheet = make('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/outcome-panel.css?v=oxygen-limit-20261115-2', import.meta.url).href;
+    const sheet = make('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/outcome-panel.css?v=replay-20261115-2', import.meta.url).href;
     sheet.dataset.vestaOutcomePanel = ''; document.head.append(sheet);
   }
   const element = make('section', null, 'outcome-panel'); element.setAttribute('aria-label', 'FLEX droplet tests: extinction by ambient oxygen');
@@ -153,6 +154,7 @@ export function createOutcomePanel({ db, onSource } = {}) {
       body.append(row);
     }
     table.append(thead, body); wrap.append(table);
+    oxygen.append(createFlexReplay(db.tests));
     if (view.chart) oxygen.append(drawBands(view.chart));
     const model = make('p', view.model_line, view.model_ships ? 'op-model' : 'op-model op-weakness');
     oxygen.append(wrap, make('p', 'Oxygen bands were fixed before outcomes were counted. Diluent groups are separate rows; only the first group pools them.', 'op-note'), model);

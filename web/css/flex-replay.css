@@ -1,0 +1,30 @@
+.flex-replay{background:#02040a;border:1px solid #c5a56d66;border-radius:4px;padding:10px 14px 8px;margin:10px 0 16px;color:#ede4d4;max-width:100%;min-width:0}
+.flex-replay *{box-sizing:border-box}
+.fr-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 8px}
+.outcome-panel .fr-title,.fr-title{font-size:16px;line-height:1.25;margin:0;color:#ede4d4;font-weight:600}
+.outcome-panel .fr-play,.fr-play{min-height:44px;min-width:104px;padding:6px 16px;border:1px solid #c5a56d;background:#c5a56d1f;color:#e2c078;font-weight:600;cursor:pointer}
+.outcome-panel .fr-play:hover,.fr-play:hover{background:#c5a56d33}
+.fr-bands{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px 16px}
+.fr-band{display:flex;flex-direction:column;min-width:0;border-top:1px solid #5f6f7866;padding-top:5px}
+.fr-band-label{font-size:13px;line-height:1.3;color:#b7c2c6}
+.fr-marks{display:flex;flex-wrap:wrap;align-content:flex-start;margin:5px 0 5px -2px;flex:1 0 auto;min-height:24px}
+.fr-none{font-size:13px;color:#8d9aa0}
+.fr-count{font-size:13px;line-height:1.3;color:#ede4d4;font-variant-numeric:tabular-nums;font-weight:600}
+/* A mark is a 12px hit box; the drawn shape is its ::before. Unsettled marks are small slate rings. */
+.fr-mark{position:relative;display:inline-block;flex:0 0 12px;width:12px;height:12px}
+.fr-mark::before{content:"";position:absolute;left:3px;top:3px;width:6px;height:6px;border:1px solid #5f6f78;border-radius:50%;background:transparent}
+/* Settled: shape and colour both change. Disc = extinction, diamond = disruption, open square = completion. */
+.fr-mark.is-ended.fr-extinction::before{left:2px;top:2px;width:8px;height:8px;border:0;background:#e2c078}
+.fr-mark.is-ended.fr-disruption::before{left:2.5px;top:2.5px;width:7px;height:7px;border:0;border-radius:0;background:#8fb1c2;transform:rotate(45deg)}
+.fr-mark.is-ended.fr-completion::before{left:2px;top:2px;width:8px;height:8px;border:2px solid #ede4d4;border-radius:0;background:transparent}
+.fr-mark.is-ended.fr-other::before{left:1px;top:4.5px;width:10px;height:3px;border:0;border-radius:0;background:#b7c2c6}
+.fr-mark.is-active{outline:2px solid #efd296;outline-offset:0;border-radius:2px}
+.is-live .fr-bands .fr-mark.is-ended::before{animation:fr-settle .55s ease-out}
+@keyframes fr-settle{0%{opacity:.2;scale:2.4;filter:brightness(1.8)}100%{opacity:1;scale:1;filter:none}}
+.fr-legend{display:flex;flex-wrap:wrap;gap:2px 16px;margin:8px 0 2px;font-size:13px;line-height:1.3;color:#b7c2c6}
+.fr-key{display:inline-flex;align-items:center;gap:5px}
+.fr-readout{font-size:13px;line-height:1.35;min-height:36px;margin:4px 0 0;color:#e2c078;font-variant-numeric:tabular-nums}
+.outcome-panel .fr-scope,.fr-scope{font-size:12.5px!important;line-height:1.35!important;margin:2px 0 0;color:#9aa7ac}
+.outcome-panel .fr-play:focus-visible,.fr-play:focus-visible{outline:2px solid #efd296;outline-offset:3px}
+@media(max-width:560px){.fr-bands{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.is-live .fr-bands .fr-mark.is-ended::before{animation:none}}

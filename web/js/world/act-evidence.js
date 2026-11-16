@@ -21,7 +21,7 @@ import { renderMethod } from './method.js';
 import { renderFindingComparison } from '../ui/matchpanel.js?v=habitat-20261115-1';
 import { createQuestionNote, questionNoteMarkdown, questionNoteMatches, questionNoteKey } from '../core/question-note.js?v=question-lab-20261115-3';
 import { download } from '../ui/download.js';
-import { createOutcomePanel } from './outcome-panel.js?v=oxygen-limit-20261115-2';
+import { createOutcomePanel } from './outcome-panel.js?v=replay-20261115-2';
 import { createGravityContrastPanel } from './gravity-contrast-panel.js?v=gravity-contrast-20261115-1';
 
 const node = (tag, text, cls) => {
