@@ -153,7 +153,7 @@ export async function build(world) {
     if (done) {
       return;
     }
-    if (!entry) { content.append(el('p', 'Start at the alarm, then advance through eight on-board decisions. Each step shows the NASA evidence, VESTA interpretation and what remains unsupported.'), el('p', db.lines?.lines?.standby || db.lines?.standby)); return; }
+    if (!entry) { content.append(el('p', 'Start at the alarm, then advance through eight on-board decisions. Each step shows the NASA evidence, VESTA interpretation and what remains unsupported.'), el('p', String(db.lines?.lines?.standby || db.lines?.standby || '').replace('Press run.', 'Press Start drill.'))); return; }
     root.dataset.state = entry.state;
     if (entry.state === 'NO_SOURCE') {
       content.append(el('p', core.text.NO_SOURCE_LINE, 'drill-decision'));

@@ -188,7 +188,7 @@ export async function build(world) {
         :`Check ${label} against this cabin’s oxygen, pressure and gravity. This starts a new material review and replaces any current task; it does not move the robot.`;
     objectEvidence.textContent=crew?'Open review workspace':q?'Open source comparison':`Review ${label} only`;
     objectEvidence.disabled=reviewBusy()||(!q&&!crew&&kitRunning());
-    objectTask.textContent='Prepare robot task';objectTask.hidden=crew||!q;objectTask.disabled=kitRunning()||report?.status!=='complete';
+    objectTask.textContent='Prepare crew handoff';objectTask.hidden=crew||!q;objectTask.disabled=kitRunning()||report?.status!=='complete';
   }
   function syncExplorer(){
     const enabled=active&&cameraView==='explore'&&!workspaceOpen;

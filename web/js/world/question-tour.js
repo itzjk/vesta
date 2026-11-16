@@ -138,7 +138,7 @@ export function createQuestionTour({ host, overlay, api, context, world, invalid
     pending = false; cancelAnimationFrame(raf);
     const prior = run; run = null; target = null; previousPose = lastPose = null; attention = null;
     prior?.hook.clear();
-    if (prior && ['stopped', 'error', 'unavailable'].includes(state)) prior.world.setQ(prior.original, { render: false });
+    if (prior && ['done', 'stopped', 'error', 'unavailable'].includes(state)) prior.world.setQ(prior.original, { render: false });
     label.hidden = focus.hidden = story.hidden = controls.hidden = true;
     closeSource(); host.dataset.questionState = state; host.dataset.questionDone = String(state === 'done');
     if (presentation) presentation = { ...presentation, state, paused: false, seconds: state === 'done' ? QUESTION_SECONDS : presentation.seconds };

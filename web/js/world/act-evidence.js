@@ -54,6 +54,11 @@ export async function build(world) {
   const labelObstacles = [];
   const field = await buildField({ ...stage, THREE: T, world: true, labelObstacles, invalidate: world.invalidate });
   field.setVisible(false);
+  const fieldBack = document.createElement('button'); fieldBack.type = 'button'; fieldBack.className = 'evidence-workspace-back field-back'; fieldBack.textContent = 'Back';
+  fieldBack.setAttribute('aria-label', 'Back to the 3D collection'); fieldBack.style.cssText = 'pointer-events:auto;min-height:44px;padding:8px 12px;border:1px solid #a17d60;background:#263238;color:#f0e8d9;font:inherit;cursor:pointer;flex:none';
+  fieldBack.onclick = () => setDisplay('rack');
+  fieldBack.onkeydown = event => { if (event.key === 'Escape') { event.stopPropagation(); setDisplay('rack'); } };
+  host.querySelector('.field-instrument .field-heading')?.append(fieldBack);
   let rack;
   try { rack = await buildSamples({ THREE: T, mode: stage.mode, db }); }
   catch (error) { field.dispose(); wall.dispose(); gaps.dispose(); evidenceRegister.dispose(); throw error; }
@@ -132,6 +137,7 @@ export async function build(world) {
   }
   function toggleConditions() {
     const next = sceneMode === 'chart' ? 'rack' : 'chart'; setPanel(null); setDisplay(next);
+    if (next === 'chart') fieldBack.focus({ preventScroll: true });
   }
   function openRegister(filters = {}) {
     evidenceRegister.setFilters(filters); setPanel('register');
