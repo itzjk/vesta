@@ -22,6 +22,7 @@ import { renderFindingComparison } from '../ui/matchpanel.js?v=habitat-20261115-
 import { createQuestionNote, questionNoteMarkdown, questionNoteMatches, questionNoteKey } from '../core/question-note.js?v=question-lab-20261115-3';
 import { download } from '../ui/download.js';
 import { createOutcomePanel } from './outcome-panel.js?v=oxygen-limit-20261115-2';
+import { createGravityContrastPanel } from './gravity-contrast-panel.js?v=gravity-contrast-20261115-1';
 
 const node = (tag, text, cls) => {
   const el = document.createElement(tag);
@@ -45,6 +46,7 @@ export async function build(world) {
   let selectedMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';
   let selectionReady = false, pendingQuestion = null, pendingTool = null;
   const outcomePanel = createOutcomePanel({ db, onSource: (id, trigger) => openCitation(id, trigger || document.activeElement, world) });
+  const gravityPanel = createGravityContrastPanel({ db, onSource: (id, trigger) => openCitation(id, trigger || document.activeElement, world) });
   const wall = buildCoverage(world, { onSelection: onCoverageSelection, onInspectAll: openRegister, onSaveReview: saveQuestionReview, onPrepareCrew: prepareCrewReview }), gaps = buildGapBrief(world), evidenceRegister = buildEvidenceRegister(world);
   const stage = world.stage.context || world.stage.ctx || world.stage;
   const host = stage.renderer.domElement.parentElement, root = world.host || host;
@@ -261,7 +263,7 @@ export async function build(world) {
     if (panel === 'sample') {
       const sections = node('details', null, 'evidence-question-tools'); sections.append(node('summary', 'More evidence tools'), nav); consoleEl.append(sections);
     } else consoleEl.append(nav);
-    if (panel === 'prediction') consoleEl.append(outcomePanel.element);
+    if (panel === 'prediction') consoleEl.append(gravityPanel.element, outcomePanel.element);
     if (panel === 'collection') { consoleEl.querySelector('h2').textContent = 'Collection & limits'; consoleEl.append(renderCollectionSummary(db)); }
     if (panel === 'method') {
       consoleEl.querySelector('h2').textContent = 'Method, ranking & validation limits';
@@ -561,7 +563,7 @@ export async function build(world) {
       if (world.evidenceWalkthrough === walkthroughHook) delete world.evidenceWalkthrough;
       root.removeEventListener('pointerdown', outside); window.removeEventListener('keydown', escape);
       window.removeEventListener('vesta:cite', citation);
-      outcomePanel.dispose?.(); wall.dispose(); gaps.dispose(); evidenceRegister.dispose(); field.dispose(); rack.dispose(); rackUI.dispose(); consoleHandle.dispose();
+      outcomePanel.dispose?.(); gravityPanel.dispose(); wall.dispose(); gaps.dispose(); evidenceRegister.dispose(); field.dispose(); rack.dispose(); rackUI.dispose(); consoleHandle.dispose();
       tools.remove(); companion.remove(); style.remove(); host.classList.remove('evidence-world-active'); delete root.dataset.evidenceDisplay; delete root.dataset.rackCompact;
       const seen = new Set();
       group.traverse(o => { for (const resource of [o.geometry, ...[o.material].flat()]) if (resource && !seen.has(resource)) { seen.add(resource); resource.dispose?.(); } });
