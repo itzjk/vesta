@@ -10,7 +10,7 @@ import { media } from './media.js';
 import { G, CONCERNS } from '../core/index.js';
 import { TOL } from '../core/match.js';
 import { css } from '../ui/el.js';
-import { build as buildCoverage } from './coverage.js?v=motion-20261115-3';
+import { build as buildCoverage } from './coverage.js?v=color-20261115-4';
 import { build as buildGapBrief } from '../ui/gapbrief.js';
 import { searchEvidence, cabinMatches, compareInvestigations, guidedAnswer, NO_MATCH } from './ask.js?v=4';
 import { evidenceGuidePose } from './evidence-guide.js';
@@ -40,7 +40,7 @@ export function evidenceState(db, core, q, investigation = null) {
 
 export async function build(world) {
   const { THREE: T, db, core } = world;
-  await Promise.all([css('css/coverage.css?v=motion-20261115-3'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css?v=habitat-20261115-1'), css('css/evidence-workspace.css?v=habitat-20261115-1'), css('css/outcome-panel.css?v=flex-frame-20261115-1')]);
+  await Promise.all([css('css/coverage.css?v=color-20261115-4'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css?v=habitat-20261115-1'), css('css/evidence-workspace.css?v=habitat-20261115-1'), css('css/outcome-panel.css?v=flex-frame-20261115-1')]);
   const dropletEntry = buildObservationModel({ db, investigationId: 'PSI-69' }).points[0] || null;
   let guidedTask = '', guidedLeft = '', guidedRight = '', citationOpen = false;
   let selectedMaterial = null, litMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';

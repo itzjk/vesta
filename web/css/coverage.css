@@ -141,3 +141,9 @@
  .coverage-wall .coverage-matrix button.coverage-cell-changed{animation:coverage-cell-flash .6s ease-out}
  .coverage-wall .coverage-question-summary.coverage-summary-in{animation:coverage-summary-in .25s ease-out}
 }
+/* Colour coding of the 45-question matrix: a filled tint per status, kept alongside the symbol so colour is never the only cue. */
+.coverage-wall .coverage-matrix td button[data-coverage-status=PROVEN]{background:rgba(241,233,216,.20);box-shadow:inset 0 0 0 1px rgba(241,233,216,.55)}
+.coverage-wall .coverage-matrix td button[data-coverage-status=EXTRAPOLATED]{background:rgba(224,164,88,.17);box-shadow:inset 0 0 0 1px rgba(224,164,88,.38)}
+.coverage-wall .coverage-matrix td button[data-coverage-status=NEVER_TESTED]{background:rgba(200,85,61,.15);box-shadow:inset 0 0 0 1px rgba(200,85,61,.36)}
+.coverage-wall .coverage-matrix td button:is(:hover,:focus-visible){filter:brightness(1.25)}
+.coverage-wall .coverage-legend [data-coverage-status]{padding-left:10px;border-left:4px solid currentColor}
