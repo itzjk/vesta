@@ -8,12 +8,12 @@ export async function build({ THREE, mode, sunDirection = [6, 8, 8] }) {
     shader.vertexShader = shader.vertexShader.replace('#include <common>', '#include <common>\nvarying vec3 daylightNormal;').replace('#include <begin_vertex>', '#include <begin_vertex>\ndaylightNormal=normal;');
     shader.fragmentShader = shader.fragmentShader.replace('#include <common>', '#include <common>\nvarying vec3 daylightNormal;\nuniform vec3 daylightSun;').replace('#include <opaque_fragment>', `
       float incidence=dot(normalize(daylightNormal),daylightSun);
-      float daylight=smoothstep(-.025,.045,incidence);
-      outgoingLight*=mix(.0015, .2+.8*sqrt(max(0.,incidence)),daylight);
+      float daylight=smoothstep(-.35,.30,incidence);
+      outgoingLight*=mix(.16, .38+.62*sqrt(max(0.,incidence)),daylight);
       #include <opaque_fragment>
     `);
   };
-  planet.material.customProgramCacheKey = () => 'vesta-mars-day-night-3';
+  planet.material.customProgramCacheKey = () => 'vesta-mars-day-night-4';
   return { group, update(t) {
     planet.userData.spin(t);
     planet.getWorldQuaternion(orientation).invert(); localSun.copy(worldSun).applyQuaternion(orientation).normalize();
