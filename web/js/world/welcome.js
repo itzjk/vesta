@@ -1,4 +1,4 @@
-import { num, gravity } from '../core/text.js';
+import { num, gravity, oxygen, pressure } from '../core/text.js';
 import { buildHash } from '../router.js';
 import { CONCERNS } from '../core/index.js';
 
@@ -35,6 +35,26 @@ export function cabinSummary(q, db, core) {
   return { label: db.presetById?.[q.preset]?.label || 'Custom cabin', conditions: headline(q), counts, total: cells.length };
 }
 
+// The lead sentence of the panel, built only from the tally the coverage functions return.
+export function finding(summary) {
+  if (!summary?.counts || !Number.isInteger(summary.total)) return null;
+  const { PROVEN: near, EXTRAPOLATED: other, NEVER_TESTED: absent } = summary.counts;
+  return { lead: `${near} of ${summary.total} questions have nearby NASA evidence`,
+    rest: `${other} other conditions · ${absent} no source in this collection` };
+}
+
+// One source-table row for the selected question: the row the core ordering puts first for this cabin.
+export function nearestSource(q, db, core) {
+  const choice = reviewQuestion(q, db);
+  if (!choice || !validPoint(q) || !db?.rowsByMaterial || !core?.status?.nearestRow) return null;
+  const found = core.status.nearestRow(choice.material, choice.concern, q, db), row = found?.row;
+  if (!row?.id) return null;
+  return { id: row.id, nearby: found.fail.length === 0,
+    name: `${row.investigation || 'Investigation not in the table'} · row ${row.id}`,
+    conditions: [oxygen(row.o2_percent, 'oxygen not in the table').replace(' % O2', '% O₂'),
+      pressure(row.pressure_kpa, 'pressure not in the table'), row.gravity || 'gravity not in the table'].join(' · ') };
+}
+
 export function stationHash(id, q) {
   const station = stations.find(s => s.id === id);
   if (!station) return null;
@@ -63,7 +83,7 @@ export function build(world) {
   if (!document.querySelector('link[data-vesta-welcome]')) {
     const sheet = node('link');
     sheet.rel = 'stylesheet';
-    sheet.href = new URL('../../css/welcome.css?v=question-lab-20261115-3', import.meta.url).href;
+    sheet.href = new URL('../../css/welcome.css?v=welcome-finding-20261115-1', import.meta.url).href;
     sheet.dataset.vestaWelcome = '';
     document.head.append(sheet);
   }
@@ -72,8 +92,8 @@ export function build(world) {
   element.setAttribute('aria-label', 'Welcome to VESTA');
   const brand = node('p', 'vesta-welcome-brand', 'VESTA');
   const intro = node('p', 'vesta-welcome-intro');
-  intro.append(world.cite('NASA microgravity fire evidence', 'investigation-counts'), ', compared with your mission cabin.');
-  const title = node('h2', 'vesta-welcome-title', 'Which NASA evidence applies to this cabin?');
+  intro.append(world.cite('NASA microgravity fire evidence', 'investigation-counts'), ' vs. your mission cabin');
+  const title = node('h2', 'vesta-welcome-title');
   const label = node('label', 'vesta-welcome-destination');
   label.append(node('span', 'vesta-welcome-label', 'Mission cabin'));
   const select = node('select', 'vesta-welcome-select');
@@ -101,8 +121,10 @@ export function build(world) {
   live.setAttribute('aria-atomic', 'true');
   const conditions = node('p', 'vesta-welcome-conditions');
   const coverage = node('p', 'vesta-welcome-coverage');
-  const meaning = node('p', 'vesta-welcome-meaning', "Coverage in VESTA's collection, not safety.");
-  live.append(conditions, meaning);
+  const meaning = node('p', 'vesta-welcome-meaning', 'Coverage in this collection, not a safety rating.');
+  live.append(title, coverage, meaning);
+  const source = node('div', 'vesta-welcome-source');
+  const sourceLabel = node('p', 'vesta-welcome-label'), sourceRow = node('p', 'vesta-welcome-source-row'), sourceConditions = node('p', 'vesta-welcome-source-conditions');
   const questionControls = node('div', 'vesta-welcome-question-controls');
   const materialSelect = node('select', 'vesta-welcome-select'), concernSelect = node('select', 'vesta-welcome-select');
   for (const [control, text] of [[materialSelect, 'Material'], [concernSelect, 'Question']]) {
@@ -115,8 +137,7 @@ export function build(world) {
   const questionEdit = node('details', 'vesta-welcome-edit'); questionEdit.append(node('summary', '', 'Change material or question'), questionControls);
   const review = node('button', 'vesta-welcome-review', 'Review this question'); review.type = 'button';
   review.dataset.welcomeReview = '';
-  const outcome = node('p', 'vesta-welcome-output', 'Read the source. Compare its conditions. Save a review note.');
-  const coverageDetails = node('details', 'vesta-welcome-collection'); coverageDetails.append(node('summary', '', 'Whole-cabin coverage'), coverage);
+  source.append(selectedQuestion, sourceLabel, sourceRow, sourceConditions);
   // Keep this a direct child: the existing gravity walkthrough inserts its launcher before it.
   const nav = node('details', 'vesta-welcome-nav');
   nav.setAttribute('aria-label', 'Explore VESTA stations');
@@ -134,7 +155,7 @@ export function build(world) {
     }, { signal: controller.signal });
     nav.append(link);
   }
-  element.append(brand, title, intro, label, live, selectedQuestion, review, outcome, questionEdit, coverageDetails, nav);
+  element.append(brand, intro, live, label, conditions, source, review, questionEdit, nav);
   let current, disposed = false;
   function update(q = world.q) {
     if (disposed) return;
@@ -150,16 +171,21 @@ export function build(world) {
     const summary = cabinSummary(q, world.db, world.core);
     conditions.replaceChildren();
     coverage.replaceChildren();
-    if (summary) {
+    const lead = finding(summary);
+    if (lead) {
       conditions.append(world.cite(summary.conditions, preset?.id || 'design-coverage'));
-      const { PROVEN: near, EXTRAPOLATED: extrapolated, NEVER_TESTED: absent } = summary.counts;
-      coverage.append(world.cite(`${summary.total} questions: ${near} NEARBY EVIDENCE · ${extrapolated} OTHER CONDITIONS · ${absent} NO SOURCE FOUND`, 'design-coverage'));
+      title.textContent = lead.lead;
+      coverage.append(world.cite(lead.rest, 'design-coverage'));
     } else {
-      conditions.textContent = available.length ? 'Coverage unavailable for this cabin.' : 'Cabin evidence unavailable.';
+      title.textContent = available.length ? 'Coverage unavailable for this cabin.' : 'Cabin evidence unavailable.';
     }
-    coverage.hidden = !summary;
-    coverageDetails.hidden = !summary;
-    meaning.hidden = !summary;
+    conditions.hidden = coverage.hidden = meaning.hidden = !lead;
+    const row = nearestSource(q, world.db, world.core);
+    sourceRow.replaceChildren();
+    sourceLabel.textContent = row ? (row.nearby ? 'Nearest NASA source row · nearby conditions' : 'Nearest NASA source row · other conditions') : 'No source row for this question in this collection.';
+    if (row) sourceRow.append(world.cite(row.name, row.id));
+    sourceConditions.textContent = row ? row.conditions : '';
+    sourceRow.hidden = sourceConditions.hidden = !row;
   }
   const changeQuestion = () => {
     const patch = { material: materialSelect.value, concern: concernSelect.value };

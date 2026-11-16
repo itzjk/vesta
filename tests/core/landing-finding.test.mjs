@@ -21,7 +21,7 @@ test('the static landing finding states exactly what the loaded collection compu
 test('the four landing counts and the example row match the data', () => {
   const tests = raw.tests.tests, findings = raw.findings.findings;
   for (const [n, label] of [[db.investigations.length, 'NASA PSI investigations'], [tests.length.toLocaleString('en-US'), 'source-table rows'],
-    [findings.length, 'quote-checked findings'], [cells.length, 'material-and-concern questions']])
+    [findings.length, 'findings from NASA sources'], [cells.length, 'material-and-concern questions']])
     assert.ok(html.includes(`<li><b>${n}</b>${label}</li>`), `${n} ${label}`);
   const row = db.testById['PSI-25:1'];
   assert.deepEqual([row.investigation, row.fuel, row.o2_percent, row.pressure_kpa, row.gravity], ['BASS-II', 'PMMA', 22.2, null, 'microgravity']);

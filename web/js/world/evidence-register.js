@@ -3,6 +3,7 @@ import * as text from '../core/text.js';
 import { browseEvidence, collectionAvailability, registerQuery } from '../core/evidence-browser.js?v=habitat-20261115-1';
 import { cite as sourceCitation } from './cite.js?v=habitat-20261115-1';
 import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=habitat-20261115-1';
+import { rowSourceLink } from '../core/source-locator.js?v=habitat-20261115-1';
 
 const node = (tag, value, cls) => {
   const el = document.createElement(tag); if (value != null) el.textContent = value; if (cls) el.className = cls; return el;
@@ -129,7 +130,11 @@ export function buildEvidenceRegister(world) {
       const r = entry.record; cite(heading, `${r.id} · ${r.investigation || r.psi_id} · ${r.fuel || 'material not reported'}`, r.id);
       el.append(heading, node('p', `psi-table · ${(r.row_kind || 'unreported row kind').replaceAll('_', ' ')} · ${entry.status === 'NOT_COUNTED' ? 'Not in counting index' : entry.status === 'PROVEN' ? 'Conditions within tolerance' : 'Conditions differ or are incomplete'}`, 'register-badge'));
       const panel = renderMatchPanel(r, q, db), strip = panel.querySelector('.matchpanel-strip'); if (strip) el.append(strip);
-      el.append(detail('Compared values & exclusions', panel), node('p', `${r.table_file} · record ${r.row}. These condition checks do not establish material-and-concern coverage by themselves.`, 'register-note'));
+      const source = rowSourceLink(r, db.invById?.[r.psi_id]), origin = node('p', null, 'register-note'); origin.dataset.rowSource = source.status;
+      if (source.url) { const a = node('a', `${source.label} ↗`); a.href = source.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; origin.append(a); }
+      else origin.append(source.label);
+      origin.append(` · ${source.locator}`);
+      el.append(detail('Compared values & exclusions', panel), origin, node('p', 'These condition checks do not establish material-and-concern coverage by themselves.', 'register-note'));
     }
     return el;
   }

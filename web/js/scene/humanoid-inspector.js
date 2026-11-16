@@ -17,11 +17,12 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   const geometries = new Set(), materials = new Set(), roundedCache = new Map();
   const geometry = value => { geometries.add(value); return value; };
   const material = (color, extra = {}) => { const m = new T.MeshStandardMaterial({ color, roughness: .48, metalness: .28, ...extra }); materials.add(m); return m; };
-  const shell = material(0xd0cec2, { roughness: .57, metalness: .14 });
+  const shell = material(0xd6d4cb, { roughness: .82, metalness: .03 });
+  const rubber = material(0x14181a, { roughness: .94, metalness: 0 });
   const graphite = material(0x222a2e, { roughness: .58, metalness: .38 });
   const titanium = material(0x8a9699, { roughness: .31, metalness: .72 });
   const copper = material(0xa56f4c, { roughness: .44, metalness: .58 });
-  const glass = material(0x15262f, { roughness: .28, metalness: .24 });
+  const glass = material(0x0c161c, { roughness: .1, metalness: .55 });
   const signal = material(0xc2a46e, { emissive: 0xc79242, emissiveIntensity: .24, roughness: .3 });
   const optics = material(0x7eabb7, { emissive: 0x6e9aa9, emissiveIntensity: .13, roughness: .2, metalness: .3 });
   const contactMaterial = new T.MeshBasicMaterial({ color: 0x080b0c, transparent: true, opacity: .29, depthWrite: false }); materials.add(contactMaterial);
@@ -56,11 +57,18 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     if (axle === 'x') m.rotation.z = Math.PI / 2; if (axle === 'z') m.rotation.x = Math.PI / 2; return m;
   };
   function hinge(parent, radius, width) {
-    cylinder(parent, graphite, radius, width, [0, 0, 0], 'x');
-    for (const side of [-1, 1]) {
-      cylinder(parent, titanium, radius * .77, .012, [side * (width / 2 + .006), 0, 0], 'x');
-      cylinder(parent, copper, radius * .32, .014, [side * (width / 2 + .014), 0, 0], 'x');
+    cylinder(parent, rubber, radius, width, [0, 0, 0], 'x');
+    for (const side of [-1, 1]) cylinder(parent, titanium, radius * .74, .012, [side * (width / 2 + .006), 0, 0], 'x');
+  }
+  // Ribbed dark sleeve that reads as a flexible joint cover between rigid shells.
+  // One shared profile per rib count; purely visual, it carries no joint.
+  const bellowsCache = new Map();
+  function bellows(parent, radius, length, xyz, ribs = 4, depth = 1) {
+    if (!bellowsCache.has(ribs)) {
+      const profile = []; for (let i = 0; i <= ribs * 2; i++) profile.push(new T.Vector2(i % 2 ? 1 : .86, -.5 + i / (ribs * 2)));
+      bellowsCache.set(ribs, geometry(new T.LatheGeometry(profile, 10)));
     }
+    return mesh(parent, bellowsCache.get(ribs), rubber, [radius, length, radius * depth], ...xyz);
   }
   function cable(parent, points, radius = .011) {
     const curve = new T.CatmullRomCurve3(points.map(p => new T.Vector3(...p)));
@@ -83,8 +91,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     const plate = panel(pelvis, shell, [.19, .18, .075], [side * .115, .015, .15], .035); plate.rotation.z = side * -.14;
     panel(pelvis, copper, [.018, .09, .015], [side * .21, .045, .09], .006);
   }
-  cylinder(group, graphite, .18, .13, [0, 1.57, 0]);
-  for (const y of [1.525, 1.565, 1.605]) cylinder(group, titanium, .183, .014, [0, y, 0]);
+  bellows(group, .20, .17, [0, 1.57, 0], 5, .78).name = 'waist-bellows';
   const torso = pivot(group, 'articulated-torso', 0, 1.60);
   taperedShell(torso, graphite, .70, .34, .23, [0, .32, 0], .60); chestPlate(-1); chestPlate(1);
   // Industrial shell overlays stay inside the existing shoulder/hand envelope.
@@ -110,18 +117,17 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     cable(torso, [[side * .17, .52, -.27], [side * .30, .67, -.22], [side * .42, .64, -.06]], .014);
   }
   const neck = pivot(torso, 'articulated-head', 0, .745);
-  cylinder(neck, graphite, .072, .10, [0, .012, 0]); cylinder(neck, titanium, .078, .022, [0, .045, 0]);
+  bellows(neck, .074, .12, [0, .012, 0], 3); cylinder(neck, titanium, .078, .018, [0, .062, 0]);
   ellipsoid(neck, shell, [.168, .205, .161], [0, .245, -.003]);
   // Cheek and jaw surfaces clarify the adult head silhouette without changing
   // the articulated head frame, eye line, shoulder reach or any grip endpoint.
   for (const side of [-1, 1]) {
-    const cheek = panel(neck, shell, [.044, .09, .065], [side * .12, .165, .12], .016);
+    const cheek = panel(neck, shell, [.044, .08, .065], [side * .118, .145, .118], .016);
     cheek.rotation.z = side * -.20;
   }
   panel(neck, shell, [.17, .065, .065], [0, .115, .11], .023, 'lower-face-shell');
-  panel(neck, glass, [.289, .108, .05], [0, .242, .141], .035, 'sensor-visor');
-  panel(neck, graphite, [.30, .014, .026], [0, .306, .138], .006);
-  panel(neck, graphite, [.10, .025, .024], [0, .13, .142], .008);
+  // One dark wrap-around band that follows the head shell instead of a flat bar.
+  mesh(neck, geometry(new T.SphereGeometry(1, 14, 5, Math.PI / 2 - 1.2, 2.4, 1.13, .78)), glass, [.174, .211, .168], 0, .245, -.003, 'sensor-visor');
   panel(neck, optics, [.046, .012, .009], [.065, .242, .17], .004);
   cylinder(neck, titanium, .020, .012, [-.09, .242, .17], 'z'); cylinder(neck, glass, .013, .014, [-.09, .242, .177], 'z');
   panel(neck, signal, [.011, .011, .009], [-.116, .242, .178], .003);
@@ -138,15 +144,15 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
       const x = (i - 1.5) * .034, length = [.075, .086, .081, .065][i];
       const base = pivot(wrist, `${side > 0 ? 'right' : 'left'}-finger-${i + 1}`, x, -.125, 0); base.rotation.z = (i - 1.5) * -.055;
       mesh(wrist, smallSphere, graphite, [.019, .022, .023], x, -.118, 0);
-      mesh(base, capsuleGeometry, titanium, [.013, length / 3, .014], 0, -length / 2, 0);
+      mesh(base, capsuleGeometry, shell, [.0155, length / 3, .018], 0, -length / 2, 0);
       const tip = pivot(base, 'distal-finger-joint', 0, -length, 0);
-      mesh(tip, capsuleGeometry, titanium, [.012, length * .68 / 3, .013], 0, -length * .34, 0);
+      mesh(tip, capsuleGeometry, graphite, [.0145, length * .68 / 3, .0165], 0, -length * .34, 0);
       fingers.push({ base, tip, side, spread: base.rotation.z, thumb: false });
     }
     const thumb = pivot(wrist, `${side > 0 ? 'right' : 'left'}-thumb`, side * -.077, -.033, 0);
-    mesh(thumb, capsuleGeometry, titanium, [.018, .067 / 3, .018], 0, -.0335);
+    mesh(thumb, capsuleGeometry, shell, [.021, .067 / 3, .021], 0, -.0335);
     const thumbTip = pivot(thumb, 'distal-thumb-joint', 0, -.067, 0);
-    mesh(thumbTip, capsuleGeometry, titanium, [.016, .050 / 3, .016], 0, -.025);
+    mesh(thumbTip, capsuleGeometry, graphite, [.019, .050 / 3, .019], 0, -.025);
     fingers.push({ base: thumb, tip: thumbTip, side, spread: side * -.60, thumb: true });
     if (side > 0) {
       panel(wrist, graphite, [.095, .082, .055], [0, -.07, .072], .020, 'wrist-inspection-camera');
@@ -163,15 +169,16 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   function arm(side) {
     const shoulder = pivot(torso, side > 0 ? 'right-shoulder' : 'left-shoulder', side * .425, .63, 0);
     hinge(shoulder, .118, .19);
-    // Broad cap with a flatter machined crown instead of a spherical ball.
-    panel(shoulder, shell, [.255, .205, .265], [side * .025, .035, .007], .048);
-    panel(shoulder, graphite, [.012, .115, .18], [side * .155, .035, .007], .004);
-    cylinder(shoulder, titanium, .014, .007, [side * .164, .035, .007], 'x');
-    panel(shoulder, copper, [.024, .07, .10], [side * .151, .025, .018], .01);
-    taperedShell(shoulder, shell, .37, .108, .086, [0, -.25, 0], .88); panel(shoulder, graphite, [.034, .25, .02], [0, -.25, -.071], .007);
+    // Rounded cap over the joint, a dark sleeve, then a separate upper-arm shell,
+    // so the shoulder reads as three zones instead of one block.
+    ellipsoid(shoulder, shell, [.142, .116, .148], [side * .022, .04, .004]);
+    bellows(shoulder, .09, .11, [0, -.10, 0]);
+    taperedShell(shoulder, shell, .30, .104, .084, [0, -.285, 0], .88); panel(shoulder, graphite, [.034, .21, .02], [0, -.29, -.069], .007);
     const elbow = pivot(shoulder, side > 0 ? 'right-elbow' : 'left-elbow', 0, -.48);
-    hinge(elbow, .080, .16); taperedShell(elbow, shell, .34, .087, .058, [0, -.235, .004]);
-    panel(elbow, graphite, [.055, .22, .021], [0, -.22, -.064], .008); cylinder(elbow, copper, .065, .020, [0, -.383, 0]);
+    // Forearm is fuller below the elbow and ends in a cuff over a wrist sleeve.
+    hinge(elbow, .080, .16); taperedShell(elbow, shell, .30, .093, .064, [0, -.215, .004]);
+    panel(elbow, graphite, [.05, .19, .021], [0, -.21, -.068], .008); cylinder(elbow, shell, .073, .028, [0, -.35, .004]);
+    bellows(elbow, .058, .075, [0, -.40, 0], 3);
     const wrist = pivot(elbow, side > 0 ? 'right-wrist' : 'left-wrist', 0, -.43); hand(wrist, side); return { shoulder, elbow, wrist };
   }
   const leftArm = arm(-1), rightArm = arm(1);
@@ -190,6 +197,8 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     panel(ankle, shell, [.18, .075, .24], [0, -.008, .15], .032, 'toe-shell');
     panel(ankle, shell, [.15, .095, .14], [0, .006, -.035], .028, 'heel-shell');
     panel(ankle, graphite, [.185, .018, .014], [0, -.012, .13], .005);
+    bellows(ankle, .066, .10, [0, .05, 0], 3);
+    panel(ankle, shell, [.15, .05, .13], [0, .02, .055], .02, 'instep-shell').rotation.x = .45;
     const contact = mesh(group, contactGeometry, contactMaterial, [.145, .27, 1], side * .17, .002, .085, 'foot-contact');
     contact.rotation.x = -Math.PI / 2; contact.userData.keepMesh = true; return { hip, knee, ankle, contact };
   }
@@ -237,6 +246,31 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
   const kitWorldQ = new T.Quaternion(), kitParentQ = new T.Quaternion(), kitInverseQ = new T.Quaternion();
   const kitDesiredQ = new T.Quaternion(), kitNeutralQ = new T.Quaternion(), kitIdentityQ = new T.Quaternion();
   let kitActive = false, kitPhase = null, kitStartYaw = .18, kitExitElapsed = null;
+  // Task-serving secondary motion, all a pure function of stage progress so a
+  // still frame and a replay agree. It is presentation: no load, balance or
+  // perception is modelled, and the grip is re-solved after the torso moves.
+  const gazeLocal = new T.Vector3();
+  function kitLean(stage, p, out) {
+    let pitch = 0, roll = 0;
+    if (stage === 'retrieve') pitch = .07 * ease(p);
+    else if (stage === 'carry') { const lifted = ease(p / .18); pitch = .07 * (1 - lifted); roll = -.03 * lifted; }
+    else if (stage === 'place') { pitch = .06 * ease(p); roll = -.03 * (1 - ease(p)); }
+    else if (stage === 'handoff') {
+      // Straighten after release, with one small damped rebound, then stay still.
+      const s = clamp(p / .5); pitch = .06 * (1 - ease(p / .38)) - .018 * Math.sin(Math.PI * 2 * s) * (1 - s) ** 2;
+    }
+    out.pitch = pitch; out.roll = roll; return out;
+  }
+  function lookToward(point, weight) {
+    if (weight <= 0) return;
+    gazeLocal.copy(point); group.parent?.localToWorld(gazeLocal); torso.worldToLocal(gazeLocal); gazeLocal.sub(neck.position);
+    const yaw = Math.atan2(gazeLocal.x, gazeLocal.z), pitch = -Math.atan2(gazeLocal.y - .24, Math.hypot(gazeLocal.x, gazeLocal.z));
+    // Partial, bounded turn; fades out as the point passes behind the shoulders,
+    // so the head never snaps across. Weights of two points may be added.
+    const w = Math.min(1, weight) * (1 - ease((Math.abs(yaw) - 1.0) / .9));
+    neck.rotation.x += clamp(pitch * .6, -.30, .30) * w; neck.rotation.y += clamp(yaw, -.70, .70) * w;
+  }
+  const lean = { pitch: 0, roll: 0 };
   // Adopt the bay's dock once when this scene is initialized; subsequent returns
   // walk to it. This changes placement, never approval or the task's data work.
   let dockYaw = .18, dockPlaced = false;
@@ -519,6 +553,7 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
       group.position.copy(kitDestination); group.rotation.y = destinationYaw;
     }
     baseKitPose(walking, walkProgress, walkDistance);
+    kitLean(stage, progress, lean); torso.rotation.x += lean.pitch; torso.rotation.z += lean.roll;
     applyKitFeet(stage, progress, sourceYaw, destinationYaw, still);
     let closed = 0;
     if (stage !== 'approach') {
@@ -544,8 +579,12 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
         if (stage === 'complete') closed = 0;
       }
       poseLeftGrip(requestedGrip, kitDesiredQ);
-      neck.rotation.x = -.12; neck.rotation.y = -.18;
     }
+    // Eyes on the kit while reaching and lifting, then on the console it is going to.
+    if (stage === 'approach') lookToward(pickupHandle, ease((progress - .35) / .5));
+    else if (stage === 'retrieve') lookToward(pickupHandle, 1);
+    else if (stage === 'carry') { lookToward(requestedGrip, 1 - ease(progress / .14)); lookToward(fixtureHandle, ease((progress - .22) / .3)); }
+    else lookToward(fixtureHandle, 1);
     for (const finger of fingers) {
       const curl = finger.side < 0 ? .12 + closed * .72 : .82;
       finger.base.rotation.set(finger.thumb ? .16 + closed * .08 : curl, finger.thumb ? finger.side * -.30 : 0, finger.spread);
@@ -602,6 +641,11 @@ export function createHumanoidInspector({ THREE: T, groundY = -1.43 } = {}) {
     leftArm.shoulder.rotation.set(.04 + stride, 0, -.07); rightArm.shoulder.rotation.set(.04 - stride, 0, .07);
     leftArm.elbow.rotation.set(-.12, 0, 0); rightArm.elbow.rotation.set(-.12, 0, 0);
     leftArm.wrist.rotation.set(0, 0, -.05); rightArm.wrist.rotation.set(0, 0, .05);
+    // Slow breathing-like sway only while standing by; none in a still frame or at work.
+    if (!still && !showingWork) {
+      const breath = Math.sin(age * 1.2);
+      torso.rotation.x += .007 * breath; leftArm.shoulder.rotation.z -= .008 * breath; rightArm.shoulder.rotation.z += .008 * breath;
+    }
     const reach = showingWork ? (still || reviewPose&&phase==='complete'&&distance<.05 ? 1 : ease((age - 3.25) / .90)) : 0;
     if (phase === 'review') { leftArm.shoulder.rotation.x = -.28; leftArm.elbow.rotation.x = -1.02; leftArm.wrist.rotation.set(-.10, -.25, -.18); neck.rotation.y = -.15; }
     if (reach) { rightArm.shoulder.rotation.set(.04 - reach * .88, -reach * .12, .07 - reach * .14); rightArm.elbow.rotation.x = -.12 - reach * .76; leftArm.elbow.rotation.x = -.12 - reach * .15; torso.rotation.y = reach * .045; }

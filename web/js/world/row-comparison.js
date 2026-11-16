@@ -1,4 +1,5 @@
 import { buildRowComparison } from '../core/row-comparison.js?v=review-workbench-20261115-1';
+import { rowSourceLink } from '../core/source-locator.js?v=habitat-20261115-1';
 
 const node = (tag, text, className = '') => {
   const element = document.createElement(tag);
@@ -62,9 +63,10 @@ export function createRowComparison({ db, onOpen } = {}) {
       const open = node('button', `Inspect ${source.id}`); open.type = 'button'; open.dataset.compareOpen = source.id; open.disabled = typeof onOpen !== 'function'; actions.append(open);
       const record = node('section'); record.append(node('h4', `${source.id}${source.label ? ` · ${source.label}` : ''}`));
       record.append(node('p', `${source.investigation} · ${source.date || 'date not reported'} · ${source.row_kind?.replaceAll('_', ' ') || 'row kind not stated'}`, 'row-comparison-note'));
-      if (source.source_url) record.append(link('NASA source', source.source_url));
+      const origin = rowSourceLink({ psi_url: source.source_url, table_file: source.table, row: source.row });
+      record.append(origin.url ? link(`${origin.label} ↗`, origin.url) : node('p', origin.label, 'row-comparison-note'));
+      record.append(node('p', origin.locator, 'row-comparison-note'));
       if (source.pressure_inference_url) record.append(link('Pressure assumption source', source.pressure_inference_url));
-      record.append(node('p', `${source.table || 'Table unavailable'} · source row ${source.row ?? 'unavailable'}`, 'row-comparison-note'));
       sources.append(record);
     }
     body.append(actions, node('h4', 'Fields used by cabin matching'));

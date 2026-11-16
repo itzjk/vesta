@@ -8,11 +8,11 @@ import { createHolograms } from './holo.js?v=habitat-20261115-1';
 import { buildHash } from '../router.js';
 import { createGuide } from './guide.js?v=question-lab-20261115-3';
 import { createVideoCases } from './cases.js?v=flex-review-20261115-1';
-import { build as buildWelcome } from './welcome.js?v=question-lab-20261115-3';
+import { build as buildWelcome } from './welcome.js?v=welcome-finding-20261115-1';
 import { createMissionBrief, STATION_AGENTS } from './mission.js?v=crew-workspace-20261115-1';
 
 if (typeof document !== 'undefined' && !document.querySelector('link[data-vesta-welcome]')) {
-  const sheet = document.createElement('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/welcome.css?v=question-lab-20261115-3', import.meta.url).href; sheet.dataset.vestaWelcome = ''; document.head.append(sheet);
+  const sheet = document.createElement('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/welcome.css?v=welcome-finding-20261115-1', import.meta.url).href; sheet.dataset.vestaWelcome = ''; document.head.append(sheet);
 }
 
 export const STATIONS = [

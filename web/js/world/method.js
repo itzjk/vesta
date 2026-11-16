@@ -1,6 +1,8 @@
 import { TOL } from '../core/match.js';
 import { W, SPAN, PARTIAL_SUPPORT } from '../core/rank.js';
 import { status, statusMeaning, TERM_LABEL, SCORE_LABEL, CHOICES } from '../core/text.js';
+import { sensitivityView } from '../core/tolerance-sensitivity.js';
+import { getDb } from '../store.js';
 
 const node = (tag, text, className) => {
   const element = document.createElement(tag);
@@ -28,7 +30,25 @@ export function ensureStyles() {
   return link;
 }
 
-export function renderMethod({ action, onTopic }) {
+// Recount of nearby evidence under other tolerances. Display only: no label, receipt or export reads it.
+export function renderSensitivity(db) {
+  if (!db?.presets?.length) return null;
+  const view = sensitivityView(db), details = node('details', null, 'method-detail');
+  const scroll = node('div'), table = node('table', null, 'method-weights'), head = node('thead'), header = node('tr'), body = node('tbody');
+  scroll.style.overflowX = 'auto'; table.style.maxWidth = 'none'; table.style.minWidth = '620px'; table.style.tableLayout = 'auto';
+  table.append(node('caption', view.caption));
+  for (const label of view.columns) { const th = node('th', label); th.scope = 'col'; header.append(th); }
+  for (const item of view.rows) {
+    const row = node('tr'), name = node('th', item.label); name.scope = 'row'; row.append(name);
+    for (const value of item.cells) { const td = node('td', value); td.style.textAlign = 'right'; row.append(td); }
+    body.append(row);
+  }
+  head.append(header); table.append(head, body); scroll.append(table);
+  details.append(node('summary', view.summary), scroll, ...view.notes.map((text, i) => node('p', text, i ? 'method-limit' : null)));
+  return details;
+}
+
+export function renderMethod({ action, onTopic, db = getDb() }) {
   ensureStyles();
   const section = node('section', null, 'vesta-method');
   section.setAttribute('aria-label', 'Matching method and limits');
@@ -48,6 +68,8 @@ export function renderMethod({ action, onTopic }) {
   }
   coverage.append(labels, node('p', 'An absent source means VESTA found no row or verified finding for that material and concern in this collection. It does not establish that the question has never been tested elsewhere.'), node('p', 'Finding labels check experimental evidence type and reported conditions; material relevance is shown separately.'));
   section.append(coverage);
+  const sensitivity = renderSensitivity(db);
+  if (sensitivity) section.append(sensitivity);
 
   const ranking = node('details', null, 'method-detail');
   ranking.open = true; // the weights are what a technical reader looks for first: shown without a click

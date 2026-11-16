@@ -1,6 +1,7 @@
 import { reviewToMarkdown, reviewToCsv } from '../core/inventory-review.js?v=pressure-basis-20261115-1';
 import { createRowComparison } from './row-comparison.js?v=review-workbench-20261115-1';
 import { pressureDependence } from '../core/assumption-audit.js';
+import { rowSourceLink } from '../core/source-locator.js?v=habitat-20261115-1';
 
 const node = (tag, text, className = '') => {
   const element = document.createElement(tag);
@@ -163,7 +164,10 @@ export function createInventoryReviewPanel({ db, onRun, onCancel, onReset, onEvi
             block.append(node('h4', `Finding ${source.id}`), node('p', source.claim || source.quote || 'No excerpt supplied'));
             appendValue(block, 'Relevance', `${source.relevance} under VESTA weights; not probability`);
           }
-          const original = sourceAnchor('Open original source', source.source_url); if (original) block.append(original);
+          if (kind === 'row') {
+            const origin = rowSourceLink({ psi_url: source.source_url, psi_id: source.investigation_id, table_file: source.table_file, row: source.row });
+            block.append(origin.url ? sourceAnchor(`${origin.label} ↗`, origin.url) : node('p', origin.label, 'inventory-small'));
+          } else { const original = sourceAnchor('Open original source', source.source_url); if (original) block.append(original); }
           view.sourceBody.append(block);
         }
         const comparison = q.comparisons.find(c => c.kind === kind && c.id === source.id);

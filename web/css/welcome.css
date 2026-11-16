@@ -66,3 +66,20 @@
   .vesta-welcome .vesta-welcome-result{margin:10px 0 12px}
   .vesta-welcome .vesta-welcome-link{grid-template-columns:76px minmax(0,1fr);gap:8px}
 }
+/* Finding-first panel: the computed coverage sentence leads, then one source row for the selected question. */
+.vesta-welcome .vesta-welcome-intro,.world-host[data-station=transit] .world-welcome .vesta-welcome-intro{font:400 12px/1.35 var(--mono);color:var(--ivory-dim);max-width:none;margin-bottom:6px}
+.vesta-welcome .vesta-welcome-title,.world-host[data-station=transit] .world-welcome .vesta-welcome-title{font-size:24px;line-height:1.15;max-width:none;margin-bottom:6px}
+.vesta-welcome .vesta-welcome-result,.world-host[data-station=transit] .world-welcome .vesta-welcome-result{margin:0 0 10px}
+.vesta-welcome .vesta-welcome-coverage{font-size:14px;line-height:1.35;max-width:none;margin:0 0 2px}
+.vesta-welcome .vesta-welcome-meaning{font-size:13px;line-height:1.35;max-width:none}
+.vesta-welcome .vesta-welcome-destination .vesta-welcome-label{font-size:12px;margin-bottom:4px}
+.vesta-welcome .vesta-welcome-destination .vesta-welcome-select{min-height:44px;font-size:16px}
+.vesta-welcome .vesta-welcome-conditions{font-size:14px;line-height:1.35;margin:4px 0 0}
+.vesta-welcome .vesta-welcome-source{border-top:1px solid var(--line);margin:8px 0;padding-top:8px}
+.vesta-welcome .vesta-welcome-source .vesta-welcome-question{font-size:15px;line-height:1.4;margin:0}
+.vesta-welcome .vesta-welcome-source .vesta-welcome-label{font-size:12px;line-height:1.35;margin:0}
+.vesta-welcome .vesta-welcome-source-row{font-size:15px;line-height:1.4;font-weight:600}
+.vesta-welcome .vesta-welcome-source-conditions{font-size:14px;line-height:1.35;color:var(--ivory-dim)}
+.vesta-welcome :is(.vesta-welcome-nav,.vesta-welcome-edit)>summary{min-height:36px;padding:7px 0}
+.vesta-welcome.vesta-welcome>.question-launch{margin-top:8px}
+.world-host[data-station=transit] .world-welcome{padding:14px 16px}

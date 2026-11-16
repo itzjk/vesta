@@ -77,3 +77,40 @@ export function sourceLocatorModel(manifest, finding, quoteSha256) {
     links: links.filter((link, index) => links.findIndex(other => other.url === link.url) === index),
     source_text_file: record.source_text_file, source_sha256: record.source_sha256, source_commit: manifest.source_commit };
 }
+
+// ---- Source-table rows: the NASA PSI investigation page, with table file and row number as the exact locator.
+export const ROW_LINK_MISSING = 'NASA link not recorded';
+export const ROW_LINK_LABEL = 'Open NASA PSI record';
+/** Returns the recorded string unchanged when it is an https NASA address, otherwise null. Never builds a URL. */
+export function nasaUrl(value) {
+  if (typeof value !== 'string' || value !== value.trim()) return null;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && !url.username && !url.password && !url.port
+      && /(^|\.)nasa\.gov$/.test(url.hostname) ? value : null;
+  } catch { return null; }
+}
+/**
+ * The link opens the investigation page, not the row itself: a row's own psi_url wins, otherwise the URL
+ * recorded on its investigation. The table file and row number locate the row inside that record.
+ */
+export function rowSourceLink(row, investigation) {
+  const own = nasaUrl(row?.psi_url), url = own || nasaUrl(investigation?.psi_url);
+  const table = typeof row?.table_file === 'string' && row.table_file.trim() ? row.table_file : null;
+  const number = Number.isSafeInteger(row?.row) ? row.row : null;
+  return { status: url ? 'linked' : 'not_recorded', url, via: own ? 'row' : url ? 'investigation' : null,
+    label: url ? ROW_LINK_LABEL : ROW_LINK_MISSING,
+    investigation_id: row?.psi_id ?? investigation?.psi_id ?? null, table_file: table, row: number,
+    locator: `${table ?? 'Table file not recorded'} · row ${number ?? 'not recorded'}` };
+}
+/** How many rows carry their own link, and how many resolve once the investigation record is consulted. */
+export function rowLinkCoverage(rows, investigationById) {
+  const out = { rows: 0, own: 0, resolved: 0, not_recorded: 0, without_locator: 0 };
+  for (const row of rows ?? []) {
+    const link = rowSourceLink(row, investigationById?.[row?.psi_id]);
+    out.rows++; if (link.via === 'row') out.own++;
+    if (link.url) out.resolved++; else out.not_recorded++;
+    if (link.table_file == null || link.row == null) out.without_locator++;
+  }
+  return out;
+}

@@ -21,11 +21,12 @@ export function questionSummary(cell, db, { material = cell.material, concern = 
     next: 'Ask for an attributable source before drawing any conclusion.' });
   if (cell.status === 'PROVEN') {
     const d = pressureDependence(cell, db);
-    const basis = d.state === 'all_inferred' ? `In all of them the pressure is assumed from the facility, not reported in the row.`
-      : d.state === 'all_reported' ? 'All of them report pressure in the row.'
-      : `${d.reported} report pressure in the row; ${d.inferred} rely on an assumed facility pressure.`;
+    const one = d.nearby === 1;
+    const basis = d.state === 'all_inferred' ? `${one ? 'Its pressure' : 'In all of them the pressure'} is assumed from the facility, not reported in the row.`
+      : d.state === 'all_reported' ? (one ? 'It reports pressure in the row.' : 'All of them report pressure in the row.')
+      : `${d.reported} report pressure in the row; ${d.inferred} rely on an assumed facility pressure${d.unknown ? `; ${d.unknown} have no pressure basis` : ''}.`;
     return Object.freeze({ title, status: cell.status, answer: `Nearby evidence for ${cabin}.`,
-      lines: Object.freeze([`${plural(d.nearby, 'source-table row')} match gravity class, oxygen and pressure together. Rows are not independent experiments.`,
+      lines: Object.freeze([`${plural(d.nearby, 'source-table row')} ${d.nearby === 1 ? 'matches' : 'match'} gravity class, oxygen and pressure together. Rows are not independent experiments.`,
         basis, NOT_COMPARED]),
       next: d.inferred ? 'Check whether the assumed pressure applies, then review the variables that are not compared.'
         : 'Review the variables that are not compared before using this evidence.' });

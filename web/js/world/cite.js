@@ -2,6 +2,7 @@ import { renderObservationLens } from './observation-lens.js';
 import { el, css } from '../ui/el.js';
 import { getDb, getCore, lookup, loadRawCells } from '../store.js';
 import { sourceLocator } from '../ui/source-locator.js?v=habitat-20261115-1';
+import { rowSourceLink } from '../core/source-locator.js?v=habitat-20261115-1';
 import { renderMatchPanel, renderFindingComparison } from '../ui/matchpanel.js?v=habitat-20261115-1';
 import { scoreFactors } from '../core/evidence-register.js?v=habitat-20261115-1';
 
@@ -73,7 +74,7 @@ function rowContent(row, text, db, session, q) {
     renderObservationLens({ row, db, text, cite }),
     Object.entries(row.outcomes || {}).length ? el('section', el('h3', 'What the table recorded'), el('dl.wc-values',
       Object.entries(row.outcomes).map(([key, value]) => field(key.replace(/_/g, ' '), value?.value == null ? value?.raw ?? absent : `${value.value}${value.unit ? ' ' + value.unit : ''}`)))) : null,
-    sourceLink(inv?.psi_url, 'Open the original PSI record ↗'),
+    rowOrigin(row, inv),
     el('details.wc-identifiers', el('summary', 'Identifiers and original cells'),
       el('dl.wc-values', field('PSI record', row.psi_id), field('Table file', row.table_file), field('Row', row.row), field('Row id', row.id), field('Test label', row.test_label)), raw),
     el('p.wc-scope', text.STATUS_LINE)
@@ -91,6 +92,12 @@ function configContent(record) {
 }
 
 const AGGREGATES = new Set(['design-coverage', 'selected-material-coverage', 'coverage-gravity', 'coverage-o2', 'coverage-pressure', 'map-exclusions', 'investigation-counts']);
+const rowOrigin = (row, inv) => {
+  const origin = rowSourceLink(row, inv);
+  return el('p.wc-scope', { style: { overflowWrap: 'anywhere' }, data: { rowSource: origin.status } },
+    origin.url ? el('a.wc-original', { href: origin.url, target: '_blank', rel: 'noopener noreferrer' }, `${origin.label} ↗`) : origin.label,
+    ` · ${origin.locator}`);
+};
 const fileLink = (href, label) => el('a.wc-original', { href, target: '_blank', rel: 'noopener' }, label);
 
 function investigationContent(record, text, db) {

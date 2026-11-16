@@ -21,7 +21,7 @@ import { renderMethod } from './method.js';
 import { renderFindingComparison } from '../ui/matchpanel.js?v=habitat-20261115-1';
 import { createQuestionNote, questionNoteMarkdown, questionNoteMatches, questionNoteKey } from '../core/question-note.js?v=question-lab-20261115-3';
 import { download } from '../ui/download.js';
-import { createOutcomePanel } from './outcome-panel.js?v=flex-review-20261115-1';
+import { createOutcomePanel } from './outcome-panel.js?v=flex-frame-20261115-1';
 
 const node = (tag, text, cls) => {
   const el = document.createElement(tag);
@@ -39,7 +39,7 @@ export function evidenceState(db, core, q, investigation = null) {
 
 export async function build(world) {
   const { THREE: T, db, core } = world;
-  await Promise.all([css('css/coverage.css?v=flex-review-20261115-1'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css?v=habitat-20261115-1'), css('css/evidence-workspace.css?v=habitat-20261115-1'), css('css/outcome-panel.css?v=flex-review-20261115-1')]);
+  await Promise.all([css('css/coverage.css?v=flex-review-20261115-1'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css?v=habitat-20261115-1'), css('css/evidence-workspace.css?v=habitat-20261115-1'), css('css/outcome-panel.css?v=flex-frame-20261115-1')]);
   const dropletEntry = buildObservationModel({ db, investigationId: 'PSI-69' }).points[0] || null;
   let guidedTask = '', guidedLeft = '', guidedRight = '', citationOpen = false;
   let selectedMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';

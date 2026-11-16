@@ -1,4 +1,5 @@
-import { modelRows } from '../core/outcome-model.js?v=flex-review-20261115-1';
+import { modelRows } from '../core/outcome-model.js?v=flex-frame-20261115-1';
+import { FRAME_LABEL, frameSummary, fuelBreakdown } from '../core/outcome-summary.js?v=flex-frame-20261115-1';
 
 // One lazy worker per loaded index, shared by mounted views; no CPU model work
 // runs on the animation thread. Source rows cross the boundary only once.
@@ -7,7 +8,7 @@ function acquireWorker(db) {
   let service = workers.get(db);
   if (service) { service.users++; return service; }
   if (typeof Worker !== 'function') throw new Error('This browser cannot run the background table calculation.');
-  const worker = new Worker(new URL('./outcome-worker.js?v=flex-review-20261115-1', import.meta.url), { type: 'module' });
+  const worker = new Worker(new URL('./outcome-worker.js?v=flex-frame-20261115-1', import.meta.url), { type: 'module' });
   let serial = 0, sentRows = false, closed = false;
   const pending = new Map();
   const fail = message => {
@@ -49,11 +50,14 @@ const readable = value => String(value).replaceAll('_', ' ');
 export function createOutcomePanel({ db, onSource } = {}) {
   if (!db || !Array.isArray(db.tests)) throw new TypeError('The FLEX table view requires loaded source rows.');
   if (!document.querySelector('link[data-vesta-outcome-panel]')) {
-    const sheet = make('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/outcome-panel.css?v=flex-review-20261115-1', import.meta.url).href;
+    const sheet = make('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/outcome-panel.css?v=flex-frame-20261115-1', import.meta.url).href;
     sheet.dataset.vestaOutcomePanel = ''; document.head.append(sheet);
   }
   const element = make('section', null, 'outcome-panel'); element.setAttribute('aria-label', 'FLEX droplet table model');
   const title = make('h3', 'How did similar FLEX droplet tests end?');
+  const frame = make('div', null, 'op-frame'), frameLabel = make('p', FRAME_LABEL, 'op-frame-label'), frameLine = make('p', 'Held-out results load in the background when this view opens.', 'op-frame-line');
+  frameLine.setAttribute('aria-live', 'polite'); frame.append(frameLabel, frameLine);
+  const fuelTable = make('div', null, 'op-fuels'); fuelTable.hidden = true;
   const scope = make('p', 'One NASA table · methanol/heptane droplets · microgravity. Not a cabin-material, lunar-gravity or safety prediction.', 'op-limit');
   const caveat = make('p', 'A same-fuel neighbour vote describes the loaded table. Vote fractions are not calibrated probabilities.', 'op-limit');
   const form = make('form', null, 'op-form'), controls = new Map();
@@ -72,12 +76,12 @@ export function createOutcomePanel({ db, onSource } = {}) {
   const exampleButton = make('button', 'Use recorded input example'); exampleButton.type = 'button';
   const run = make('button', 'Run table estimate'); run.type = 'submit'; run.className = 'op-run';
   const actions = make('div', null, 'op-actions'); actions.append(run, exampleButton); form.append(actions);
-  const status = make('p', 'Choose pre-test inputs, then run. No calculation has started.', 'op-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
+  const status = make('p', 'Choose pre-test inputs, then run the table estimate.', 'op-status'); status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
   const result = make('section', null, 'op-result'); result.hidden = true; result.setAttribute('aria-label', 'Same-table neighbour vote');
   const auditDownload = make('button', 'Download validation report'); auditDownload.type = 'button'; auditDownload.hidden = true;
   const evaluation = make('section', null, 'op-evaluation'); evaluation.hidden = true; evaluation.setAttribute('aria-label', 'Held-out test-day evaluation');
   const method = make('details', null, 'op-method'); method.append(make('summary', 'Method and limits'), make('p', 'Inputs are recorded pre-test oxygen, pressure, carbon dioxide, helium and initial droplet diameter. Only neighbours of the same recorded fuel vote. Post-test measurements are excluded from inputs.'), make('p', 'The separate evaluation holds out whole test days. Scaling and k are chosen from training days only. The majority baseline always answers the most common end state in those training days. This is internal validation on one table, not independent scientific validation or evidence that the model transfers to another experiment.'), make('p', 'Within each same-fuel input range does not mean a tested combination. Unrecorded configuration differences and small classes remain limitations. Do not interpret the vote as a confidence, probability, fire risk or safety verdict.'));
-  element.append(title, scope, caveat, form, example, exampleSource, status, result, evaluation, auditDownload, method);
+  element.append(title, frame, fuelTable, scope, caveat, form, example, exampleSource, status, result, evaluation, auditDownload, method);
   let disposed = false, busy = false, sequence = 0, inputExample = null, workerService = null, latestExport = null;
   const cleanups = [];
   const listen = (node, type, fn) => { node.addEventListener(type, fn); cleanups.push(() => node.removeEventListener(type, fn)); };
@@ -107,6 +111,32 @@ export function createOutcomePanel({ db, onSource } = {}) {
     const anchor = make('a'); anchor.href = url; anchor.download = 'vesta-flex-validation-report.json'; anchor.hidden = true;
     document.body.append(anchor); anchor.click(); anchor.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
   });
+  function showFrame(value) {
+    const summary = frameSummary(value), breakdown = fuelBreakdown(value);
+    frameLabel.textContent = summary.label;
+    frameLine.textContent = summary.sentence || 'No held-out rows could be evaluated in this table.';
+    if (!summary.sentence || !breakdown.fuels.length) { fuelTable.hidden = true; return; }
+    const table = make('table'), head = make('tr'), body = make('tbody');
+    table.append(make('caption', 'Held-out rows by recorded fuel. Baseline: most common end state of the training days.'));
+    ['Fuel', 'Rows', 'Answered', 'Vote right', 'Baseline right, answered rows', 'Baseline right, all rows'].forEach((text, i) => { const cell = make('th', text); cell.scope = 'col'; if (i) cell.className = 'op-num'; head.append(cell); });
+    const thead = make('thead'); thead.append(head);
+    for (const item of [...breakdown.fuels, breakdown.total]) {
+      const row = make('tr'), name = make('th', item.fuel); name.scope = 'row'; row.append(name);
+      for (const text of [item.rows, item.answered, `${item.correct}/${item.answered}`, `${item.answered_baseline_correct}/${item.answered}`, `${item.baseline_correct}/${item.rows}`]) row.append(make('td', String(text), 'op-num'));
+      body.append(row);
+    }
+    table.append(thead, body); fuelTable.replaceChildren(table); fuelTable.hidden = false;
+  }
+  // The held-out evaluation is the same for every query, so it is fetched once, in the worker, when the view is first shown.
+  let framed = false, watcher = null;
+  async function loadFrame() {
+    if (disposed || framed || !usable.length) return; framed = true;
+    try {
+      if (!workerService) workerService = acquireWorker(db);
+      const response = await workerService.run(null);
+      if (!disposed && response.evaluation) showFrame(response.evaluation);
+    } catch { if (!disposed) { framed = false; workerService?.release(); workerService = null; frameLine.textContent = 'Held-out results could not be loaded. Run the table estimate to retry.'; } }
+  }
   function showEvaluation(value) {
     evaluation.replaceChildren(make('h4', 'Separate held-out test-day evaluation'));
     evaluation.append(make('p', `All held-out rows: model ${value.correct}/${value.rows} correct (${percent(value.accuracy)}), majority baseline ${value.baseline_correct}/${value.rows} (${percent(value.baseline_accuracy)}). ${value.beats_baseline ? 'A descriptive result on this table only.' : 'The model does NOT beat the overall majority baseline.'}`, 'op-weakness'),
@@ -154,10 +184,15 @@ export function createOutcomePanel({ db, onSource } = {}) {
       const response = await workerService.run(query);
       if (disposed || id !== sequence) return;
       latestExport = { query, evaluation: response.evaluation, estimate: response.estimate }; auditDownload.hidden = false;
-      showEvaluation(response.evaluation); const answer = response.estimate; showVote(answer, response.evaluation); status.textContent = answer.outcome ? 'Table vote complete. Read the separate held-out results and limits.' : 'No table estimate returned. See the input/domain limit below.';
+      framed = true; showFrame(response.evaluation); showEvaluation(response.evaluation); const answer = response.estimate; showVote(answer, response.evaluation); status.textContent = answer.outcome ? 'Table vote complete. Read the separate held-out results and limits.' : 'No table estimate returned. See the input/domain limit below.';
     } catch (error) { if (!disposed && id === sequence) { workerService?.release(); workerService = null; status.textContent = `The table estimate could not be completed: ${error.message}. You can retry.`; status.setAttribute('role', 'alert'); } }
     finally { if (!disposed && id === sequence) { busy = false; run.disabled = !usable.length; fuel.disabled = false; exampleButton.disabled = !usable.length; for (const input of controls.values()) input.disabled = false; form.setAttribute('aria-busy', 'false'); } }
   });
   run.disabled = !usable.length; exampleButton.disabled = !usable.length; if (usable.length) loadExample();
-  return { element, dispose() { if (disposed) return; disposed = true; sequence++; workerService?.release(); workerService = null; cleanups.splice(0).forEach(remove => remove()); element.remove(); } };
+  if (!usable.length) frameLine.textContent = 'No usable rows are loaded for this table.';
+  else if (typeof IntersectionObserver === 'function') {
+    watcher = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { watcher?.disconnect(); watcher = null; loadFrame(); } });
+    watcher.observe(element);
+  } else frameLine.textContent = 'Held-out results appear after the first run.';
+  return { element, dispose() { if (disposed) return; disposed = true; sequence++; watcher?.disconnect(); watcher = null; workerService?.release(); workerService = null; cleanups.splice(0).forEach(remove => remove()); element.remove(); } };
 }
