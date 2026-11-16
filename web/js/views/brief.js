@@ -115,7 +115,7 @@ function mountDetails(root, ctx) {
   if (why) sub.append(' ', el('span.bf-sub-claim', { data: { claim: why.id } }, 'NASA’s combustion data: ', el('span.quote', cite(why.quote, why.id))));
   const hero = el('header.bf-hero',
     el('div.bf-hero-text',
-      el('h1.bf-tagline', 'The fire officer that doesn’t wait for Houston'),
+      el('h1.bf-tagline', 'NASA fire evidence for your cabin, traced to its source'),
       sub.childNodes.length ? sub : null),
     el('div.bf-drill',
       typeof ui.vesta === 'function' ? ui.vesta('point', { size: 104 }) : null,

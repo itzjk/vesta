@@ -2,6 +2,8 @@
 
 **What does NASA's combustion evidence actually cover for your spacecraft cabin?**
 
+> **The finding.** For a lunar habitat (34% O2, 56.5 kPa, 1/6 g), 0 of 45 material-and-concern questions have a NASA source row at nearby conditions. 24 have evidence only at other conditions and 21 have no source in this collection. Change one condition and the answer changes: at station oxygen and pressure, microgravity gives 3 of 45 questions nearby evidence (all 24 matching rows rely on an assumed facility pressure); at 1/6 g it gives 0.
+
 VESTA lets you set oxygen, pressure and gravity, inspect nearby evidence, and carry the answer back to its original source. Built by **Team Zerack** for NASA Space Apps Challenge 2026, “Flame in Freefall”.
 
 [Enter VESTA](https://itzjk.github.io/vesta/#/brief) · [Watch one condition change in 26.5 seconds](https://itzjk.github.io/vesta/?question=1#/brief?station=transit) · [Watch the 60-second tour](https://itzjk.github.io/vesta/#/brief?tour=1) · [Open the instrument view](https://itzjk.github.io/vesta/#/design?view=details) · [JSON receipt format](docs/evidence-receipt.md)

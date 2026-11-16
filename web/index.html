@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VESTA · the fire officer that doesn't wait for Houston</title>
-<meta name="description" content="VESTA summarizes, ranks and interprets NASA's PSI microgravity combustion investigations into fire-safety decisions, each with its source. A decision-support prototype, not certified flight software.">
+<title>VESTA · NASA fire evidence for space habitats</title>
+<meta name="description" content="For a lunar habitat (34% O2, 56.5 kPa, 1/6 g), 0 of 45 material-and-concern questions have a NASA source row at nearby conditions. 24 have evidence only at other conditions and 21 have no source in this collection. VESTA traces every answer to its NASA row. An evidence-review prototype, not certified flight software.">
 <meta name="si-generation" content="Code, authored interpretations, data processing and rendered visuals were created with SI assistance from Claude (Anthropic) and Codex (OpenAI). NASA quotations, raw PSI values and original NASA photographs remain attributed source material.">
 <meta name="si-provenance" content="data/si-provenance.json">
 <meta name="nasa-interpretation-notice" content="NASA has not reviewed or endorsed VESTA's SI-assisted interpretations and is not responsible for their accuracy.">
@@ -18,8 +18,16 @@
 <link rel="stylesheet" href="css/components.css?v=11">
 <link rel="stylesheet" href="css/world.css?v=habitat-20261115-1">
 <link rel="stylesheet" href="css/si-mark.css?v=2">
+<style>html[data-ready] #lead{display:none}#lead{position:fixed;inset:0;z-index:2;overflow:auto;box-sizing:border-box;padding:7vh max(20px,calc(50vw - 430px));background:#02040a;color:#ede4d4;font:20px/1.45 "Source Sans 3",system-ui,sans-serif}#lead h1{font:600 clamp(30px,4.4vw,52px)/1.08 "Barlow Condensed",system-ui,sans-serif;margin:0 0 18px}#lead b{color:#fff}#lead ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 28px;padding:0;margin:18px 0}#lead li b{font-size:28px;display:block}#lead .row{border-left:3px solid #c5a56d;padding:4px 0 4px 14px;margin:18px 0;font-size:17px}#lead a{color:#c9d6e2}</style>
 </head>
 <body>
+<section id="lead" aria-label="What VESTA found">
+  <h1>For a lunar habitat, <b>0 of 45</b> fire-safety questions have NASA evidence at nearby conditions.</h1>
+  <p id="lead-finding">For a lunar habitat (34% O2, 56.5 kPa, 1/6 g), 0 of 45 material-and-concern questions have a NASA source row at nearby conditions. 24 have evidence only at other conditions and 21 have no source in this collection.</p>
+  <ul><li><b>24</b>NASA PSI investigations</li><li><b>1,989</b>source-table rows</li><li><b>822</b>quote-checked findings</li><li><b>45</b>material-and-concern questions</li></ul>
+  <p class="row">One real row, as recorded: BASS-II, table row PSI-25:1. PMMA film, 22.2% oxygen, microgravity, <b>pressure not in the table</b>. VESTA labels the facility pressure it assumes instead of hiding it. <a href="https://psi.nasa.gov/physci/repo/data/investigations/PSI-25" rel="noopener">Open the NASA PSI record</a></p>
+  <p>Set a cabin, open any question, and follow each answer back to its NASA row. Coverage in this collection, not a safety rating.</p>
+</section>
 <div id="viewport">
   <div id="stage" data-state="loading">
     <header id="bar">
@@ -31,7 +39,7 @@
     <div id="scene-host" class="scene-host" hidden aria-hidden="true"></div>
     <main id="view" tabindex="-1"></main>
     <footer id="foot">
-      <span>Quotes are verbatim NASA text. Table rows are NASA PSI data (CC0-1.0). Claims, rules and decisions are VESTA's interpretation, written with SI assistance and marked. VESTA's visuals are drawn by code (WebGL and SVG) written with SI assistance; NASA photographs carry their own credits. Not endorsed by NASA.</span>
+      <span>NASA quotations and PSI table rows (CC0-1.0) are source material. Interpretations and visuals are VESTA's, made with SI assistance. Not endorsed by NASA.</span>
       <span class="built" id="built"></span>
     </footer>
   </div>
@@ -42,7 +50,7 @@
   <p>NASA has not reviewed or endorsed VESTA's SI-assisted interpretations and is not responsible for their accuracy.</p>
   <a href="data/si-provenance.json" target="_blank" rel="noopener">Read the SI provenance manifest</a>
 </details>
-<noscript><p style="color:#ede4d4;font:18px system-ui;padding:24px">VESTA needs JavaScript to read its evidence files. The data is also here as plain files: <a href="api/v1/index.json" style="color:#8fa3b5">api/v1/index.json</a>.</p></noscript>
+<noscript><p style="color:#ede4d4;font:18px system-ui;padding:24px">The interactive 3D review needs JavaScript. The finding above and the data do not: <a href="api/v1/index.json" style="color:#8fa3b5">api/v1/index.json</a>.</p></noscript>
 <script type="module" src="js/app.js?v=flex-review-20261115-1"></script>
 </body>
 </html>
