@@ -1,0 +1,19 @@
+/* "What NASA measured at lunar and Martian gravity": a second disclosure under "next requests". It reuses the
+   .next-experiments rules; only the extra grid row and the table are defined here. */
+.coverage-wall.coverage-wall:has(> .next-experiments):has(> .partialg){grid-template-rows:auto auto auto auto minmax(0,1fr) auto}
+.coverage-wall .partialg-scroll{overflow-x:auto;margin:8px 0}
+.coverage-wall .partialg-table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px;line-height:1.35}
+.coverage-wall .partialg-table caption{text-align:left;color:var(--ivory-dim);padding-bottom:6px}
+.coverage-wall .partialg-table :is(th,td){border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;font-weight:400;color:var(--ivory)}
+.coverage-wall .partialg-table thead th{font-weight:600;color:var(--ivory-dim);font-size:13px}
+.coverage-wall .partialg-material th{font-weight:600;color:var(--amber);padding-top:12px;border-bottom:1px solid var(--line-strong)}
+.coverage-wall .partialg-partial th{font-weight:600}
+.coverage-wall .partialg-num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.coverage-wall .partialg-track{position:relative;display:block;min-width:120px;height:10px;background:var(--neutral-soft);border:1px solid var(--line)}
+.coverage-wall .partialg-bar{position:absolute;top:0;bottom:0;background:var(--earth)}
+.coverage-wall .partialg-partial .partialg-bar{background:var(--amber)}
+.coverage-wall .partialg-notes{margin:4px 0 8px;padding:0 0 0 18px;font-size:14px;line-height:1.45;color:var(--ivory-dim);max-width:78ch}
+.coverage-wall .partialg-notes li{margin:4px 0}
+.coverage-wall .partialg a{color:var(--ivory);text-underline-offset:3px}
+.coverage-wall .partialg a:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.coverage-wall.coverage-wall[data-detail=true]:has(> .partialg){grid-template-rows:auto auto auto minmax(0,1fr) auto}

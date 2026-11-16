@@ -1,0 +1,135 @@
+{
+  "id": "partialg-sources/1",
+  "retrieved": "2026-11-15",
+  "about": "Report values transcribed from NASA documents fetched from the NASA Technical Reports Server. Every number VESTA shows from this file is parsed from a quote field below; quotes are verbatim with runs of spaces collapsed. These values sit outside the PSI row collection and are not used by matching, ranking or statuses.",
+  "documents": [
+    {
+      "id": "20130010991",
+      "ntrs_id": "20130010991",
+      "title": "Evaluating Material Flammability in Microgravity and Martian Gravity Compared to the NASA Standard Normal Gravity Test",
+      "authors": "S.L. Olson (NASA Glenn Research Center) and P.V. Ferkul (National Center for Space Exploration Research)",
+      "year": 2012,
+      "venue": "42nd International Conference on Environmental Systems, San Diego, CA",
+      "url": "https://ntrs.nasa.gov/api/citations/20130010991/downloads/20130010991.pdf",
+      "record_url": "https://ntrs.nasa.gov/citations/20130010991",
+      "location": "Abstract, page 1",
+      "quote": "Drop tower tests are conducted at Martian gravity to determine the flammability of three materials compared to previous tests in other normal gravity and reduced gravity environments."
+    }
+  ],
+  "table": {
+    "document": "20130010991",
+    "url": "https://ntrs.nasa.gov/api/citations/20130010991/downloads/20130010991.pdf",
+    "location": "Table I, page 6",
+    "quote": "Table I: Limiting Oxygen Molar Concentrations and Oxygen Margin of Safety for Different Gravity Levels",
+    "unit": "% O2 (molar)",
+    "materials": [
+      { "id": "mylar", "label": "Mylar G" },
+      { "id": "ultem", "label": "Ultem 1000" },
+      { "id": "nomex", "label": "Nomex HT90-40" }
+    ],
+    "header_quote": "Fuel Mylar® G Ultem® 1000 Nomex® HT90-40",
+    "pressure_quote": "10.2 psia 10.2 psia 14.7 psia",
+    "rows": [
+      { "gravity": "earth", "measure": "uloi", "quote": "1g ULOI 21.2 23.5 23.5" },
+      { "gravity": "earth", "measure": "moc", "quote": "1g MOC 20.0 23.0 22.1" },
+      { "gravity": "mars", "measure": "uloi", "quote": "Martian ULOI* 18.0 22.0 19.9" },
+      { "gravity": "mars", "measure": "moc", "quote": "Martian MOC* 17.0 21.1 19.0" },
+      { "gravity": "moon", "measure": "uloi", "quote": "Lunar ULOI* 15.6 21.0 21.0" },
+      { "gravity": "moon", "measure": "moc", "quote": "Lunar MOC* 14.1 19.9 19.9" },
+      { "gravity": "micro", "measure": "uloi", "quote": "0g* ULOI* 17.0 24.0 23.0" },
+      { "gravity": "micro", "measure": "moc", "quote": "0g* MOC* 16.0 23.0 22.0" }
+    ],
+    "margins": [
+      { "gravity": "mars", "quote": "Martian ∆O2 % -3.1 -1.7 -3.35" },
+      { "gravity": "moon", "quote": "Lunar ∆O2 % -5.75 -2.8 -2.35" },
+      { "gravity": "micro", "quote": "0g ∆O2 % -4.1 0.25 -0.3" }
+    ]
+  },
+  "notes": [
+    {
+      "id": "uloi-1g",
+      "label": "1g ULOI",
+      "document": "20130010991",
+      "url": "https://ntrs.nasa.gov/api/citations/20130010991/downloads/20130010991.pdf",
+      "location": "Section I, page 2",
+      "quote": "The 1g ULOI is defined as the oxygen concentration at which a material passes the NASA STD 6001 Test 1 burn length criterion approximately half the time."
+    },
+    {
+      "id": "moc-1g",
+      "label": "1g MOC",
+      "document": "20130010991",
+      "url": "https://ntrs.nasa.gov/api/citations/20130010991/downloads/20130010991.pdf",
+      "location": "Section I, page 2",
+      "quote": "The 1g MOC is defined as the oxygen concentration where at least five samples passed the burning criterion (according to the NASA STD 6001 Test 1 definition) and where at least one sample failed in the environment that contained 1 percent more oxygen by volume."
+    },
+    {
+      "id": "moc-star",
+      "label": "MOC* (reduced gravity)",
+      "document": "20130010991",
+      "url": "https://ntrs.nasa.gov/api/citations/20130010991/downloads/20130010991.pdf",
+      "location": "Section II, page 4",
+      "quote": "the MOC* for these tests was defined as the maximum oxygen concentration at which the flame was observed to self-extinguish during the drop time."
+    },
+    {
+      "id": "uloi-star",
+      "label": "ULOI* (reduced gravity)",
+      "document": "20130010991",
+      "url": "https://ntrs.nasa.gov/api/citations/20130010991/downloads/20130010991.pdf",
+      "location": "Section II, page 4",
+      "quote": "The ULOI* criterion was minimum oxygen concentration where the flame survived the full drop time."
+    },
+    {
+      "id": "criteria",
+      "label": "Limit criteria differ",
+      "document": "20130010991",
+      "url": "https://ntrs.nasa.gov/api/citations/20130010991/downloads/20130010991.pdf",
+      "location": "Section III, page 6",
+      "quote": "It should be noted that the low g extinction limit criteria are not the same as 1g due to time constraints in drop testing."
+    },
+    {
+      "id": "margin",
+      "label": "Oxygen margin (∆O2 %)",
+      "document": "20130010991",
+      "url": "https://ntrs.nasa.gov/api/citations/20130010991/downloads/20130010991.pdf",
+      "location": "Section III, page 6",
+      "quote": "The oxygen margin of safety, or ∆O2 %, is defined here as the mean 0g limit or the Lunar limit minus the mean 1g limit"
+    },
+    {
+      "id": "earlier-data",
+      "label": "Lunar and 0g values",
+      "document": "20130010991",
+      "url": "https://ntrs.nasa.gov/api/citations/20130010991/downloads/20130010991.pdf",
+      "location": "Section III, page 6",
+      "quote": "Values of ∆O2% for both 0g and Lunar g (from ref. 8) are included in Table I."
+    },
+    {
+      "id": "microgravity-flow",
+      "label": "0g* flow",
+      "document": "20130010991",
+      "url": "https://ntrs.nasa.gov/api/citations/20130010991/downloads/20130010991.pdf",
+      "location": "Section III, page 4",
+      "quote": "The results were compared to ULOI and MOC values in 1-g, Lunar-g, and 0g (with a concurrent flow of 30 cm/s, which is a reasonable maximum local spacecraft ventilation velocity9)."
+    },
+    {
+      "id": "drop-time",
+      "label": "Martian-g test time",
+      "document": "20130010991",
+      "url": "https://ntrs.nasa.gov/api/citations/20130010991/downloads/20130010991.pdf",
+      "location": "Footnote a, page 4",
+      "quote": "The flames in these Martian-g centrifuge tests were relatively small compared to the sample size and spread only a short distance along the available fuel in the 5.18 sec-duration drop tower tests."
+    }
+  ],
+  "also_read": [
+    {
+      "id": "20250006779",
+      "ntrs_id": "20250006779",
+      "title": "Solid Fuel Ignition Testing for Lunar Applications, Theory and Experimental Results",
+      "year": 2025,
+      "url": "https://ntrs.nasa.gov/api/citations/20250006779/downloads/ICES%202025-392%20Lunar%20Flam%20070725.pdf",
+      "record_url": "https://ntrs.nasa.gov/citations/20250006779",
+      "location": "Slide 4",
+      "quote": "Partial-g testing is currently limited to low-gravity aircraft (~25 s) and the NASA-GRC Zero-G drop tower centrifuge rig (5 s).",
+      "why_not_shown": "Its lunar-gravity centrifuge limits are plotted in figures only, so no value is transcribed."
+    }
+  ]
+}

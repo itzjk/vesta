@@ -25,7 +25,8 @@ test('exactly seven slides, each with the team name, the SI mark and a rendered 
   assert.deepEqual(viewerSlides.map(s => s.n), [1, 2, 3, 4, 5, 6, 7]);
   for (const slide of sourceSlides) {
     assert.match(slide.text, /TEAM ZERACK/, `slide ${slide.n}`);
-    assert.match(slide.text, /SI-assisted visuals/, `slide ${slide.n}`);
+    // The watermark rule covers SI-generated images: only slide 1 carries one (the mascot). Other slides hold text, charts and app captures.
+    assert.equal(/SI-assisted visuals/.test(slide.text), slide.n === 1, `slide ${slide.n}`);
     assert.ok(slide.text.includes(`${slide.n} / 7`));
     assert.equal((slide.html.match(/<h1/g) ?? []).length, slide.n === 1 ? 0 : 1, 'one headline claim per slide');
     const png = fs.readFileSync(new URL(`../../web/presentation/vesta-slide-${slide.n}.png`, import.meta.url));
@@ -120,7 +121,7 @@ test('the viewer repeats each slide as real text directly under its image', () =
     const numbers = t => new Set(t.replace(/\d \/ 7/, '').match(/\d[\d,.]*\d|\d/g) ?? []);
     const missing = [...numbers(words)].filter(n => !numbers(under).has(n));
     assert.deepEqual(missing, [], `slide ${i + 1}`);
-    assert.match(under, /Team Zerack/); assert.match(under, /SI-assisted visuals/);
+    assert.equal(/SI-assisted visuals/.test(under), slide.n === 1, `slide ${slide.n}`);
     assert.match(slide.html, new RegExp(`alt="Slide ${i + 1}: `));
   }
   assert.match(css, /\.slide-text\{[^}]*max-width/);

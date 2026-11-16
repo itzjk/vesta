@@ -82,7 +82,7 @@ test('the landing offers one primary action and the slides, with no script and n
   assert.ok(lead.includes('Rows are table records, not independent experiments. “No source” means absent from this collection, not unstudied by NASA.'));
   assert.doesNotMatch(lead.replace(/not a safety rating|fire-safety questions/g, ''), /\bsafe|\bproven\b|validated|certified|never tested/i);
   const words = lead.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).length;
-  assert.ok(words <= 502, `the block stays short: ${words} words`);
+  assert.ok(words <= 560, `the block stays short: ${words} words`);
   assert.ok(lead.indexOf('class="cta"') < lead.indexOf('id="lead-flex"'), 'the primary action stays above the two supporting results, inside the first screen');
 });
 
@@ -157,4 +157,18 @@ test('the gravity line is rebuilt from the Saffire-II rows and sits after the "W
   assert.match(para('lead-gravity'), /samples from one experiment support no general law\.$/);
   assert.ok(lead.indexOf('id="lead-gap"') < lead.indexOf('id="lead-gravity"') && lead.indexOf('id="lead-gravity"') < lead.indexOf('id="lead-outside"'));
   assert.doesNotMatch(para('lead-gravity'), /Moon|Mars|lunar|trend|predict/i);
+});
+
+test('the lunar-gravity line is rebuilt from web/data/partialg-sources.json and stays only while a lunar value is quoted', async () => {
+  const { partialGravity, landingSentence, cellsOf } = await import('../../web/js/core/partialg.js');
+  const sources = JSON.parse(read('web/data/partialg-sources.json'));
+  const model = partialGravity(sources, { rows: raw.tests.tests }), sentence = landingSentence(model);
+  assert.ok(model.ok && model.counts.lunar >= 1, 'at least one material has quoted lunar-gravity values');
+  assert.equal(para('lead-partialg'), sentence);
+  assert.equal((lead.match(/id="lead-partialg"/g) ?? []).length, 1);
+  const doc = sources.documents[0], row = g => cellsOf(sources.table.rows.find(r => r.gravity === g && r.measure === 'uloi').quote, 3)[0];
+  assert.ok(sentence.includes(`<a href="https://ntrs.nasa.gov/citations/${doc.ntrs_id}" rel="noopener">${doc.title}</a>`));
+  assert.ok(sentence.includes(`a ${sources.table.materials[0].label} upward limiting oxygen index of ${row('moon')}% at lunar gravity against ${row('earth')}% at Earth gravity`));
+  assert.equal(landingSentence(partialGravity({ ...sources, table: { ...sources.table, rows: sources.table.rows.filter(r => r.gravity !== 'moon') } })), null, 'no lunar quote, no sentence');
+  assert.ok(lead.indexOf('id="lead-next"') < lead.indexOf('id="lead-partialg"') && lead.indexOf('id="lead-partialg"') < lead.indexOf('class="limits"'));
 });

@@ -10,6 +10,7 @@ import { pressureDependence, pressureDependenceText, pressureAudit, pressureAudi
 import { createQuestionNote } from '../core/question-note.js?v=question-lab-20261115-3';
 import { questionSummary } from '../core/question-summary.js?v=flex-review-20261115-1';
 import { createNextExperimentsPanel } from './next-experiments-panel.js';
+import { createPartialGravityPanel } from './partialg-panel.js';
 import { rowContext, questionContext, HEADING as RECORDED_HEADING } from '../core/row-context.js?v=row-context-20261115-1';
 
 const defaults = { status, rank: ranking, text };
@@ -86,7 +87,8 @@ export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepar
   scope.append(node('summary', 'VESTA collection coverage, not safety'), node('p', core.text.legend(db).PROVEN),
     node('p', core.text.legend(db).EXTRAPOLATED), node('p', core.text.legend(db).NEVER_TESTED));
   const nextRequests = createNextExperimentsPanel({ db, core, cite: (phrase, id) => world.cite(phrase, id), onOpen: (material, concern) => selectQuestion(material, concern) });
-  element.append(header, legend, nextRequests.element, layout, scope);
+  const partialGravityPanel = createPartialGravityPanel({ db });
+  element.append(header, legend, nextRequests.element, partialGravityPanel.element, layout, scope);
   const buttons = new Map();
   for (const [id, material] of Object.entries(db.materials)) {
     const tr = node('tr'), th = node('th', material.label); th.scope = 'row'; tr.append(th);
