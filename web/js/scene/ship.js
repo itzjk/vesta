@@ -60,6 +60,7 @@ export function buildShip({ THREE, mode = 'high' }) {
   const warm = new THREE.MeshStandardMaterial({ color: 0x332b20, emissive: 0xffc273, emissiveIntensity: .65, roughness: .38, envMapIntensity: 0 });
   const rodGeometry = new THREE.CylinderGeometry(1, 1, 1, low ? 6 : 8), boxGeometry = new THREE.BoxGeometry(1, 1, 1), boltGeometry = new THREE.CylinderGeometry(1, 1, 1, 6);
   const dummy = new THREE.Object3D(), up = new THREE.Vector3(0, 1, 0);
+  const swayParts = [], swayMeshes = new Map(), swayAxis = new THREE.Vector3(), swayTurn = new THREE.Matrix4(), swayMove = new THREE.Matrix4(), swayOut = new THREE.Matrix4(); let swayed = false;
   function add(geometry, material, name, parent = group) {
     const mesh = new THREE.Mesh(geometry, material); mesh.name = name; mesh.castShadow = mesh.receiveShadow = true; parent.add(mesh); return mesh;
   }
@@ -70,6 +71,7 @@ export function buildShip({ THREE, mode = 'high' }) {
   function box(key, material, position, scale, quaternion) { instance(key, boxGeometry, material, position, scale, quaternion); }
   function localBox(key, material, parent, position, scale) {
     const p = new THREE.Vector3(...position).applyQuaternion(parent.quaternion).add(parent.position);
+    if (parent.name === 'solar-array') swayParts.push({ key, index: batches.get(key)?.matrices.length || 0, wing: parent });
     box(key, material, p.toArray(), scale, parent.quaternion);
   }
   function rod(a, b, radius = .022, material = titanium, key = 'structure') {
@@ -192,7 +194,22 @@ export function buildShip({ THREE, mode = 'high' }) {
   }
   for (const [name, batch] of batches) {
     const mesh = new THREE.InstancedMesh(batch.geometry, batch.material, batch.matrices.length); mesh.name = name;
-    batch.matrices.forEach((matrix, i) => mesh.setMatrixAt(i, matrix)); mesh.castShadow = true; mesh.receiveShadow = name !== 'photovoltaic-cells'; mesh.instanceMatrix.needsUpdate = true; group.add(mesh);
+    batch.matrices.forEach((matrix, i) => mesh.setMatrixAt(i, matrix)); mesh.castShadow = true; mesh.receiveShadow = name !== 'photovoltaic-cells'; mesh.instanceMatrix.needsUpdate = true; group.add(mesh); swayMeshes.set(name, mesh);
   }
-  return { group, update(t) { antenna.rotation.y = .1 + Math.sin((Number.isFinite(t) ? t : 0) * .012) * .025; } };
+  for (const part of swayParts) { part.mesh = swayMeshes.get(part.key); part.base = batches.get(part.key).matrices[part.index]; }
+  // Solar arrays feather a little about their long axis. `drift` is seconds of free motion; leave it out to keep them still.
+  function sway(drift) {
+    const moving = Number.isFinite(drift);
+    if (!moving && !swayed) return;
+    swayed = moving;
+    for (const part of swayParts) {
+      const wing = part.wing, angle = moving ? Math.sin(drift * .37 + wing.position.x) * .045 : 0;
+      swayAxis.set(1, 0, 0).applyQuaternion(wing.quaternion);
+      swayTurn.makeRotationAxis(swayAxis, angle);
+      swayMove.makeTranslation(-wing.position.x, -wing.position.y, -wing.position.z); swayOut.multiplyMatrices(swayTurn, swayMove);
+      swayMove.makeTranslation(wing.position.x, wing.position.y, wing.position.z); swayOut.premultiply(swayMove).multiply(part.base);
+      part.mesh.setMatrixAt(part.index, swayOut); part.mesh.instanceMatrix.needsUpdate = true;
+    }
+  }
+  return { group, update(t, drift) { antenna.rotation.y = .1 + Math.sin((Number.isFinite(t) ? t : 0) * .012) * .025; sway(drift); } };
 }

@@ -1,5 +1,5 @@
 import { softShadow, balanceWorldLight } from '../scene/materials.js';
-import { photoPlanet, NASA_TEXTURES } from '../scene/imagery.js';
+import { photoPlanet, globePlanet, NASA_TEXTURES } from '../scene/imagery.js';
 import { build as buildMars } from '../scene/mars.js';
 import { buildShip } from '../scene/ship.js';
 
@@ -16,7 +16,7 @@ export async function build(world) {
   vessel.rotation.y = -.42; vessel.position.z = 7; group.add(vessel);
   const mars = await buildMars({ THREE, mode: stage.mode, camera: stage.camera });
   mars.group.position.set(-11, 2, -23); mars.group.scale.setScalar(3.1); group.add(mars.group);
-  const earth = await photoPlanet(THREE, 'earth', stage.mode); earth.scale.setScalar(.22);
+  const earth = await globePlanet(THREE, 'earth', stage.mode); earth.scale.setScalar(.22);
   earth.position.set(6, 3.6, -5); group.add(earth);
   const from = new THREE.Vector3(.5, 1.25, 6.7), to = earth.position.clone();
   const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints([from, to]), new THREE.LineBasicMaterial({ color: 0x8fa3b5, transparent: true, opacity: .4 }));
@@ -50,17 +50,21 @@ export async function build(world) {
       const local = state.localTime ?? t - started;
       const still = state.capture || world.params?.capture === '1' || matchMedia('(prefers-reduced-motion: reduce)').matches;
       const phone = stage.camera.aspect < .9;
-      earth.quaternion.copy(stage.camera.quaternion);
+      earth.userData.spin(still ? 2 : t);
       earth.position.set(phone ? 0 : 6, phone ? 5 : 3.6, phone ? -2 : -5); to.copy(earth.position);
       line.geometry.attributes.position.setXYZ(1, to.x, to.y, to.z); line.geometry.attributes.position.needsUpdate = true;
       mars.update(still ? 2 : t);
       stage.camera.userData.focusDistance = stage.camera.position.distanceTo(new THREE.Vector3(0, 0, 6));
       stage.camera.userData.aperture = .55;
-      ship.update(still ? 2 : t);
-      vessel.position.y = still ? 0 : Math.sin(local * .6) * .035;
-      const progress = smooth((local - .45) / 2.9);
-      pulse.position.lerpVectors(from, to, progress);
-      pulse.visible = local < 3.5; line.material.opacity = .25 + .25 * smooth(local / .6);
+      ship.update(still ? 2 : t, still ? undefined : local);
+      // Free drift: 16 s bob, 19 s roll, 14 s pitch. The hotspot and the line start stay at their fixed world point.
+      vessel.position.y = still ? 0 : Math.sin(local * .393) * .06;
+      vessel.rotation.z = still ? 0 : Math.sin(local * .331) * .045;
+      vessel.rotation.x = still ? 0 : Math.sin(local * .449 + 1) * .02;
+      // The signal leaves for Earth again every 4.6 s; frozen time keeps the single opening pass.
+      const since = still ? local - .45 : (local - .45) % 4.6;
+      pulse.position.lerpVectors(from, to, smooth(since / (still ? 2.9 : 4.6)));
+      pulse.visible = still ? local < 3.5 : local > .45; line.material.opacity = .25 + .25 * smooth(local / .6);
     },
     holograms: () => [holo],
     dispose() { balanceLight(false); skip.removeEventListener('click', advance); holo.dispose(); group.removeFromParent(); }
