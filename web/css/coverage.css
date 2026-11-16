@@ -126,3 +126,18 @@
  .coverage-wall .coverage-question-summary .coverage-summary-answer{font-size:18px!important}
  .coverage-wall .coverage-question-summary :is(.coverage-summary-line,.coverage-summary-next){font-size:15px!important;line-height:1.35!important}
 }
+
+/* Motion pass. Each class is added by coverage.js only when motion is allowed and is removed on animationend; the resting state is the static page. */
+@property --coverage-count{syntax:'<integer>';inherits:false;initial-value:0}
+@keyframes coverage-count{from{--coverage-count:0}to{--coverage-count:var(--coverage-count-to,0)}}
+@keyframes coverage-cell-in{from{opacity:0;transform:translateY(4px)}}
+@keyframes coverage-cell-flash{from{background:var(--surface-2);box-shadow:inset 0 0 0 2px currentColor}}
+@keyframes coverage-summary-in{from{opacity:0;transform:translateY(6px)}}
+@media(prefers-reduced-motion:no-preference){
+ /* The real total stays in the text; only its paint is swapped for the running counter. */
+ .coverage-wall .coverage-legend dd.coverage-counting{position:relative;-webkit-text-fill-color:transparent}
+ .coverage-wall .coverage-legend dd.coverage-counting::after{content:counter(coverage-count);content:counter(coverage-count) / "";counter-reset:coverage-count var(--coverage-count);position:absolute;left:0;top:0;white-space:nowrap;-webkit-text-fill-color:currentColor;animation:coverage-count .7s cubic-bezier(.2,.7,.3,1) both}
+ .coverage-wall .coverage-matrix.coverage-cascade tbody button{animation:coverage-cell-in .22s ease-out calc(var(--coverage-row,0)*12ms) backwards}
+ .coverage-wall .coverage-matrix button.coverage-cell-changed{animation:coverage-cell-flash .6s ease-out}
+ .coverage-wall .coverage-question-summary.coverage-summary-in{animation:coverage-summary-in .25s ease-out}
+}

@@ -17,3 +17,11 @@
 .coverage-wall .partialg a{color:var(--ivory);text-underline-offset:3px}
 .coverage-wall .partialg a:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 .coverage-wall.coverage-wall[data-detail=true]:has(> .partialg){grid-template-rows:auto auto auto minmax(0,1fr) auto}
+/* Motion only: each MOC-to-ULOI mark grows from its MOC end when its row scrolls into view. Armed by script; the printed limits never move. */
+@media (prefers-reduced-motion:no-preference){
+.coverage-wall .partialg-motion .partialg-bar{transform:scaleX(0);transform-origin:0 50%}
+.coverage-wall .partialg-motion .partialg-in .partialg-bar{transform:none;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.coverage-wall .partialg-motion tr:nth-child(3) .partialg-in .partialg-bar{transition-delay:.06s}
+.coverage-wall .partialg-motion tr:nth-child(4) .partialg-in .partialg-bar{transition-delay:.12s}
+.coverage-wall .partialg-motion tr:nth-child(n+5) .partialg-in .partialg-bar{transition-delay:.18s}
+}

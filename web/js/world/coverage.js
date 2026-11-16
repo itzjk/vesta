@@ -23,6 +23,13 @@ const node = (tag, value, cls) => {
   return el;
 };
 
+// Motion only: every class below is removed when its animation ends, and none is added under reduced motion.
+const canMove = () => typeof matchMedia === 'function' && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canCount = () => typeof CSS !== 'undefined' && typeof CSS.registerProperty === 'function';
+function replay(el, cls) {
+  el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls);
+}
+
 export function coverage(q, db, core = defaults) {
   const cells = core.status.cells(q, db), counts = core.status.tally(cells);
   const cabin = db.presetById[q.preset]?.label || 'Custom cabin';
@@ -51,7 +58,7 @@ export function scoreExplanation(entry, rank = ranking) {
 
 export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepareCrew } = {}) {
   const { db, core = defaults } = world;
-  let q = world.q, model, selected = null, disposed = false, lastQuery = '';
+  let q = world.q, model, selected = null, disposed = false, lastQuery = '', opening = false;
   const element = node('section', null, 'coverage-wall');
   element.setAttribute('aria-label', 'Cabin evidence coverage');
   const header = node('header', null, 'coverage-header');
@@ -143,6 +150,7 @@ export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepar
     }
     const next=node('p',null,'coverage-summary-next');next.append(node('strong','Next: '),document.createTextNode(summary.next));
     quick.append(next,node('p','Coverage, not safety.','coverage-summary-scope'));
+    if (opening && canMove()) quick.classList.add('coverage-summary-in');
     detail.replaceChildren(back, heading, cabinLine, quick);
     const reviewActions = node('div', null, 'coverage-review-actions'), reviewStatus = node('p', null, 'coverage-review-status');
     reviewStatus.setAttribute('role', 'status'); reviewStatus.setAttribute('aria-live', 'polite'); reviewStatus.hidden = true;
@@ -248,7 +256,8 @@ export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepar
     if (disposed || !button) return false;
     selected = { material, concern };
     for (const other of buttons.values()) other.setAttribute('aria-expanded', String(other === button));
-    paintDetail(focus);
+    opening = true;
+    try { paintDetail(focus); } finally { opening = false; }
     onSelection?.({ ...selected });
     return true;
   }
@@ -283,9 +292,17 @@ export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepar
     else conditions.textContent = model.conditions;
     live.textContent = `${model.headline} ${model.counts.EXTRAPOLATED} ${core.text.status('EXTRAPOLATED')}; ${model.counts.NEVER_TESTED} ${core.text.status('NEVER_TESTED')} in VESTA’s collection.`;
     pressureBasisLine.textContent = pressureAuditText(model.pressureAudit); pressureBasisLine.hidden = !model.pressureAudit.nearby;
-    for (const id of Object.keys(totals)) totals[id].textContent = model.counts[id];
+    const moving = canMove(), pulsing = moving && !table.classList.contains('coverage-cascade');
+    for (const id of Object.keys(totals)) {
+      totals[id].textContent = model.counts[id];
+      totals[id].classList.remove('coverage-counting');
+      if (moving && canCount() && model.counts[id] > 0) { totals[id].style.setProperty('--coverage-count-to', String(model.counts[id])); replay(totals[id], 'coverage-counting'); }
+    }
     for (const cell of model.cells) {
       const button = buttons.get(`${cell.material}:${cell.concern}`);
+      const before = button.dataset.coverageStatus;
+      button.classList.remove('coverage-cell-changed');
+      if (pulsing && before && before !== cell.status) replay(button, 'coverage-cell-changed');
       button.textContent = symbols[cell.status]; button.dataset.coverageStatus = cell.status;
       const label = `${db.materials[cell.material].label}, ${core.text.concern(cell.concern)}: ${core.text.status(cell.status)}. ${meanings[cell.status]}. Open evidence.`;
       button.setAttribute('aria-label', label); button.title = label;
@@ -295,8 +312,18 @@ export function build(world, { onSelection, onInspectAll, onSaveReview, onPrepar
     paintDetail();
   }
 
-  element.addEventListener('click', click); element.addEventListener('keydown', keydown);
+  // Each motion class leaves the DOM as soon as its animation has played once.
+  function settle(event) {
+    const el = event.target, name = event.animationName;
+    if (!el?.classList) return;
+    if (name === 'coverage-count') el.classList.remove('coverage-counting');
+    else if (name === 'coverage-cell-flash') el.classList.remove('coverage-cell-changed');
+    else if (name === 'coverage-summary-in') el.classList.remove('coverage-summary-in');
+    else if (name === 'coverage-cell-in' && el.closest('tr') === tbody.lastElementChild) table.classList.remove('coverage-cascade');
+  }
+  element.addEventListener('click', click); element.addEventListener('keydown', keydown); element.addEventListener('animationend', settle);
+  if (canMove()) { table.classList.add('coverage-cascade'); [...tbody.children].forEach((tr, index) => tr.style.setProperty('--coverage-row', String(index))); }
   update(q);
   return { element, update, selectQuestion, clearSelection: closeDetail, headline: nextQ => headline(nextQ ?? q, db, core),
-    dispose() { disposed = true; element.removeEventListener('click', click); element.removeEventListener('keydown', keydown); detail.replaceChildren(); element.remove(); buttons.clear(); } };
+    dispose() { disposed = true; element.removeEventListener('click', click); element.removeEventListener('keydown', keydown); element.removeEventListener('animationend', settle); detail.replaceChildren(); element.remove(); buttons.clear(); } };
 }

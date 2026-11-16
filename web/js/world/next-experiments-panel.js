@@ -10,7 +10,7 @@ const node = (tag, text, className = '') => {
 };
 function ensureStyles() {
   if (document.querySelector('link[data-next-experiments-styles]')) return;
-  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/next-experiments.css?v=1', import.meta.url).href;
+  const link = node('link'); link.rel = 'stylesheet'; link.href = new URL('../../css/next-experiments.css?v=motion-20261115-3', import.meta.url).href;
   link.dataset.nextExperimentsStyles = ''; document.head.append(link);
 }
 

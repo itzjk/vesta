@@ -10,7 +10,7 @@ const node = (tag, text, className = '') => {
 const link = (text, url) => { const a = node('a', text); a.href = url; a.rel = 'noopener'; a.target = '_blank'; return a; };
 function ensureStyles() {
   if (document.querySelector('link[data-partialg-styles]')) return;
-  const sheet = node('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/partialg.css?v=1', import.meta.url).href;
+  const sheet = node('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/partialg.css?v=motion-20261115-3', import.meta.url).href;
   sheet.dataset.partialgStyles = ''; document.head.append(sheet);
 }
 const fetchSources = () => fetch(new URL('../../data/partialg-sources.json', import.meta.url)).then(response => {
@@ -24,7 +24,7 @@ export function createPartialGravityPanel({ db, sources = null, load = fetchSour
   const element = node('details', null, 'next-experiments partialg');
   const summary = node('summary', 'What NASA measured at lunar and Martian gravity'), body = node('div', null, 'next-experiments-body partialg-body');
   element.append(summary, body);
-  let model = null, started = false;
+  let model = null, started = false, watcher = null, grown = false;
 
   function render(data) {
     model = partialGravity(data, { rows: db?.tests ?? null });
@@ -60,6 +60,13 @@ export function createPartialGravityPanel({ db, sources = null, load = fetchSour
     for (const other of model.also_read) { const p = node('p', 'Also read, no value transcribed: ', 'next-experiments-note'); p.append(link(other.title, other.url), document.createTextNode(`. ${other.why_not_shown}`)); nodes.push(p); }
     nodes.push(node('p', model.scope, 'next-experiments-limits'));
     body.replaceChildren(...nodes);
+    // Motion only: each range mark grows once, when its row enters the viewport. Without the API, or on a later render, nothing is armed.
+    watcher?.disconnect(); watcher = null;
+    if (!grown && typeof IntersectionObserver === 'function') {
+      grown = true; table.classList.add('partialg-motion');
+      watcher = new IntersectionObserver(entries => { for (const entry of entries) if (entry.isIntersecting) { entry.target.classList.add('partialg-in'); watcher?.unobserve(entry.target); } });
+      for (const track of table.querySelectorAll('.partialg-track')) watcher.observe(track);
+    }
     return model;
   }
   function start() {
@@ -70,5 +77,5 @@ export function createPartialGravityPanel({ db, sources = null, load = fetchSour
   const onToggle = () => { if (element.open) start(); };
   element.addEventListener('toggle', onToggle);
   if (sources) { started = true; render(sources); }
-  return { element, render, get model() { return model; }, destroy() { element.removeEventListener('toggle', onToggle); element.remove(); } };
+  return { element, render, get model() { return model; }, destroy() { watcher?.disconnect(); watcher = null; element.removeEventListener('toggle', onToggle); element.remove(); } };
 }

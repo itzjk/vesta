@@ -39,7 +39,7 @@ export async function buildSamples({ THREE, mode = 'high', db }) {
   const washColors = { PROVEN: new THREE.Color('#c45332').multiplyScalar(.65), EXTRAPOLATED: new THREE.Color('#7b571e').multiplyScalar(.24), NEVER_TESTED: new THREE.Color(0) };
   const brightness = { PROVEN: 1.08, EXTRAPOLATED: .55, NEVER_TESTED: .12 };
   const lamps = ids.flatMap(material => concerns.map(concern => ({ material, concern, from: lampColors.NEVER_TESTED.clone(), to: lampColors.NEVER_TESTED.clone(), color: lampColors.NEVER_TESTED.clone(), position: new THREE.Vector3() })));
-  const selectedMaterials = new Set(ids), lampColor = new THREE.Color();
+  const selectedMaterials = new Set(ids), lampColor = new THREE.Color(), litColor = new THREE.Color(0xd6e8f1);
   let aspect = 1.6, layoutMode = 'default', geometryKey = '', panel = false, selected = null, time = 0, changeAt = 0, stateKey = '', firstCells = true, disposed = false;
   let interactionSurface = null, clickableSurface = null;
   let sequence = null;
@@ -59,7 +59,7 @@ export async function buildSamples({ THREE, mode = 'high', db }) {
     const holder = new THREE.Group(); holder.name = `sample-${id}`; holder.add(sample.group); group.add(holder);
     const materials = [], seen = new Set();
     sample.group.traverse(o => { if (!o.isMesh) return; for (const m of [o.material].flat()) if (m.color && !seen.has(m)) { seen.add(m); materials.push({ m, color: m.color.clone(), emissive: m.emissive?.clone() }); } });
-    samples.set(id, { holder, position: new THREE.Vector3(), from: new THREE.Vector3(), to: new THREE.Vector3(), scaleFrom: 1, scaleTo: 1, at: 0, materials, wash: new THREE.Color(0), washFrom: new THREE.Color(0), washTo: new THREE.Color(0), light: .12, lightFrom: .12, lightTo: .12 });
+    samples.set(id, { holder, position: new THREE.Vector3(), from: new THREE.Vector3(), to: new THREE.Vector3(), scaleFrom: 1, scaleTo: 1, at: 0, materials, wash: new THREE.Color(0), washFrom: new THREE.Color(0), washTo: new THREE.Color(0), light: .12, lightFrom: .12, lightTo: .12, lit: 0, litFrom: 0, litTo: 0, litAt: -1 });
   }
   function setLayout(options = {}) {
     const next = options.aspect ?? aspect, wasPortrait = aspect < .9;
@@ -150,6 +150,16 @@ export async function buildSamples({ THREE, mode = 'high', db }) {
     }
     if (snap) update(time);
   }
+  // Keeps one sample softly lit (the material whose question is open or was last opened). Settles in .6 s; null clears it.
+  function mark(material, snap = false) {
+    if (material !== null && !samples.has(material)) throw new Error(`samples: unknown marked material ${material}`);
+    for (const [id, item] of samples) {
+      const next = id === material ? 1 : 0;
+      if (item.litTo === next && !snap) continue;
+      item.litFrom = snap ? next : item.lit; item.litTo = next; item.litAt = snap ? time - 1 : time;
+    }
+    if (snap) update(time);
+  }
   function anchor(material, concern = null) {
     const item = samples.get(material); if (!item) throw new Error(`samples: unknown anchor ${material}`);
     if (concern !== null) { const lamp = lamps.find(l => l.material === material && l.concern === concern); if (!lamp) throw new Error(`samples: unknown concern ${concern}`); return lamp.position.clone(); }
@@ -182,13 +192,21 @@ export async function buildSamples({ THREE, mode = 'high', db }) {
       const dim = selectedMaterials.has(id) && (!selected || selected === id) ? 1 : .28;
       const order = sequence?.materials.get(id), amount = order == null ? mix : lampProgress(sequence.elapsed, order, sequence.snap);
       item.wash.copy(item.washFrom).lerp(item.washTo, amount); item.light = THREE.MathUtils.lerp(item.lightFrom, item.lightTo, amount);
-      compartmentWash.setColorAt(index, lampColor.copy(item.wash).multiplyScalar(selectedMaterials.has(id) ? 1 : .15));
-      for (const { m, color, emissive } of item.materials) { m.color.copy(color).multiplyScalar(dim * item.light); if (m.emissive) m.emissive.copy(emissive).add(lampColor.copy(item.wash).multiplyScalar(.18 * dim)); }
+      const litK = snap ? 1 : THREE.MathUtils.clamp((t - item.litAt) / .6, 0, 1);
+      item.lit = THREE.MathUtils.lerp(item.litFrom, item.litTo, smooth(litK));
+      const glow = item.lit + (item.litTo > item.litFrom ? .45 * Math.sin(Math.PI * litK) : 0);
+      lampColor.copy(item.wash).multiplyScalar(selectedMaterials.has(id) ? 1 : .15);
+      if (glow > 0) { lampColor.r += litColor.r * .14 * glow; lampColor.g += litColor.g * .14 * glow; lampColor.b += litColor.b * .14 * glow; }
+      compartmentWash.setColorAt(index, lampColor);
+      for (const { m, color, emissive } of item.materials) {
+        m.color.copy(color).multiplyScalar(dim * item.light);
+        if (m.emissive) { m.emissive.copy(emissive).add(lampColor.copy(item.wash).multiplyScalar(.18 * dim)); if (glow > 0) { m.emissive.r += litColor.r * .025 * glow; m.emissive.g += litColor.g * .025 * glow; m.emissive.b += litColor.b * .025 * glow; } }
+      }
     }
     if (compartmentWash.instanceColor) compartmentWash.instanceColor.needsUpdate = true;
   }
   setLayout(); update(0);
-  return { group, camera, setLayout, setCells, highlight, pick, focus, anchor, update, materialIds: ids.slice(), kitReady: true,
+  return { group, camera, setLayout, setCells, highlight, pick, focus, mark, anchor, update, materialIds: ids.slice(), kitReady: true,
     beginSequence(keys) {
       const known = new Set(lamps.map(lamp => `${lamp.material}:${lamp.concern}`));
       if (!Array.isArray(keys) || keys.some(key => !known.has(key)) || new Set(keys).size !== keys.length) throw new Error('samples: invalid lamp sequence');

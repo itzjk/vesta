@@ -1,6 +1,6 @@
 import { modelRows } from '../core/outcome-model.js?v=flex-frame-20261115-1';
 import { FRAME_LABEL, frameSummary, fuelBreakdown } from '../core/outcome-summary.js?v=flex-frame-20261115-1';
-import { OXYGEN_LIMIT, oxygenLimit, cellText } from '../core/oxygen-limit.js?v=replay-20261115-2';
+import { OXYGEN_LIMIT, oxygenLimit, cellText } from '../core/oxygen-limit.js?v=motion-20261115-3';
 import { createFlexReplay } from './flex-replay-panel.js?v=flex-replay-20261115-1';
 
 // One lazy worker per loaded index, shared by mounted views; no CPU model work
@@ -64,6 +64,11 @@ function drawBands(chart) {
   }
   svg.append(shape('text', { x: (chart.plot.left + chart.plot.right) / 2, y: chart.label_y + 20, 'text-anchor': 'middle', class: 'op-chart-tick' }, 'Ambient oxygen band (% by volume)'));
   figure.append(svg, make('figcaption', `${chart.axis_title}, all diluents and fuels pooled. Bars: share of tests in the band. Whiskers: 95% Wilson interval. Printed: tests ending in extinction / tests in the band.`));
+  // Motion only: the bars and whiskers grow once the chart enters the viewport; without the API nothing is armed.
+  if (typeof IntersectionObserver === 'function') {
+    const watcher = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { watcher.disconnect(); figure.classList.add('op-chart-in'); } });
+    figure.classList.add('op-chart-motion'); watcher.observe(figure);
+  }
   return figure;
 }
 
@@ -71,7 +76,7 @@ function drawBands(chart) {
 export function createOutcomePanel({ db, onSource } = {}) {
   if (!db || !Array.isArray(db.tests)) throw new TypeError('The FLEX table view requires loaded source rows.');
   if (!document.querySelector('link[data-vesta-outcome-panel]')) {
-    const sheet = make('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/outcome-panel.css?v=replay-20261115-2', import.meta.url).href;
+    const sheet = make('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/outcome-panel.css?v=motion-20261115-3', import.meta.url).href;
     sheet.dataset.vestaOutcomePanel = ''; document.head.append(sheet);
   }
   const element = make('section', null, 'outcome-panel'); element.setAttribute('aria-label', 'FLEX droplet tests: extinction by ambient oxygen');

@@ -10,7 +10,7 @@ import { media } from './media.js';
 import { G, CONCERNS } from '../core/index.js';
 import { TOL } from '../core/match.js';
 import { css } from '../ui/el.js';
-import { build as buildCoverage } from './coverage.js?v=flex-review-20261115-1';
+import { build as buildCoverage } from './coverage.js?v=motion-20261115-3';
 import { build as buildGapBrief } from '../ui/gapbrief.js';
 import { searchEvidence, cabinMatches, compareInvestigations, guidedAnswer, NO_MATCH } from './ask.js?v=4';
 import { evidenceGuidePose } from './evidence-guide.js';
@@ -21,8 +21,8 @@ import { renderMethod } from './method.js';
 import { renderFindingComparison } from '../ui/matchpanel.js?v=habitat-20261115-1';
 import { createQuestionNote, questionNoteMarkdown, questionNoteMatches, questionNoteKey } from '../core/question-note.js?v=question-lab-20261115-3';
 import { download } from '../ui/download.js';
-import { createOutcomePanel } from './outcome-panel.js?v=replay-20261115-2';
-import { createGravityContrastPanel } from './gravity-contrast-panel.js?v=gravity-contrast-20261115-1';
+import { createOutcomePanel } from './outcome-panel.js?v=motion-20261115-3';
+import { createGravityContrastPanel } from './gravity-contrast-panel.js?v=motion-20261115-3';
 
 const node = (tag, text, cls) => {
   const el = document.createElement(tag);
@@ -40,10 +40,10 @@ export function evidenceState(db, core, q, investigation = null) {
 
 export async function build(world) {
   const { THREE: T, db, core } = world;
-  await Promise.all([css('css/coverage.css?v=flex-review-20261115-1'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css?v=habitat-20261115-1'), css('css/evidence-workspace.css?v=habitat-20261115-1'), css('css/outcome-panel.css?v=flex-frame-20261115-1')]);
+  await Promise.all([css('css/coverage.css?v=motion-20261115-3'), css('css/evidence-rack.css'), css('css/cabin-controls.css?v=1'), css('css/evidence-tools.css?v=habitat-20261115-1'), css('css/evidence-workspace.css?v=habitat-20261115-1'), css('css/outcome-panel.css?v=flex-frame-20261115-1')]);
   const dropletEntry = buildObservationModel({ db, investigationId: 'PSI-69' }).points[0] || null;
   let guidedTask = '', guidedLeft = '', guidedRight = '', citationOpen = false;
-  let selectedMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';
+  let selectedMaterial = null, litMaterial = null, selectedConcern = world.q.concern || CONCERNS[0], hoveredMaterial = null, sceneMode = 'rack';
   let selectionReady = false, pendingQuestion = null, pendingTool = null;
   const outcomePanel = createOutcomePanel({ db, onSource: (id, trigger) => openCitation(id, trigger || document.activeElement, world) });
   const gravityPanel = createGravityContrastPanel({ db, onSource: (id, trigger) => openCitation(id, trigger || document.activeElement, world) });
@@ -96,7 +96,9 @@ export async function build(world) {
         applyQ({ material: selectedMaterial, concern: selectedConcern });
       }
     }
-    rack.focus(selectedMaterial, world.capture);
+    // The opened material stays softly lit on the rack after returning to the 3D collection; closing the question inside the workspace clears it.
+    if (selection) litMaterial = selectedMaterial; else if (panel) litMaterial = null;
+    rack.focus(selectedMaterial, world.capture); rack.mark(litMaterial, world.capture);
     reaction = lastTime;
     if (!selection && panel === 'sample') setPanel('overview');
     world.invalidate?.();
@@ -417,7 +419,7 @@ export async function build(world) {
   const walkthroughHook = {
     prepare(query) {
       walkthrough = true; walkthroughFit = null; setPanel(null); setDisplay('rack');
-      selectedMaterial = hoveredMaterial = null; rack.focus(null, true); rack.highlight(null); rack.endSequence();
+      selectedMaterial = hoveredMaterial = litMaterial = null; rack.focus(null, true); rack.mark(null, true); rack.highlight(null); rack.endSequence();
       applyQ(query);
     },
     transition(query, keys) { rack.beginSequence(keys); applyQ(query); },
@@ -428,7 +430,7 @@ export async function build(world) {
       const bounds = host.getBoundingClientRect(), x = bounds.left + (point.x + 1) * bounds.width / 2, y = bounds.top + (1 - point.y) * bounds.height / 2;
       return { left: x - 12, top: y - 12, right: x + 12, bottom: y + 12, width: 24, height: 24 };
     },
-    clear() { walkthrough = false; walkthroughFit = null; rack.endSequence(); rack.focus(null, true); rack.highlight(null); lastKey = ''; }
+    clear() { walkthrough = false; walkthroughFit = null; litMaterial = null; rack.endSequence(); rack.focus(null, true); rack.mark(null, true); rack.highlight(null); lastKey = ''; }
   };
   world.evidenceWalkthrough = walkthroughHook;
   field.setVisible(false); rack.setVisible(false); group.visible = false; refreshAnswer();
@@ -473,7 +475,7 @@ export async function build(world) {
       wall.clearSelection(false); setDisplay('rack'); lastKey = ''; refreshAnswer();
     },
     leave() {
-      pendingQuestion = null; pendingTool = null;
+      pendingQuestion = null; pendingTool = null; litMaterial = null;
       delete stage.camera.userData.focusDistance;
       if (savedAperture == null) delete stage.camera.userData.aperture; else stage.camera.userData.aperture = savedAperture;
       stage.renderer.toneMappingExposure = savedExposure ?? .85; balanceLight(false);

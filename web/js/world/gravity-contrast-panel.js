@@ -1,4 +1,4 @@
-import { GRAVITY_CONTRAST, gravityContrast, summaryText } from '../core/gravity-contrast.js?v=gravity-contrast-20261115-1';
+import { GRAVITY_CONTRAST, gravityContrast, summaryText } from '../core/gravity-contrast.js?v=motion-20261115-3';
 
 const make = (tag, text, cls) => { const node = document.createElement(tag); if (text != null) node.textContent = text; if (cls) node.className = cls; return node; };
 const shown = reading => reading.raw === null || reading.raw.trim() === '' ? 'not recorded' : reading.raw.trim();
@@ -37,11 +37,19 @@ function sampleItem(sample, onSource) {
   return item;
 }
 
+/** Motion only: each target is marked once it enters the viewport and its bars grow into place. Without the API nothing is armed and the bars stay drawn. */
+function growOnView(root, targets) {
+  if (typeof IntersectionObserver !== 'function') return null;
+  const watcher = new IntersectionObserver(entries => { for (const entry of entries) if (entry.isIntersecting) { entry.target.classList.add('gc-in'); watcher.unobserve(entry.target); } });
+  root.classList.add('gc-motion'); for (const target of targets) watcher.observe(target);
+  return watcher;
+}
+
 /** Saffire-II burn length in microgravity and in normal gravity, row by row. onSource receives the source-row ID. */
 export function createGravityContrastPanel({ db, onSource } = {}) {
   if (!db || !Array.isArray(db.tests)) throw new TypeError('The gravity view requires loaded source rows.');
   if (!document.querySelector('link[data-vesta-gravity-contrast]')) {
-    const sheet = make('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/gravity-contrast.css?v=gravity-contrast-20261115-1', import.meta.url).href;
+    const sheet = make('link'); sheet.rel = 'stylesheet'; sheet.href = new URL('../../css/gravity-contrast.css?v=motion-20261115-3', import.meta.url).href;
     sheet.dataset.vestaGravityContrast = ''; document.head.append(sheet);
   }
   const view = gravityContrast({ tests: db.tests, investigations: db.investigations, tables: db.tables });
@@ -54,5 +62,6 @@ export function createGravityContrastPanel({ db, onSource } = {}) {
   const limit = make('p', `${view.limits} `, 'gc-limit');
   if (view.source_url) { const link = make('a', `${view.name ?? GRAVITY_CONTRAST.investigation} on NASA PSI (${GRAVITY_CONTRAST.investigation})`); link.href = view.source_url; link.rel = 'noopener'; link.target = '_blank'; limit.append(link, document.createTextNode('.')); }
   element.append(limit);
-  return { element, dispose() { element.remove(); } };
+  const watcher = growOnView(list, list.children);
+  return { element, dispose() { watcher?.disconnect(); element.remove(); } };
 }

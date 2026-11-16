@@ -20,3 +20,8 @@
 /* Contexts where the wall scrolls with its page: no inner scroll box. */
 .evidence-workspace .coverage-wall .next-experiments,.world-host.information-polish .evidence-console .coverage-wall .next-experiments{margin-bottom:18px}
 .evidence-workspace .coverage-wall .next-experiments-body{max-height:none;overflow:visible}
+/* Motion only: the body of "next requests" fades in when the disclosure opens. */
+@media (prefers-reduced-motion:no-preference){
+.coverage-wall .next-experiments:not(.partialg)[open]>.next-experiments-body{animation:next-experiments-fade .2s ease-out}
+@keyframes next-experiments-fade{from{opacity:0}}
+}

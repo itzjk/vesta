@@ -23,3 +23,11 @@
 .gravity-contrast a{color:#f1e1c8}
 .gravity-contrast :is(button,a):focus-visible{outline:2px solid #efd296;outline-offset:3px}
 @media(max-width:520px){.gc-bar{grid-template-columns:1fr;gap:3px}.gravity-contrast h3{font-size:21px}}
+/* Motion only: the fills grow from the left edge when their sample scrolls into view. Armed by script; the printed values never move. */
+@media (prefers-reduced-motion:no-preference){
+.gc-motion .gc-fill{transform:scaleX(0);transform-origin:0 50%}
+.gc-motion .gc-in .gc-fill{transform:none;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.gc-motion .gc-in .gc-bar:nth-of-type(2) .gc-fill{transition-delay:.09s}
+.gc-motion .gc-in:nth-child(even) .gc-fill{transition-delay:.06s}
+.gc-motion .gc-in:nth-child(even) .gc-bar:nth-of-type(2) .gc-fill{transition-delay:.15s}
+}
