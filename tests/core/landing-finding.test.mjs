@@ -82,7 +82,7 @@ test('the landing offers one primary action and the slides, with no script and n
   assert.ok(lead.includes('Rows are table records, not independent experiments. “No source” means absent from this collection, not unstudied by NASA.'));
   assert.doesNotMatch(lead.replace(/not a safety rating|fire-safety questions/g, ''), /\bsafe|\bproven\b|validated|certified|never tested/i);
   const words = lead.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).length;
-  assert.ok(words <= 380, `the block stays short: ${words} words`);
+  assert.ok(words <= 460, `the block stays short: ${words} words`);
   assert.ok(lead.indexOf('class="cta"') < lead.indexOf('id="lead-flex"'), 'the primary action stays above the two supporting results, inside the first screen');
 });
 
@@ -105,9 +105,9 @@ test('the FLEX and next-request landing lines are recomputed from the modules th
   assert.equal(d.lines[0].diluent, 'all');
   assert.ok(e.model.beats_baseline && e.model.correct > e.baseline.correct, 'the model line may only stay while it beats the baseline');
   assert.ok(html.includes(`went out on its own in ${c[0].extinction}/${c[0].tests} tests at 18% oxygen or less, ${c[1].extinction}/${c[1].tests} at 18–22%, ${c[2].extinction}/${c[2].tests} at 22–30% and ${c[3].extinction}/${c[3].tests} above 30%.`));
-  assert.ok(html.includes(`checked on ${e.test_days} held-out test days, gets ${e.model.correct}/${e.rows} right vs ${e.baseline.correct}/${e.rows} for the majority baseline.`));
+  assert.ok(html.includes(`checked on ${e.test_days} held-out test days, gets ${e.model.correct}/${e.rows} right vs ${e.baseline.correct}/${e.rows} for the majority baseline and ${e.threshold_baseline.correct}/${e.rows} for a single oxygen cut; the gain over that cut is not statistically clear.`));
   const m = nextExperiments(lunar, db), top = m.top[0];
-  assert.ok(html.includes(`would give a nearby row to ${m.campaign.questions} of ${m.total} questions; the other ${m.total - m.nearby - m.campaign.questions} need a first source. Closest row today: ${top.nearest.id} (PMMA prevention): ${top.separates[1].delta} oxygen points and ${Math.abs(top.separates[2].delta)} kPa away, at a different gravity class.`));
+  assert.ok(html.includes(`would give a nearby row to ${m.campaign.questions} of ${m.total} questions; the other ${m.total - m.nearby - m.campaign.questions} need a first table row (${counts.NEVER_TESTED} have no source, ${m.total - m.nearby - m.campaign.questions - counts.NEVER_TESTED} has a finding but no row). Closest row today: ${top.nearest.id} (PMMA prevention): ${top.separates[1].delta} oxygen points and ${Math.abs(top.separates[2].delta)} kPa away, at a different gravity class.`));
   assert.deepEqual([top.material, top.concern, top.separates[1].axis, top.separates[2].axis], ['pmma', 'prevention', 'o2', 'pressure']);
 });
 
@@ -128,4 +128,14 @@ test('the outside-the-tables line counts NTRS snapshot records by title and link
   assert.ok(!raw.sources.sources.some(s => String(s.id) === pick.listed[0].id), 'the unread example is not a source');
   assert.ok(lead.indexOf('id="lead-gap"') < lead.indexOf('id="lead-outside"') && lead.indexOf('id="lead-outside"') < lead.indexOf('id="lead-station"'));
   assert.ok(!db.tests.some(r => (r.n.gclass ?? null) === 'partial'), 'the sentence stays only while the tables hold no partial-gravity row');
+});
+
+test('the zero is not only gravity: the lunar oxygen and pressure in microgravity also give no nearby question', async () => {
+  const micro = designPoint({ preset: 'custom', o2: lunar.o2, p: lunar.p, g: '0g' }, db);
+  assert.equal(micro.gclass, 'micro');
+  const n = status.tally(status.cells(micro, db)).PROVEN;
+  assert.ok(html.includes(`<b>It is not only gravity:</b> the same ${lunar.o2}% oxygen and ${lunar.p} kPa in microgravity also give ${n} of ${cells.length}.`));
+  const { evaluate } = await import('../../web/js/core/oxygen-limit.js');
+  const e = evaluate(raw.tests.tests);
+  assert.equal(JSON.stringify(e.uncertainty).includes('"includes_zero":true'), html.includes('the gain over that cut is not statistically clear'));
 });
